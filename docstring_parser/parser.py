@@ -128,26 +128,22 @@ def parse(text: str) -> Docstring:
     if not text:
         return ret
 
-    parts = inspect.cleandoc(text).split('\n', 1)
-    ret.short_description = parts[0]
-    if ret.short_description == '':
-        ret.short_description = None
-    if len(parts) <= 1:
-        return ret
-
-    rest = parts[1]
-    match = re.search('^:', rest, flags=re.M)
+    text = inspect.cleandoc(text)
+    match = re.search('^:', text, flags=re.M)
     if match:
-        long_desc_chunk = rest[:match.start()]
-        meta_chunk = rest[match.start():]
+        desc_chunk = text[:match.start()]
+        meta_chunk = text[match.start():]
     else:
-        long_desc_chunk = rest
+        desc_chunk = text
         meta_chunk = ''
-    ret.blank_after_short_description = long_desc_chunk.startswith('\n')
-    ret.blank_after_long_description = long_desc_chunk.endswith('\n\n')
-    ret.long_description = long_desc_chunk.strip()
-    if not ret.long_description:
-        ret.long_description = None
+
+    parts = desc_chunk.split('\n', 1)
+    ret.short_description = parts[0] or None
+    if len(parts) > 1:
+        long_desc_chunk = parts[1] or ''
+        ret.blank_after_short_description = long_desc_chunk.startswith('\n')
+        ret.blank_after_long_description = long_desc_chunk.endswith('\n\n')
+        ret.long_description = long_desc_chunk.strip() or None
 
     for match in re.finditer(
             r'(^:.*?)(?=^:|\Z)', meta_chunk, flags=re.S | re.M

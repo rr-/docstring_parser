@@ -102,7 +102,7 @@ def test_long_description(
 
 
 @pytest.mark.parametrize(
-    'source, expected_long_desc, '
+    'source, expected_short_desc, expected_long_desc, '
     'expected_blank_short_desc, expected_blank_long_desc',
     [
         (
@@ -110,7 +110,7 @@ def test_long_description(
             Short description
             :param: asd
             ''',
-            None, False, False
+            'Short description', None, False, False
         ),
 
         (
@@ -119,51 +119,59 @@ def test_long_description(
             Long description
             :param: asd
             ''',
-            'Long description', False, False
+            'Short description', 'Long description', False, False
         ),
 
         (
             '''
             Short description
-            Long description
+            First line
                 Second line
             :param: asd
             ''',
-            'Long description\n    Second line', False, False
+            'Short description', 'First line\n    Second line', False, False
         ),
 
         (
             '''
             Short description
 
-            Long description
+            First line
                 Second line
             :param: asd
             ''',
-            'Long description\n    Second line', True, False
+            'Short description', 'First line\n    Second line', True, False
         ),
 
         (
             '''
             Short description
 
-            Long description
+            First line
                 Second line
 
             :param: asd
             ''',
-            'Long description\n    Second line', True, True
+            'Short description', 'First line\n    Second line', True, True
+        ),
+
+        (
+            '''
+            :param: asd
+            ''',
+            None, None, False, False
         )
     ]
 )
 def test_meta_newlines(
         source: str,
+        expected_short_desc: T.Optional[str],
         expected_long_desc: T.Optional[str],
         expected_blank_short_desc: bool,
         expected_blank_long_desc: bool
 ) -> None:
     docstring = parse(source)
-    assert docstring.short_description == 'Short description'
+    assert docstring.short_description == expected_short_desc
     assert docstring.long_description == expected_long_desc
     assert docstring.blank_after_short_description == expected_blank_short_desc
     assert docstring.blank_after_long_description == expected_blank_long_desc
