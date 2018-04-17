@@ -5,6 +5,12 @@ import re
 import typing as T
 
 
+class ParseError(RuntimeError):
+    """Base class for all parsing related errors."""
+
+    pass
+
+
 class DocstringMeta:
     """
     Docstring meta information.
@@ -151,7 +157,12 @@ def parse(text: str) -> Docstring:
         chunk = match.group(0)
         if not chunk:
             continue
-        args_chunk, desc_chunk = chunk.lstrip(':').split(':', 1)
+        try:
+            args_chunk, desc_chunk = chunk.lstrip(':').split(':', 1)
+        except ValueError:
+            raise ParseError(
+                f'Error parsing meta information near "{chunk}".'
+            )
         args = args_chunk.split()
         desc = desc_chunk.strip()
         if '\n' in desc:

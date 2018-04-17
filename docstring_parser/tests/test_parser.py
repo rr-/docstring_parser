@@ -2,7 +2,7 @@ import typing as T
 
 import pytest
 
-from docstring_parser import parse
+from docstring_parser import parse, ParseError
 
 
 @pytest.mark.parametrize('source, expected', [
@@ -294,3 +294,15 @@ def test_raises() -> None:
     assert len(docstring.raises) == 1
     assert docstring.raises[0].type_name == 'ValueError'
     assert docstring.raises[0].description == 'description'
+
+
+def test_broken_meta() -> None:
+    with pytest.raises(ParseError):
+        parse(':')
+
+    with pytest.raises(ParseError):
+        parse(':param herp derp')
+
+    # these should not raise any errors
+    parse(':sthstrange: desc')
+    parse(':param with too many args: desc')
