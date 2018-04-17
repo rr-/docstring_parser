@@ -48,9 +48,13 @@ class DocstringParam(DocstringMeta):
     """DocstringMeta symbolizing :param metadata."""
 
     @property
-    def arg_name(self) -> str:
+    def arg_name(self) -> T.Optional[str]:
         """Return argument name associated with given param."""
-        return self.args[2] if len(self.args) > 2 else self.args[1]
+        if len(self.args) > 2:
+            return self.args[2]
+        elif len(self.args) > 1:
+            return self.args[1]
+        return None
 
     @property
     def type_name(self) -> T.Optional[str]:

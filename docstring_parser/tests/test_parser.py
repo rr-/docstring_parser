@@ -219,8 +219,9 @@ def test_params() -> None:
         :param name: description 1
         :param int priority: description 2
         :param str sender: description 3
+        :param: invalid
         ''')
-    assert len(docstring.params) == 3
+    assert len(docstring.params) == 4
     assert docstring.params[0].arg_name == 'name'
     assert docstring.params[0].type_name is None
     assert docstring.params[0].description == 'description 1'
@@ -230,6 +231,9 @@ def test_params() -> None:
     assert docstring.params[2].arg_name == 'sender'
     assert docstring.params[2].type_name == 'str'
     assert docstring.params[2].description == 'description 3'
+    assert docstring.params[3].arg_name is None
+    assert docstring.params[3].type_name is None
+    assert docstring.params[3].description == 'invalid'
 
 
 def test_returns() -> None:
