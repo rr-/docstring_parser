@@ -52,6 +52,8 @@ def parse(text: str) -> Docstring:
 
     parts = inspect.cleandoc(text).split('\n', 1)
     ret.short_description = parts[0]
+    if ret.short_description == '':
+        ret.short_description = None
     if len(parts) <= 1:
         return ret
 

@@ -6,6 +6,8 @@ from docstring_parser import parse
 
 
 @pytest.mark.parametrize('source, expected', [
+    ('', None),
+    ('\n', None),
     ('Short description', 'Short description'),
     ('\nShort description\n', 'Short description'),
     ('\n   Short description\n', 'Short description'),
