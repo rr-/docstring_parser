@@ -1,3 +1,5 @@
+"""Docstring parser implementation."""
+
 import inspect
 import re
 import typing as T
@@ -38,7 +40,7 @@ class DocstringTypeMeta(DocstringMeta):
 
     @property
     def type_name(self) -> T.Optional[str]:
-        """Returns type name associated with given docstring metadata."""
+        """Return type name associated with given docstring metadata."""
         return self.args[1] if len(self.args) > 1 else None
 
 
@@ -47,22 +49,24 @@ class DocstringParam(DocstringMeta):
 
     @property
     def arg_name(self) -> str:
-        """Returns argument name associated with given param."""
+        """Return argument name associated with given param."""
         return self.args[2] if len(self.args) > 2 else self.args[1]
 
     @property
     def type_name(self) -> T.Optional[str]:
-        """Returns type name associated with given param."""
+        """Return type name associated with given param."""
         return self.args[1] if len(self.args) > 2 else None
 
 
 class DocstringReturns(DocstringTypeMeta):
     """DocstringMeta symbolizing :returns metadata."""
+
     pass
 
 
 class DocstringRaises(DocstringTypeMeta):
     """DocstringMeta symbolizing :raises metadata."""
+
     pass
 
 
@@ -79,7 +83,7 @@ class Docstring:
 
     @property
     def params(self) -> T.List[DocstringParam]:
-        """Returns list of :param meta."""
+        """Return list of :param meta."""
         return [
             DocstringParam.from_meta(meta)
             for meta in self.meta
@@ -90,7 +94,7 @@ class Docstring:
 
     @property
     def raises(self) -> T.List[DocstringRaises]:
-        """Returns list of :raises meta."""
+        """Return list of :raises meta."""
         return [
             DocstringRaises.from_meta(meta)
             for meta in self.meta
@@ -99,7 +103,7 @@ class Docstring:
 
     @property
     def returns(self) -> T.Optional[DocstringReturns]:
-        """Returns :returns meta, if available."""
+        """Return :returns meta, if available."""
         try:
             return next(
                 DocstringReturns.from_meta(meta)
