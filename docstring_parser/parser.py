@@ -27,6 +27,44 @@ class DocstringMeta:
         self.args = args
         self.description = description
 
+    @classmethod
+    def from_meta(cls, meta: 'DocstringMeta') -> T.Any:
+        """Copy DocstringMeta from another instance."""
+        return cls(args=meta.args, description=meta.description)
+
+
+class DocstringTypeMeta(DocstringMeta):
+    """Docstring meta whose only optional arg contains type information."""
+
+    @property
+    def type_name(self) -> T.Optional[str]:
+        """Returns type name associated with given docstring metadata."""
+        return self.args[1] if len(self.args) > 1 else None
+
+
+class DocstringParam(DocstringMeta):
+    """DocstringMeta symbolizing :param metadata."""
+
+    @property
+    def arg_name(self) -> str:
+        """Returns argument name associated with given param."""
+        return self.args[2] if len(self.args) > 2 else self.args[1]
+
+    @property
+    def type_name(self) -> T.Optional[str]:
+        """Returns type name associated with given param."""
+        return self.args[1] if len(self.args) > 2 else None
+
+
+class DocstringReturns(DocstringTypeMeta):
+    """DocstringMeta symbolizing :returns metadata."""
+    pass
+
+
+class DocstringRaises(DocstringTypeMeta):
+    """DocstringMeta symbolizing :raises metadata."""
+    pass
+
 
 class Docstring:
     """Docstring object representation."""
@@ -38,6 +76,38 @@ class Docstring:
         self.blank_after_short_description = False
         self.blank_after_long_description = False
         self.meta: T.List[DocstringMeta] = []
+
+    @property
+    def params(self) -> T.List[DocstringParam]:
+        """Returns list of :param meta."""
+        return [
+            DocstringParam.from_meta(meta)
+            for meta in self.meta
+            if meta.args[0] in {
+                'param', 'parameter', 'arg', 'argument', 'key', 'keyword'
+            }
+        ]
+
+    @property
+    def raises(self) -> T.List[DocstringRaises]:
+        """Returns list of :raises meta."""
+        return [
+            DocstringRaises.from_meta(meta)
+            for meta in self.meta
+            if meta.args[0] in {'raises', 'raise', 'except', 'exception'}
+        ]
+
+    @property
+    def returns(self) -> T.Optional[DocstringReturns]:
+        """Returns :returns meta, if available."""
+        try:
+            return next(
+                DocstringReturns.from_meta(meta)
+                for meta in self.meta
+                if meta.args[0] in {'return', 'returns'}
+            )
+        except StopIteration:
+            return None
 
 
 def parse(text: str) -> Docstring:

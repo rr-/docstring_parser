@@ -206,3 +206,79 @@ def test_multiple_meta() -> None:
     assert docstring.meta[1].description == 'herp'
     assert docstring.meta[2].args == ['param3']
     assert docstring.meta[2].description == 'derp'
+
+
+def test_params() -> None:
+    docstring = parse('Short description')
+    assert len(docstring.params) == 0
+
+    docstring = parse(
+        '''
+        Short description
+
+        :param name: description 1
+        :param int priority: description 2
+        :param str sender: description 3
+        ''')
+    assert len(docstring.params) == 3
+    assert docstring.params[0].arg_name == 'name'
+    assert docstring.params[0].type_name is None
+    assert docstring.params[0].description == 'description 1'
+    assert docstring.params[1].arg_name == 'priority'
+    assert docstring.params[1].type_name == 'int'
+    assert docstring.params[1].description == 'description 2'
+    assert docstring.params[2].arg_name == 'sender'
+    assert docstring.params[2].type_name == 'str'
+    assert docstring.params[2].description == 'description 3'
+
+
+def test_returns() -> None:
+    docstring = parse(
+        '''
+        Short description
+        ''')
+    assert docstring.returns is None
+
+    docstring = parse(
+        '''
+        Short description
+        :returns: description
+        ''')
+    assert docstring.returns is not None
+    assert docstring.returns.type_name is None
+    assert docstring.returns.description == 'description'
+
+    docstring = parse(
+        '''
+        Short description
+        :returns int: description
+        ''')
+    assert docstring.returns is not None
+    assert docstring.returns.type_name == 'int'
+    assert docstring.returns.description == 'description'
+
+
+def test_raises() -> None:
+    docstring = parse(
+        '''
+        Short description
+        ''')
+    assert len(docstring.raises) == 0
+
+    docstring = parse(
+        '''
+        Short description
+        :raises: description
+        ''')
+    assert len(docstring.raises) == 1
+    assert docstring.raises[0].type_name is None
+    assert docstring.raises[0].description == 'description'
+
+    docstring = parse(
+        '''
+        Short description
+        :raises ValueError: description
+        ''')
+    assert len(docstring.raises) == 1
+    assert docstring.raises[0].type_name == 'ValueError'
+    assert docstring.raises[0].description == 'description'
