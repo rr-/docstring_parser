@@ -1,10 +1,12 @@
 from setuptools import setup, find_packages
+from pathlib import Path
 
 setup(
     author='Marcin Kurczewski',
     author_email='rr-@sakuya.pl',
     name='docstring_parser',
-    long_description='Parse Python docstrings in reST format',
+    long_description=(Path(__file__).parent / 'README.md').read_text(),
+    long_description_content_type='text/markdown',
     version='0.1',
     url='https://github.com/rr-/docstring_parser',
     packages=find_packages(),

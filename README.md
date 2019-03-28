@@ -1,9 +1,11 @@
 docstring_parser
 ================
 
+Parse Python docstrings in ReST format
+
 Example usage:
 
-```
+```python
 >>> from docstring_parser import parse
 >>>
 >>>
