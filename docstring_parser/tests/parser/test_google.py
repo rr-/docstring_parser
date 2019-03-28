@@ -252,6 +252,26 @@ def test_params() -> None:
     assert docstring.params[2].type_name == 'str'
     assert docstring.params[2].description == 'description 3'
 
+    docstring = parse(
+        '''
+        Short description
+
+        Args:
+            name: description 1
+                with multi-line text
+            priority (int): description 2
+        ''')
+    print([m.args for m in docstring.meta])
+    assert len(docstring.params) == 2
+    assert docstring.params[0].arg_name == 'name'
+    assert docstring.params[0].type_name is None
+    assert docstring.params[0].description == (
+        'description 1\n'
+        'with multi-line text')
+    assert docstring.params[1].arg_name == 'priority'
+    assert docstring.params[1].type_name == 'int'
+    assert docstring.params[1].description == 'description 2'
+
 
 def test_returns() -> None:
     docstring = parse(
@@ -264,11 +284,37 @@ def test_returns() -> None:
         '''
         Short description
         Returns:
+            description
+        ''')
+    assert docstring.returns is not None
+    assert docstring.returns.type_name is None
+    assert docstring.returns.description == 'description'
+
+    docstring = parse(
+        '''
+        Short description
+        Returns:
             int: description
         ''')
     assert docstring.returns is not None
     assert docstring.returns.type_name == 'int'
     assert docstring.returns.description == 'description'
+
+    docstring = parse(
+        '''
+        Short description
+        Returns:
+            int: description
+            with much text
+            
+            even some spacing
+        ''')
+    assert docstring.returns is not None
+    assert docstring.returns.type_name == 'int'
+    assert docstring.returns.description == (
+        'description\n'
+        'with much text\n\n'
+        'even some spacing')
 
 
 def test_raises() -> None:

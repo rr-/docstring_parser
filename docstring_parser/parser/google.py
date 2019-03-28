@@ -23,6 +23,38 @@ _titles = '|'.join('(%s)' % t for t in _sections)
 _valid = {t for t, a in _sections.items() if a}
 
 
+def _build_meta(text: str, title: str) -> DocstringMeta:
+    """Build docstring element.
+
+    :param text: docstring element text
+    :param title: title of section containing element
+    :return:
+    """
+
+    meta = _sections[title]
+    if meta == 'returns' and ':' not in text.split()[0]:
+        return DocstringMeta([meta], description=text)
+
+    # Split spec and description
+    before, desc = text.split(':', 1)
+    if desc:
+        desc = desc[1:] if desc[0] == ' ' else desc
+        if '\n' in desc:
+            first_line, rest = desc.split('\n', 1)
+            desc = first_line + '\n' + inspect.cleandoc(rest)
+        desc = desc.strip('\n')
+
+    # Build Meta args
+    m = re.match(r'(\S+) \((\S+)\)$', before)
+    if meta == 'param' and m:
+        arg_name, type_name = m.group(1, 2)
+        args = [meta, type_name, arg_name]
+    else:
+        args = [meta, before]
+
+    return DocstringMeta(args, description=desc)
+
+
 def parse(text: str) -> Docstring:
     """
     Parse the Google-style docstring into its components.
@@ -81,6 +113,12 @@ def parse(text: str) -> Docstring:
         except AttributeError:
             raise ParseError(f'Can\'t infer indent from "{chunk}"')
 
+        # Check for returns/yeilds (only one element)
+        if _sections[title] == 'returns':
+            part = inspect.cleandoc(chunk)
+            ret.meta.append(_build_meta(part, title))
+            continue
+
         # Split based on lines which have exactly that indent
         _re = '^' + indent + r'(?=\S)'
         c_matches = list(re.finditer(_re, chunk, flags=re.M))
@@ -92,25 +130,6 @@ def parse(text: str) -> Docstring:
         c_splits.append((c_matches[-1].end(), len(chunk)))
         for j, (start, end) in enumerate(c_splits):
             part = chunk[start:end].strip('\n')
-
-            # Split spec and description
-            before, desc = part.split(":", 1)
-            if desc:
-                desc = desc[1:] if desc[0] == " " else desc
-                if '\n' in desc:
-                    first_line, rest = desc.split('\n', 1)
-                    desc = first_line + '\n' + inspect.cleandoc(rest)
-                desc = desc.strip('\n')
-
-            # Build Meta args
-            meta = _sections[title]
-            m = re.match(r'(\S+) \((\S+)\)$', before)
-            if meta == 'param' and m:
-                arg_name, type_name = m.group(1, 2)
-                args = [meta, type_name, arg_name]
-            else:
-                args = [meta, before]
-
-            ret.meta.append(DocstringMeta(args, description=desc))
+            ret.meta.append(_build_meta(part, title))
 
     return ret
