@@ -8,7 +8,7 @@ from .common import ParseError, Docstring, DocstringMeta
 
 def parse(text: str) -> Docstring:
     """
-    Parse the docstring into its components.
+    Parse the ReST-style docstring into its components.
 
     :returns: parsed docstring
     """

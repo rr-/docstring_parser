@@ -1,10 +1,10 @@
 """Docstring parsing."""
 
 from . import rest
-
+from . import google
 from .common import ParseError, Docstring
 
-_styles = {"rest": rest.parse}
+_styles = {"rest": rest.parse, "google": google.parse}
 
 
 def _parse_score(docstring: Docstring) -> int:
@@ -15,16 +15,7 @@ def _parse_score(docstring: Docstring) -> int:
     :returns int: parse score, higher is better
     """
 
-    score = 0
-    if docstring.short_description:
-        score += 1
-    if docstring.long_description:
-        score += docstring.long_description.count('\n')
-    score += len(docstring.params)
-    score += len(docstring.raises)
-    if docstring.returns:
-        score += 2
-    return score
+    return len(docstring.meta)
 
 
 def parse(text: str, style: str = 'auto') -> Docstring:
