@@ -1,14 +1,10 @@
-"""Docstring parser implementation."""
+"""ReST-style docstring parsing."""
 
 import inspect
 import re
 import typing as T
 
-
-class ParseError(RuntimeError):
-    """Base class for all parsing related errors."""
-
-    pass
+from .common import ParseError
 
 
 class DocstringMeta:
