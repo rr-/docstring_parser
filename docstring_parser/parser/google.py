@@ -16,7 +16,9 @@ _sections = {
     'Attributes': None,
     'Example': None,
     'Examples': None,
-    'Returns': 'returns'}
+    'Returns': 'returns',
+    'Yields': 'returns',
+}
 _titles = '|'.join('(%s)' % t for t in _sections)
 _valid = {t for t, a in _sections.items() if a}
 
