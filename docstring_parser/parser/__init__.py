@@ -11,6 +11,8 @@ def parse(text: str, style: str = "auto"):
     """
     Parse the docstring into its components.
 
+    :param str text: docstring text to parse
+    :param text style: docstring style, choose from: 'rest', 'auto'
     :returns: parsed docstring
     """
 
