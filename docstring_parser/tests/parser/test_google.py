@@ -1,7 +1,6 @@
 import typing as T
 
 import pytest
-
 from docstring_parser import ParseError
 from docstring_parser.parser.google import parse
 

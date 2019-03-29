@@ -2,9 +2,8 @@
 
 import enum
 
-from . import rest
-from . import google
-from .common import ParseError, Docstring
+from . import google, rest
+from .common import Docstring, ParseError
 
 
 class Style(enum.Enum):

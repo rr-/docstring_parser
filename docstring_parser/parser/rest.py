@@ -3,7 +3,7 @@
 import inspect
 import re
 
-from .common import ParseError, Docstring, DocstringMeta
+from .common import Docstring, DocstringMeta, ParseError
 
 
 def parse(text: str) -> Docstring:
