@@ -19,11 +19,7 @@ class DocstringMeta:
         :raises ValueError: if something happens
     """
 
-    def __init__(
-            self,
-            args: T.List[str],
-            description: str
-    ) -> None:
+    def __init__(self, args: T.List[str], description: str) -> None:
         """
         Initialize self.
 
@@ -34,7 +30,7 @@ class DocstringMeta:
         self.description = description
 
     @classmethod
-    def from_meta(cls, meta: 'DocstringMeta') -> T.Any:
+    def from_meta(cls, meta: "DocstringMeta") -> T.Any:
         """Copy DocstringMeta from another instance."""
         return cls(args=meta.args, description=meta.description)
 
@@ -95,9 +91,8 @@ class Docstring:
         return [
             DocstringParam.from_meta(meta)
             for meta in self.meta
-            if meta.args[0] in {
-                'param', 'parameter', 'arg', 'argument', 'key', 'keyword'
-            }
+            if meta.args[0]
+            in {"param", "parameter", "arg", "argument", "key", "keyword"}
         ]
 
     @property
@@ -106,7 +101,7 @@ class Docstring:
         return [
             DocstringRaises.from_meta(meta)
             for meta in self.meta
-            if meta.args[0] in {'raises', 'raise', 'except', 'exception'}
+            if meta.args[0] in {"raises", "raise", "except", "exception"}
         ]
 
     @property
@@ -116,7 +111,7 @@ class Docstring:
             return next(
                 DocstringReturns.from_meta(meta)
                 for meta in self.meta
-                if meta.args[0] in {'return', 'returns', 'yield', 'yields'}
+                if meta.args[0] in {"return", "returns", "yield", "yields"}
             )
         except StopIteration:
             return None
