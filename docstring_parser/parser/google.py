@@ -19,7 +19,9 @@ _sections = {
     'Returns': 'returns',
     'Yields': 'returns',
 }
-_titles = '|'.join('(%s)' % t for t in _sections)
+_titles_re = re.compile(
+    '^(' + '|'.join('(%s)' % t for t in _sections) + '):',
+    flags=re.M)
 _valid = {t for t, a in _sections.items() if a}
 
 
@@ -69,7 +71,7 @@ def parse(text: str) -> Docstring:
     text = inspect.cleandoc(text)
 
     # Find first title and split on its position
-    match = re.search('^(' + _titles + '):', text, flags=re.M)
+    match = _titles_re.search(text)
     if match:
         desc_chunk = text[:match.start()]
         meta_chunk = text[match.start():]
@@ -87,8 +89,7 @@ def parse(text: str) -> Docstring:
         ret.long_description = long_desc_chunk.strip() or None
 
     # Split by sections determined by titles
-    _re = '^(' + _titles + '):'
-    matches = list(re.finditer(_re, meta_chunk, flags=re.M))
+    matches = list(_titles_re.finditer(meta_chunk))
     if not matches:
         return ret
     splits = []
@@ -108,10 +109,10 @@ def parse(text: str) -> Docstring:
     # Add elements from each chunk
     for title, chunk in chunks.items():
         # Determine indent
-        try:
-            indent = re.search(r'^\s+', chunk).group()
-        except AttributeError:
+        indent_match = re.search(r'^\s+', chunk)
+        if not indent_match:
             raise ParseError(f'Can\'t infer indent from "{chunk}"')
+        indent = indent_match.group()
 
         # Check for returns/yeilds (only one element)
         if _sections[title] == 'returns':
