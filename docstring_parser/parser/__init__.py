@@ -1,22 +1,31 @@
 """Docstring parsing."""
 
+import enum
+
 from . import rest
 from . import google
 from .common import ParseError, Docstring
 
-_styles = {"rest": rest.parse, "google": google.parse}
+
+class Style(enum.Enum):
+    rest = enum.auto()
+    google = enum.auto()
+    auto = enum.auto()
 
 
-def parse(text: str, style: str = 'auto') -> Docstring:
+_styles = {Style.rest: rest.parse, Style.google: google.parse}
+
+
+def parse(text: str, style: Style = Style.auto) -> Docstring:
     """
     Parse the docstring into its components.
 
     :param text: docstring text to parse
-    :param style: docstring style, choose from: 'rest', 'google', 'auto'
+    :param style: docstring style
     :returns: parsed docstring representation
     """
 
-    if style != 'auto':
+    if style != Style.auto:
         return _styles[style](text)
     rets = []
     for parse_ in _styles.values():
