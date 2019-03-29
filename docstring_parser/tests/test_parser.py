@@ -1,7 +1,7 @@
 from docstring_parser import parse
 
 
-def test_rest():
+def test_rest() -> None:
     docstring = parse(
         '''
         Short description
@@ -36,11 +36,12 @@ def test_rest():
     assert len(docstring.raises) == 1
     assert docstring.raises[0].type_name == 'ValueError'
     assert docstring.raises[0].description == 'exc desc'
+    assert docstring.returns is not None
     assert docstring.returns.type_name == 'tuple'
     assert docstring.returns.description == 'ret desc'
 
 
-def test_google():
+def test_google() -> None:
     docstring = parse(
         '''Short description
         
@@ -79,5 +80,6 @@ def test_google():
     assert len(docstring.raises) == 1
     assert docstring.raises[0].type_name == 'ValueError'
     assert docstring.raises[0].description == 'exc desc'
+    assert docstring.returns is not None
     assert docstring.returns.type_name == 'tuple'
     assert docstring.returns.description == 'ret desc'
