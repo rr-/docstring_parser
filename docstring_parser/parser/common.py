@@ -116,7 +116,7 @@ class Docstring:
             return next(
                 DocstringReturns.from_meta(meta)
                 for meta in self.meta
-                if meta.args[0] in {'return', 'returns'}
+                if meta.args[0] in {'return', 'returns', 'yield', 'yields'}
             )
         except StopIteration:
             return None

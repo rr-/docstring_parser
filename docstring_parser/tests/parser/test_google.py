@@ -303,6 +303,16 @@ def test_returns() -> None:
     docstring = parse(
         '''
         Short description
+        Yields:
+            int: description
+        ''')
+    assert docstring.returns is not None
+    assert docstring.returns.type_name == 'int'
+    assert docstring.returns.description == 'description'
+
+    docstring = parse(
+        '''
+        Short description
         Returns:
             int: description
             with much text

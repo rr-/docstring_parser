@@ -17,7 +17,7 @@ _sections = {
     'Example': None,
     'Examples': None,
     'Returns': 'returns',
-    'Yields': 'returns',
+    'Yields': 'yields',
 }
 _titles_re = re.compile(
     '^(' + '|'.join('(%s)' % t for t in _sections) + '):',
@@ -115,7 +115,7 @@ def parse(text: str) -> Docstring:
         indent = indent_match.group()
 
         # Check for returns/yeilds (only one element)
-        if _sections[title] == 'returns':
+        if _sections[title] in ('returns', 'yields'):
             part = inspect.cleandoc(chunk)
             ret.meta.append(_build_meta(part, title))
             continue
