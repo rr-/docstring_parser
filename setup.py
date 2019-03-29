@@ -11,6 +11,7 @@ setup(
     version="0.3",
     url="https://github.com/rr-/docstring_parser",
     packages=find_packages(),
+    extras_require={"numpy": ["numpydoc"]},
     classifiers=[
         "Environment :: Other Environment",
         "Development Status :: 4 - Beta",

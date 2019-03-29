@@ -5,14 +5,23 @@ import enum
 from . import google, rest
 from .common import Docstring, ParseError
 
+try:
+    from . import numpy
+except ImportError:
+    numpy = None
+
 
 class Style(enum.Enum):
     rest = enum.auto()
     google = enum.auto()
     auto = enum.auto()
+    if numpy:
+        numpy = enum.auto()
 
 
 _styles = {Style.rest: rest.parse, Style.google: google.parse}
+if numpy:
+    _styles[Style.numpy] = numpy.parse
 
 
 def parse(text: str, style: Style = Style.auto) -> Docstring:
