@@ -7,21 +7,18 @@ from .common import Docstring, ParseError
 
 try:
     from . import numpy
-except ImportError:
-    numpy = None
+except ImportError as e:
+    numpy = e
 
 
 class Style(enum.Enum):
     rest = enum.auto()
     google = enum.auto()
     auto = enum.auto()
-    if numpy:
-        numpy = enum.auto()
+    numpy = enum.auto()
 
 
-_styles = {Style.rest: rest.parse, Style.google: google.parse}
-if numpy:
-    _styles[Style.numpy] = numpy.parse
+_styles = {Style.rest: rest, Style.google: google, Style.numpy: numpy}
 
 
 def parse(text: str, style: Style = Style.auto) -> Docstring:
@@ -34,13 +31,17 @@ def parse(text: str, style: Style = Style.auto) -> Docstring:
     """
 
     if style != Style.auto:
-        return _styles[style](text)
+        if isinstance(_styles[style], Exception):
+            raise _styles[style]
+        return _styles[style].parse(text)
     rets = []
-    for parse_ in _styles.values():
+    for style_ in _styles.values():
         try:
-            rets.append(parse_(text))
-        except ParseError as e:
-            exc = e
+            rets.append(style_.parse(text))
+        except ParseError as e_:
+            exc = e_
+        except ImportError:
+            pass
     if not rets:
         raise exc
     return sorted(rets, key=lambda d: len(d.meta), reverse=True)[0]
