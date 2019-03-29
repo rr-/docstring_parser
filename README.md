@@ -1,7 +1,8 @@
 docstring_parser
 ================
 
-Parse Python docstrings in ReST format
+Parse Python docstrings. Currently support ReST-style and Google-style
+docstrings.
 
 Example usage:
 
