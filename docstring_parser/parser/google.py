@@ -15,7 +15,7 @@ _sections = {
     "Except": "raises",
     "Attributes": None,
     "Example": None,
-    "Examples": None,
+    "Examples": "examples",
     "Returns": "returns",
     "Yields": "yields",
 }
@@ -35,6 +35,8 @@ def _build_meta(text: str, title: str) -> DocstringMeta:
 
     meta = _sections[title]
     if meta == "returns" and ":" not in text.split()[0]:
+        return DocstringMeta([meta], description=text)
+    if meta == 'examples':
         return DocstringMeta([meta], description=text)
 
     # Split spec and description
@@ -115,7 +117,7 @@ def parse(text: str) -> Docstring:
         indent = indent_match.group()
 
         # Check for returns/yeilds (only one element)
-        if _sections[title] in ("returns", "yields"):
+        if _sections[title] in ("returns", "yields", "examples"):
             part = inspect.cleandoc(chunk)
             ret.meta.append(_build_meta(part, title))
             continue
