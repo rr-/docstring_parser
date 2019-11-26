@@ -17,7 +17,7 @@ _sections = {
     "Example": "examples",
     "Examples": "examples",
     "Returns": "returns",
-    "Yields": "yields"
+    "Yields": "yields",
 }
 _titles_re = re.compile(
     "^(" + "|".join("(%s)" % t for t in _sections) + "):", flags=re.M
@@ -116,7 +116,7 @@ def parse(text: str) -> Docstring:
             raise ParseError(f'Can\'t infer indent from "{chunk}"')
         indent = indent_match.group()
 
-        # Check for returns/yeilds (only one element)
+        # Check for singular elements
         if _sections[title] in ("returns", "yields", "examples"):
             part = inspect.cleandoc(chunk)
             ret.meta.append(_build_meta(part, title))
