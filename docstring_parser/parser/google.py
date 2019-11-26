@@ -14,10 +14,10 @@ _sections = {
     "Exceptions": "raises",
     "Except": "raises",
     "Attributes": None,
-    "Example": None,
+    "Example": "examples",
     "Examples": "examples",
     "Returns": "returns",
-    "Yields": "yields",
+    "Yields": "yields"
 }
 _titles_re = re.compile(
     "^(" + "|".join("(%s)" % t for t in _sections) + "):", flags=re.M
@@ -36,7 +36,7 @@ def _build_meta(text: str, title: str) -> DocstringMeta:
     meta = _sections[title]
     if meta == "returns" and ":" not in text.split()[0]:
         return DocstringMeta([meta], description=text)
-    if meta == 'examples':
+    if meta == "examples":
         return DocstringMeta([meta], description=text)
 
     # Split spec and description
