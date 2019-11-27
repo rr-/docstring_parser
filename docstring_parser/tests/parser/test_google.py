@@ -2,7 +2,13 @@ import typing as T
 
 import pytest
 from docstring_parser import ParseError
-from docstring_parser.parser.google import parse, setup, SectionType, Section
+from docstring_parser.parser.google import (
+    Section,
+    SectionType,
+    add_section,
+    parse,
+    setup,
+)
 
 
 @pytest.fixture(scope="function")
@@ -75,6 +81,21 @@ def test_setup(reinit_sections):
         """
     )
     assert len(docstring.meta) == 1
+
+
+def test_add_section(reinit_sections):
+    add_section(Section("Note", "note", SectionType.SINGULAR))
+    docstring = parse(
+        """
+        short description
+
+        Note:
+            a note
+        """
+    )
+    assert len(docstring.meta) == 1
+    assert docstring.meta[0].args == ["note"]
+    assert docstring.meta[0].description == "a note"
 
 
 @pytest.mark.parametrize(

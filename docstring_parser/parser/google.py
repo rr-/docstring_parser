@@ -3,9 +3,9 @@
 import inspect
 import re
 import typing as T
-
 from collections import namedtuple
 from enum import IntEnum
+
 from .common import Docstring, DocstringMeta, ParseError
 
 
@@ -24,18 +24,32 @@ class SectionType(IntEnum):
 
 Section = namedtuple("Section", "title key type")
 
-_sections: T.Dict[str, Section] = None
-_titles_re: re.Pattern = None
-_valid: T.Set[str] = None
+
+class _globals:
+    sections: T.Dict[str, Section] = None
+    title_colon: bool = None
+    titles_re: re.Pattern = None
+    valid: T.Set[str] = None
+
+
+def _setup():
+    if _globals.title_colon:
+        colon = ":"
+    else:
+        colon = ""
+    _globals.titles_re = re.compile(
+        "^(" + "|".join("(%s)" % t for t in _globals.sections) + ")" + colon,
+        flags=re.M,
+    )
+    _globals.valid = set(_globals.sections)
 
 
 def setup(sections: T.Optional[T.List[Section]] = None, title_colon=True):
     """Setup sections.
 
-    :param sections: Recognized sections.
+    :param sections: Recognized sections or None to defaults.
     :param title_colon: require colon after section title.
     """
-    global _sections, _titles_re, _valid
 
     if not sections:
         sections = [
@@ -53,23 +67,22 @@ def setup(sections: T.Optional[T.List[Section]] = None, title_colon=True):
             Section("Yields", "yields", SectionType.SINGULAR_OR_MULTIPLE),
         ]
 
-    _sections = {s.title: s for s in sections}
-    _valid = {t for t in _sections}
-    if title_colon:
-        colon = ":"
-    else:
-        colon = ""
-    _titles_re = re.compile(
-        "^(" + "|".join("(%s)" % t for t in _sections) + ")" + colon,
-        flags=re.M,
-    )
+    _globals.sections = {s.title: s for s in sections}
+    _globals.title_colon = title_colon
+    _setup()
 
 
 setup()
 
 
 def add_section(section: Section):
-    _sections[section.title] = section
+    """Add or replace a section.
+
+    :param section: The new section.
+    """
+
+    _globals.sections[section.title] = section
+    _setup()
 
 
 def _build_meta(text: str, title: str) -> DocstringMeta:
@@ -80,7 +93,7 @@ def _build_meta(text: str, title: str) -> DocstringMeta:
     :return:
     """
 
-    meta = _sections[title]
+    meta = _globals.sections[title]
 
     if (
         meta.type == SectionType.SINGULAR_OR_MULTIPLE
@@ -124,7 +137,7 @@ def parse(text: str) -> Docstring:
     text = inspect.cleandoc(text)
 
     # Find first title and split on its position
-    match = _titles_re.search(text)
+    match = _globals.titles_re.search(text)
     if match:
         desc_chunk = text[: match.start()]
         meta_chunk = text[match.start() :]
@@ -142,7 +155,7 @@ def parse(text: str) -> Docstring:
         ret.long_description = long_desc_chunk.strip() or None
 
     # Split by sections determined by titles
-    matches = list(_titles_re.finditer(meta_chunk))
+    matches = list(_globals.titles_re.finditer(meta_chunk))
     if not matches:
         return ret
     splits = []
@@ -153,7 +166,7 @@ def parse(text: str) -> Docstring:
     chunks = {}
     for j, (start, end) in enumerate(splits):
         title = matches[j].group(1)
-        if title not in _valid:
+        if title not in _globals.valid:
             continue
         chunks[title] = meta_chunk[start:end].strip("\n")
     if not chunks:
@@ -168,7 +181,7 @@ def parse(text: str) -> Docstring:
         indent = indent_match.group()
 
         # Check for singular elements
-        if _sections[title].type in [
+        if _globals.sections[title].type in [
             SectionType.SINGULAR,
             SectionType.SINGULAR_OR_MULTIPLE,
         ]:
