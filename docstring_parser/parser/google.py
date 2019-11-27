@@ -2,27 +2,74 @@
 
 import inspect
 import re
+import typing as T
 
+from collections import namedtuple
+from enum import IntEnum
 from .common import Docstring, DocstringMeta, ParseError
 
-_sections = {
-    "Arguments": "param",
-    "Args": "param",
-    "Parameters": "param",
-    "Params": "param",
-    "Raises": "raises",
-    "Exceptions": "raises",
-    "Except": "raises",
-    "Attributes": None,
-    "Example": "examples",
-    "Examples": "examples",
-    "Returns": "returns",
-    "Yields": "yields",
-}
-_titles_re = re.compile(
-    "^(" + "|".join("(%s)" % t for t in _sections) + "):", flags=re.M
-)
-_valid = {t for t, a in _sections.items() if a}
+
+class SectionType(IntEnum):
+    """Types of sections."""
+
+    SINGULAR = 0
+    """For sections like examples."""
+
+    MULTIPLE = 1
+    """For sections like params."""
+
+    SINGULAR_OR_MULTIPLE = 2
+    """For sections like returns or yields."""
+
+
+Section = namedtuple("Section", "title key type")
+
+_sections: T.Dict[str, Section] = None
+_titles_re: re.Pattern = None
+_valid: T.Set[str] = None
+
+
+def setup(sections: T.Optional[T.List[Section]] = None, title_colon=True):
+    """Setup sections.
+
+    :param sections: Recognized sections.
+    :param title_colon: require colon after section title.
+    """
+    global _sections, _titles_re, _valid
+
+    if not sections:
+        sections = [
+            Section("Arguments", "param", SectionType.MULTIPLE),
+            Section("Args", "param", SectionType.MULTIPLE),
+            Section("Parameters", "param", SectionType.MULTIPLE),
+            Section("Params", "param", SectionType.MULTIPLE),
+            Section("Raises", "raises", SectionType.MULTIPLE),
+            Section("Exceptions", "raises", SectionType.MULTIPLE),
+            Section("Except", "raises", SectionType.MULTIPLE),
+            Section("Attributes", "attribute", SectionType.MULTIPLE),
+            Section("Example", "examples", SectionType.SINGULAR),
+            Section("Examples", "examples", SectionType.SINGULAR),
+            Section("Returns", "returns", SectionType.SINGULAR_OR_MULTIPLE),
+            Section("Yields", "yields", SectionType.SINGULAR_OR_MULTIPLE),
+        ]
+
+    _sections = {s.title: s for s in sections}
+    _valid = {t for t in _sections}
+    if title_colon:
+        colon = ":"
+    else:
+        colon = ""
+    _titles_re = re.compile(
+        "^(" + "|".join("(%s)" % t for t in _sections) + ")" + colon,
+        flags=re.M,
+    )
+
+
+setup()
+
+
+def add_section(section: Section):
+    _sections[section.title] = section
 
 
 def _build_meta(text: str, title: str) -> DocstringMeta:
@@ -34,10 +81,14 @@ def _build_meta(text: str, title: str) -> DocstringMeta:
     """
 
     meta = _sections[title]
-    if meta == "returns" and ":" not in text.split()[0]:
-        return DocstringMeta([meta], description=text)
-    if meta == "examples":
-        return DocstringMeta([meta], description=text)
+
+    if (
+        meta.type == SectionType.SINGULAR_OR_MULTIPLE
+        and ":" not in text.split()[0]
+    ):
+        return DocstringMeta([meta.key], description=text)
+    if meta.type == SectionType.SINGULAR:
+        return DocstringMeta([meta.key], description=text)
 
     # Split spec and description
     before, desc = text.split(":", 1)
@@ -50,11 +101,11 @@ def _build_meta(text: str, title: str) -> DocstringMeta:
 
     # Build Meta args
     m = re.match(r"(\S+) \((\S+)\)$", before)
-    if meta == "param" and m:
+    if meta.key == "param" and m:
         arg_name, type_name = m.group(1, 2)
-        args = [meta, type_name, arg_name]
+        args = [meta.key, type_name, arg_name]
     else:
-        args = [meta, before]
+        args = [meta.key, before]
 
     return DocstringMeta(args, description=desc)
 
@@ -117,7 +168,10 @@ def parse(text: str) -> Docstring:
         indent = indent_match.group()
 
         # Check for singular elements
-        if _sections[title] in ("returns", "yields", "examples"):
+        if _sections[title].type in [
+            SectionType.SINGULAR,
+            SectionType.SINGULAR_OR_MULTIPLE,
+        ]:
             part = inspect.cleandoc(chunk)
             ret.meta.append(_build_meta(part, title))
             continue

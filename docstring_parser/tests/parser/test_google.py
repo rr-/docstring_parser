@@ -2,7 +2,79 @@ import typing as T
 
 import pytest
 from docstring_parser import ParseError
-from docstring_parser.parser.google import parse
+from docstring_parser.parser.google import parse, setup, SectionType, Section
+
+
+@pytest.fixture(scope="function")
+def reinit_sections():
+    yield
+    setup()
+
+
+def test_setup(reinit_sections):
+    docstring = parse(
+        """
+        Unknown:
+            spam: a
+        """
+    )
+    assert docstring.short_description == "Unknown:"
+    assert docstring.long_description == "spam: a"
+    assert len(docstring.meta) == 0
+
+    docstring = parse(
+        """
+        Unknown:
+            spam: a
+        """
+    )
+    assert docstring.short_description == "Unknown:"
+    assert docstring.long_description == "spam: a"
+    assert len(docstring.meta) == 0
+
+    setup(
+        [
+            Section("DESCRIPTION", "desc", SectionType.SINGULAR),
+            Section("ARGUMENTS", "param", SectionType.MULTIPLE),
+            Section("EXAMPLES", "examples", SectionType.SINGULAR),
+        ],
+        title_colon=False,
+    )
+    docstring = parse(
+        """
+        DESCRIPTION
+            This is the description.
+
+        ARGUMENTS
+            arg1: first arg
+            arg2: second arg
+
+        EXAMPLES
+            Many examples
+            More examples
+        """
+    )
+
+    assert docstring.short_description is None
+    assert docstring.long_description is None
+    assert len(docstring.meta) == 4
+    assert docstring.meta[0].args == ["desc"]
+    assert docstring.meta[0].description == "This is the description."
+    assert docstring.meta[1].args == ["param", "arg1"]
+    assert docstring.meta[1].description == "first arg"
+    assert docstring.meta[2].args == ["param", "arg2"]
+    assert docstring.meta[2].description == "second arg"
+    assert docstring.meta[3].args == ["examples"]
+    assert docstring.meta[3].description == "Many examples\nMore examples"
+
+    setup()
+    docstring = parse(
+        """
+        Attributes:
+            spam: a
+        """
+    )
+    assert len(docstring.meta) == 1
 
 
 @pytest.mark.parametrize(
