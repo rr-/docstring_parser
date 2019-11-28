@@ -3,22 +3,16 @@ import typing as T
 import pytest
 from docstring_parser import ParseError
 from docstring_parser.parser.google import (
+    GoogleParser,
     Section,
     SectionType,
-    add_section,
     parse,
-    setup,
 )
 
 
-@pytest.fixture(scope="function")
-def reinit_sections():
-    yield
-    setup()
-
-
-def test_setup(reinit_sections):
-    docstring = parse(
+def test_google_parser():
+    parser = GoogleParser()
+    docstring = parser.parse(
         """
         Unknown:
             spam: a
@@ -28,17 +22,7 @@ def test_setup(reinit_sections):
     assert docstring.long_description == "spam: a"
     assert len(docstring.meta) == 0
 
-    docstring = parse(
-        """
-        Unknown:
-            spam: a
-        """
-    )
-    assert docstring.short_description == "Unknown:"
-    assert docstring.long_description == "spam: a"
-    assert len(docstring.meta) == 0
-
-    setup(
+    parser = GoogleParser(
         [
             Section("DESCRIPTION", "desc", SectionType.SINGULAR),
             Section("ARGUMENTS", "param", SectionType.MULTIPLE),
@@ -46,7 +30,7 @@ def test_setup(reinit_sections):
         ],
         title_colon=False,
     )
-    docstring = parse(
+    docstring = parser.parse(
         """
         DESCRIPTION
             This is the description.
@@ -73,23 +57,33 @@ def test_setup(reinit_sections):
     assert docstring.meta[3].args == ["examples"]
     assert docstring.meta[3].description == "Many examples\nMore examples"
 
-    setup()
-    docstring = parse(
-        """
-        Attributes:
-            spam: a
-        """
-    )
-    assert len(docstring.meta) == 1
-
-
-def test_add_section(reinit_sections):
-    add_section(Section("Note", "note", SectionType.SINGULAR))
-    docstring = parse(
+    parser.add_section(Section("Note", "note", SectionType.SINGULAR))
+    docstring = parser.parse(
         """
         short description
 
         Note:
+            a note
+        """
+    )
+    assert docstring.short_description == "short description"
+    assert docstring.long_description == "Note:\n    a note"
+
+    docstring = parser.parse(
+        """
+        short description
+
+        Note a note
+        """
+    )
+    assert docstring.short_description == "short description"
+    assert docstring.long_description == "Note a note"
+
+    docstring = parser.parse(
+        """
+        short description
+
+        Note
             a note
         """
     )
