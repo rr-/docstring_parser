@@ -2,7 +2,94 @@ import typing as T
 
 import pytest
 from docstring_parser import ParseError
-from docstring_parser.parser.google import parse
+from docstring_parser.parser.google import (
+    GoogleParser,
+    Section,
+    SectionType,
+    parse,
+)
+
+
+def test_google_parser():
+    parser = GoogleParser()
+    docstring = parser.parse(
+        """
+        Unknown:
+            spam: a
+        """
+    )
+    assert docstring.short_description == "Unknown:"
+    assert docstring.long_description == "spam: a"
+    assert len(docstring.meta) == 0
+
+    parser = GoogleParser(
+        [
+            Section("DESCRIPTION", "desc", SectionType.SINGULAR),
+            Section("ARGUMENTS", "param", SectionType.MULTIPLE),
+            Section("EXAMPLES", "examples", SectionType.SINGULAR),
+        ],
+        title_colon=False,
+    )
+    docstring = parser.parse(
+        """
+        DESCRIPTION
+            This is the description.
+
+        ARGUMENTS
+            arg1: first arg
+            arg2: second arg
+
+        EXAMPLES
+            Many examples
+            More examples
+        """
+    )
+
+    assert docstring.short_description is None
+    assert docstring.long_description is None
+    assert len(docstring.meta) == 4
+    assert docstring.meta[0].args == ["desc"]
+    assert docstring.meta[0].description == "This is the description."
+    assert docstring.meta[1].args == ["param", "arg1"]
+    assert docstring.meta[1].description == "first arg"
+    assert docstring.meta[2].args == ["param", "arg2"]
+    assert docstring.meta[2].description == "second arg"
+    assert docstring.meta[3].args == ["examples"]
+    assert docstring.meta[3].description == "Many examples\nMore examples"
+
+    parser.add_section(Section("Note", "note", SectionType.SINGULAR))
+    docstring = parser.parse(
+        """
+        short description
+
+        Note:
+            a note
+        """
+    )
+    assert docstring.short_description == "short description"
+    assert docstring.long_description == "Note:\n    a note"
+
+    docstring = parser.parse(
+        """
+        short description
+
+        Note a note
+        """
+    )
+    assert docstring.short_description == "short description"
+    assert docstring.long_description == "Note a note"
+
+    docstring = parser.parse(
+        """
+        short description
+
+        Note
+            a note
+        """
+    )
+    assert len(docstring.meta) == 1
+    assert docstring.meta[0].args == ["note"]
+    assert docstring.meta[0].description == "a note"
 
 
 @pytest.mark.parametrize(
@@ -362,6 +449,23 @@ def test_raises() -> None:
     assert len(docstring.raises) == 1
     assert docstring.raises[0].type_name == "ValueError"
     assert docstring.raises[0].description == "description"
+
+
+def test_examples() -> None:
+    docstring = parse(
+        """
+        Short description
+        Example:
+            example: 1
+        Examples:
+            long example
+
+            more here
+        """
+    )
+    assert len(docstring.meta) == 2
+    assert docstring.meta[0].description == "example: 1"
+    assert docstring.meta[1].description == "long example\n\nmore here"
 
 
 def test_broken_meta() -> None:
