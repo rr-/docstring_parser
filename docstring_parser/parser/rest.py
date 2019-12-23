@@ -2,13 +2,75 @@
 
 import inspect
 import re
+import typing as T
 
-from .common import Docstring, DocstringMeta, ParseError
+from .common import (
+    PARAM_KEYWORDS,
+    RAISES_KEYWORDS,
+    RETURNS_KEYWORDS,
+    YIELDS_KEYWORDS,
+    Docstring,
+    DocstringMeta,
+    DocstringParam,
+    DocstringRaises,
+    DocstringReturns,
+    ParseError,
+)
+
+
+def _build_meta(args: T.List[str], desc: str) -> DocstringMeta:
+    key = args[0]
+
+    if key in PARAM_KEYWORDS:
+        if len(args) == 3:
+            key, type_name, arg_name = args
+        elif len(args) == 2:
+            key, arg_name = args
+            type_name = None
+        else:
+            raise ParseError(
+                f"Expected one or two arguments for a {key} keyword."
+            )
+
+        return DocstringParam(
+            args=args, description=desc, arg_name=arg_name, type_name=type_name
+        )
+
+    if key in RETURNS_KEYWORDS | YIELDS_KEYWORDS:
+        if len(args) == 2:
+            type_name = args[1]
+        elif len(args) == 1:
+            type_name = None
+        else:
+            raise ParseError(
+                f"Expected one or no arguments for a {key} keyword."
+            )
+
+        return DocstringReturns(
+            args=args,
+            description=desc,
+            type_name=type_name,
+            is_generator=key in YIELDS_KEYWORDS,
+        )
+
+    if key in RAISES_KEYWORDS:
+        if len(args) == 2:
+            type_name = args[1]
+        elif len(args) == 1:
+            type_name = None
+        else:
+            raise ParseError(
+                f"Expected one or no arguments for a {key} keyword."
+            )
+        return DocstringRaises(
+            args=args, description=desc, type_name=type_name
+        )
+
+    return DocstringMeta(args=args, description=desc)
 
 
 def parse(text: str) -> Docstring:
-    """
-    Parse the ReST-style docstring into its components.
+    """Parse the ReST-style docstring into its components.
 
     :returns: parsed docstring
     """
@@ -48,6 +110,7 @@ def parse(text: str) -> Docstring:
         if "\n" in desc:
             first_line, rest = desc.split("\n", 1)
             desc = first_line + "\n" + inspect.cleandoc(rest)
-        ret.meta.append(DocstringMeta(args, description=desc))
+
+        ret.meta.append(_build_meta(args, desc))
 
     return ret

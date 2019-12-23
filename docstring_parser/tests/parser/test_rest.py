@@ -105,7 +105,7 @@ def test_long_description(
         (
             """
             Short description
-            :param: asd
+            :meta: asd
             """,
             "Short description",
             None,
@@ -116,7 +116,7 @@ def test_long_description(
             """
             Short description
             Long description
-            :param: asd
+            :meta: asd
             """,
             "Short description",
             "Long description",
@@ -128,7 +128,7 @@ def test_long_description(
             Short description
             First line
                 Second line
-            :param: asd
+            :meta: asd
             """,
             "Short description",
             "First line\n    Second line",
@@ -141,7 +141,7 @@ def test_long_description(
 
             First line
                 Second line
-            :param: asd
+            :meta: asd
             """,
             "Short description",
             "First line\n    Second line",
@@ -155,7 +155,7 @@ def test_long_description(
             First line
                 Second line
 
-            :param: asd
+            :meta: asd
             """,
             "Short description",
             "First line\n    Second line",
@@ -164,7 +164,7 @@ def test_long_description(
         ),
         (
             """
-            :param: asd
+            :meta: asd
             """,
             None,
             None,
@@ -193,7 +193,7 @@ def test_meta_with_multiline_description() -> None:
         """
         Short description
 
-        :param: asd
+        :meta: asd
             1
                 2
             3
@@ -201,7 +201,7 @@ def test_meta_with_multiline_description() -> None:
     )
     assert docstring.short_description == "Short description"
     assert len(docstring.meta) == 1
-    assert docstring.meta[0].args == ["param"]
+    assert docstring.meta[0].args == ["meta"]
     assert docstring.meta[0].description == "asd\n1\n    2\n3"
 
 
@@ -210,22 +210,36 @@ def test_multiple_meta() -> None:
         """
         Short description
 
-        :param: asd
+        :meta1: asd
             1
                 2
             3
-        :param2: herp
-        :param3: derp
+        :meta2: herp
+        :meta3: derp
         """
     )
     assert docstring.short_description == "Short description"
     assert len(docstring.meta) == 3
-    assert docstring.meta[0].args == ["param"]
+    assert docstring.meta[0].args == ["meta1"]
     assert docstring.meta[0].description == "asd\n1\n    2\n3"
-    assert docstring.meta[1].args == ["param2"]
+    assert docstring.meta[1].args == ["meta2"]
     assert docstring.meta[1].description == "herp"
-    assert docstring.meta[2].args == ["param3"]
+    assert docstring.meta[2].args == ["meta3"]
     assert docstring.meta[2].description == "derp"
+
+
+def test_meta_with_args() -> None:
+    docstring = parse(
+        """
+        Short description
+
+        :meta ene due rabe: asd
+        """
+    )
+    assert docstring.short_description == "Short description"
+    assert len(docstring.meta) == 1
+    assert docstring.meta[0].args == ["meta", "ene", "due", "rabe"]
+    assert docstring.meta[0].description == "asd"
 
 
 def test_params() -> None:
@@ -239,10 +253,9 @@ def test_params() -> None:
         :param name: description 1
         :param int priority: description 2
         :param str sender: description 3
-        :param: invalid
         """
     )
-    assert len(docstring.params) == 4
+    assert len(docstring.params) == 3
     assert docstring.params[0].arg_name == "name"
     assert docstring.params[0].type_name is None
     assert docstring.params[0].description == "description 1"
@@ -252,9 +265,6 @@ def test_params() -> None:
     assert docstring.params[2].arg_name == "sender"
     assert docstring.params[2].type_name == "str"
     assert docstring.params[2].description == "description 3"
-    assert docstring.params[3].arg_name is None
-    assert docstring.params[3].type_name is None
-    assert docstring.params[3].description == "invalid"
 
 
 def test_returns() -> None:
@@ -274,6 +284,7 @@ def test_returns() -> None:
     assert docstring.returns is not None
     assert docstring.returns.type_name is None
     assert docstring.returns.description == "description"
+    assert not docstring.returns.is_generator
 
     docstring = parse(
         """
@@ -284,6 +295,38 @@ def test_returns() -> None:
     assert docstring.returns is not None
     assert docstring.returns.type_name == "int"
     assert docstring.returns.description == "description"
+    assert not docstring.returns.is_generator
+
+
+def test_yields() -> None:
+    docstring = parse(
+        """
+        Short description
+        """
+    )
+    assert docstring.returns is None
+
+    docstring = parse(
+        """
+        Short description
+        :yields: description
+        """
+    )
+    assert docstring.returns is not None
+    assert docstring.returns.type_name is None
+    assert docstring.returns.description == "description"
+    assert docstring.returns.is_generator
+
+    docstring = parse(
+        """
+        Short description
+        :yields int: description
+        """
+    )
+    assert docstring.returns is not None
+    assert docstring.returns.type_name == "int"
+    assert docstring.returns.description == "description"
+    assert docstring.returns.is_generator
 
 
 def test_raises() -> None:
@@ -322,6 +365,11 @@ def test_broken_meta() -> None:
     with pytest.raises(ParseError):
         parse(":param herp derp")
 
+    with pytest.raises(ParseError):
+        parse(":param: invalid")
+
+    with pytest.raises(ParseError):
+        parse(":param with too many args: desc")
+
     # these should not raise any errors
     parse(":sthstrange: desc")
-    parse(":param with too many args: desc")

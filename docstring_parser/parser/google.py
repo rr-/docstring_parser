@@ -6,7 +6,18 @@ import typing as T
 from collections import namedtuple
 from enum import IntEnum
 
-from .common import Docstring, DocstringMeta, ParseError
+from .common import (
+    PARAM_KEYWORDS,
+    RAISES_KEYWORDS,
+    RETURNS_KEYWORDS,
+    YIELDS_KEYWORDS,
+    Docstring,
+    DocstringMeta,
+    DocstringParam,
+    DocstringRaises,
+    DocstringReturns,
+    ParseError,
+)
 
 
 class SectionType(IntEnum):
@@ -79,15 +90,13 @@ class GoogleParser:
         :return:
         """
 
-        meta = self.sections[title]
+        section = self.sections[title]
 
         if (
-            meta.type == SectionType.SINGULAR_OR_MULTIPLE
+            section.type == SectionType.SINGULAR_OR_MULTIPLE
             and ":" not in text.split()[0]
-        ):
-            return DocstringMeta([meta.key], description=text)
-        if meta.type == SectionType.SINGULAR:
-            return DocstringMeta([meta.key], description=text)
+        ) or section.type == SectionType.SINGULAR:
+            return self._build_single_meta(section, text)
 
         # Split spec and description
         before, desc = text.split(":", 1)
@@ -98,15 +107,51 @@ class GoogleParser:
                 desc = first_line + "\n" + inspect.cleandoc(rest)
             desc = desc.strip("\n")
 
-        # Build Meta args
-        m = re.match(r"(\S+) \((\S+)\)$", before)
-        if meta.key == "param" and m:
-            arg_name, type_name = m.group(1, 2)
-            args = [meta.key, type_name, arg_name]
-        else:
-            args = [meta.key, before]
+        return self._build_multi_meta(section, before, desc)
 
-        return DocstringMeta(args, description=desc)
+    def _build_single_meta(self, section: Section, desc: str) -> DocstringMeta:
+        if section.key in RETURNS_KEYWORDS | YIELDS_KEYWORDS:
+            return DocstringReturns(
+                args=[section.key],
+                description=desc,
+                type_name=None,
+                is_generator=section.key in YIELDS_KEYWORDS,
+            )
+        if section.key in RAISES_KEYWORDS:
+            return DocstringRaises(
+                args=[section.key], description=desc, type_name=None
+            )
+        if section.key in PARAM_KEYWORDS:
+            raise ParseError("Expected paramenter name.")
+        return DocstringMeta(args=[section.key], description=desc)
+
+    def _build_multi_meta(
+        self, section: Section, before: str, desc: str
+    ) -> DocstringMeta:
+        if section.key in PARAM_KEYWORDS:
+            m = re.match(r"(\S+) \((\S+)\)$", before)
+            if m:
+                arg_name, type_name = m.group(1, 2)
+            else:
+                arg_name, type_name = before, None
+            return DocstringParam(
+                args=[section.key, before],
+                description=desc,
+                arg_name=arg_name,
+                type_name=type_name,
+            )
+        if section.key in RETURNS_KEYWORDS | YIELDS_KEYWORDS:
+            return DocstringReturns(
+                args=[section.key, before],
+                description=desc,
+                type_name=before,
+                is_generator=section.key in YIELDS_KEYWORDS,
+            )
+        if section.key in RAISES_KEYWORDS:
+            return DocstringRaises(
+                args=[section.key, before], description=desc, type_name=before
+            )
+        return DocstringMeta(args=[section.key, before], description=desc)
 
     def add_section(self, section: Section):
         """Add or replace a section.
@@ -118,8 +163,7 @@ class GoogleParser:
         self._setup()
 
     def parse(self, text: str) -> Docstring:
-        """
-        Parse the Google-style docstring into its components.
+        """Parse the Google-style docstring into its components.
 
         :returns: parsed docstring
         """
@@ -202,8 +246,7 @@ class GoogleParser:
 
 
 def parse(text: str) -> Docstring:
-    """
-    Parse the Google-style docstring into its components.
+    """Parse the Google-style docstring into its components.
 
     :returns: parsed docstring
     """

@@ -2,6 +2,11 @@
 
 import typing as T
 
+PARAM_KEYWORDS = {"param", "parameter", "arg", "argument", "key", "keyword"}
+RAISES_KEYWORDS = {"raises", "raise", "except", "exception"}
+RETURNS_KEYWORDS = {"return", "returns"}
+YIELDS_KEYWORDS = {"yield", "yields"}
+
 
 class ParseError(RuntimeError):
     """Base class for all parsing related errors."""
@@ -10,8 +15,7 @@ class ParseError(RuntimeError):
 
 
 class DocstringMeta:
-    """
-    Docstring meta information.
+    """Docstring meta information.
 
     Symbolizes lines in form of
 
@@ -20,65 +24,60 @@ class DocstringMeta:
     """
 
     def __init__(self, args: T.List[str], description: str) -> None:
-        """
-        Initialize self.
+        """Initialize self.
 
-        :param args: list of arguments before delimiting colon.
+        :param args: list of arguments. The exact content of this variable is
+                     dependent on the kind of docstring; it's used to distinguish between
+                     custom docstring meta information items.
         :param description: associated docstring description.
         """
         self.args = args
         self.description = description
 
-    @classmethod
-    def from_meta(cls, meta: "DocstringMeta") -> T.Any:
-        """Copy DocstringMeta from another instance."""
-        return cls(args=meta.args, description=meta.description)
-
-
-class DocstringTypeMeta(DocstringMeta):
-    """Docstring meta whose only optional arg contains type information."""
-
-    @property
-    def type_name(self) -> T.Optional[str]:
-        """Return type name associated with given docstring metadata."""
-        return self.args[1] if len(self.args) > 1 else None
-
 
 class DocstringParam(DocstringMeta):
     """DocstringMeta symbolizing :param metadata."""
 
-    @property
-    def arg_name(self) -> T.Optional[str]:
-        """Return argument name associated with given param."""
-        if len(self.args) > 2:
-            return self.args[2]
-        elif len(self.args) > 1:
-            return self.args[1]
-        return None
-
-    @property
-    def type_name(self) -> T.Optional[str]:
-        """Return type name associated with given param."""
-        return self.args[1] if len(self.args) > 2 else None
+    def __init__(
+        self,
+        args: T.List[str],
+        description: str,
+        arg_name: str,
+        type_name: T.Optional[str],
+    ) -> None:
+        """Initialize self."""
+        super().__init__(args, description)
+        self.arg_name = arg_name
+        self.type_name = type_name
 
 
-class DocstringReturns(DocstringTypeMeta):
-    """DocstringMeta symbolizing :returns metadata."""
+class DocstringReturns(DocstringMeta):
+    """DocstringMeta symbolizing :returns or :yields metadata."""
 
-    pass
+    def __init__(
+        self, args: T.List[str], description: str, type_name: str, is_generator: bool
+    ) -> None:
+        """Initialize self."""
+        super().__init__(args, description)
+        self.type_name = type_name
+        self.is_generator = is_generator
 
 
-class DocstringRaises(DocstringTypeMeta):
+class DocstringRaises(DocstringMeta):
     """DocstringMeta symbolizing :raises metadata."""
 
-    pass
+    def __init__(self, args: T.List[str], description: str, type_name: str) -> None:
+        """Initialize self."""
+        super().__init__(args, description)
+        self.type_name = type_name
+        self.description = description
 
 
 class Docstring:
     """Docstring object representation."""
 
     def __init__(self) -> None:
-        """Intializes self."""
+        """Initialize self."""
         self.short_description: T.Optional[str] = None
         self.long_description: T.Optional[str] = None
         self.blank_after_short_description = False
@@ -87,31 +86,17 @@ class Docstring:
 
     @property
     def params(self) -> T.List[DocstringParam]:
-        """Return parameters indicated in docstring."""
-        return [
-            DocstringParam.from_meta(meta)
-            for meta in self.meta
-            if meta.args[0]
-            in {"param", "parameter", "arg", "argument", "key", "keyword"}
-        ]
+        return [item for item in self.meta if isinstance(item, DocstringParam)]
 
     @property
     def raises(self) -> T.List[DocstringRaises]:
-        """Return exceptions indicated in docstring."""
         return [
-            DocstringRaises.from_meta(meta)
-            for meta in self.meta
-            if meta.args[0] in {"raises", "raise", "except", "exception"}
+            item for item in self.meta if isinstance(item, DocstringRaises)
         ]
 
     @property
     def returns(self) -> T.Optional[DocstringReturns]:
-        """Return return information indicated in docstring."""
-        try:
-            return next(
-                DocstringReturns.from_meta(meta)
-                for meta in self.meta
-                if meta.args[0] in {"return", "returns", "yield", "yields"}
-            )
-        except StopIteration:
-            return None
+        for item in self.meta:
+            if isinstance(item, DocstringReturns):
+                return item
+        return None

@@ -16,8 +16,7 @@ _styles = {Style.rest: rest.parse, Style.google: google.parse}
 
 
 def parse(text: str, style: Style = Style.auto) -> Docstring:
-    """
-    Parse the docstring into its components.
+    """Parse the docstring into its components.
 
     :param text: docstring text to parse
     :param style: docstring style

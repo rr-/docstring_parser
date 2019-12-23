@@ -26,6 +26,7 @@ def test_google_parser():
         [
             Section("DESCRIPTION", "desc", SectionType.SINGULAR),
             Section("ARGUMENTS", "param", SectionType.MULTIPLE),
+            Section("ATTRIBUTES", "attribute", SectionType.MULTIPLE),
             Section("EXAMPLES", "examples", SectionType.SINGULAR),
         ],
         title_colon=False,
@@ -39,6 +40,10 @@ def test_google_parser():
             arg1: first arg
             arg2: second arg
 
+        ATTRIBUTES
+            attr1: first attribute
+            attr2: second attribute
+
         EXAMPLES
             Many examples
             More examples
@@ -47,15 +52,19 @@ def test_google_parser():
 
     assert docstring.short_description is None
     assert docstring.long_description is None
-    assert len(docstring.meta) == 4
+    assert len(docstring.meta) == 6
     assert docstring.meta[0].args == ["desc"]
     assert docstring.meta[0].description == "This is the description."
     assert docstring.meta[1].args == ["param", "arg1"]
     assert docstring.meta[1].description == "first arg"
     assert docstring.meta[2].args == ["param", "arg2"]
     assert docstring.meta[2].description == "second arg"
-    assert docstring.meta[3].args == ["examples"]
-    assert docstring.meta[3].description == "Many examples\nMore examples"
+    assert docstring.meta[3].args == ["attribute", "attr1"]
+    assert docstring.meta[3].description == "first attribute"
+    assert docstring.meta[4].args == ["attribute", "attr2"]
+    assert docstring.meta[4].description == "second attribute"
+    assert docstring.meta[5].args == ["examples"]
+    assert docstring.meta[5].description == "Many examples\nMore examples"
 
     parser.add_section(Section("Note", "note", SectionType.SINGULAR))
     docstring = parser.parse(
@@ -296,6 +305,7 @@ def test_meta_with_multiline_description() -> None:
     assert docstring.short_description == "Short description"
     assert len(docstring.meta) == 1
     assert docstring.meta[0].args == ["param", "spam"]
+    assert docstring.meta[0].arg_name == "spam"
     assert docstring.meta[0].description == "asd\n1\n    2\n3"
 
 
@@ -309,7 +319,7 @@ def test_multiple_meta() -> None:
                 1
                     2
                 3
-        
+
         Raises:
             bla: herp
             yay: derp
@@ -318,10 +328,13 @@ def test_multiple_meta() -> None:
     assert docstring.short_description == "Short description"
     assert len(docstring.meta) == 3
     assert docstring.meta[0].args == ["param", "spam"]
+    assert docstring.meta[0].arg_name == "spam"
     assert docstring.meta[0].description == "asd\n1\n    2\n3"
     assert docstring.meta[1].args == ["raises", "bla"]
+    assert docstring.meta[1].type_name == "bla"
     assert docstring.meta[1].description == "herp"
     assert docstring.meta[2].args == ["raises", "yay"]
+    assert docstring.meta[2].type_name == "yay"
     assert docstring.meta[2].description == "derp"
 
 
@@ -339,7 +352,6 @@ def test_params() -> None:
             sender (str): description 3
         """
     )
-    print([m.args for m in docstring.meta])
     assert len(docstring.params) == 3
     assert docstring.params[0].arg_name == "name"
     assert docstring.params[0].type_name is None
@@ -361,7 +373,6 @@ def test_params() -> None:
             priority (int): description 2
         """
     )
-    print([m.args for m in docstring.meta])
     assert len(docstring.params) == 2
     assert docstring.params[0].arg_name == "name"
     assert docstring.params[0].type_name is None
@@ -420,7 +431,7 @@ def test_returns() -> None:
         Returns:
             int: description
             with much text
-            
+
             even some spacing
         """
     )
