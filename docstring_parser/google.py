@@ -37,6 +37,22 @@ class Section(namedtuple("SectionBase", "title key type")):
     """A docstring section."""
 
 
+DEFAULT_SECTIONS = [
+    Section("Arguments", "param", SectionType.MULTIPLE),
+    Section("Args", "param", SectionType.MULTIPLE),
+    Section("Parameters", "param", SectionType.MULTIPLE),
+    Section("Params", "param", SectionType.MULTIPLE),
+    Section("Raises", "raises", SectionType.MULTIPLE),
+    Section("Exceptions", "raises", SectionType.MULTIPLE),
+    Section("Except", "raises", SectionType.MULTIPLE),
+    Section("Attributes", "attribute", SectionType.MULTIPLE),
+    Section("Example", "examples", SectionType.SINGULAR),
+    Section("Examples", "examples", SectionType.SINGULAR),
+    Section("Returns", "returns", SectionType.SINGULAR_OR_MULTIPLE),
+    Section("Yields", "yields", SectionType.SINGULAR_OR_MULTIPLE),
+]
+
+
 class GoogleParser:
     def __init__(
         self, sections: T.Optional[T.List[Section]] = None, title_colon=True
@@ -47,22 +63,7 @@ class GoogleParser:
         :param title_colon: require colon after section title.
         """
         if not sections:
-            sections = [
-                Section("Arguments", "param", SectionType.MULTIPLE),
-                Section("Args", "param", SectionType.MULTIPLE),
-                Section("Parameters", "param", SectionType.MULTIPLE),
-                Section("Params", "param", SectionType.MULTIPLE),
-                Section("Raises", "raises", SectionType.MULTIPLE),
-                Section("Exceptions", "raises", SectionType.MULTIPLE),
-                Section("Except", "raises", SectionType.MULTIPLE),
-                Section("Attributes", "attribute", SectionType.MULTIPLE),
-                Section("Example", "examples", SectionType.SINGULAR),
-                Section("Examples", "examples", SectionType.SINGULAR),
-                Section(
-                    "Returns", "returns", SectionType.SINGULAR_OR_MULTIPLE
-                ),
-                Section("Yields", "yields", SectionType.SINGULAR_OR_MULTIPLE),
-            ]
+            sections = DEFAULT_SECTIONS
         self.sections = {s.title: s for s in sections}
         self.title_colon = title_colon
         self._setup()
@@ -80,7 +81,6 @@ class GoogleParser:
             + "[ \t\r\f\v]*$",
             flags=re.M,
         )
-        self.valid = set(self.sections)
 
     def _build_meta(self, text: str, title: str) -> DocstringMeta:
         """Build docstring element.
@@ -206,7 +206,7 @@ class GoogleParser:
         chunks = {}
         for j, (start, end) in enumerate(splits):
             title = matches[j].group(1)
-            if title not in self.valid:
+            if title not in self.sections:
                 continue
             chunks[title] = meta_chunk[start:end].strip("\n")
         if not chunks:
