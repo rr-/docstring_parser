@@ -1,18 +1,7 @@
-"""Docstring parsing."""
+"""The main parsing routine."""
 
-import enum
-
-from . import google, rest
-from .common import Docstring, ParseError
-
-
-class Style(enum.Enum):
-    rest = enum.auto()
-    google = enum.auto()
-    auto = enum.auto()
-
-
-_styles = {Style.rest: rest.parse, Style.google: google.parse}
+from docstring_parser.common import Docstring, ParseError
+from docstring_parser.styles import Style, STYLES
 
 
 def parse(text: str, style: Style = Style.auto) -> Docstring:
@@ -24,9 +13,9 @@ def parse(text: str, style: Style = Style.auto) -> Docstring:
     """
 
     if style != Style.auto:
-        return _styles[style](text)
+        return STYLES[style](text)
     rets = []
-    for parse_ in _styles.values():
+    for parse_ in STYLES.values():
         try:
             rets.append(parse_(text))
         except ParseError as e:

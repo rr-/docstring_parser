@@ -1,8 +1,8 @@
 import typing as T
 
 import pytest
-from docstring_parser import ParseError
-from docstring_parser.parser.rest import parse
+from docstring_parser.common import ParseError
+from docstring_parser.rest import parse
 
 
 @pytest.mark.parametrize(

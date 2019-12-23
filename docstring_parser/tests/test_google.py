@@ -1,18 +1,13 @@
 import typing as T
 
 import pytest
-from docstring_parser import ParseError
-from docstring_parser.parser.google import (
-    GoogleParser,
-    Section,
-    SectionType,
-    parse,
-)
+from docstring_parser.common import ParseError
+from docstring_parser.google import GoogleParser, Section, SectionType, parse
 
 
 def test_google_parser():
     parser = GoogleParser()
-    docstring = parser.parse(
+    docstring = parse(
         """
         Unknown:
             spam: a

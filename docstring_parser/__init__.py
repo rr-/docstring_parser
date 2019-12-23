@@ -1,3 +1,23 @@
 """Parse docstrings as per Sphinx notation."""
 
-from .parser import ParseError, parse
+from .common import (
+    Docstring,
+    DocstringMeta,
+    DocstringParam,
+    DocstringRaises,
+    DocstringReturns,
+    ParseError,
+)
+from .parser import parse
+from .styles import Style
+
+__all__ = [
+    "parse",
+    "ParseError",
+    "Docstring",
+    "DocstringMeta",
+    "DocstringParam",
+    "DocstringRaises",
+    "DocstringReturns",
+    "Style",
+]

@@ -1,15 +1,15 @@
-from docstring_parser import parse
+from docstring_parser.parser import parse
 
 
 def test_rest() -> None:
     docstring = parse(
         """
         Short description
-        
+
         Long description
-        
+
         Causing people to indent:
-        
+
             A lot sometimes
 
         :param spam: spam desc
@@ -46,21 +46,21 @@ def test_rest() -> None:
 def test_google() -> None:
     docstring = parse(
         """Short description
-        
+
         Long description
-        
+
         Causing people to indent:
-        
+
             A lot sometimes
 
         Args:
             spam: spam desc
             bla (int): bla desc
             yay (str):
-        
+
         Raises:
             ValueError: exc desc
-        
+
         Returns:
             tuple: ret desc
         """
