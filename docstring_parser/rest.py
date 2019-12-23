@@ -24,16 +24,26 @@ def _build_meta(args: T.List[str], desc: str) -> DocstringMeta:
     if key in PARAM_KEYWORDS:
         if len(args) == 3:
             key, type_name, arg_name = args
+            if type_name.endswith("?"):
+                is_optional = True
+                type_name = type_name[:-1]
+            else:
+                is_optional = False
         elif len(args) == 2:
             key, arg_name = args
             type_name = None
+            is_optional = None
         else:
             raise ParseError(
                 f"Expected one or two arguments for a {key} keyword."
             )
 
         return DocstringParam(
-            args=args, description=desc, arg_name=arg_name, type_name=type_name
+            args=args,
+            description=desc,
+            arg_name=arg_name,
+            type_name=type_name,
+            is_optional=is_optional,
         )
 
     if key in RETURNS_KEYWORDS | YIELDS_KEYWORDS:

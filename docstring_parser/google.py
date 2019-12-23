@@ -37,6 +37,7 @@ class Section(namedtuple("SectionBase", "title key type")):
     """A docstring section."""
 
 
+GOOGLE_TYPED_ARG_REGEX = re.compile(r"\s*(.+?)\s*\(\s*(.*[^\s]+)\s*\)")
 DEFAULT_SECTIONS = [
     Section("Arguments", "param", SectionType.MULTIPLE),
     Section("Args", "param", SectionType.MULTIPLE),
@@ -129,16 +130,26 @@ class GoogleParser:
         self, section: Section, before: str, desc: str
     ) -> DocstringMeta:
         if section.key in PARAM_KEYWORDS:
-            m = re.match(r"(\S+) \((\S+)\)$", before)
+            m = GOOGLE_TYPED_ARG_REGEX.match(before)
             if m:
                 arg_name, type_name = m.group(1, 2)
+                if type_name.endswith(", optional"):
+                    is_optional = True
+                    type_name = type_name.rsplit(",")[0]
+                elif type_name.endswith("?"):
+                    is_optional = True
+                    type_name = type_name[:-1]
+                else:
+                    is_optional = False
             else:
                 arg_name, type_name = before, None
+                is_optional = None
             return DocstringParam(
                 args=[section.key, before],
                 description=desc,
                 arg_name=arg_name,
                 type_name=type_name,
+                is_optional=is_optional,
             )
         if section.key in RETURNS_KEYWORDS | YIELDS_KEYWORDS:
             return DocstringReturns(

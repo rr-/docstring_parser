@@ -252,19 +252,22 @@ def test_params() -> None:
 
         :param name: description 1
         :param int priority: description 2
-        :param str sender: description 3
+        :param str? sender: description 3
         """
     )
     assert len(docstring.params) == 3
     assert docstring.params[0].arg_name == "name"
     assert docstring.params[0].type_name is None
     assert docstring.params[0].description == "description 1"
+    assert not docstring.params[0].is_optional
     assert docstring.params[1].arg_name == "priority"
     assert docstring.params[1].type_name == "int"
     assert docstring.params[1].description == "description 2"
+    assert not docstring.params[1].is_optional
     assert docstring.params[2].arg_name == "sender"
     assert docstring.params[2].type_name == "str"
     assert docstring.params[2].description == "description 3"
+    assert docstring.params[2].is_optional
 
 
 def test_returns() -> None:

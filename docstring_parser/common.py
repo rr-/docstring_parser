@@ -44,18 +44,24 @@ class DocstringParam(DocstringMeta):
         description: str,
         arg_name: str,
         type_name: T.Optional[str],
+        is_optional: T.Optional[bool],
     ) -> None:
         """Initialize self."""
         super().__init__(args, description)
         self.arg_name = arg_name
         self.type_name = type_name
+        self.is_optional = is_optional
 
 
 class DocstringReturns(DocstringMeta):
     """DocstringMeta symbolizing :returns or :yields metadata."""
 
     def __init__(
-        self, args: T.List[str], description: str, type_name: str, is_generator: bool
+        self,
+        args: T.List[str],
+        description: str,
+        type_name: str,
+        is_generator: bool,
     ) -> None:
         """Initialize self."""
         super().__init__(args, description)
@@ -66,7 +72,9 @@ class DocstringReturns(DocstringMeta):
 class DocstringRaises(DocstringMeta):
     """DocstringMeta symbolizing :raises metadata."""
 
-    def __init__(self, args: T.List[str], description: str, type_name: str) -> None:
+    def __init__(
+        self, args: T.List[str], description: str, type_name: str
+    ) -> None:
         """Initialize self."""
         super().__init__(args, description)
         self.type_name = type_name
