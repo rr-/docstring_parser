@@ -60,7 +60,7 @@ class DocstringReturns(DocstringMeta):
         self,
         args: T.List[str],
         description: str,
-        type_name: str,
+        type_name: T.Optional[str],
         is_generator: bool,
     ) -> None:
         """Initialize self."""
@@ -73,7 +73,7 @@ class DocstringRaises(DocstringMeta):
     """DocstringMeta symbolizing :raises metadata."""
 
     def __init__(
-        self, args: T.List[str], description: str, type_name: str
+        self, args: T.List[str], description: str, type_name: T.Optional[str]
     ) -> None:
         """Initialize self."""
         super().__init__(args, description)

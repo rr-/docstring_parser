@@ -411,12 +411,33 @@ def test_returns() -> None:
         """
         Short description
         Returns:
+            description with: a colon!
+        """
+    )
+    assert docstring.returns is not None
+    assert docstring.returns.type_name is None
+    assert docstring.returns.description == "description with: a colon!"
+
+    docstring = parse(
+        """
+        Short description
+        Returns:
             int: description
         """
     )
     assert docstring.returns is not None
     assert docstring.returns.type_name == "int"
     assert docstring.returns.description == "description"
+
+    docstring = parse(
+        """
+        Returns:
+            Optional[Mapping[str, List[int]]]: A description: with a colon
+        """
+    )
+    assert docstring.returns is not None
+    assert docstring.returns.type_name == "Optional[Mapping[str, List[int]]]"
+    assert docstring.returns.description == "A description: with a colon"
 
     docstring = parse(
         """
