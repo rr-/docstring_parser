@@ -12,7 +12,6 @@ setup(
     url="https://github.com/rr-/docstring_parser",
     packages=find_packages(),
     package_dir={"docstring_parser": "docstring_parser"},
-    package_data={"docstring_parser": ["../LICENSE.md"]},
     classifiers=[
         "Environment :: Other Environment",
         "Development Status :: 4 - Beta",
