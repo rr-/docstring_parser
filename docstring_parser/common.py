@@ -53,12 +53,14 @@ class DocstringParam(DocstringMeta):
         arg_name: str,
         type_name: T.Optional[str],
         is_optional: T.Optional[bool],
+        default: T.Optional[str]
     ) -> None:
         """Initialize self."""
         super().__init__(args, description)
         self.arg_name = arg_name
         self.type_name = type_name
         self.is_optional = is_optional
+        self.default = default
 
 
 class DocstringReturns(DocstringMeta):

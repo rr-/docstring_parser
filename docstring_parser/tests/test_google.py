@@ -304,6 +304,26 @@ def test_meta_with_multiline_description() -> None:
     assert docstring.meta[0].description == "asd\n1\n    2\n3"
 
 
+def test_default_args():
+    docstring = parse(
+    """A sample function
+
+    A function the demonstrates docstrings
+    
+    Args:
+        arg1 (int): The firsty arg
+        arg2 (str): The second arg
+        arg3 (float, optional): The third arg. Defaults to 1.0.
+        arg4 (Optional[Dict[str, Any]], optional): The fourth arg. Defaults to None.
+        arg5 (str, optional): The fifth arg. Defaults to DEFAULT_ARG5.
+    
+    Returns:
+        Mapping[str, Any]: The args packed in a mapping
+    """
+    )
+    assert docstring is not None
+
+
 def test_multiple_meta() -> None:
     docstring = parse(
         """
