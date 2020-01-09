@@ -38,12 +38,16 @@ def _build_meta(args: T.List[str], desc: str) -> DocstringMeta:
                 f"Expected one or two arguments for a {key} keyword."
             )
 
+        m = re.match(r'.*defaults to (.+)', desc)
+        default = m.group(1).rstrip('.') if m else None
+
         return DocstringParam(
             args=args,
             description=desc,
             arg_name=arg_name,
             type_name=type_name,
             is_optional=is_optional,
+            default=default,
         )
 
     if key in RETURNS_KEYWORDS | YIELDS_KEYWORDS:

@@ -38,6 +38,7 @@ class Section(namedtuple("SectionBase", "title key type")):
 
 
 GOOGLE_TYPED_ARG_REGEX = re.compile(r"\s*(.+?)\s*\(\s*(.*[^\s]+)\s*\)")
+GOOGLE_ARG_DESC_REGEX = re.compile(r".*\. Defaults to (.+)\.")
 MULTIPLE_PATTERN = re.compile(r"(\s*[^:\s]+:)|([^:]*\]:.*)")
 
 DEFAULT_SECTIONS = [
@@ -146,12 +147,17 @@ class GoogleParser:
             else:
                 arg_name, type_name = before, None
                 is_optional = None
+
+            m = GOOGLE_ARG_DESC_REGEX.match(desc)
+            default = m.group(1) if m else None
+
             return DocstringParam(
                 args=[section.key, before],
                 description=desc,
                 arg_name=arg_name,
                 type_name=type_name,
                 is_optional=is_optional,
+                default=default,
             )
         if section.key in RETURNS_KEYWORDS | YIELDS_KEYWORDS:
             return DocstringReturns(
