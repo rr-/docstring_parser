@@ -2,7 +2,15 @@
 
 import typing as T
 
-PARAM_KEYWORDS = {"param", "parameter", "arg", "argument", "key", "keyword"}
+PARAM_KEYWORDS = {
+    "param",
+    "parameter",
+    "arg",
+    "argument",
+    "attribute",
+    "key",
+    "keyword",
+}
 RAISES_KEYWORDS = {"raises", "raise", "except", "exception"}
 RETURNS_KEYWORDS = {"return", "returns"}
 YIELDS_KEYWORDS = {"yield", "yields"}
