@@ -322,6 +322,14 @@ def test_default_args():
     """
     )
     assert docstring is not None
+    assert len(docstring.params) == 5
+
+    arg4 = docstring.params[3]
+    assert arg4.arg_name == "arg4"
+    assert arg4.is_optional
+    assert arg4.type_name == "Optional[Dict[str, Any]]"
+    assert arg4.default == "None"
+    assert arg4.description == "The fourth arg. Defaults to None."
 
 
 def test_multiple_meta() -> None:

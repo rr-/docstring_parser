@@ -138,7 +138,7 @@ class GoogleParser:
                 arg_name, type_name = m.group(1, 2)
                 if type_name.endswith(", optional"):
                     is_optional = True
-                    type_name = type_name.rsplit(",")[0]
+                    type_name = type_name[:-10]
                 elif type_name.endswith("?"):
                     is_optional = True
                     type_name = type_name[:-1]
