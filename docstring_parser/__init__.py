@@ -6,6 +6,7 @@ from .common import (
     DocstringParam,
     DocstringRaises,
     DocstringReturns,
+    DocstringDeprecated,
     ParseError,
 )
 from .parser import parse
@@ -19,5 +20,6 @@ __all__ = [
     "DocstringParam",
     "DocstringRaises",
     "DocstringReturns",
+    "DocstringDeprecated",
     "Style",
 ]
