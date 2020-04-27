@@ -428,15 +428,19 @@ def test_other_params() -> None:
         """
     )
     assert len(docstring.meta) == 2
-    assert docstring.meta[0].args == ['other_param',
-                                      'only_seldom_used_keywords']
+    assert docstring.meta[0].args == [
+        'other_param',
+        'only_seldom_used_keywords',
+    ]
     assert docstring.meta[0].arg_name == 'only_seldom_used_keywords'
     assert docstring.meta[0].type_name == "type"
     assert docstring.meta[0].is_optional
     assert docstring.meta[0].description == "Explanation"
 
-    assert docstring.meta[1].args == ['other_param',
-                                      'common_parameters_listed_above']
+    assert docstring.meta[1].args == [
+        'other_param',
+        'common_parameters_listed_above',
+    ]
 
 
 def test_yields() -> None:
@@ -625,31 +629,31 @@ def test_examples() -> None:
         (
             "Short description\n\n.. deprecated:: 1.6.0\n    This is busted!",
             "1.6.0",
-            "This is busted!"
+            "This is busted!",
         ),
         (
-            ("Short description\n\n"
-             ".. deprecated:: 1.6.0\n"
-             "    This description has\n"
-             "    multiple lines!"),
+            (
+                "Short description\n\n"
+                ".. deprecated:: 1.6.0\n"
+                "    This description has\n"
+                "    multiple lines!"
+            ),
             "1.6.0",
-            "This description has\nmultiple lines!"
+            "This description has\nmultiple lines!",
         ),
-        (
-            "Short description\n\n.. deprecated:: 1.6.0",
-            "1.6.0",
-            None
-        ),
+        ("Short description\n\n.. deprecated:: 1.6.0", "1.6.0", None),
         (
             "Short description\n\n.. deprecated::\n    No version!",
             None,
-            "No version!"
-        )
-    ]
+            "No version!",
+        ),
+    ],
 )
-def test_deprecation(source: str,
-                     expected_depr_version: T.Optional[str],
-                     expected_depr_desc: T.Optional[str]) -> None:
+def test_deprecation(
+    source: str,
+    expected_depr_version: T.Optional[str],
+    expected_depr_desc: T.Optional[str],
+) -> None:
     docstring = parse(source)
 
     assert docstring.deprecation is not None

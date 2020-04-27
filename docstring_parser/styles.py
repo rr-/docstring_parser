@@ -12,5 +12,8 @@ class Style(enum.Enum):
     auto = enum.auto()
 
 
-STYLES = {Style.rest: rest.parse, Style.google: google.parse,
-          Style.numpydoc: numpydoc.parse}
+STYLES = {
+    Style.rest: rest.parse,
+    Style.google: google.parse,
+    Style.numpydoc: numpydoc.parse,
+}

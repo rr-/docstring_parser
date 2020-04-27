@@ -53,7 +53,7 @@ class DocstringParam(DocstringMeta):
         arg_name: str,
         type_name: T.Optional[str],
         is_optional: T.Optional[bool],
-        default: T.Optional[str]
+        default: T.Optional[str],
     ) -> None:
         """Initialize self."""
         super().__init__(args, description)
@@ -72,7 +72,7 @@ class DocstringReturns(DocstringMeta):
         description: T.Optional[str],
         type_name: T.Optional[str],
         is_generator: bool,
-        return_name: T.Optional[str] = None
+        return_name: T.Optional[str] = None,
     ) -> None:
         """Initialize self."""
         super().__init__(args, description)
@@ -88,7 +88,7 @@ class DocstringRaises(DocstringMeta):
         self,
         args: T.List[str],
         description: T.Optional[str],
-        type_name: T.Optional[str]
+        type_name: T.Optional[str],
     ) -> None:
         """Initialize self."""
         super().__init__(args, description)
@@ -103,7 +103,7 @@ class DocstringDeprecated(DocstringMeta):
         self,
         args: T.List[str],
         description: T.Optional[str],
-        version: T.Optional[str]
+        version: T.Optional[str],
     ) -> None:
         """Initialize self."""
         super().__init__(args, description)

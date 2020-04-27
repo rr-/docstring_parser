@@ -56,6 +56,7 @@ class Section:
     :param key: meta key string. In the parsed ``DocstringMeta`` instance this
                 will be the first element of the ``args`` attribute list.
     """
+
     title: str
     key: str
 
@@ -87,6 +88,7 @@ class _KVSection(Section):
             values can also span...
             ... multiple lines
     """
+
     def _parse_item(self, key: str, value: str) -> DocstringMeta:
         pass
 
@@ -95,8 +97,9 @@ class _KVSection(Section):
             start = match.end()
             end = next_match.start() if next_match is not None else None
             value = text[start:end]
-            yield self._parse_item(key=match.group(),
-                                   value=inspect.cleandoc(value))
+            yield self._parse_item(
+                key=match.group(), value=inspect.cleandoc(value)
+            )
 
 
 class _SphinxSection(Section):
@@ -106,6 +109,7 @@ class _SphinxSection(Section):
         .. title:: something
             possibly over multiple lines
     """
+
     @property
     def title_pattern(self) -> str:
         return r"^\.\.\s*({})\s*::".format(self.title)
@@ -121,6 +125,7 @@ class ParamSection(_KVSection):
             descriptions can also span...
             ... multiple lines
     """
+
     def _parse_item(self, key: str, value: str) -> DocstringParam:
         m = PARAM_KEY_REGEX.match(key)
         arg_name = type_name = is_optional = None
@@ -157,6 +162,7 @@ class RaisesSection(_KVSection):
         ValueError
             A description of what might raise ValueError
     """
+
     def _parse_item(self, key: str, value: str) -> DocstringRaises:
         return DocstringRaises(
             args=[self.key, key],
@@ -174,6 +180,7 @@ class ReturnsSection(_KVSection):
         another_type
             Return names are optional, types are required
     """
+
     is_generator = False
 
     def _parse_item(self, key: str, value: str) -> DocstringReturns:
@@ -194,11 +201,13 @@ class ReturnsSection(_KVSection):
 
 class YieldsSection(ReturnsSection):
     """Parser for numpydoc generator "yields" sections."""
+
     is_generator = True
 
 
 class DeprecationSection(_SphinxSection):
     """Parser for numpydoc "deprecation warning" sections."""
+
     def parse(self, text: str) -> T.Iterable[DocstringDeprecated]:
         version, desc, *_ = text.split(sep='\n', maxsplit=1) + [None, None]
 
@@ -206,9 +215,7 @@ class DeprecationSection(_SphinxSection):
             desc = _clean_str(inspect.cleandoc(desc))
 
         yield DocstringDeprecated(
-            args=[self.key],
-            description=desc,
-            version=_clean_str(version),
+            args=[self.key], description=desc, version=_clean_str(version),
         )
 
 
@@ -248,9 +255,7 @@ DEFAULT_SECTIONS = [
 
 
 class NumpydocParser:
-    def __init__(
-        self, sections: T.Optional[T.Dict[str, Section]] = None
-    ):
+    def __init__(self, sections: T.Optional[T.Dict[str, Section]] = None):
         """Setup sections.
 
         :param sections: Recognized sections or None to defaults.
@@ -262,7 +267,7 @@ class NumpydocParser:
     def _setup(self):
         self.titles_re = re.compile(
             r"|".join(s.title_pattern for s in self.sections.values()),
-            flags=re.M
+            flags=re.M,
         )
 
     def add_section(self, section: Section):
@@ -289,8 +294,8 @@ class NumpydocParser:
         # Find first title and split on its position
         match = self.titles_re.search(text)
         if match:
-            desc_chunk = text[:match.start()]
-            meta_chunk = text[match.start():]
+            desc_chunk = text[: match.start()]
+            meta_chunk = text[match.start() :]
         else:
             desc_chunk = text
             meta_chunk = ""

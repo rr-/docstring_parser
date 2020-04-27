@@ -274,7 +274,9 @@ def test_params() -> None:
     assert docstring.params[2].default is None
     assert docstring.params[3].arg_name == "message"
     assert docstring.params[3].type_name == "str"
-    assert docstring.params[3].description == "description 4, defaults to 'hello'"
+    assert (
+        docstring.params[3].description == "description 4, defaults to 'hello'"
+    )
     assert docstring.params[3].is_optional
     assert docstring.params[3].default == "'hello'"
 

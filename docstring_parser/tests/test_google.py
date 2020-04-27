@@ -306,7 +306,7 @@ def test_meta_with_multiline_description() -> None:
 
 def test_default_args():
     docstring = parse(
-    """A sample function
+        """A sample function
 
     A function the demonstrates docstrings
     
