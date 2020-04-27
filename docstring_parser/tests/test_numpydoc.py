@@ -429,17 +429,17 @@ def test_other_params() -> None:
     )
     assert len(docstring.meta) == 2
     assert docstring.meta[0].args == [
-        'other_param',
-        'only_seldom_used_keywords',
+        "other_param",
+        "only_seldom_used_keywords",
     ]
-    assert docstring.meta[0].arg_name == 'only_seldom_used_keywords'
+    assert docstring.meta[0].arg_name == "only_seldom_used_keywords"
     assert docstring.meta[0].type_name == "type"
     assert docstring.meta[0].is_optional
     assert docstring.meta[0].description == "Explanation"
 
     assert docstring.meta[1].args == [
-        'other_param',
-        'common_parameters_listed_above',
+        "other_param",
+        "common_parameters_listed_above",
     ]
 
 
@@ -454,7 +454,7 @@ def test_yields() -> None:
         """
     )
     assert len(docstring.meta) == 1
-    assert docstring.meta[0].args == ['yields']
+    assert docstring.meta[0].args == ["yields"]
     assert docstring.meta[0].type_name == "int"
     assert docstring.meta[0].description == "description"
     assert docstring.meta[0].return_name is None
@@ -478,7 +478,7 @@ def test_returns() -> None:
         """
     )
     assert docstring.returns is not None
-    assert docstring.returns.type_name == 'type'
+    assert docstring.returns.type_name == "type"
     assert docstring.returns.description is None
 
     docstring = parse(
@@ -593,19 +593,19 @@ def test_simple_sections() -> None:
         """
     )
     assert len(docstring.meta) == 4
-    assert docstring.meta[0].args == ['see_also']
+    assert docstring.meta[0].args == ["see_also"]
     assert docstring.meta[0].description == (
         "something : some thing you can also see\n"
         "actually, anything can go in this section"
     )
 
-    assert docstring.meta[1].args == ['warnings']
+    assert docstring.meta[1].args == ["warnings"]
     assert docstring.meta[1].description == "Here be dragons"
 
-    assert docstring.meta[2].args == ['notes']
+    assert docstring.meta[2].args == ["notes"]
     assert docstring.meta[2].description == "None of this is real"
 
-    assert docstring.meta[3].args == ['references']
+    assert docstring.meta[3].args == ["references"]
 
 
 def test_examples() -> None:

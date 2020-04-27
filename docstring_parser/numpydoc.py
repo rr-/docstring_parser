@@ -31,19 +31,19 @@ def _clean_str(string: str) -> T.Optional[str]:
         return string
 
 
-KV_REGEX = re.compile(r'^[^\s].*$', flags=re.M)
+KV_REGEX = re.compile(r"^[^\s].*$", flags=re.M)
 
-PARAM_KEY_REGEX = re.compile(r'^(?P<name>.*?)(?:\s*:\s*(?P<type>.*?))?$')
+PARAM_KEY_REGEX = re.compile(r"^(?P<name>.*?)(?:\s*:\s*(?P<type>.*?))?$")
 
-PARAM_OPTIONAL_REGEX = re.compile(r'(?P<type>.*?)(?:, optional|\(optional\))$')
+PARAM_OPTIONAL_REGEX = re.compile(r"(?P<type>.*?)(?:, optional|\(optional\))$")
 
 # numpydoc format has no formal grammar for this,
 # but we can make some educated guesses...
 PARAM_DEFAULT_REGEX = re.compile(
-    r'[Dd]efault(?: is | = |: |s to |)\s*(?P<value>[\w\-\.]+)'
+    r"[Dd]efault(?: is | = |: |s to |)\s*(?P<value>[\w\-\.]+)"
 )
 
-RETURN_KEY_REGEX = re.compile(r'^(?:(?P<name>.*?)\s*:\s*)?(?P<type>.*?)$')
+RETURN_KEY_REGEX = re.compile(r"^(?:(?P<name>.*?)\s*:\s*)?(?P<type>.*?)$")
 
 
 @dataclass
@@ -67,7 +67,7 @@ class Section:
         This pattern will match this instance's ``title`` attribute in
         an anonymous group.
         """
-        return r"^({})\s*?\n{}\s*$".format(self.title, '-' * len(self.title))
+        return r"^({})\s*?\n{}\s*$".format(self.title, "-" * len(self.title))
 
     def parse(self, text: str) -> T.Iterable[DocstringMeta]:
         """Parse ``DocstringMeta`` objects from the body of this section.
@@ -130,11 +130,11 @@ class ParamSection(_KVSection):
         m = PARAM_KEY_REGEX.match(key)
         arg_name = type_name = is_optional = None
         if m is not None:
-            arg_name, type_name = m.group('name'), m.group('type')
+            arg_name, type_name = m.group("name"), m.group("type")
             if type_name is not None:
                 optional_match = PARAM_OPTIONAL_REGEX.match(type_name)
                 if optional_match is not None:
-                    type_name = optional_match.group('type')
+                    type_name = optional_match.group("type")
                     is_optional = True
                 else:
                     is_optional = False
@@ -143,7 +143,7 @@ class ParamSection(_KVSection):
         if len(value) > 0:
             default_match = PARAM_DEFAULT_REGEX.search(value)
             if default_match is not None:
-                default = default_match.group('value')
+                default = default_match.group("value")
 
         return DocstringParam(
             args=[self.key, arg_name],
@@ -186,7 +186,7 @@ class ReturnsSection(_KVSection):
     def _parse_item(self, key: str, value: str) -> DocstringReturns:
         m = RETURN_KEY_REGEX.match(key)
         if m is not None:
-            return_name, type_name = m.group('name'), m.group('type')
+            return_name, type_name = m.group("name"), m.group("type")
         else:
             return_name = type_name = None
 
@@ -209,7 +209,7 @@ class DeprecationSection(_SphinxSection):
     """Parser for numpydoc "deprecation warning" sections."""
 
     def parse(self, text: str) -> T.Iterable[DocstringDeprecated]:
-        version, desc, *_ = text.split(sep='\n', maxsplit=1) + [None, None]
+        version, desc, *_ = text.split(sep="\n", maxsplit=1) + [None, None]
 
         if desc is not None:
             desc = _clean_str(inspect.cleandoc(desc))
