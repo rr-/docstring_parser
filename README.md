@@ -32,3 +32,8 @@ Example usage:
 >>> docstring.raises[0].type_name
 'ValueError'
 ```
+
+# Contributing
+
+This project uses [Black](https://github.com/psf/black) with `-l79` setting as
+well as [isort](https://github.com/timothycrosley/isort).
