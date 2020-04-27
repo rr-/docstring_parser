@@ -4,18 +4,18 @@
 """
 
 import inspect
+import itertools
 import re
 import typing as T
-import itertools
 from dataclasses import dataclass
 
 from .common import (
     Docstring,
+    DocstringDeprecated,
     DocstringMeta,
     DocstringParam,
     DocstringRaises,
     DocstringReturns,
-    DocstringDeprecated,
 )
 
 

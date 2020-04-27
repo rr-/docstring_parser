@@ -2,7 +2,7 @@
 
 import enum
 
-from . import google, rest, numpydoc
+from . import google, numpydoc, rest
 
 
 class Style(enum.Enum):

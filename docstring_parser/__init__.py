@@ -2,11 +2,11 @@
 
 from .common import (
     Docstring,
+    DocstringDeprecated,
     DocstringMeta,
     DocstringParam,
     DocstringRaises,
     DocstringReturns,
-    DocstringDeprecated,
     ParseError,
 )
 from .parser import parse

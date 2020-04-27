@@ -1,7 +1,7 @@
 """The main parsing routine."""
 
 from docstring_parser.common import Docstring, ParseError
-from docstring_parser.styles import Style, STYLES
+from docstring_parser.styles import STYLES, Style
 
 
 def parse(text: str, style: Style = Style.auto) -> Docstring:
