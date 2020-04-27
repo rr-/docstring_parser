@@ -7,7 +7,6 @@ import inspect
 import itertools
 import re
 import typing as T
-from dataclasses import dataclass
 
 from .common import (
     Docstring,
@@ -46,7 +45,6 @@ PARAM_DEFAULT_REGEX = re.compile(
 RETURN_KEY_REGEX = re.compile(r"^(?:(?P<name>.*?)\s*:\s*)?(?P<type>.*?)$")
 
 
-@dataclass
 class Section:
     """Numpydoc section parser.
 
@@ -57,8 +55,9 @@ class Section:
                 will be the first element of the ``args`` attribute list.
     """
 
-    title: str
-    key: str
+    def __init__(self, title: str, key: str) -> None:
+        self.title = title
+        self.key = key
 
     @property
     def title_pattern(self) -> str:
