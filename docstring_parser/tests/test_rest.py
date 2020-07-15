@@ -254,9 +254,11 @@ def test_params() -> None:
         :param int priority: description 2
         :param str? sender: description 3
         :param str? message: description 4, defaults to 'hello'
+        :param str? multiline: long description 5,
+        defaults to 'bye'
         """
     )
-    assert len(docstring.params) == 4
+    assert len(docstring.params) == 5
     assert docstring.params[0].arg_name == "name"
     assert docstring.params[0].type_name is None
     assert docstring.params[0].description == "description 1"
@@ -279,6 +281,13 @@ def test_params() -> None:
     )
     assert docstring.params[3].is_optional
     assert docstring.params[3].default == "'hello'"
+    assert docstring.params[4].arg_name == "multiline"
+    assert docstring.params[4].type_name == "str"
+    assert (
+            docstring.params[4].description == "long description 5,\ndefaults to 'bye'"
+    )
+    assert docstring.params[4].is_optional
+    assert docstring.params[4].default == "'bye'"
 
 
 def test_returns() -> None:
