@@ -35,7 +35,7 @@ def _build_meta(args: T.List[str], desc: str) -> DocstringMeta:
             is_optional = None
         else:
             raise ParseError(
-                f"Expected one or two arguments for a {key} keyword."
+                "Expected one or two arguments for a {} keyword.".format(key)
             )
 
         m = re.match(r".*defaults to (.+)", desc, flags=re.DOTALL)
@@ -57,7 +57,7 @@ def _build_meta(args: T.List[str], desc: str) -> DocstringMeta:
             type_name = None
         else:
             raise ParseError(
-                f"Expected one or no arguments for a {key} keyword."
+                "Expected one or no arguments for a {} keyword.".format(key)
             )
 
         return DocstringReturns(
@@ -74,7 +74,7 @@ def _build_meta(args: T.List[str], desc: str) -> DocstringMeta:
             type_name = None
         else:
             raise ParseError(
-                f"Expected one or no arguments for a {key} keyword."
+                "Expected one or no arguments for a {} keyword.".format(key)
             )
         return DocstringRaises(
             args=args, description=desc, type_name=type_name
@@ -118,7 +118,9 @@ def parse(text: str) -> Docstring:
         try:
             args_chunk, desc_chunk = chunk.lstrip(":").split(":", 1)
         except ValueError:
-            raise ParseError(f'Error parsing meta information near "{chunk}".')
+            raise ParseError(
+                'Error parsing meta information near "{}".'.format(chunk)
+            )
         args = args_chunk.split()
         desc = desc_chunk.strip()
         if "\n" in desc:

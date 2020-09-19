@@ -3,7 +3,7 @@
 import inspect
 import re
 import typing as T
-from collections import namedtuple
+from collections import namedtuple, OrderedDict
 from enum import IntEnum
 
 from .common import (
@@ -222,7 +222,7 @@ class GoogleParser:
             splits.append((matches[j].end(), matches[j + 1].start()))
         splits.append((matches[-1].end(), len(meta_chunk)))
 
-        chunks = {}
+        chunks = OrderedDict()
         for j, (start, end) in enumerate(splits):
             title = matches[j].group(1)
             if title not in self.sections:
@@ -236,7 +236,7 @@ class GoogleParser:
             # Determine indent
             indent_match = re.search(r"^\s+", chunk)
             if not indent_match:
-                raise ParseError(f'Can\'t infer indent from "{chunk}"')
+                raise ParseError('Can\'t infer indent from "{}"'.format(chunk))
             indent = indent_match.group()
 
             # Check for singular elements
@@ -252,7 +252,9 @@ class GoogleParser:
             _re = "^" + indent + r"(?=\S)"
             c_matches = list(re.finditer(_re, chunk, flags=re.M))
             if not c_matches:
-                raise ParseError(f'No specification for "{title}": "{chunk}"')
+                raise ParseError(
+                    'No specification for "{}": "{}"'.format(title, chunk)
+                )
             c_splits = []
             for j in range(len(c_matches) - 1):
                 c_splits.append((c_matches[j].end(), c_matches[j + 1].start()))

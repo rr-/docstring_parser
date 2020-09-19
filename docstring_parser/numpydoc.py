@@ -214,7 +214,7 @@ class DeprecationSection(_SphinxSection):
             desc = _clean_str(inspect.cleandoc(desc))
 
         yield DocstringDeprecated(
-            args=[self.key], description=desc, version=_clean_str(version),
+            args=[self.key], description=desc, version=_clean_str(version)
         )
 
 

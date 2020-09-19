@@ -284,7 +284,8 @@ def test_params() -> None:
     assert docstring.params[4].arg_name == "multiline"
     assert docstring.params[4].type_name == "str"
     assert (
-            docstring.params[4].description == "long description 5,\ndefaults to 'bye'"
+        docstring.params[4].description
+        == "long description 5,\ndefaults to 'bye'"
     )
     assert docstring.params[4].is_optional
     assert docstring.params[4].default == "'bye'"

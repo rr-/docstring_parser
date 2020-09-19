@@ -1,5 +1,4 @@
 """Common methods for parsing."""
-
 import typing as T
 
 PARAM_KEYWORDS = {
@@ -116,11 +115,11 @@ class Docstring:
 
     def __init__(self) -> None:
         """Initialize self."""
-        self.short_description: T.Optional[str] = None
-        self.long_description: T.Optional[str] = None
+        self.short_description = None  # type: T.Optional[str]
+        self.long_description = None  # type: T.Optional[str]
         self.blank_after_short_description = False
         self.blank_after_long_description = False
-        self.meta: T.List[DocstringMeta] = []
+        self.meta = []  # type: T.List[DocstringMeta]
 
     @property
     def params(self) -> T.List[DocstringParam]:

@@ -6,10 +6,10 @@ from . import google, numpydoc, rest
 
 
 class Style(enum.Enum):
-    rest = enum.auto()
-    google = enum.auto()
-    numpydoc = enum.auto()
-    auto = enum.auto()
+    rest = 1
+    google = 2
+    numpydoc = 3
+    auto = 255
 
 
 STYLES = {
