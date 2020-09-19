@@ -118,7 +118,9 @@ def parse(text: str) -> Docstring:
         try:
             args_chunk, desc_chunk = chunk.lstrip(":").split(":", 1)
         except ValueError:
-            raise ParseError('Error parsing meta information near "{}".'.format(chunk))
+            raise ParseError(
+                'Error parsing meta information near "{}".'.format(chunk)
+            )
         args = args_chunk.split()
         desc = desc_chunk.strip()
         if "\n" in desc:

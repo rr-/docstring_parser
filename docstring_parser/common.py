@@ -46,13 +46,13 @@ class DocstringParam(DocstringMeta):
     """DocstringMeta symbolizing :param metadata."""
 
     def __init__(
-            self,
-            args: T.List[str],
-            description: T.Optional[str],
-            arg_name: str,
-            type_name: T.Optional[str],
-            is_optional: T.Optional[bool],
-            default: T.Optional[str],
+        self,
+        args: T.List[str],
+        description: T.Optional[str],
+        arg_name: str,
+        type_name: T.Optional[str],
+        is_optional: T.Optional[bool],
+        default: T.Optional[str],
     ) -> None:
         """Initialize self."""
         super().__init__(args, description)
@@ -66,12 +66,12 @@ class DocstringReturns(DocstringMeta):
     """DocstringMeta symbolizing :returns or :yields metadata."""
 
     def __init__(
-            self,
-            args: T.List[str],
-            description: T.Optional[str],
-            type_name: T.Optional[str],
-            is_generator: bool,
-            return_name: T.Optional[str] = None,
+        self,
+        args: T.List[str],
+        description: T.Optional[str],
+        type_name: T.Optional[str],
+        is_generator: bool,
+        return_name: T.Optional[str] = None,
     ) -> None:
         """Initialize self."""
         super().__init__(args, description)
@@ -84,10 +84,10 @@ class DocstringRaises(DocstringMeta):
     """DocstringMeta symbolizing :raises metadata."""
 
     def __init__(
-            self,
-            args: T.List[str],
-            description: T.Optional[str],
-            type_name: T.Optional[str],
+        self,
+        args: T.List[str],
+        description: T.Optional[str],
+        type_name: T.Optional[str],
     ) -> None:
         """Initialize self."""
         super().__init__(args, description)
@@ -99,10 +99,10 @@ class DocstringDeprecated(DocstringMeta):
     """DocstringMeta symbolizing deprecation metadata."""
 
     def __init__(
-            self,
-            args: T.List[str],
-            description: T.Optional[str],
-            version: T.Optional[str],
+        self,
+        args: T.List[str],
+        description: T.Optional[str],
+        version: T.Optional[str],
     ) -> None:
         """Initialize self."""
         super().__init__(args, description)
