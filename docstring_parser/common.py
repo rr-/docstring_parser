@@ -1,6 +1,5 @@
 """Common methods for parsing."""
-
-import typing as T
+from typing import Optional, List
 
 PARAM_KEYWORDS = {
     "param",
@@ -31,7 +30,7 @@ class DocstringMeta:
         :raises ValueError: if something happens
     """
 
-    def __init__(self, args: T.List[str], description: str) -> None:
+    def __init__(self, args: List[str], description: str) -> None:
         """Initialize self.
 
         :param args: list of arguments. The exact content of this variable is
@@ -47,13 +46,13 @@ class DocstringParam(DocstringMeta):
     """DocstringMeta symbolizing :param metadata."""
 
     def __init__(
-        self,
-        args: T.List[str],
-        description: T.Optional[str],
-        arg_name: str,
-        type_name: T.Optional[str],
-        is_optional: T.Optional[bool],
-        default: T.Optional[str],
+            self,
+            args: List[str],
+            description: Optional[str],
+            arg_name: str,
+            type_name: Optional[str],
+            is_optional: Optional[bool],
+            default: Optional[str],
     ) -> None:
         """Initialize self."""
         super().__init__(args, description)
@@ -67,12 +66,12 @@ class DocstringReturns(DocstringMeta):
     """DocstringMeta symbolizing :returns or :yields metadata."""
 
     def __init__(
-        self,
-        args: T.List[str],
-        description: T.Optional[str],
-        type_name: T.Optional[str],
-        is_generator: bool,
-        return_name: T.Optional[str] = None,
+            self,
+            args: List[str],
+            description: Optional[str],
+            type_name: Optional[str],
+            is_generator: bool,
+            return_name: Optional[str] = None,
     ) -> None:
         """Initialize self."""
         super().__init__(args, description)
@@ -85,10 +84,10 @@ class DocstringRaises(DocstringMeta):
     """DocstringMeta symbolizing :raises metadata."""
 
     def __init__(
-        self,
-        args: T.List[str],
-        description: T.Optional[str],
-        type_name: T.Optional[str],
+            self,
+            args: List[str],
+            description: Optional[str],
+            type_name: Optional[str],
     ) -> None:
         """Initialize self."""
         super().__init__(args, description)
@@ -100,10 +99,10 @@ class DocstringDeprecated(DocstringMeta):
     """DocstringMeta symbolizing deprecation metadata."""
 
     def __init__(
-        self,
-        args: T.List[str],
-        description: T.Optional[str],
-        version: T.Optional[str],
+            self,
+            args: List[str],
+            description: Optional[str],
+            version: Optional[str],
     ) -> None:
         """Initialize self."""
         super().__init__(args, description)
@@ -116,31 +115,31 @@ class Docstring:
 
     def __init__(self) -> None:
         """Initialize self."""
-        self.short_description: T.Optional[str] = None
-        self.long_description: T.Optional[str] = None
+        self.short_description = None  # type: Optional[str]
+        self.long_description = None  # type: Optional[str]
         self.blank_after_short_description = False
         self.blank_after_long_description = False
-        self.meta: T.List[DocstringMeta] = []
+        self.meta = []  # type: List[DocstringMeta]
 
     @property
-    def params(self) -> T.List[DocstringParam]:
+    def params(self) -> List[DocstringParam]:
         return [item for item in self.meta if isinstance(item, DocstringParam)]
 
     @property
-    def raises(self) -> T.List[DocstringRaises]:
+    def raises(self) -> List[DocstringRaises]:
         return [
             item for item in self.meta if isinstance(item, DocstringRaises)
         ]
 
     @property
-    def returns(self) -> T.Optional[DocstringReturns]:
+    def returns(self) -> Optional[DocstringReturns]:
         for item in self.meta:
             if isinstance(item, DocstringReturns):
                 return item
         return None
 
     @property
-    def deprecation(self) -> T.Optional[DocstringDeprecated]:
+    def deprecation(self) -> Optional[DocstringDeprecated]:
         for item in self.meta:
             if isinstance(item, DocstringDeprecated):
                 return item

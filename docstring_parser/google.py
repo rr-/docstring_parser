@@ -3,7 +3,7 @@
 import inspect
 import re
 import typing as T
-from collections import namedtuple
+from collections import namedtuple,OrderedDict
 from enum import IntEnum
 
 from .common import (
@@ -59,7 +59,7 @@ DEFAULT_SECTIONS = [
 
 class GoogleParser:
     def __init__(
-        self, sections: T.Optional[T.List[Section]] = None, title_colon=True
+            self, sections: T.Optional[T.List[Section]] = None, title_colon=True
     ):
         """Setup sections.
 
@@ -97,8 +97,8 @@ class GoogleParser:
         section = self.sections[title]
 
         if (
-            section.type == SectionType.SINGULAR_OR_MULTIPLE
-            and not MULTIPLE_PATTERN.match(text)
+                section.type == SectionType.SINGULAR_OR_MULTIPLE
+                and not MULTIPLE_PATTERN.match(text)
         ) or section.type == SectionType.SINGULAR:
             return self._build_single_meta(section, text)
 
@@ -130,7 +130,7 @@ class GoogleParser:
         return DocstringMeta(args=[section.key], description=desc)
 
     def _build_multi_meta(
-        self, section: Section, before: str, desc: str
+            self, section: Section, before: str, desc: str
     ) -> DocstringMeta:
         if section.key in PARAM_KEYWORDS:
             m = GOOGLE_TYPED_ARG_REGEX.match(before)
@@ -197,7 +197,7 @@ class GoogleParser:
         match = self.titles_re.search(text)
         if match:
             desc_chunk = text[: match.start()]
-            meta_chunk = text[match.start() :]
+            meta_chunk = text[match.start():]
         else:
             desc_chunk = text
             meta_chunk = ""
@@ -222,7 +222,7 @@ class GoogleParser:
             splits.append((matches[j].end(), matches[j + 1].start()))
         splits.append((matches[-1].end(), len(meta_chunk)))
 
-        chunks = {}
+        chunks = OrderedDict()
         for j, (start, end) in enumerate(splits):
             title = matches[j].group(1)
             if title not in self.sections:
@@ -236,7 +236,7 @@ class GoogleParser:
             # Determine indent
             indent_match = re.search(r"^\s+", chunk)
             if not indent_match:
-                raise ParseError(f'Can\'t infer indent from "{chunk}"')
+                raise ParseError('Can\'t infer indent from "{}"'.format(chunk))
             indent = indent_match.group()
 
             # Check for singular elements
@@ -252,7 +252,7 @@ class GoogleParser:
             _re = "^" + indent + r"(?=\S)"
             c_matches = list(re.finditer(_re, chunk, flags=re.M))
             if not c_matches:
-                raise ParseError(f'No specification for "{title}": "{chunk}"')
+                raise ParseError('No specification for "{}": "{}"'.format(title, chunk))
             c_splits = []
             for j in range(len(c_matches) - 1):
                 c_splits.append((c_matches[j].end(), c_matches[j + 1].start()))
