@@ -1,5 +1,5 @@
 """Common methods for parsing."""
-from typing import Optional, List
+import typing as T
 
 PARAM_KEYWORDS = {
     "param",
@@ -30,7 +30,7 @@ class DocstringMeta:
         :raises ValueError: if something happens
     """
 
-    def __init__(self, args: List[str], description: str) -> None:
+    def __init__(self, args: T.List[str], description: str) -> None:
         """Initialize self.
 
         :param args: list of arguments. The exact content of this variable is
@@ -47,12 +47,12 @@ class DocstringParam(DocstringMeta):
 
     def __init__(
             self,
-            args: List[str],
-            description: Optional[str],
+            args: T.List[str],
+            description: T.Optional[str],
             arg_name: str,
-            type_name: Optional[str],
-            is_optional: Optional[bool],
-            default: Optional[str],
+            type_name: T.Optional[str],
+            is_optional: T.Optional[bool],
+            default: T.Optional[str],
     ) -> None:
         """Initialize self."""
         super().__init__(args, description)
@@ -67,11 +67,11 @@ class DocstringReturns(DocstringMeta):
 
     def __init__(
             self,
-            args: List[str],
-            description: Optional[str],
-            type_name: Optional[str],
+            args: T.List[str],
+            description: T.Optional[str],
+            type_name: T.Optional[str],
             is_generator: bool,
-            return_name: Optional[str] = None,
+            return_name: T.Optional[str] = None,
     ) -> None:
         """Initialize self."""
         super().__init__(args, description)
@@ -85,9 +85,9 @@ class DocstringRaises(DocstringMeta):
 
     def __init__(
             self,
-            args: List[str],
-            description: Optional[str],
-            type_name: Optional[str],
+            args: T.List[str],
+            description: T.Optional[str],
+            type_name: T.Optional[str],
     ) -> None:
         """Initialize self."""
         super().__init__(args, description)
@@ -100,9 +100,9 @@ class DocstringDeprecated(DocstringMeta):
 
     def __init__(
             self,
-            args: List[str],
-            description: Optional[str],
-            version: Optional[str],
+            args: T.List[str],
+            description: T.Optional[str],
+            version: T.Optional[str],
     ) -> None:
         """Initialize self."""
         super().__init__(args, description)
@@ -115,31 +115,31 @@ class Docstring:
 
     def __init__(self) -> None:
         """Initialize self."""
-        self.short_description = None  # type: Optional[str]
-        self.long_description = None  # type: Optional[str]
+        self.short_description = None  # type: T.Optional[str]
+        self.long_description = None  # type: T.Optional[str]
         self.blank_after_short_description = False
         self.blank_after_long_description = False
-        self.meta = []  # type: List[DocstringMeta]
+        self.meta = []  # type: T.List[DocstringMeta]
 
     @property
-    def params(self) -> List[DocstringParam]:
+    def params(self) -> T.List[DocstringParam]:
         return [item for item in self.meta if isinstance(item, DocstringParam)]
 
     @property
-    def raises(self) -> List[DocstringRaises]:
+    def raises(self) -> T.List[DocstringRaises]:
         return [
             item for item in self.meta if isinstance(item, DocstringRaises)
         ]
 
     @property
-    def returns(self) -> Optional[DocstringReturns]:
+    def returns(self) -> T.Optional[DocstringReturns]:
         for item in self.meta:
             if isinstance(item, DocstringReturns):
                 return item
         return None
 
     @property
-    def deprecation(self) -> Optional[DocstringDeprecated]:
+    def deprecation(self) -> T.Optional[DocstringDeprecated]:
         for item in self.meta:
             if isinstance(item, DocstringDeprecated):
                 return item

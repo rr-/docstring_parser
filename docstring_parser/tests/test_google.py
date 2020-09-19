@@ -1,4 +1,4 @@
-from typing import Optional
+import typing as T
 
 import pytest
 from docstring_parser.common import ParseError
@@ -272,8 +272,8 @@ def test_long_description(
 )
 def test_meta_newlines(
     source: str,
-    expected_short_desc: Optional[str],
-    expected_long_desc: Optional[str],
+    expected_short_desc: T.Optional[str],
+    expected_long_desc: T.Optional[str],
     expected_blank_short_desc: bool,
     expected_blank_long_desc: bool,
 ) -> None:
