@@ -593,7 +593,7 @@ def test_broken_meta() -> None:
         parse("Args:\n    herp derp")
 
 
-def test_unknown_headers() -> None:
+def test_unknown_meta() -> None:
     docstring = parse(
         """Short desc
         
