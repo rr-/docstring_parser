@@ -222,12 +222,20 @@ class GoogleParser:
             splits.append((matches[j].end(), matches[j + 1].start()))
         splits.append((matches[-1].end(), len(meta_chunk)))
 
-        chunks = OrderedDict()
+        chunks = OrderedDict()  # type: T.Mapping[str,str]
         for j, (start, end) in enumerate(splits):
             title = matches[j].group(1)
             if title not in self.sections:
                 continue
-            chunks[title] = meta_chunk[start:end].strip("\n")
+
+            # Clear Any Unknown Meta
+            # Ref: https://github.com/rr-/docstring_parser/issues/29
+            meta_details = meta_chunk[start:end]
+            unknown_meta = re.search(r"\n\S", meta_details)
+            if unknown_meta is not None:
+                meta_details = meta_details[: unknown_meta.start()]
+
+            chunks[title] = meta_details.strip("\n")
         if not chunks:
             return ret
 
