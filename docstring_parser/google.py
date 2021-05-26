@@ -103,6 +103,9 @@ class GoogleParser:
         ) or section.type == SectionType.SINGULAR:
             return self._build_single_meta(section, text)
 
+        if ":" not in text:
+            raise ParseError("Expected a colon in {}.".format(repr(text)))
+
         # Split spec and description
         before, desc = text.split(":", 1)
         if desc:

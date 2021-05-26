@@ -616,3 +616,14 @@ def test_unknown_meta() -> None:
     assert docstring.params[0].description == "desc0"
     assert docstring.params[1].arg_name == "arg1"
     assert docstring.params[1].description == "desc1"
+
+
+def test_broken_arguments() -> None:
+    with pytest.raises(ParseError):
+        docstring = parse(
+            """This is a test
+
+            Args:
+                param - poorly formatted
+            """
+        )
