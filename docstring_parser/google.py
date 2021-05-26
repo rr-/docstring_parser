@@ -16,8 +16,8 @@ from .common import (
     DocstringParam,
     DocstringRaises,
     DocstringReturns,
+    DocstringStyle,
     ParseError,
-    Style,
 )
 
 
@@ -187,7 +187,7 @@ class GoogleParser:
 
         :returns: parsed docstring
         """
-        ret = Docstring(style=Style.google)
+        ret = Docstring(style=DocstringStyle.google)
         if not text:
             return ret
 

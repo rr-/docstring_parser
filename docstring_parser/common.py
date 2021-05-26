@@ -20,7 +20,7 @@ class ParseError(RuntimeError):
     """Base class for all parsing related errors."""
 
 
-class Style(enum.Enum):
+class DocstringStyle(enum.Enum):
     """Docstring style."""
 
     rest = 1
@@ -123,7 +123,7 @@ class Docstring:
 
     def __init__(
         self,
-        style=None,  # type: T.Optional[Style]
+        style=None,  # type: T.Optional[DocstringStyle]
     ) -> None:
         """Initialize self."""
         self.short_description = None  # type: T.Optional[str]
@@ -131,7 +131,7 @@ class Docstring:
         self.blank_after_short_description = False
         self.blank_after_long_description = False
         self.meta = []  # type: T.List[DocstringMeta]
-        self.style = style  # type: T.Optional[Style]
+        self.style = style  # type: T.Optional[DocstringStyle]
 
     @property
     def params(self) -> T.List[DocstringParam]:

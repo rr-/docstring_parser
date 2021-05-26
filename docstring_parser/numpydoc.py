@@ -15,7 +15,7 @@ from .common import (
     DocstringParam,
     DocstringRaises,
     DocstringReturns,
-    Style,
+    DocstringStyle,
 )
 
 
@@ -284,7 +284,7 @@ class NumpydocParser:
 
         :returns: parsed docstring
         """
-        ret = Docstring(style=Style.numpydoc)
+        ret = Docstring(style=DocstringStyle.numpydoc)
         if not text:
             return ret
 

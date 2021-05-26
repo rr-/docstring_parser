@@ -1,4 +1,4 @@
-from docstring_parser.common import Style
+from docstring_parser.common import DocstringStyle
 from docstring_parser.parser import parse
 
 
@@ -21,7 +21,7 @@ def test_rest() -> None:
         """
     )
 
-    assert docstring.style == Style.rest
+    assert docstring.style == DocstringStyle.rest
     assert docstring.short_description == "Short description"
     assert docstring.long_description == (
         "Long description\n\n"
@@ -69,7 +69,7 @@ def test_google() -> None:
         """
     )
 
-    assert docstring.style == Style.google
+    assert docstring.style == DocstringStyle.google
     assert docstring.short_description == "Short description"
     assert docstring.long_description == (
         "Long description\n\n"
@@ -139,7 +139,7 @@ def test_numpydoc() -> None:
         """
     )
 
-    assert docstring.style == Style.numpydoc
+    assert docstring.style == DocstringStyle.numpydoc
     assert docstring.short_description == "Short description"
     assert docstring.long_description == (
         "Long description\n\n"
