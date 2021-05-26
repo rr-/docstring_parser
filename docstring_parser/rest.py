@@ -15,6 +15,7 @@ from .common import (
     DocstringRaises,
     DocstringReturns,
     ParseError,
+    Style,
 )
 
 
@@ -88,7 +89,7 @@ def parse(text: str) -> Docstring:
 
     :returns: parsed docstring
     """
-    ret = Docstring()
+    ret = Docstring(style=Style.rest)
     if not text:
         return ret
 

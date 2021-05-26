@@ -121,13 +121,17 @@ class DocstringDeprecated(DocstringMeta):
 class Docstring:
     """Docstring object representation."""
 
-    def __init__(self) -> None:
+    def __init__(
+        self,
+        style=None,  # type: T.Optional[Style]
+    ) -> None:
         """Initialize self."""
         self.short_description = None  # type: T.Optional[str]
         self.long_description = None  # type: T.Optional[str]
         self.blank_after_short_description = False
         self.blank_after_long_description = False
         self.meta = []  # type: T.List[DocstringMeta]
+        self.style = style  # type: T.Optional[Style]
 
     @property
     def params(self) -> T.List[DocstringParam]:

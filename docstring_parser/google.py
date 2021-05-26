@@ -3,7 +3,7 @@
 import inspect
 import re
 import typing as T
-from collections import namedtuple, OrderedDict
+from collections import OrderedDict, namedtuple
 from enum import IntEnum
 
 from .common import (
@@ -17,6 +17,7 @@ from .common import (
     DocstringRaises,
     DocstringReturns,
     ParseError,
+    Style,
 )
 
 
@@ -186,7 +187,7 @@ class GoogleParser:
 
         :returns: parsed docstring
         """
-        ret = Docstring()
+        ret = Docstring(style=Style.google)
         if not text:
             return ret
 

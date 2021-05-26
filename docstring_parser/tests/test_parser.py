@@ -1,3 +1,4 @@
+from docstring_parser.common import Style
 from docstring_parser.parser import parse
 
 
@@ -19,6 +20,8 @@ def test_rest() -> None:
         :returns tuple: ret desc
         """
     )
+
+    assert docstring.style == Style.rest
     assert docstring.short_description == "Short description"
     assert docstring.long_description == (
         "Long description\n\n"
@@ -65,6 +68,8 @@ def test_google() -> None:
             tuple: ret desc
         """
     )
+
+    assert docstring.style == Style.google
     assert docstring.short_description == "Short description"
     assert docstring.long_description == (
         "Long description\n\n"
@@ -133,6 +138,8 @@ def test_numpydoc() -> None:
         none of this is real!
         """
     )
+
+    assert docstring.style == Style.numpydoc
     assert docstring.short_description == "Short description"
     assert docstring.long_description == (
         "Long description\n\n"
