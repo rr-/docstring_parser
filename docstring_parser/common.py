@@ -1,4 +1,5 @@
 """Common methods for parsing."""
+import enum
 import typing as T
 
 PARAM_KEYWORDS = {
@@ -18,7 +19,14 @@ YIELDS_KEYWORDS = {"yield", "yields"}
 class ParseError(RuntimeError):
     """Base class for all parsing related errors."""
 
-    pass
+
+class Style(enum.Enum):
+    """Docstring style."""
+
+    rest = 1
+    google = 2
+    numpydoc = 3
+    auto = 255
 
 
 class DocstringMeta:

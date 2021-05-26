@@ -8,9 +8,9 @@ from .common import (
     DocstringRaises,
     DocstringReturns,
     ParseError,
+    Style,
 )
 from .parser import parse
-from .styles import Style
 
 __all__ = [
     "parse",

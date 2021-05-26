@@ -309,14 +309,14 @@ def test_default_args():
         """A sample function
 
     A function the demonstrates docstrings
-    
+
     Args:
         arg1 (int): The firsty arg
         arg2 (str): The second arg
         arg3 (float, optional): The third arg. Defaults to 1.0.
         arg4 (Optional[Dict[str, Any]], optional): The fourth arg. Defaults to None.
         arg5 (str, optional): The fifth arg. Defaults to DEFAULT_ARG5.
-    
+
     Returns:
         Mapping[str, Any]: The args packed in a mapping
     """
@@ -596,7 +596,7 @@ def test_broken_meta() -> None:
 def test_unknown_meta() -> None:
     docstring = parse(
         """Short desc
-        
+
         Unknown 0:
             title0: content0
 
