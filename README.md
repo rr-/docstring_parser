@@ -33,6 +33,8 @@ Example usage:
 'ValueError'
 ```
 
+Read [API Documentation](https://rr-.github.io/docstring_parser/).
+
 # Contributing
 
 This project uses [Black](https://github.com/psf/black) with `-l79` setting as
