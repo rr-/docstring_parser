@@ -1,6 +1,6 @@
 """Numpydoc-style docstring parsing.
 
-.. seealso:: https://numpydoc.readthedocs.io/en/latest/format.html
+:see: https://numpydoc.readthedocs.io/en/latest/format.html
 """
 
 import inspect
