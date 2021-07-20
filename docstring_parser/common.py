@@ -151,6 +151,12 @@ class Docstring:
         return None
 
     @property
+    def many_returns(self) -> T.List[DocstringReturns]:
+        return [
+            item for item in self.meta if isinstance(item, DocstringReturns)
+        ]
+
+    @property
     def deprecation(self) -> T.Optional[DocstringDeprecated]:
         for item in self.meta:
             if isinstance(item, DocstringDeprecated):
