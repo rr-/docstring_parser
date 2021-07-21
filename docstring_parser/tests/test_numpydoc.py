@@ -468,6 +468,8 @@ def test_returns() -> None:
         """
     )
     assert docstring.returns is None
+    assert docstring.many_returns is not None
+    assert len(docstring.many_returns) == 0
 
     docstring = parse(
         """
@@ -480,6 +482,9 @@ def test_returns() -> None:
     assert docstring.returns is not None
     assert docstring.returns.type_name == "type"
     assert docstring.returns.description is None
+    assert docstring.many_returns is not None
+    assert len(docstring.many_returns) == 1
+    assert docstring.many_returns[0] == docstring.returns
 
     docstring = parse(
         """
@@ -493,6 +498,9 @@ def test_returns() -> None:
     assert docstring.returns is not None
     assert docstring.returns.type_name == "int"
     assert docstring.returns.description == "description"
+    assert docstring.many_returns is not None
+    assert len(docstring.many_returns) == 1
+    assert docstring.many_returns[0] == docstring.returns
 
     docstring = parse(
         """
@@ -505,6 +513,9 @@ def test_returns() -> None:
     assert docstring.returns is not None
     assert docstring.returns.type_name == "Optional[Mapping[str, List[int]]]"
     assert docstring.returns.description == "A description: with a colon"
+    assert docstring.many_returns is not None
+    assert len(docstring.many_returns) == 1
+    assert docstring.many_returns[0] == docstring.returns
 
     docstring = parse(
         """
@@ -523,6 +534,9 @@ def test_returns() -> None:
     assert docstring.returns.description == (
         "description\n" "with much text\n\n" "even some spacing"
     )
+    assert docstring.many_returns is not None
+    assert len(docstring.many_returns) == 1
+    assert docstring.many_returns[0] == docstring.returns
 
     docstring = parse(
         """
@@ -535,6 +549,9 @@ def test_returns() -> None:
             description for b
         """
     )
+    assert docstring.returns is not None
+    assert docstring.returns.type_name == "int"
+    assert docstring.returns.description == ("description for a")
     assert docstring.many_returns is not None
     assert len(docstring.many_returns) == 2
     assert docstring.many_returns[0].type_name == "int"
