@@ -524,6 +524,26 @@ def test_returns() -> None:
         "description\n" "with much text\n\n" "even some spacing"
     )
 
+    docstring = parse(
+        """
+        Short description
+        Returns
+        -------
+        a : int
+            description for a
+        b : str
+            description for b
+        """
+    )
+    assert docstring.many_returns is not None
+    assert len(docstring.many_returns) == 2
+    assert docstring.many_returns[0].type_name == "int"
+    assert docstring.many_returns[0].description == "description for a"
+    assert docstring.many_returns[0].return_name == "a"
+    assert docstring.many_returns[1].type_name == "str"
+    assert docstring.many_returns[1].description == "description for b"
+    assert docstring.many_returns[1].return_name == "b"
+
 
 def test_raises() -> None:
     docstring = parse(
