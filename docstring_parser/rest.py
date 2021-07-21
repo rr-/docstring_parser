@@ -5,11 +5,13 @@ import re
 import typing as T
 
 from .common import (
+    DEPRECATION_KEYWORDS,
     PARAM_KEYWORDS,
     RAISES_KEYWORDS,
     RETURNS_KEYWORDS,
     YIELDS_KEYWORDS,
     Docstring,
+    DocstringDeprecated,
     DocstringMeta,
     DocstringParam,
     DocstringRaises,
@@ -67,6 +69,23 @@ def _build_meta(args: T.List[str], desc: str) -> DocstringMeta:
             type_name=type_name,
             is_generator=key in YIELDS_KEYWORDS,
         )
+
+    if key in DEPRECATION_KEYWORDS:
+        match = re.search(
+            "^(?P<version>v?((?:\d+)(?:\.[0-9a-z\.]+))) (?P<desc>.+)",
+            desc,
+            flags=re.I,
+        )
+        if match:
+            return DocstringDeprecated(
+                args=args,
+                version=match.group("version"),
+                description=match.group("desc"),
+            )
+        else:
+            return DocstringDeprecated(
+                args=args, version=None, description=desc
+            )
 
     if key in RAISES_KEYWORDS:
         if len(args) == 2:

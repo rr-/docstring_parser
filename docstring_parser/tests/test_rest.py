@@ -413,3 +413,15 @@ def test_broken_meta() -> None:
 
     # these should not raise any errors
     parse(":sthstrange: desc")
+
+
+def test_deprecation() -> None:
+    docstring = parse(":deprecation: 1.1.0 this function will be removed")
+    assert docstring.deprecation is not None
+    assert docstring.deprecation.version == "1.1.0"
+    assert docstring.deprecation.description == "this function will be removed"
+
+    docstring = parse(":deprecation: this function will be removed")
+    assert docstring.deprecation is not None
+    assert docstring.deprecation.version is None
+    assert docstring.deprecation.description == "this function will be removed"

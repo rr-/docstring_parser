@@ -12,6 +12,7 @@ PARAM_KEYWORDS = {
     "keyword",
 }
 RAISES_KEYWORDS = {"raises", "raise", "except", "exception"}
+DEPRECATION_KEYWORDS = {"deprecation", "deprecated"}
 RETURNS_KEYWORDS = {"return", "returns"}
 YIELDS_KEYWORDS = {"yield", "yields"}
 
