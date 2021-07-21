@@ -172,7 +172,7 @@ class RaisesSection(_KVSection):
 
 
 class ReturnsSection(_KVSection):
-    """Parser for numpydoc raises sections.
+    """Parser for numpydoc returns sections.
 
     E.g. any section that looks like this:
         return_name : type

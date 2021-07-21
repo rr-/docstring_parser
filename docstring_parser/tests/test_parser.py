@@ -44,6 +44,9 @@ def test_rest() -> None:
     assert docstring.returns is not None
     assert docstring.returns.type_name == "tuple"
     assert docstring.returns.description == "ret desc"
+    assert docstring.many_returns is not None
+    assert len(docstring.many_returns) == 1
+    assert docstring.many_returns[0] == docstring.returns
 
 
 def test_google() -> None:
@@ -92,6 +95,9 @@ def test_google() -> None:
     assert docstring.returns is not None
     assert docstring.returns.type_name == "tuple"
     assert docstring.returns.description == "ret desc"
+    assert docstring.many_returns is not None
+    assert len(docstring.many_returns) == 1
+    assert docstring.many_returns[0] == docstring.returns
 
 
 def test_numpydoc() -> None:
@@ -167,3 +173,6 @@ def test_numpydoc() -> None:
     assert docstring.returns is not None
     assert docstring.returns.type_name == "tuple"
     assert docstring.returns.description == "ret desc"
+    assert docstring.many_returns is not None
+    assert len(docstring.many_returns) == 1
+    assert docstring.many_returns[0] == docstring.returns
