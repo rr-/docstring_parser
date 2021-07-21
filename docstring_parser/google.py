@@ -246,7 +246,7 @@ class GoogleParser:
         # Add elements from each chunk
         for title, chunk in chunks.items():
             # Determine indent
-            indent_match = re.search(r"^\s+", chunk)
+            indent_match = re.search(r"^\s*", chunk)
             if not indent_match:
                 raise ParseError('Can\'t infer indent from "{}"'.format(chunk))
             indent = indent_match.group()

@@ -647,3 +647,19 @@ def test_broken_arguments() -> None:
                 param - poorly formatted
             """
         )
+
+
+def test_empty_example() -> None:
+    docstring = parse(
+        """Short description
+
+        Example:
+
+        Raises:
+            IOError: some error
+        """
+    )
+
+    assert len(docstring.meta) == 2
+    assert docstring.meta[0].args == ['examples']
+    assert docstring.meta[0].description == ""
