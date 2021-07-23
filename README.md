@@ -1,8 +1,8 @@
 docstring_parser
 ================
 
-Parse Python docstrings. Currently support ReST, Epydoc, Google, and
-Numpydoc-style docstrings.
+Parse Python docstrings. Currently support ReST, Google, Numpydoc-style and
+Epydoc docstrings.
 
 Example usage:
 
