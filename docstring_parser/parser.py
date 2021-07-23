@@ -1,12 +1,13 @@
 """The main parsing routine."""
 
-from docstring_parser import google, numpydoc, rest
+from docstring_parser import epydoc, google, numpydoc, rest
 from docstring_parser.common import Docstring, DocstringStyle, ParseError
 
 STYLES = {
     DocstringStyle.rest: rest.parse,
     DocstringStyle.google: google.parse,
     DocstringStyle.numpydoc: numpydoc.parse,
+    DocstringStyle.epydoc: epydoc.parse,
 }
 
 

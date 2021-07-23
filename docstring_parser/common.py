@@ -27,6 +27,7 @@ class DocstringStyle(enum.Enum):
     rest = 1
     google = 2
     numpydoc = 3
+    epydoc = 4
     auto = 255
 
 
