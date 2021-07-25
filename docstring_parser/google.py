@@ -18,6 +18,7 @@ from .common import (
     DocstringReturns,
     DocstringStyle,
     ParseError,
+    RenderingStyle,
 )
 
 
@@ -284,3 +285,118 @@ def parse(text: str) -> Docstring:
     :returns: parsed docstring
     """
     return GoogleParser().parse(text)
+
+
+def compose(
+    docstring: Docstring,
+    rendering_style: RenderingStyle = RenderingStyle.compact,
+    indent: str = "    ",
+) -> str:
+    """Render a parsed docstring into docstring text.
+
+    :param docstring: parsed docstring representation
+    :param rendering_style: the style to render docstrings
+    :param indent: the characters used as indentation in the docstring string
+    :returns: docstring text
+    """
+
+    def process_one(
+        one: T.Union[DocstringParam, DocstringReturns, DocstringRaises]
+    ):
+        head = ""
+
+        if isinstance(one, DocstringParam):
+            head += one.arg_name or ""
+        elif isinstance(one, DocstringReturns):
+            head += one.return_name or ""
+
+        if isinstance(one, DocstringParam) and one.is_optional:
+            optional = (
+                "?"
+                if rendering_style == RenderingStyle.compact
+                else ", optional"
+            )
+        else:
+            optional = ""
+
+        if one.type_name and head:
+            head += f" ({one.type_name}{optional}):"
+        elif one.type_name:
+            head += f"{one.type_name}{optional}:"
+        else:
+            head += ":"
+        head = indent + head
+
+        if one.description and rendering_style == RenderingStyle.expanded:
+            body = f"\n{indent}{indent}".join(
+                [head] + one.description.splitlines()
+            )
+            parts.append(body)
+        elif one.description:
+            (first, *rest) = one.description.splitlines()
+            body = f"\n{indent}{indent}".join([head + " " + first] + rest)
+            parts.append(body)
+        else:
+            parts.append(head)
+
+    def process_sect(name: str, args: T.List[T.Any]):
+        if args:
+            parts.append(name)
+            for arg in args:
+                process_one(arg)
+            parts.append("")
+
+    parts: T.List[str] = []
+    if docstring.short_description:
+        parts.append(docstring.short_description)
+    if docstring.blank_after_short_description:
+        parts.append("")
+
+    if docstring.long_description:
+        parts.append(docstring.long_description)
+    if docstring.blank_after_long_description:
+        parts.append("")
+
+    process_sect(
+        "Args:", [p for p in docstring.params or [] if p.args[0] == "param"]
+    )
+
+    process_sect(
+        "Attributes:",
+        [p for p in docstring.params or [] if p.args[0] == "attribute"],
+    )
+
+    process_sect(
+        "Returns:",
+        [p for p in docstring.many_returns or [] if not p.is_generator],
+    )
+
+    process_sect(
+        "Yields:", [p for p in docstring.many_returns or [] if p.is_generator]
+    )
+
+    process_sect("Raises:", [p for p in docstring.raises or []])
+
+    if docstring.returns and not docstring.many_returns:
+        ret = docstring.returns
+        parts.append("Yields:" if ret else "Returns:")
+        parts.append("-" * len(parts[-1]))
+        process_one(ret)
+
+    for meta in docstring.meta:
+        if isinstance(
+            meta, (DocstringParam, DocstringReturns, DocstringRaises)
+        ):
+            continue  # Already handled
+        parts.append(meta.args[0].replace("_", "").title() + ":")
+        if meta.description:
+            lines = [indent + l for l in meta.description.splitlines()]
+            parts.append("\n".join(lines))
+        parts.append("")
+
+    if parts and not parts[-1]:
+        return "\n".join(
+            parts[:-1]
+        )  # Don't end the docstring in an empty line
+    else:
+        return "\n".join(parts)

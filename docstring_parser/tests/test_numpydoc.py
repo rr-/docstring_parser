@@ -1,7 +1,9 @@
 import typing as T
 
 import pytest
-from docstring_parser.numpydoc import parse
+
+from docstring_parser.common import RenderingStyle
+from docstring_parser.numpydoc import parse, compose
 
 
 @pytest.mark.parametrize(
@@ -696,3 +698,184 @@ def test_deprecation(
     assert docstring.deprecation is not None
     assert docstring.deprecation.version == expected_depr_version
     assert docstring.deprecation.description == expected_depr_desc
+
+
+@pytest.mark.parametrize(
+    "source, expected",
+    [
+        ("", ""),
+        ("\n", ""),
+        ("Short description", "Short description"),
+        ("\nShort description\n", "Short description"),
+        ("\n   Short description\n", "Short description"),
+        (
+            "Short description\n\nLong description",
+            "Short description\n\nLong description",
+        ),
+        (
+            """
+            Short description
+
+            Long description
+            """,
+            "Short description\n\nLong description",
+        ),
+        (
+            """
+            Short description
+
+            Long description
+            Second line
+            """,
+            "Short description\n\nLong description\nSecond line",
+        ),
+        (
+            "Short description\nLong description",
+            "Short description\nLong description",
+        ),
+        (
+            """
+            Short description
+            Long description
+            """,
+            "Short description\nLong description",
+        ),
+        (
+            "\nShort description\nLong description\n",
+            "Short description\nLong description",
+        ),
+        (
+            """
+            Short description
+            Long description
+            Second line
+            """,
+            "Short description\nLong description\nSecond line",
+        ),
+        (
+            """
+            Short description
+            Meta:
+            -----
+                asd
+            """,
+            "Short description\nMeta:\n-----\n    asd",
+        ),
+        (
+            """
+            Short description
+            Long description
+            Meta:
+            -----
+                asd
+            """,
+            "Short description\nLong description\nMeta:\n-----\n    asd",
+        ),
+        (
+            """
+            Short description
+            First line
+                Second line
+            Meta:
+            -----
+                asd
+            """,
+            "Short description\nFirst line\n    Second line\nMeta:\n-----\n    asd",
+        ),
+        (
+            """
+            Short description
+ 
+            First line
+                Second line
+            Meta:
+            -----
+                asd
+            """,
+            "Short description\n\nFirst line\n    Second line\nMeta:\n-----\n    asd",
+        ),
+        (
+            """
+            Short description
+ 
+            First line
+                Second line
+ 
+            Meta:
+            -----
+                asd
+            """,
+            "Short description\n\nFirst line\n    Second line\n\nMeta:\n-----\n    asd",
+        ),
+        (
+            """
+            Short description
+ 
+            Meta:
+            -----
+                asd
+                    1
+                        2
+                    3
+            """,
+            "Short description\n\nMeta:\n-----\n    asd\n        1\n            2\n        3",
+        ),
+        (
+            """
+            Short description
+ 
+            Meta1:
+            ------
+                asd
+                1
+                    2
+                3
+            Meta2:
+            ------
+                herp
+            Meta3:
+            ------
+                derp
+            """,
+            "Short description\n\nMeta1:\n------\n    asd\n    1\n        2\n    3\nMeta2:\n------\n    herp\nMeta3:\n------\n    derp",
+        ),
+        (
+            """
+            Short description
+ 
+            Parameters:
+            -----------
+                name
+                    description 1
+                priority: int
+                    description 2
+                sender: str, optional
+                    description 3
+                message: str, optional
+                    description 4, defaults to 'hello'
+                multiline: str, optional
+                    long description 5,
+                        defaults to 'bye'
+            """,
+            "Short description\n\nParameters:\n-----------\n"
+            "    name\n        description 1\n"
+            "    priority: int\n        description 2\n"
+            "    sender: str, optional\n        description 3\n"
+            "    message: str, optional\n        description 4, defaults to 'hello'\n"
+            "    multiline: str, optional\n        long description 5,\n"
+            "            defaults to 'bye'",
+        ),
+        (
+            """
+            Short description
+            Raises:
+            -------
+                ValueError
+                    description
+            """,
+            "Short description\nRaises:\n-------\n    ValueError\n        description",
+        ),
+    ],
+)
+def test_compose(source: str, expected: str) -> None:
+    assert compose(parse(source)) == expected

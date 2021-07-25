@@ -31,6 +31,14 @@ class DocstringStyle(enum.Enum):
     auto = 255
 
 
+class RenderingStyle(enum.Enum):
+    """Rendering style when unparsing parsed docstrings."""
+
+    compact = 1
+    clean = 2
+    expanded = 3
+
+
 class DocstringMeta:
     """Docstring meta information.
 
@@ -40,7 +48,9 @@ class DocstringMeta:
         :raises ValueError: if something happens
     """
 
-    def __init__(self, args: T.List[str], description: str) -> None:
+    def __init__(
+        self, args: T.List[str], description: T.Optional[str]
+    ) -> None:
         """Initialize self.
 
         :param args: list of arguments. The exact content of this variable is
