@@ -1,8 +1,8 @@
 import typing as T
 
 import pytest
-from docstring_parser.common import ParseError, DocstringStyle
-from docstring_parser.epydoc import parse
+from docstring_parser.common import ParseError, RenderingStyle
+from docstring_parser.epydoc import parse, unparse
 
 
 @pytest.mark.parametrize(
@@ -403,3 +403,262 @@ def test_broken_meta() -> None:
 
     # these should not raise any errors
     parse("@sthstrange: desc")
+
+
+@pytest.mark.parametrize(
+    "source, expected",
+    [
+        ("", ""),
+        ("\n", ""),
+        ("Short description", "Short description"),
+        ("\nShort description\n", "Short description"),
+        ("\n   Short description\n", "Short description"),
+        (
+            "Short description\n\nLong description",
+            "Short description\n\nLong description",
+        ),
+        (
+            """
+            Short description
+
+            Long description
+            """,
+            "Short description\n\nLong description",
+        ),
+        (
+            """
+            Short description
+
+            Long description
+            Second line
+            """,
+            "Short description\n\nLong description\nSecond line",
+        ),
+        (
+            "Short description\nLong description",
+            "Short description\nLong description",
+        ),
+        (
+            """
+            Short description
+            Long description
+            """,
+            "Short description\nLong description",
+        ),
+        (
+            "\nShort description\nLong description\n",
+            "Short description\nLong description",
+        ),
+        (
+            """
+            Short description
+            Long description
+            Second line
+            """,
+            "Short description\nLong description\nSecond line",
+        ),
+        (
+            """
+            Short description
+            @meta: asd
+            """,
+            "Short description\n@meta: asd",
+        ),
+        (
+            """
+            Short description
+            Long description
+            @meta: asd
+            """,
+            "Short description\nLong description\n@meta: asd",
+        ),
+        (
+            """
+            Short description
+            First line
+                Second line
+            @meta: asd
+            """,
+            "Short description\nFirst line\n    Second line\n@meta: asd",
+        ),
+        (
+            """
+            Short description
+
+            First line
+                Second line
+            @meta: asd
+            """,
+            "Short description\n\nFirst line\n    Second line\n@meta: asd",
+        ),
+        (
+            """
+            Short description
+
+            First line
+                Second line
+
+            @meta: asd
+            """,
+            "Short description\n\nFirst line\n    Second line\n\n@meta: asd",
+        ),
+        (
+            """
+            @meta: asd
+            """,
+            "@meta: asd",
+        ),
+        (
+            """
+            Short description
+
+            @meta: asd
+                1
+                    2
+                3
+            """,
+            "Short description\n\n@meta: asd\n    1\n        2\n    3",
+        ),
+        (
+            """
+            Short description
+
+            @meta1: asd
+                1
+                    2
+                3
+            @meta2: herp
+            @meta3: derp
+            """,
+            "Short description\n\n@meta1: asd\n    1\n        2\n    3\n@meta2: herp\n@meta3: derp",
+        ),
+        (
+            """
+            Short description
+
+            @meta ene due rabe: asd
+            """,
+            "Short description\n\n@meta ene due rabe: asd",
+        ),
+        (
+            """
+            Short description
+
+            @param name: description 1
+            @param priority: description 2
+            @type priority: int
+            @param sender: description 3
+            @type sender: str? 
+            @type message: str?
+            @param message: description 4, defaults to 'hello'
+            @type multiline: str?
+            @param multiline: long description 5,
+                defaults to 'bye'
+            """,
+            "Short description\n\n@param name: description 1\n"
+            "@type priority: int\n"
+            "@param priority: description 2\n"
+            "@type sender: str?\n"
+            "@param sender: description 3\n"
+            "@type message: str?\n"
+            "@param message: description 4, defaults to 'hello'\n"
+            "@type multiline: str?\n"
+            "@param multiline: long description 5,\n"
+            "    defaults to 'bye'",
+        ),
+        (
+            """
+            Short description
+            @raise: description
+            """,
+            "Short description\n@raise: description",
+        ),
+        (
+            """
+            Short description
+            @raise ValueError: description
+            """,
+            "Short description\n@raise ValueError: description",
+        ),
+    ],
+)
+def test_unparse(source: str, expected: str) -> None:
+    assert unparse(parse(source)) == expected
+
+
+@pytest.mark.parametrize(
+    "source, expected",
+    [
+        (
+            """
+            Short description
+
+            @param name: description 1
+            @param priority: description 2
+            @type priority: int
+            @param sender: description 3
+            @type sender: str? 
+            @type message: str?
+            @param message: description 4, defaults to 'hello'
+            @type multiline: str?
+            @param multiline: long description 5,
+                defaults to 'bye'
+            """,
+            "Short description\n\n@param name:\n    description 1\n"
+            "@type priority: int\n"
+            "@param priority:\n    description 2\n"
+            "@type sender: str?\n"
+            "@param sender:\n    description 3\n"
+            "@type message: str?\n"
+            "@param message:\n    description 4, defaults to 'hello'\n"
+            "@type multiline: str?\n"
+            "@param multiline:\n"
+            "    long description 5,\n"
+            "    defaults to 'bye'",
+        ),
+    ],
+)
+def test_unparse_clean(source: str, expected: str) -> None:
+    assert (
+        unparse(parse(source), rendering_style=RenderingStyle.clean)
+        == expected
+    )
+
+
+@pytest.mark.parametrize(
+    "source, expected",
+    [
+        (
+            """
+            Short description
+
+            @param name: description 1
+            @param priority: description 2
+            @type priority: int
+            @param sender: description 3
+            @type sender: str? 
+            @type message: str?
+            @param message: description 4, defaults to 'hello'
+            @type multiline: str?
+            @param multiline: long description 5,
+                defaults to 'bye'
+            """,
+            "Short description\n\n@param name:\n    description 1\n"
+            "@type priority:\n    int\n"
+            "@param priority:\n    description 2\n"
+            "@type sender:\n    str?\n"
+            "@param sender:\n    description 3\n"
+            "@type message:\n    str?\n"
+            "@param message:\n    description 4, defaults to 'hello'\n"
+            "@type multiline:\n    str?\n"
+            "@param multiline:\n"
+            "    long description 5,\n"
+            "    defaults to 'bye'",
+        ),
+    ],
+)
+def test_unparse_expanded(source: str, expected: str) -> None:
+    assert (
+        unparse(parse(source), rendering_style=RenderingStyle.expanded)
+        == expected
+    )

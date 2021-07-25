@@ -1,13 +1,18 @@
 """The main parsing routine."""
 
 from docstring_parser import epydoc, google, numpydoc, rest
-from docstring_parser.common import Docstring, DocstringStyle, ParseError
+from docstring_parser.common import (
+    Docstring,
+    DocstringStyle,
+    ParseError,
+    RenderingStyle,
+)
 
 STYLES = {
-    DocstringStyle.rest: rest.parse,
-    DocstringStyle.google: google.parse,
-    DocstringStyle.numpydoc: numpydoc.parse,
-    DocstringStyle.epydoc: epydoc.parse,
+    DocstringStyle.rest: rest,
+    DocstringStyle.google: google,
+    DocstringStyle.numpydoc: numpydoc,
+    DocstringStyle.epydoc: epydoc,
 }
 
 
@@ -19,12 +24,12 @@ def parse(text: str, style: DocstringStyle = DocstringStyle.auto) -> Docstring:
     :returns: parsed docstring representation
     """
     if style != DocstringStyle.auto:
-        return STYLES[style](text)
+        return STYLES[style].parse(text)
 
     rets = []
-    for parse_ in STYLES.values():
+    for module in STYLES.values():
         try:
-            rets.append(parse_(text))
+            rets.append(module.parse(text))
         except ParseError as e:
             exc = e
 
@@ -32,3 +37,26 @@ def parse(text: str, style: DocstringStyle = DocstringStyle.auto) -> Docstring:
         raise exc
 
     return sorted(rets, key=lambda d: len(d.meta), reverse=True)[0]
+
+
+def unparse(
+    docstring: Docstring,
+    style: DocstringStyle = DocstringStyle.auto,
+    rendering_style: RenderingStyle = RenderingStyle.compact,
+    indent: str = "    ",
+) -> str:
+    """Render a parsed docstring into docstring text.
+
+    :param docstring: parsed docstring representation
+    :param style: docstring style to render (default renders style of `docstring`)
+    :param indent: the characters used as indentation in the docstring string
+    :returns: docstring text
+    """
+    if style != DocstringStyle.auto:
+        return STYLES[style].unparse(
+            docstring, rendering_style=rendering_style, indent=indent
+        )
+    else:
+        return STYLES[docstring.style].unparse(
+            docstring, rendering_style=rendering_style, indent=indent
+        )

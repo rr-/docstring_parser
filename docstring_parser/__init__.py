@@ -11,10 +11,11 @@ from .common import (
 from .common import DocstringStyle  # backwards compatibility
 from .common import DocstringStyle as Style
 from .common import ParseError
-from .parser import parse
+from .parser import parse, unparse
 
 __all__ = [
     "parse",
+    "unparse",
     "ParseError",
     "Docstring",
     "DocstringMeta",
