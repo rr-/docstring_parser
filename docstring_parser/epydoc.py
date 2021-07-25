@@ -6,8 +6,6 @@ import inspect
 import re
 import typing as T
 
-from _pytest.compat import is_generator
-
 from .common import (
     Docstring,
     DocstringMeta,
@@ -50,14 +48,18 @@ def parse(text: str) -> Docstring:
         ret.blank_after_short_description = long_desc_chunk.startswith("\n")
         ret.blank_after_long_description = long_desc_chunk.endswith("\n\n")
         ret.long_description = long_desc_chunk.strip() or None
-    
-    param_pattern = re.compile(r'(param|keyword|type)(\s+[_A-z][_A-z0-9]*\??):')
-    raise_pattern = re.compile(r'(raise)(\s+[_A-z][_A-z0-9]*\??)?:')
-    return_pattern = re.compile(r'(return|rtype|yield|ytype):')
-    meta_pattern = re.compile(r'([_A-z][_A-z0-9]+)((\s+[_A-z][_A-z0-9]*\??)*):')
+
+    param_pattern = re.compile(
+        r"(param|keyword|type)(\s+[_A-z][_A-z0-9]*\??):"
+    )
+    raise_pattern = re.compile(r"(raise)(\s+[_A-z][_A-z0-9]*\??)?:")
+    return_pattern = re.compile(r"(return|rtype|yield|ytype):")
+    meta_pattern = re.compile(
+        r"([_A-z][_A-z0-9]+)((\s+[_A-z][_A-z0-9]*\??)*):"
+    )
 
     # tokenize
-    stream = []
+    stream: T.List[T.Tuple[str, str, T.List[str], str]] = []
     for match in re.finditer(
         r"(^@.*?)(?=^@|\Z)", meta_chunk, flags=re.S | re.M
     ):
@@ -75,67 +77,73 @@ def parse(text: str) -> Docstring:
             raise ParseError(
                 'Error parsing meta information near "{}".'.format(chunk)
             )
-        
-        desc_chunk = chunk[match.end():]
+
+        desc_chunk = chunk[match.end() :]
         if param_match:
-            base = 'param'
-            key  = match.group(1)
-            args = match.group(2).strip()
+            base = "param"
+            key: str = match.group(1)
+            args = [match.group(2).strip()]
         elif raise_match:
-            base = 'raise'
-            key  = match.group(1)
-            args = None if match.group(2) is None else match.group(2).strip()
+            base = "raise"
+            key: str = match.group(1)
+            args = [] if match.group(2) is None else [match.group(2).strip()]
         elif return_match:
-            base = 'return'
-            key  = match.group(1)
-            args = None
+            base = "return"
+            key: str = match.group(1)
+            args = []
         else:
-            base = 'meta'
-            key  = match.group(1)
-            args = (None if _clean_str(match.group(2).strip()) is None else
-                    re.split('\s+', _clean_str(match.group(2).strip())))
+            base = "meta"
+            key: str = match.group(1)
+            token = _clean_str(match.group(2).strip())
+            args = [] if token is None else re.split(r"\s+", token)
 
             # Make sure we didn't match some existing keyword in an incorrect
             # way here:
-            if key in ['param', 'keyword', 'type', 'return', 'rtype', 'yield', 'ytype']:
+            if key in [
+                "param",
+                "keyword",
+                "type",
+                "return",
+                "rtype",
+                "yield",
+                "ytype",
+            ]:
                 raise ParseError(
                     'Error parsing meta information near "{}".'.format(chunk)
                 )
-
 
         desc = desc_chunk.strip()
         if "\n" in desc:
             first_line, rest = desc.split("\n", 1)
             desc = first_line + "\n" + inspect.cleandoc(rest)
         stream.append((base, key, args, desc))
-    
+
     # Combine type_name, arg_name, and description information
-    params = {}
-    for (base, key, arg_name, desc) in stream:
-        if base not in ['param', 'return']:
+    params: T.Dict[str, T.Dict[str, T.Any]] = {}
+    for (base, key, args, desc) in stream:
+        if base not in ["param", "return"]:
             continue  # nothing to do
 
+        (arg_name,) = args or ("return",)
         info = params.setdefault(arg_name, {})
-        info_key = 'type_name' if 'type' in key else 'description'
-        info[info_key] = _clean_str(desc)
+        info_key = "type_name" if "type" in key else "description"
+        info[info_key] = desc
 
-        if base == 'return':
-            is_generator = key == 'ytype' or key == 'yield'
-            if info.setdefault('is_generator', is_generator) != is_generator:
+        if base == "return":
+            is_generator = key == "ytype" or key == "yield"
+            if info.setdefault("is_generator", is_generator) != is_generator:
                 raise ParseError(
                     'Error parsing meta information for "{}".'.format(arg_name)
                 )
 
-
-    is_done = {}
+    is_done: T.Dict[str, bool] = {}
     for (base, key, args, desc) in stream:
-        if base == 'param' and not is_done.get(args, False):
-            arg_name = args
-
+        if base == "param" and not is_done.get(args[0], False):
+            (arg_name,) = args
             info = params[arg_name]
-            type_name = info.get('type_name')
+            type_name = info.get("type_name")
 
-            if type_name and type_name.endswith('?'):
+            if type_name and type_name.endswith("?"):
                 is_optional = True
                 type_name = type_name[:-1]
             else:
@@ -146,34 +154,37 @@ def parse(text: str) -> Docstring:
 
             r = DocstringParam(
                 args=[key, arg_name],
-                description=info['description'],
+                description=info["description"],
                 arg_name=arg_name,
                 type_name=type_name,
                 is_optional=is_optional,
-                default=default
+                default=default,
             )
-            is_done[args] = True
-        elif base == 'return' and not is_done.get(args, False):
+            is_done[arg_name] = True
+        elif base == "return" and not is_done.get("return", False):
+            info = params["return"]
             r = DocstringReturns(
                 args=[key],
-                description=params[args]['description'],
-                type_name=params[args].get('type_name'),
-                is_generator=params[args].get('is_generator', False),
+                description=info["description"],
+                type_name=info.get("type_name"),
+                is_generator=info.get("is_generator", False),
             )
-            is_done[args] = True
-        elif base == 'raise':
+            is_done["return"] = True
+        elif base == "raise":
+            (type_name,) = args or (None,)
             r = DocstringRaises(
-                args=[key, args] if args else [key],
+                args=[key] + args,
                 description=desc,
-                type_name=args,
+                type_name=type_name,
             )
-        elif base == 'meta':
+        elif base == "meta":
             r = DocstringMeta(
-                args=[key] + args if args else [key],
+                args=[key] + args,
                 description=desc,
             )
         else:
-            assert is_done.get(args, False)
+            (key, *_) = args or ("return",)
+            assert is_done.get(key, False)
             continue  # don't append
 
         ret.meta.append(r)
