@@ -1,3 +1,4 @@
+"""Tests for ReST-style docstring routines."""
 import typing as T
 
 import pytest
@@ -16,6 +17,7 @@ from docstring_parser.rest import parse
     ],
 )
 def test_short_description(source: str, expected: str) -> None:
+    """Test parsing short description."""
     docstring = parse(source)
     assert docstring.short_description == expected
     assert docstring.long_description is None
@@ -91,6 +93,7 @@ def test_long_description(
     expected_long_desc: str,
     expected_blank: bool,
 ) -> None:
+    """Test parsing long description."""
     docstring = parse(source)
     assert docstring.short_description == expected_short_desc
     assert docstring.long_description == expected_long_desc
@@ -180,6 +183,7 @@ def test_meta_newlines(
     expected_blank_short_desc: bool,
     expected_blank_long_desc: bool,
 ) -> None:
+    """Test parsing newlines around description sections."""
     docstring = parse(source)
     assert docstring.short_description == expected_short_desc
     assert docstring.long_description == expected_long_desc
@@ -189,6 +193,7 @@ def test_meta_newlines(
 
 
 def test_meta_with_multiline_description() -> None:
+    """Test parsing multiline meta documentation."""
     docstring = parse(
         """
         Short description
@@ -206,6 +211,7 @@ def test_meta_with_multiline_description() -> None:
 
 
 def test_multiple_meta() -> None:
+    """Test parsing multiple meta."""
     docstring = parse(
         """
         Short description
@@ -229,6 +235,7 @@ def test_multiple_meta() -> None:
 
 
 def test_meta_with_args() -> None:
+    """Test parsing meta with additional arguments."""
     docstring = parse(
         """
         Short description
@@ -243,6 +250,7 @@ def test_meta_with_args() -> None:
 
 
 def test_params() -> None:
+    """Test parsing params."""
     docstring = parse("Short description")
     assert len(docstring.params) == 0
 
@@ -292,6 +300,7 @@ def test_params() -> None:
 
 
 def test_returns() -> None:
+    """Test parsing returns."""
     docstring = parse(
         """
         Short description
@@ -331,6 +340,7 @@ def test_returns() -> None:
 
 
 def test_yields() -> None:
+    """Test parsing yields."""
     docstring = parse(
         """
         Short description
@@ -370,6 +380,7 @@ def test_yields() -> None:
 
 
 def test_raises() -> None:
+    """Test parsing raises."""
     docstring = parse(
         """
         Short description
@@ -399,6 +410,7 @@ def test_raises() -> None:
 
 
 def test_broken_meta() -> None:
+    """Test parsing broken meta."""
     with pytest.raises(ParseError):
         parse(":")
 
@@ -416,6 +428,7 @@ def test_broken_meta() -> None:
 
 
 def test_deprecation() -> None:
+    """Test parsing deprecation notes."""
     docstring = parse(":deprecation: 1.1.0 this function will be removed")
     assert docstring.deprecation is not None
     assert docstring.deprecation.version == "1.1.0"

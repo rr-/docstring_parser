@@ -1,3 +1,4 @@
+"""Tests for Google-style docstring routines."""
 import typing as T
 
 import pytest
@@ -11,9 +12,12 @@ from docstring_parser.google import (
 )
 
 
-def test_google_parser():
+def test_google_parser_unknown_section() -> None:
+    """Test parsing an unknown section with default GoogleParser
+    configuration.
+    """
     parser = GoogleParser()
-    docstring = parse(
+    docstring = parser.parse(
         """
         Unknown:
             spam: a
@@ -23,6 +27,11 @@ def test_google_parser():
     assert docstring.long_description == "spam: a"
     assert len(docstring.meta) == 0
 
+
+def test_google_parser_custom_sections() -> None:
+    """Test parsing an unknown section with custom GoogleParser
+    configuration.
+    """
     parser = GoogleParser(
         [
             Section("DESCRIPTION", "desc", SectionType.SINGULAR),
@@ -67,6 +76,12 @@ def test_google_parser():
     assert docstring.meta[5].args == ["examples"]
     assert docstring.meta[5].description == "Many examples\nMore examples"
 
+
+def test_google_parser_custom_sections_after() -> None:
+    """Test parsing an unknown section with custom GoogleParser configuration
+    that was set at a runtime.
+    """
+    parser = GoogleParser(title_colon=False)
     parser.add_section(Section("Note", "note", SectionType.SINGULAR))
     docstring = parser.parse(
         """
@@ -113,6 +128,7 @@ def test_google_parser():
     ],
 )
 def test_short_description(source: str, expected: str) -> None:
+    """Test parsing short description."""
     docstring = parse(source)
     assert docstring.short_description == expected
     assert docstring.long_description is None
@@ -188,6 +204,7 @@ def test_long_description(
     expected_long_desc: str,
     expected_blank: bool,
 ) -> None:
+    """Test parsing long description."""
     docstring = parse(source)
     assert docstring.short_description == expected_short_desc
     assert docstring.long_description == expected_long_desc
@@ -283,6 +300,7 @@ def test_meta_newlines(
     expected_blank_short_desc: bool,
     expected_blank_long_desc: bool,
 ) -> None:
+    """Test parsing newlines around description sections."""
     docstring = parse(source)
     assert docstring.short_description == expected_short_desc
     assert docstring.long_description == expected_long_desc
@@ -292,6 +310,7 @@ def test_meta_newlines(
 
 
 def test_meta_with_multiline_description() -> None:
+    """Test parsing multiline meta documentation."""
     docstring = parse(
         """
         Short description
@@ -311,21 +330,22 @@ def test_meta_with_multiline_description() -> None:
 
 
 def test_default_args():
+    """Test parsing default arguments."""
     docstring = parse(
         """A sample function
 
-    A function the demonstrates docstrings
+A function the demonstrates docstrings
 
-    Args:
-        arg1 (int): The firsty arg
-        arg2 (str): The second arg
-        arg3 (float, optional): The third arg. Defaults to 1.0.
-        arg4 (Optional[Dict[str, Any]], optional): The fourth arg. Defaults to None.
-        arg5 (str, optional): The fifth arg. Defaults to DEFAULT_ARG5.
+Args:
+    arg1 (int): The firsty arg
+    arg2 (str): The second arg
+    arg3 (float, optional): The third arg. Defaults to 1.0.
+    arg4 (Optional[Dict[str, Any]], optional): The last arg. Defaults to None.
+    arg5 (str, optional): The fifth arg. Defaults to DEFAULT_ARG5.
 
-    Returns:
-        Mapping[str, Any]: The args packed in a mapping
-    """
+Returns:
+    Mapping[str, Any]: The args packed in a mapping
+"""
     )
     assert docstring is not None
     assert len(docstring.params) == 5
@@ -335,10 +355,11 @@ def test_default_args():
     assert arg4.is_optional
     assert arg4.type_name == "Optional[Dict[str, Any]]"
     assert arg4.default == "None"
-    assert arg4.description == "The fourth arg. Defaults to None."
+    assert arg4.description == "The last arg. Defaults to None."
 
 
 def test_multiple_meta() -> None:
+    """Test parsing multiple meta."""
     docstring = parse(
         """
         Short description
@@ -368,6 +389,7 @@ def test_multiple_meta() -> None:
 
 
 def test_params() -> None:
+    """Test parsing params."""
     docstring = parse("Short description")
     assert len(docstring.params) == 0
 
@@ -414,7 +436,7 @@ def test_params() -> None:
     assert docstring.params[0].arg_name == "name"
     assert docstring.params[0].type_name is None
     assert docstring.params[0].description == (
-        "description 1\n" "with multi-line text"
+        "description 1\nwith multi-line text"
     )
     assert docstring.params[1].arg_name == "priority"
     assert docstring.params[1].type_name == "int"
@@ -422,6 +444,7 @@ def test_params() -> None:
 
 
 def test_attributes() -> None:
+    """Test parsing attributes."""
     docstring = parse("Short description")
     assert len(docstring.params) == 0
 
@@ -468,7 +491,7 @@ def test_attributes() -> None:
     assert docstring.params[0].arg_name == "name"
     assert docstring.params[0].type_name is None
     assert docstring.params[0].description == (
-        "description 1\n" "with multi-line text"
+        "description 1\nwith multi-line text"
     )
     assert docstring.params[1].arg_name == "priority"
     assert docstring.params[1].type_name == "int"
@@ -476,6 +499,7 @@ def test_attributes() -> None:
 
 
 def test_returns() -> None:
+    """Test parsing returns."""
     docstring = parse(
         """
         Short description
@@ -567,7 +591,7 @@ def test_returns() -> None:
     assert docstring.returns is not None
     assert docstring.returns.type_name == "int"
     assert docstring.returns.description == (
-        "description\n" "with much text\n\n" "even some spacing"
+        "description\nwith much text\n\neven some spacing"
     )
     assert docstring.many_returns is not None
     assert len(docstring.many_returns) == 1
@@ -575,6 +599,7 @@ def test_returns() -> None:
 
 
 def test_raises() -> None:
+    """Test parsing raises."""
     docstring = parse(
         """
         Short description
@@ -595,6 +620,7 @@ def test_raises() -> None:
 
 
 def test_examples() -> None:
+    """Test parsing examples."""
     docstring = parse(
         """
         Short description
@@ -612,6 +638,7 @@ def test_examples() -> None:
 
 
 def test_broken_meta() -> None:
+    """Test parsing broken meta."""
     with pytest.raises(ParseError):
         parse("Args:")
 
@@ -620,6 +647,7 @@ def test_broken_meta() -> None:
 
 
 def test_unknown_meta() -> None:
+    """Test parsing unknown meta."""
     docstring = parse(
         """Short desc
 
@@ -645,8 +673,9 @@ def test_unknown_meta() -> None:
 
 
 def test_broken_arguments() -> None:
+    """Test parsing broken arguments."""
     with pytest.raises(ParseError):
-        docstring = parse(
+        parse(
             """This is a test
 
             Args:
@@ -656,6 +685,7 @@ def test_broken_arguments() -> None:
 
 
 def test_empty_example() -> None:
+    """Test parsing empty examples section."""
     docstring = parse(
         """Short description
 
@@ -680,8 +710,8 @@ def test_empty_example() -> None:
         ("\nShort description\n", "Short description"),
         ("\n   Short description\n", "Short description"),
         (
-            "Short description\n" "\n" "Long description",
-            "Short description\n" "\n" "Long description",
+            "Short description\n\nLong description",
+            "Short description\n\nLong description",
         ),
         (
             """
@@ -689,7 +719,7 @@ def test_empty_example() -> None:
 
             Long description
             """,
-            "Short description\n" "\n" "Long description",
+            "Short description\n\nLong description",
         ),
         (
             """
@@ -698,18 +728,18 @@ def test_empty_example() -> None:
             Long description
             Second line
             """,
-            "Short description\n" "\n" "Long description\n" "Second line",
+            "Short description\n\nLong description\nSecond line",
         ),
         (
-            "Short description\n" "Long description",
-            "Short description\n" "Long description",
+            "Short description\nLong description",
+            "Short description\nLong description",
         ),
         (
             """
             Short description
             Long description
             """,
-            "Short description\n" "Long description",
+            "Short description\nLong description",
         ),
         (
             "\nShort description\nLong description\n",
@@ -721,7 +751,7 @@ def test_empty_example() -> None:
             Long description
             Second line
             """,
-            "Short description\n" "Long description\n" "Second line",
+            "Short description\nLong description\nSecond line",
         ),
         (
             """
@@ -729,7 +759,7 @@ def test_empty_example() -> None:
             Meta:
                 asd
             """,
-            "Short description\n" "Meta:\n" "    asd",
+            "Short description\nMeta:\n    asd",
         ),
         (
             """
@@ -738,7 +768,7 @@ def test_empty_example() -> None:
             Meta:
                 asd
             """,
-            "Short description\n" "Long description\n" "Meta:\n" "    asd",
+            "Short description\nLong description\nMeta:\n    asd",
         ),
         (
             """
@@ -757,7 +787,7 @@ def test_empty_example() -> None:
         (
             """
             Short description
- 
+
             First line
                 Second line
             Meta:
@@ -773,10 +803,10 @@ def test_empty_example() -> None:
         (
             """
             Short description
- 
+
             First line
                 Second line
- 
+
             Meta:
                 asd
             """,
@@ -791,7 +821,7 @@ def test_empty_example() -> None:
         (
             """
             Short description
- 
+
             Meta:
                 asd
                     1
@@ -809,7 +839,7 @@ def test_empty_example() -> None:
         (
             """
             Short description
- 
+
             Meta1:
                 asd
                 1
@@ -835,7 +865,7 @@ def test_empty_example() -> None:
         (
             """
             Short description
- 
+
             Args:
                 name: description 1
                 priority (int): description 2
@@ -861,11 +891,12 @@ def test_empty_example() -> None:
             Raises:
                 ValueError: description
             """,
-            "Short description\n" "Raises:\n" "    ValueError: description",
+            "Short description\nRaises:\n    ValueError: description",
         ),
     ],
 )
 def test_compose(source: str, expected: str) -> None:
+    """Test compose in default mode."""
     assert compose(parse(source)) == expected
 
 
@@ -875,7 +906,7 @@ def test_compose(source: str, expected: str) -> None:
         (
             """
             Short description
- 
+
             Args:
                 name: description 1
                 priority (int): description 2
@@ -897,9 +928,10 @@ def test_compose(source: str, expected: str) -> None:
         ),
     ],
 )
-def test_compose_compact(source: str, expected: str) -> None:
+def test_compose_clean(source: str, expected: str) -> None:
+    """Test compose in clean mode."""
     assert (
-        compose(parse(source), rendering_style=RenderingStyle.clean)
+        compose(parse(source), rendering_style=RenderingStyle.CLEAN)
         == expected
     )
 
@@ -910,7 +942,7 @@ def test_compose_compact(source: str, expected: str) -> None:
         (
             """
             Short description
- 
+
             Args:
                 name: description 1
                 priority (int): description 2
@@ -938,7 +970,8 @@ def test_compose_compact(source: str, expected: str) -> None:
     ],
 )
 def test_compose_expanded(source: str, expected: str) -> None:
+    """Test compose in expanded mode."""
     assert (
-        compose(parse(source), rendering_style=RenderingStyle.expanded)
+        compose(parse(source), rendering_style=RenderingStyle.EXPANDED)
         == expected
     )

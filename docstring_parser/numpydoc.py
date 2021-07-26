@@ -21,21 +21,20 @@ from .common import (
 
 
 def _pairwise(iterable: T.Iterable, end=None) -> T.Iterable:
-    a, b = itertools.tee(iterable)
-    next(b, None)
-    return itertools.zip_longest(a, b, fillvalue=end)
+    left, right = itertools.tee(iterable)
+    next(right, None)
+    return itertools.zip_longest(left, right, fillvalue=end)
 
 
 def _clean_str(string: str) -> T.Optional[str]:
     string = string.strip()
     if len(string) > 0:
         return string
+    return None
 
 
 KV_REGEX = re.compile(r"^[^\s].*$", flags=re.M)
-
 PARAM_KEY_REGEX = re.compile(r"^(?P<name>.*?)(?:\s*:\s*(?P<type>.*?))?$")
-
 PARAM_OPTIONAL_REGEX = re.compile(r"(?P<type>.*?)(?:, optional|\(optional\))$")
 
 # numpydoc format has no formal grammar for this,
@@ -128,10 +127,11 @@ class ParamSection(_KVSection):
     """
 
     def _parse_item(self, key: str, value: str) -> DocstringParam:
-        m = PARAM_KEY_REGEX.match(key)
+        match = PARAM_KEY_REGEX.match(key)
         arg_name = type_name = is_optional = None
-        if m is not None:
-            arg_name, type_name = m.group("name"), m.group("type")
+        if match is not None:
+            arg_name = match.group("name")
+            type_name = match.group("type")
             if type_name is not None:
                 optional_match = PARAM_OPTIONAL_REGEX.match(type_name)
                 if optional_match is not None:
@@ -185,11 +185,13 @@ class ReturnsSection(_KVSection):
     is_generator = False
 
     def _parse_item(self, key: str, value: str) -> DocstringReturns:
-        m = RETURN_KEY_REGEX.match(key)
-        if m is not None:
-            return_name, type_name = m.group("name"), m.group("type")
+        match = RETURN_KEY_REGEX.match(key)
+        if match is not None:
+            return_name = match.group("name")
+            type_name = match.group("type")
         else:
-            return_name = type_name = None
+            return_name = None
+            type_name = None
 
         return DocstringReturns(
             args=[self.key],
@@ -256,6 +258,8 @@ DEFAULT_SECTIONS = [
 
 
 class NumpydocParser:
+    """Parser for numpydoc-style docstrings."""
+
     def __init__(self, sections: T.Optional[T.Dict[str, Section]] = None):
         """Setup sections.
 
@@ -285,7 +289,7 @@ class NumpydocParser:
 
         :returns: parsed docstring
         """
-        ret = Docstring(style=DocstringStyle.numpydoc)
+        ret = Docstring(style=DocstringStyle.NUMPYDOC)
         if not text:
             return ret
 
@@ -334,8 +338,9 @@ def parse(text: str) -> Docstring:
 
 
 def compose(
+    # pylint: disable=W0613
     docstring: Docstring,
-    rendering_style: RenderingStyle = RenderingStyle.compact,
+    rendering_style: RenderingStyle = RenderingStyle.COMPACT,
     indent: str = "    ",
 ) -> str:
     """Render a parsed docstring into docstring text.
@@ -404,21 +409,30 @@ def compose(
 
     process_sect(
         "Parameters",
-        [p for p in docstring.params or [] if p.args[0] == "param"],
+        [item for item in docstring.params or [] if item.args[0] == "param"],
     )
 
     process_sect(
         "Attributes",
-        [p for p in docstring.params or [] if p.args[0] == "attribute"],
+        [
+            item
+            for item in docstring.params or []
+            if item.args[0] == "attribute"
+        ],
     )
 
     process_sect(
         "Returns",
-        [p for p in docstring.many_returns or [] if not p.is_generator],
+        [
+            item
+            for item in docstring.many_returns or []
+            if not item.is_generator
+        ],
     )
 
     process_sect(
-        "Yields", [p for p in docstring.many_returns or [] if p.is_generator]
+        "Yields",
+        [item for item in docstring.many_returns or [] if item.is_generator],
     )
 
     if docstring.returns and not docstring.many_returns:
@@ -429,20 +443,30 @@ def compose(
 
     process_sect(
         "Receives",
-        [p for p in docstring.params or [] if p.args[0] == "receives"],
+        [
+            item
+            for item in docstring.params or []
+            if item.args[0] == "receives"
+        ],
     )
 
     process_sect(
         "Other Parameters",
-        [p for p in docstring.params or [] if p.args[0] == "other_param"],
+        [
+            item
+            for item in docstring.params or []
+            if item.args[0] == "other_param"
+        ],
     )
 
     process_sect(
-        "Raises", [p for p in docstring.raises or [] if p.args[0] == "raises"]
+        "Raises",
+        [item for item in docstring.raises or [] if item.args[0] == "raises"],
     )
 
     process_sect(
-        "Warns", [p for p in docstring.raises or [] if p.args[0] == "warns"]
+        "Warns",
+        [item for item in docstring.raises or [] if item.args[0] == "warns"],
     )
 
     for meta in docstring.meta:
@@ -456,6 +480,7 @@ def compose(
             ),
         ):
             continue  # Already handled
+
         parts.append("")
         parts.append(meta.args[0].replace("_", "").title())
         parts.append("-" * len(meta.args[0]))

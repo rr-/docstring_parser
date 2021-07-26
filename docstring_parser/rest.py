@@ -42,8 +42,8 @@ def _build_meta(args: T.List[str], desc: str) -> DocstringMeta:
                 "Expected one or two arguments for a {} keyword.".format(key)
             )
 
-        m = re.match(r".*defaults to (.+)", desc, flags=re.DOTALL)
-        default = m.group(1).rstrip(".") if m else None
+        match = re.match(r".*defaults to (.+)", desc, flags=re.DOTALL)
+        default = match.group(1).rstrip(".") if match else None
 
         return DocstringParam(
             args=args,
@@ -77,16 +77,11 @@ def _build_meta(args: T.List[str], desc: str) -> DocstringMeta:
             desc,
             flags=re.I,
         )
-        if match:
-            return DocstringDeprecated(
-                args=args,
-                version=match.group("version"),
-                description=match.group("desc"),
-            )
-        else:
-            return DocstringDeprecated(
-                args=args, version=None, description=desc
-            )
+        return DocstringDeprecated(
+            args=args,
+            version=match.group("version") if match else None,
+            description=match.group("desc") if match else desc,
+        )
 
     if key in RAISES_KEYWORDS:
         if len(args) == 2:
@@ -109,7 +104,7 @@ def parse(text: str) -> Docstring:
 
     :returns: parsed docstring
     """
-    ret = Docstring(style=DocstringStyle.rest)
+    ret = Docstring(style=DocstringStyle.REST)
     if not text:
         return ret
 
@@ -138,10 +133,10 @@ def parse(text: str) -> Docstring:
             continue
         try:
             args_chunk, desc_chunk = chunk.lstrip(":").split(":", 1)
-        except ValueError:
+        except ValueError as ex:
             raise ParseError(
                 'Error parsing meta information near "{}".'.format(chunk)
-            )
+            ) from ex
         args = args_chunk.split()
         desc = desc_chunk.strip()
         if "\n" in desc:
@@ -155,7 +150,7 @@ def parse(text: str) -> Docstring:
 
 def compose(
     docstring: Docstring,
-    rendering_style: RenderingStyle = RenderingStyle.compact,
+    rendering_style: RenderingStyle = RenderingStyle.COMPACT,
     indent: str = "    ",
 ) -> str:
     """Render a parsed docstring into docstring text.
@@ -169,16 +164,18 @@ def compose(
     def process_desc(desc: T.Optional[str]) -> str:
         if not desc:
             return ""
-        elif rendering_style == RenderingStyle.clean:
+
+        if rendering_style == RenderingStyle.CLEAN:
             (first, *rest) = desc.splitlines()
             return "\n".join([" " + first] + [indent + line for line in rest])
-        elif rendering_style == RenderingStyle.expanded:
+
+        if rendering_style == RenderingStyle.EXPANDED:
             (first, *rest) = desc.splitlines()
             return "\n".join(
                 ["\n" + indent + first] + [indent + line for line in rest]
             )
-        else:
-            return " " + desc
+
+        return " " + desc
 
     parts: T.List[str] = []
     if docstring.short_description:
