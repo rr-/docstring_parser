@@ -14,6 +14,7 @@ from .common import (
     DocstringReturns,
     DocstringStyle,
     ParseError,
+    RenderingStyle,
 )
 
 
@@ -189,5 +190,77 @@ def parse(text: str) -> Docstring:
 
         ret.meta.append(r)
 
-
     return ret
+
+
+def compose(
+    docstring: Docstring,
+    rendering_style: RenderingStyle = RenderingStyle.compact,
+    indent: str = "    ",
+) -> str:
+    """Render a parsed docstring into docstring text.
+
+    :param docstring: parsed docstring representation
+    :param rendering_style: the style to render docstrings
+    :param indent: the characters used as indentation in the docstring string
+    :returns: docstring text
+    """
+
+    def process_desc(desc: T.Optional[str], is_type: bool) -> str:
+        if not desc:
+            return ""
+        elif rendering_style == RenderingStyle.expanded or (
+            rendering_style == RenderingStyle.clean and not is_type
+        ):
+            (first, *rest) = desc.splitlines()
+            return "\n".join(
+                ["\n" + indent + first] + [indent + line for line in rest]
+            )
+        (first, *rest) = desc.splitlines()
+        return "\n".join([" " + first] + [indent + line for line in rest])
+
+    parts: T.List[str] = []
+    if docstring.short_description:
+        parts.append(docstring.short_description)
+    if docstring.blank_after_short_description:
+        parts.append("")
+    if docstring.long_description:
+        parts.append(docstring.long_description)
+    if docstring.blank_after_long_description:
+        parts.append("")
+
+    for meta in docstring.meta:
+        if isinstance(meta, DocstringParam):
+            if meta.type_name:
+                type_name = (
+                    f"{meta.type_name}?"
+                    if meta.is_optional
+                    else meta.type_name
+                )
+                text = f"@type {meta.arg_name}:"
+                text += process_desc(type_name, True)
+                parts.append(text)
+            text = f"@param {meta.arg_name}:" + process_desc(
+                meta.description, False
+            )
+            parts.append(text)
+        elif isinstance(meta, DocstringReturns):
+            (arg_key, type_key) = (
+                ("yield", "ytype")
+                if meta.is_generator
+                else ("return", "rtype")
+            )
+            if meta.type_name:
+                text = f"@{type_key}:" + process_desc(meta.type_name, True)
+                parts.append(text)
+            text = f"@{arg_key}:" + process_desc(meta.description, False)
+            parts.append(text)
+        elif isinstance(meta, DocstringRaises):
+            text = f"@raise {meta.type_name}:" if meta.type_name else "@raise:"
+            text += process_desc(meta.description, False)
+            parts.append(text)
+        else:
+            text = f'@{" ".join(meta.args)}:'
+            text += process_desc(meta.description, False)
+            parts.append(text)
+    return "\n".join(parts)

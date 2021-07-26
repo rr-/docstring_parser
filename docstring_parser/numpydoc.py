@@ -16,6 +16,7 @@ from .common import (
     DocstringRaises,
     DocstringReturns,
     DocstringStyle,
+    RenderingStyle,
 )
 
 
@@ -330,3 +331,136 @@ def parse(text: str) -> Docstring:
     :returns: parsed docstring
     """
     return NumpydocParser().parse(text)
+
+
+def compose(
+    docstring: Docstring,
+    rendering_style: RenderingStyle = RenderingStyle.compact,
+    indent: str = "    ",
+) -> str:
+    """Render a parsed docstring into docstring text.
+
+    :param docstring: parsed docstring representation
+    :param rendering_style: the style to render docstrings
+    :param indent: the characters used as indentation in the docstring string
+    :returns: docstring text
+    """
+
+    def process_one(
+        one: T.Union[DocstringParam, DocstringReturns, DocstringRaises]
+    ):
+        if isinstance(one, DocstringParam):
+            head = one.arg_name
+        elif isinstance(one, DocstringReturns):
+            head = one.return_name
+        else:
+            head = None
+
+        if one.type_name and head:
+            head += f" : {one.type_name}"
+        elif one.type_name:
+            head = one.type_name
+        elif not head:
+            head = ""
+
+        if isinstance(one, DocstringParam) and one.is_optional:
+            head += ", optional"
+
+        if one.description:
+            body = f"\n{indent}".join([head] + one.description.splitlines())
+            parts.append(body)
+        else:
+            parts.append(head)
+
+    def process_sect(name: str, args: T.List[T.Any]):
+        if args:
+            parts.append("")
+            parts.append(name)
+            parts.append("-" * len(parts[-1]))
+            for arg in args:
+                process_one(arg)
+
+    parts: T.List[str] = []
+    if docstring.short_description:
+        parts.append(docstring.short_description)
+    if docstring.blank_after_short_description:
+        parts.append("")
+
+    if docstring.deprecation:
+        first = ".. deprecated::"
+        if docstring.deprecation.version:
+            first += f" {docstring.deprecation.version}"
+        if docstring.deprecation.description:
+            rest = docstring.deprecation.description.splitlines()
+        else:
+            rest = []
+        sep = f"\n{indent}"
+        parts.append(sep.join([first] + rest))
+
+    if docstring.long_description:
+        parts.append(docstring.long_description)
+    if docstring.blank_after_long_description:
+        parts.append("")
+
+    process_sect(
+        "Parameters",
+        [p for p in docstring.params or [] if p.args[0] == "param"],
+    )
+
+    process_sect(
+        "Attributes",
+        [p for p in docstring.params or [] if p.args[0] == "attribute"],
+    )
+
+    process_sect(
+        "Returns",
+        [p for p in docstring.many_returns or [] if not p.is_generator],
+    )
+
+    process_sect(
+        "Yields", [p for p in docstring.many_returns or [] if p.is_generator]
+    )
+
+    if docstring.returns and not docstring.many_returns:
+        ret = docstring.returns
+        parts.append("Yields" if ret else "Returns")
+        parts.append("-" * len(parts[-1]))
+        process_one(ret)
+
+    process_sect(
+        "Receives",
+        [p for p in docstring.params or [] if p.args[0] == "receives"],
+    )
+
+    process_sect(
+        "Other Parameters",
+        [p for p in docstring.params or [] if p.args[0] == "other_param"],
+    )
+
+    process_sect(
+        "Raises", [p for p in docstring.raises or [] if p.args[0] == "raises"]
+    )
+
+    process_sect(
+        "Warns", [p for p in docstring.raises or [] if p.args[0] == "warns"]
+    )
+
+    for meta in docstring.meta:
+        if isinstance(
+            meta,
+            (
+                DocstringDeprecated,
+                DocstringParam,
+                DocstringReturns,
+                DocstringRaises,
+            ),
+        ):
+            continue  # Already handled
+        parts.append("")
+        parts.append(meta.args[0].replace("_", "").title())
+        parts.append("-" * len(meta.args[0]))
+
+        if meta.description:
+            parts.append(meta.description)
+
+    return "\n".join(parts)

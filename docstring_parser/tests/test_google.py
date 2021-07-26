@@ -1,8 +1,14 @@
 import typing as T
 
 import pytest
-from docstring_parser.common import ParseError
-from docstring_parser.google import GoogleParser, Section, SectionType, parse
+from docstring_parser.common import ParseError, RenderingStyle
+from docstring_parser.google import (
+    GoogleParser,
+    Section,
+    SectionType,
+    parse,
+    compose,
+)
 
 
 def test_google_parser():
@@ -661,5 +667,299 @@ def test_empty_example() -> None:
     )
 
     assert len(docstring.meta) == 2
-    assert docstring.meta[0].args == ['examples']
+    assert docstring.meta[0].args == ["examples"]
     assert docstring.meta[0].description == ""
+
+
+@pytest.mark.parametrize(
+    "source, expected",
+    [
+        ("", ""),
+        ("\n", ""),
+        ("Short description", "Short description"),
+        ("\nShort description\n", "Short description"),
+        ("\n   Short description\n", "Short description"),
+        (
+            "Short description\n"
+            "\n"
+            "Long description",
+            "Short description\n"
+            "\n"
+            "Long description",
+        ),
+        (
+            """
+            Short description
+
+            Long description
+            """,
+            "Short description\n"
+            "\n"
+            "Long description",
+        ),
+        (
+            """
+            Short description
+
+            Long description
+            Second line
+            """,
+            "Short description\n"
+            "\n"
+            "Long description\n"
+            "Second line",
+        ),
+        (
+            "Short description\n"
+            "Long description",
+            "Short description\n"
+            "Long description",
+        ),
+        (
+            """
+            Short description
+            Long description
+            """,
+            "Short description\n"
+            "Long description",
+        ),
+        (
+            "\nShort description\nLong description\n",
+            "Short description\nLong description",
+        ),
+        (
+            """
+            Short description
+            Long description
+            Second line
+            """,
+            "Short description\n"
+            "Long description\n"
+            "Second line",
+        ),
+        (
+            """
+            Short description
+            Meta:
+                asd
+            """,
+            "Short description\n"
+            "Meta:\n"
+            "    asd",
+        ),
+        (
+            """
+            Short description
+            Long description
+            Meta:
+                asd
+            """,
+            "Short description\n"
+            "Long description\n"
+            "Meta:\n"
+            "    asd",
+        ),
+        (
+            """
+            Short description
+            First line
+                Second line
+            Meta:
+                asd
+            """,
+            "Short description\n"
+            "First line\n"
+            "    Second line\n"
+            "Meta:\n"
+            "    asd",
+        ),
+        (
+            """
+            Short description
+ 
+            First line
+                Second line
+            Meta:
+                asd
+            """,
+            "Short description\n"
+            "\n"
+            "First line\n"
+            "    Second line\n"
+            "Meta:\n"
+            "    asd",
+        ),
+        (
+            """
+            Short description
+ 
+            First line
+                Second line
+ 
+            Meta:
+                asd
+            """,
+            "Short description\n"
+            "\n"
+            "First line\n"
+            "    Second line\n"
+            "\n"
+            "Meta:\n"
+            "    asd",
+        ),
+        (
+            """
+            Short description
+ 
+            Meta:
+                asd
+                    1
+                        2
+                    3
+            """,
+            "Short description\n"
+            "\n"
+            "Meta:\n"
+            "    asd\n"
+            "        1\n"
+            "            2\n"
+            "        3",
+        ),
+        (
+            """
+            Short description
+ 
+            Meta1:
+                asd
+                1
+                    2
+                3
+            Meta2:
+                herp
+            Meta3:
+                derp
+            """,
+            "Short description\n"
+            "\n"
+            "Meta1:\n"
+            "    asd\n"
+            "    1\n"
+            "        2\n"
+            "    3\n"
+            "Meta2:\n"
+            "    herp\n"
+            "Meta3:\n"
+            "    derp",
+        ),
+        (
+            """
+            Short description
+ 
+            Args:
+                name: description 1
+                priority (int): description 2
+                sender (str, optional): description 3
+                message (str, optional): description 4, defaults to 'hello'
+                multiline (str?):
+                    long description 5,
+                        defaults to 'bye'
+            """,
+            "Short description\n"
+            "\n"
+            "Args:\n"
+            "    name: description 1\n"
+            "    priority (int): description 2\n"
+            "    sender (str?): description 3\n"
+            "    message (str?): description 4, defaults to 'hello'\n"
+            "    multiline (str?): long description 5,\n"
+            "        defaults to 'bye'",
+        ),
+        (
+            """
+            Short description
+            Raises:
+                ValueError: description
+            """,
+            "Short description\n"
+            "Raises:\n"
+            "    ValueError: description",
+        ),
+    ],
+)
+def test_compose(source: str, expected: str) -> None:
+    assert compose(parse(source)) == expected
+
+
+@pytest.mark.parametrize(
+    "source, expected",
+    [
+        (
+            """
+            Short description
+ 
+            Args:
+                name: description 1
+                priority (int): description 2
+                sender (str, optional): description 3
+                message (str, optional): description 4, defaults to 'hello'
+                multiline (str?):
+                    long description 5,
+                        defaults to 'bye'
+            """,
+            "Short description\n"
+            "\n"
+            "Args:\n"
+            "    name: description 1\n"
+            "    priority (int): description 2\n"
+            "    sender (str, optional): description 3\n"
+            "    message (str, optional): description 4, defaults to 'hello'\n"
+            "    multiline (str, optional): long description 5,\n"
+            "        defaults to 'bye'",
+        ),
+    ],
+)
+def test_compose_compact(source: str, expected: str) -> None:
+    assert (
+        compose(parse(source), rendering_style=RenderingStyle.clean)
+        == expected
+    )
+
+
+@pytest.mark.parametrize(
+    "source, expected",
+    [
+        (
+            """
+            Short description
+ 
+            Args:
+                name: description 1
+                priority (int): description 2
+                sender (str, optional): description 3
+                message (str, optional): description 4, defaults to 'hello'
+                multiline (str?):
+                    long description 5,
+                        defaults to 'bye'
+            """,
+            "Short description\n"
+            "\n"
+            "Args:\n"
+            "    name:\n"
+            "        description 1\n"
+            "    priority (int):\n"
+            "        description 2\n"
+            "    sender (str, optional):\n"
+            "        description 3\n"
+            "    message (str, optional):\n"
+            "        description 4, defaults to 'hello'\n"
+            "    multiline (str, optional):\n"
+            "        long description 5,\n"
+            "        defaults to 'bye'",
+        ),
+    ],
+)
+def test_compose_expanded(source: str, expected: str) -> None:
+    assert (
+        compose(parse(source), rendering_style=RenderingStyle.expanded)
+        == expected
+    )

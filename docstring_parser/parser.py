@@ -1,13 +1,18 @@
 """The main parsing routine."""
 
 from docstring_parser import epydoc, google, numpydoc, rest
-from docstring_parser.common import Docstring, DocstringStyle, ParseError
+from docstring_parser.common import (
+    Docstring,
+    DocstringStyle,
+    ParseError,
+    RenderingStyle,
+)
 
-STYLES = {
-    DocstringStyle.rest: rest.parse,
-    DocstringStyle.google: google.parse,
-    DocstringStyle.numpydoc: numpydoc.parse,
-    DocstringStyle.epydoc: epydoc.parse,
+_STYLE_MAP = {
+    DocstringStyle.rest: rest,
+    DocstringStyle.google: google,
+    DocstringStyle.numpydoc: numpydoc,
+    DocstringStyle.epydoc: epydoc,
 }
 
 
@@ -19,12 +24,12 @@ def parse(text: str, style: DocstringStyle = DocstringStyle.auto) -> Docstring:
     :returns: parsed docstring representation
     """
     if style != DocstringStyle.auto:
-        return STYLES[style](text)
+        return _STYLE_MAP[style].parse(text)
 
     rets = []
-    for parse_ in STYLES.values():
+    for module in _STYLE_MAP.values():
         try:
-            rets.append(parse_(text))
+            rets.append(module.parse(text))
         except ParseError as e:
             exc = e
 
@@ -32,3 +37,22 @@ def parse(text: str, style: DocstringStyle = DocstringStyle.auto) -> Docstring:
         raise exc
 
     return sorted(rets, key=lambda d: len(d.meta), reverse=True)[0]
+
+
+def compose(
+    docstring: Docstring,
+    style: DocstringStyle = DocstringStyle.auto,
+    rendering_style: RenderingStyle = RenderingStyle.compact,
+    indent: str = "    ",
+) -> str:
+    """Render a parsed docstring into docstring text.
+
+    :param docstring: parsed docstring representation
+    :param style: docstring style to render
+    :param indent: the characters used as indentation in the docstring string
+    :returns: docstring text
+    """
+    module = _STYLE_MAP[docstring.style if style == Docstring.auto else style]
+    return module.compose(
+        docstring, rendering_style=rendering_style, indent=indent
+    )
