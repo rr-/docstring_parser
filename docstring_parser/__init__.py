@@ -7,6 +7,7 @@ from .common import (
     DocstringParam,
     DocstringRaises,
     DocstringReturns,
+    RenderingStyle
 )
 from .common import DocstringStyle  # backwards compatibility
 from .common import DocstringStyle as Style
@@ -24,5 +25,6 @@ __all__ = [
     "DocstringReturns",
     "DocstringDeprecated",
     "DocstringStyle",
+    "RenderingStyle",
     "Style",
 ]

@@ -394,9 +394,7 @@ def compose(
             parts.append("\n".join(lines))
         parts.append("")
 
-    if parts and not parts[-1]:
-        return "\n".join(
-            parts[:-1]
-        )  # Don't end the docstring in an empty line
-    else:
-        return "\n".join(parts)
+    while parts and not parts[-1]:
+        parts.pop()
+
+    return "\n".join(parts)

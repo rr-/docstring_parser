@@ -8,7 +8,7 @@ from docstring_parser.common import (
     RenderingStyle,
 )
 
-STYLES = {
+_STYLE_MAP = {
     DocstringStyle.rest: rest,
     DocstringStyle.google: google,
     DocstringStyle.numpydoc: numpydoc,
@@ -24,10 +24,10 @@ def parse(text: str, style: DocstringStyle = DocstringStyle.auto) -> Docstring:
     :returns: parsed docstring representation
     """
     if style != DocstringStyle.auto:
-        return STYLES[style].parse(text)
+        return _STYLE_MAP[style].parse(text)
 
     rets = []
-    for module in STYLES.values():
+    for module in _STYLE_MAP.values():
         try:
             rets.append(module.parse(text))
         except ParseError as e:
@@ -52,11 +52,7 @@ def compose(
     :param indent: the characters used as indentation in the docstring string
     :returns: docstring text
     """
-    if style != DocstringStyle.auto:
-        return STYLES[style].compose(
-            docstring, rendering_style=rendering_style, indent=indent
-        )
-    else:
-        return STYLES[docstring.style].compose(
-            docstring, rendering_style=rendering_style, indent=indent
-        )
+    module = _STYLE_MAP[docstring.style if style == Docstring.auto else style]
+    return module.compose(
+        docstring, rendering_style=rendering_style, indent=indent
+    )

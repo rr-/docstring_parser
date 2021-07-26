@@ -198,16 +198,15 @@ def compose(
     def process_desc(desc: T.Optional[str], is_type: bool) -> str:
         if not desc:
             return ""
-        elif (rendering_style == RenderingStyle.expanded) or (
+        elif rendering_style == RenderingStyle.expanded or (
             rendering_style == RenderingStyle.clean and not is_type
         ):
             (first, *rest) = desc.splitlines()
             return "\n".join(
                 ["\n" + indent + first] + [indent + line for line in rest]
             )
-        else:
-            (first, *rest) = desc.splitlines()
-            return "\n".join([" " + first] + [indent + line for line in rest])
+        (first, *rest) = desc.splitlines()
+        return "\n".join([" " + first] + [indent + line for line in rest])
 
     parts: T.List[str] = []
     if docstring.short_description:

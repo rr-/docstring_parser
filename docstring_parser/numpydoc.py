@@ -3,7 +3,6 @@
 .. seealso:: https://numpydoc.readthedocs.io/en/latest/format.html
 """
 
-from email import message_from_binary_file
 import inspect
 import itertools
 import re

@@ -718,7 +718,9 @@ def test_deprecation(
 
             Long description
             """,
-            "Short description\n\nLong description",
+            "Short description\n"
+            "\n"
+            "Long description",
         ),
         (
             """
@@ -727,7 +729,10 @@ def test_deprecation(
             Long description
             Second line
             """,
-            "Short description\n\nLong description\nSecond line",
+            "Short description\n"
+            "\n"
+            "Long description\n"
+            "Second line",
         ),
         (
             "Short description\nLong description",
@@ -738,7 +743,8 @@ def test_deprecation(
             Short description
             Long description
             """,
-            "Short description\nLong description",
+            "Short description\n"
+            "Long description",
         ),
         (
             "\nShort description\nLong description\n",
@@ -750,7 +756,9 @@ def test_deprecation(
             Long description
             Second line
             """,
-            "Short description\nLong description\nSecond line",
+            "Short description\n"
+            "Long description\n"
+            "Second line",
         ),
         (
             """
@@ -759,7 +767,10 @@ def test_deprecation(
             -----
                 asd
             """,
-            "Short description\nMeta:\n-----\n    asd",
+            "Short description\n"
+            "Meta:\n"
+            "-----\n"
+            "    asd",
         ),
         (
             """
@@ -769,7 +780,11 @@ def test_deprecation(
             -----
                 asd
             """,
-            "Short description\nLong description\nMeta:\n-----\n    asd",
+            "Short description\n"
+            "Long description\n"
+            "Meta:\n"
+            "-----\n"
+            "    asd",
         ),
         (
             """
@@ -780,7 +795,12 @@ def test_deprecation(
             -----
                 asd
             """,
-            "Short description\nFirst line\n    Second line\nMeta:\n-----\n    asd",
+            "Short description\n"
+            "First line\n"
+            "    Second line\n"
+            "Meta:\n"
+            "-----\n"
+            "    asd",
         ),
         (
             """
@@ -792,7 +812,13 @@ def test_deprecation(
             -----
                 asd
             """,
-            "Short description\n\nFirst line\n    Second line\nMeta:\n-----\n    asd",
+            "Short description\n"
+            "\n"
+            "First line\n"
+            "    Second line\n"
+            "Meta:\n"
+            "-----\n"
+            "    asd",
         ),
         (
             """
@@ -805,7 +831,14 @@ def test_deprecation(
             -----
                 asd
             """,
-            "Short description\n\nFirst line\n    Second line\n\nMeta:\n-----\n    asd",
+            "Short description\n"
+            "\n"
+            "First line\n"
+            "    Second line\n"
+            "\n"
+            "Meta:\n"
+            "-----\n"
+            "    asd",
         ),
         (
             """
@@ -818,7 +851,14 @@ def test_deprecation(
                         2
                     3
             """,
-            "Short description\n\nMeta:\n-----\n    asd\n        1\n            2\n        3",
+            "Short description\n"
+            "\n"
+            "Meta:\n"
+            "-----\n"
+            "    asd\n"
+            "        1\n"
+            "            2\n"
+            "        3",
         ),
         (
             """
@@ -837,7 +877,20 @@ def test_deprecation(
             ------
                 derp
             """,
-            "Short description\n\nMeta1:\n------\n    asd\n    1\n        2\n    3\nMeta2:\n------\n    herp\nMeta3:\n------\n    derp",
+            "Short description\n"
+            "\n"
+            "Meta1:\n"
+            "------\n"
+            "    asd\n"
+            "    1\n"
+            "        2\n"
+            "    3\n"
+            "Meta2:\n"
+            "------\n"
+            "    herp\n"
+            "Meta3:\n"
+            "------\n"
+            "    derp",
         ),
         (
             """
@@ -857,12 +910,20 @@ def test_deprecation(
                     long description 5,
                         defaults to 'bye'
             """,
-            "Short description\n\nParameters:\n-----------\n"
-            "    name\n        description 1\n"
-            "    priority: int\n        description 2\n"
-            "    sender: str, optional\n        description 3\n"
-            "    message: str, optional\n        description 4, defaults to 'hello'\n"
-            "    multiline: str, optional\n        long description 5,\n"
+            "Short description\n"
+            "\n"
+            "Parameters:\n"
+            "-----------\n"
+            "    name\n"
+            "        description 1\n"
+            "    priority: int\n"
+            "        description 2\n"
+            "    sender: str, optional\n"
+            "        description 3\n"
+            "    message: str, optional\n"
+            "        description 4, defaults to 'hello'\n"
+            "    multiline: str, optional\n"
+            "        long description 5,\n"
             "            defaults to 'bye'",
         ),
         (
@@ -873,7 +934,11 @@ def test_deprecation(
                 ValueError
                     description
             """,
-            "Short description\nRaises:\n-------\n    ValueError\n        description",
+            "Short description\n"
+            "Raises:\n"
+            "-------\n"
+            "    ValueError\n"
+            "        description",
         ),
     ],
 )

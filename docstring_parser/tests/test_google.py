@@ -680,8 +680,12 @@ def test_empty_example() -> None:
         ("\nShort description\n", "Short description"),
         ("\n   Short description\n", "Short description"),
         (
-            "Short description\n\nLong description",
-            "Short description\n\nLong description",
+            "Short description\n"
+            "\n"
+            "Long description",
+            "Short description\n"
+            "\n"
+            "Long description",
         ),
         (
             """
@@ -689,7 +693,9 @@ def test_empty_example() -> None:
 
             Long description
             """,
-            "Short description\n\nLong description",
+            "Short description\n"
+            "\n"
+            "Long description",
         ),
         (
             """
@@ -698,18 +704,24 @@ def test_empty_example() -> None:
             Long description
             Second line
             """,
-            "Short description\n\nLong description\nSecond line",
+            "Short description\n"
+            "\n"
+            "Long description\n"
+            "Second line",
         ),
         (
-            "Short description\nLong description",
-            "Short description\nLong description",
+            "Short description\n"
+            "Long description",
+            "Short description\n"
+            "Long description",
         ),
         (
             """
             Short description
             Long description
             """,
-            "Short description\nLong description",
+            "Short description\n"
+            "Long description",
         ),
         (
             "\nShort description\nLong description\n",
@@ -721,7 +733,9 @@ def test_empty_example() -> None:
             Long description
             Second line
             """,
-            "Short description\nLong description\nSecond line",
+            "Short description\n"
+            "Long description\n"
+            "Second line",
         ),
         (
             """
@@ -729,7 +743,9 @@ def test_empty_example() -> None:
             Meta:
                 asd
             """,
-            "Short description\nMeta:\n    asd",
+            "Short description\n"
+            "Meta:\n"
+            "    asd",
         ),
         (
             """
@@ -738,7 +754,10 @@ def test_empty_example() -> None:
             Meta:
                 asd
             """,
-            "Short description\nLong description\nMeta:\n    asd",
+            "Short description\n"
+            "Long description\n"
+            "Meta:\n"
+            "    asd",
         ),
         (
             """
@@ -748,7 +767,11 @@ def test_empty_example() -> None:
             Meta:
                 asd
             """,
-            "Short description\nFirst line\n    Second line\nMeta:\n    asd",
+            "Short description\n"
+            "First line\n"
+            "    Second line\n"
+            "Meta:\n"
+            "    asd",
         ),
         (
             """
@@ -759,7 +782,12 @@ def test_empty_example() -> None:
             Meta:
                 asd
             """,
-            "Short description\n\nFirst line\n    Second line\nMeta:\n    asd",
+            "Short description\n"
+            "\n"
+            "First line\n"
+            "    Second line\n"
+            "Meta:\n"
+            "    asd",
         ),
         (
             """
@@ -771,7 +799,13 @@ def test_empty_example() -> None:
             Meta:
                 asd
             """,
-            "Short description\n\nFirst line\n    Second line\n\nMeta:\n    asd",
+            "Short description\n"
+            "\n"
+            "First line\n"
+            "    Second line\n"
+            "\n"
+            "Meta:\n"
+            "    asd",
         ),
         (
             """
@@ -783,7 +817,13 @@ def test_empty_example() -> None:
                         2
                     3
             """,
-            "Short description\n\nMeta:\n    asd\n        1\n            2\n        3",
+            "Short description\n"
+            "\n"
+            "Meta:\n"
+            "    asd\n"
+            "        1\n"
+            "            2\n"
+            "        3",
         ),
         (
             """
@@ -799,7 +839,17 @@ def test_empty_example() -> None:
             Meta3:
                 derp
             """,
-            "Short description\n\nMeta1:\n    asd\n    1\n        2\n    3\nMeta2:\n    herp\nMeta3:\n    derp",
+            "Short description\n"
+            "\n"
+            "Meta1:\n"
+            "    asd\n"
+            "    1\n"
+            "        2\n"
+            "    3\n"
+            "Meta2:\n"
+            "    herp\n"
+            "Meta3:\n"
+            "    derp",
         ),
         (
             """
@@ -814,7 +864,9 @@ def test_empty_example() -> None:
                     long description 5,
                         defaults to 'bye'
             """,
-            "Short description\n\nArgs:\n"
+            "Short description\n"
+            "\n"
+            "Args:\n"
             "    name: description 1\n"
             "    priority (int): description 2\n"
             "    sender (str?): description 3\n"
@@ -828,7 +880,9 @@ def test_empty_example() -> None:
             Raises:
                 ValueError: description
             """,
-            "Short description\nRaises:\n    ValueError: description",
+            "Short description\n"
+            "Raises:\n"
+            "    ValueError: description",
         ),
     ],
 )
@@ -852,7 +906,9 @@ def test_compose(source: str, expected: str) -> None:
                     long description 5,
                         defaults to 'bye'
             """,
-            "Short description\n\nArgs:\n"
+            "Short description\n"
+            "\n"
+            "Args:\n"
             "    name: description 1\n"
             "    priority (int): description 2\n"
             "    sender (str, optional): description 3\n"
@@ -885,12 +941,19 @@ def test_compose_compact(source: str, expected: str) -> None:
                     long description 5,
                         defaults to 'bye'
             """,
-            "Short description\n\nArgs:\n"
-            "    name:\n        description 1\n"
-            "    priority (int):\n        description 2\n"
-            "    sender (str, optional):\n        description 3\n"
-            "    message (str, optional):\n        description 4, defaults to 'hello'\n"
-            "    multiline (str, optional):\n        long description 5,\n"
+            "Short description\n"
+            "\n"
+            "Args:\n"
+            "    name:\n"
+            "        description 1\n"
+            "    priority (int):\n"
+            "        description 2\n"
+            "    sender (str, optional):\n"
+            "        description 3\n"
+            "    message (str, optional):\n"
+            "        description 4, defaults to 'hello'\n"
+            "    multiline (str, optional):\n"
+            "        long description 5,\n"
             "        defaults to 'bye'",
         ),
     ],

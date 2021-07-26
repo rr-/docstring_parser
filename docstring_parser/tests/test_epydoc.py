@@ -489,7 +489,11 @@ def test_broken_meta() -> None:
                 Second line
             @meta: asd
             """,
-            "Short description\n\nFirst line\n    Second line\n@meta: asd",
+            "Short description\n"
+            "\n"
+            "First line\n"
+            "    Second line\n"
+            "@meta: asd",
         ),
         (
             """
@@ -500,7 +504,12 @@ def test_broken_meta() -> None:
 
             @meta: asd
             """,
-            "Short description\n\nFirst line\n    Second line\n\n@meta: asd",
+            "Short description\n"
+            "\n"
+            "First line\n"
+            "    Second line\n"
+            "\n"
+            "@meta: asd",
         ),
         (
             """
@@ -517,7 +526,12 @@ def test_broken_meta() -> None:
                     2
                 3
             """,
-            "Short description\n\n@meta: asd\n    1\n        2\n    3",
+            "Short description\n"
+            "\n"
+            "@meta: asd\n"
+            "    1\n"
+            "        2\n"
+            "    3",
         ),
         (
             """
@@ -530,7 +544,12 @@ def test_broken_meta() -> None:
             @meta2: herp
             @meta3: derp
             """,
-            "Short description\n\n@meta1: asd\n    1\n        2\n    3\n@meta2: herp\n@meta3: derp",
+            "Short description\n"
+            "\n@meta1: asd\n"
+            "    1\n"
+            "        2\n"
+            "    3\n@meta2: herp\n"
+            "@meta3: derp",
         ),
         (
             """
@@ -538,7 +557,9 @@ def test_broken_meta() -> None:
 
             @meta ene due rabe: asd
             """,
-            "Short description\n\n@meta ene due rabe: asd",
+            "Short description\n"
+            "\n"
+            "@meta ene due rabe: asd",
         ),
         (
             """
@@ -555,7 +576,9 @@ def test_broken_meta() -> None:
             @param multiline: long description 5,
                 defaults to 'bye'
             """,
-            "Short description\n\n@param name: description 1\n"
+            "Short description\n"
+            "\n"
+            "@param name: description 1\n"
             "@type priority: int\n"
             "@param priority: description 2\n"
             "@type sender: str?\n"
@@ -571,14 +594,16 @@ def test_broken_meta() -> None:
             Short description
             @raise: description
             """,
-            "Short description\n@raise: description",
+            "Short description\n"
+            "@raise: description",
         ),
         (
             """
             Short description
             @raise ValueError: description
             """,
-            "Short description\n@raise ValueError: description",
+            "Short description\n"
+            "@raise ValueError: description",
         ),
     ],
 )
@@ -604,13 +629,19 @@ def test_compose(source: str, expected: str) -> None:
             @param multiline: long description 5,
                 defaults to 'bye'
             """,
-            "Short description\n\n@param name:\n    description 1\n"
+            "Short description\n"
+            "\n"
+            "@param name:\n"
+            "    description 1\n"
             "@type priority: int\n"
-            "@param priority:\n    description 2\n"
+            "@param priority:\n"
+            "    description 2\n"
             "@type sender: str?\n"
-            "@param sender:\n    description 3\n"
+            "@param sender:\n"
+            "    description 3\n"
             "@type message: str?\n"
-            "@param message:\n    description 4, defaults to 'hello'\n"
+            "@param message:\n"
+            "    description 4, defaults to 'hello'\n"
             "@type multiline: str?\n"
             "@param multiline:\n"
             "    long description 5,\n"
@@ -643,14 +674,24 @@ def test_compose_clean(source: str, expected: str) -> None:
             @param multiline: long description 5,
                 defaults to 'bye'
             """,
-            "Short description\n\n@param name:\n    description 1\n"
-            "@type priority:\n    int\n"
-            "@param priority:\n    description 2\n"
-            "@type sender:\n    str?\n"
-            "@param sender:\n    description 3\n"
-            "@type message:\n    str?\n"
-            "@param message:\n    description 4, defaults to 'hello'\n"
-            "@type multiline:\n    str?\n"
+            "Short description\n"
+            "\n"
+            "@param name:\n"
+            "    description 1\n"
+            "@type priority:\n"
+            "    int\n"
+            "@param priority:\n"
+            "    description 2\n"
+            "@type sender:\n"
+            "    str?\n"
+            "@param sender:\n"
+            "    description 3\n"
+            "@type message:\n"
+            "    str?\n"
+            "@param message:\n"
+            "    description 4, defaults to 'hello'\n"
+            "@type multiline:\n"
+            "    str?\n"
             "@param multiline:\n"
             "    long description 5,\n"
             "    defaults to 'bye'",
