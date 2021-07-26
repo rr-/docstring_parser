@@ -2,7 +2,7 @@ import typing as T
 
 import pytest
 from docstring_parser.common import ParseError, RenderingStyle
-from docstring_parser.epydoc import parse, compose
+from docstring_parser.epydoc import compose, parse
 
 
 @pytest.mark.parametrize(
@@ -557,9 +557,7 @@ def test_broken_meta() -> None:
 
             @meta ene due rabe: asd
             """,
-            "Short description\n"
-            "\n"
-            "@meta ene due rabe: asd",
+            "Short description\n" "\n" "@meta ene due rabe: asd",
         ),
         (
             """
@@ -594,16 +592,14 @@ def test_broken_meta() -> None:
             Short description
             @raise: description
             """,
-            "Short description\n"
-            "@raise: description",
+            "Short description\n" "@raise: description",
         ),
         (
             """
             Short description
             @raise ValueError: description
             """,
-            "Short description\n"
-            "@raise ValueError: description",
+            "Short description\n" "@raise ValueError: description",
         ),
     ],
 )

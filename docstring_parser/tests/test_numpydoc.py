@@ -1,9 +1,8 @@
 import typing as T
 
 import pytest
-
 from docstring_parser.common import RenderingStyle
-from docstring_parser.numpydoc import parse, compose
+from docstring_parser.numpydoc import compose, parse
 
 
 @pytest.mark.parametrize(
@@ -718,9 +717,7 @@ def test_deprecation(
 
             Long description
             """,
-            "Short description\n"
-            "\n"
-            "Long description",
+            "Short description\n" "\n" "Long description",
         ),
         (
             """
@@ -729,10 +726,7 @@ def test_deprecation(
             Long description
             Second line
             """,
-            "Short description\n"
-            "\n"
-            "Long description\n"
-            "Second line",
+            "Short description\n" "\n" "Long description\n" "Second line",
         ),
         (
             "Short description\nLong description",
@@ -743,8 +737,7 @@ def test_deprecation(
             Short description
             Long description
             """,
-            "Short description\n"
-            "Long description",
+            "Short description\n" "Long description",
         ),
         (
             "\nShort description\nLong description\n",
@@ -756,9 +749,7 @@ def test_deprecation(
             Long description
             Second line
             """,
-            "Short description\n"
-            "Long description\n"
-            "Second line",
+            "Short description\n" "Long description\n" "Second line",
         ),
         (
             """
@@ -767,10 +758,7 @@ def test_deprecation(
             -----
                 asd
             """,
-            "Short description\n"
-            "Meta:\n"
-            "-----\n"
-            "    asd",
+            "Short description\n" "Meta:\n" "-----\n" "    asd",
         ),
         (
             """

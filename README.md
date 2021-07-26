@@ -35,5 +35,5 @@ Example usage:
 
 # Contributing
 
-This project uses [Black](https://github.com/psf/black) with `-l79` setting as
-well as [isort](https://github.com/timothycrosley/isort).
+This project uses [precommit](https://pre-commit.com/). You can install it with
+`python3 -m pip install --user pre-commit` and running `pre-commit install`.

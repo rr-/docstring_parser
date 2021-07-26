@@ -6,8 +6,8 @@ from docstring_parser.google import (
     GoogleParser,
     Section,
     SectionType,
-    parse,
     compose,
+    parse,
 )
 
 
@@ -680,12 +680,8 @@ def test_empty_example() -> None:
         ("\nShort description\n", "Short description"),
         ("\n   Short description\n", "Short description"),
         (
-            "Short description\n"
-            "\n"
-            "Long description",
-            "Short description\n"
-            "\n"
-            "Long description",
+            "Short description\n" "\n" "Long description",
+            "Short description\n" "\n" "Long description",
         ),
         (
             """
@@ -693,9 +689,7 @@ def test_empty_example() -> None:
 
             Long description
             """,
-            "Short description\n"
-            "\n"
-            "Long description",
+            "Short description\n" "\n" "Long description",
         ),
         (
             """
@@ -704,24 +698,18 @@ def test_empty_example() -> None:
             Long description
             Second line
             """,
-            "Short description\n"
-            "\n"
-            "Long description\n"
-            "Second line",
+            "Short description\n" "\n" "Long description\n" "Second line",
         ),
         (
-            "Short description\n"
-            "Long description",
-            "Short description\n"
-            "Long description",
+            "Short description\n" "Long description",
+            "Short description\n" "Long description",
         ),
         (
             """
             Short description
             Long description
             """,
-            "Short description\n"
-            "Long description",
+            "Short description\n" "Long description",
         ),
         (
             "\nShort description\nLong description\n",
@@ -733,9 +721,7 @@ def test_empty_example() -> None:
             Long description
             Second line
             """,
-            "Short description\n"
-            "Long description\n"
-            "Second line",
+            "Short description\n" "Long description\n" "Second line",
         ),
         (
             """
@@ -743,9 +729,7 @@ def test_empty_example() -> None:
             Meta:
                 asd
             """,
-            "Short description\n"
-            "Meta:\n"
-            "    asd",
+            "Short description\n" "Meta:\n" "    asd",
         ),
         (
             """
@@ -754,10 +738,7 @@ def test_empty_example() -> None:
             Meta:
                 asd
             """,
-            "Short description\n"
-            "Long description\n"
-            "Meta:\n"
-            "    asd",
+            "Short description\n" "Long description\n" "Meta:\n" "    asd",
         ),
         (
             """
@@ -880,9 +861,7 @@ def test_empty_example() -> None:
             Raises:
                 ValueError: description
             """,
-            "Short description\n"
-            "Raises:\n"
-            "    ValueError: description",
+            "Short description\n" "Raises:\n" "    ValueError: description",
         ),
     ],
 )
