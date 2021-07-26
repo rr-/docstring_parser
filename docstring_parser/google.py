@@ -60,6 +60,8 @@ DEFAULT_SECTIONS = [
 
 
 class GoogleParser:
+    """Parser for Google-style docstrings."""
+
     def __init__(
         self, sections: T.Optional[T.List[Section]] = None, title_colon=True
     ):
@@ -118,7 +120,8 @@ class GoogleParser:
 
         return self._build_multi_meta(section, before, desc)
 
-    def _build_single_meta(self, section: Section, desc: str) -> DocstringMeta:
+    @staticmethod
+    def _build_single_meta(section: Section, desc: str) -> DocstringMeta:
         if section.key in RETURNS_KEYWORDS | YIELDS_KEYWORDS:
             return DocstringReturns(
                 args=[section.key],
@@ -134,13 +137,14 @@ class GoogleParser:
             raise ParseError("Expected paramenter name.")
         return DocstringMeta(args=[section.key], description=desc)
 
+    @staticmethod
     def _build_multi_meta(
-        self, section: Section, before: str, desc: str
+        section: Section, before: str, desc: str
     ) -> DocstringMeta:
         if section.key in PARAM_KEYWORDS:
-            m = GOOGLE_TYPED_ARG_REGEX.match(before)
-            if m:
-                arg_name, type_name = m.group(1, 2)
+            match = GOOGLE_TYPED_ARG_REGEX.match(before)
+            if match:
+                arg_name, type_name = match.group(1, 2)
                 if type_name.endswith(", optional"):
                     is_optional = True
                     type_name = type_name[:-10]
@@ -153,8 +157,8 @@ class GoogleParser:
                 arg_name, type_name = before, None
                 is_optional = None
 
-            m = GOOGLE_ARG_DESC_REGEX.match(desc)
-            default = m.group(1) if m else None
+            match = GOOGLE_ARG_DESC_REGEX.match(desc)
+            default = match.group(1) if match else None
 
             return DocstringParam(
                 args=[section.key, before],
@@ -191,7 +195,7 @@ class GoogleParser:
 
         :returns: parsed docstring
         """
-        ret = Docstring(style=DocstringStyle.google)
+        ret = Docstring(style=DocstringStyle.GOOGLE)
         if not text:
             return ret
 
@@ -289,7 +293,7 @@ def parse(text: str) -> Docstring:
 
 def compose(
     docstring: Docstring,
-    rendering_style: RenderingStyle = RenderingStyle.compact,
+    rendering_style: RenderingStyle = RenderingStyle.COMPACT,
     indent: str = "    ",
 ) -> str:
     """Render a parsed docstring into docstring text.
@@ -313,7 +317,7 @@ def compose(
         if isinstance(one, DocstringParam) and one.is_optional:
             optional = (
                 "?"
-                if rendering_style == RenderingStyle.compact
+                if rendering_style == RenderingStyle.COMPACT
                 else ", optional"
             )
         else:
@@ -327,7 +331,7 @@ def compose(
             head += ":"
         head = indent + head
 
-        if one.description and rendering_style == RenderingStyle.expanded:
+        if one.description and rendering_style == RenderingStyle.EXPANDED:
             body = f"\n{indent}{indent}".join(
                 [head] + one.description.splitlines()
             )
@@ -375,7 +379,7 @@ def compose(
         "Yields:", [p for p in docstring.many_returns or [] if p.is_generator]
     )
 
-    process_sect("Raises:", [p for p in docstring.raises or []])
+    process_sect("Raises:", docstring.raises or [])
 
     if docstring.returns and not docstring.many_returns:
         ret = docstring.returns

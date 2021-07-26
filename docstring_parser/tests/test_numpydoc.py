@@ -1,7 +1,7 @@
+"""Tests for numpydoc-style docstring routines."""
 import typing as T
 
 import pytest
-from docstring_parser.common import RenderingStyle
 from docstring_parser.numpydoc import compose, parse
 
 
@@ -16,6 +16,7 @@ from docstring_parser.numpydoc import compose, parse
     ],
 )
 def test_short_description(source: str, expected: str) -> None:
+    """Test parsing short description."""
     docstring = parse(source)
     assert docstring.short_description == expected
     assert docstring.long_description is None
@@ -91,6 +92,7 @@ def test_long_description(
     expected_long_desc: str,
     expected_blank: bool,
 ) -> None:
+    """Test parsing long description."""
     docstring = parse(source)
     assert docstring.short_description == expected_short_desc
     assert docstring.long_description == expected_long_desc
@@ -192,6 +194,7 @@ def test_meta_newlines(
     expected_blank_short_desc: bool,
     expected_blank_long_desc: bool,
 ) -> None:
+    """Test parsing newlines around description sections."""
     docstring = parse(source)
     assert docstring.short_description == expected_short_desc
     assert docstring.long_description == expected_long_desc
@@ -201,6 +204,7 @@ def test_meta_newlines(
 
 
 def test_meta_with_multiline_description() -> None:
+    """Test parsing multiline meta documentation."""
     docstring = parse(
         """
         Short description
@@ -222,6 +226,7 @@ def test_meta_with_multiline_description() -> None:
 
 
 def test_default_args():
+    """Test parsing default arguments."""
     docstring = parse(
         """
         A sample function
@@ -259,6 +264,7 @@ def test_default_args():
 
 
 def test_multiple_meta() -> None:
+    """Test parsing multiple meta."""
     docstring = parse(
         """
         Short description
@@ -293,6 +299,7 @@ def test_multiple_meta() -> None:
 
 
 def test_params() -> None:
+    """Test parsing params."""
     docstring = parse("Short description")
     assert len(docstring.params) == 0
 
@@ -347,7 +354,7 @@ def test_params() -> None:
     assert docstring.params[0].arg_name == "name"
     assert docstring.params[0].type_name is None
     assert docstring.params[0].description == (
-        "description 1\n" "with multi-line text"
+        "description 1\nwith multi-line text"
     )
     assert docstring.params[1].arg_name == "priority"
     assert docstring.params[1].type_name == "int"
@@ -355,6 +362,7 @@ def test_params() -> None:
 
 
 def test_attributes() -> None:
+    """Test parsing attributes."""
     docstring = parse("Short description")
     assert len(docstring.params) == 0
 
@@ -409,7 +417,7 @@ def test_attributes() -> None:
     assert docstring.params[0].arg_name == "name"
     assert docstring.params[0].type_name is None
     assert docstring.params[0].description == (
-        "description 1\n" "with multi-line text"
+        "description 1\nwith multi-line text"
     )
     assert docstring.params[1].arg_name == "priority"
     assert docstring.params[1].type_name == "int"
@@ -417,6 +425,7 @@ def test_attributes() -> None:
 
 
 def test_other_params() -> None:
+    """Test parsing other parameters."""
     docstring = parse(
         """
         Short description
@@ -445,6 +454,7 @@ def test_other_params() -> None:
 
 
 def test_yields() -> None:
+    """Test parsing yields."""
     docstring = parse(
         """
         Short description
@@ -463,6 +473,7 @@ def test_yields() -> None:
 
 
 def test_returns() -> None:
+    """Test parsing returns."""
     docstring = parse(
         """
         Short description
@@ -533,7 +544,7 @@ def test_returns() -> None:
     assert docstring.returns is not None
     assert docstring.returns.type_name == "int"
     assert docstring.returns.description == (
-        "description\n" "with much text\n\n" "even some spacing"
+        "description\nwith much text\n\neven some spacing"
     )
     assert docstring.many_returns is not None
     assert len(docstring.many_returns) == 1
@@ -564,6 +575,7 @@ def test_returns() -> None:
 
 
 def test_raises() -> None:
+    """Test parsing raises."""
     docstring = parse(
         """
         Short description
@@ -586,6 +598,7 @@ def test_raises() -> None:
 
 
 def test_warns() -> None:
+    """Test parsing warns."""
     docstring = parse(
         """
         Short description
@@ -601,6 +614,7 @@ def test_warns() -> None:
 
 
 def test_simple_sections() -> None:
+    """Test parsing simple sections."""
     docstring = parse(
         """
         Short description
@@ -647,6 +661,7 @@ def test_simple_sections() -> None:
 
 
 def test_examples() -> None:
+    """Test parsing examples."""
     docstring = parse(
         """
         Short description
@@ -692,6 +707,7 @@ def test_deprecation(
     expected_depr_version: T.Optional[str],
     expected_depr_desc: T.Optional[str],
 ) -> None:
+    """Test parsing deprecation notes."""
     docstring = parse(source)
 
     assert docstring.deprecation is not None
@@ -717,7 +733,7 @@ def test_deprecation(
 
             Long description
             """,
-            "Short description\n" "\n" "Long description",
+            "Short description\n\nLong description",
         ),
         (
             """
@@ -726,7 +742,7 @@ def test_deprecation(
             Long description
             Second line
             """,
-            "Short description\n" "\n" "Long description\n" "Second line",
+            "Short description\n\nLong description\nSecond line",
         ),
         (
             "Short description\nLong description",
@@ -737,7 +753,7 @@ def test_deprecation(
             Short description
             Long description
             """,
-            "Short description\n" "Long description",
+            "Short description\nLong description",
         ),
         (
             "\nShort description\nLong description\n",
@@ -749,7 +765,7 @@ def test_deprecation(
             Long description
             Second line
             """,
-            "Short description\n" "Long description\n" "Second line",
+            "Short description\nLong description\nSecond line",
         ),
         (
             """
@@ -758,7 +774,7 @@ def test_deprecation(
             -----
                 asd
             """,
-            "Short description\n" "Meta:\n" "-----\n" "    asd",
+            "Short description\nMeta:\n-----\n    asd",
         ),
         (
             """
@@ -793,7 +809,7 @@ def test_deprecation(
         (
             """
             Short description
- 
+
             First line
                 Second line
             Meta:
@@ -811,10 +827,10 @@ def test_deprecation(
         (
             """
             Short description
- 
+
             First line
                 Second line
- 
+
             Meta:
             -----
                 asd
@@ -831,7 +847,7 @@ def test_deprecation(
         (
             """
             Short description
- 
+
             Meta:
             -----
                 asd
@@ -851,7 +867,7 @@ def test_deprecation(
         (
             """
             Short description
- 
+
             Meta1:
             ------
                 asd
@@ -883,7 +899,7 @@ def test_deprecation(
         (
             """
             Short description
- 
+
             Parameters:
             -----------
                 name
@@ -931,4 +947,5 @@ def test_deprecation(
     ],
 )
 def test_compose(source: str, expected: str) -> None:
+    """Test compose in default mode."""
     assert compose(parse(source)) == expected

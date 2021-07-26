@@ -22,6 +22,7 @@ def _clean_str(string: str) -> T.Optional[str]:
     string = string.strip()
     if len(string) > 0:
         return string
+    return None
 
 
 def parse(text: str) -> Docstring:
@@ -29,7 +30,7 @@ def parse(text: str) -> Docstring:
 
     :returns: parsed docstring
     """
-    ret = Docstring(style=DocstringStyle.epydoc)
+    ret = Docstring(style=DocstringStyle.EPYDOC)
     if not text:
         return ret
 
@@ -131,7 +132,7 @@ def parse(text: str) -> Docstring:
         info[info_key] = desc
 
         if base == "return":
-            is_generator = key == "ytype" or key == "yield"
+            is_generator = key in {"ytype", "yield"}
             if info.setdefault("is_generator", is_generator) != is_generator:
                 raise ParseError(
                     'Error parsing meta information for "{}".'.format(arg_name)
@@ -150,10 +151,10 @@ def parse(text: str) -> Docstring:
             else:
                 is_optional = False
 
-            m = re.match(r".*defaults to (.+)", desc, flags=re.DOTALL)
-            default = m.group(1).rstrip(".") if m else None
+            match = re.match(r".*defaults to (.+)", desc, flags=re.DOTALL)
+            default = match.group(1).rstrip(".") if match else None
 
-            r = DocstringParam(
+            meta_item = DocstringParam(
                 args=[key, arg_name],
                 description=info["description"],
                 arg_name=arg_name,
@@ -164,7 +165,7 @@ def parse(text: str) -> Docstring:
             is_done[arg_name] = True
         elif base == "return" and not is_done.get("return", False):
             info = params["return"]
-            r = DocstringReturns(
+            meta_item = DocstringReturns(
                 args=[key],
                 description=info["description"],
                 type_name=info.get("type_name"),
@@ -173,13 +174,13 @@ def parse(text: str) -> Docstring:
             is_done["return"] = True
         elif base == "raise":
             (type_name,) = args or (None,)
-            r = DocstringRaises(
+            meta_item = DocstringRaises(
                 args=[key] + args,
                 description=desc,
                 type_name=type_name,
             )
         elif base == "meta":
-            r = DocstringMeta(
+            meta_item = DocstringMeta(
                 args=[key] + args,
                 description=desc,
             )
@@ -188,14 +189,14 @@ def parse(text: str) -> Docstring:
             assert is_done.get(key, False)
             continue  # don't append
 
-        ret.meta.append(r)
+        ret.meta.append(meta_item)
 
     return ret
 
 
 def compose(
     docstring: Docstring,
-    rendering_style: RenderingStyle = RenderingStyle.compact,
+    rendering_style: RenderingStyle = RenderingStyle.COMPACT,
     indent: str = "    ",
 ) -> str:
     """Render a parsed docstring into docstring text.
@@ -209,13 +210,15 @@ def compose(
     def process_desc(desc: T.Optional[str], is_type: bool) -> str:
         if not desc:
             return ""
-        elif rendering_style == RenderingStyle.expanded or (
-            rendering_style == RenderingStyle.clean and not is_type
+
+        if rendering_style == RenderingStyle.EXPANDED or (
+            rendering_style == RenderingStyle.CLEAN and not is_type
         ):
             (first, *rest) = desc.splitlines()
             return "\n".join(
                 ["\n" + indent + first] + [indent + line for line in rest]
             )
+
         (first, *rest) = desc.splitlines()
         return "\n".join([" " + first] + [indent + line for line in rest])
 
