@@ -7,12 +7,13 @@ from .common import (
     DocstringParam,
     DocstringRaises,
     DocstringReturns,
-    RenderingStyle
+    DocstringStyle,
+    ParseError,
+    RenderingStyle,
 )
-from .common import DocstringStyle  # backwards compatibility
-from .common import DocstringStyle as Style
-from .common import ParseError
-from .parser import parse, compose
+from .parser import compose, parse
+
+Style = DocstringStyle  # backwards compatibility
 
 __all__ = [
     "parse",
