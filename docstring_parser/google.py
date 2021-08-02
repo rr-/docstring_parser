@@ -2,6 +2,7 @@
 
 import inspect
 import re
+import textwrap
 import typing as T
 from collections import OrderedDict, namedtuple
 from enum import IntEnum
@@ -19,6 +20,7 @@ from .common import (
     DocstringStyle,
     ParseError,
     RenderingStyle,
+    strip_initial_whitespace
 )
 
 
@@ -112,11 +114,7 @@ class GoogleParser:
         # Split spec and description
         before, desc = text.split(":", 1)
         if desc:
-            desc = desc[1:] if desc[0] == " " else desc
-            if "\n" in desc:
-                first_line, rest = desc.split("\n", 1)
-                desc = first_line + "\n" + inspect.cleandoc(rest)
-            desc = desc.strip("\n")
+            desc = textwrap.dedent(strip_initial_whitespace(desc))
 
         return self._build_multi_meta(section, before, desc)
 
@@ -277,7 +275,16 @@ class GoogleParser:
                 c_splits.append((c_matches[j].end(), c_matches[j + 1].start()))
             c_splits.append((c_matches[-1].end(), len(chunk)))
             for j, (start, end) in enumerate(c_splits):
-                part = chunk[start:end].strip("\n")
+                part = chunk[start:end]
+                # Take indent away from subsequent lines here, since inner scope
+                # doesn't know about the indent level
+                lines = []
+                for line in part.splitlines():
+                    if line.startswith(indent):
+                        line = line[len(indent):]
+                    lines.append(line)
+                # Remove preliminary indentation
+                part = '\n'.join(lines)
                 ret.meta.append(self._build_meta(part, title))
 
         return ret

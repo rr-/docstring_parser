@@ -6,6 +6,7 @@
 import inspect
 import itertools
 import re
+import textwrap
 import typing as T
 
 from .common import (
@@ -17,6 +18,7 @@ from .common import (
     DocstringReturns,
     DocstringStyle,
     RenderingStyle,
+    strip_initial_whitespace
 )
 
 
@@ -27,7 +29,11 @@ def _pairwise(iterable: T.Iterable, end=None) -> T.Iterable:
 
 
 def _clean_str(string: str) -> T.Optional[str]:
-    string = string.strip()
+    # strip_initial_whitespace normally preserves indentation
+    # if a leading \n is present, but this shouldn't happen
+    # with numpy
+    string = textwrap.dedent(string.strip('\n'))
+    string = strip_initial_whitespace(string)
     if len(string) > 0:
         return string
     return None
@@ -98,7 +104,7 @@ class _KVSection(Section):
             end = next_match.start() if next_match is not None else None
             value = text[start:end]
             yield self._parse_item(
-                key=match.group(), value=inspect.cleandoc(value)
+                key=match.group(), value=value
             )
 
 

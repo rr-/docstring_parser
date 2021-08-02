@@ -326,7 +326,7 @@ def test_meta_with_multiline_description() -> None:
     assert len(docstring.meta) == 1
     assert docstring.meta[0].args == ["param", "spam"]
     assert docstring.meta[0].arg_name == "spam"
-    assert docstring.meta[0].description == "asd\n1\n    2\n3"
+    assert docstring.meta[0].description == "asd\n    1\n        2\n    3"
 
 
 def test_default_args():
@@ -379,7 +379,7 @@ def test_multiple_meta() -> None:
     assert len(docstring.meta) == 3
     assert docstring.meta[0].args == ["param", "spam"]
     assert docstring.meta[0].arg_name == "spam"
-    assert docstring.meta[0].description == "asd\n1\n    2\n3"
+    assert docstring.meta[0].description == "asd\n    1\n        2\n    3"
     assert docstring.meta[1].args == ["raises", "bla"]
     assert docstring.meta[1].type_name == "bla"
     assert docstring.meta[1].description == "herp"
@@ -436,7 +436,7 @@ def test_params() -> None:
     assert docstring.params[0].arg_name == "name"
     assert docstring.params[0].type_name is None
     assert docstring.params[0].description == (
-        "description 1\nwith multi-line text"
+        "description 1\n    with multi-line text"
     )
     assert docstring.params[1].arg_name == "priority"
     assert docstring.params[1].type_name == "int"
@@ -491,7 +491,7 @@ def test_attributes() -> None:
     assert docstring.params[0].arg_name == "name"
     assert docstring.params[0].type_name is None
     assert docstring.params[0].description == (
-        "description 1\nwith multi-line text"
+        "description 1\n    with multi-line text"
     )
     assert docstring.params[1].arg_name == "priority"
     assert docstring.params[1].type_name == "int"
@@ -873,7 +873,7 @@ def test_empty_example() -> None:
                 message (str, optional): description 4, defaults to 'hello'
                 multiline (str?):
                     long description 5,
-                        defaults to 'bye'
+                    defaults to 'bye'
             """,
             "Short description\n"
             "\n"
@@ -914,7 +914,7 @@ def test_compose(source: str, expected: str) -> None:
                 message (str, optional): description 4, defaults to 'hello'
                 multiline (str?):
                     long description 5,
-                        defaults to 'bye'
+                    defaults to 'bye'
             """,
             "Short description\n"
             "\n"
@@ -965,7 +965,7 @@ def test_compose_clean(source: str, expected: str) -> None:
             "        description 4, defaults to 'hello'\n"
             "    multiline (str, optional):\n"
             "        long description 5,\n"
-            "        defaults to 'bye'",
+            "            defaults to 'bye'",
         ),
     ],
 )

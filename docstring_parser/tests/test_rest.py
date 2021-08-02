@@ -207,7 +207,7 @@ def test_meta_with_multiline_description() -> None:
     assert docstring.short_description == "Short description"
     assert len(docstring.meta) == 1
     assert docstring.meta[0].args == ["meta"]
-    assert docstring.meta[0].description == "asd\n1\n    2\n3"
+    assert docstring.meta[0].description == "asd\n    1\n        2\n    3"
 
 
 def test_multiple_meta() -> None:
@@ -227,7 +227,7 @@ def test_multiple_meta() -> None:
     assert docstring.short_description == "Short description"
     assert len(docstring.meta) == 3
     assert docstring.meta[0].args == ["meta1"]
-    assert docstring.meta[0].description == "asd\n1\n    2\n3"
+    assert docstring.meta[0].description == "asd\n    1\n        2\n    3"
     assert docstring.meta[1].args == ["meta2"]
     assert docstring.meta[1].description == "herp"
     assert docstring.meta[2].args == ["meta3"]

@@ -184,3 +184,21 @@ class Docstring:
             if isinstance(item, DocstringDeprecated):
                 return item
         return None
+
+def strip_initial_whitespace(string):
+    """
+    Removes initial whitespace up to a newline, if no characters are present.
+    Different from ''.strip(), since it will preserve indents on lines with text.
+    Also performs rstrip().
+    """
+    if not string:
+        return string
+    lines = string.splitlines()
+    lines[0] = lines[0].strip()
+    for i, line in enumerate(lines):
+        if line and not line.isspace():
+            break
+    else:
+        i = 0
+    return '\n'.join(lines[i:]).rstrip()
+    
