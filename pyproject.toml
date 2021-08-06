@@ -6,3 +6,21 @@ py36 = true
 known_third_party = "docstring_parser"
 multi_line_output = 3
 include_trailing_comma = true
+
+[tool.pylint.master]
+jobs = 4
+
+[tool.pylint.format]
+max-line-length = 79
+
+[tool.pylint.messages_control]
+reports = "no"
+disable = [
+    "import-error",
+    "duplicate-code",
+    "too-many-locals",
+    "too-many-branches",
+    "too-many-statements",
+    "too-many-arguments",
+    "too-few-public-methods",
+]

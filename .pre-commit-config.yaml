@@ -14,7 +14,3 @@ repos:
   hooks:
   - id: pylint
     additional_dependencies: [toml]
-    name: PyLint
-    entry: pylint
-    args: [--rcfile=.pylintrc, --exit-zero]
-    verbose: true
