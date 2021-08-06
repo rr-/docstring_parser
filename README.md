@@ -1,6 +1,8 @@
 docstring_parser
 ================
 
+[![Build](https://github.com/rr-/docstring_parser/actions/workflows/build.yml/badge.svg)](https://github.com/rr-/docstring_parser/actions/workflows/build.yml)
+
 Parse Python docstrings. Currently support ReST, Google, Numpydoc-style and
 Epydoc docstrings.
 
