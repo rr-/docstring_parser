@@ -4,6 +4,7 @@
 """
 import inspect
 import re
+import textwrap
 import typing as T
 
 from .common import (
@@ -15,11 +16,12 @@ from .common import (
     DocstringStyle,
     ParseError,
     RenderingStyle,
+    strip_initial_whitespace
 )
 
 
 def _clean_str(string: str) -> T.Optional[str]:
-    string = string.strip()
+    string = strip_initial_whitespace(string)
     if len(string) > 0:
         return string
     return None
@@ -114,10 +116,7 @@ def parse(text: str) -> Docstring:
                     'Error parsing meta information near "{}".'.format(chunk)
                 )
 
-        desc = desc_chunk.strip()
-        if "\n" in desc:
-            first_line, rest = desc.split("\n", 1)
-            desc = first_line + "\n" + inspect.cleandoc(rest)
+        desc = textwrap.dedent(strip_initial_whitespace(desc_chunk))
         stream.append((base, key, args, desc))
 
     # Combine type_name, arg_name, and description information
@@ -210,17 +209,16 @@ def compose(
     def process_desc(desc: T.Optional[str], is_type: bool) -> str:
         if not desc:
             return ""
+        ret = "\n".join(
+                [indent + line for line in desc.splitlines()]
+            )
 
         if rendering_style == RenderingStyle.EXPANDED or (
             rendering_style == RenderingStyle.CLEAN and not is_type
         ):
-            (first, *rest) = desc.splitlines()
-            return "\n".join(
-                ["\n" + indent + first] + [indent + line for line in rest]
-            )
-
-        (first, *rest) = desc.splitlines()
-        return "\n".join([" " + first] + [indent + line for line in rest])
+            return "\n" + ret
+        # Skip first indent
+        return " " + ret[len(indent):]
 
     parts: T.List[str] = []
     if docstring.short_description:

@@ -2,6 +2,7 @@
 
 import inspect
 import re
+import textwrap
 import typing as T
 
 from .common import (
@@ -19,6 +20,7 @@ from .common import (
     DocstringStyle,
     ParseError,
     RenderingStyle,
+    strip_initial_whitespace
 )
 
 
@@ -138,10 +140,7 @@ def parse(text: str) -> Docstring:
                 'Error parsing meta information near "{}".'.format(chunk)
             ) from ex
         args = args_chunk.split()
-        desc = desc_chunk.strip()
-        if "\n" in desc:
-            first_line, rest = desc.split("\n", 1)
-            desc = first_line + "\n" + inspect.cleandoc(rest)
+        desc = textwrap.dedent(strip_initial_whitespace(desc_chunk))
 
         ret.meta.append(_build_meta(args, desc))
 

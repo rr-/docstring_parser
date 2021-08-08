@@ -207,7 +207,7 @@ def test_meta_with_multiline_description() -> None:
     assert docstring.short_description == "Short description"
     assert len(docstring.meta) == 1
     assert docstring.meta[0].args == ["meta"]
-    assert docstring.meta[0].description == "asd\n1\n    2\n3"
+    assert docstring.meta[0].description == "asd\n    1\n        2\n    3"
 
 
 def test_multiple_meta() -> None:
@@ -227,7 +227,7 @@ def test_multiple_meta() -> None:
     assert docstring.short_description == "Short description"
     assert len(docstring.meta) == 3
     assert docstring.meta[0].args == ["meta1"]
-    assert docstring.meta[0].description == "asd\n1\n    2\n3"
+    assert docstring.meta[0].description == "asd\n    1\n        2\n    3"
     assert docstring.meta[1].args == ["meta2"]
     assert docstring.meta[1].description == "herp"
     assert docstring.meta[2].args == ["meta3"]
@@ -617,7 +617,7 @@ def test_broken_meta() -> None:
 )
 def test_compose(source: str, expected: str) -> None:
     """Test compose in default mode."""
-    assert compose(parse(source)) == expected
+    assert compose(parse(source), indent="") == expected
 
 
 @pytest.mark.parametrize(
@@ -654,15 +654,14 @@ def test_compose(source: str, expected: str) -> None:
             "@type multiline: str?\n"
             "@param multiline:\n"
             "    long description 5,\n"
-            "    defaults to 'bye'",
+            "        defaults to 'bye'",
         ),
     ],
 )
 def test_compose_clean(source: str, expected: str) -> None:
     """Test compose in clean mode."""
     assert (
-        compose(parse(source), rendering_style=RenderingStyle.CLEAN)
-        == expected
+        compose(parse(source), rendering_style=RenderingStyle.CLEAN) == expected
     )
 
 
@@ -704,7 +703,7 @@ def test_compose_clean(source: str, expected: str) -> None:
             "    str?\n"
             "@param multiline:\n"
             "    long description 5,\n"
-            "    defaults to 'bye'",
+            "        defaults to 'bye'",
         ),
     ],
 )
