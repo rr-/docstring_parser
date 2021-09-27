@@ -298,6 +298,16 @@ def test_params() -> None:
     assert docstring.params[4].is_optional
     assert docstring.params[4].default == "'bye'"
 
+    docstring = parse(
+        """
+        Short description
+
+        :param a: description a
+        :type a: int
+        :param int b: description b
+        """
+    )
+
 
 def test_returns() -> None:
     """Test parsing returns."""
@@ -328,6 +338,21 @@ def test_returns() -> None:
         """
         Short description
         :returns int: description
+        """
+    )
+    assert docstring.returns is not None
+    assert docstring.returns.type_name == "int"
+    assert docstring.returns.description == "description"
+    assert not docstring.returns.is_generator
+    assert docstring.many_returns is not None
+    assert len(docstring.many_returns) == 1
+    assert docstring.many_returns[0] == docstring.returns
+
+    docstring = parse(
+        """
+        Short description
+        :returns: description
+        :rtype: int
         """
     )
     assert docstring.returns is not None

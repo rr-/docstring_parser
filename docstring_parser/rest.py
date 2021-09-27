@@ -125,6 +125,8 @@ def parse(text: str) -> Docstring:
         ret.blank_after_long_description = long_desc_chunk.endswith("\n\n")
         ret.long_description = long_desc_chunk.strip() or None
 
+    types = {}
+    rtypes = {}
     for match in re.finditer(
         r"(^:.*?)(?=^:|\Z)", meta_chunk, flags=re.S | re.M
     ):
@@ -139,11 +141,23 @@ def parse(text: str) -> Docstring:
             ) from ex
         args = args_chunk.split()
         desc = desc_chunk.strip()
+
         if "\n" in desc:
             first_line, rest = desc.split("\n", 1)
             desc = first_line + "\n" + inspect.cleandoc(rest)
 
-        ret.meta.append(_build_meta(args, desc))
+        # Add special handling for :type a: typename
+        if len(args) == 2 and args[0] == 'type':
+            types[args[1]] = desc
+        elif len(args) in [1, 2] and args[0] == 'rtype':
+            rtypes[None if len(args) == 1 else args[1]] = desc
+        else:
+            ret.meta.append(_build_meta(args, desc))
+    for meta in ret.meta:
+        if isinstance(meta, DocstringParam):
+            meta.type_name = meta.type_name or types.get(meta.arg_name, None)
+        elif isinstance(meta, DocstringReturns):
+            meta.type_name = meta.type_name or rtypes.get(meta.return_name, None)
 
     return ret
 
