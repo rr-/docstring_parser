@@ -147,9 +147,9 @@ def parse(text: str) -> Docstring:
             desc = first_line + "\n" + inspect.cleandoc(rest)
 
         # Add special handling for :type a: typename
-        if len(args) == 2 and args[0] == 'type':
+        if len(args) == 2 and args[0] == "type":
             types[args[1]] = desc
-        elif len(args) in [1, 2] and args[0] == 'rtype':
+        elif len(args) in [1, 2] and args[0] == "rtype":
             rtypes[None if len(args) == 1 else args[1]] = desc
         else:
             ret.meta.append(_build_meta(args, desc))
@@ -157,7 +157,9 @@ def parse(text: str) -> Docstring:
         if isinstance(meta, DocstringParam):
             meta.type_name = meta.type_name or types.get(meta.arg_name, None)
         elif isinstance(meta, DocstringReturns):
-            meta.type_name = meta.type_name or rtypes.get(meta.return_name, None)
+            meta.type_name = meta.type_name or rtypes.get(
+                meta.return_name, None
+            )
 
     return ret
 
