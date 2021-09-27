@@ -1,11 +1,14 @@
 """Utility functions for working with docstrings."""
 import typing as T
+from collections import ChainMap
+from inspect import Signature
+from itertools import chain
 
 from .common import (
-    DocstringStyle,
     DocstringMeta,
     DocstringParam,
     DocstringReturns,
+    DocstringStyle,
 )
 from .parser import compose, parse
 
@@ -82,15 +85,12 @@ def combine_docstrings(
     combining docstrings.
     :return: the decorated function with a modified docstring.
     """
-    from collections import ChainMap
-    from inspect import Signature
-    from itertools import chain
 
     def wrapper(func: _Func) -> _Func:
         sig = Signature.from_callable(func)
 
-        doc = parse(func.__doc__ or "")
-        docs = [parse(other.__doc__ or "") for other in others] + [doc]
+        comb_doc = parse(func.__doc__ or "")
+        docs = [parse(other.__doc__ or "") for other in others] + [comb_doc]
         params = dict(
             ChainMap(
                 *(
@@ -100,22 +100,26 @@ def combine_docstrings(
             )
         )
 
-        for d in docs[::-1]:
-            if not d.short_description:
+        for doc in docs[::-1]:
+            if not doc.short_description:
                 continue
-            doc.short_description = d.short_description
-            doc.blank_after_short_description = d.blank_after_short_description
+            comb_doc.short_description = doc.short_description
+            comb_doc.blank_after_short_description = (
+                doc.blank_after_short_description
+            )
             break
-        for d in docs[::-1]:
-            if not d.long_description:
+        for doc in docs[::-1]:
+            if not doc.long_description:
                 continue
-            doc.long_description = d.long_description
-            doc.blank_after_long_description = d.blank_after_long_description
+            comb_doc.long_description = doc.long_description
+            comb_doc.blank_after_long_description = (
+                doc.blank_after_long_description
+            )
             break
         combined = {}
-        for d in docs:
+        for doc in docs:
             metas = {}
-            for meta in d.meta:
+            for meta in doc.meta:
                 meta_type = type(meta)
                 if meta_type in exclude:
                     continue
@@ -126,8 +130,8 @@ def combine_docstrings(
         combined[DocstringParam] = [
             params[name] for name in sig.parameters if name in params
         ]
-        doc.meta = list(chain(*combined.values()))
-        func.__doc__ = compose(doc, style=style)
+        comb_doc.meta = list(chain(*combined.values()))
+        func.__doc__ = compose(comb_doc, style=style)
         return func
 
     return wrapper
