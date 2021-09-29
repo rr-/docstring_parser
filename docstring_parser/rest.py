@@ -125,6 +125,8 @@ def parse(text: str) -> Docstring:
         ret.blank_after_long_description = long_desc_chunk.endswith("\n\n")
         ret.long_description = long_desc_chunk.strip() or None
 
+    types = {}
+    rtypes = {}
     for match in re.finditer(
         r"(^:.*?)(?=^:|\Z)", meta_chunk, flags=re.S | re.M
     ):
@@ -139,11 +141,24 @@ def parse(text: str) -> Docstring:
             ) from ex
         args = args_chunk.split()
         desc = desc_chunk.strip()
+
         if "\n" in desc:
             first_line, rest = desc.split("\n", 1)
             desc = first_line + "\n" + inspect.cleandoc(rest)
 
-        ret.meta.append(_build_meta(args, desc))
+        # Add special handling for :type a: typename
+        if len(args) == 2 and args[0] == "type":
+            types[args[1]] = desc
+        elif len(args) in [1, 2] and args[0] == "rtype":
+            rtypes[None if len(args) == 1 else args[1]] = desc
+        else:
+            ret.meta.append(_build_meta(args, desc))
+
+    for meta in ret.meta:
+        if isinstance(meta, DocstringParam):
+            meta.type_name = meta.type_name or types.get(meta.arg_name)
+        elif isinstance(meta, DocstringReturns):
+            meta.type_name = meta.type_name or rtypes.get(meta.return_name)
 
     return ret
 
@@ -197,15 +212,30 @@ def compose(
                 )
             else:
                 type_text = " "
-            text = f":param{type_text}{meta.arg_name}:"
-            text += process_desc(meta.description)
-            parts.append(text)
+            if rendering_style == RenderingStyle.EXPANDED:
+                text = f":param {meta.arg_name}:"
+                text += process_desc(meta.description)
+                parts.append(text)
+                if type_text[:-1]:
+                    parts.append(f":type {meta.arg_name}:{type_text[:-1]}")
+            else:
+                text = f":param{type_text}{meta.arg_name}:"
+                text += process_desc(meta.description)
+                parts.append(text)
         elif isinstance(meta, DocstringReturns):
-            type_text = f" {meta.type_name} " if meta.type_name else ""
+            type_text = f" {meta.type_name}" if meta.type_name else ""
             key = "yields" if meta.is_generator else "returns"
-            text = f":{key}{type_text}:"
-            text += process_desc(meta.description)
-            parts.append(text)
+
+            if rendering_style == RenderingStyle.EXPANDED:
+                text = f":{key}:"
+                text += process_desc(meta.description)
+                parts.append(text)
+                if type_text:
+                    parts.append(f":rtype:{type_text}")
+            else:
+                text = f":{key}{type_text}:"
+                text += process_desc(meta.description)
+                parts.append(text)
         elif isinstance(meta, DocstringRaises):
             type_text = f" {meta.type_name} " if meta.type_name else ""
             text = f":raises{type_text}:" + process_desc(meta.description)
