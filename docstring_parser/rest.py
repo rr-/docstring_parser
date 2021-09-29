@@ -153,13 +153,12 @@ def parse(text: str) -> Docstring:
             rtypes[None if len(args) == 1 else args[1]] = desc
         else:
             ret.meta.append(_build_meta(args, desc))
+
     for meta in ret.meta:
         if isinstance(meta, DocstringParam):
-            meta.type_name = meta.type_name or types.get(meta.arg_name, None)
+            meta.type_name = meta.type_name or types.get(meta.arg_name)
         elif isinstance(meta, DocstringReturns):
-            meta.type_name = meta.type_name or rtypes.get(
-                meta.return_name, None
-            )
+            meta.type_name = meta.type_name or rtypes.get(meta.return_name)
 
     return ret
 

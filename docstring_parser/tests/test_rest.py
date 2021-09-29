@@ -307,6 +307,12 @@ def test_params() -> None:
         :param int b: description b
         """
     )
+    assert len(docstring.params) == 2
+    assert docstring.params[0].arg_name == "a"
+    assert docstring.params[0].type_name == "int"
+    assert docstring.params[0].description == "description a"
+    assert docstring.params[0].default is None
+    assert not docstring.params[0].is_optional
 
 
 def test_returns() -> None:
@@ -361,7 +367,7 @@ def test_returns() -> None:
     assert not docstring.returns.is_generator
     assert docstring.many_returns is not None
     assert len(docstring.many_returns) == 1
-    assert docstring.many_returns[0] == docstring.returns
+    assert docstring.many_returns == [docstring.returns]
 
 
 def test_yields() -> None:
