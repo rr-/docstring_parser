@@ -2,8 +2,8 @@
 import typing as T
 
 import pytest
-from docstring_parser.common import ParseError
-from docstring_parser.rest import parse
+from docstring_parser.common import ParseError, RenderingStyle
+from docstring_parser.rest import compose, parse
 
 
 @pytest.mark.parametrize(
@@ -336,9 +336,7 @@ def test_returns() -> None:
     assert docstring.returns.type_name is None
     assert docstring.returns.description == "description"
     assert not docstring.returns.is_generator
-    assert docstring.many_returns is not None
-    assert len(docstring.many_returns) == 1
-    assert docstring.many_returns[0] == docstring.returns
+    assert docstring.many_returns == [docstring.returns]
 
     docstring = parse(
         """
@@ -350,9 +348,7 @@ def test_returns() -> None:
     assert docstring.returns.type_name == "int"
     assert docstring.returns.description == "description"
     assert not docstring.returns.is_generator
-    assert docstring.many_returns is not None
-    assert len(docstring.many_returns) == 1
-    assert docstring.many_returns[0] == docstring.returns
+    assert docstring.many_returns == [docstring.returns]
 
     docstring = parse(
         """
@@ -365,8 +361,6 @@ def test_returns() -> None:
     assert docstring.returns.type_name == "int"
     assert docstring.returns.description == "description"
     assert not docstring.returns.is_generator
-    assert docstring.many_returns is not None
-    assert len(docstring.many_returns) == 1
     assert docstring.many_returns == [docstring.returns]
 
 
@@ -469,3 +463,61 @@ def test_deprecation() -> None:
     assert docstring.deprecation is not None
     assert docstring.deprecation.version is None
     assert docstring.deprecation.description == "this function will be removed"
+
+
+@pytest.mark.parametrize(
+    "rendering_style, expected",
+    [
+        (
+            RenderingStyle.COMPACT,
+            "Short description.\n"
+            "\n"
+            "Long description.\n"
+            "\n"
+            ":param int foo: a description\n"
+            ":param int bar: another description\n"
+            ":returns float: a return"
+        ),
+        (
+            RenderingStyle.CLEAN,
+            "Short description.\n"
+            "\n"
+            "Long description.\n"
+            "\n"
+            ":param int foo: a description\n"
+            ":param int bar: another description\n"
+            ":returns float: a return"
+        ),
+        (
+            RenderingStyle.EXPANDED,
+            "Short description.\n"
+            "\n"
+            "Long description.\n"
+            "\n"
+            ":param foo:\n"
+            "    a description\n"
+            ":type foo: int\n"
+            ":param bar:\n"
+            "    another description\n"
+            ":type bar: int\n"
+            ":returns:\n"
+            "    a return\n"
+            ":rtype: float"
+        ),
+    ],
+)
+def test_compose(rendering_style: RenderingStyle, expected: str) -> None:
+    """Test compose"""
+
+    docstring = parse(
+        """
+        Short description.
+
+        Long description.
+
+        :param int foo: a description
+        :param int bar: another description
+        :return float: a return
+        """
+    )
+    assert compose(docstring, rendering_style=rendering_style) == expected
