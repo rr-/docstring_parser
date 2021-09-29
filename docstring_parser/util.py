@@ -20,7 +20,7 @@ assert DocstringReturns  # used in docstring
 def combine_docstrings(
     *others: _Func,
     style: DocstringStyle = DocstringStyle.AUTO,
-    exclude: T.Iterable[DocstringMeta] = ()
+    exclude: T.Iterable[T.Type[DocstringMeta]] = ()
 ) -> _Func:
     """A function decorator that parses the docstrings from `others`,
     programmatically combines them with the parsed docstring of the decorated
