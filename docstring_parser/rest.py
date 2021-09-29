@@ -212,15 +212,30 @@ def compose(
                 )
             else:
                 type_text = " "
-            text = f":param{type_text}{meta.arg_name}:"
-            text += process_desc(meta.description)
-            parts.append(text)
+            if rendering_style == RenderingStyle.EXPANDED:
+                text = f":param {meta.arg_name}:"
+                text += process_desc(meta.description)
+                parts.append(text)
+                if type_text[:-1]:
+                    parts.append(f":type {meta.arg_name}:{type_text[:-1]}")
+            else:
+                text = f":param{type_text}{meta.arg_name}:"
+                text += process_desc(meta.description)
+                parts.append(text)
         elif isinstance(meta, DocstringReturns):
-            type_text = f" {meta.type_name} " if meta.type_name else ""
+            type_text = f" {meta.type_name}" if meta.type_name else ""
             key = "yields" if meta.is_generator else "returns"
-            text = f":{key}{type_text}:"
-            text += process_desc(meta.description)
-            parts.append(text)
+
+            if rendering_style == RenderingStyle.EXPANDED:
+                text = f":{key}:"
+                text += process_desc(meta.description)
+                parts.append(text)
+                if type_text:
+                    parts.append(f":rtype:{type_text}")
+            else:
+                text = f":{key}{type_text}:"
+                text += process_desc(meta.description)
+                parts.append(text)
         elif isinstance(meta, DocstringRaises):
             type_text = f" {meta.type_name} " if meta.type_name else ""
             text = f":raises{type_text}:" + process_desc(meta.description)
