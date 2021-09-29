@@ -100,7 +100,7 @@ def combine_docstrings(
             )
         )
 
-        for doc in docs[::-1]:
+        for doc in reversed(docs):
             if not doc.short_description:
                 continue
             comb_doc.short_description = doc.short_description
@@ -108,7 +108,8 @@ def combine_docstrings(
                 doc.blank_after_short_description
             )
             break
-        for doc in docs[::-1]:
+
+        for doc in reversed(docs):
             if not doc.long_description:
                 continue
             comb_doc.long_description = doc.long_description
@@ -116,6 +117,7 @@ def combine_docstrings(
                 doc.blank_after_long_description
             )
             break
+
         combined = {}
         for doc in docs:
             metas = {}
