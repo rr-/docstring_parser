@@ -476,7 +476,7 @@ def test_deprecation() -> None:
             "\n"
             ":param int foo: a description\n"
             ":param int bar: another description\n"
-            ":returns float: a return"
+            ":returns float: a return",
         ),
         (
             RenderingStyle.CLEAN,
@@ -486,7 +486,7 @@ def test_deprecation() -> None:
             "\n"
             ":param int foo: a description\n"
             ":param int bar: another description\n"
-            ":returns float: a return"
+            ":returns float: a return",
         ),
         (
             RenderingStyle.EXPANDED,
@@ -502,7 +502,7 @@ def test_deprecation() -> None:
             ":type bar: int\n"
             ":returns:\n"
             "    a return\n"
-            ":rtype: float"
+            ":rtype: float",
         ),
     ],
 )
