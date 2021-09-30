@@ -9,6 +9,7 @@ from .common import (
     DocstringParam,
     DocstringReturns,
     DocstringStyle,
+    RenderingStyle
 )
 from .parser import compose, parse
 
@@ -19,8 +20,9 @@ assert DocstringReturns  # used in docstring
 
 def combine_docstrings(
     *others: _Func,
+    exclude: T.Iterable[T.Type[DocstringMeta]] = (),
     style: DocstringStyle = DocstringStyle.AUTO,
-    exclude: T.Iterable[T.Type[DocstringMeta]] = ()
+    rendering_style: RenderingStyle = RenderingStyle.COMPACT,
 ) -> _Func:
     """A function decorator that parses the docstrings from `others`,
     programmatically combines them with the parsed docstring of the decorated
@@ -79,10 +81,11 @@ def combine_docstrings(
     :param e: fun2
 
     :param others: callables from which to parse docstrings.
-    :param style: style composed docstring. The default will infer the style
-    from the decorated function.
     :param exclude: an iterable of ``DocstringMeta`` subclasses to exclude when
     combining docstrings.
+    :param style: style composed docstring. The default will infer the style
+    from the decorated function.
+    :param rendering_style: The rendering style used to compose a docstring.
     :return: the decorated function with a modified docstring.
     """
 
@@ -133,7 +136,9 @@ def combine_docstrings(
             params[name] for name in sig.parameters if name in params
         ]
         comb_doc.meta = list(chain(*combined.values()))
-        func.__doc__ = compose(comb_doc, style=style)
+        func.__doc__ = compose(
+            comb_doc, style=style, rendering_style=rendering_style
+        )
         return func
 
     return wrapper
