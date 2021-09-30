@@ -12,11 +12,13 @@ from .common import (
     RenderingStyle,
 )
 from .parser import compose, parse
+from .util import combine_docstrings
 
 Style = DocstringStyle  # backwards compatibility
 
 __all__ = [
     "parse",
+    "combine_docstrings",
     "compose",
     "ParseError",
     "Docstring",
