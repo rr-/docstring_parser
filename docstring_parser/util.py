@@ -9,7 +9,7 @@ from .common import (
     DocstringParam,
     DocstringReturns,
     DocstringStyle,
-    RenderingStyle
+    RenderingStyle,
 )
 from .parser import compose, parse
 
