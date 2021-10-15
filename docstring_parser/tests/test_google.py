@@ -329,7 +329,7 @@ def test_meta_with_multiline_description() -> None:
     assert docstring.meta[0].description == "asd\n1\n    2\n3"
 
 
-def test_default_args():
+def test_default_args() -> None:
     """Test parsing default arguments."""
     docstring = parse(
         """A sample function

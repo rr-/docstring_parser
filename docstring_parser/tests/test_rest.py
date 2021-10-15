@@ -521,3 +521,11 @@ def test_compose(rendering_style: RenderingStyle, expected: str) -> None:
         """
     )
     assert compose(docstring, rendering_style=rendering_style) == expected
+
+
+def test_short_rtype() -> None:
+    """Test abbreviated docstring with only return type information."""
+    string = "Short description.\n\n:rtype: float"
+    docstring = parse(string)
+    rendering_style = RenderingStyle.EXPANDED
+    assert compose(docstring, rendering_style=rendering_style) == string

@@ -160,6 +160,18 @@ def parse(text: str) -> Docstring:
         elif isinstance(meta, DocstringReturns):
             meta.type_name = meta.type_name or rtypes.get(meta.return_name)
 
+    if not any(isinstance(m, DocstringReturns) for m in ret.meta) and rtypes:
+        for (return_name, type_name) in rtypes.items():
+            ret.meta.append(
+                DocstringReturns(
+                    args=[],
+                    type_name=type_name,
+                    description=None,
+                    is_generator=False,
+                    return_name=return_name,
+                )
+            )
+
     return ret
 
 
@@ -227,9 +239,10 @@ def compose(
             key = "yields" if meta.is_generator else "returns"
 
             if rendering_style == RenderingStyle.EXPANDED:
-                text = f":{key}:"
-                text += process_desc(meta.description)
-                parts.append(text)
+                if meta.description:
+                    text = f":{key}:"
+                    text += process_desc(meta.description)
+                    parts.append(text)
                 if type_text:
                     parts.append(f":rtype:{type_text}")
             else:
