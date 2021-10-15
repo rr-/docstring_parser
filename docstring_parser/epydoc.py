@@ -191,16 +191,6 @@ def parse(text: str) -> Docstring:
 
         ret.meta.append(meta_item)
 
-    # Add support for just specifying the return type without a description:
-    if not is_done.get("return", True):
-        info = params["return"]
-        meta_item = DocstringReturns(
-            args=[key],
-            description=info.get("description"),
-            type_name=info.get("type_name"),
-            is_generator=info.get("is_generator", False),
-        )
-
     return ret
 
 

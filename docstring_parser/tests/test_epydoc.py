@@ -716,7 +716,7 @@ def test_compose_expanded(source: str, expected: str) -> None:
     )
 
 
-def test_short():
+def test_short_rtype():
     """Test abbreviated docstring with only return type information."""
     string = "Short description.\n\n@rtype: float"
     docstring = parse(string)
