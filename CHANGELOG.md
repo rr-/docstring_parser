@@ -1,3 +1,7 @@
+# 0.12
+
+- General: Added support for lone `:rtype:` meta information (thanks to @abergou)
+
 # 0.11
 
 - General: Started tracking changes
