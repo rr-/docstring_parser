@@ -11,11 +11,13 @@ from .common import (
     RAISES_KEYWORDS,
     RETURNS_KEYWORDS,
     YIELDS_KEYWORDS,
+    EXAMPLES_KEYWORDS,
     Docstring,
     DocstringMeta,
     DocstringParam,
     DocstringRaises,
     DocstringReturns,
+    DocstringExamples,
     DocstringStyle,
     ParseError,
     RenderingStyle,
@@ -133,6 +135,10 @@ class GoogleParser:
             return DocstringRaises(
                 args=[section.key], description=desc, type_name=None
             )
+        if section.key in EXAMPLES_KEYWORDS:
+            return DocstringExamples(
+                args=[section.key], description=desc
+            )
         if section.key in PARAM_KEYWORDS:
             raise ParseError("Expected paramenter name.")
         return DocstringMeta(args=[section.key], description=desc)
@@ -206,7 +212,7 @@ class GoogleParser:
         match = self.titles_re.search(text)
         if match:
             desc_chunk = text[: match.start()]
-            meta_chunk = text[match.start() :]
+            meta_chunk = text[match.start():]
         else:
             desc_chunk = text
             meta_chunk = ""
@@ -226,7 +232,7 @@ class GoogleParser:
         matches = list(self.titles_re.finditer(meta_chunk))
         if not matches:
             return ret
-        splits = []
+        splits = []     # type: list[(int, int), (int, int)]
         for j in range(len(matches) - 1):
             splits.append((matches[j].end(), matches[j + 1].start()))
         splits.append((matches[-1].end(), len(meta_chunk)))
