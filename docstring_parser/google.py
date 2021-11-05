@@ -7,11 +7,13 @@ from collections import OrderedDict, namedtuple
 from enum import IntEnum
 
 from .common import (
+    EXAMPLES_KEYWORDS,
     PARAM_KEYWORDS,
     RAISES_KEYWORDS,
     RETURNS_KEYWORDS,
     YIELDS_KEYWORDS,
     Docstring,
+    DocstringExample,
     DocstringMeta,
     DocstringParam,
     DocstringRaises,
@@ -133,6 +135,8 @@ class GoogleParser:
             return DocstringRaises(
                 args=[section.key], description=desc, type_name=None
             )
+        if section.key in EXAMPLES_KEYWORDS:
+            return DocstringExample(args=[section.key], description=desc)
         if section.key in PARAM_KEYWORDS:
             raise ParseError("Expected paramenter name.")
         return DocstringMeta(args=[section.key], description=desc)

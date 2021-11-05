@@ -632,9 +632,9 @@ def test_examples() -> None:
             more here
         """
     )
-    assert len(docstring.meta) == 2
-    assert docstring.meta[0].description == "example: 1"
-    assert docstring.meta[1].description == "long example\n\nmore here"
+    assert len(docstring.examples) == 2
+    assert docstring.examples[0].description == "example: 1"
+    assert docstring.examples[1].description == "long example\n\nmore here"
 
 
 def test_broken_meta() -> None:
@@ -696,9 +696,9 @@ def test_empty_example() -> None:
         """
     )
 
-    assert len(docstring.meta) == 2
-    assert docstring.meta[0].args == ["examples"]
-    assert docstring.meta[0].description == ""
+    assert len(docstring.examples) == 1
+    assert docstring.examples[0].args == ["examples"]
+    assert docstring.examples[0].description == ""
 
 
 @pytest.mark.parametrize(

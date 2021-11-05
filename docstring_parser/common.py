@@ -15,6 +15,7 @@ RAISES_KEYWORDS = {"raises", "raise", "except", "exception"}
 DEPRECATION_KEYWORDS = {"deprecation", "deprecated"}
 RETURNS_KEYWORDS = {"return", "returns"}
 YIELDS_KEYWORDS = {"yield", "yields"}
+EXAMPLES_KEYWORDS = {"example", "examples"}
 
 
 class ParseError(RuntimeError):
@@ -130,6 +131,19 @@ class DocstringDeprecated(DocstringMeta):
         self.description = description
 
 
+class DocstringExample(DocstringMeta):
+    """DocstringMeta symbolizing example metadata."""
+
+    def __init__(
+        self,
+        args: T.List[str],
+        description: T.Optional[str],
+    ) -> None:
+        """Initialize self."""
+        super().__init__(args, description)
+        self.description = description
+
+
 class Docstring:
     """Docstring object representation."""
 
@@ -184,3 +198,10 @@ class Docstring:
             if isinstance(item, DocstringDeprecated):
                 return item
         return None
+
+    @property
+    def examples(self) -> T.List[DocstringExample]:
+        """Return a list of information on function examples."""
+        return [
+            item for item in self.meta if isinstance(item, DocstringExample)
+        ]
