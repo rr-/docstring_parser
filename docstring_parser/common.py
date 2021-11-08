@@ -200,7 +200,7 @@ class Docstring:
         return None
 
     @property
-    def examples(self) -> T.Optional[DocstringDeprecated]:
+    def examples(self) -> T.Optional[DocstringExample]:
         return [
             item for item in self.meta if isinstance(item, DocstringExample)
         ]
