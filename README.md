@@ -37,5 +37,18 @@ Example usage:
 
 # Contributing
 
-This project uses [precommit](https://pre-commit.com/). You can install it with
-`python3 -m pip install --user pre-commit` and running `pre-commit install`.
+To set up the project:
+```sh
+pip install --user poetry
+
+git clone https://github.com/rr-/pycrcmanip.git
+cd pycrcmanip
+
+poetry install
+poetry run pre-commit install
+```
+
+To run tests:
+```
+poetry run pytest
+```
