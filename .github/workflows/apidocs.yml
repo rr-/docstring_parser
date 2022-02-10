@@ -28,7 +28,7 @@ jobs:
             --html-viewsource-base=https://github.com/$GITHUB_REPOSITORY/tree/$GITHUB_SHA \
             --make-html \
             --html-output=./apidocs \
-            --project-base-dir="$(pwd)" \
+            --project-base-dir="." \
             --docformat=restructuredtext \
             --intersphinx=https://docs.python.org/3/objects.inv \
             ./docstring_parser
