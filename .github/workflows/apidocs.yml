@@ -16,7 +16,7 @@ jobs:
     - name: Install requirements for documentation generation
       run: |
         python -m pip install --upgrade pip setuptools wheel
-        python -m pip install pytest pydoctor>=22.3.0
+        python -m pip install pytest pydoctor>=22.3.0 . 
 
     - name: Generate API documentation with pydoctor
       run: |
