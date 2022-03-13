@@ -1,8 +1,10 @@
 docstring_parser
 ================
 
-Parse Python docstrings. Currently support ReST, Google, and Numpydoc-style
-docstrings.
+[![Build](https://github.com/rr-/docstring_parser/actions/workflows/build.yml/badge.svg)](https://github.com/rr-/docstring_parser/actions/workflows/build.yml)
+
+Parse Python docstrings. Currently support ReST, Google, Numpydoc-style and
+Epydoc docstrings.
 
 Example usage:
 
@@ -37,5 +39,18 @@ Read [API Documentation](https://rr-.github.io/docstring_parser/).
 
 # Contributing
 
-This project uses [Black](https://github.com/psf/black) with `-l79` setting as
-well as [isort](https://github.com/timothycrosley/isort).
+To set up the project:
+```sh
+pip install --user poetry
+
+git clone https://github.com/rr-/pycrcmanip.git
+cd pycrcmanip
+
+poetry install
+poetry run pre-commit install
+```
+
+To run tests:
+```
+poetry run pytest
+```

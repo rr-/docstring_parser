@@ -16,25 +16,25 @@ from .common import (
     DocstringRaises,
     DocstringReturns,
     DocstringStyle,
+    RenderingStyle,
 )
 
 
 def _pairwise(iterable: T.Iterable, end=None) -> T.Iterable:
-    a, b = itertools.tee(iterable)
-    next(b, None)
-    return itertools.zip_longest(a, b, fillvalue=end)
+    left, right = itertools.tee(iterable)
+    next(right, None)
+    return itertools.zip_longest(left, right, fillvalue=end)
 
 
 def _clean_str(string: str) -> T.Optional[str]:
     string = string.strip()
     if len(string) > 0:
         return string
+    return None
 
 
 KV_REGEX = re.compile(r"^[^\s].*$", flags=re.M)
-
 PARAM_KEY_REGEX = re.compile(r"^(?P<name>.*?)(?:\s*:\s*(?P<type>.*?))?$")
-
 PARAM_OPTIONAL_REGEX = re.compile(r"(?P<type>.*?)(?:, optional|\(optional\))$")
 
 # numpydoc format has no formal grammar for this,
@@ -127,10 +127,11 @@ class ParamSection(_KVSection):
     """
 
     def _parse_item(self, key: str, value: str) -> DocstringParam:
-        m = PARAM_KEY_REGEX.match(key)
+        match = PARAM_KEY_REGEX.match(key)
         arg_name = type_name = is_optional = None
-        if m is not None:
-            arg_name, type_name = m.group("name"), m.group("type")
+        if match is not None:
+            arg_name = match.group("name")
+            type_name = match.group("type")
             if type_name is not None:
                 optional_match = PARAM_OPTIONAL_REGEX.match(type_name)
                 if optional_match is not None:
@@ -172,7 +173,7 @@ class RaisesSection(_KVSection):
 
 
 class ReturnsSection(_KVSection):
-    """Parser for numpydoc raises sections.
+    """Parser for numpydoc returns sections.
 
     E.g. any section that looks like this:
         return_name : type
@@ -184,11 +185,13 @@ class ReturnsSection(_KVSection):
     is_generator = False
 
     def _parse_item(self, key: str, value: str) -> DocstringReturns:
-        m = RETURN_KEY_REGEX.match(key)
-        if m is not None:
-            return_name, type_name = m.group("name"), m.group("type")
+        match = RETURN_KEY_REGEX.match(key)
+        if match is not None:
+            return_name = match.group("name")
+            type_name = match.group("type")
         else:
-            return_name = type_name = None
+            return_name = None
+            type_name = None
 
         return DocstringReturns(
             args=[self.key],
@@ -255,6 +258,8 @@ DEFAULT_SECTIONS = [
 
 
 class NumpydocParser:
+    """Parser for numpydoc-style docstrings."""
+
     def __init__(self, sections: T.Optional[T.Dict[str, Section]] = None):
         """Setup sections.
 
@@ -284,7 +289,7 @@ class NumpydocParser:
 
         :returns: parsed docstring
         """
-        ret = Docstring(style=DocstringStyle.numpydoc)
+        ret = Docstring(style=DocstringStyle.NUMPYDOC)
         if not text:
             return ret
 
@@ -330,3 +335,157 @@ def parse(text: str) -> Docstring:
     :returns: parsed docstring
     """
     return NumpydocParser().parse(text)
+
+
+def compose(
+    # pylint: disable=W0613
+    docstring: Docstring,
+    rendering_style: RenderingStyle = RenderingStyle.COMPACT,
+    indent: str = "    ",
+) -> str:
+    """Render a parsed docstring into docstring text.
+
+    :param docstring: parsed docstring representation
+    :param rendering_style: the style to render docstrings
+    :param indent: the characters used as indentation in the docstring string
+    :returns: docstring text
+    """
+
+    def process_one(
+        one: T.Union[DocstringParam, DocstringReturns, DocstringRaises]
+    ):
+        if isinstance(one, DocstringParam):
+            head = one.arg_name
+        elif isinstance(one, DocstringReturns):
+            head = one.return_name
+        else:
+            head = None
+
+        if one.type_name and head:
+            head += f" : {one.type_name}"
+        elif one.type_name:
+            head = one.type_name
+        elif not head:
+            head = ""
+
+        if isinstance(one, DocstringParam) and one.is_optional:
+            head += ", optional"
+
+        if one.description:
+            body = f"\n{indent}".join([head] + one.description.splitlines())
+            parts.append(body)
+        else:
+            parts.append(head)
+
+    def process_sect(name: str, args: T.List[T.Any]):
+        if args:
+            parts.append("")
+            parts.append(name)
+            parts.append("-" * len(parts[-1]))
+            for arg in args:
+                process_one(arg)
+
+    parts: T.List[str] = []
+    if docstring.short_description:
+        parts.append(docstring.short_description)
+    if docstring.blank_after_short_description:
+        parts.append("")
+
+    if docstring.deprecation:
+        first = ".. deprecated::"
+        if docstring.deprecation.version:
+            first += f" {docstring.deprecation.version}"
+        if docstring.deprecation.description:
+            rest = docstring.deprecation.description.splitlines()
+        else:
+            rest = []
+        sep = f"\n{indent}"
+        parts.append(sep.join([first] + rest))
+
+    if docstring.long_description:
+        parts.append(docstring.long_description)
+    if docstring.blank_after_long_description:
+        parts.append("")
+
+    process_sect(
+        "Parameters",
+        [item for item in docstring.params or [] if item.args[0] == "param"],
+    )
+
+    process_sect(
+        "Attributes",
+        [
+            item
+            for item in docstring.params or []
+            if item.args[0] == "attribute"
+        ],
+    )
+
+    process_sect(
+        "Returns",
+        [
+            item
+            for item in docstring.many_returns or []
+            if not item.is_generator
+        ],
+    )
+
+    process_sect(
+        "Yields",
+        [item for item in docstring.many_returns or [] if item.is_generator],
+    )
+
+    if docstring.returns and not docstring.many_returns:
+        ret = docstring.returns
+        parts.append("Yields" if ret else "Returns")
+        parts.append("-" * len(parts[-1]))
+        process_one(ret)
+
+    process_sect(
+        "Receives",
+        [
+            item
+            for item in docstring.params or []
+            if item.args[0] == "receives"
+        ],
+    )
+
+    process_sect(
+        "Other Parameters",
+        [
+            item
+            for item in docstring.params or []
+            if item.args[0] == "other_param"
+        ],
+    )
+
+    process_sect(
+        "Raises",
+        [item for item in docstring.raises or [] if item.args[0] == "raises"],
+    )
+
+    process_sect(
+        "Warns",
+        [item for item in docstring.raises or [] if item.args[0] == "warns"],
+    )
+
+    for meta in docstring.meta:
+        if isinstance(
+            meta,
+            (
+                DocstringDeprecated,
+                DocstringParam,
+                DocstringReturns,
+                DocstringRaises,
+            ),
+        ):
+            continue  # Already handled
+
+        parts.append("")
+        parts.append(meta.args[0].replace("_", "").title())
+        parts.append("-" * len(meta.args[0]))
+
+        if meta.description:
+            parts.append(meta.description)
+
+    return "\n".join(parts)

@@ -1,7 +1,8 @@
+"""Tests for numpydoc-style docstring routines."""
 import typing as T
 
 import pytest
-from docstring_parser.numpydoc import parse
+from docstring_parser.numpydoc import compose, parse
 
 
 @pytest.mark.parametrize(
@@ -15,6 +16,7 @@ from docstring_parser.numpydoc import parse
     ],
 )
 def test_short_description(source: str, expected: str) -> None:
+    """Test parsing short description."""
     docstring = parse(source)
     assert docstring.short_description == expected
     assert docstring.long_description is None
@@ -90,6 +92,7 @@ def test_long_description(
     expected_long_desc: str,
     expected_blank: bool,
 ) -> None:
+    """Test parsing long description."""
     docstring = parse(source)
     assert docstring.short_description == expected_short_desc
     assert docstring.long_description == expected_long_desc
@@ -191,6 +194,7 @@ def test_meta_newlines(
     expected_blank_short_desc: bool,
     expected_blank_long_desc: bool,
 ) -> None:
+    """Test parsing newlines around description sections."""
     docstring = parse(source)
     assert docstring.short_description == expected_short_desc
     assert docstring.long_description == expected_long_desc
@@ -200,6 +204,7 @@ def test_meta_newlines(
 
 
 def test_meta_with_multiline_description() -> None:
+    """Test parsing multiline meta documentation."""
     docstring = parse(
         """
         Short description
@@ -220,7 +225,8 @@ def test_meta_with_multiline_description() -> None:
     assert docstring.meta[0].description == "asd\n1\n    2\n3"
 
 
-def test_default_args():
+def test_default_args() -> None:
+    """Test parsing default arguments."""
     docstring = parse(
         """
         A sample function
@@ -258,6 +264,7 @@ def test_default_args():
 
 
 def test_multiple_meta() -> None:
+    """Test parsing multiple meta."""
     docstring = parse(
         """
         Short description
@@ -292,6 +299,7 @@ def test_multiple_meta() -> None:
 
 
 def test_params() -> None:
+    """Test parsing params."""
     docstring = parse("Short description")
     assert len(docstring.params) == 0
 
@@ -346,7 +354,7 @@ def test_params() -> None:
     assert docstring.params[0].arg_name == "name"
     assert docstring.params[0].type_name is None
     assert docstring.params[0].description == (
-        "description 1\n" "with multi-line text"
+        "description 1\nwith multi-line text"
     )
     assert docstring.params[1].arg_name == "priority"
     assert docstring.params[1].type_name == "int"
@@ -354,6 +362,7 @@ def test_params() -> None:
 
 
 def test_attributes() -> None:
+    """Test parsing attributes."""
     docstring = parse("Short description")
     assert len(docstring.params) == 0
 
@@ -408,7 +417,7 @@ def test_attributes() -> None:
     assert docstring.params[0].arg_name == "name"
     assert docstring.params[0].type_name is None
     assert docstring.params[0].description == (
-        "description 1\n" "with multi-line text"
+        "description 1\nwith multi-line text"
     )
     assert docstring.params[1].arg_name == "priority"
     assert docstring.params[1].type_name == "int"
@@ -416,6 +425,7 @@ def test_attributes() -> None:
 
 
 def test_other_params() -> None:
+    """Test parsing other parameters."""
     docstring = parse(
         """
         Short description
@@ -444,6 +454,7 @@ def test_other_params() -> None:
 
 
 def test_yields() -> None:
+    """Test parsing yields."""
     docstring = parse(
         """
         Short description
@@ -462,12 +473,15 @@ def test_yields() -> None:
 
 
 def test_returns() -> None:
+    """Test parsing returns."""
     docstring = parse(
         """
         Short description
         """
     )
     assert docstring.returns is None
+    assert docstring.many_returns is not None
+    assert len(docstring.many_returns) == 0
 
     docstring = parse(
         """
@@ -480,6 +494,9 @@ def test_returns() -> None:
     assert docstring.returns is not None
     assert docstring.returns.type_name == "type"
     assert docstring.returns.description is None
+    assert docstring.many_returns is not None
+    assert len(docstring.many_returns) == 1
+    assert docstring.many_returns[0] == docstring.returns
 
     docstring = parse(
         """
@@ -493,6 +510,9 @@ def test_returns() -> None:
     assert docstring.returns is not None
     assert docstring.returns.type_name == "int"
     assert docstring.returns.description == "description"
+    assert docstring.many_returns is not None
+    assert len(docstring.many_returns) == 1
+    assert docstring.many_returns[0] == docstring.returns
 
     docstring = parse(
         """
@@ -505,6 +525,9 @@ def test_returns() -> None:
     assert docstring.returns is not None
     assert docstring.returns.type_name == "Optional[Mapping[str, List[int]]]"
     assert docstring.returns.description == "A description: with a colon"
+    assert docstring.many_returns is not None
+    assert len(docstring.many_returns) == 1
+    assert docstring.many_returns[0] == docstring.returns
 
     docstring = parse(
         """
@@ -521,11 +544,38 @@ def test_returns() -> None:
     assert docstring.returns is not None
     assert docstring.returns.type_name == "int"
     assert docstring.returns.description == (
-        "description\n" "with much text\n\n" "even some spacing"
+        "description\nwith much text\n\neven some spacing"
     )
+    assert docstring.many_returns is not None
+    assert len(docstring.many_returns) == 1
+    assert docstring.many_returns[0] == docstring.returns
+
+    docstring = parse(
+        """
+        Short description
+        Returns
+        -------
+        a : int
+            description for a
+        b : str
+            description for b
+        """
+    )
+    assert docstring.returns is not None
+    assert docstring.returns.type_name == "int"
+    assert docstring.returns.description == ("description for a")
+    assert docstring.many_returns is not None
+    assert len(docstring.many_returns) == 2
+    assert docstring.many_returns[0].type_name == "int"
+    assert docstring.many_returns[0].description == "description for a"
+    assert docstring.many_returns[0].return_name == "a"
+    assert docstring.many_returns[1].type_name == "str"
+    assert docstring.many_returns[1].description == "description for b"
+    assert docstring.many_returns[1].return_name == "b"
 
 
 def test_raises() -> None:
+    """Test parsing raises."""
     docstring = parse(
         """
         Short description
@@ -548,6 +598,7 @@ def test_raises() -> None:
 
 
 def test_warns() -> None:
+    """Test parsing warns."""
     docstring = parse(
         """
         Short description
@@ -563,6 +614,7 @@ def test_warns() -> None:
 
 
 def test_simple_sections() -> None:
+    """Test parsing simple sections."""
     docstring = parse(
         """
         Short description
@@ -609,6 +661,7 @@ def test_simple_sections() -> None:
 
 
 def test_examples() -> None:
+    """Test parsing examples."""
     docstring = parse(
         """
         Short description
@@ -654,8 +707,245 @@ def test_deprecation(
     expected_depr_version: T.Optional[str],
     expected_depr_desc: T.Optional[str],
 ) -> None:
+    """Test parsing deprecation notes."""
     docstring = parse(source)
 
     assert docstring.deprecation is not None
     assert docstring.deprecation.version == expected_depr_version
     assert docstring.deprecation.description == expected_depr_desc
+
+
+@pytest.mark.parametrize(
+    "source, expected",
+    [
+        ("", ""),
+        ("\n", ""),
+        ("Short description", "Short description"),
+        ("\nShort description\n", "Short description"),
+        ("\n   Short description\n", "Short description"),
+        (
+            "Short description\n\nLong description",
+            "Short description\n\nLong description",
+        ),
+        (
+            """
+            Short description
+
+            Long description
+            """,
+            "Short description\n\nLong description",
+        ),
+        (
+            """
+            Short description
+
+            Long description
+            Second line
+            """,
+            "Short description\n\nLong description\nSecond line",
+        ),
+        (
+            "Short description\nLong description",
+            "Short description\nLong description",
+        ),
+        (
+            """
+            Short description
+            Long description
+            """,
+            "Short description\nLong description",
+        ),
+        (
+            "\nShort description\nLong description\n",
+            "Short description\nLong description",
+        ),
+        (
+            """
+            Short description
+            Long description
+            Second line
+            """,
+            "Short description\nLong description\nSecond line",
+        ),
+        (
+            """
+            Short description
+            Meta:
+            -----
+                asd
+            """,
+            "Short description\nMeta:\n-----\n    asd",
+        ),
+        (
+            """
+            Short description
+            Long description
+            Meta:
+            -----
+                asd
+            """,
+            "Short description\n"
+            "Long description\n"
+            "Meta:\n"
+            "-----\n"
+            "    asd",
+        ),
+        (
+            """
+            Short description
+            First line
+                Second line
+            Meta:
+            -----
+                asd
+            """,
+            "Short description\n"
+            "First line\n"
+            "    Second line\n"
+            "Meta:\n"
+            "-----\n"
+            "    asd",
+        ),
+        (
+            """
+            Short description
+
+            First line
+                Second line
+            Meta:
+            -----
+                asd
+            """,
+            "Short description\n"
+            "\n"
+            "First line\n"
+            "    Second line\n"
+            "Meta:\n"
+            "-----\n"
+            "    asd",
+        ),
+        (
+            """
+            Short description
+
+            First line
+                Second line
+
+            Meta:
+            -----
+                asd
+            """,
+            "Short description\n"
+            "\n"
+            "First line\n"
+            "    Second line\n"
+            "\n"
+            "Meta:\n"
+            "-----\n"
+            "    asd",
+        ),
+        (
+            """
+            Short description
+
+            Meta:
+            -----
+                asd
+                    1
+                        2
+                    3
+            """,
+            "Short description\n"
+            "\n"
+            "Meta:\n"
+            "-----\n"
+            "    asd\n"
+            "        1\n"
+            "            2\n"
+            "        3",
+        ),
+        (
+            """
+            Short description
+
+            Meta1:
+            ------
+                asd
+                1
+                    2
+                3
+            Meta2:
+            ------
+                herp
+            Meta3:
+            ------
+                derp
+            """,
+            "Short description\n"
+            "\n"
+            "Meta1:\n"
+            "------\n"
+            "    asd\n"
+            "    1\n"
+            "        2\n"
+            "    3\n"
+            "Meta2:\n"
+            "------\n"
+            "    herp\n"
+            "Meta3:\n"
+            "------\n"
+            "    derp",
+        ),
+        (
+            """
+            Short description
+
+            Parameters:
+            -----------
+                name
+                    description 1
+                priority: int
+                    description 2
+                sender: str, optional
+                    description 3
+                message: str, optional
+                    description 4, defaults to 'hello'
+                multiline: str, optional
+                    long description 5,
+                        defaults to 'bye'
+            """,
+            "Short description\n"
+            "\n"
+            "Parameters:\n"
+            "-----------\n"
+            "    name\n"
+            "        description 1\n"
+            "    priority: int\n"
+            "        description 2\n"
+            "    sender: str, optional\n"
+            "        description 3\n"
+            "    message: str, optional\n"
+            "        description 4, defaults to 'hello'\n"
+            "    multiline: str, optional\n"
+            "        long description 5,\n"
+            "            defaults to 'bye'",
+        ),
+        (
+            """
+            Short description
+            Raises:
+            -------
+                ValueError
+                    description
+            """,
+            "Short description\n"
+            "Raises:\n"
+            "-------\n"
+            "    ValueError\n"
+            "        description",
+        ),
+    ],
+)
+def test_compose(source: str, expected: str) -> None:
+    """Test compose in default mode."""
+    assert compose(parse(source)) == expected

@@ -12,8 +12,10 @@ PARAM_KEYWORDS = {
     "keyword",
 }
 RAISES_KEYWORDS = {"raises", "raise", "except", "exception"}
+DEPRECATION_KEYWORDS = {"deprecation", "deprecated"}
 RETURNS_KEYWORDS = {"return", "returns"}
 YIELDS_KEYWORDS = {"yield", "yields"}
+EXAMPLES_KEYWORDS = {"example", "examples"}
 
 
 class ParseError(RuntimeError):
@@ -23,10 +25,19 @@ class ParseError(RuntimeError):
 class DocstringStyle(enum.Enum):
     """Docstring style."""
 
-    rest = 1
-    google = 2
-    numpydoc = 3
-    auto = 255
+    REST = 1
+    GOOGLE = 2
+    NUMPYDOC = 3
+    EPYDOC = 4
+    AUTO = 255
+
+
+class RenderingStyle(enum.Enum):
+    """Rendering style when unparsing parsed docstrings."""
+
+    COMPACT = 1
+    CLEAN = 2
+    EXPANDED = 3
 
 
 class DocstringMeta:
@@ -38,12 +49,14 @@ class DocstringMeta:
         :raises ValueError: if something happens
     """
 
-    def __init__(self, args: T.List[str], description: str) -> None:
+    def __init__(
+        self, args: T.List[str], description: T.Optional[str]
+    ) -> None:
         """Initialize self.
 
         :param args: list of arguments. The exact content of this variable is
-                     dependent on the kind of docstring; it's used to distinguish between
-                     custom docstring meta information items.
+            dependent on the kind of docstring; it's used to distinguish
+            between custom docstring meta information items.
         :param description: associated docstring description.
         """
         self.args = args
@@ -118,6 +131,19 @@ class DocstringDeprecated(DocstringMeta):
         self.description = description
 
 
+class DocstringExample(DocstringMeta):
+    """DocstringMeta symbolizing example metadata."""
+
+    def __init__(
+        self,
+        args: T.List[str],
+        description: T.Optional[str],
+    ) -> None:
+        """Initialize self."""
+        super().__init__(args, description)
+        self.description = description
+
+
 class Docstring:
     """Docstring object representation."""
 
@@ -135,24 +161,47 @@ class Docstring:
 
     @property
     def params(self) -> T.List[DocstringParam]:
+        """Return a list of information on function params."""
         return [item for item in self.meta if isinstance(item, DocstringParam)]
 
     @property
     def raises(self) -> T.List[DocstringRaises]:
+        """Return a list of information on the exceptions that the function
+        may raise.
+        """
         return [
             item for item in self.meta if isinstance(item, DocstringRaises)
         ]
 
     @property
     def returns(self) -> T.Optional[DocstringReturns]:
+        """Return a single information on function return.
+
+        Takes the first return information.
+        """
         for item in self.meta:
             if isinstance(item, DocstringReturns):
                 return item
         return None
 
     @property
+    def many_returns(self) -> T.List[DocstringReturns]:
+        """Return a list of information on function return."""
+        return [
+            item for item in self.meta if isinstance(item, DocstringReturns)
+        ]
+
+    @property
     def deprecation(self) -> T.Optional[DocstringDeprecated]:
+        """Return a single information on function deprecation notes."""
         for item in self.meta:
             if isinstance(item, DocstringDeprecated):
                 return item
         return None
+
+    @property
+    def examples(self) -> T.List[DocstringExample]:
+        """Return a list of information on function examples."""
+        return [
+            item for item in self.meta if isinstance(item, DocstringExample)
+        ]

@@ -1,9 +1,9 @@
-"""Tests for ReST-style docstring routines."""
+"""Tests for epydoc-style docstring routines."""
 import typing as T
 
 import pytest
 from docstring_parser.common import ParseError, RenderingStyle
-from docstring_parser.rest import compose, parse
+from docstring_parser.epydoc import compose, parse
 
 
 @pytest.mark.parametrize(
@@ -108,7 +108,7 @@ def test_long_description(
         (
             """
             Short description
-            :meta: asd
+            @meta: asd
             """,
             "Short description",
             None,
@@ -119,7 +119,7 @@ def test_long_description(
             """
             Short description
             Long description
-            :meta: asd
+            @meta: asd
             """,
             "Short description",
             "Long description",
@@ -131,7 +131,7 @@ def test_long_description(
             Short description
             First line
                 Second line
-            :meta: asd
+            @meta: asd
             """,
             "Short description",
             "First line\n    Second line",
@@ -144,7 +144,7 @@ def test_long_description(
 
             First line
                 Second line
-            :meta: asd
+            @meta: asd
             """,
             "Short description",
             "First line\n    Second line",
@@ -158,7 +158,7 @@ def test_long_description(
             First line
                 Second line
 
-            :meta: asd
+            @meta: asd
             """,
             "Short description",
             "First line\n    Second line",
@@ -167,7 +167,7 @@ def test_long_description(
         ),
         (
             """
-            :meta: asd
+            @meta: asd
             """,
             None,
             None,
@@ -198,7 +198,7 @@ def test_meta_with_multiline_description() -> None:
         """
         Short description
 
-        :meta: asd
+        @meta: asd
             1
                 2
             3
@@ -216,12 +216,12 @@ def test_multiple_meta() -> None:
         """
         Short description
 
-        :meta1: asd
+        @meta1: asd
             1
                 2
             3
-        :meta2: herp
-        :meta3: derp
+        @meta2: herp
+        @meta3: derp
         """
     )
     assert docstring.short_description == "Short description"
@@ -240,7 +240,7 @@ def test_meta_with_args() -> None:
         """
         Short description
 
-        :meta ene due rabe: asd
+        @meta ene due rabe: asd
         """
     )
     assert docstring.short_description == "Short description"
@@ -258,12 +258,16 @@ def test_params() -> None:
         """
         Short description
 
-        :param name: description 1
-        :param int priority: description 2
-        :param str? sender: description 3
-        :param str? message: description 4, defaults to 'hello'
-        :param str? multiline: long description 5,
+        @param name: description 1
+        @param priority: description 2
+        @type priority: int
+        @param sender: description 3
+        @type sender: str?
+        @param message: description 4, defaults to 'hello'
+        @type message: str?
+        @param multiline: long description 5,
         defaults to 'bye'
+        @type multiline: str?
         """
     )
     assert len(docstring.params) == 5
@@ -298,22 +302,6 @@ def test_params() -> None:
     assert docstring.params[4].is_optional
     assert docstring.params[4].default == "'bye'"
 
-    docstring = parse(
-        """
-        Short description
-
-        :param a: description a
-        :type a: int
-        :param int b: description b
-        """
-    )
-    assert len(docstring.params) == 2
-    assert docstring.params[0].arg_name == "a"
-    assert docstring.params[0].type_name == "int"
-    assert docstring.params[0].description == "description a"
-    assert docstring.params[0].default is None
-    assert not docstring.params[0].is_optional
-
 
 def test_returns() -> None:
     """Test parsing returns."""
@@ -323,45 +311,29 @@ def test_returns() -> None:
         """
     )
     assert docstring.returns is None
-    assert docstring.many_returns is not None
-    assert len(docstring.many_returns) == 0
 
     docstring = parse(
         """
         Short description
-        :returns: description
+        @return: description
         """
     )
     assert docstring.returns is not None
     assert docstring.returns.type_name is None
     assert docstring.returns.description == "description"
     assert not docstring.returns.is_generator
-    assert docstring.many_returns == [docstring.returns]
 
     docstring = parse(
         """
         Short description
-        :returns int: description
+        @return: description
+        @rtype: int
         """
     )
     assert docstring.returns is not None
     assert docstring.returns.type_name == "int"
     assert docstring.returns.description == "description"
     assert not docstring.returns.is_generator
-    assert docstring.many_returns == [docstring.returns]
-
-    docstring = parse(
-        """
-        Short description
-        :returns: description
-        :rtype: int
-        """
-    )
-    assert docstring.returns is not None
-    assert docstring.returns.type_name == "int"
-    assert docstring.returns.description == "description"
-    assert not docstring.returns.is_generator
-    assert docstring.many_returns == [docstring.returns]
 
 
 def test_yields() -> None:
@@ -372,36 +344,29 @@ def test_yields() -> None:
         """
     )
     assert docstring.returns is None
-    assert docstring.many_returns is not None
-    assert len(docstring.many_returns) == 0
 
     docstring = parse(
         """
         Short description
-        :yields: description
+        @yield: description
         """
     )
     assert docstring.returns is not None
     assert docstring.returns.type_name is None
     assert docstring.returns.description == "description"
     assert docstring.returns.is_generator
-    assert docstring.many_returns is not None
-    assert len(docstring.many_returns) == 1
-    assert docstring.many_returns[0] == docstring.returns
 
     docstring = parse(
         """
         Short description
-        :yields int: description
+        @yield: description
+        @ytype: int
         """
     )
     assert docstring.returns is not None
     assert docstring.returns.type_name == "int"
     assert docstring.returns.description == "description"
     assert docstring.returns.is_generator
-    assert docstring.many_returns is not None
-    assert len(docstring.many_returns) == 1
-    assert docstring.many_returns[0] == docstring.returns
 
 
 def test_raises() -> None:
@@ -416,7 +381,7 @@ def test_raises() -> None:
     docstring = parse(
         """
         Short description
-        :raises: description
+        @raise: description
         """
     )
     assert len(docstring.raises) == 1
@@ -426,7 +391,7 @@ def test_raises() -> None:
     docstring = parse(
         """
         Short description
-        :raises ValueError: description
+        @raise ValueError: description
         """
     )
     assert len(docstring.raises) == 1
@@ -437,95 +402,322 @@ def test_raises() -> None:
 def test_broken_meta() -> None:
     """Test parsing broken meta."""
     with pytest.raises(ParseError):
-        parse(":")
+        parse("@")
 
     with pytest.raises(ParseError):
-        parse(":param herp derp")
+        parse("@param herp derp")
 
     with pytest.raises(ParseError):
-        parse(":param: invalid")
+        parse("@param: invalid")
 
     with pytest.raises(ParseError):
-        parse(":param with too many args: desc")
+        parse("@param with too many args: desc")
 
     # these should not raise any errors
-    parse(":sthstrange: desc")
-
-
-def test_deprecation() -> None:
-    """Test parsing deprecation notes."""
-    docstring = parse(":deprecation: 1.1.0 this function will be removed")
-    assert docstring.deprecation is not None
-    assert docstring.deprecation.version == "1.1.0"
-    assert docstring.deprecation.description == "this function will be removed"
-
-    docstring = parse(":deprecation: this function will be removed")
-    assert docstring.deprecation is not None
-    assert docstring.deprecation.version is None
-    assert docstring.deprecation.description == "this function will be removed"
+    parse("@sthstrange: desc")
 
 
 @pytest.mark.parametrize(
-    "rendering_style, expected",
+    "source, expected",
     [
+        ("", ""),
+        ("\n", ""),
+        ("Short description", "Short description"),
+        ("\nShort description\n", "Short description"),
+        ("\n   Short description\n", "Short description"),
         (
-            RenderingStyle.COMPACT,
-            "Short description.\n"
-            "\n"
-            "Long description.\n"
-            "\n"
-            ":param int foo: a description\n"
-            ":param int bar: another description\n"
-            ":returns float: a return",
+            "Short description\n\nLong description",
+            "Short description\n\nLong description",
         ),
         (
-            RenderingStyle.CLEAN,
-            "Short description.\n"
-            "\n"
-            "Long description.\n"
-            "\n"
-            ":param int foo: a description\n"
-            ":param int bar: another description\n"
-            ":returns float: a return",
+            """
+            Short description
+
+            Long description
+            """,
+            "Short description\n\nLong description",
         ),
         (
-            RenderingStyle.EXPANDED,
-            "Short description.\n"
+            """
+            Short description
+
+            Long description
+            Second line
+            """,
+            "Short description\n\nLong description\nSecond line",
+        ),
+        (
+            "Short description\nLong description",
+            "Short description\nLong description",
+        ),
+        (
+            """
+            Short description
+            Long description
+            """,
+            "Short description\nLong description",
+        ),
+        (
+            "\nShort description\nLong description\n",
+            "Short description\nLong description",
+        ),
+        (
+            """
+            Short description
+            Long description
+            Second line
+            """,
+            "Short description\nLong description\nSecond line",
+        ),
+        (
+            """
+            Short description
+            @meta: asd
+            """,
+            "Short description\n@meta: asd",
+        ),
+        (
+            """
+            Short description
+            Long description
+            @meta: asd
+            """,
+            "Short description\nLong description\n@meta: asd",
+        ),
+        (
+            """
+            Short description
+            First line
+                Second line
+            @meta: asd
+            """,
+            "Short description\nFirst line\n    Second line\n@meta: asd",
+        ),
+        (
+            """
+            Short description
+
+            First line
+                Second line
+            @meta: asd
+            """,
+            "Short description\n"
             "\n"
-            "Long description.\n"
+            "First line\n"
+            "    Second line\n"
+            "@meta: asd",
+        ),
+        (
+            """
+            Short description
+
+            First line
+                Second line
+
+            @meta: asd
+            """,
+            "Short description\n"
             "\n"
-            ":param foo:\n"
-            "    a description\n"
-            ":type foo: int\n"
-            ":param bar:\n"
-            "    another description\n"
-            ":type bar: int\n"
-            ":returns:\n"
-            "    a return\n"
-            ":rtype: float",
+            "First line\n"
+            "    Second line\n"
+            "\n"
+            "@meta: asd",
+        ),
+        (
+            """
+            @meta: asd
+            """,
+            "@meta: asd",
+        ),
+        (
+            """
+            Short description
+
+            @meta: asd
+                1
+                    2
+                3
+            """,
+            "Short description\n"
+            "\n"
+            "@meta: asd\n"
+            "    1\n"
+            "        2\n"
+            "    3",
+        ),
+        (
+            """
+            Short description
+
+            @meta1: asd
+                1
+                    2
+                3
+            @meta2: herp
+            @meta3: derp
+            """,
+            "Short description\n"
+            "\n@meta1: asd\n"
+            "    1\n"
+            "        2\n"
+            "    3\n@meta2: herp\n"
+            "@meta3: derp",
+        ),
+        (
+            """
+            Short description
+
+            @meta ene due rabe: asd
+            """,
+            "Short description\n\n@meta ene due rabe: asd",
+        ),
+        (
+            """
+            Short description
+
+            @param name: description 1
+            @param priority: description 2
+            @type priority: int
+            @param sender: description 3
+            @type sender: str?
+            @type message: str?
+            @param message: description 4, defaults to 'hello'
+            @type multiline: str?
+            @param multiline: long description 5,
+                defaults to 'bye'
+            """,
+            "Short description\n"
+            "\n"
+            "@param name: description 1\n"
+            "@type priority: int\n"
+            "@param priority: description 2\n"
+            "@type sender: str?\n"
+            "@param sender: description 3\n"
+            "@type message: str?\n"
+            "@param message: description 4, defaults to 'hello'\n"
+            "@type multiline: str?\n"
+            "@param multiline: long description 5,\n"
+            "    defaults to 'bye'",
+        ),
+        (
+            """
+            Short description
+            @raise: description
+            """,
+            "Short description\n@raise: description",
+        ),
+        (
+            """
+            Short description
+            @raise ValueError: description
+            """,
+            "Short description\n@raise ValueError: description",
         ),
     ],
 )
-def test_compose(rendering_style: RenderingStyle, expected: str) -> None:
-    """Test compose"""
+def test_compose(source: str, expected: str) -> None:
+    """Test compose in default mode."""
+    assert compose(parse(source)) == expected
 
-    docstring = parse(
-        """
-        Short description.
 
-        Long description.
+@pytest.mark.parametrize(
+    "source, expected",
+    [
+        (
+            """
+            Short description
 
-        :param int foo: a description
-        :param int bar: another description
-        :return float: a return
-        """
+            @param name: description 1
+            @param priority: description 2
+            @type priority: int
+            @param sender: description 3
+            @type sender: str?
+            @type message: str?
+            @param message: description 4, defaults to 'hello'
+            @type multiline: str?
+            @param multiline: long description 5,
+                defaults to 'bye'
+            """,
+            "Short description\n"
+            "\n"
+            "@param name:\n"
+            "    description 1\n"
+            "@type priority: int\n"
+            "@param priority:\n"
+            "    description 2\n"
+            "@type sender: str?\n"
+            "@param sender:\n"
+            "    description 3\n"
+            "@type message: str?\n"
+            "@param message:\n"
+            "    description 4, defaults to 'hello'\n"
+            "@type multiline: str?\n"
+            "@param multiline:\n"
+            "    long description 5,\n"
+            "    defaults to 'bye'",
+        ),
+    ],
+)
+def test_compose_clean(source: str, expected: str) -> None:
+    """Test compose in clean mode."""
+    assert (
+        compose(parse(source), rendering_style=RenderingStyle.CLEAN)
+        == expected
     )
-    assert compose(docstring, rendering_style=rendering_style) == expected
+
+
+@pytest.mark.parametrize(
+    "source, expected",
+    [
+        (
+            """
+            Short description
+
+            @param name: description 1
+            @param priority: description 2
+            @type priority: int
+            @param sender: description 3
+            @type sender: str?
+            @type message: str?
+            @param message: description 4, defaults to 'hello'
+            @type multiline: str?
+            @param multiline: long description 5,
+                defaults to 'bye'
+            """,
+            "Short description\n"
+            "\n"
+            "@param name:\n"
+            "    description 1\n"
+            "@type priority:\n"
+            "    int\n"
+            "@param priority:\n"
+            "    description 2\n"
+            "@type sender:\n"
+            "    str?\n"
+            "@param sender:\n"
+            "    description 3\n"
+            "@type message:\n"
+            "    str?\n"
+            "@param message:\n"
+            "    description 4, defaults to 'hello'\n"
+            "@type multiline:\n"
+            "    str?\n"
+            "@param multiline:\n"
+            "    long description 5,\n"
+            "    defaults to 'bye'",
+        ),
+    ],
+)
+def test_compose_expanded(source: str, expected: str) -> None:
+    """Test compose in expanded mode."""
+    assert (
+        compose(parse(source), rendering_style=RenderingStyle.EXPANDED)
+        == expected
+    )
 
 
 def test_short_rtype() -> None:
     """Test abbreviated docstring with only return type information."""
-    string = "Short description.\n\n:rtype: float"
+    string = "Short description.\n\n@rtype: float"
     docstring = parse(string)
-    rendering_style = RenderingStyle.EXPANDED
-    assert compose(docstring, rendering_style=rendering_style) == string
+    assert compose(docstring) == string

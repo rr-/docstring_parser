@@ -7,17 +7,20 @@ from collections import OrderedDict, namedtuple
 from enum import IntEnum
 
 from .common import (
+    EXAMPLES_KEYWORDS,
     PARAM_KEYWORDS,
     RAISES_KEYWORDS,
     RETURNS_KEYWORDS,
     YIELDS_KEYWORDS,
     Docstring,
+    DocstringExample,
     DocstringMeta,
     DocstringParam,
     DocstringRaises,
     DocstringReturns,
     DocstringStyle,
     ParseError,
+    RenderingStyle,
 )
 
 
@@ -59,6 +62,8 @@ DEFAULT_SECTIONS = [
 
 
 class GoogleParser:
+    """Parser for Google-style docstrings."""
+
     def __init__(
         self, sections: T.Optional[T.List[Section]] = None, title_colon=True
     ):
@@ -117,7 +122,8 @@ class GoogleParser:
 
         return self._build_multi_meta(section, before, desc)
 
-    def _build_single_meta(self, section: Section, desc: str) -> DocstringMeta:
+    @staticmethod
+    def _build_single_meta(section: Section, desc: str) -> DocstringMeta:
         if section.key in RETURNS_KEYWORDS | YIELDS_KEYWORDS:
             return DocstringReturns(
                 args=[section.key],
@@ -129,17 +135,20 @@ class GoogleParser:
             return DocstringRaises(
                 args=[section.key], description=desc, type_name=None
             )
+        if section.key in EXAMPLES_KEYWORDS:
+            return DocstringExample(args=[section.key], description=desc)
         if section.key in PARAM_KEYWORDS:
             raise ParseError("Expected paramenter name.")
         return DocstringMeta(args=[section.key], description=desc)
 
+    @staticmethod
     def _build_multi_meta(
-        self, section: Section, before: str, desc: str
+        section: Section, before: str, desc: str
     ) -> DocstringMeta:
         if section.key in PARAM_KEYWORDS:
-            m = GOOGLE_TYPED_ARG_REGEX.match(before)
-            if m:
-                arg_name, type_name = m.group(1, 2)
+            match = GOOGLE_TYPED_ARG_REGEX.match(before)
+            if match:
+                arg_name, type_name = match.group(1, 2)
                 if type_name.endswith(", optional"):
                     is_optional = True
                     type_name = type_name[:-10]
@@ -152,8 +161,8 @@ class GoogleParser:
                 arg_name, type_name = before, None
                 is_optional = None
 
-            m = GOOGLE_ARG_DESC_REGEX.match(desc)
-            default = m.group(1) if m else None
+            match = GOOGLE_ARG_DESC_REGEX.match(desc)
+            default = match.group(1) if match else None
 
             return DocstringParam(
                 args=[section.key, before],
@@ -190,7 +199,7 @@ class GoogleParser:
 
         :returns: parsed docstring
         """
-        ret = Docstring(style=DocstringStyle.google)
+        ret = Docstring(style=DocstringStyle.GOOGLE)
         if not text:
             return ret
 
@@ -246,7 +255,7 @@ class GoogleParser:
         # Add elements from each chunk
         for title, chunk in chunks.items():
             # Determine indent
-            indent_match = re.search(r"^\s+", chunk)
+            indent_match = re.search(r"^\s*", chunk)
             if not indent_match:
                 raise ParseError('Can\'t infer indent from "{}"'.format(chunk))
             indent = indent_match.group()
@@ -284,3 +293,116 @@ def parse(text: str) -> Docstring:
     :returns: parsed docstring
     """
     return GoogleParser().parse(text)
+
+
+def compose(
+    docstring: Docstring,
+    rendering_style: RenderingStyle = RenderingStyle.COMPACT,
+    indent: str = "    ",
+) -> str:
+    """Render a parsed docstring into docstring text.
+
+    :param docstring: parsed docstring representation
+    :param rendering_style: the style to render docstrings
+    :param indent: the characters used as indentation in the docstring string
+    :returns: docstring text
+    """
+
+    def process_one(
+        one: T.Union[DocstringParam, DocstringReturns, DocstringRaises]
+    ):
+        head = ""
+
+        if isinstance(one, DocstringParam):
+            head += one.arg_name or ""
+        elif isinstance(one, DocstringReturns):
+            head += one.return_name or ""
+
+        if isinstance(one, DocstringParam) and one.is_optional:
+            optional = (
+                "?"
+                if rendering_style == RenderingStyle.COMPACT
+                else ", optional"
+            )
+        else:
+            optional = ""
+
+        if one.type_name and head:
+            head += f" ({one.type_name}{optional}):"
+        elif one.type_name:
+            head += f"{one.type_name}{optional}:"
+        else:
+            head += ":"
+        head = indent + head
+
+        if one.description and rendering_style == RenderingStyle.EXPANDED:
+            body = f"\n{indent}{indent}".join(
+                [head] + one.description.splitlines()
+            )
+            parts.append(body)
+        elif one.description:
+            (first, *rest) = one.description.splitlines()
+            body = f"\n{indent}{indent}".join([head + " " + first] + rest)
+            parts.append(body)
+        else:
+            parts.append(head)
+
+    def process_sect(name: str, args: T.List[T.Any]):
+        if args:
+            parts.append(name)
+            for arg in args:
+                process_one(arg)
+            parts.append("")
+
+    parts: T.List[str] = []
+    if docstring.short_description:
+        parts.append(docstring.short_description)
+    if docstring.blank_after_short_description:
+        parts.append("")
+
+    if docstring.long_description:
+        parts.append(docstring.long_description)
+    if docstring.blank_after_long_description:
+        parts.append("")
+
+    process_sect(
+        "Args:", [p for p in docstring.params or [] if p.args[0] == "param"]
+    )
+
+    process_sect(
+        "Attributes:",
+        [p for p in docstring.params or [] if p.args[0] == "attribute"],
+    )
+
+    process_sect(
+        "Returns:",
+        [p for p in docstring.many_returns or [] if not p.is_generator],
+    )
+
+    process_sect(
+        "Yields:", [p for p in docstring.many_returns or [] if p.is_generator]
+    )
+
+    process_sect("Raises:", docstring.raises or [])
+
+    if docstring.returns and not docstring.many_returns:
+        ret = docstring.returns
+        parts.append("Yields:" if ret else "Returns:")
+        parts.append("-" * len(parts[-1]))
+        process_one(ret)
+
+    for meta in docstring.meta:
+        if isinstance(
+            meta, (DocstringParam, DocstringReturns, DocstringRaises)
+        ):
+            continue  # Already handled
+        parts.append(meta.args[0].replace("_", "").title() + ":")
+        if meta.description:
+            lines = [indent + l for l in meta.description.splitlines()]
+            parts.append("\n".join(lines))
+        parts.append("")
+
+    while parts and not parts[-1]:
+        parts.pop()
+
+    return "\n".join(parts)
