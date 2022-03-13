@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>docstring_parser.numpydoc.RaisesSection</title>
+    <meta name="generator" content="pydoctor 22.3.0"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default">
+  
+  <div class="container">
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a> <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+    
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code><code><a href="index.html" class="internal-link">docstring_parser</a></code><wbr></wbr>.<code><a href="docstring_parser.numpydoc.html" class="internal-link" title="docstring_parser.numpydoc">numpydoc</a></code><wbr></wbr>.<code><a href="docstring_parser.numpydoc.RaisesSection.html" class="internal-link" title="docstring_parser.numpydoc.RaisesSection">RaisesSection</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
+
+      <div class="categoryHeader">
+        class documentation
+      </div>
+
+      <div class="extrasDocstring">
+        <p><code><span class="py-keyword">class</span> <span class="py-defname">RaisesSection</span>(<a href="docstring_parser.numpydoc._KVSection.html" class="internal-link" title="docstring_parser.numpydoc._KVSection">_KVSection</a>): <a href="https://github.com/rr-/docstring_parser/tree/7b05286712d7076294bb95fb5dd71e961cc4baea/docstring_parser/numpydoc.py#L159" class="sourceLink">(source)</a></code></p>
+        <p><a href="classIndex.html#docstring_parser.numpydoc.RaisesSection">View In Hierarchy</a></p>
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>Parser for numpydoc raises sections.</p>
+<dl class="rst-docutils">
+<dt>E.g. any section that looks like this:</dt>
+<dd><dl class="rst-first rst-last rst-docutils">
+<dt>ValueError</dt>
+<dd>A description of what might raise ValueError</dd>
+</dl>
+</dd>
+</dl>
+</div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id19">
+  
+  
+  <tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_parse_item" class="internal-link" title="docstring_parser.numpydoc.RaisesSection._parse_item">_parse​_item</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+        
+          <p class="inheritedFrom">
+            Inherited from <code><a href="docstring_parser.numpydoc._KVSection.html" class="internal-link" title="docstring_parser.numpydoc._KVSection">_KVSection</a></code>:
+          </p>
+          <table class="children sortable" id="id20">
+  
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="docstring_parser.numpydoc._KVSection.html#parse" class="internal-link" title="docstring_parser.numpydoc._KVSection.parse">parse</a></code></td>
+    <td>Parse <tt class="rst-docutils literal">DocstringMeta</tt> objects from the body of this section.</td>
+  </tr>
+</table>
+          
+          <p class="inheritedFrom">
+            Inherited from <code><a href="docstring_parser.numpydoc.Section.html" class="internal-link" title="docstring_parser.numpydoc.Section">Section</a></code> (via <code><a href="docstring_parser.numpydoc._KVSection.html" class="internal-link" title="docstring_parser.numpydoc._KVSection">_KVSection</a></code>):
+          </p>
+          <table class="children sortable" id="id21">
+  
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="docstring_parser.numpydoc.Section.html#__init__" class="internal-link" title="docstring_parser.numpydoc.Section.__init__">__init__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="docstring_parser.numpydoc.Section.html#key" class="internal-link" title="docstring_parser.numpydoc.Section.key">key</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="docstring_parser.numpydoc.Section.html#title" class="internal-link" title="docstring_parser.numpydoc.Section.title">title</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseproperty">
+    
+    <td>Property</td>
+    <td><code><a href="docstring_parser.numpydoc.Section.html#title_pattern" class="internal-link" title="docstring_parser.numpydoc.Section.title_pattern">title​_pattern</a></code></td>
+    <td>Regular expression pattern matching this section's header.</td>
+  </tr>
+</table>
+          
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod private">
+  
+  
+  <a name="docstring_parser.numpydoc.RaisesSection._parse_item">
+    
+  </a>
+  <a name="_parse_item">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_parse_item</span>(self, key, value):
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/7b05286712d7076294bb95fb5dd71e961cc4baea/docstring_parser/numpydoc.py#L167">
+      
+      (source)
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="docstring_parser.numpydoc._KVSection.html#_parse_item" class="internal-link">docstring_parser.numpydoc._KVSection._parse_item</a></code></div>
+    
+    <div><p class="undocumented">Undocumented</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">key:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">value:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>DocstringRaises</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div>
+
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.3.0 at 2022-03-13 08:53:38.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

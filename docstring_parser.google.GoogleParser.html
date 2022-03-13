@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>docstring_parser.google.GoogleParser</title>
+    <meta name="generator" content="pydoctor 22.3.0"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default">
+  
+  <div class="container">
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a> <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+    
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code><code><a href="index.html" class="internal-link">docstring_parser</a></code><wbr></wbr>.<code><a href="docstring_parser.google.html" class="internal-link" title="docstring_parser.google">google</a></code><wbr></wbr>.<code><a href="docstring_parser.google.GoogleParser.html" class="internal-link" title="docstring_parser.google.GoogleParser">GoogleParser</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
+
+      <div class="categoryHeader">
+        class documentation
+      </div>
+
+      <div class="extrasDocstring">
+        <p><code><span class="py-keyword">class</span> <span class="py-defname">GoogleParser</span>: <a href="https://github.com/rr-/docstring_parser/tree/7b05286712d7076294bb95fb5dd71e961cc4baea/docstring_parser/google.py#L64" class="sourceLink">(source)</a></code></p>
+        <p><a href="classIndex.html#docstring_parser.google.GoogleParser">View In Hierarchy</a></p>
+      </div>
+
+      <div class="moduleDocstring">
+        <div>Parser for Google-style docstrings.</div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id9">
+  
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="docstring_parser.google.GoogleParser.__init__">__init__</a></code></td>
+    <td>Setup sections.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#add_section" class="internal-link" title="docstring_parser.google.GoogleParser.add_section">add​_section</a></code></td>
+    <td>Add or replace a section.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#parse" class="internal-link" title="docstring_parser.google.GoogleParser.parse">parse</a></code></td>
+    <td>Parse the Google-style docstring into its components.</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#sections" class="internal-link" title="docstring_parser.google.GoogleParser.sections">sections</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#title_colon" class="internal-link" title="docstring_parser.google.GoogleParser.title_colon">title​_colon</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#titles_re" class="internal-link" title="docstring_parser.google.GoogleParser.titles_re">titles​_re</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_build_multi_meta" class="internal-link" title="docstring_parser.google.GoogleParser._build_multi_meta">_build​_multi​_meta</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_build_single_meta" class="internal-link" title="docstring_parser.google.GoogleParser._build_single_meta">_build​_single​_meta</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_build_meta" class="internal-link" title="docstring_parser.google.GoogleParser._build_meta">_build​_meta</a></code></td>
+    <td>Build docstring element.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_setup" class="internal-link" title="docstring_parser.google.GoogleParser._setup">_setup</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  
+  <a name="docstring_parser.google.GoogleParser.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, sections=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, title_colon=<a href="https://docs.python.org/3/library/constants.html#True" class="intersphinx-link">True</a>):
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/7b05286712d7076294bb95fb5dd71e961cc4baea/docstring_parser/google.py#L67">
+      
+      (source)
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Setup sections.<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">sections:</span><code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">T.Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.List" class="intersphinx-link">T.List</a>[<wbr></wbr><a href="docstring_parser.google.Section.html" class="internal-link" title="docstring_parser.google.Section">Section</a>]]</code></td><td class="fieldArgDesc">Recognized sections or None to defaults.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">title​_colon</span></td><td class="fieldArgDesc">require colon after section title.</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="docstring_parser.google.GoogleParser.add_section">
+    
+  </a>
+  <a name="add_section">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">add_section</span>(self, section):
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/7b05286712d7076294bb95fb5dd71e961cc4baea/docstring_parser/google.py#L188">
+      
+      (source)
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Add or replace a section.<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">section:</span><code><a href="docstring_parser.google.Section.html" class="internal-link" title="docstring_parser.google.Section">Section</a></code></td><td class="fieldArgDesc">The new section.</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="docstring_parser.google.GoogleParser.parse">
+    
+  </a>
+  <a name="parse">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">parse</span>(self, text):
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/7b05286712d7076294bb95fb5dd71e961cc4baea/docstring_parser/google.py#L197">
+      
+      (source)
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Parse the Google-style docstring into its components.<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">text:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>Docstring</code></td><td class="fieldArgDesc">parsed docstring</td></tr></table></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="docstring_parser.google.GoogleParser.sections">
+    
+  </a>
+  <a name="sections">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">sections</span> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/7b05286712d7076294bb95fb5dd71e961cc4baea/docstring_parser/google.py#L77">
+      
+      (source)
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="docstring_parser.google.GoogleParser.title_colon">
+    
+  </a>
+  <a name="title_colon">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">title_colon</span> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/7b05286712d7076294bb95fb5dd71e961cc4baea/docstring_parser/google.py#L78">
+      
+      (source)
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="docstring_parser.google.GoogleParser.titles_re">
+    
+  </a>
+  <a name="titles_re">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">titles_re</span> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/7b05286712d7076294bb95fb5dd71e961cc4baea/docstring_parser/google.py#L86">
+      
+      (source)
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basestaticmethod private">
+  
+  
+  <a name="docstring_parser.google.GoogleParser._build_multi_meta">
+    
+  </a>
+  <a name="_build_multi_meta">
+    
+  </a>
+  <div class="functionHeader">
+    @<a href="https://docs.python.org/3/library/functions.html#staticmethod" class="intersphinx-link">staticmethod</a><br />
+    <span class="py-keyword">def</span> <span class="py-defname">_build_multi_meta</span>(section, before, desc):
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/7b05286712d7076294bb95fb5dd71e961cc4baea/docstring_parser/google.py#L144">
+      
+      (source)
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">section:</span><code><a href="docstring_parser.google.Section.html" class="internal-link" title="docstring_parser.google.Section">Section</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">before:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">desc:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>DocstringMeta</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basestaticmethod private">
+  
+  
+  <a name="docstring_parser.google.GoogleParser._build_single_meta">
+    
+  </a>
+  <a name="_build_single_meta">
+    
+  </a>
+  <div class="functionHeader">
+    @<a href="https://docs.python.org/3/library/functions.html#staticmethod" class="intersphinx-link">staticmethod</a><br />
+    <span class="py-keyword">def</span> <span class="py-defname">_build_single_meta</span>(section, desc):
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/7b05286712d7076294bb95fb5dd71e961cc4baea/docstring_parser/google.py#L125">
+      
+      (source)
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">section:</span><code><a href="docstring_parser.google.Section.html" class="internal-link" title="docstring_parser.google.Section">Section</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">desc:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>DocstringMeta</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="docstring_parser.google.GoogleParser._build_meta">
+    
+  </a>
+  <a name="_build_meta">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_build_meta</span>(self, text, title):
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/7b05286712d7076294bb95fb5dd71e961cc4baea/docstring_parser/google.py#L95">
+      
+      (source)
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Build docstring element.<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">text:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">docstring element text</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">title:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">title of section containing element</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>DocstringMeta</code></td><td class="fieldArgDesc"></td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
+  <a name="docstring_parser.google.GoogleParser._setup">
+    
+  </a>
+  <a name="_setup">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_setup</span>(self):
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/7b05286712d7076294bb95fb5dd71e961cc4baea/docstring_parser/google.py#L81">
+      
+      (source)
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div>
+
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.3.0 at 2022-03-13 08:53:38.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

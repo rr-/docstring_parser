@@ -1,0 +1,1232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+  <head>
+    
+    <title>All Documents</title>
+    <meta name="generator" content="pydoctor 22.3.0"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+  <body>
+    
+
+    <nav class="navbar navbar-default">
+  
+  <div class="container">
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a> <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+    
+    
+    <div class="container">
+      <h1>All Documents</h1>
+
+       <ul>
+          <li id="docstring_parser">
+            
+            <div class="fullName">docstring​_parser</div>
+            <div class="url">index.html</div>
+            <div class="type">Package</div>
+            <div class="kind">Package</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Parse docstrings as per Sphinx notation.</div>
+          </li><li id="docstring_parser.common">
+            
+            <div class="fullName">docstring​_parser​.common</div>
+            <div class="url">docstring_parser.common.html</div>
+            <div class="type">Module</div>
+            <div class="kind">Module</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Common methods for parsing.</div>
+          </li><li id="docstring_parser.epydoc">
+            
+            <div class="fullName">docstring​_parser​.epydoc</div>
+            <div class="url">docstring_parser.epydoc.html</div>
+            <div class="type">Module</div>
+            <div class="kind">Module</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Epyoc-style docstring parsing.</div>
+          </li><li id="docstring_parser.google">
+            
+            <div class="fullName">docstring​_parser​.google</div>
+            <div class="url">docstring_parser.google.html</div>
+            <div class="type">Module</div>
+            <div class="kind">Module</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Google-style docstring parsing.</div>
+          </li><li id="docstring_parser.numpydoc">
+            
+            <div class="fullName">docstring​_parser​.numpydoc</div>
+            <div class="url">docstring_parser.numpydoc.html</div>
+            <div class="type">Module</div>
+            <div class="kind">Module</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Numpydoc-style docstring parsing.</div>
+          </li><li id="docstring_parser.parser">
+            
+            <div class="fullName">docstring​_parser​.parser</div>
+            <div class="url">docstring_parser.parser.html</div>
+            <div class="type">Module</div>
+            <div class="kind">Module</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">The main parsing routine.</div>
+          </li><li id="docstring_parser.rest">
+            
+            <div class="fullName">docstring​_parser​.rest</div>
+            <div class="url">docstring_parser.rest.html</div>
+            <div class="type">Module</div>
+            <div class="kind">Module</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">ReST-style docstring parsing.</div>
+          </li><li id="docstring_parser.util">
+            
+            <div class="fullName">docstring​_parser​.util</div>
+            <div class="url">docstring_parser.util.html</div>
+            <div class="type">Module</div>
+            <div class="kind">Module</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Utility functions for working with docstrings.</div>
+          </li><li id="docstring_parser.common.PARAM_KEYWORDS">
+            
+            <div class="fullName">docstring​_parser​.common​.PARAM​_KEYWORDS</div>
+            <div class="url">docstring_parser.common.html#PARAM_KEYWORDS</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Constant</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.common.RAISES_KEYWORDS">
+            
+            <div class="fullName">docstring​_parser​.common​.RAISES​_KEYWORDS</div>
+            <div class="url">docstring_parser.common.html#RAISES_KEYWORDS</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Constant</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.common.DEPRECATION_KEYWORDS">
+            
+            <div class="fullName">docstring​_parser​.common​.DEPRECATION​_KEYWORDS</div>
+            <div class="url">docstring_parser.common.html#DEPRECATION_KEYWORDS</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Constant</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.common.RETURNS_KEYWORDS">
+            
+            <div class="fullName">docstring​_parser​.common​.RETURNS​_KEYWORDS</div>
+            <div class="url">docstring_parser.common.html#RETURNS_KEYWORDS</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Constant</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.common.YIELDS_KEYWORDS">
+            
+            <div class="fullName">docstring​_parser​.common​.YIELDS​_KEYWORDS</div>
+            <div class="url">docstring_parser.common.html#YIELDS_KEYWORDS</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Constant</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.common.EXAMPLES_KEYWORDS">
+            
+            <div class="fullName">docstring​_parser​.common​.EXAMPLES​_KEYWORDS</div>
+            <div class="url">docstring_parser.common.html#EXAMPLES_KEYWORDS</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Constant</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.common.DocstringExample">
+            
+            <div class="fullName">docstring​_parser​.common​.​Docstring​Example</div>
+            <div class="url">docstring_parser.common.DocstringExample.html</div>
+            <div class="type">Class</div>
+            <div class="kind">Class</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">DocstringMeta symbolizing example metadata.</div>
+          </li><li id="docstring_parser.common.DocstringExample.__init__">
+            
+            <div class="fullName">docstring​_parser​.common​.​Docstring​Example​.__init__</div>
+            <div class="url">docstring_parser.common.DocstringExample.html#__init__</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Initialize self.</div>
+          </li><li id="docstring_parser.common.DocstringExample.description">
+            
+            <div class="fullName">docstring​_parser​.common​.​Docstring​Example​.description</div>
+            <div class="url">docstring_parser.common.DocstringExample.html#description</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.Docstring">
+            
+            <div class="fullName">docstring​_parser​.​Docstring</div>
+            <div class="url">docstring_parser.Docstring.html</div>
+            <div class="type">Class</div>
+            <div class="kind">Class</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Docstring object representation.</div>
+          </li><li id="docstring_parser.Docstring.__init__">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​.__init__</div>
+            <div class="url">docstring_parser.Docstring.html#__init__</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Initialize self.</div>
+          </li><li id="docstring_parser.Docstring.short_description">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​.short​_description</div>
+            <div class="url">docstring_parser.Docstring.html#short_description</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.Docstring.long_description">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​.long​_description</div>
+            <div class="url">docstring_parser.Docstring.html#long_description</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.Docstring.blank_after_short_description">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​.blank​_after​_short​_description</div>
+            <div class="url">docstring_parser.Docstring.html#blank_after_short_description</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.Docstring.blank_after_long_description">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​.blank​_after​_long​_description</div>
+            <div class="url">docstring_parser.Docstring.html#blank_after_long_description</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.Docstring.meta">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​.meta</div>
+            <div class="url">docstring_parser.Docstring.html#meta</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.Docstring.style">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​.style</div>
+            <div class="url">docstring_parser.Docstring.html#style</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.Docstring.params">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​.params</div>
+            <div class="url">docstring_parser.Docstring.html#params</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Property</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Return a list of information on function params.</div>
+          </li><li id="docstring_parser.Docstring.raises">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​.raises</div>
+            <div class="url">docstring_parser.Docstring.html#raises</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Property</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Return a list of information on the exceptions that the function may raise.</div>
+          </li><li id="docstring_parser.Docstring.returns">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​.returns</div>
+            <div class="url">docstring_parser.Docstring.html#returns</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Property</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Return a single information on function return.</div>
+          </li><li id="docstring_parser.Docstring.many_returns">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​.many​_returns</div>
+            <div class="url">docstring_parser.Docstring.html#many_returns</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Property</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Return a list of information on function return.</div>
+          </li><li id="docstring_parser.Docstring.deprecation">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​.deprecation</div>
+            <div class="url">docstring_parser.Docstring.html#deprecation</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Property</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Return a single information on function deprecation notes.</div>
+          </li><li id="docstring_parser.Docstring.examples">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​.examples</div>
+            <div class="url">docstring_parser.Docstring.html#examples</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Property</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Return a list of information on function examples.</div>
+          </li><li id="docstring_parser.DocstringDeprecated">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​Deprecated</div>
+            <div class="url">docstring_parser.DocstringDeprecated.html</div>
+            <div class="type">Class</div>
+            <div class="kind">Class</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">DocstringMeta symbolizing deprecation metadata.</div>
+          </li><li id="docstring_parser.DocstringDeprecated.__init__">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​Deprecated​.__init__</div>
+            <div class="url">docstring_parser.DocstringDeprecated.html#__init__</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Initialize self.</div>
+          </li><li id="docstring_parser.DocstringDeprecated.version">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​Deprecated​.version</div>
+            <div class="url">docstring_parser.DocstringDeprecated.html#version</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.DocstringDeprecated.description">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​Deprecated​.description</div>
+            <div class="url">docstring_parser.DocstringDeprecated.html#description</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.DocstringMeta">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​Meta</div>
+            <div class="url">docstring_parser.DocstringMeta.html</div>
+            <div class="type">Class</div>
+            <div class="kind">Class</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Docstring meta information.</div>
+          </li><li id="docstring_parser.DocstringMeta.__init__">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​Meta​.__init__</div>
+            <div class="url">docstring_parser.DocstringMeta.html#__init__</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Initialize self.</div>
+          </li><li id="docstring_parser.DocstringMeta.args">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​Meta​.args</div>
+            <div class="url">docstring_parser.DocstringMeta.html#args</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.DocstringMeta.description">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​Meta​.description</div>
+            <div class="url">docstring_parser.DocstringMeta.html#description</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.DocstringParam">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​Param</div>
+            <div class="url">docstring_parser.DocstringParam.html</div>
+            <div class="type">Class</div>
+            <div class="kind">Class</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">DocstringMeta symbolizing :param metadata.</div>
+          </li><li id="docstring_parser.DocstringParam.__init__">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​Param​.__init__</div>
+            <div class="url">docstring_parser.DocstringParam.html#__init__</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Initialize self.</div>
+          </li><li id="docstring_parser.DocstringParam.arg_name">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​Param​.arg​_name</div>
+            <div class="url">docstring_parser.DocstringParam.html#arg_name</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.DocstringParam.type_name">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​Param​.type​_name</div>
+            <div class="url">docstring_parser.DocstringParam.html#type_name</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.DocstringParam.is_optional">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​Param​.is​_optional</div>
+            <div class="url">docstring_parser.DocstringParam.html#is_optional</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.DocstringParam.default">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​Param​.default</div>
+            <div class="url">docstring_parser.DocstringParam.html#default</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.DocstringRaises">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​Raises</div>
+            <div class="url">docstring_parser.DocstringRaises.html</div>
+            <div class="type">Class</div>
+            <div class="kind">Class</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">DocstringMeta symbolizing :raises metadata.</div>
+          </li><li id="docstring_parser.DocstringRaises.__init__">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​Raises​.__init__</div>
+            <div class="url">docstring_parser.DocstringRaises.html#__init__</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Initialize self.</div>
+          </li><li id="docstring_parser.DocstringRaises.type_name">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​Raises​.type​_name</div>
+            <div class="url">docstring_parser.DocstringRaises.html#type_name</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.DocstringRaises.description">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​Raises​.description</div>
+            <div class="url">docstring_parser.DocstringRaises.html#description</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.DocstringReturns">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​Returns</div>
+            <div class="url">docstring_parser.DocstringReturns.html</div>
+            <div class="type">Class</div>
+            <div class="kind">Class</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">DocstringMeta symbolizing :returns or :yields metadata.</div>
+          </li><li id="docstring_parser.DocstringReturns.__init__">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​Returns​.__init__</div>
+            <div class="url">docstring_parser.DocstringReturns.html#__init__</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Initialize self.</div>
+          </li><li id="docstring_parser.DocstringReturns.type_name">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​Returns​.type​_name</div>
+            <div class="url">docstring_parser.DocstringReturns.html#type_name</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.DocstringReturns.is_generator">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​Returns​.is​_generator</div>
+            <div class="url">docstring_parser.DocstringReturns.html#is_generator</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.DocstringReturns.return_name">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​Returns​.return​_name</div>
+            <div class="url">docstring_parser.DocstringReturns.html#return_name</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.DocstringStyle">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​Style</div>
+            <div class="url">docstring_parser.DocstringStyle.html</div>
+            <div class="type">Class</div>
+            <div class="kind">Class</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Docstring style.</div>
+          </li><li id="docstring_parser.DocstringStyle.REST">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​Style​.REST</div>
+            <div class="url">docstring_parser.DocstringStyle.html#REST</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Constant</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.DocstringStyle.GOOGLE">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​Style​.GOOGLE</div>
+            <div class="url">docstring_parser.DocstringStyle.html#GOOGLE</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Constant</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.DocstringStyle.NUMPYDOC">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​Style​.NUMPYDOC</div>
+            <div class="url">docstring_parser.DocstringStyle.html#NUMPYDOC</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Constant</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.DocstringStyle.EPYDOC">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​Style​.EPYDOC</div>
+            <div class="url">docstring_parser.DocstringStyle.html#EPYDOC</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Constant</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.DocstringStyle.AUTO">
+            
+            <div class="fullName">docstring​_parser​.​Docstring​Style​.AUTO</div>
+            <div class="url">docstring_parser.DocstringStyle.html#AUTO</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Constant</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.ParseError">
+            
+            <div class="fullName">docstring​_parser​.​Parse​Error</div>
+            <div class="url">docstring_parser.ParseError.html</div>
+            <div class="type">Class</div>
+            <div class="kind">Class</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Base class for all parsing related errors.</div>
+          </li><li id="docstring_parser.RenderingStyle">
+            
+            <div class="fullName">docstring​_parser​.​Rendering​Style</div>
+            <div class="url">docstring_parser.RenderingStyle.html</div>
+            <div class="type">Class</div>
+            <div class="kind">Class</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Rendering style when unparsing parsed docstrings.</div>
+          </li><li id="docstring_parser.RenderingStyle.COMPACT">
+            
+            <div class="fullName">docstring​_parser​.​Rendering​Style​.COMPACT</div>
+            <div class="url">docstring_parser.RenderingStyle.html#COMPACT</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Constant</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.RenderingStyle.CLEAN">
+            
+            <div class="fullName">docstring​_parser​.​Rendering​Style​.CLEAN</div>
+            <div class="url">docstring_parser.RenderingStyle.html#CLEAN</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Constant</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.RenderingStyle.EXPANDED">
+            
+            <div class="fullName">docstring​_parser​.​Rendering​Style​.EXPANDED</div>
+            <div class="url">docstring_parser.RenderingStyle.html#EXPANDED</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Constant</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.epydoc._clean_str">
+            
+            <div class="fullName">docstring​_parser​.epydoc​._clean​_str</div>
+            <div class="url">docstring_parser.epydoc.html#_clean_str</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.epydoc.parse">
+            
+            <div class="fullName">docstring​_parser​.epydoc​.parse</div>
+            <div class="url">docstring_parser.epydoc.html#parse</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Parse the epydoc-style docstring into its components.</div>
+          </li><li id="docstring_parser.epydoc.compose">
+            
+            <div class="fullName">docstring​_parser​.epydoc​.compose</div>
+            <div class="url">docstring_parser.epydoc.html#compose</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Render a parsed docstring into docstring text.</div>
+          </li><li id="docstring_parser.google.SectionType">
+            
+            <div class="fullName">docstring​_parser​.google​.​Section​Type</div>
+            <div class="url">docstring_parser.google.SectionType.html</div>
+            <div class="type">Class</div>
+            <div class="kind">Class</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Types of sections.</div>
+          </li><li id="docstring_parser.google.SectionType.SINGULAR">
+            
+            <div class="fullName">docstring​_parser​.google​.​Section​Type​.SINGULAR</div>
+            <div class="url">docstring_parser.google.SectionType.html#SINGULAR</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Constant</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">For sections like examples.</div>
+          </li><li id="docstring_parser.google.SectionType.MULTIPLE">
+            
+            <div class="fullName">docstring​_parser​.google​.​Section​Type​.MULTIPLE</div>
+            <div class="url">docstring_parser.google.SectionType.html#MULTIPLE</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Constant</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">For sections like params.</div>
+          </li><li id="docstring_parser.google.SectionType.SINGULAR_OR_MULTIPLE">
+            
+            <div class="fullName">docstring​_parser​.google​.​Section​Type​.SINGULAR​_OR​_MULTIPLE</div>
+            <div class="url">docstring_parser.google.SectionType.html#SINGULAR_OR_MULTIPLE</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Constant</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">For sections like returns or yields.</div>
+          </li><li id="docstring_parser.google.Section">
+            
+            <div class="fullName">docstring​_parser​.google​.​Section</div>
+            <div class="url">docstring_parser.google.Section.html</div>
+            <div class="type">Class</div>
+            <div class="kind">Class</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">A docstring section.</div>
+          </li><li id="docstring_parser.google.GOOGLE_TYPED_ARG_REGEX">
+            
+            <div class="fullName">docstring​_parser​.google​.GOOGLE​_TYPED​_ARG​_REGEX</div>
+            <div class="url">docstring_parser.google.html#GOOGLE_TYPED_ARG_REGEX</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Constant</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.google.GOOGLE_ARG_DESC_REGEX">
+            
+            <div class="fullName">docstring​_parser​.google​.GOOGLE​_ARG​_DESC​_REGEX</div>
+            <div class="url">docstring_parser.google.html#GOOGLE_ARG_DESC_REGEX</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Constant</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.google.MULTIPLE_PATTERN">
+            
+            <div class="fullName">docstring​_parser​.google​.MULTIPLE​_PATTERN</div>
+            <div class="url">docstring_parser.google.html#MULTIPLE_PATTERN</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Constant</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.google.DEFAULT_SECTIONS">
+            
+            <div class="fullName">docstring​_parser​.google​.DEFAULT​_SECTIONS</div>
+            <div class="url">docstring_parser.google.html#DEFAULT_SECTIONS</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Constant</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.google.GoogleParser">
+            
+            <div class="fullName">docstring​_parser​.google​.​Google​Parser</div>
+            <div class="url">docstring_parser.google.GoogleParser.html</div>
+            <div class="type">Class</div>
+            <div class="kind">Class</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Parser for Google-style docstrings.</div>
+          </li><li id="docstring_parser.google.GoogleParser.__init__">
+            
+            <div class="fullName">docstring​_parser​.google​.​Google​Parser​.__init__</div>
+            <div class="url">docstring_parser.google.GoogleParser.html#__init__</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Setup sections.</div>
+          </li><li id="docstring_parser.google.GoogleParser.sections">
+            
+            <div class="fullName">docstring​_parser​.google​.​Google​Parser​.sections</div>
+            <div class="url">docstring_parser.google.GoogleParser.html#sections</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.google.GoogleParser.title_colon">
+            
+            <div class="fullName">docstring​_parser​.google​.​Google​Parser​.title​_colon</div>
+            <div class="url">docstring_parser.google.GoogleParser.html#title_colon</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.google.GoogleParser._setup">
+            
+            <div class="fullName">docstring​_parser​.google​.​Google​Parser​._setup</div>
+            <div class="url">docstring_parser.google.GoogleParser.html#_setup</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.google.GoogleParser.titles_re">
+            
+            <div class="fullName">docstring​_parser​.google​.​Google​Parser​.titles​_re</div>
+            <div class="url">docstring_parser.google.GoogleParser.html#titles_re</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.google.GoogleParser._build_meta">
+            
+            <div class="fullName">docstring​_parser​.google​.​Google​Parser​._build​_meta</div>
+            <div class="url">docstring_parser.google.GoogleParser.html#_build_meta</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary">Build docstring element.</div>
+          </li><li id="docstring_parser.google.GoogleParser._build_single_meta">
+            
+            <div class="fullName">docstring​_parser​.google​.​Google​Parser​._build​_single​_meta</div>
+            <div class="url">docstring_parser.google.GoogleParser.html#_build_single_meta</div>
+            <div class="type">Function</div>
+            <div class="kind">Static Method</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.google.GoogleParser._build_multi_meta">
+            
+            <div class="fullName">docstring​_parser​.google​.​Google​Parser​._build​_multi​_meta</div>
+            <div class="url">docstring_parser.google.GoogleParser.html#_build_multi_meta</div>
+            <div class="type">Function</div>
+            <div class="kind">Static Method</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.google.GoogleParser.add_section">
+            
+            <div class="fullName">docstring​_parser​.google​.​Google​Parser​.add​_section</div>
+            <div class="url">docstring_parser.google.GoogleParser.html#add_section</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Add or replace a section.</div>
+          </li><li id="docstring_parser.google.GoogleParser.parse">
+            
+            <div class="fullName">docstring​_parser​.google​.​Google​Parser​.parse</div>
+            <div class="url">docstring_parser.google.GoogleParser.html#parse</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Parse the Google-style docstring into its components.</div>
+          </li><li id="docstring_parser.google.parse">
+            
+            <div class="fullName">docstring​_parser​.google​.parse</div>
+            <div class="url">docstring_parser.google.html#parse</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Parse the Google-style docstring into its components.</div>
+          </li><li id="docstring_parser.google.compose">
+            
+            <div class="fullName">docstring​_parser​.google​.compose</div>
+            <div class="url">docstring_parser.google.html#compose</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Render a parsed docstring into docstring text.</div>
+          </li><li id="docstring_parser.numpydoc._pairwise">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​._pairwise</div>
+            <div class="url">docstring_parser.numpydoc.html#_pairwise</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.numpydoc._clean_str">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​._clean​_str</div>
+            <div class="url">docstring_parser.numpydoc.html#_clean_str</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.numpydoc.KV_REGEX">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​.KV​_REGEX</div>
+            <div class="url">docstring_parser.numpydoc.html#KV_REGEX</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Constant</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.numpydoc.PARAM_KEY_REGEX">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​.PARAM​_KEY​_REGEX</div>
+            <div class="url">docstring_parser.numpydoc.html#PARAM_KEY_REGEX</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Constant</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.numpydoc.PARAM_OPTIONAL_REGEX">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​.PARAM​_OPTIONAL​_REGEX</div>
+            <div class="url">docstring_parser.numpydoc.html#PARAM_OPTIONAL_REGEX</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Constant</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.numpydoc.PARAM_DEFAULT_REGEX">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​.PARAM​_DEFAULT​_REGEX</div>
+            <div class="url">docstring_parser.numpydoc.html#PARAM_DEFAULT_REGEX</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Constant</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.numpydoc.RETURN_KEY_REGEX">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​.RETURN​_KEY​_REGEX</div>
+            <div class="url">docstring_parser.numpydoc.html#RETURN_KEY_REGEX</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Constant</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.numpydoc.Section">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​.​Section</div>
+            <div class="url">docstring_parser.numpydoc.Section.html</div>
+            <div class="type">Class</div>
+            <div class="kind">Class</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Numpydoc section parser.</div>
+          </li><li id="docstring_parser.numpydoc.Section.__init__">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​.​Section​.__init__</div>
+            <div class="url">docstring_parser.numpydoc.Section.html#__init__</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.numpydoc.Section.title">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​.​Section​.title</div>
+            <div class="url">docstring_parser.numpydoc.Section.html#title</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.numpydoc.Section.key">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​.​Section​.key</div>
+            <div class="url">docstring_parser.numpydoc.Section.html#key</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.numpydoc.Section.title_pattern">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​.​Section​.title​_pattern</div>
+            <div class="url">docstring_parser.numpydoc.Section.html#title_pattern</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Property</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Regular expression pattern matching this section's header.</div>
+          </li><li id="docstring_parser.numpydoc.Section.parse">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​.​Section​.parse</div>
+            <div class="url">docstring_parser.numpydoc.Section.html#parse</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Parse <tt class="rst-docutils literal">DocstringMeta</tt> objects from the body of this section.</div>
+          </li><li id="docstring_parser.numpydoc._KVSection">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​._​KVSection</div>
+            <div class="url">docstring_parser.numpydoc._KVSection.html</div>
+            <div class="type">Class</div>
+            <div class="kind">Class</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary">Base parser for numpydoc sections with key-value syntax.</div>
+          </li><li id="docstring_parser.numpydoc._KVSection._parse_item">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​._​KVSection​._parse​_item</div>
+            <div class="url">docstring_parser.numpydoc._KVSection.html#_parse_item</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.numpydoc._KVSection.parse">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​._​KVSection​.parse</div>
+            <div class="url">docstring_parser.numpydoc._KVSection.html#parse</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Parse <tt class="rst-docutils literal">DocstringMeta</tt> objects from the body of this section.</div>
+          </li><li id="docstring_parser.numpydoc._SphinxSection">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​._​Sphinx​Section</div>
+            <div class="url">docstring_parser.numpydoc._SphinxSection.html</div>
+            <div class="type">Class</div>
+            <div class="kind">Class</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary">Base parser for numpydoc sections with sphinx-style syntax.</div>
+          </li><li id="docstring_parser.numpydoc._SphinxSection.title_pattern">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​._​Sphinx​Section​.title​_pattern</div>
+            <div class="url">docstring_parser.numpydoc._SphinxSection.html#title_pattern</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Property</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Regular expression pattern matching this section's header.</div>
+          </li><li id="docstring_parser.numpydoc.ParamSection">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​.​Param​Section</div>
+            <div class="url">docstring_parser.numpydoc.ParamSection.html</div>
+            <div class="type">Class</div>
+            <div class="kind">Class</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Parser for numpydoc parameter sections.</div>
+          </li><li id="docstring_parser.numpydoc.ParamSection._parse_item">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​.​Param​Section​._parse​_item</div>
+            <div class="url">docstring_parser.numpydoc.ParamSection.html#_parse_item</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.numpydoc.RaisesSection">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​.​Raises​Section</div>
+            <div class="url">docstring_parser.numpydoc.RaisesSection.html</div>
+            <div class="type">Class</div>
+            <div class="kind">Class</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Parser for numpydoc raises sections.</div>
+          </li><li id="docstring_parser.numpydoc.RaisesSection._parse_item">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​.​Raises​Section​._parse​_item</div>
+            <div class="url">docstring_parser.numpydoc.RaisesSection.html#_parse_item</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.numpydoc.ReturnsSection">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​.​Returns​Section</div>
+            <div class="url">docstring_parser.numpydoc.ReturnsSection.html</div>
+            <div class="type">Class</div>
+            <div class="kind">Class</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Parser for numpydoc returns sections.</div>
+          </li><li id="docstring_parser.numpydoc.ReturnsSection.is_generator">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​.​Returns​Section​.is​_generator</div>
+            <div class="url">docstring_parser.numpydoc.ReturnsSection.html#is_generator</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Class Variable</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.numpydoc.ReturnsSection._parse_item">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​.​Returns​Section​._parse​_item</div>
+            <div class="url">docstring_parser.numpydoc.ReturnsSection.html#_parse_item</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.numpydoc.YieldsSection">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​.​Yields​Section</div>
+            <div class="url">docstring_parser.numpydoc.YieldsSection.html</div>
+            <div class="type">Class</div>
+            <div class="kind">Class</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Parser for numpydoc generator "yields" sections.</div>
+          </li><li id="docstring_parser.numpydoc.YieldsSection.is_generator">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​.​Yields​Section​.is​_generator</div>
+            <div class="url">docstring_parser.numpydoc.YieldsSection.html#is_generator</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Class Variable</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.numpydoc.DeprecationSection">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​.​Deprecation​Section</div>
+            <div class="url">docstring_parser.numpydoc.DeprecationSection.html</div>
+            <div class="type">Class</div>
+            <div class="kind">Class</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Parser for numpydoc "deprecation warning" sections.</div>
+          </li><li id="docstring_parser.numpydoc.DeprecationSection.parse">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​.​Deprecation​Section​.parse</div>
+            <div class="url">docstring_parser.numpydoc.DeprecationSection.html#parse</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Parse <tt class="rst-docutils literal">DocstringMeta</tt> objects from the body of this section.</div>
+          </li><li id="docstring_parser.numpydoc.DEFAULT_SECTIONS">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​.DEFAULT​_SECTIONS</div>
+            <div class="url">docstring_parser.numpydoc.html#DEFAULT_SECTIONS</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Constant</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.numpydoc.NumpydocParser">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​.​Numpydoc​Parser</div>
+            <div class="url">docstring_parser.numpydoc.NumpydocParser.html</div>
+            <div class="type">Class</div>
+            <div class="kind">Class</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Parser for numpydoc-style docstrings.</div>
+          </li><li id="docstring_parser.numpydoc.NumpydocParser.__init__">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​.​Numpydoc​Parser​.__init__</div>
+            <div class="url">docstring_parser.numpydoc.NumpydocParser.html#__init__</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Setup sections.</div>
+          </li><li id="docstring_parser.numpydoc.NumpydocParser.sections">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​.​Numpydoc​Parser​.sections</div>
+            <div class="url">docstring_parser.numpydoc.NumpydocParser.html#sections</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.numpydoc.NumpydocParser._setup">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​.​Numpydoc​Parser​._setup</div>
+            <div class="url">docstring_parser.numpydoc.NumpydocParser.html#_setup</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.numpydoc.NumpydocParser.titles_re">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​.​Numpydoc​Parser​.titles​_re</div>
+            <div class="url">docstring_parser.numpydoc.NumpydocParser.html#titles_re</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.numpydoc.NumpydocParser.add_section">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​.​Numpydoc​Parser​.add​_section</div>
+            <div class="url">docstring_parser.numpydoc.NumpydocParser.html#add_section</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Add or replace a section.</div>
+          </li><li id="docstring_parser.numpydoc.NumpydocParser.parse">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​.​Numpydoc​Parser​.parse</div>
+            <div class="url">docstring_parser.numpydoc.NumpydocParser.html#parse</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Parse the numpy-style docstring into its components.</div>
+          </li><li id="docstring_parser.numpydoc.parse">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​.parse</div>
+            <div class="url">docstring_parser.numpydoc.html#parse</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Parse the numpy-style docstring into its components.</div>
+          </li><li id="docstring_parser.numpydoc.compose">
+            
+            <div class="fullName">docstring​_parser​.numpydoc​.compose</div>
+            <div class="url">docstring_parser.numpydoc.html#compose</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Render a parsed docstring into docstring text.</div>
+          </li><li id="docstring_parser.rest._build_meta">
+            
+            <div class="fullName">docstring​_parser​.rest​._build​_meta</div>
+            <div class="url">docstring_parser.rest.html#_build_meta</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.rest.parse">
+            
+            <div class="fullName">docstring​_parser​.rest​.parse</div>
+            <div class="url">docstring_parser.rest.html#parse</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Parse the ReST-style docstring into its components.</div>
+          </li><li id="docstring_parser.rest.compose">
+            
+            <div class="fullName">docstring​_parser​.rest​.compose</div>
+            <div class="url">docstring_parser.rest.html#compose</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Render a parsed docstring into docstring text.</div>
+          </li><li id="docstring_parser.parser._STYLE_MAP">
+            
+            <div class="fullName">docstring​_parser​.parser​._STYLE​_MAP</div>
+            <div class="url">docstring_parser.parser.html#_STYLE_MAP</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Constant</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.compose">
+            
+            <div class="fullName">docstring​_parser​.compose</div>
+            <div class="url">index.html#compose</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Render a parsed docstring into docstring text.</div>
+          </li><li id="docstring_parser.parse">
+            
+            <div class="fullName">docstring​_parser​.parse</div>
+            <div class="url">index.html#parse</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary">Parse the docstring into its components.</div>
+          </li><li id="docstring_parser.util._Func">
+            
+            <div class="fullName">docstring​_parser​.util​._​Func</div>
+            <div class="url">docstring_parser.util.html#_Func</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Variable</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary"><span class="undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.combine_docstrings">
+            
+            <div class="fullName">docstring​_parser​.combine​_docstrings</div>
+            <div class="url">index.html#combine_docstrings</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">VISIBLE</div>
+            <div class="summary"><span class="undocumented">No summary</span></div>
+          </li>
+       </ul>
+    </div>
+  </body>
+</html>
