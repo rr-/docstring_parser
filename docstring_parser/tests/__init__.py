@@ -1,6 +1,6 @@
 """Tests for docstring parser."""
 
-# Private pydoctor customization code in order to make to exclude this package from the API documentation.
+# Private pydoctor customization code in order to exclude this package from the API documentation.
 # Based on Twisted code.
 
 try:
