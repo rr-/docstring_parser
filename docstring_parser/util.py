@@ -82,9 +82,9 @@ def combine_docstrings(
 
     :param others: callables from which to parse docstrings.
     :param exclude: an iterable of ``DocstringMeta`` subclasses to exclude when
-    combining docstrings.
+        combining docstrings.
     :param style: style composed docstring. The default will infer the style
-    from the decorated function.
+        from the decorated function.
     :param rendering_style: The rendering style used to compose a docstring.
     :return: the decorated function with a modified docstring.
     """

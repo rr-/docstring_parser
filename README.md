@@ -35,6 +35,8 @@ Example usage:
 'ValueError'
 ```
 
+Read [API Documentation](https://rr-.github.io/docstring_parser/).
+
 # Contributing
 
 To set up the project:

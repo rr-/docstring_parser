@@ -1,0 +1,42 @@
+name: apidocs
+on:
+- push
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@master
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+
+    - name: Install requirements for documentation generation
+      run: |
+        python -m pip install --upgrade pip setuptools wheel
+        python -m pip install pytest pydoctor>=22.3.0 . 
+
+    - name: Generate API documentation with pydoctor
+      run: |
+
+        # Run simple pydoctor build
+        pydoctor \
+            --project-name=docstring_parser \
+            --project-url=https://github.com/$GITHUB_REPOSITORY \
+            --html-viewsource-base=https://github.com/$GITHUB_REPOSITORY/tree/$GITHUB_SHA \
+            --make-html \
+            --html-output=./apidocs \
+            --project-base-dir="." \
+            --docformat=restructuredtext \
+            --system-class=docstring_parser.tests._pydoctor.HidesTestsPydoctorSystem \
+            --intersphinx=https://docs.python.org/3/objects.inv \
+            ./docstring_parser
+
+    - name: Push API documentation to Github Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./apidocs
+        commit_message: "Generate API documentation"
