@@ -30,7 +30,7 @@ jobs:
             --html-output=./apidocs \
             --project-base-dir="." \
             --docformat=restructuredtext \
-            --system-class=docstring_parser.tests._HidesTestsPydoctorSystem \
+            --system-class=docstring_parser.tests._pydoctor.HidesTestsPydoctorSystem \
             --intersphinx=https://docs.python.org/3/objects.inv \
             ./docstring_parser
 
