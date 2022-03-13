@@ -36,6 +36,7 @@ python = ">=3.6,<4.0"
 [tool.poetry.dev-dependencies]
 pre-commit = {version = ">=2.16.0", python = ">=3.9"}
 pytest = "*"
+pydoctor = ">=22.3.0"
 
 [tool.black]
 line-length = 79
