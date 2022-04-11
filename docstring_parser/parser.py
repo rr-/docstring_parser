@@ -1,5 +1,7 @@
 """The main parsing routine."""
 
+import typing as T
+
 from docstring_parser import epydoc, google, numpydoc, rest
 from docstring_parser.common import (
     Docstring,
@@ -26,14 +28,17 @@ def parse(text: str, style: DocstringStyle = DocstringStyle.AUTO) -> Docstring:
     if style != DocstringStyle.AUTO:
         return _STYLE_MAP[style].parse(text)
 
+    exc: T.Optional[Exception] = None
     rets = []
     for module in _STYLE_MAP.values():
         try:
-            rets.append(module.parse(text))
+            ret = module.parse(text)
         except ParseError as ex:
             exc = ex
+        else:
+            rets.append(ret)
 
-    if not rets:
+    if exc is not None:
         raise exc
 
     return sorted(rets, key=lambda d: len(d.meta), reverse=True)[0]

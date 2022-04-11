@@ -76,9 +76,7 @@ def parse(text: str) -> Docstring:
 
         match = param_match or raise_match or return_match or meta_match
         if not match:
-            raise ParseError(
-                'Error parsing meta information near "{}".'.format(chunk)
-            )
+            raise ParseError(f'Error parsing meta information near "{chunk}".')
 
         desc_chunk = chunk[match.end() :]
         if param_match:
@@ -111,7 +109,7 @@ def parse(text: str) -> Docstring:
                 "ytype",
             ]:
                 raise ParseError(
-                    'Error parsing meta information near "{}".'.format(chunk)
+                    f'Error parsing meta information near "{chunk}".'
                 )
 
         desc = desc_chunk.strip()
@@ -135,7 +133,7 @@ def parse(text: str) -> Docstring:
             is_generator = key in {"ytype", "yield"}
             if info.setdefault("is_generator", is_generator) != is_generator:
                 raise ParseError(
-                    'Error parsing meta information for "{}".'.format(arg_name)
+                    f'Error parsing meta information for "{arg_name}".'
                 )
 
     is_done: T.Dict[str, bool] = {}

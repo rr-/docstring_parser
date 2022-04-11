@@ -67,7 +67,8 @@ class Section:
         This pattern will match this instance's ``title`` attribute in
         an anonymous group.
         """
-        return r"^({})\s*?\n{}\s*$".format(self.title, "-" * len(self.title))
+        dashes = "-" * len(self.title)
+        return rf"^({self.title})\s*?\n{dashes}\s*$"
 
     def parse(self, text: str) -> T.Iterable[DocstringMeta]:
         """Parse ``DocstringMeta`` objects from the body of this section.
@@ -112,7 +113,7 @@ class _SphinxSection(Section):
 
     @property
     def title_pattern(self) -> str:
-        return r"^\.\.\s*({})\s*::".format(self.title)
+        return rf"^\.\.\s*({self.title})\s*::"
 
 
 class ParamSection(_KVSection):
