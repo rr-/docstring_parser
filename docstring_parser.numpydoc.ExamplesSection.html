@@ -6,7 +6,7 @@
 
   <head>
     
-    <title>docstring_parser.numpydoc.DeprecationSection</title>
+    <title>docstring_parser.numpydoc.ExamplesSection</title>
     <meta name="generator" content="pydoctor 22.4.0"> 
         
     </meta>
@@ -131,7 +131,7 @@
     <div class="container">
 
       <div class="page-header">
-        <h1 class="class"><code><code><a href="index.html" class="internal-link">docstring_parser</a></code><wbr></wbr>.<code><a href="docstring_parser.numpydoc.html" class="internal-link" title="docstring_parser.numpydoc">numpydoc</a></code><wbr></wbr>.<code><a href="docstring_parser.numpydoc.DeprecationSection.html" class="internal-link" title="docstring_parser.numpydoc.DeprecationSection">DeprecationSection</a></code></code></h1>
+        <h1 class="class"><code><code><a href="index.html" class="internal-link">docstring_parser</a></code><wbr></wbr>.<code><a href="docstring_parser.numpydoc.html" class="internal-link" title="docstring_parser.numpydoc">numpydoc</a></code><wbr></wbr>.<code><a href="docstring_parser.numpydoc.ExamplesSection.html" class="internal-link" title="docstring_parser.numpydoc.ExamplesSection">ExamplesSection</a></code></code></h1>
         <div id="showPrivate">
           <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
         </div>
@@ -142,44 +142,43 @@
       </div>
 
       <div class="extrasDocstring">
-        <p><code><span class="py-keyword">class</span> <span class="py-defname">DeprecationSection</span>(<a href="docstring_parser.numpydoc._SphinxSection.html" class="internal-link" title="docstring_parser.numpydoc._SphinxSection">_SphinxSection</a>): <a href="https://github.com/rr-/docstring_parser/tree/b4584585ad5a995011482b5f9afb036eed327cb5/docstring_parser/numpydoc.py#L214" class="sourceLink">(source)</a></code></p>
-        <p><a href="classIndex.html#docstring_parser.numpydoc.DeprecationSection">View In Hierarchy</a></p>
+        <p><code><span class="py-keyword">class</span> <span class="py-defname">ExamplesSection</span>(<a href="docstring_parser.numpydoc.Section.html" class="internal-link" title="docstring_parser.numpydoc.Section">Section</a>): <a href="https://github.com/rr-/docstring_parser/tree/b4584585ad5a995011482b5f9afb036eed327cb5/docstring_parser/numpydoc.py#L228" class="sourceLink">(source)</a></code></p>
+        <p><a href="classIndex.html#docstring_parser.numpydoc.ExamplesSection">View In Hierarchy</a></p>
       </div>
 
       <div class="moduleDocstring">
-        <div>Parser for numpydoc "deprecation warning" sections.</div>
+        <div><p>Parser for numpydoc examples sections.</p>
+<dl class="rst-docutils">
+<dt>E.g. any section that looks like this:</dt>
+<dd><pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> numpy.matlib
+<span class="py-prompt">&gt;&gt;&gt; </span>np.matlib.empty((2, 2))    <span class="py-comment"># filled with random data</span>
+<span class="py-output">matrix([[  6.76425276e-320,   9.79033856e-307], # random</span>
+<span class="py-output">        [  7.39337286e-309,   3.22135945e-309]])</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>np.matlib.empty((2, 2), dtype=<span class="py-builtin">int</span>)
+<span class="py-output">matrix([[ 6600475,        0], # random</span>
+<span class="py-output">        [ 6586976, 22740995]])</span>
+</pre></dd>
+</dl>
+</div>
       </div>
 
       <div id="splitTables">
-        <table class="children sortable" id="id29">
+        <table class="children sortable" id="id32">
   
   
   <tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#parse" class="internal-link" title="docstring_parser.numpydoc.DeprecationSection.parse">parse</a></code></td>
-    <td>Parse <tt class="rst-docutils literal">DocstringMeta</tt> objects from the body of this section.</td>
+    <td><code><a href="#parse" class="internal-link" title="docstring_parser.numpydoc.ExamplesSection.parse">parse</a></code></td>
+    <td>Parse <tt class="rst-docutils literal">DocstringExample</tt> objects from the body of this section.</td>
   </tr>
 </table>
         
           <p class="inheritedFrom">
-            Inherited from <code><a href="docstring_parser.numpydoc._SphinxSection.html" class="internal-link" title="docstring_parser.numpydoc._SphinxSection">_SphinxSection</a></code>:
+            Inherited from <code><a href="docstring_parser.numpydoc.Section.html" class="internal-link" title="docstring_parser.numpydoc.Section">Section</a></code>:
           </p>
-          <table class="children sortable" id="id30">
-  
-  
-  <tr class="baseproperty">
-    
-    <td>Property</td>
-    <td><code><a href="docstring_parser.numpydoc._SphinxSection.html#title_pattern" class="internal-link" title="docstring_parser.numpydoc._SphinxSection.title_pattern">title​_pattern</a></code></td>
-    <td>Regular expression pattern matching this section's header.</td>
-  </tr>
-</table>
-          
-          <p class="inheritedFrom">
-            Inherited from <code><a href="docstring_parser.numpydoc.Section.html" class="internal-link" title="docstring_parser.numpydoc.Section">Section</a></code> (via <code><a href="docstring_parser.numpydoc._SphinxSection.html" class="internal-link" title="docstring_parser.numpydoc._SphinxSection">_SphinxSection</a></code>):
-          </p>
-          <table class="children sortable" id="id31">
+          <table class="children sortable" id="id33">
   
   
   <tr class="basemethod">
@@ -197,6 +196,11 @@
     <td>Instance Variable</td>
     <td><code><a href="docstring_parser.numpydoc.Section.html#title" class="internal-link" title="docstring_parser.numpydoc.Section.title">title</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseproperty">
+    
+    <td>Property</td>
+    <td><code><a href="docstring_parser.numpydoc.Section.html#title_pattern" class="internal-link" title="docstring_parser.numpydoc.Section.title_pattern">title​_pattern</a></code></td>
+    <td>Regular expression pattern matching this section's header.</td>
   </tr>
 </table>
           
@@ -209,7 +213,7 @@
         <div class="basemethod">
   
   
-  <a name="docstring_parser.numpydoc.DeprecationSection.parse">
+  <a name="docstring_parser.numpydoc.ExamplesSection.parse">
     
   </a>
   <a name="parse">
@@ -218,7 +222,7 @@
   <div class="functionHeader">
     
     <span class="py-keyword">def</span> <span class="py-defname">parse</span>(self, text):
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/b4584585ad5a995011482b5f9afb036eed327cb5/docstring_parser/numpydoc.py#L217">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/b4584585ad5a995011482b5f9afb036eed327cb5/docstring_parser/numpydoc.py#L241">
       
       (source)
     </a>
@@ -226,8 +230,8 @@
   <div class="docstring functionBody">
     <div class="interfaceinfo">overrides <code><a href="docstring_parser.numpydoc.Section.html#parse" class="internal-link">docstring_parser.numpydoc.Section.parse</a></code></div>
     
-    <div>Parse <tt class="rst-docutils literal">DocstringMeta</tt> objects from the body of this section.<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">text:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">section body text. Should be cleaned with
-<tt class="rst-docutils literal">inspect.cleandoc</tt> before parsing.</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/library/typing.html#typing.Iterable" class="intersphinx-link">T.Iterable</a>[<wbr></wbr>DocstringDeprecated]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+    <div>Parse <tt class="rst-docutils literal">DocstringExample</tt> objects from the body of this section.<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">text:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">section body text. Should be cleaned with
+<tt class="rst-docutils literal">inspect.cleandoc</tt> before parsing.</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/library/typing.html#typing.Iterable" class="intersphinx-link">T.Iterable</a>[<wbr></wbr>DocstringMeta]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
   </div>
 </div>
 
