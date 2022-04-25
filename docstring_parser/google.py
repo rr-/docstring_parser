@@ -136,7 +136,9 @@ class GoogleParser:
                 args=[section.key], description=desc, type_name=None
             )
         if section.key in EXAMPLES_KEYWORDS:
-            return DocstringExample(args=[section.key], description=desc)
+            return DocstringExample(
+                args=[section.key], snippet=None, description=desc
+            )
         if section.key in PARAM_KEYWORDS:
             raise ParseError("Expected paramenter name.")
         return DocstringMeta(args=[section.key], description=desc)

@@ -59,6 +59,7 @@ disable = [
     "import-error",
     "duplicate-code",
     "too-many-locals",
+    "too-many-lines",
     "too-many-branches",
     "too-many-statements",
     "too-many-arguments",
