@@ -1,3 +1,7 @@
+# 0.14 (2022-04-25)
+
+- Numpydoc: Improved support for Example / Examples section
+
 # 0.13 (2021-11-17)
 
 - Google: Added support for Example / Examples section
