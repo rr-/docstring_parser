@@ -249,14 +249,14 @@ function buildSearchResult(dobj) {
     p.innerHTML = dobj.querySelector('.summary').innerHTML;
     a.setAttribute('href', dobj.querySelector('.url').innerHTML);
     a.setAttribute('class', 'internal-link');
-    a.textContent = dobj.querySelector('.fullName').innerHTML;
+    a.innerHTML = dobj.querySelector('.fullName').innerHTML;
     
     let kind_value = dobj.querySelector('.kind').innerHTML;
     let type_value = dobj.querySelector('.type').innerHTML;
   
     // Adding '()' on functions and methods
     if (type_value.endsWith("Function")){
-        a.textContent = a.textContent + '()';
+        a.innerHTML = a.innerHTML + '()';
     }
   
     kindtd.innerHTML = kind_value;
