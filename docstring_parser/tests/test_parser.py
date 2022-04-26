@@ -1,5 +1,6 @@
 """Tests for generic docstring routines."""
-from docstring_parser.common import DocstringStyle
+import pytest
+from docstring_parser.common import DocstringStyle, ParseError
 from docstring_parser.parser import parse
 
 
@@ -180,3 +181,24 @@ def test_numpydoc() -> None:
     assert docstring.many_returns is not None
     assert len(docstring.many_returns) == 1
     assert docstring.many_returns[0] == docstring.returns
+
+
+def test_autodetection_error_detection() -> None:
+    """Test autodection for the case where one of the parsers throws an error
+    and another one succeeds.
+    """
+    source = """
+    Does something useless
+
+    :param 3 + 3 a: a param
+    """
+
+    with pytest.raises(ParseError):
+        # assert that one of the parsers does raise
+        parse(source, DocstringStyle.REST)
+
+    # assert that autodetection still works
+    docstring = parse(source)
+
+    assert docstring
+    assert docstring.style == DocstringStyle.GOOGLE

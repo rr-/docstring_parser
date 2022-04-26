@@ -38,7 +38,7 @@ def parse(text: str, style: DocstringStyle = DocstringStyle.AUTO) -> Docstring:
         else:
             rets.append(ret)
 
-    if exc is not None:
+    if not rets:
         raise exc
 
     return sorted(rets, key=lambda d: len(d.meta), reverse=True)[0]
