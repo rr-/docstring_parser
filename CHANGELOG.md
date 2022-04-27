@@ -1,3 +1,7 @@
+# 0.14.1 (2022-04-27)
+
+- Parser: fix autodetection (regression from 0.14)
+
 # 0.14 (2022-04-25)
 
 - Numpydoc: Improved support for Example / Examples section
