@@ -43,8 +43,8 @@ To set up the project:
 ```sh
 pip install --user poetry
 
-git clone https://github.com/rr-/pycrcmanip.git
-cd pycrcmanip
+git clone https://github.com/rr-/docstring_parser.git
+cd docstring_parser
 
 poetry install
 poetry run pre-commit install
