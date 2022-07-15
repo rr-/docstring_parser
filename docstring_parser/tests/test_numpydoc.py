@@ -225,42 +225,92 @@ def test_meta_with_multiline_description() -> None:
     assert docstring.meta[0].description == "asd\n1\n    2\n3"
 
 
-def test_default_args() -> None:
+@pytest.mark.parametrize(
+    "source, expected_is_optional, expected_type_name, expected_default",
+    [
+        (
+            """
+                Parameters
+                ----------
+                arg1 : int
+                    The first arg
+                """,
+            False,
+            "int",
+            None,
+        ),
+        (
+            """
+                Parameters
+                ----------
+                arg2 : str
+                    The second arg
+                """,
+            False,
+            "str",
+            None,
+        ),
+        (
+            """
+                Parameters
+                ----------
+                arg3 : float, optional
+                    The third arg. Default is 1.0.
+                """,
+            True,
+            "float",
+            "1.0",
+        ),
+        (
+            """
+                Parameters
+                ----------
+                arg4 : Optional[Dict[str, Any]], optional
+                    The fourth arg. Defaults to None
+                """,
+            True,
+            "Optional[Dict[str, Any]]",
+            "None",
+        ),
+        (
+            """
+                Parameters
+                ----------
+                arg5 : str, optional
+                    The fifth arg. Default: DEFAULT_ARGS
+                """,
+            True,
+            "str",
+            "DEFAULT_ARGS",
+        ),
+        (
+            """
+                Parameters
+                ----------
+                parameter_without_default : int
+                    The parameter_without_default is required.
+                """,
+            False,
+            "int",
+            None,
+        ),
+    ],
+)
+def test_default_args(
+    source: str,
+    expected_is_optional: bool,
+    expected_type_name: T.Optional[str],
+    expected_default: T.Optional[str],
+) -> None:
     """Test parsing default arguments."""
-    docstring = parse(
-        """
-        A sample function
-
-        A function the demonstrates docstrings
-
-        Parameters
-        ----------
-        arg1 : int
-            The firsty arg
-        arg2 : str
-            The second arg
-        arg3 : float, optional
-            The third arg. Default is 1.0.
-        arg4 : Optional[Dict[str, Any]], optional
-            The fourth arg. Defaults to None
-        arg5 : str, optional
-            The fifth arg. Default: DEFAULT_ARGS
-
-        Returns
-        -------
-        Mapping[str, Any]
-            The args packed in a mapping
-        """
-    )
+    docstring = parse(source)
     assert docstring is not None
-    assert len(docstring.params) == 5
+    assert len(docstring.params) == 1
 
-    arg4 = docstring.params[3]
-    assert arg4.arg_name == "arg4"
-    assert arg4.is_optional
-    assert arg4.type_name == "Optional[Dict[str, Any]]"
-    assert arg4.default == "None"
-    assert arg4.description == "The fourth arg. Defaults to None"
+    arg1 = docstring.params[0]
+    assert arg1.is_optional == expected_is_optional
+    assert arg1.type_name == expected_type_name
+    assert arg1.default == expected_default
 
 
 def test_multiple_meta() -> None:
