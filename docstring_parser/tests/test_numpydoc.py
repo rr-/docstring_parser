@@ -263,6 +263,27 @@ def test_default_args() -> None:
     assert arg4.description == "The fourth arg. Defaults to None"
 
 
+def test_default_args_negative() -> None:
+    """Test parsing default arguments."""
+    docstring = parse(
+        """
+        Parameters
+        ----------
+        parameter_without_default : int
+            The parameter_without_default is required.
+        """
+    )
+    assert docstring is not None
+    assert len(docstring.params) == 1
+
+    arg1 = docstring.params[0]
+    assert arg1.arg_name == "parameter_without_default"
+    assert not arg1.is_optional
+    assert arg1.type_name == "int"
+    assert arg1.default is None
+    assert arg1.description == "The parameter_without_default is required."
+
+
 def test_multiple_meta() -> None:
     """Test parsing multiple meta."""
     docstring = parse(

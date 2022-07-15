@@ -42,7 +42,7 @@ PARAM_OPTIONAL_REGEX = re.compile(r"(?P<type>.*?)(?:, optional|\(optional\))$")
 # numpydoc format has no formal grammar for this,
 # but we can make some educated guesses...
 PARAM_DEFAULT_REGEX = re.compile(
-    r"[Dd]efault(?: is | = |: |s to |)\s*(?P<value>[\w\-\.]+)"
+    r"(?<!\S)[Dd]efault(?: is | = |: |s to |)\s*(?P<value>[\w\-\.]+)"
 )
 
 RETURN_KEY_REGEX = re.compile(r"^(?:(?P<name>.*?)\s*:\s*)?(?P<type>.*?)$")
