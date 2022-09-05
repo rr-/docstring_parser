@@ -6,7 +6,7 @@
 
   <head>
     
-    <title>docstring_parser.common.DocstringExample</title>
+    <title>docstring_parser.attrdoc.AttributeDocstrings</title>
     <meta name="generator" content="pydoctor 22.7.0"> 
         
     </meta>
@@ -142,7 +142,7 @@
 
       <div class="thingTitle">
         <span>Class</span>
-        <code class="thisobject"><a href="docstring_parser.common.DocstringExample.html" class="internal-link" title="This class"><wbr></wbr>Docstring<wbr></wbr>Example</a></code> 
+        <code class="thisobject"><a href="docstring_parser.attrdoc.AttributeDocstrings.html" class="internal-link" title="This class"><wbr></wbr>Attribute<wbr></wbr>Docstrings</a></code> 
       </div>
       
       <div>
@@ -163,7 +163,17 @@
         
 
         
-            <div class="itemName"><code><a href="#__init__" class="internal-link" title="docstring_parser.common.DocstringExample.__init__">__init__</a></code>
+            <div class="itemName"><code><a href="#get_attr_docs" class="internal-link" title="docstring_parser.attrdoc.AttributeDocstrings.get_attr_docs">get<wbr></wbr>_attr<wbr></wbr>_docs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#visit" class="internal-link" title="docstring_parser.attrdoc.AttributeDocstrings.visit">visit</a></code>
             </div>
         
 
@@ -182,7 +192,7 @@
         
 
         
-            <div class="itemName"><code><a href="#description" class="internal-link" title="docstring_parser.common.DocstringExample.description">description</a></code>
+            <div class="itemName"><code><a href="#attr_docs" class="internal-link" title="docstring_parser.attrdoc.AttributeDocstrings.attr_docs">attr<wbr></wbr>_docs</a></code>
             </div>
         
 
@@ -192,35 +202,22 @@
         
 
         
-            <div class="itemName"><code><a href="#snippet" class="internal-link" title="docstring_parser.common.DocstringExample.snippet">snippet</a></code>
+            <div class="itemName"><code><a href="#prev_attr" class="internal-link" title="docstring_parser.attrdoc.AttributeDocstrings.prev_attr">prev<wbr></wbr>_attr</a></code>
             </div>
         
 
     </li>
 </ul> 
 
-        <div class="childrenKindTitle">Inherited Attributes</div>
-        <ul>
-    
-    <li class="">
         
-        
-        
-
-        
-            <div class="itemName"><code><a href="docstring_parser.DocstringMeta.html#args" class="internal-link" title="docstring_parser.DocstringMeta.args">args</a></code>
-            </div>
-        
-
-    </li>
-</ul> 
+         
         
       </div>
   </div><div>
 
       <div class="thingTitle">
         <span>Module</span>
-        <code><a href="docstring_parser.common.html" class="internal-link" title="The parent of this class">common</a></code> 
+        <code><a href="docstring_parser.attrdoc.html" class="internal-link" title="The parent of this class">attrdoc</a></code> 
       </div>
       
       <div>
@@ -238,15 +235,68 @@
         
 
         
-            <div class="itemName"><code><a href="docstring_parser.common.DocstringExample.html" class="internal-link" title="docstring_parser.common.DocstringExample"><wbr></wbr>Docstring<wbr></wbr>Example</a></code>
+            <div class="itemName"><code><a href="docstring_parser.attrdoc.AttributeDocstrings.html" class="internal-link" title="docstring_parser.attrdoc.AttributeDocstrings"><wbr></wbr>Attribute<wbr></wbr>Docstrings</a></code>
             </div>
         
 
     </li>
 </ul>
 
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
         
-         
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.attrdoc.html#add_attribute_docstrings" class="internal-link" title="docstring_parser.attrdoc.add_attribute_docstrings">add<wbr></wbr>_attribute<wbr></wbr>_docstrings</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.attrdoc.html#ast_get_attribute" class="internal-link" title="docstring_parser.attrdoc.ast_get_attribute">ast<wbr></wbr>_get<wbr></wbr>_attribute</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.attrdoc.html#ast_get_constant_value" class="internal-link" title="docstring_parser.attrdoc.ast_get_constant_value">ast<wbr></wbr>_get<wbr></wbr>_constant<wbr></wbr>_value</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.attrdoc.html#ast_is_literal_str" class="internal-link" title="docstring_parser.attrdoc.ast_is_literal_str">ast<wbr></wbr>_is<wbr></wbr>_literal<wbr></wbr>_str</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.attrdoc.html#ast_unparse" class="internal-link" title="docstring_parser.attrdoc.ast_unparse">ast<wbr></wbr>_unparse</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
 
         
          
@@ -260,57 +310,7 @@
         
 
         
-            <div class="itemName"><code><a href="docstring_parser.common.html#DEPRECATION_KEYWORDS" class="internal-link" title="docstring_parser.common.DEPRECATION_KEYWORDS">DEPRECATION<wbr></wbr>_KEYWORDS</a></code>
-            </div>
-        
-
-    </li><li class="">
-        
-        
-        
-
-        
-            <div class="itemName"><code><a href="docstring_parser.common.html#EXAMPLES_KEYWORDS" class="internal-link" title="docstring_parser.common.EXAMPLES_KEYWORDS">EXAMPLES<wbr></wbr>_KEYWORDS</a></code>
-            </div>
-        
-
-    </li><li class="">
-        
-        
-        
-
-        
-            <div class="itemName"><code><a href="docstring_parser.common.html#PARAM_KEYWORDS" class="internal-link" title="docstring_parser.common.PARAM_KEYWORDS">PARAM<wbr></wbr>_KEYWORDS</a></code>
-            </div>
-        
-
-    </li><li class="">
-        
-        
-        
-
-        
-            <div class="itemName"><code><a href="docstring_parser.common.html#RAISES_KEYWORDS" class="internal-link" title="docstring_parser.common.RAISES_KEYWORDS">RAISES<wbr></wbr>_KEYWORDS</a></code>
-            </div>
-        
-
-    </li><li class="">
-        
-        
-        
-
-        
-            <div class="itemName"><code><a href="docstring_parser.common.html#RETURNS_KEYWORDS" class="internal-link" title="docstring_parser.common.RETURNS_KEYWORDS">RETURNS<wbr></wbr>_KEYWORDS</a></code>
-            </div>
-        
-
-    </li><li class="">
-        
-        
-        
-
-        
-            <div class="itemName"><code><a href="docstring_parser.common.html#YIELDS_KEYWORDS" class="internal-link" title="docstring_parser.common.YIELDS_KEYWORDS">YIELDS<wbr></wbr>_KEYWORDS</a></code>
+            <div class="itemName"><code><a href="docstring_parser.attrdoc.html#ast_constant_attr" class="internal-link" title="docstring_parser.attrdoc.ast_constant_attr">ast<wbr></wbr>_constant<wbr></wbr>_attr</a></code>
             </div>
         
 
@@ -339,7 +339,7 @@
         
 
         <div class="page-header">
-          <h1 class="class"><code><code><a href="index.html" class="internal-link">docstring_parser</a></code><wbr></wbr>.<code><a href="docstring_parser.common.html" class="internal-link" title="docstring_parser.common">common</a></code><wbr></wbr>.<code><a href="docstring_parser.common.DocstringExample.html" class="internal-link" title="docstring_parser.common.DocstringExample">DocstringExample</a></code></code></h1>
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">docstring_parser</a></code><wbr></wbr>.<code><a href="docstring_parser.attrdoc.html" class="internal-link" title="docstring_parser.attrdoc">attrdoc</a></code><wbr></wbr>.<code><a href="docstring_parser.attrdoc.AttributeDocstrings.html" class="internal-link" title="docstring_parser.attrdoc.AttributeDocstrings">AttributeDocstrings</a></code></code></h1>
           <div id="showPrivate">
             <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
           </div>
@@ -350,51 +350,42 @@
         </div>
 
         <div class="extrasDocstring">
-          <p><code><span class="py-keyword">class</span> <span class="py-defname">DocstringExample</span>(<a href="docstring_parser.DocstringMeta.html" class="internal-link" title="docstring_parser.DocstringMeta">DocstringMeta</a>): <a href="https://github.com/rr-/docstring_parser/tree/01dbd845c5e46476eac444b0aee64a800ce9ad5a/docstring_parser/common.py#L134" class="sourceLink">(source)</a></code></p>
-          <p><a href="classIndex.html#docstring_parser.common.DocstringExample">View In Hierarchy</a></p>
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">AttributeDocstrings</span>(<a href="https://docs.python.org/3/library/ast.html#ast.NodeVisitor" class="intersphinx-link">ast.NodeVisitor</a>): <a href="https://github.com/rr-/docstring_parser/tree/01dbd845c5e46476eac444b0aee64a800ce9ad5a/docstring_parser/attrdoc.py#L68" class="sourceLink">(source)</a></code></p>
+          <p><a href="classIndex.html#docstring_parser.attrdoc.AttributeDocstrings">View In Hierarchy</a></p>
         </div>
 
         <div class="moduleDocstring">
-          <div><p>DocstringMeta symbolizing example metadata.</p>
+          <div><p>An ast.NodeVisitor that collects attribute docstrings.</p>
 </div>
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id6">
+          <table class="children sortable" id="id4">
   
   
   <tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#__init__" class="internal-link" title="docstring_parser.common.DocstringExample.__init__">__init__</a></code></td>
-    <td>Initialize self.</td>
-  </tr><tr class="instancevariable">
+    <td><code><a href="#get_attr_docs" class="internal-link" title="docstring_parser.attrdoc.AttributeDocstrings.get_attr_docs">get<wbr></wbr>_attr<wbr></wbr>_docs</a></code></td>
+    <td>Get attribute docstrings from the given component.</td>
+  </tr><tr class="method">
     
-    <td>Instance Variable</td>
-    <td><code><a href="#description" class="internal-link" title="docstring_parser.common.DocstringExample.description">description</a></code></td>
+    <td>Method</td>
+    <td><code><a href="#visit" class="internal-link" title="docstring_parser.attrdoc.AttributeDocstrings.visit">visit</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#snippet" class="internal-link" title="docstring_parser.common.DocstringExample.snippet">snippet</a></code></td>
+    <td><code><a href="#attr_docs" class="internal-link" title="docstring_parser.attrdoc.AttributeDocstrings.attr_docs">attr<wbr></wbr>_docs</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#prev_attr" class="internal-link" title="docstring_parser.attrdoc.AttributeDocstrings.prev_attr">prev<wbr></wbr>_attr</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
           
-            <p class="inheritedFrom">
-              Inherited from <code><a href="docstring_parser.DocstringMeta.html" class="internal-link" title="docstring_parser.DocstringMeta">DocstringMeta</a></code>:
-            </p>
-            <table class="children sortable" id="id7">
-  
-  
-  <tr class="baseinstancevariable">
-    
-    <td>Instance Variable</td>
-    <td><code><a href="docstring_parser.DocstringMeta.html#args" class="internal-link" title="docstring_parser.DocstringMeta.args">args</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr>
-</table>
-            
 
             
         </div>
@@ -403,60 +394,82 @@
           <div class="basemethod">
   
   
-  <a name="docstring_parser.common.DocstringExample.__init__">
+  <a name="docstring_parser.attrdoc.AttributeDocstrings.get_attr_docs">
     
   </a>
-  <a name="__init__">
+  <a name="get_attr_docs">
     
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, args, snippet, description):
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/01dbd845c5e46476eac444b0aee64a800ce9ad5a/docstring_parser/common.py#L137">
+    <span class="py-keyword">def</span> <span class="py-defname">get_attr_docs</span>(self, component):
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/01dbd845c5e46476eac444b0aee64a800ce9ad5a/docstring_parser/attrdoc.py#L86">
       
       (source)
     </a>
   </div>
   <div class="docstring functionBody">
-    <div class="interfaceinfo">overrides <code><a href="docstring_parser.DocstringMeta.html#__init__" class="internal-link">docstring_parser.DocstringMeta.__init__</a></code></div>
-    <div><p>Initialize self.</p>
-<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">args:</span><code><a href="https://docs.python.org/3/library/typing.html#typing.List" class="intersphinx-link">T.List</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">snippet:</span><code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">T.Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">description:</span><code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">T.Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+    
+    <div><p>Get attribute docstrings from the given component.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">component:</span><code><a href="https://docs.python.org/3/library/typing.html#typing.Any" class="intersphinx-link">T.Any</a></code></td><td class="fieldArgDesc">component to process (class or module)</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/library/typing.html#typing.Dict" class="intersphinx-link">T.Dict</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Tuple" class="intersphinx-link">T.Tuple</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">T.Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>], <wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">T.Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>]]]</code></td><td class="fieldArgDesc">for each attribute docstring, a tuple with (description,
+type, default)</td></tr></table></div>
   </div>
-</div><div class="baseinstancevariable">
+</div><div class="basemethod">
   
   
-  <a name="docstring_parser.common.DocstringExample.description">
+  <a name="docstring_parser.attrdoc.AttributeDocstrings.visit">
     
   </a>
-  <a name="description">
+  <a name="visit">
     
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">description</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/01dbd845c5e46476eac444b0aee64a800ce9ad5a/docstring_parser/common.py#L146">
+    <span class="py-keyword">def</span> <span class="py-defname">visit</span>(self, node):
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/01dbd845c5e46476eac444b0aee64a800ce9ad5a/docstring_parser/attrdoc.py#L74">
+      
+      (source)
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="docstring_parser.attrdoc.AttributeDocstrings.attr_docs">
+    
+  </a>
+  <a name="attr_docs">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">attr_docs</span>: <code><a href="https://docs.python.org/3/library/stdtypes.html#dict" class="intersphinx-link">dict</a></code> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/01dbd845c5e46476eac444b0aee64a800ce9ad5a/docstring_parser/attrdoc.py#L71">
       
       (source)
     </a>
   </div>
   <div class="functionBody">
-    <div class="interfaceinfo">overrides <code><a href="docstring_parser.DocstringMeta.html#description" class="internal-link">docstring_parser.DocstringMeta.description</a></code></div>
+    
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
   
   
-  <a name="docstring_parser.common.DocstringExample.snippet">
+  <a name="docstring_parser.attrdoc.AttributeDocstrings.prev_attr">
     
   </a>
-  <a name="snippet">
+  <a name="prev_attr">
     
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">snippet</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/01dbd845c5e46476eac444b0aee64a800ce9ad5a/docstring_parser/common.py#L145">
+    <span class="py-defname">prev_attr</span> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/01dbd845c5e46476eac444b0aee64a800ce9ad5a/docstring_parser/attrdoc.py#L72">
       
       (source)
     </a>

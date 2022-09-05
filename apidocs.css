@@ -33,7 +33,6 @@ nav.navbar .navbar-header {
     float: none;
     width: 100%;
     position: relative;
-    margin: 0;
 }
 
 .page-header {
@@ -1118,4 +1117,9 @@ pre.constant-value              { padding: .5em; }
 }
 #childList a:target ~ .functionBody{
     box-shadow: -2px -8px 0px 13px rgb(253 255 223);
+}
+
+/* deprecations uses a orange text */
+.rst-deprecated > .rst-versionmodified{
+    color:#aa6708;
 }
