@@ -1,3 +1,8 @@
+# 0.15 (2022-09-05)
+
+- Parser: add a new function, `parse_from_object`, that supports scattered
+  docstrings (thanks to @mauvilsa)
+
 # 0.14.1 (2022-04-27)
 
 - Parser: fix autodetection (regression from 0.14)
