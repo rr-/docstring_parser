@@ -68,6 +68,8 @@ def _build_meta(args: T.List[str], desc: str) -> DocstringMeta:
 
     if key in RAISES_KEYWORDS:
         type_name = None
+        if len(args) == 2:  # throws
+            type_name = args[1]
 
         return DocstringRaises(
             args=args, description=desc, type_name=type_name
@@ -104,6 +106,9 @@ def parse(text) -> Docstring:
     if match:
         desc_chunk = text[: match.start()]
         meta_chunk = text[match.start() :]
+    else:
+        desc_chunk = text
+        meta_chunk = ""
 
     parts = desc_chunk.split("\n", 1)
     ret.short_description = parts[0] or None
@@ -129,7 +134,12 @@ def parse(text) -> Docstring:
         tag = tag.strip("@")
 
         if tag in ["exception", "param", "serialField", "throws"]:
-            args_chunk, desc_chunk = desc_chunk.lstrip().split(" ", 1)
+            splited = desc_chunk.lstrip().split(" ", 1)
+            desc_chunk = ""
+            if len(splited) == 2:
+                args_chunk, desc_chunk = splited
+            if len(splited) == 1:
+                args_chunk = splited[0].strip("\n")
             args = [tag, args_chunk]
         else:
             args = [tag]

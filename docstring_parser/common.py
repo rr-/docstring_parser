@@ -10,6 +10,8 @@ PARAM_KEYWORDS = {
     "attribute",
     "key",
     "keyword",
+    "type",
+    "typedef",
 }
 RAISES_KEYWORDS = {"raises", "raise", "except", "exception", "throws"}
 DEPRECATION_KEYWORDS = {"deprecation", "deprecated"}

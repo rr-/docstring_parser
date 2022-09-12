@@ -30,14 +30,19 @@ def _build_meta(args: T.List[str], desc: str) -> DocstringMeta:
     key = args[0]
 
     if key in PARAM_KEYWORDS:
-        if len(args) != 3:
-            raise ParseError(f"Expected three arguments for a {key} keyword.")
-        key, _arg_name = args[0], args[1:]
+        if len(args) == 3:
+            key, _arg_name = args[0], args[1:]
+        elif len(args) == 2:
+            key, _arg_name = args[0], args[1]
+        else:
+            raise ParseError(
+                f"Expected two or three arguments for a {key} keyword."
+            )
 
         is_optional = None
         default = None
+        type_name = None
         for name in _arg_name:
-            # print(name)
             type_match = re.search(r"\{.*?\}", name)  # type
             if type_match:
                 type_name = (
@@ -70,11 +75,10 @@ def _build_meta(args: T.List[str], desc: str) -> DocstringMeta:
 
     if key in RETURNS_KEYWORDS | YIELDS_KEYWORDS:
         type_name = None
-        match = re.match(r"\{.*?\}", desc)
-        if match:
-            type_name = match.group()
-            desc = desc.replace(type_name, "")
-            type_name = type_name.removeprefix("{").removesuffix("}")
+        for name in args[1:]:
+            match = re.match(r"\{.*?\}", name)
+            if match:
+                type_name = match.group().removeprefix("{").removesuffix("}")
 
         return DocstringReturns(
             args=args,
@@ -92,10 +96,11 @@ def _build_meta(args: T.List[str], desc: str) -> DocstringMeta:
         )
 
     if key in RAISES_KEYWORDS:
-        type_name = re.match(r"\{.*?\}", desc).group()
-        if type_name:
-            desc = desc.replace(type_name, "")
-            type_name = type_name.removeprefix("{").removesuffix("}")
+        type_name = None
+        for name in args[1:]:
+            match = re.match(r"\{.*?\}", name)
+            if match:
+                type_name = match.group().removeprefix("{").removesuffix("}")
 
         return DocstringRaises(
             args=args, description=desc, type_name=type_name
@@ -132,6 +137,9 @@ def parse(text):
     if match:
         desc_chunk = text[: match.start()]
         meta_chunk = text[match.start() :]
+    else:
+        desc_chunk = text
+        meta_chunk = ""
 
     parts = desc_chunk.split("\n", 1)
     ret.short_description = parts[0] or None
@@ -168,11 +176,25 @@ def parse(text):
             elif len(splited) == 2:
                 _, args_chunk = splited
                 desc_chunk = ""
+            else:
+                raise ParseError(
+                    f'Expected two or three arguments for a "{tag}" keyword.'
+                )
 
             args = [tag, _, args_chunk.strip("\n")]
 
         elif tag in ["return", "throws", "type"]:
-            args = [tag]
+            splited = desc_chunk.lstrip().split(" ", 1)
+            desc_chunk = ""
+            if len(splited) == 2:
+                args_chunk, desc_chunk = splited
+            elif len(splited) == 1:
+                args_chunk = splited[0]
+            else:
+                raise ParseError(
+                    f'Expected two arguments for a "{tag}" keyword.'
+                )
+            args = [tag, args_chunk]
 
         else:
             args = [tag.strip("\n")]
@@ -187,5 +209,4 @@ def parse(text):
     # for meta in ret.meta:
     #     if isinstance(meta, DocstringParam):
     #         meta.type_name = meta.type_name or types.get(meta.arg_name)
-
     return ret
