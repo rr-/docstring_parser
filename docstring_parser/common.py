@@ -10,8 +10,10 @@ PARAM_KEYWORDS = {
     "attribute",
     "key",
     "keyword",
+    "type",
+    "typedef",
 }
-RAISES_KEYWORDS = {"raises", "raise", "except", "exception"}
+RAISES_KEYWORDS = {"raises", "raise", "except", "exception", "throws"}
 DEPRECATION_KEYWORDS = {"deprecation", "deprecated"}
 RETURNS_KEYWORDS = {"return", "returns"}
 YIELDS_KEYWORDS = {"yield", "yields"}
@@ -29,6 +31,8 @@ class DocstringStyle(enum.Enum):
     GOOGLE = 2
     NUMPYDOC = 3
     EPYDOC = 4
+    JAVADOC = 5
+    JSDOC = 6
     AUTO = 255
 
 

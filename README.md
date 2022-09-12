@@ -3,6 +3,48 @@ docstring_parser
 
 [![Build](https://github.com/rr-/docstring_parser/actions/workflows/build.yml/badge.svg)](https://github.com/rr-/docstring_parser/actions/workflows/build.yml)
 
+# Developing note
+Clone this repo and install requirements:
+```bash
+pip install -r requirements.txt
+```
+
+Manual install:
+```bash
+poetry install -v
+poetry run pre-commit install
+pip install -e .
+
+```
+
+I am working on new Javadoc and JSdoc parser (Rdoc will be next), using by:
+```python
+>>> from docstring_parser import parse
+>>> text = '''
+...     This is a function.
+
+...     @param n - A string param
+...     @return int This return integer
+...     @exception IOException On input error.    
+        '''
+>>> parse(text)
+<docstring_parser.common.Docstring object at 0x7f6d4982bc40>
+```
+*Notes:* Javadoc style and Jsdoc style are under developing, I recommend selecting them by manual specify:
+```python
+>>> from docstring_parser import parse, DocstringStyle
+>>> parse(text, DocstringStyle.JAVADOC)  # or DocstringStyle.JSDOC
+```
+
+Get docstring style by:
+```python
+>>> ret = parse(text)
+>>> ret.style
+DocstringStyle.JAVADOC
+```
+
+# Original
+
 Parse Python docstrings. Currently support ReST, Google, Numpydoc-style and
 Epydoc docstrings.
 

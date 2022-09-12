@@ -3,7 +3,7 @@
 import inspect
 import typing as T
 
-from docstring_parser import epydoc, google, numpydoc, rest
+from docstring_parser import epydoc, google, javadoc, jsdoc, numpydoc, rest
 from docstring_parser.attrdoc import add_attribute_docstrings
 from docstring_parser.common import (
     Docstring,
@@ -17,6 +17,8 @@ _STYLE_MAP = {
     DocstringStyle.GOOGLE: google,
     DocstringStyle.NUMPYDOC: numpydoc,
     DocstringStyle.EPYDOC: epydoc,
+    DocstringStyle.JAVADOC: javadoc,
+    DocstringStyle.JSDOC: jsdoc,
 }
 
 
@@ -28,13 +30,16 @@ def parse(text: str, style: DocstringStyle = DocstringStyle.AUTO) -> Docstring:
     :returns: parsed docstring representation
     """
     if style != DocstringStyle.AUTO:
-        return _STYLE_MAP[style].parse(text)
+        ret = _STYLE_MAP[style].parse(text)
+        ret.style = style
+        return ret
 
     exc: T.Optional[Exception] = None
     rets = []
-    for module in _STYLE_MAP.values():
+    for _style, module in _STYLE_MAP.items():
         try:
             ret = module.parse(text)
+            ret.style = _style
         except ParseError as ex:
             exc = ex
         else:
