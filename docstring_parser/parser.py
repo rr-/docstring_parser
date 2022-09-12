@@ -3,7 +3,7 @@
 import inspect
 import typing as T
 
-from docstring_parser import epydoc, google, numpydoc, rest
+from docstring_parser import epydoc, google, javadoc, jsdoc, numpydoc, rest
 from docstring_parser.attrdoc import add_attribute_docstrings
 from docstring_parser.common import (
     Docstring,
@@ -17,6 +17,8 @@ _STYLE_MAP = {
     DocstringStyle.GOOGLE: google,
     DocstringStyle.NUMPYDOC: numpydoc,
     DocstringStyle.EPYDOC: epydoc,
+    DocstringStyle.JSDOC: jsdoc,
+    DocstringStyle.JAVADOC: javadoc,
 }
 
 
