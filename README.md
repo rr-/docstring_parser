@@ -43,6 +43,17 @@ Get docstring style by:
 DocstringStyle.JAVADOC
 ```
 
+## Docstring style
+Current supported docstring style:
+- [x] Javadoc
+- [x] JSdoc (JavaScript)
+- [x] Epydoc (Python)
+- [x] reST (Python)
+- [x] Google (Python)
+- [x] Numpy (Python)
+- [] XML
+- [] Rdoc (Ruby)
+
 # Original
 
 Parse Python docstrings. Currently support ReST, Google, Numpydoc-style and
