@@ -37,6 +37,29 @@ Example usage:
 
 Read [API Documentation](https://rr-.github.io/docstring_parser/).
 
+# Installation
+
+Installation using pip
+
+```shell
+pip install docstring_parser
+
+# or if you want to install it in a virtual environment
+
+python -m venv venv # create environment
+source venv/bin/activate # activate environment
+python -m pip install docstring_parser
+```
+
+Installation using conda
+
+
+1. Download and install miniconda or anaconda
+2. Install the package from the conda-forge channel via:
+  - `conda install -c conda-forge docstring_parser`
+  - or create a new conda environment via `conda create -n my-new-environment -c conda-forge docstring_parser`
+
+
 # Contributing
 
 To set up the project:
