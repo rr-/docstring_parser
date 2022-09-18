@@ -7,7 +7,7 @@
   <head>
     
     <title>docstring_parser</title>
-    <meta name="generator" content="pydoctor 22.7.0"> 
+    <meta name="generator" content="pydoctor 22.9.0"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -313,7 +313,7 @@
         
 
         
-            <div class="itemName"><code><a href="docstring_parser.ParseError.html" class="internal-link" title="docstring_parser.ParseError"><wbr></wbr>Parse<wbr></wbr>Error</a></code>
+            <div class="itemName"><code><a href="docstring_parser.RenderingStyle.html" class="internal-link" title="docstring_parser.RenderingStyle"><wbr></wbr>Rendering<wbr></wbr>Style</a></code>
             </div>
         
 
@@ -323,7 +323,7 @@
         
 
         
-            <div class="itemName"><code><a href="docstring_parser.RenderingStyle.html" class="internal-link" title="docstring_parser.RenderingStyle"><wbr></wbr>Rendering<wbr></wbr>Style</a></code>
+            <div class="itemName"><code><a href="docstring_parser.ParseError.html" class="internal-link" title="docstring_parser.ParseError"><wbr></wbr>Parse<wbr></wbr>Error</a></code>
             </div>
         
 
@@ -415,7 +415,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <a href="https://github.com/rr-/docstring_parser/tree/6bdde461f94e66e64d6a5576ce33f2117ce60ee0/docstring_parser/__init__.py" class="sourceLink">(source)</a>
+          <a href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/__init__.py" class="sourceLink">(source)</a>
           <p></p>
         </div>
 
@@ -513,13 +513,13 @@
   </tr><tr class="class">
     
     <td>Class</td>
-    <td><code><a href="docstring_parser.ParseError.html" class="internal-link" title="docstring_parser.ParseError"><wbr></wbr>Parse<wbr></wbr>Error</a></code></td>
-    <td>Base class for all parsing related errors.</td>
-  </tr><tr class="class">
-    
-    <td>Class</td>
     <td><code><a href="docstring_parser.RenderingStyle.html" class="internal-link" title="docstring_parser.RenderingStyle"><wbr></wbr>Rendering<wbr></wbr>Style</a></code></td>
     <td>Rendering style when unparsing parsed docstrings.</td>
+  </tr><tr class="exception">
+    
+    <td>Exception</td>
+    <td><code><a href="docstring_parser.ParseError.html" class="internal-link" title="docstring_parser.ParseError"><wbr></wbr>Parse<wbr></wbr>Error</a></code></td>
+    <td>Base class for all parsing related errors.</td>
   </tr><tr class="function">
     
     <td>Function</td>
@@ -557,9 +557,14 @@
   <div class="functionHeader">
     
     <span class="py-keyword">def</span> <span class="py-defname">compose</span>(docstring, style=<a href="docstring_parser.DocstringStyle.html#AUTO" class="internal-link" title="docstring_parser.DocstringStyle.AUTO">DocstringStyle.AUTO</a>, rendering_style=<a href="docstring_parser.RenderingStyle.html#COMPACT" class="internal-link" title="docstring_parser.RenderingStyle.COMPACT">RenderingStyle.COMPACT</a>, indent=<span class="rst-variable-quote">'</span><span class="rst-variable-string">    </span><span class="rst-variable-quote">'</span>):
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6bdde461f94e66e64d6a5576ce33f2117ce60ee0/docstring_parser/parser.py#L80">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/parser.py#L80">
       
       (source)
+    </a>
+    <a class="headerLink" href="#compose" title="docstring_parser.compose">
+      
+      
+      ¶
     </a>
   </div>
   <div class="docstring functionBody">
@@ -579,9 +584,14 @@
   <div class="functionHeader">
     
     <span class="py-keyword">def</span> <span class="py-defname">parse</span>(text, style=<a href="docstring_parser.DocstringStyle.html#AUTO" class="internal-link" title="docstring_parser.DocstringStyle.AUTO">DocstringStyle.AUTO</a>):
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6bdde461f94e66e64d6a5576ce33f2117ce60ee0/docstring_parser/parser.py#L23">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/parser.py#L23">
       
       (source)
+    </a>
+    <a class="headerLink" href="#parse" title="docstring_parser.parse">
+      
+      
+      ¶
     </a>
   </div>
   <div class="docstring functionBody">
@@ -601,9 +611,14 @@
   <div class="functionHeader">
     
     <span class="py-keyword">def</span> <span class="py-defname">parse_from_object</span>(obj, style=<a href="docstring_parser.DocstringStyle.html#AUTO" class="internal-link" title="docstring_parser.DocstringStyle.AUTO">DocstringStyle.AUTO</a>):
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6bdde461f94e66e64d6a5576ce33f2117ce60ee0/docstring_parser/parser.py#L49">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/parser.py#L49">
       
       (source)
+    </a>
+    <a class="headerLink" href="#parse_from_object" title="docstring_parser.parse_from_object">
+      
+      
+      ¶
     </a>
   </div>
   <div class="docstring functionBody">
@@ -633,9 +648,14 @@ classes.</p>
   <div class="functionHeader">
     
     <span class="py-keyword">def</span> <span class="py-defname">combine_docstrings</span>(*others, exclude=(), style=<a href="docstring_parser.DocstringStyle.html#AUTO" class="internal-link" title="docstring_parser.DocstringStyle.AUTO">DocstringStyle.AUTO</a>, rendering_style=<a href="docstring_parser.RenderingStyle.html#COMPACT" class="internal-link" title="docstring_parser.RenderingStyle.COMPACT">RenderingStyle.COMPACT</a>):
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6bdde461f94e66e64d6a5576ce33f2117ce60ee0/docstring_parser/util.py#L21">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/util.py#L21">
       
       (source)
+    </a>
+    <a class="headerLink" href="#combine_docstrings" title="docstring_parser.combine_docstrings">
+      
+      
+      ¶
     </a>
   </div>
   <div class="docstring functionBody">
@@ -710,7 +730,7 @@ from the decorated function.</td></tr><tr><td class="fieldArgContainer"><span cl
   <div class="container">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.7.0 at 2022-09-05 07:42:58.
+    22.9.0 at 2022-09-18 09:05:23.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 
