@@ -99,7 +99,7 @@ def parse(text) -> Docstring:
         <docstring_parser.common.Docstring object at 0x7f6d4982bc40>
 
     """
-    ret = Docstring(style=DocstringStyle.REST)
+    ret = Docstring(style=DocstringStyle.JAVADOC)
     text = inspect.cleandoc(text)
 
     match = re.search("^@", text, flags=re.M)

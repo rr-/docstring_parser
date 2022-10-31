@@ -8,15 +8,21 @@ PARAM_KEYWORDS = {
     "arg",
     "argument",
     "attribute",
+    "attr"
     "key",
     "keyword",
     "type",
     "typedef",
+    "global",
+    "var",
+    "property",
+    "name",
+    "option",
 }
 RAISES_KEYWORDS = {"raises", "raise", "except", "exception", "throws"}
 DEPRECATION_KEYWORDS = {"deprecation", "deprecated"}
-RETURNS_KEYWORDS = {"return", "returns"}
-YIELDS_KEYWORDS = {"yield", "yields"}
+RETURNS_KEYWORDS = {"return", "returns", "yieldreturn"}
+YIELDS_KEYWORDS = {"yield", "yields", "yieldparam"}
 EXAMPLES_KEYWORDS = {"example", "examples"}
 
 
@@ -33,6 +39,8 @@ class DocstringStyle(enum.Enum):
     EPYDOC = 4
     JAVADOC = 5
     JSDOC = 6
+    PHPDOC = 7
+    RDOC = 8
     AUTO = 255
 
 
