@@ -1,6 +1,7 @@
 # Current
 
 - General: Allow `parse()` to work with missing `__doc__` (thanks to @jamesbraza)
+- Epydoc: Add missing attribute parsing, which includes the "@ivar", "@cvar" and "@var" syntax (thanks to @Masara)
 
 # 0.17 (2025-07-21)
 
