@@ -54,6 +54,7 @@ def parse(text: str) -> Docstring:
     param_pattern = re.compile(
         r"(param|keyword|type)(\s+[_A-z][_A-z0-9]*\??):"
     )
+    attribute_pattern = re.compile(r"(ivar|cvar|var)(\s+[_A-z][_A-z0-9]*\??):")
     raise_pattern = re.compile(r"(raise)(\s+[_A-z][_A-z0-9]*\??)?:")
     return_pattern = re.compile(r"(return|rtype|yield|ytype):")
     meta_pattern = re.compile(
@@ -70,17 +71,23 @@ def parse(text: str) -> Docstring:
             continue
 
         param_match = re.search(param_pattern, chunk)
+        attribute_match = re.search(attribute_pattern, chunk)
         raise_match = re.search(raise_pattern, chunk)
         return_match = re.search(return_pattern, chunk)
         meta_match = re.search(meta_pattern, chunk)
 
-        match = param_match or raise_match or return_match or meta_match
+        match = param_match or attribute_match or raise_match or return_match \
+            or meta_match
         if not match:
             raise ParseError(f'Error parsing meta information near "{chunk}".')
 
         desc_chunk = chunk[match.end() :]
         if param_match:
             base = "param"
+            key: str = match.group(1)
+            args = [match.group(2).strip()]
+        elif attribute_match:
+            base = "attribute"
             key: str = match.group(1)
             args = [match.group(2).strip()]
         elif raise_match:
@@ -101,6 +108,9 @@ def parse(text: str) -> Docstring:
             # way here:
             if key in [
                 "param",
+                "ivar",
+                "cvar",
+                "var",
                 "keyword",
                 "type",
                 "return",
@@ -121,7 +131,7 @@ def parse(text: str) -> Docstring:
     # Combine type_name, arg_name, and description information
     params: T.Dict[str, T.Dict[str, T.Any]] = {}
     for (base, key, args, desc) in stream:
-        if base not in ["param", "return"]:
+        if base not in ["param", "attribute", "return"]:
             continue  # nothing to do
 
         (arg_name,) = args or ("return",)
@@ -138,7 +148,7 @@ def parse(text: str) -> Docstring:
 
     is_done: T.Dict[str, bool] = {}
     for (base, key, args, desc) in stream:
-        if base == "param" and not is_done.get(args[0], False):
+        if base in ["param", "attribute"] and not is_done.get(args[0], False):
             (arg_name,) = args
             info = params[arg_name]
             type_name = info.get("type_name")
