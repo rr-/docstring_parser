@@ -131,7 +131,7 @@ def parse(text: str) -> Docstring:
     # Combine type_name, arg_name, and description information
     params: T.Dict[str, T.Dict[str, T.Any]] = {}
     for (base, key, args, desc) in stream:
-        if base not in ["param", "attribute", "return"]:
+        if base not in {"param", "attribute", "return"}:
             continue  # nothing to do
 
         (arg_name,) = args or ("return",)
@@ -148,7 +148,7 @@ def parse(text: str) -> Docstring:
 
     is_done: T.Dict[str, bool] = {}
     for (base, key, args, desc) in stream:
-        if base in ["param", "attribute"] and not is_done.get(args[0], False):
+        if base in {"param", "attribute"} and not is_done.get(args[0], False):
             (arg_name,) = args
             info = params[arg_name]
             type_name = info.get("type_name")
