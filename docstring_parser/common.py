@@ -194,6 +194,17 @@ class Docstring:
         ]
 
     @property
+    def yields(self):
+        """Return a single information on function yield.
+
+        Takes the first generator information.
+        """
+        for item in self.meta:
+            if isinstance(item, DocstringReturns) and item.is_generator:
+                return item
+        return None
+
+    @property
     def deprecation(self) -> T.Optional[DocstringDeprecated]:
         """Return a single information on function deprecation notes."""
         for item in self.meta:
