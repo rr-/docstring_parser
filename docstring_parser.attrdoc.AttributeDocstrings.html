@@ -7,7 +7,7 @@
   <head>
     
     <title>docstring_parser.attrdoc.AttributeDocstrings</title>
-    <meta name="generator" content="pydoctor 22.9.0"> 
+    <meta name="generator" content="pydoctor 23.4.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -350,13 +350,12 @@
         </div>
 
         <div class="extrasDocstring">
-          <p><code><span class="py-keyword">class</span> <span class="py-defname">AttributeDocstrings</span>(<a href="https://docs.python.org/3/library/ast.html#ast.NodeVisitor" class="intersphinx-link">ast.NodeVisitor</a>): <a href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/attrdoc.py#L68" class="sourceLink">(source)</a></code></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">AttributeDocstrings</span>(<a href="https://docs.python.org/3/library/ast.html#ast.NodeVisitor" class="intersphinx-link">ast.NodeVisitor</a>): <a href="https://github.com/rr-/docstring_parser/tree/969b64467647d23cd85767b09c7fdcbacbbff0cf/docstring_parser/attrdoc.py#L72" class="sourceLink">(source)</a></code></p>
           <p><a href="classIndex.html#docstring_parser.attrdoc.AttributeDocstrings">View In Hierarchy</a></p>
         </div>
 
         <div class="moduleDocstring">
-          <div><p>An ast.NodeVisitor that collects attribute docstrings.</p>
-</div>
+          <div><p>An ast.NodeVisitor that collects attribute docstrings.</p></div>
         </div>
 
         <div id="splitTables">
@@ -402,8 +401,9 @@
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">get_attr_docs</span>(self, component):
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/attrdoc.py#L86">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_attr_docs</span><span class="function-signature">(self, component: <code><a href="https://docs.python.org/3/library/typing.html#typing.Any" class="intersphinx-link">T.Any</a></code>) -&gt; <code><a href="https://docs.python.org/3/library/typing.html#typing.Dict" class="intersphinx-link">T.Dict</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Tuple" class="intersphinx-link">T.Tuple</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">T.Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>], <wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">T.Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>]]]</code></span>:
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/969b64467647d23cd85767b09c7fdcbacbbff0cf/docstring_parser/attrdoc.py#L90">
       
       (source)
     </a>
@@ -415,8 +415,7 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Get attribute docstrings from the given component.</p>
-<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">component:</span><code><a href="https://docs.python.org/3/library/typing.html#typing.Any" class="intersphinx-link">T.Any</a></code></td><td class="fieldArgDesc">component to process (class or module)</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/library/typing.html#typing.Dict" class="intersphinx-link">T.Dict</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Tuple" class="intersphinx-link">T.Tuple</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">T.Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>], <wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">T.Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>]]]</code></td><td class="fieldArgDesc">for each attribute docstring, a tuple with (description,
+    <div><p>Get attribute docstrings from the given component.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">component:</span><code><a href="https://docs.python.org/3/library/typing.html#typing.Any" class="intersphinx-link">T.Any</a></code></td><td class="fieldArgDesc">component to process (class or module)</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/library/typing.html#typing.Dict" class="intersphinx-link">T.Dict</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Tuple" class="intersphinx-link">T.Tuple</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">T.Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>], <wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">T.Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>]]]</code></td><td class="fieldArgDesc">for each attribute docstring, a tuple with (description,
 type, default)</td></tr></table></div>
   </div>
 </div><div class="basemethod">
@@ -430,8 +429,9 @@ type, default)</td></tr></table></div>
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">visit</span>(self, node):
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/attrdoc.py#L74">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">visit</span><span class="function-signature">(self, node)</span>:
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/969b64467647d23cd85767b09c7fdcbacbbff0cf/docstring_parser/attrdoc.py#L78">
       
       (source)
     </a>
@@ -457,7 +457,7 @@ type, default)</td></tr></table></div>
   <div class="functionHeader">
     
     <span class="py-defname">attr_docs</span>: <code><a href="https://docs.python.org/3/library/stdtypes.html#dict" class="intersphinx-link">dict</a></code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/attrdoc.py#L71">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/969b64467647d23cd85767b09c7fdcbacbbff0cf/docstring_parser/attrdoc.py#L75">
       
       (source)
     </a>
@@ -484,7 +484,7 @@ type, default)</td></tr></table></div>
   <div class="functionHeader">
     
     <span class="py-defname">prev_attr</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/attrdoc.py#L72">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/969b64467647d23cd85767b09c7fdcbacbbff0cf/docstring_parser/attrdoc.py#L76">
       
       (source)
     </a>
@@ -511,7 +511,7 @@ type, default)</td></tr></table></div>
   <div class="container">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.9.0 at 2022-09-18 09:05:23.
+    23.4.1 at 2023-09-15 07:38:14.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

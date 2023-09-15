@@ -7,7 +7,7 @@
   <head>
     
     <title>docstring_parser.numpydoc</title>
-    <meta name="generator" content="pydoctor 22.9.0"> 
+    <meta name="generator" content="pydoctor 23.4.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -653,13 +653,12 @@
         </div>
 
         <div class="extrasDocstring">
-          <a href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/numpydoc.py" class="sourceLink">(source)</a>
+          <a href="https://github.com/rr-/docstring_parser/tree/969b64467647d23cd85767b09c7fdcbacbbff0cf/docstring_parser/numpydoc.py" class="sourceLink">(source)</a>
           <p></p>
         </div>
 
         <div class="moduleDocstring">
-          <div><p>Numpydoc-style docstring parsing.</p>
-<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><a class="rst-reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html" target="_top">https://numpydoc.readthedocs.io/en/latest/format.html</a></td></tr></table></div>
+          <div><p>Numpydoc-style docstring parsing.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">See Also</td></tr><tr><td colspan="2"><a class="rst-reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html" target="_top">https://numpydoc.readthedocs.io/en/latest/format.html</a></td></tr></table></div>
         </div>
 
         <div id="splitTables">
@@ -785,8 +784,9 @@
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">compose</span>(docstring, rendering_style=RenderingStyle.COMPACT, indent=<span class="rst-variable-quote">'</span><span class="rst-variable-string">    </span><span class="rst-variable-quote">'</span>):
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/numpydoc.py#L381">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">compose</span><span class="function-signature">(docstring: <code>Docstring</code>, rendering_style: <code>RenderingStyle</code> = RenderingStyle.COMPACT, indent: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code> = <span class="rst-variable-quote">'</span><span class="rst-variable-string">    </span><span class="rst-variable-quote">'</span>) -&gt; <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></span>:
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/969b64467647d23cd85767b09c7fdcbacbbff0cf/docstring_parser/numpydoc.py#L381">
       
       (source)
     </a>
@@ -798,8 +798,7 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Render a parsed docstring into docstring text.</p>
-<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">docstring:</span><code>Docstring</code></td><td class="fieldArgDesc">parsed docstring representation</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">rendering<wbr></wbr>_style:</span><code>RenderingStyle</code></td><td class="fieldArgDesc">the style to render docstrings</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">indent:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">the characters used as indentation in the docstring string</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">docstring text</td></tr></table></div>
+    <div><p>Render a parsed docstring into docstring text.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">docstring:</span><code>Docstring</code></td><td class="fieldArgDesc">parsed docstring representation</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">rendering<wbr></wbr>_style:</span><code>RenderingStyle</code></td><td class="fieldArgDesc">the style to render docstrings</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">indent:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">the characters used as indentation in the docstring string</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">docstring text</td></tr></table></div>
   </div>
 </div><div class="basefunction">
   
@@ -812,8 +811,9 @@
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">parse</span>(text):
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/numpydoc.py#L373">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">parse</span><span class="function-signature">(text: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code>) -&gt; <code>Docstring</code></span>:
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/969b64467647d23cd85767b09c7fdcbacbbff0cf/docstring_parser/numpydoc.py#L373">
       
       (source)
     </a>
@@ -825,8 +825,7 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Parse the numpy-style docstring into its components.</p>
-<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">text:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>Docstring</code></td><td class="fieldArgDesc">parsed docstring</td></tr></table></div>
+    <div><p>Parse the numpy-style docstring into its components.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>Docstring</code></td><td class="fieldArgDesc">parsed docstring</td></tr></table></div>
   </div>
 </div><div class="baseconstant">
   
@@ -840,7 +839,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">DEFAULT_SECTIONS</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/numpydoc.py#L266">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/969b64467647d23cd85767b09c7fdcbacbbff0cf/docstring_parser/numpydoc.py#L266">
       
       (source)
     </a>
@@ -874,7 +873,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">KV_REGEX</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/numpydoc.py#L38">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/969b64467647d23cd85767b09c7fdcbacbbff0cf/docstring_parser/numpydoc.py#L38">
       
       (source)
     </a>
@@ -902,7 +901,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">PARAM_DEFAULT_REGEX</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/numpydoc.py#L44">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/969b64467647d23cd85767b09c7fdcbacbbff0cf/docstring_parser/numpydoc.py#L44">
       
       (source)
     </a>
@@ -929,7 +928,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">PARAM_KEY_REGEX</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/numpydoc.py#L39">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/969b64467647d23cd85767b09c7fdcbacbbff0cf/docstring_parser/numpydoc.py#L39">
       
       (source)
     </a>
@@ -956,7 +955,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">PARAM_OPTIONAL_REGEX</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/numpydoc.py#L40">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/969b64467647d23cd85767b09c7fdcbacbbff0cf/docstring_parser/numpydoc.py#L40">
       
       (source)
     </a>
@@ -983,7 +982,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">RETURN_KEY_REGEX</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/numpydoc.py#L48">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/969b64467647d23cd85767b09c7fdcbacbbff0cf/docstring_parser/numpydoc.py#L48">
       
       (source)
     </a>
@@ -1009,8 +1008,9 @@
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_clean_str</span>(string):
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/numpydoc.py#L31">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_clean_str</span><span class="function-signature">(string: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code>) -&gt; <code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">T.Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>]</code></span>:
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/969b64467647d23cd85767b09c7fdcbacbbff0cf/docstring_parser/numpydoc.py#L31">
       
       (source)
     </a>
@@ -1022,7 +1022,7 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p class="undocumented">Undocumented</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">string:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">T.Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+    <div><p class="undocumented">Undocumented</p></div>
   </div>
 </div><div class="basefunction private">
   
@@ -1035,8 +1035,9 @@
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_pairwise</span>(iterable, end=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>):
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/numpydoc.py#L25">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_pairwise</span><span class="function-signature">(iterable: <code><a href="https://docs.python.org/3/library/typing.html#typing.Iterable" class="intersphinx-link">T.Iterable</a></code>, end=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>) -&gt; <code><a href="https://docs.python.org/3/library/typing.html#typing.Iterable" class="intersphinx-link">T.Iterable</a></code></span>:
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/969b64467647d23cd85767b09c7fdcbacbbff0cf/docstring_parser/numpydoc.py#L25">
       
       (source)
     </a>
@@ -1048,7 +1049,7 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p class="undocumented">Undocumented</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">iterable:</span><code><a href="https://docs.python.org/3/library/typing.html#typing.Iterable" class="intersphinx-link">T.Iterable</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">end</span></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/library/typing.html#typing.Iterable" class="intersphinx-link">T.Iterable</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+    <div><p class="undocumented">Undocumented</p></div>
   </div>
 </div>
         </div>
@@ -1062,7 +1063,7 @@
   <div class="container">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.9.0 at 2022-09-18 09:05:23.
+    23.4.1 at 2023-09-15 07:38:14.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

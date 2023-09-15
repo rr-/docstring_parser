@@ -7,7 +7,7 @@
   <head>
     
     <title>docstring_parser.numpydoc.NumpydocParser</title>
-    <meta name="generator" content="pydoctor 22.9.0"> 
+    <meta name="generator" content="pydoctor 23.4.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -500,13 +500,12 @@
         </div>
 
         <div class="extrasDocstring">
-          <p><code><span class="py-keyword">class</span> <span class="py-defname">NumpydocParser</span>: <a href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/numpydoc.py#L301" class="sourceLink">(source)</a></code></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">NumpydocParser</span>: <a href="https://github.com/rr-/docstring_parser/tree/969b64467647d23cd85767b09c7fdcbacbbff0cf/docstring_parser/numpydoc.py#L301" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="docstring_parser.numpydoc.NumpydocParser.__init__">NumpydocParser(sections)</a></code></p>
           <p><a href="classIndex.html#docstring_parser.numpydoc.NumpydocParser">View In Hierarchy</a></p>
         </div>
 
         <div class="moduleDocstring">
-          <div><p>Parser for numpydoc-style docstrings.</p>
-</div>
+          <div><p>Parser for numpydoc-style docstrings.</p></div>
         </div>
 
         <div id="splitTables">
@@ -562,8 +561,9 @@
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, sections=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>):
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/numpydoc.py#L304">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, sections: <code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">T.Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Dict" class="intersphinx-link">T.Dict</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="docstring_parser.numpydoc.Section.html" class="internal-link" title="docstring_parser.numpydoc.Section">Section</a>]]</code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/969b64467647d23cd85767b09c7fdcbacbbff0cf/docstring_parser/numpydoc.py#L304">
       
       (source)
     </a>
@@ -575,8 +575,7 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Setup sections.</p>
-<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">sections:</span><code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">T.Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Dict" class="intersphinx-link">T.Dict</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="docstring_parser.numpydoc.Section.html" class="internal-link" title="docstring_parser.numpydoc.Section">Section</a>]]</code></td><td class="fieldArgDesc">Recognized sections or None to defaults.</td></tr></table></div>
+    <div><p>Setup sections.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">sections:</span><code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">T.Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Dict" class="intersphinx-link">T.Dict</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="docstring_parser.numpydoc.Section.html" class="internal-link" title="docstring_parser.numpydoc.Section">Section</a>]]</code></td><td class="fieldArgDesc">Recognized sections or None to defaults.</td></tr></table></div>
   </div>
 </div><div class="basemethod">
   
@@ -589,8 +588,9 @@
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">add_section</span>(self, section):
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/numpydoc.py#L319">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">add_section</span><span class="function-signature">(self, section: <code><a href="docstring_parser.numpydoc.Section.html" class="internal-link" title="docstring_parser.numpydoc.Section">Section</a></code>)</span>:
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/969b64467647d23cd85767b09c7fdcbacbbff0cf/docstring_parser/numpydoc.py#L319">
       
       (source)
     </a>
@@ -602,8 +602,7 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Add or replace a section.</p>
-<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">section:</span><code><a href="docstring_parser.numpydoc.Section.html" class="internal-link" title="docstring_parser.numpydoc.Section">Section</a></code></td><td class="fieldArgDesc">The new section.</td></tr></table></div>
+    <div><p>Add or replace a section.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">section:</span><code><a href="docstring_parser.numpydoc.Section.html" class="internal-link" title="docstring_parser.numpydoc.Section">Section</a></code></td><td class="fieldArgDesc">The new section.</td></tr></table></div>
   </div>
 </div><div class="basemethod">
   
@@ -616,8 +615,9 @@
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">parse</span>(self, text):
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/numpydoc.py#L328">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">parse</span><span class="function-signature">(self, text: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code>) -&gt; <code>Docstring</code></span>:
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/969b64467647d23cd85767b09c7fdcbacbbff0cf/docstring_parser/numpydoc.py#L328">
       
       (source)
     </a>
@@ -629,8 +629,7 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Parse the numpy-style docstring into its components.</p>
-<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">text:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>Docstring</code></td><td class="fieldArgDesc">parsed docstring</td></tr></table></div>
+    <div><p>Parse the numpy-style docstring into its components.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>Docstring</code></td><td class="fieldArgDesc">parsed docstring</td></tr></table></div>
   </div>
 </div><div class="baseinstancevariable">
   
@@ -644,7 +643,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">sections</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/numpydoc.py#L310">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/969b64467647d23cd85767b09c7fdcbacbbff0cf/docstring_parser/numpydoc.py#L310">
       
       (source)
     </a>
@@ -671,7 +670,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">titles_re</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/numpydoc.py#L314">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/969b64467647d23cd85767b09c7fdcbacbbff0cf/docstring_parser/numpydoc.py#L314">
       
       (source)
     </a>
@@ -697,8 +696,9 @@
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">_setup</span>(self):
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/numpydoc.py#L313">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_setup</span><span class="function-signature">(self)</span>:
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/969b64467647d23cd85767b09c7fdcbacbbff0cf/docstring_parser/numpydoc.py#L313">
       
       (source)
     </a>
@@ -724,7 +724,7 @@
   <div class="container">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.9.0 at 2022-09-18 09:05:23.
+    23.4.1 at 2023-09-15 07:38:14.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

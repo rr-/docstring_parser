@@ -7,7 +7,7 @@
   <head>
     
     <title>docstring_parser.google</title>
-    <meta name="generator" content="pydoctor 22.9.0"> 
+    <meta name="generator" content="pydoctor 23.4.1"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -543,13 +543,12 @@
         </div>
 
         <div class="extrasDocstring">
-          <a href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/google.py" class="sourceLink">(source)</a>
+          <a href="https://github.com/rr-/docstring_parser/tree/969b64467647d23cd85767b09c7fdcbacbbff0cf/docstring_parser/google.py" class="sourceLink">(source)</a>
           <p></p>
         </div>
 
         <div class="moduleDocstring">
-          <div><p>Google-style docstring parsing.</p>
-</div>
+          <div><p>Google-style docstring parsing.</p></div>
         </div>
 
         <div id="splitTables">
@@ -620,8 +619,9 @@
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">compose</span>(docstring, rendering_style=RenderingStyle.COMPACT, indent=<span class="rst-variable-quote">'</span><span class="rst-variable-string">    </span><span class="rst-variable-quote">'</span>):
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/google.py#L298">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">compose</span><span class="function-signature">(docstring: <code>Docstring</code>, rendering_style: <code>RenderingStyle</code> = RenderingStyle.COMPACT, indent: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code> = <span class="rst-variable-quote">'</span><span class="rst-variable-string">    </span><span class="rst-variable-quote">'</span>) -&gt; <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></span>:
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/969b64467647d23cd85767b09c7fdcbacbbff0cf/docstring_parser/google.py#L298">
       
       (source)
     </a>
@@ -633,8 +633,7 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Render a parsed docstring into docstring text.</p>
-<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">docstring:</span><code>Docstring</code></td><td class="fieldArgDesc">parsed docstring representation</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">rendering<wbr></wbr>_style:</span><code>RenderingStyle</code></td><td class="fieldArgDesc">the style to render docstrings</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">indent:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">the characters used as indentation in the docstring string</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">docstring text</td></tr></table></div>
+    <div><p>Render a parsed docstring into docstring text.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">docstring:</span><code>Docstring</code></td><td class="fieldArgDesc">parsed docstring representation</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">rendering<wbr></wbr>_style:</span><code>RenderingStyle</code></td><td class="fieldArgDesc">the style to render docstrings</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">indent:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">the characters used as indentation in the docstring string</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">docstring text</td></tr></table></div>
   </div>
 </div><div class="basefunction">
   
@@ -647,8 +646,9 @@
   </a>
   <div class="functionHeader">
     
-    <span class="py-keyword">def</span> <span class="py-defname">parse</span>(text):
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/google.py#L290">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">parse</span><span class="function-signature">(text: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code>) -&gt; <code>Docstring</code></span>:
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/969b64467647d23cd85767b09c7fdcbacbbff0cf/docstring_parser/google.py#L290">
       
       (source)
     </a>
@@ -660,8 +660,7 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Parse the Google-style docstring into its components.</p>
-<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">text:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>Docstring</code></td><td class="fieldArgDesc">parsed docstring</td></tr></table></div>
+    <div><p>Parse the Google-style docstring into its components.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>Docstring</code></td><td class="fieldArgDesc">parsed docstring</td></tr></table></div>
   </div>
 </div><div class="baseconstant">
   
@@ -675,7 +674,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">DEFAULT_SECTIONS</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/google.py#L48">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/969b64467647d23cd85767b09c7fdcbacbbff0cf/docstring_parser/google.py#L48">
       
       (source)
     </a>
@@ -709,7 +708,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">GOOGLE_ARG_DESC_REGEX</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/google.py#L45">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/969b64467647d23cd85767b09c7fdcbacbbff0cf/docstring_parser/google.py#L45">
       
       (source)
     </a>
@@ -736,7 +735,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">GOOGLE_TYPED_ARG_REGEX</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/google.py#L44">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/969b64467647d23cd85767b09c7fdcbacbbff0cf/docstring_parser/google.py#L44">
       
       (source)
     </a>
@@ -763,7 +762,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">MULTIPLE_PATTERN</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/703c6cafd96d4889b01a70f7481d9caad5b84dda/docstring_parser/google.py#L46">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/969b64467647d23cd85767b09c7fdcbacbbff0cf/docstring_parser/google.py#L46">
       
       (source)
     </a>
@@ -790,7 +789,7 @@
   <div class="container">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    22.9.0 at 2022-09-18 09:05:23.
+    23.4.1 at 2023-09-15 07:38:14.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 
