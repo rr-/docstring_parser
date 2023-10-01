@@ -31,6 +31,12 @@ def test_rest() -> None:
         "Causing people to indent:\n\n"
         "    A lot sometimes"
     )
+    assert docstring.description == (
+        "Short description\n\n"
+        "Long description\n\n"
+        "Causing people to indent:\n\n"
+        "    A lot sometimes"
+    )
     assert len(docstring.params) == 3
     assert docstring.params[0].arg_name == "spam"
     assert docstring.params[0].type_name is None
@@ -79,6 +85,12 @@ def test_google() -> None:
     assert docstring.style == DocstringStyle.GOOGLE
     assert docstring.short_description == "Short description"
     assert docstring.long_description == (
+        "Long description\n\n"
+        "Causing people to indent:\n\n"
+        "    A lot sometimes"
+    )
+    assert docstring.description == (
+        "Short description\n\n"
         "Long description\n\n"
         "Causing people to indent:\n\n"
         "    A lot sometimes"
@@ -153,6 +165,12 @@ def test_numpydoc() -> None:
     assert docstring.style == DocstringStyle.NUMPYDOC
     assert docstring.short_description == "Short description"
     assert docstring.long_description == (
+        "Long description\n\n"
+        "Causing people to indent:\n\n"
+        "    A lot sometimes"
+    )
+    assert docstring.description == (
+        "Short description\n\n"
         "Long description\n\n"
         "Causing people to indent:\n\n"
         "    A lot sometimes"

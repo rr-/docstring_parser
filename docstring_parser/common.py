@@ -162,6 +162,25 @@ class Docstring:
         self.style = style  # type: T.Optional[DocstringStyle]
 
     @property
+    def description(self) -> T.Optional[str]:
+        """Return the full description of the function
+
+        Returns None if the docstring did not include any description
+        """
+        ret = []
+        if self.short_description:
+            ret.append(self.short_description)
+            if self.blank_after_short_description:
+                ret.append("")
+        if self.long_description:
+            ret.append(self.long_description)
+
+        if not ret:
+            return None
+
+        return "\n".join(ret)
+
+    @property
     def params(self) -> T.List[DocstringParam]:
         """Return a list of information on function params."""
         return [item for item in self.meta if isinstance(item, DocstringParam)]
