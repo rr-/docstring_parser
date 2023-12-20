@@ -1,0 +1,30 @@
+version: 2
+updates:
+  # Maintain dependencies for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      time: "11:30"
+      timezone: "UTC"
+    target-branch: main
+    reviewers:
+      - ExpediaGroup/openworld-committers
+    labels:
+      - Dependabot
+      
+  # Maintain dependencies for pip
+  - package-ecosystem: pip
+    directory: "/"
+    schedule:
+      interval: daily
+      time: "13:35"
+      timezone: "UTC"
+    open-pull-requests-limit: 10
+    target-branch: main
+    reviewers:
+      - ExpediaGroup/openworld-committers
+    labels:
+      - Dependabot
+    commit-message:
+      prefix: "update "
