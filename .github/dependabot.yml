@@ -18,7 +18,7 @@ updates:
     directory: "/"
     schedule:
       interval: daily
-      time: "13:35"
+      time: "13:45"
       timezone: "UTC"
     open-pull-requests-limit: 10
     target-branch: main
