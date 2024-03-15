@@ -1,3 +1,9 @@
+# 0.16 (2024-03-15)
+
+- Parser: add a new property, `description`, that combines short and long
+  descriptions into a single string (thanks to @pR0Ps)
+- General: support Python 3.12 (thanks to @mauvilsa)
+
 # 0.15 (2022-09-05)
 
 - Parser: add a new function, `parse_from_object`, that supports scattered
