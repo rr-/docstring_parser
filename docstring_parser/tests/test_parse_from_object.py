@@ -37,6 +37,7 @@ def test_from_class_attribute_docstrings() -> None:
 
     assert docstring.short_description == "Short description"
     assert docstring.long_description == "Long description"
+    assert docstring.description == "Short description\nLong description"
     assert len(docstring.params) == 2
     assert docstring.params[0].arg_name == "attr_one"
     assert docstring.params[0].type_name == "str"
@@ -57,6 +58,7 @@ def test_from_class_attribute_docstrings_without_type() -> None:
 
     assert docstring.short_description is None
     assert docstring.long_description is None
+    assert docstring.description is None
     assert len(docstring.params) == 1
     assert docstring.params[0].arg_name == "attr_one"
     assert docstring.params[0].type_name is None
@@ -78,6 +80,8 @@ def test_from_class_without_source() -> None:
         docstring = parse_from_object(WithoutSource)
 
     assert docstring.short_description == "Short description"
+    assert docstring.long_description is None
+    assert docstring.description == "Short description"
     assert len(docstring.params) == 0
 
 
@@ -95,6 +99,7 @@ def test_from_function() -> None:
     docstring = parse_from_object(a_function)
 
     assert docstring.short_description == "Short description"
+    assert docstring.description == "Short description"
     assert len(docstring.params) == 2
     assert docstring.params[0].arg_name == "param1"
     assert docstring.params[0].type_name is None
