@@ -34,7 +34,7 @@ def ast_unparse(node: ast.AST) -> T.Optional[str]:
     if hasattr(ast, "unparse"):
         return ast.unparse(node)
     # Support simple cases in Python < 3.9
-    if isinstance(node, (ast.Str, ast.Num, ast.NameConstant, ast.Constant)):
+    if isinstance(node, (ast.Constant)):
         return str(ast_get_constant_value(node))
     if isinstance(node, ast.Name):
         return node.id
@@ -45,7 +45,7 @@ def ast_is_literal_str(node: ast.AST) -> bool:
     """Return True if the given node is a literal string."""
     return (
         isinstance(node, ast.Expr)
-        and isinstance(node.value, (ast.Constant, ast.Str))
+        and isinstance(node.value, (ast.Constant))
         and isinstance(ast_get_constant_value(node.value), str)
     )
 
