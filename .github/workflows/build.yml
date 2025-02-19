@@ -27,7 +27,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install -U pip 
-        python -m pip install -U setuptools wheel poetry packaging>=22.0
+        python -m pip install -U setuptools[core] wheel poetry packaging>=22.0
         poetry install -v
     - name: Run tests
       run: poetry run pytest
