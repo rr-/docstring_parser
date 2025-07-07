@@ -7,7 +7,7 @@
   <head>
     
     <title>docstring_parser</title>
-    <meta name="generator" content="pydoctor 23.9.1"> 
+    <meta name="generator" content="pydoctor 24.11.2"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="apidocs.css" />
     <link rel="stylesheet" type="text/css" href="extra.css" />
+    
 </head>
 
   <body>
@@ -52,7 +53,7 @@
             
             <span class="input-group-btn">
               <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
-              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+              <a class="btn btn-default" id="apidocs-help-button" title="Help" href="apidocs-help.html"><img src="fonts/info.svg" alt="Help" /></a>
             </span>
           </div>
         </div>
@@ -76,39 +77,6 @@
             <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
         </noscript>
 
-        <div class="hint" id="search-help-box">
-          <p class="rst-last">
-      
-            Search bar offers the following options:
-            <ul>   
-                <li>
-                  <strong>Term presence.</strong> The below example searches for documents that 
-                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
-                </li> 
-
-                <li>
-                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
-                </li> 
-
-                <li>
-                  <strong>Search in specific fields.</strong> The following search matches all objects 
-                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
-
-                  <p>
-                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
-                    Last two fields are only applicable if "search in docstrings" is enabled.
-                  </p>
-                </li>
-
-                <li>
-                  <strong>Fuzzy matches.</strong> The following search matches all documents 
-                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
-                </li>
-            </ul>
-
-          </p>
-        </div>
-
         <div id="search-status"> </div>
 
         <div class="warning" id="search-warn-box" style="display: none;">
@@ -119,8 +87,8 @@
           <!-- Filled dynamically by JS -->
         </table>
         
-        <div style="margin-top: 8px;">
-          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        <div style="margin-top: 10px;">
+          <p>For more information on the search, visit the <a href="apidocs-help.html#rst-search">help page</a>.</p>
         </div>
       </div>
 
@@ -415,7 +383,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <a href="https://github.com/rr-/docstring_parser/tree/4951137875e79b438d52a18ac971ec0c28ef269c/docstring_parser/__init__.py" class="sourceLink">(source)</a>
+          <a href="https://github.com/rr-/docstring_parser/tree/aaf857d360ff57e58bab825973ed1a2c54b60a30/docstring_parser/__init__.py" class="sourceLink">(source)</a>
           <p></p>
         </div>
 
@@ -547,98 +515,6 @@
           <div class="basefunction">
   
   
-  <a name="docstring_parser.compose">
-    
-  </a>
-  <a name="compose">
-    
-  </a>
-  <div class="functionHeader">
-    
-    
-    <span class="py-keyword">def</span> <span class="py-defname">compose</span><span class="function-signature">(docstring: <code>Docstring</code>, style: <code>DocstringStyle</code> = <a href="docstring_parser.DocstringStyle.html#AUTO" class="internal-link" title="docstring_parser.DocstringStyle.AUTO">DocstringStyle.AUTO</a>, rendering_style: <code>RenderingStyle</code> = <a href="docstring_parser.RenderingStyle.html#COMPACT" class="internal-link" title="docstring_parser.RenderingStyle.COMPACT">RenderingStyle.COMPACT</a>, indent: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code> = <span class="rst-variable-quote">'</span><span class="rst-variable-string">    </span><span class="rst-variable-quote">'</span>) -&gt; <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></span>:
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/4951137875e79b438d52a18ac971ec0c28ef269c/docstring_parser/parser.py#L80">
-      
-      (source)
-    </a>
-    <a class="headerLink" href="#compose" title="docstring_parser.compose">
-      
-      
-      ¶
-    </a>
-  </div>
-  <div class="docstring functionBody">
-    
-    <div><p>Render a parsed docstring into docstring text.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">docstring:</span><code><a href="docstring_parser.Docstring.html" class="internal-link" title="docstring_parser.Docstring">Docstring</a></code></td><td class="fieldArgDesc">parsed docstring representation</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">style:</span><code><a href="docstring_parser.DocstringStyle.html" class="internal-link" title="docstring_parser.DocstringStyle">DocstringStyle</a></code></td><td class="fieldArgDesc">docstring style to render</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">rendering<wbr></wbr>_style:</span><code><a href="docstring_parser.RenderingStyle.html" class="internal-link" title="docstring_parser.RenderingStyle">RenderingStyle</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">indent:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">the characters used as indentation in the docstring string</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">docstring text</td></tr></table></div>
-  </div>
-</div><div class="basefunction">
-  
-  
-  <a name="docstring_parser.parse">
-    
-  </a>
-  <a name="parse">
-    
-  </a>
-  <div class="functionHeader">
-    
-    
-    <span class="py-keyword">def</span> <span class="py-defname">parse</span><span class="function-signature">(text: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code>, style: <code>DocstringStyle</code> = <a href="docstring_parser.DocstringStyle.html#AUTO" class="internal-link" title="docstring_parser.DocstringStyle.AUTO">DocstringStyle.AUTO</a>) -&gt; <code>Docstring</code></span>:
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/4951137875e79b438d52a18ac971ec0c28ef269c/docstring_parser/parser.py#L23">
-      
-      (source)
-    </a>
-    <a class="headerLink" href="#parse" title="docstring_parser.parse">
-      
-      
-      ¶
-    </a>
-  </div>
-  <div class="docstring functionBody">
-    
-    <div><p>Parse the docstring into its components.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">text:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">docstring text to parse</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">style:</span><code><a href="docstring_parser.DocstringStyle.html" class="internal-link" title="docstring_parser.DocstringStyle">DocstringStyle</a></code></td><td class="fieldArgDesc">docstring style</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="docstring_parser.Docstring.html" class="internal-link" title="docstring_parser.Docstring">Docstring</a></code></td><td class="fieldArgDesc">parsed docstring representation</td></tr></table></div>
-  </div>
-</div><div class="basefunction">
-  
-  
-  <a name="docstring_parser.parse_from_object">
-    
-  </a>
-  <a name="parse_from_object">
-    
-  </a>
-  <div class="functionHeader">
-    
-    
-    <span class="py-keyword">def</span> <span class="py-defname">parse_from_object</span><span class="function-signature">(obj: <code><a href="https://docs.python.org/3/library/typing.html#typing.Any" class="intersphinx-link">T.Any</a></code>, style: <code>DocstringStyle</code> = <a href="docstring_parser.DocstringStyle.html#AUTO" class="internal-link" title="docstring_parser.DocstringStyle.AUTO">DocstringStyle.AUTO</a>) -&gt; <code>Docstring</code></span>:
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/4951137875e79b438d52a18ac971ec0c28ef269c/docstring_parser/parser.py#L49">
-      
-      (source)
-    </a>
-    <a class="headerLink" href="#parse_from_object" title="docstring_parser.parse_from_object">
-      
-      
-      ¶
-    </a>
-  </div>
-  <div class="docstring functionBody">
-    
-    <div><p>Parse the object's docstring(s) into its components.</p>
-<p>The object can be anything that has a <tt class="rst-docutils literal">__doc__</tt> attribute. In contrast to
-the <tt class="rst-docutils literal">parse</tt> function, <tt class="rst-docutils literal">parse_from_object</tt> is able to parse attribute
-docstrings which are defined in the source code instead of <tt class="rst-docutils literal">__doc__</tt>.</p>
-<p>Currently only attribute docstrings defined at class and module levels are
-supported. Attribute docstrings defined in <tt class="rst-docutils literal">__init__</tt> methods are not
-supported.</p>
-<p>When given a class, only the attribute docstrings of that class are parsed,
-not its inherited classes. This is a design decision. Separate calls to
-this function should be performed to get attribute docstrings of parent
-classes.</p>
-<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">obj:</span><code>T.Any</code></td><td class="fieldArgDesc">object from which to parse the docstring(s)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">style:</span><code><a href="docstring_parser.DocstringStyle.html" class="internal-link" title="docstring_parser.DocstringStyle">DocstringStyle</a></code></td><td class="fieldArgDesc">docstring style</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="docstring_parser.Docstring.html" class="internal-link" title="docstring_parser.Docstring">Docstring</a></code></td><td class="fieldArgDesc">parsed docstring representation</td></tr></table></div>
-  </div>
-</div><div class="basefunction">
-  
-  
   <a name="docstring_parser.combine_docstrings">
     
   </a>
@@ -648,8 +524,8 @@ classes.</p>
   <div class="functionHeader">
     
     
-    <span class="py-keyword">def</span> <span class="py-defname">combine_docstrings</span><span class="function-signature">(*others: <code><a href="docstring_parser.util.html#_Func" class="internal-link" title="docstring_parser.util._Func">_Func</a></code>, exclude: <code><a href="https://docs.python.org/3/library/typing.html#typing.Iterable" class="intersphinx-link">T.Iterable</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Type" class="intersphinx-link">T.Type</a>[<wbr></wbr>DocstringMeta]]</code> = (), style: <code>DocstringStyle</code> = <a href="docstring_parser.DocstringStyle.html#AUTO" class="internal-link" title="docstring_parser.DocstringStyle.AUTO">DocstringStyle.AUTO</a>, rendering_style: <code>RenderingStyle</code> = <a href="docstring_parser.RenderingStyle.html#COMPACT" class="internal-link" title="docstring_parser.RenderingStyle.COMPACT">RenderingStyle.COMPACT</a>) -&gt; <code><a href="docstring_parser.util.html#_Func" class="internal-link" title="docstring_parser.util._Func">_Func</a></code></span>:
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/4951137875e79b438d52a18ac971ec0c28ef269c/docstring_parser/util.py#L21">
+    <span class="py-keyword">def</span> <span class="py-defname">combine_docstrings</span><span class="function-signature">(*others: <code><a href="docstring_parser.util.html#_Func" class="internal-link" title="docstring_parser.util._Func">_Func</a></code>, exclude: <code><a href="https://docs.python.org/3/library/typing.html#typing.Iterable" class="intersphinx-link">T.Iterable</a>[<wbr></wbr><a href="https://docs.python.org/3/library/functions.html#type" class="intersphinx-link">type</a>[<wbr></wbr>DocstringMeta]]</code> = (), style: <code>DocstringStyle</code> = <a href="docstring_parser.DocstringStyle.html#AUTO" class="internal-link" title="docstring_parser.DocstringStyle.AUTO">DocstringStyle.AUTO</a>, rendering_style: <code>RenderingStyle</code> = <a href="docstring_parser.RenderingStyle.html#COMPACT" class="internal-link" title="docstring_parser.RenderingStyle.COMPACT">RenderingStyle.COMPACT</a>) -&gt; <code><a href="docstring_parser.util.html#_Func" class="internal-link" title="docstring_parser.util._Func">_Func</a></code></span>:
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/aaf857d360ff57e58bab825973ed1a2c54b60a30/docstring_parser/util.py#L21">
       
       (source)
     </a>
@@ -668,7 +544,7 @@ composed result. Only parameters that are part of the decorated functions
 signature are included in the combined docstring. When multiple sources for
 a parameter or docstring metadata exists then the decorator will first
 default to the wrapped function's value (when available) and otherwise use
-the rightmost definition from <tt class="rst-docutils literal">others</tt>.</p>
+the rightmost definition from <tt class="rst-docutils rst-literal">others</tt>.</p>
 <p>The following example illustrates its usage:</p>
 <pre class="py-doctest">
 <span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">def</span> <span class="py-defname">fun1</span>(a, b, c, d):
@@ -715,9 +591,101 @@ the rightmost definition from <tt class="rst-docutils literal">others</tt>.</p>
 <span class="py-output">:param b: fun1</span>
 <span class="py-output">:param c: fun2</span>
 <span class="py-output">:param e: fun2</span>
-</pre><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">*others:</span><code>_Func</code></td><td class="fieldArgDesc">callables from which to parse docstrings.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">exclude:</span><code>T.Iterable[<wbr></wbr>T.Type[<wbr></wbr><a href="docstring_parser.DocstringMeta.html" class="internal-link" title="docstring_parser.DocstringMeta">DocstringMeta</a>]]</code></td><td class="fieldArgDesc">an iterable of <tt class="rst-docutils literal">DocstringMeta</tt> subclasses to exclude when
+</pre><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">*others:</span><code>_Func</code></td><td class="fieldArgDesc">callables from which to parse docstrings.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">exclude:</span><code>T.Iterable[<wbr></wbr><a href="https://docs.python.org/3/library/functions.html#type" class="intersphinx-link">type</a>[<wbr></wbr><a href="docstring_parser.DocstringMeta.html" class="internal-link" title="docstring_parser.DocstringMeta">DocstringMeta</a>]]</code></td><td class="fieldArgDesc">an iterable of <tt class="rst-docutils rst-literal">DocstringMeta</tt> subclasses to exclude when
 combining docstrings.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">style:</span><code><a href="docstring_parser.DocstringStyle.html" class="internal-link" title="docstring_parser.DocstringStyle">DocstringStyle</a></code></td><td class="fieldArgDesc">style composed docstring. The default will infer the style
 from the decorated function.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">rendering<wbr></wbr>_style:</span><code><a href="docstring_parser.RenderingStyle.html" class="internal-link" title="docstring_parser.RenderingStyle">RenderingStyle</a></code></td><td class="fieldArgDesc">The rendering style used to compose a docstring.</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>_Func</code></td><td class="fieldArgDesc">the decorated function with a modified docstring.</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="docstring_parser.compose">
+    
+  </a>
+  <a name="compose">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">compose</span><span class="function-signature">(docstring: <code>Docstring</code>, style: <code>DocstringStyle</code> = <a href="docstring_parser.DocstringStyle.html#AUTO" class="internal-link" title="docstring_parser.DocstringStyle.AUTO">DocstringStyle.AUTO</a>, rendering_style: <code>RenderingStyle</code> = <a href="docstring_parser.RenderingStyle.html#COMPACT" class="internal-link" title="docstring_parser.RenderingStyle.COMPACT">RenderingStyle.COMPACT</a>, indent: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code> = <span class="rst-variable-quote">'</span><span class="rst-variable-string">    </span><span class="rst-variable-quote">'</span>) -&gt; <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></span>:
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/aaf857d360ff57e58bab825973ed1a2c54b60a30/docstring_parser/parser.py#L80">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#compose" title="docstring_parser.compose">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Render a parsed docstring into docstring text.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">docstring:</span><code><a href="docstring_parser.Docstring.html" class="internal-link" title="docstring_parser.Docstring">Docstring</a></code></td><td class="fieldArgDesc">parsed docstring representation</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">style:</span><code><a href="docstring_parser.DocstringStyle.html" class="internal-link" title="docstring_parser.DocstringStyle">DocstringStyle</a></code></td><td class="fieldArgDesc">docstring style to render</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">rendering<wbr></wbr>_style:</span><code><a href="docstring_parser.RenderingStyle.html" class="internal-link" title="docstring_parser.RenderingStyle">RenderingStyle</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">indent:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">the characters used as indentation in the docstring string</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">docstring text</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="docstring_parser.parse">
+    
+  </a>
+  <a name="parse">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">parse</span><span class="function-signature">(text: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code>, style: <code>DocstringStyle</code> = <a href="docstring_parser.DocstringStyle.html#AUTO" class="internal-link" title="docstring_parser.DocstringStyle.AUTO">DocstringStyle.AUTO</a>) -&gt; <code>Docstring</code></span>:
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/aaf857d360ff57e58bab825973ed1a2c54b60a30/docstring_parser/parser.py#L23">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#parse" title="docstring_parser.parse">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Parse the docstring into its components.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">text:</span><code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">docstring text to parse</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">style:</span><code><a href="docstring_parser.DocstringStyle.html" class="internal-link" title="docstring_parser.DocstringStyle">DocstringStyle</a></code></td><td class="fieldArgDesc">docstring style</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="docstring_parser.Docstring.html" class="internal-link" title="docstring_parser.Docstring">Docstring</a></code></td><td class="fieldArgDesc">parsed docstring representation</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="docstring_parser.parse_from_object">
+    
+  </a>
+  <a name="parse_from_object">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">parse_from_object</span><span class="function-signature">(obj: <code><a href="https://docs.python.org/3/library/typing.html#typing.Any" class="intersphinx-link">T.Any</a></code>, style: <code>DocstringStyle</code> = <a href="docstring_parser.DocstringStyle.html#AUTO" class="internal-link" title="docstring_parser.DocstringStyle.AUTO">DocstringStyle.AUTO</a>) -&gt; <code>Docstring</code></span>:
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/aaf857d360ff57e58bab825973ed1a2c54b60a30/docstring_parser/parser.py#L49">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#parse_from_object" title="docstring_parser.parse_from_object">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Parse the object's docstring(s) into its components.</p>
+<p>The object can be anything that has a <tt class="rst-docutils rst-literal">__doc__</tt> attribute. In contrast to
+the <tt class="rst-docutils rst-literal">parse</tt> function, <tt class="rst-docutils rst-literal">parse_from_object</tt> is able to parse attribute
+docstrings which are defined in the source code instead of <tt class="rst-docutils rst-literal">__doc__</tt>.</p>
+<p>Currently only attribute docstrings defined at class and module levels are
+supported. Attribute docstrings defined in <tt class="rst-docutils rst-literal">__init__</tt> methods are not
+supported.</p>
+<p>When given a class, only the attribute docstrings of that class are parsed,
+not its inherited classes. This is a design decision. Separate calls to
+this function should be performed to get attribute docstrings of parent
+classes.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">obj:</span><code>T.Any</code></td><td class="fieldArgDesc">object from which to parse the docstring(s)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">style:</span><code><a href="docstring_parser.DocstringStyle.html" class="internal-link" title="docstring_parser.DocstringStyle">DocstringStyle</a></code></td><td class="fieldArgDesc">docstring style</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="docstring_parser.Docstring.html" class="internal-link" title="docstring_parser.Docstring">Docstring</a></code></td><td class="fieldArgDesc">parsed docstring representation</td></tr></table></div>
   </div>
 </div>
         </div>
@@ -728,10 +696,10 @@ from the decorated function.</td></tr><tr><td class="fieldArgContainer"><span cl
     <footer class="navbar navbar-default">
 
   
-  <div class="container">
+  <div class="container-fluid">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    23.9.1 at 2024-03-15 10:37:12.
+    24.11.2 at 2025-07-07 12:35:58.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

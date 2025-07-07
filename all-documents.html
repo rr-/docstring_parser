@@ -6,7 +6,7 @@
   <head>
     
     <title>All Documents</title>
-    <meta name="generator" content="pydoctor 23.9.1"> 
+    <meta name="generator" content="pydoctor 24.11.2"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="apidocs.css" />
     <link rel="stylesheet" type="text/css" href="extra.css" />
+    
 </head>
   <body>
     
@@ -48,7 +49,7 @@
             
             <span class="input-group-btn">
               <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
-              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+              <a class="btn btn-default" id="apidocs-help-button" title="Help" href="apidocs-help.html"><img src="fonts/info.svg" alt="Help" /></a>
             </span>
           </div>
         </div>
@@ -72,39 +73,6 @@
             <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
         </noscript>
 
-        <div class="hint" id="search-help-box">
-          <p class="rst-last">
-      
-            Search bar offers the following options:
-            <ul>   
-                <li>
-                  <strong>Term presence.</strong> The below example searches for documents that 
-                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
-                </li> 
-
-                <li>
-                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
-                </li> 
-
-                <li>
-                  <strong>Search in specific fields.</strong> The following search matches all objects 
-                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
-
-                  <p>
-                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
-                    Last two fields are only applicable if "search in docstrings" is enabled.
-                  </p>
-                </li>
-
-                <li>
-                  <strong>Fuzzy matches.</strong> The following search matches all documents 
-                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
-                </li>
-            </ul>
-
-          </p>
-        </div>
-
         <div id="search-status"> </div>
 
         <div class="warning" id="search-warn-box" style="display: none;">
@@ -115,8 +83,8 @@
           <!-- Filled dynamically by JS -->
         </table>
         
-        <div style="margin-top: 8px;">
-          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        <div style="margin-top: 10px;">
+          <p>For more information on the search, visit the <a href="apidocs-help.html#rst-search">help page</a>.</p>
         </div>
       </div>
 
@@ -979,7 +947,7 @@
             <div class="type">Function</div>
             <div class="kind">Method</div>
             <div class="privacy">PUBLIC</div>
-            <div class="summary">Parse <tt class="rst-docutils literal">DocstringMeta</tt> objects from the body of this section.</div>
+            <div class="summary">Parse <tt class="rst-docutils rst-literal">DocstringMeta</tt> objects from the body of this section.</div>
           </li><li id="docstring_parser.numpydoc._KVSection">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.numpydoc<wbr></wbr>._<wbr></wbr>KVSection</div>
@@ -1003,7 +971,7 @@
             <div class="type">Function</div>
             <div class="kind">Method</div>
             <div class="privacy">PUBLIC</div>
-            <div class="summary">Parse <tt class="rst-docutils literal">DocstringMeta</tt> objects from the body of this section.</div>
+            <div class="summary">Parse <tt class="rst-docutils rst-literal">DocstringMeta</tt> objects from the body of this section.</div>
           </li><li id="docstring_parser.numpydoc._SphinxSection">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.numpydoc<wbr></wbr>._<wbr></wbr>Sphinx<wbr></wbr>Section</div>
@@ -1107,7 +1075,7 @@
             <div class="type">Function</div>
             <div class="kind">Method</div>
             <div class="privacy">PUBLIC</div>
-            <div class="summary">Parse <tt class="rst-docutils literal">DocstringMeta</tt> objects from the body of this section.</div>
+            <div class="summary">Parse <tt class="rst-docutils rst-literal">DocstringMeta</tt> objects from the body of this section.</div>
           </li><li id="docstring_parser.numpydoc.ExamplesSection">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.numpydoc<wbr></wbr>.<wbr></wbr>Examples<wbr></wbr>Section</div>
@@ -1123,7 +1091,7 @@
             <div class="type">Function</div>
             <div class="kind">Method</div>
             <div class="privacy">PUBLIC</div>
-            <div class="summary">Parse <tt class="rst-docutils literal">DocstringExample</tt> objects from the body of this section.</div>
+            <div class="summary">Parse <tt class="rst-docutils rst-literal">DocstringExample</tt> objects from the body of this section.</div>
           </li><li id="docstring_parser.numpydoc.DEFAULT_SECTIONS">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.numpydoc<wbr></wbr>.DEFAULT<wbr></wbr>_SECTIONS</div>

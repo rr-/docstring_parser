@@ -7,7 +7,7 @@
   <head>
     
     <title>docstring_parser.Docstring</title>
-    <meta name="generator" content="pydoctor 23.9.1"> 
+    <meta name="generator" content="pydoctor 24.11.2"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="apidocs.css" />
     <link rel="stylesheet" type="text/css" href="extra.css" />
+    
 </head>
 
   <body>
@@ -52,7 +53,7 @@
             
             <span class="input-group-btn">
               <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
-              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+              <a class="btn btn-default" id="apidocs-help-button" title="Help" href="apidocs-help.html"><img src="fonts/info.svg" alt="Help" /></a>
             </span>
           </div>
         </div>
@@ -76,39 +77,6 @@
             <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
         </noscript>
 
-        <div class="hint" id="search-help-box">
-          <p class="rst-last">
-      
-            Search bar offers the following options:
-            <ul>   
-                <li>
-                  <strong>Term presence.</strong> The below example searches for documents that 
-                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
-                </li> 
-
-                <li>
-                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
-                </li> 
-
-                <li>
-                  <strong>Search in specific fields.</strong> The following search matches all objects 
-                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
-
-                  <p>
-                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
-                    Last two fields are only applicable if "search in docstrings" is enabled.
-                  </p>
-                </li>
-
-                <li>
-                  <strong>Fuzzy matches.</strong> The following search matches all documents 
-                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
-                </li>
-            </ul>
-
-          </p>
-        </div>
-
         <div id="search-status"> </div>
 
         <div class="warning" id="search-warn-box" style="display: none;">
@@ -119,8 +87,8 @@
           <!-- Filled dynamically by JS -->
         </table>
         
-        <div style="margin-top: 8px;">
-          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        <div style="margin-top: 10px;">
+          <p>For more information on the search, visit the <a href="apidocs-help.html#rst-search">help page</a>.</p>
         </div>
       </div>
 
@@ -590,7 +558,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">Docstring</span>: <a href="https://github.com/rr-/docstring_parser/tree/4951137875e79b438d52a18ac971ec0c28ef269c/docstring_parser/common.py#L149" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="docstring_parser.Docstring.__init__">Docstring(style)</a></code></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">Docstring</span>: <a href="https://github.com/rr-/docstring_parser/tree/aaf857d360ff57e58bab825973ed1a2c54b60a30/docstring_parser/common.py#L149" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="docstring_parser.Docstring.__init__">Docstring(style)</a></code></p>
           <p><a href="classIndex.html#docstring_parser.Docstring">View In Hierarchy</a></p>
         </div>
 
@@ -693,7 +661,7 @@
     
     
     <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, style=<a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>)</span>:
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/4951137875e79b438d52a18ac971ec0c28ef269c/docstring_parser/common.py#L152">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/aaf857d360ff57e58bab825973ed1a2c54b60a30/docstring_parser/common.py#L152">
       
       (source)
     </a>
@@ -719,7 +687,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">blank_after_long_description</span>: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/4951137875e79b438d52a18ac971ec0c28ef269c/docstring_parser/common.py#L160">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/aaf857d360ff57e58bab825973ed1a2c54b60a30/docstring_parser/common.py#L160">
       
       (source)
     </a>
@@ -746,7 +714,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">blank_after_short_description</span>: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/4951137875e79b438d52a18ac971ec0c28ef269c/docstring_parser/common.py#L159">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/aaf857d360ff57e58bab825973ed1a2c54b60a30/docstring_parser/common.py#L159">
       
       (source)
     </a>
@@ -772,8 +740,8 @@
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">long_description</span>: <code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">T.Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>]</code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/4951137875e79b438d52a18ac971ec0c28ef269c/docstring_parser/common.py#L158">
+    <span class="py-defname">long_description</span>: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/aaf857d360ff57e58bab825973ed1a2c54b60a30/docstring_parser/common.py#L158">
       
       (source)
     </a>
@@ -799,8 +767,8 @@
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">meta</span>: <code><a href="https://docs.python.org/3/library/typing.html#typing.List" class="intersphinx-link">T.List</a>[<wbr></wbr><a href="docstring_parser.DocstringMeta.html" class="internal-link" title="docstring_parser.DocstringMeta">DocstringMeta</a>]</code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/4951137875e79b438d52a18ac971ec0c28ef269c/docstring_parser/common.py#L161">
+    <span class="py-defname">meta</span>: <code><a href="https://docs.python.org/3/library/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="docstring_parser.DocstringMeta.html" class="internal-link" title="docstring_parser.DocstringMeta">DocstringMeta</a>]</code> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/aaf857d360ff57e58bab825973ed1a2c54b60a30/docstring_parser/common.py#L161">
       
       (source)
     </a>
@@ -826,8 +794,8 @@
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">short_description</span>: <code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">T.Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>]</code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/4951137875e79b438d52a18ac971ec0c28ef269c/docstring_parser/common.py#L157">
+    <span class="py-defname">short_description</span>: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/aaf857d360ff57e58bab825973ed1a2c54b60a30/docstring_parser/common.py#L157">
       
       (source)
     </a>
@@ -853,8 +821,8 @@
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">style</span>: <code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">T.Optional</a>[<wbr></wbr><a href="docstring_parser.DocstringStyle.html" class="internal-link" title="docstring_parser.DocstringStyle">DocstringStyle</a>]</code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/4951137875e79b438d52a18ac971ec0c28ef269c/docstring_parser/common.py#L162">
+    <span class="py-defname">style</span>: <code><a href="docstring_parser.DocstringStyle.html" class="internal-link" title="docstring_parser.DocstringStyle">DocstringStyle</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/aaf857d360ff57e58bab825973ed1a2c54b60a30/docstring_parser/common.py#L162">
       
       (source)
     </a>
@@ -880,8 +848,8 @@
   </a>
   <div class="functionHeader">
     @<a href="https://docs.python.org/3/library/functions.html#property" class="intersphinx-link">property</a><br />
-    <span class="py-defname">deprecation</span>: <code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">T.Optional</a>[<wbr></wbr><a href="docstring_parser.DocstringDeprecated.html" class="internal-link" title="docstring_parser.DocstringDeprecated">DocstringDeprecated</a>]</code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/4951137875e79b438d52a18ac971ec0c28ef269c/docstring_parser/common.py#L215">
+    <span class="py-defname">deprecation</span>: <code><a href="docstring_parser.DocstringDeprecated.html" class="internal-link" title="docstring_parser.DocstringDeprecated">DocstringDeprecated</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/aaf857d360ff57e58bab825973ed1a2c54b60a30/docstring_parser/common.py#L215">
       
       (source)
     </a>
@@ -907,8 +875,8 @@
   </a>
   <div class="functionHeader">
     @<a href="https://docs.python.org/3/library/functions.html#property" class="intersphinx-link">property</a><br />
-    <span class="py-defname">description</span>: <code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">T.Optional</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>]</code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/4951137875e79b438d52a18ac971ec0c28ef269c/docstring_parser/common.py#L164">
+    <span class="py-defname">description</span>: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/aaf857d360ff57e58bab825973ed1a2c54b60a30/docstring_parser/common.py#L164">
       
       (source)
     </a>
@@ -936,8 +904,8 @@
   </a>
   <div class="functionHeader">
     @<a href="https://docs.python.org/3/library/functions.html#property" class="intersphinx-link">property</a><br />
-    <span class="py-defname">examples</span>: <code><a href="https://docs.python.org/3/library/typing.html#typing.List" class="intersphinx-link">T.List</a>[<wbr></wbr><a href="docstring_parser.common.DocstringExample.html" class="internal-link" title="docstring_parser.common.DocstringExample">DocstringExample</a>]</code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/4951137875e79b438d52a18ac971ec0c28ef269c/docstring_parser/common.py#L223">
+    <span class="py-defname">examples</span>: <code><a href="https://docs.python.org/3/library/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr>DocstringExample]</code> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/aaf857d360ff57e58bab825973ed1a2c54b60a30/docstring_parser/common.py#L223">
       
       (source)
     </a>
@@ -963,8 +931,8 @@
   </a>
   <div class="functionHeader">
     @<a href="https://docs.python.org/3/library/functions.html#property" class="intersphinx-link">property</a><br />
-    <span class="py-defname">many_returns</span>: <code><a href="https://docs.python.org/3/library/typing.html#typing.List" class="intersphinx-link">T.List</a>[<wbr></wbr><a href="docstring_parser.DocstringReturns.html" class="internal-link" title="docstring_parser.DocstringReturns">DocstringReturns</a>]</code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/4951137875e79b438d52a18ac971ec0c28ef269c/docstring_parser/common.py#L208">
+    <span class="py-defname">many_returns</span>: <code><a href="https://docs.python.org/3/library/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="docstring_parser.DocstringReturns.html" class="internal-link" title="docstring_parser.DocstringReturns">DocstringReturns</a>]</code> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/aaf857d360ff57e58bab825973ed1a2c54b60a30/docstring_parser/common.py#L208">
       
       (source)
     </a>
@@ -990,8 +958,8 @@
   </a>
   <div class="functionHeader">
     @<a href="https://docs.python.org/3/library/functions.html#property" class="intersphinx-link">property</a><br />
-    <span class="py-defname">params</span>: <code><a href="https://docs.python.org/3/library/typing.html#typing.List" class="intersphinx-link">T.List</a>[<wbr></wbr><a href="docstring_parser.DocstringParam.html" class="internal-link" title="docstring_parser.DocstringParam">DocstringParam</a>]</code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/4951137875e79b438d52a18ac971ec0c28ef269c/docstring_parser/common.py#L183">
+    <span class="py-defname">params</span>: <code><a href="https://docs.python.org/3/library/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="docstring_parser.DocstringParam.html" class="internal-link" title="docstring_parser.DocstringParam">DocstringParam</a>]</code> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/aaf857d360ff57e58bab825973ed1a2c54b60a30/docstring_parser/common.py#L183">
       
       (source)
     </a>
@@ -1017,8 +985,8 @@
   </a>
   <div class="functionHeader">
     @<a href="https://docs.python.org/3/library/functions.html#property" class="intersphinx-link">property</a><br />
-    <span class="py-defname">raises</span>: <code><a href="https://docs.python.org/3/library/typing.html#typing.List" class="intersphinx-link">T.List</a>[<wbr></wbr><a href="docstring_parser.DocstringRaises.html" class="internal-link" title="docstring_parser.DocstringRaises">DocstringRaises</a>]</code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/4951137875e79b438d52a18ac971ec0c28ef269c/docstring_parser/common.py#L188">
+    <span class="py-defname">raises</span>: <code><a href="https://docs.python.org/3/library/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="docstring_parser.DocstringRaises.html" class="internal-link" title="docstring_parser.DocstringRaises">DocstringRaises</a>]</code> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/aaf857d360ff57e58bab825973ed1a2c54b60a30/docstring_parser/common.py#L188">
       
       (source)
     </a>
@@ -1045,8 +1013,8 @@ may raise.</p></div>
   </a>
   <div class="functionHeader">
     @<a href="https://docs.python.org/3/library/functions.html#property" class="intersphinx-link">property</a><br />
-    <span class="py-defname">returns</span>: <code><a href="https://docs.python.org/3/library/typing.html#typing.Optional" class="intersphinx-link">T.Optional</a>[<wbr></wbr><a href="docstring_parser.DocstringReturns.html" class="internal-link" title="docstring_parser.DocstringReturns">DocstringReturns</a>]</code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/4951137875e79b438d52a18ac971ec0c28ef269c/docstring_parser/common.py#L197">
+    <span class="py-defname">returns</span>: <code><a href="docstring_parser.DocstringReturns.html" class="internal-link" title="docstring_parser.DocstringReturns">DocstringReturns</a> | <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a></code> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/aaf857d360ff57e58bab825973ed1a2c54b60a30/docstring_parser/common.py#L197">
       
       (source)
     </a>
@@ -1072,10 +1040,10 @@ may raise.</p></div>
     <footer class="navbar navbar-default">
 
   
-  <div class="container">
+  <div class="container-fluid">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    23.9.1 at 2024-03-15 10:37:12.
+    24.11.2 at 2025-07-07 12:35:58.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 
