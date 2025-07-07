@@ -161,7 +161,7 @@ def parse(text: str) -> Docstring:
             meta.type_name = meta.type_name or rtypes.get(meta.return_name)
 
     if not any(isinstance(m, DocstringReturns) for m in ret.meta) and rtypes:
-        for (return_name, type_name) in rtypes.items():
+        for return_name, type_name in rtypes.items():
             ret.meta.append(
                 DocstringReturns(
                     args=[],

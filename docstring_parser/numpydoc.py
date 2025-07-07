@@ -393,7 +393,7 @@ def compose(
     """
 
     def process_one(
-        one: T.Union[DocstringParam, DocstringReturns, DocstringRaises]
+        one: T.Union[DocstringParam, DocstringReturns, DocstringRaises],
     ):
         if isinstance(one, DocstringParam):
             head = one.arg_name
