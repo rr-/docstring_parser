@@ -1,3 +1,8 @@
+# 0.17 (2025-??-??)
+
+- General: Replace poetry with hatchling (thanks to @LecrisUT)
+- General: Drop support for Python 3.6 and 3.7 (thanks to @LecrisUT)
+
 # 0.16 (2024-03-15)
 
 - Parser: add a new property, `description`, that combines short and long
