@@ -1,4 +1,5 @@
 """Utility functions for working with docstrings."""
+
 import typing as T
 from collections import ChainMap
 from inspect import Signature
@@ -129,7 +130,7 @@ def combine_docstrings(
                 if meta_type in exclude:
                     continue
                 metas.setdefault(meta_type, []).append(meta)
-            for (meta_type, meta) in metas.items():
+            for meta_type, meta in metas.items():
                 combined[meta_type] = meta
 
         combined[DocstringParam] = [

@@ -1,4 +1,5 @@
 """Tests for Google-style docstring routines."""
+
 import typing as T
 
 import pytest

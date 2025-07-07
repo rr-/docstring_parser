@@ -1,4 +1,5 @@
 """Tests for parse_from_object function and attribute docstrings."""
+
 from unittest.mock import patch
 
 from docstring_parser import parse_from_object

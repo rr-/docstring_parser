@@ -75,4 +75,5 @@ disable = [
     "too-many-statements",
     "too-many-arguments",
     "too-few-public-methods",
+    "too-many-positional-arguments",
 ]
