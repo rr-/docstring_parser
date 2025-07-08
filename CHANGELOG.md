@@ -2,6 +2,8 @@
 
 - General: Replace poetry with hatchling (thanks to @LecrisUT)
 - General: Drop support for Python 3.6 and 3.7 (thanks to @LecrisUT)
+- General: Officially support Python 3.13
+- Google: Fix multi-line parameter definitions (thanks to @coolbeevip)
 
 # 0.16 (2024-03-15)
 
