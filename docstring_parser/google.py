@@ -113,6 +113,12 @@ class GoogleParser:
 
         # Split spec and description
         before, desc = text.split(":", 1)
+
+        if before and "\n" in before:
+            # If there is a newline in the first line, clean it up
+            first_line, rest = before.split("\n", 1)
+            before = first_line + inspect.cleandoc(rest)
+
         if desc:
             desc = desc[1:] if desc[0] == " " else desc
             if "\n" in desc:
