@@ -74,5 +74,6 @@ disable = [
     "too-many-branches",
     "too-many-statements",
     "too-many-arguments",
+    "too-many-positional-arguments",
     "too-few-public-methods",
 ]
