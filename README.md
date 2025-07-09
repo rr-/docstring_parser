@@ -64,16 +64,18 @@ Installation using conda
 
 To set up the project:
 ```sh
-pip install --user poetry
-
 git clone https://github.com/rr-/docstring_parser.git
 cd docstring_parser
 
-poetry install
-poetry run pre-commit install
+python -m venv venv  # create environment
+source venv/bin/activate  # activate environment
+
+pip install -e ".[dev]"  # install as editable
+pre-commit install  # make sure pre-commit is setup
 ```
 
 To run tests:
 ```
-poetry run pytest
+source venv/bin/activate
+pytest
 ```

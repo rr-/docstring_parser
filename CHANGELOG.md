@@ -1,3 +1,12 @@
+# 0.17 (2025-??-??)
+
+- General: Replace poetry with hatchling (thanks to @LecrisUT)
+- General: Drop support for Python 3.6 and 3.7 (thanks to @LecrisUT)
+- General: Officially support Python 3.13
+- Google: Fix multi-line parameter definitions (thanks to @coolbeevip)
+- Attrdoc: Remove use of deprecated ast classes (thanks to @fedepell)
+- Attrdoc: Remove code related to Python <= 3.7
+
 # 0.16 (2024-03-15)
 
 - Parser: add a new property, `description`, that combines short and long
