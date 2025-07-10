@@ -63,7 +63,7 @@ jobs:
     needs: [tests, style, build-package]
     environment:
       name: pypi
-      url: https://pypi.org/p/jsonargparse
+      url: https://pypi.org/p/docstring-parser
     permissions:
       id-token: write
     steps:
