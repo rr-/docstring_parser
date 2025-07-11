@@ -40,7 +40,7 @@ test = [
     "pytest",
 ]
 docs = [
-    "pydoctor >= 22.3.0",
+    "pydoctor >= 25.4.0",
 ]
 dev = [
     "docstring_parser[test]",
