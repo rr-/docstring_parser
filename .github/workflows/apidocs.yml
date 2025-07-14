@@ -15,7 +15,6 @@ jobs:
 
     - name: Install requirements for documentation generation
       run: |
-        python -m pip install -U pip setuptools wheel
         python -m pip install .[docs]
 
     - name: Generate API documentation with pydoctor
