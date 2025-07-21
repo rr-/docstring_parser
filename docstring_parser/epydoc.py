@@ -26,7 +26,7 @@ def _clean_str(string: str) -> T.Optional[str]:
     return None
 
 
-def parse(text: str) -> Docstring:
+def parse(text: str | None) -> Docstring:
     """Parse the epydoc-style docstring into its components.
 
     :returns: parsed docstring

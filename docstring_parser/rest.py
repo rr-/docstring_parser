@@ -99,7 +99,7 @@ def _build_meta(args: T.List[str], desc: str) -> DocstringMeta:
     return DocstringMeta(args=args, description=desc)
 
 
-def parse(text: str) -> Docstring:
+def parse(text: str | None) -> Docstring:
     """Parse the ReST-style docstring into its components.
 
     :returns: parsed docstring

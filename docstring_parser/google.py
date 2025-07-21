@@ -202,7 +202,7 @@ class GoogleParser:
         self.sections[section.title] = section
         self._setup()
 
-    def parse(self, text: str) -> Docstring:
+    def parse(self, text: str | None) -> Docstring:
         """Parse the Google-style docstring into its components.
 
         :returns: parsed docstring
@@ -293,7 +293,7 @@ class GoogleParser:
         return ret
 
 
-def parse(text: str) -> Docstring:
+def parse(text: str | None) -> Docstring:
     """Parse the Google-style docstring into its components.
 
     :returns: parsed docstring
