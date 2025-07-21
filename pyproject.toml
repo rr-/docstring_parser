@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "docstring_parser"
-version = "0.17.0rc1"
+version = "0.17.0"
 description = "Parse Python docstrings in reST, Google and Numpydoc format"
 authors = [
     {name="Marcin Kurczewski", email="dash@wind.garden"},
