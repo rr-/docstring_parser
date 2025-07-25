@@ -21,7 +21,7 @@ _STYLE_MAP = {
 
 
 def parse(
-    text: str | None, style: DocstringStyle = DocstringStyle.AUTO
+    text: T.Optional[str], style: DocstringStyle = DocstringStyle.AUTO
 ) -> Docstring:
     """Parse the docstring into its components.
 

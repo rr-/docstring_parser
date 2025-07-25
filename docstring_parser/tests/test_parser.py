@@ -1,5 +1,7 @@
 """Tests for generic docstring routines."""
 
+import typing as T
+
 import pytest
 from docstring_parser.common import DocstringStyle, ParseError
 from docstring_parser.parser import parse
@@ -16,7 +18,9 @@ from docstring_parser.parser import parse
         ("\n   Short description\n", "Short description"),
     ],
 )
-def test_short_description(source: str | None, expected: str | None) -> None:
+def test_short_description(
+    source: T.Optional[str], expected: T.Optional[str]
+) -> None:
     """Test parsing short description."""
     docstring = parse(source)
     assert docstring.short_description == expected

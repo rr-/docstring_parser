@@ -151,7 +151,9 @@ def test_google_parser_custom_sections_after() -> None:
         ("\n   Short description\n", "Short description"),
     ],
 )
-def test_short_description(source: str | None, expected: str | None) -> None:
+def test_short_description(
+    source: T.Optional[str], expected: T.Optional[str]
+) -> None:
     """Test parsing short description."""
     docstring = parse(source)
     assert docstring.short_description == expected
