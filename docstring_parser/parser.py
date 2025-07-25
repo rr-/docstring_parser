@@ -20,7 +20,9 @@ _STYLE_MAP = {
 }
 
 
-def parse(text: str, style: DocstringStyle = DocstringStyle.AUTO) -> Docstring:
+def parse(
+    text: T.Optional[str], style: DocstringStyle = DocstringStyle.AUTO
+) -> Docstring:
     """Parse the docstring into its components.
 
     :param text: docstring text to parse

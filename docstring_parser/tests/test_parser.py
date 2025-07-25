@@ -1,8 +1,32 @@
 """Tests for generic docstring routines."""
 
+import typing as T
+
 import pytest
 from docstring_parser.common import DocstringStyle, ParseError
 from docstring_parser.parser import parse
+
+
+@pytest.mark.parametrize(
+    "source, expected",
+    [
+        pytest.param(None, None, id="No __doc__"),
+        ("", None),
+        ("\n", None),
+        ("Short description", "Short description"),
+        ("\nShort description\n", "Short description"),
+        ("\n   Short description\n", "Short description"),
+    ],
+)
+def test_short_description(
+    source: T.Optional[str], expected: T.Optional[str]
+) -> None:
+    """Test parsing short description."""
+    docstring = parse(source)
+    assert docstring.short_description == expected
+    assert docstring.description == expected
+    assert docstring.long_description is None
+    assert not docstring.meta
 
 
 def test_rest() -> None:
