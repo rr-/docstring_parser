@@ -51,7 +51,10 @@ class DocstringMeta:
     """
 
     def __init__(
-        self, args: T.List[str], description: T.Optional[str]
+        self,
+        args: T.List[str],
+        description: T.Optional[str],
+        post_description: T.Optional[str],
     ) -> None:
         """Initialize self.
 
@@ -59,9 +62,12 @@ class DocstringMeta:
             dependent on the kind of docstring; it's used to distinguish
             between custom docstring meta information items.
         :param description: associated docstring description.
+        :param post_description: additional docstring description that
+            may appear after other relevant content.
         """
         self.args = args
         self.description = description
+        self.post_description = post_description
 
 
 class DocstringParam(DocstringMeta):

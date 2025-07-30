@@ -244,22 +244,46 @@ class ExamplesSection(Section):
         :param text: section body text. Should be cleaned with
                      ``inspect.cleandoc`` before parsing.
         """
-        lines = dedent(text).strip().splitlines()
+        lines = [x.rstrip() for x in dedent(text).strip().splitlines()]
         while lines:
             snippet_lines = []
             description_lines = []
-            while lines:
-                if not lines[0].startswith(">>>"):
-                    break
-                snippet_lines.append(lines.pop(0))
+            post_description_lines = []
+
+            # Parse description of snippet
             while lines:
                 if lines[0].startswith(">>>"):
                     break
                 description_lines.append(lines.pop(0))
-            yield DocstringExample(
+
+            # Parse code of snippet
+            while lines:
+                if not lines[0].startswith(">>>") and not lines[0].startswith('...'):
+                    break
+                snippet_lines.append(lines.pop(0))
+
+            # Parse output of snippet
+            while lines:
+                # Bail out at blank lines
+                if not lines[0]:
+                    lines.pop(0)
+                    break
+                # Bail out if a new snippet is started
+                elif lines[0].startswith(">>>"):
+                    break
+                else:
+                    snippet_lines.append(lines.pop(0))
+
+            # if there is following text, but no more snippets, make this a post description.
+            if not [x for x in lines if '>>>' in x]:
+                post_description_lines.extend(lines)
+                lines = []
+
+            yield dict(
                 [self.key],
-                snippet="\n".join(snippet_lines) if snippet_lines else None,
-                description="\n".join(description_lines),
+                snippet="\n".join(snippet_lines).strip() if snippet_lines else None,
+                description="\n".join(description_lines).strip(),
+                post_description="\n".join(post_description_lines).strip(),
             )
 
 
