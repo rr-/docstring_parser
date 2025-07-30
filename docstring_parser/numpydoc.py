@@ -248,7 +248,6 @@ class ExamplesSection(Section):
         while lines:
             snippet_lines = []
             description_lines = []
-            post_description_lines = []
 
             # Parse description of snippet
             while lines:
@@ -276,14 +275,13 @@ class ExamplesSection(Section):
 
             # if there is following text, but no more snippets, make this a post description.
             if not [x for x in lines if '>>>' in x]:
-                post_description_lines.extend(lines)
+                description_lines.extend(lines)
                 lines = []
 
             yield dict(
                 [self.key],
                 snippet="\n".join(snippet_lines).strip() if snippet_lines else None,
                 description="\n".join(description_lines).strip(),
-                post_description="\n".join(post_description_lines).strip(),
             )
 
 
