@@ -140,11 +140,13 @@ class DocstringExample(DocstringMeta):
         args: T.List[str],
         snippet: T.Optional[str],
         description: T.Optional[str],
+        post_snippet: T.Optional[str] = None,
     ) -> None:
         """Initialize self."""
         super().__init__(args, description)
         self.snippet = snippet
         self.description = description
+        self.post_snippet = post_snippet
 
 
 class Docstring:
