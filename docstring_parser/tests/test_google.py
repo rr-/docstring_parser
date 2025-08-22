@@ -624,6 +624,113 @@ def test_returns() -> None:
     assert docstring.many_returns[0] == docstring.returns
 
 
+def test_yields() -> None:
+    """Test parsing returns."""
+    docstring = parse(
+        """
+        Short description
+        """
+    )
+    assert docstring.yields is None
+
+    docstring = parse(
+        """
+        Returns:
+            int: description
+        """
+    )
+    assert docstring.yields is None
+
+    docstring = parse(
+        """
+        Short description
+        Yields:
+            description
+        """
+    )
+    assert docstring.yields is not None
+    assert docstring.yields.type_name is None
+    assert docstring.yields.description == "description"
+    assert docstring.yields.is_generator is True
+
+    docstring = parse(
+        """
+        Short description
+        Yields:
+            description with: a colon!
+        """
+    )
+    assert docstring.yields is not None
+    assert docstring.yields.type_name is None
+    assert docstring.yields.description == "description with: a colon!"
+    assert docstring.yields.is_generator is True
+
+    docstring = parse(
+        """
+        Short description
+        Yields:
+            int: description
+        """
+    )
+    assert docstring.yields is not None
+    assert docstring.yields.type_name == "int"
+    assert docstring.yields.description == "description"
+    assert docstring.yields.is_generator is True
+
+    docstring = parse(
+        """
+        Yields:
+            Optional[Mapping[str, List[int]]]: A description: with a colon
+        """
+    )
+    assert docstring.yields is not None
+    assert docstring.yields.type_name == "Optional[Mapping[str, List[int]]]"
+    assert docstring.yields.description == "A description: with a colon"
+    assert docstring.yields.is_generator is True
+
+    docstring = parse(
+        """
+        Short description
+        Yields:
+            int: description
+            with much text
+
+            even some spacing
+        """
+    )
+    assert docstring.yields is not None
+    assert docstring.yields.type_name == "int"
+    assert docstring.yields.description == (
+        "description\nwith much text\n\neven some spacing"
+    )
+    assert docstring.returns.is_generator is True
+
+    docstring = parse(
+        """
+        Returns:
+            int: description with return first
+        
+        Yields:
+            Optional[Mapping[str, List[int]]]: A description: with a colon
+        """
+    )
+    assert docstring.returns is not None
+    assert docstring.yields is not None
+    assert docstring.yields.type_name != docstring.returns.type_name
+
+    docstring = parse(
+        """
+        Yields:
+            Optional[Mapping[str, List[int]]]: A description: with a colon
+
+        Returns:
+            int: description with return last
+        """
+    )
+    assert docstring.returns is not None
+    assert docstring.yields is not None
+    assert docstring.yields.type_name == docstring.returns.type_name
+
 def test_raises() -> None:
     """Test parsing raises."""
     docstring = parse(
