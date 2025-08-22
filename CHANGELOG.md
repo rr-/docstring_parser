@@ -1,4 +1,8 @@
-# 0.17 (2025-??-??)
+# Current
+
+- General: Allow `parse()` to work with missing `__doc__` (thanks to @jamesbraza)
+
+# 0.17 (2025-07-21)
 
 - General: Replace poetry with hatchling (thanks to @LecrisUT)
 - General: Drop support for Python 3.6 and 3.7 (thanks to @LecrisUT)
