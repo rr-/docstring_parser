@@ -50,7 +50,6 @@ dev = [
 
 [tool.black]
 line-length = 79
-py38 = true
 
 [tool.isort]
 known_third_party = "docstring_parser"

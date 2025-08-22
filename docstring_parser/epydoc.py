@@ -77,8 +77,13 @@ def parse(text: T.Optional[str]) -> Docstring:
         return_match = re.search(return_pattern, chunk)
         meta_match = re.search(meta_pattern, chunk)
 
-        match = param_match or attribute_match or raise_match or return_match \
+        match = (
+            param_match
+            or attribute_match
+            or raise_match
+            or return_match
             or meta_match
+        )
         if not match:
             raise ParseError(f'Error parsing meta information near "{chunk}".')
 
