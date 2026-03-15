@@ -3,7 +3,92 @@
 import typing as T
 
 import pytest
-from docstring_parser.numpydoc import compose, parse
+from docstring_parser.numpydoc import (
+    PARAM_DEFAULT_REGEX,
+    PARAM_DEFAULT_REGEX_IN_DESC,
+    PARAM_KEY_REGEX,
+    PARAM_OPTIONAL_REGEX,
+    compose,
+    parse,
+)
+
+
+@pytest.mark.parametrize(
+    "input_str, expected_name, expected_type",
+    [
+        ("arg_name", "arg_name", None),
+        ("arg_name : type", "arg_name", "type"),
+        ("arg_name : type, optional", "arg_name", "type, optional"),
+        ("arg_name : type, default=10", "arg_name", "type, default=10"),
+    ],
+)
+def test_param_key_regex(input_str, expected_name, expected_type):
+    """Test parsing parameter keys."""
+    match = PARAM_KEY_REGEX.match(input_str)
+    assert match is not None
+    assert match.group("name") == expected_name
+    assert match.group("type") == expected_type
+
+
+@pytest.mark.parametrize(
+    "input_str, expected_match",
+    [
+        ("", False),
+        ("type", False),
+        ("type, optional", True),
+    ],
+)
+def test_param_optional_regex(input_str, expected_match):
+    """Test parsing parameter optionality."""
+    match = PARAM_OPTIONAL_REGEX.match(input_str)
+    if expected_match:
+        assert match is not None
+    else:
+        assert match is None
+
+
+@pytest.mark.parametrize(
+    "input_str, expected_match, default_value",
+    [
+        ("", False, None),
+        ("type", False, None),
+        ("type, default=10", True, "10"),
+        ("type, default='hello'", True, "'hello'"),
+        ('type, default="world"', True, '"world"'),
+        ("type, default: 1.5", True, "1.5"),
+        ("type, default 1.5", True, "1.5"),
+    ],
+)
+def test_param_default_regex(input_str, expected_match, default_value):
+    """Test parsing parameter default values."""
+    match = PARAM_DEFAULT_REGEX.match(input_str)
+    if expected_match:
+        assert match is not None
+        assert match.group("type") == "type"
+        assert match.group("value") == default_value
+    else:
+        assert match is None
+
+
+@pytest.mark.parametrize(
+    "input_str, expected_match, default_value",
+    [
+        ("", False, None),
+        ("description without default", False, None),
+        ("description with default, default=10", True, "10"),
+        ("description with default, Default: 'hello'", True, "'hello'"),
+        ("description with default, defaults to 'world'", True, "'world'"),
+        ("description with default, defaults to 1.5", True, "1.5"),
+    ],
+)
+def test_param_default_regex_in_desc(input_str, expected_match, default_value):
+    """Test parsing parameter default values in descriptions."""
+    match = PARAM_DEFAULT_REGEX_IN_DESC.search(input_str)
+    if expected_match:
+        assert match is not None
+        assert match.group("value") == default_value
+    else:
+        assert match is None
 
 
 @pytest.mark.parametrize(
@@ -269,7 +354,40 @@ def test_meta_with_multiline_description() -> None:
             """
                 Parameters
                 ----------
-                arg4 : Optional[Dict[str, Any]], optional
+                arg3 : float, default=1.0
+                    The third arg.
+                """,
+            True,
+            "float",
+            "1.0",
+        ),
+        (
+            """
+                Parameters
+                ----------
+                arg4: int, default 1
+                    The fourth arg.
+                """,
+            True,
+            "int",
+            "1",
+        ),
+        (
+            """
+                Parameters
+                ----------
+                arg5: str, default: 'hello'
+                    The fifth arg.
+                """,
+            True,
+            "str",
+            "'hello'",
+        ),
+        (
+            """
+                Parameters
+                ----------
+                arg6 : Optional[Dict[str, Any]], optional
                     The fourth arg. Defaults to None
                 """,
             True,
@@ -280,7 +398,7 @@ def test_meta_with_multiline_description() -> None:
             """
                 Parameters
                 ----------
-                arg5 : str, optional
+                arg7 : str, optional
                     The fifth arg. Default: DEFAULT_ARGS
                 """,
             True,
@@ -1014,35 +1132,38 @@ def test_deprecation(
             """
             Short description
 
-            Parameters:
-            -----------
-                name
-                    description 1
-                priority: int
-                    description 2
-                sender: str, optional
-                    description 3
-                message: str, optional
-                    description 4, defaults to 'hello'
-                multiline: str, optional
-                    long description 5,
-                        defaults to 'bye'
+            Parameters
+            ----------
+            name
+                description 1
+            priority: int
+                description 2
+            sender: str, optional
+                description 3
+            message: str, optional
+                description 4, defaults to 'hello'
+            multiline: str, optional
+                long description 5,
+                    defaults to 'bye'
+            default_arg: str, default=10
+                description 6, defaults to 10
             """,
-            "Short description\n"
-            "\n"
-            "Parameters:\n"
-            "-----------\n"
-            "    name\n"
-            "        description 1\n"
-            "    priority: int\n"
-            "        description 2\n"
-            "    sender: str, optional\n"
-            "        description 3\n"
-            "    message: str, optional\n"
-            "        description 4, defaults to 'hello'\n"
-            "    multiline: str, optional\n"
-            "        long description 5,\n"
-            "            defaults to 'bye'",
+            "Short description\n\n\n"
+            "Parameters\n"
+            "----------\n"
+            "name\n"
+            "    description 1\n"
+            "priority : int\n"
+            "    description 2\n"
+            "sender : str, optional\n"
+            "    description 3\n"
+            "message : str, default='hello'\n"
+            "    description 4, defaults to 'hello'\n"
+            "multiline : str, default='bye'\n"
+            "    long description 5,\n"
+            "        defaults to 'bye'\n"
+            "default_arg : str, default=10\n"
+            "    description 6, defaults to 10",
         ),
         (
             """
@@ -1088,4 +1209,5 @@ def test_deprecation(
 )
 def test_compose(source: str, expected: str) -> None:
     """Test compose in default mode."""
+
     assert compose(parse(source)) == expected
