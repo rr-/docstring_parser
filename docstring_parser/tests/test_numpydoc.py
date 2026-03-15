@@ -1180,32 +1180,32 @@ def test_deprecation(
         ),
         # Parsing examples meta does not currently work correctly,
         # so skip this case for now.
-        # (
-        #     """
-        #     Description
-        #     Examples
-        #     --------
-        #     >>> test1a
-        #     >>> test1b
-        #     desc1a
-        #     desc1b
-        #     >>> test2a
-        #     >>> test2b
-        #     desc2a
-        #     desc2b
-        #     """,
-        #     "Description\n\n"
-        #     "Examples\n"
-        #     "--------\n"
-        #     ">>> test1a\n"
-        #     ">>> test1b\n"
-        #     "desc1a\n"
-        #     "desc1b\n"
-        #     ">>> test2a\n"
-        #     ">>> test2b\n"
-        #     "desc2a\n"
-        #     "desc2b",
-        # ),
+        (
+            """
+            Description
+            Examples
+            --------
+            >>> test1a
+            >>> test1b
+            desc1a
+            desc1b
+            >>> test2a
+            >>> test2b
+            desc2a
+            desc2b
+            """,
+            "Description\n\n"
+            "Examples\n"
+            "--------\n"
+            ">>> test1a\n"
+            ">>> test1b\n"
+            "desc1a\n"
+            "desc1b\n"
+            ">>> test2a\n"
+            ">>> test2b\n"
+            "desc2a\n"
+            "desc2b",
+        ),
     ],
 )
 def test_compose(source: str, expected: str) -> None:
@@ -1227,5 +1227,6 @@ def test_compose(source: str, expected: str) -> None:
         assert len(docstring.meta) > 0
     else:
         assert len(docstring.meta) == 0
+    print([example.description for example in docstring.examples])
 
     assert compose(docstring) == expected

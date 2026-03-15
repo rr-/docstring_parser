@@ -532,6 +532,14 @@ def compose(
         [item for item in docstring.raises or [] if item.args[0] == "warns"],
     )
 
+    if len(docstring.examples) > 0:
+        parts.append("")
+        parts.append("Examples")
+        parts.append("--------")
+        for example in docstring.examples:
+            parts.append(example.snippet)
+            parts.append(example.description)
+
     for meta in docstring.meta:
         if isinstance(
             meta,
@@ -540,6 +548,7 @@ def compose(
                 DocstringParam,
                 DocstringReturns,
                 DocstringRaises,
+                DocstringExample,
             ),
         ):
             continue  # Already handled
