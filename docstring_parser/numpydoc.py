@@ -428,8 +428,11 @@ def compose(
         elif not head:
             head = ""
 
+        # If this is a parameter, check if it's optional.
+        # If it is and there's a not-None default, include that in the type
+        # declaration, otherwise just mark it as optional.
         if isinstance(one, DocstringParam):
-            if one.is_optional and one.default is not None:
+            if one.is_optional and one.default not in [None, "None"]:
                 head += f", default={one.default}"
             elif one.is_optional:
                 head += ", optional"
