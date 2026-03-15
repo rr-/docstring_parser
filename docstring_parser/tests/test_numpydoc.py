@@ -1178,7 +1178,8 @@ def test_deprecation(
             "ValueError\n"
             "    description",
         ),
-        # Parsing examples meta does not currently work correctly, so skip this case for now.
+        # Parsing examples meta does not currently work correctly,
+        # so skip this case for now.
         # (
         #     """
         #     Description
@@ -1210,9 +1211,14 @@ def test_deprecation(
 def test_compose(source: str, expected: str) -> None:
     """Test compose in default mode."""
 
-    # Test cases use `Meta` meta, which is not included in the default sections.
-    addtl_sections = [Section(f"Meta{i if i > 1 else ''}", f"meta{i if i > 1 else ''}") for i in range(0, 4)]
-    parser_w_meta_section = NumpydocParser(sections = (DEFAULT_SECTIONS + addtl_sections))
+    # Test cases use `Meta#`, which are not included in the default sections.
+    addtl_sections = [
+        Section(f"Meta{i if i > 1 else ''}", f"meta{i if i > 1 else ''}")
+        for i in range(0, 4)
+    ]
+    parser_w_meta_section = NumpydocParser(
+        sections=(DEFAULT_SECTIONS + addtl_sections)
+    )
     docstring = parser_w_meta_section.parse(source)
 
     # We want to make sure that parse is correctly parsing the docstring and
