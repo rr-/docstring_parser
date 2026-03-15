@@ -82,6 +82,7 @@ def test_param_default_regex(input_str, expected_match, default_value):
         ("description with default, Default: 'hello'", True, "'hello'"),
         ("description with default, defaults to 'world'", True, "'world'"),
         ("description with default, defaults to 1.5", True, "1.5"),
+        ("description with default, default is 1.5", True, "1.5"),
     ],
 )
 def test_param_default_regex_in_desc(input_str, expected_match, default_value):
