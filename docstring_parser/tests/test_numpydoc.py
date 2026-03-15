@@ -1210,4 +1210,13 @@ def test_deprecation(
 def test_compose(source: str, expected: str) -> None:
     """Test compose in default mode."""
 
-    assert compose(parse(source)) == expected
+    docstring = parse(source)
+
+    # We want to make sure that parse is correctly parsing the docstring and
+    # not returning the whole thing as a description.
+    if "-" in source:
+        assert len(docstring.meta) > 0
+    else:
+        assert len(docstring.meta) == 0
+
+    assert compose(docstring) == expected
