@@ -952,16 +952,17 @@ def test_deprecation(
 
 
 @pytest.mark.parametrize(
-    "source, expected",
+    "source, expected, expected_num_metas",
     [
-        ("", ""),
-        ("\n", ""),
-        ("Short description", "Short description"),
-        ("\nShort description\n", "Short description"),
-        ("\n   Short description\n", "Short description"),
+        ("", "", 0),
+        ("\n", "", 0),
+        ("Short description", "Short description", 0),
+        ("\nShort description\n", "Short description", 0),
+        ("\n   Short description\n", "Short description", 0),
         (
             "Short description\n\nLong description",
             "Short description\n\nLong description",
+            0,
         ),
         (
             """
@@ -970,6 +971,7 @@ def test_deprecation(
             Long description
             """,
             "Short description\n\nLong description",
+            0,
         ),
         (
             """
@@ -979,10 +981,12 @@ def test_deprecation(
             Second line
             """,
             "Short description\n\nLong description\nSecond line",
+            0,
         ),
         (
             "Short description\nLong description",
             "Short description\nLong description",
+            0,
         ),
         (
             """
@@ -990,10 +994,12 @@ def test_deprecation(
             Long description
             """,
             "Short description\nLong description",
+            0,
         ),
         (
             "\nShort description\nLong description\n",
             "Short description\nLong description",
+            0,
         ),
         (
             """
@@ -1002,6 +1008,7 @@ def test_deprecation(
             Second line
             """,
             "Short description\nLong description\nSecond line",
+            0,
         ),
         (
             """
@@ -1011,6 +1018,7 @@ def test_deprecation(
             asd
             """,
             "Short description\n\nMeta\n----\nasd",
+            1,
         ),
         (
             """
@@ -1025,6 +1033,7 @@ def test_deprecation(
             "Meta\n"
             "----\n"
             "asd",
+            1,
         ),
         (
             """
@@ -1041,24 +1050,7 @@ def test_deprecation(
             "Meta\n"
             "----\n"
             "asd",
-        ),
-        (
-            """
-            Short description
-
-            First line
-                Second line
-            Meta
-            ----
-            asd
-            """,
-            "Short description\n"
-            "\n"
-            "First line\n"
-            "    Second line\n\n"
-            "Meta\n"
-            "----\n"
-            "asd",
+            1,
         ),
         (
             """
@@ -1077,6 +1069,26 @@ def test_deprecation(
             "Meta\n"
             "----\n"
             "asd",
+            1,
+        ),
+        (
+            """
+            Short description
+
+            First line
+                Second line
+            Meta
+            ----
+            asd
+            """,
+            "Short description\n"
+            "\n"
+            "First line\n"
+            "    Second line\n\n"
+            "Meta\n"
+            "----\n"
+            "asd",
+            1,
         ),
         (
             """
@@ -1096,6 +1108,7 @@ def test_deprecation(
             "    1\n"
             "        2\n"
             "    3",
+            1,
         ),
         (
             """
@@ -1114,7 +1127,7 @@ def test_deprecation(
             -----
             derp
             """,
-            "Short description\n\n"
+            "Short description\n\n\n"
             "Meta1\n"
             "-----\n"
             "asd\n"
@@ -1127,6 +1140,7 @@ def test_deprecation(
             "Meta3\n"
             "-----\n"
             "derp",
+            3,
         ),
         (
             """
@@ -1164,6 +1178,7 @@ def test_deprecation(
             "        defaults to 'bye'\n"
             "default_arg : str, default=10\n"
             "    description 6, defaults to 10",
+            6,
         ),
         (
             """
@@ -1178,6 +1193,7 @@ def test_deprecation(
             "------\n"
             "ValueError\n"
             "    description",
+            1,
         ),
         (
             """
@@ -1204,17 +1220,18 @@ def test_deprecation(
             ">>> test2b\n"
             "desc2a\n"
             "desc2b",
+            2,
         ),
     ],
 )
-def test_compose(source: str, expected: str) -> None:
+def test_compose(source: str, expected: str, expected_num_metas: int) -> None:
     """Test compose in default mode."""
 
-    # Test cases use `Meta#`, which are not included in the default sections.
+    # Test cases use `Meta` and `Meta#`, which are not included in the defaults.
     addtl_sections = [
-        Section(f"Meta{i if i > 1 else ''}", f"meta{i if i > 1 else ''}")
-        for i in range(0, 4)
-    ]
+        Section(f"Meta{i}", f"meta{i}")
+        for i in range(1, 4)
+    ] + [Section("Meta", "meta")]
     parser_w_meta_section = NumpydocParser(
         sections=(DEFAULT_SECTIONS + addtl_sections)
     )
@@ -1222,9 +1239,6 @@ def test_compose(source: str, expected: str) -> None:
 
     # We want to make sure that parse is correctly parsing the docstring and
     # not returning the whole thing as a description.
-    if "-" in source:
-        assert len(docstring.meta) > 0
-    else:
-        assert len(docstring.meta) == 0
+    assert len(docstring.meta) == expected_num_metas
 
     assert compose(docstring) == expected

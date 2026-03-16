@@ -432,9 +432,9 @@ def compose(
         # If it is and there's a not-None default, include that in the type
         # declaration, otherwise just mark it as optional.
         if isinstance(one, DocstringParam):
-            if one.is_optional and one.default not in [None, "None"]:
+            if one.default not in [None, "None"]:
                 head += f", default={one.default}"
-            elif one.is_optional:
+            elif one.is_optional or one.default == "None":
                 head += ", optional"
 
         if one.description:
@@ -540,8 +540,10 @@ def compose(
         parts.append("Examples")
         parts.append("--------")
         for example in docstring.examples:
-            parts.append(example.snippet)
-            parts.append(example.description)
+            if example.snippet:
+                parts.append(example.snippet)
+            if example.description:
+                parts.append(example.description)
 
     for meta in docstring.meta:
         if isinstance(
