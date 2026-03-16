@@ -1179,8 +1179,6 @@ def test_deprecation(
             "ValueError\n"
             "    description",
         ),
-        # Parsing examples meta does not currently work correctly,
-        # so skip this case for now.
         (
             """
             Description
@@ -1228,6 +1226,5 @@ def test_compose(source: str, expected: str) -> None:
         assert len(docstring.meta) > 0
     else:
         assert len(docstring.meta) == 0
-    print([example.description for example in docstring.examples])
 
     assert compose(docstring) == expected
