@@ -1227,11 +1227,10 @@ def test_deprecation(
 def test_compose(source: str, expected: str, expected_num_metas: int) -> None:
     """Test compose in default mode."""
 
-    # Test cases use `Meta` and `Meta#`, which are not included in the defaults.
-    addtl_sections = [
-        Section(f"Meta{i}", f"meta{i}")
-        for i in range(1, 4)
-    ] + [Section("Meta", "meta")]
+    # Test cases use `Meta` and `Meta#`, which aren't included in the defaults.
+    addtl_sections = [Section(f"Meta{i}", f"meta{i}") for i in range(1, 4)] + [
+        Section("Meta", "meta")
+    ]
     parser_w_meta_section = NumpydocParser(
         sections=(DEFAULT_SECTIONS + addtl_sections)
     )
