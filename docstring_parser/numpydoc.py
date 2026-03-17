@@ -39,10 +39,22 @@ KV_REGEX = re.compile(r"^[^\s].*$", flags=re.M)
 PARAM_KEY_REGEX = re.compile(r"^(?P<name>.*?)(?:\s*:\s*(?P<type>.*?))?$")
 PARAM_OPTIONAL_REGEX = re.compile(r"(?P<type>.*?)(?:, optional|\(optional\))$")
 
-# numpydoc format has no formal grammar for this,
-# but we can make some educated guesses...
+# Ideally, default value will be specified in the type declaration,
+# for which the following are supported:
+#
+#   copy : bool, default True
+#   copy : bool, default=True
+#   copy : bool, default: True
+#
 PARAM_DEFAULT_REGEX = re.compile(
-    r"(?<!\S)[Dd]efault(?: is | = |: |s to |)\s*(?P<value>[\w\-\.]*\w)"
+    r"(?P<type>.*?)(?:, default|\(default\))(?: | |=| = |= |: |)*(?P<value>.*)$"  # pylint: disable=C0301
+)
+
+# If the default value isn't specified in the type declaration,
+# it might be in the description. There isn't any formal grammar for this
+# in numpydoc, but we can make some educated guesses.
+PARAM_DEFAULT_REGEX_IN_DESC = re.compile(
+    r"(?<!\S)[Dd]efault(?:s to |(?:\s*(?:is|[=:])\s*|\s+))(?P<value>(?:['\"]).*?(?:['\"])|[\w\-\.]*\w)"  # pylint: disable=C0301
 )
 
 RETURN_KEY_REGEX = re.compile(r"^(?:(?P<name>.*?)\s*:\s*)?(?P<type>.*?)$")
@@ -131,7 +143,7 @@ class ParamSection(_KVSection):
 
     def _parse_item(self, key: str, value: str) -> DocstringParam:
         match = PARAM_KEY_REGEX.match(key)
-        arg_name = type_name = is_optional = None
+        arg_name = type_name = is_optional = default = None
         if match is not None:
             arg_name = match.group("name")
             type_name = match.group("type")
@@ -143,9 +155,16 @@ class ParamSection(_KVSection):
                 else:
                     is_optional = False
 
-        default = None
-        if len(value) > 0:
-            default_match = PARAM_DEFAULT_REGEX.search(value)
+                default_match = PARAM_DEFAULT_REGEX.match(type_name)
+                if default_match is not None:
+                    is_optional = True
+                    type_name = default_match.group("type")
+                    default = default_match.group("value")
+
+        # If the default wasn't specifified in the type declaration,
+        # try and see if we can find it in the description.
+        if len(value) > 0 and default is None:
+            default_match = PARAM_DEFAULT_REGEX_IN_DESC.search(value)
             if default_match is not None:
                 default = default_match.group("value")
 
@@ -409,8 +428,14 @@ def compose(
         elif not head:
             head = ""
 
-        if isinstance(one, DocstringParam) and one.is_optional:
-            head += ", optional"
+        # If this is a parameter, check if it's optional.
+        # If it is and there's a not-None default, include that in the type
+        # declaration, otherwise just mark it as optional.
+        if isinstance(one, DocstringParam):
+            if one.default not in [None, "None"]:
+                head += f", default={one.default}"
+            elif one.is_optional or one.default == "None":
+                head += ", optional"
 
         if one.description:
             body = f"\n{indent}".join([head] + one.description.splitlines())
@@ -510,6 +535,16 @@ def compose(
         [item for item in docstring.raises or [] if item.args[0] == "warns"],
     )
 
+    if len(docstring.examples) > 0:
+        parts.append("")
+        parts.append("Examples")
+        parts.append("--------")
+        for example in docstring.examples:
+            if example.snippet:
+                parts.append(example.snippet)
+            if example.description:
+                parts.append(example.description)
+
     for meta in docstring.meta:
         if isinstance(
             meta,
@@ -518,6 +553,7 @@ def compose(
                 DocstringParam,
                 DocstringReturns,
                 DocstringRaises,
+                DocstringExample,
             ),
         ):
             continue  # Already handled
