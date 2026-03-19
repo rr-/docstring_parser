@@ -7,12 +7,14 @@ from collections import OrderedDict, namedtuple
 from enum import IntEnum
 
 from .common import (
+    DEPRECATION_KEYWORDS,
     EXAMPLES_KEYWORDS,
     PARAM_KEYWORDS,
     RAISES_KEYWORDS,
     RETURNS_KEYWORDS,
     YIELDS_KEYWORDS,
     Docstring,
+    DocstringDeprecated,
     DocstringExample,
     DocstringMeta,
     DocstringParam,
@@ -58,6 +60,15 @@ DEFAULT_SECTIONS = [
     Section("Examples", "examples", SectionType.SINGULAR),
     Section("Returns", "returns", SectionType.SINGULAR_OR_MULTIPLE),
     Section("Yields", "yields", SectionType.SINGULAR_OR_MULTIPLE),
+    Section("Notes", "notes", SectionType.SINGULAR),
+    Section("Note", "notes", SectionType.SINGULAR),
+    Section("Warnings", "warnings", SectionType.SINGULAR),
+    Section("Warning", "warnings", SectionType.SINGULAR),
+    Section("See Also", "see_also", SectionType.SINGULAR),
+    Section("Related", "see_also", SectionType.SINGULAR),
+    Section("References", "references", SectionType.SINGULAR),
+    Section("Reference", "references", SectionType.SINGULAR),
+    Section("Deprecated", "deprecation", SectionType.SINGULAR),
 ]
 
 
@@ -144,6 +155,23 @@ class GoogleParser:
         if section.key in EXAMPLES_KEYWORDS:
             return DocstringExample(
                 args=[section.key], snippet=None, description=desc
+            )
+        if section.key in DEPRECATION_KEYWORDS:
+            version, desc, *_ = (
+                desc.split(sep="\n", maxsplit=1) + [None, None]
+            )
+            if desc is not None:
+                desc = desc.strip()
+                if not desc:
+                    desc = None
+            if version is not None:
+                version = version.strip()
+                if not version:
+                    version = None
+            return DocstringDeprecated(
+                args=[section.key],
+                description=desc,
+                version=version,
             )
         if section.key in PARAM_KEYWORDS:
             raise ParseError("Expected paramenter name.")
@@ -397,9 +425,28 @@ def compose(
         parts.append("-" * len(parts[-1]))
         process_one(ret)
 
+    if docstring.deprecation:
+        dep = docstring.deprecation
+        parts.append("Deprecated:")
+        dep_lines = []
+        if dep.version:
+            dep_lines.append(dep.version)
+        if dep.description:
+            dep_lines.extend(dep.description.splitlines())
+        if dep_lines:
+            lines = [indent + l for l in dep_lines]
+            parts.append("\n".join(lines))
+        parts.append("")
+
     for meta in docstring.meta:
         if isinstance(
-            meta, (DocstringParam, DocstringReturns, DocstringRaises)
+            meta,
+            (
+                DocstringDeprecated,
+                DocstringParam,
+                DocstringReturns,
+                DocstringRaises,
+            ),
         ):
             continue  # Already handled
         parts.append(meta.args[0].replace("_", "").title() + ":")
