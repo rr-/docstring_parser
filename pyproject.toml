@@ -48,6 +48,11 @@ dev = [
     "pre-commit >= 2.16.0; python_version>='3.9'",
 ]
 
+[tool.hatch.build.targets.wheel]
+exclude = [
+    "/docstring_parser/tests",
+]
+
 [tool.black]
 line-length = 79
 
