@@ -1,7 +1,10 @@
-# Current
+# 0.18 (2026-04-14)
 
 - General: Allow `parse()` to work with missing `__doc__` (thanks to @jamesbraza)
+- General: Officially support Python 3.14 (thanks to @mauvilsa)
+- General: Exclude `docstring_parser.tests` from built wheels (thanks to @gvalkov)
 - Epydoc: Add missing attribute parsing, which includes the "@ivar", "@cvar" and "@var" syntax (thanks to @Masara)
+- Numpydoc: Add support for defaults in type declarations and improve compose behavior (thanks to @jwlodek)
 
 # 0.17 (2025-07-21)
 
