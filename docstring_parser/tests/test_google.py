@@ -1001,3 +1001,165 @@ def test_compose_expanded(source: str, expected: str) -> None:
         compose(parse(source), rendering_style=RenderingStyle.EXPANDED)
         == expected
     )
+
+
+def test_notes_section() -> None:
+    """Test parsing a Notes section."""
+    docstring = parse(
+        """
+        Short description
+
+        Notes:
+            This is important.
+            Second line.
+        """
+    )
+    assert docstring.short_description == "Short description"
+    assert len(docstring.meta) == 1
+    assert docstring.meta[0].args == ["notes"]
+    assert docstring.meta[0].description == "This is important.\nSecond line."
+
+
+def test_warnings_section() -> None:
+    """Test parsing a Warnings section."""
+    docstring = parse(
+        """
+        Short description
+
+        Warnings:
+            Be careful with this.
+        """
+    )
+    assert docstring.short_description == "Short description"
+    assert len(docstring.meta) == 1
+    assert docstring.meta[0].args == ["warnings"]
+    assert docstring.meta[0].description == "Be careful with this."
+
+
+def test_see_also_section() -> None:
+    """Test parsing a See Also section."""
+    docstring = parse(
+        """
+        Short description
+
+        See Also:
+            bar: related function.
+        """
+    )
+    assert docstring.short_description == "Short description"
+    assert len(docstring.meta) == 1
+    assert docstring.meta[0].args == ["see_also"]
+    assert docstring.meta[0].description == "bar: related function."
+
+
+def test_references_section() -> None:
+    """Test parsing a References section."""
+    docstring = parse(
+        """
+        Short description
+
+        References:
+            Some paper (2024).
+        """
+    )
+    assert docstring.short_description == "Short description"
+    assert len(docstring.meta) == 1
+    assert docstring.meta[0].args == ["references"]
+    assert docstring.meta[0].description == "Some paper (2024)."
+
+
+def test_deprecated_section() -> None:
+    """Test parsing a Deprecated section with version."""
+    docstring = parse(
+        """
+        Short description
+
+        Deprecated:
+            1.6.0
+            Use new_function instead.
+        """
+    )
+    assert docstring.short_description == "Short description"
+    assert docstring.deprecation is not None
+    assert docstring.deprecation.version == "1.6.0"
+    assert docstring.deprecation.description == "Use new_function instead."
+
+
+def test_deprecated_section_no_version() -> None:
+    """Test parsing a Deprecated section without version."""
+    docstring = parse(
+        """
+        Short description
+
+        Deprecated:
+            Use new_function instead.
+        """
+    )
+    assert docstring.short_description == "Short description"
+    assert docstring.deprecation is not None
+    assert docstring.deprecation.version == "Use new_function instead."
+    assert docstring.deprecation.description is None
+
+
+def test_notes_with_other_sections() -> None:
+    """Test Notes coexists with Args and Returns."""
+    docstring = parse(
+        """
+        Short description
+
+        Args:
+            arg1 (int): first arg
+
+        Returns:
+            str: a value
+
+        Notes:
+            This is important.
+        """
+    )
+    assert docstring.short_description == "Short description"
+    assert len(docstring.params) == 1
+    assert docstring.params[0].arg_name == "arg1"
+    assert docstring.returns is not None
+    assert docstring.returns.type_name == "str"
+    notes = [m for m in docstring.meta if m.args == ["notes"]]
+    assert len(notes) == 1
+    assert notes[0].description == "This is important."
+
+
+@pytest.mark.parametrize(
+    "source, expected_key",
+    [
+        ("Note:\n    a note", "notes"),
+        ("Notes:\n    a note", "notes"),
+        ("Warning:\n    be careful", "warnings"),
+        ("Warnings:\n    be careful", "warnings"),
+        ("Reference:\n    some ref", "references"),
+        ("References:\n    some ref", "references"),
+        ("Related:\n    see bar", "see_also"),
+        ("See Also:\n    see bar", "see_also"),
+    ],
+)
+def test_singular_aliases(source: str, expected_key: str) -> None:
+    """Test that singular/plural aliases map to the same key."""
+    docstring = parse(f"Short description\n\n{source}")
+    assert len(docstring.meta) == 1
+    assert docstring.meta[0].args == [expected_key]
+
+
+def test_notes_compose_round_trip() -> None:
+    """Test that a Notes section survives a parse-compose-parse cycle."""
+    original = """Short description
+
+Notes:
+    This is important.
+    Second line."""
+    docstring1 = parse(original)
+    composed = compose(docstring1)
+    docstring2 = parse(composed)
+
+    notes1 = [m for m in docstring1.meta if m.args == ["notes"]]
+    notes2 = [m for m in docstring2.meta if m.args == ["notes"]]
+    assert len(notes1) == 1
+    assert len(notes2) == 1
+    assert notes1[0].description == notes2[0].description
