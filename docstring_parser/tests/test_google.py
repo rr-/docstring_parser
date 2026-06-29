@@ -580,6 +580,26 @@ def test_returns() -> None:
     docstring = parse(
         """
         Returns:
+            int | str: multi-type return
+        """
+    )
+    assert docstring.returns is not None
+    assert docstring.returns.type_name == "int | str"
+    assert docstring.returns.description == "multi-type return"
+
+    docstring = parse(
+        """
+        Returns:
+            int | str | bool: three-way union
+        """
+    )
+    assert docstring.returns is not None
+    assert docstring.returns.type_name == "int | str | bool"
+    assert docstring.returns.description == "three-way union"
+
+    docstring = parse(
+        """
+        Returns:
             Optional[Mapping[str, List[int]]]: A description: with a colon
         """
     )

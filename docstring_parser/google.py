@@ -43,7 +43,11 @@ class Section(namedtuple("SectionBase", "title key type")):
 
 GOOGLE_TYPED_ARG_REGEX = re.compile(r"\s*(.+?)\s*\(\s*(.*[^\s]+)\s*\)")
 GOOGLE_ARG_DESC_REGEX = re.compile(r".*\. Defaults to (.+)\.")
-MULTIPLE_PATTERN = re.compile(r"(\s*[^:\s]+:)|([^:]*\]:.*)")
+MULTIPLE_PATTERN = re.compile(
+    r"(\s*[^:\s]+:)|"  # simple word:
+    r"([^:]*\]:.*)|"  # name[type]:
+    r"(\s*\w+(?:\s*\|\s*\w+)+:)"  # word | word | ... :  (PEP 604 union)
+)
 
 DEFAULT_SECTIONS = [
     Section("Arguments", "param", SectionType.MULTIPLE),
