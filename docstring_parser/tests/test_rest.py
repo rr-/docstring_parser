@@ -379,6 +379,73 @@ def test_returns() -> None:
     assert docstring.many_returns == [docstring.returns]
 
 
+def test_returns_does_not_absorb_trailing_block() -> None:
+    """Test that a trailing block after the field list is not absorbed.
+
+    A blank line followed by unindented content terminates the field
+    list, so the last field's value must not swallow the rest of the
+    docstring (e.g. a trailing ``Example`` block).
+    """
+    docstring = parse(
+        """
+        Creates a user with the given username.
+
+        :param username: The username of the user.
+        :type username: str
+        :return: A dictionary representing the created user.
+        :rtype: dict
+
+        Example:
+
+        >>> create_user("Alice", 25)
+        {'username': 'Alice'}
+        """
+    )
+    assert docstring.returns is not None
+    assert docstring.returns.type_name == "dict"
+    assert (
+        docstring.returns.description
+        == "A dictionary representing the created user."
+    )
+    assert docstring.long_description == (
+        "Example:\n\n>>> create_user(\"Alice\", 25)\n{'username': 'Alice'}"
+    )
+
+
+@pytest.mark.parametrize(
+    "source, long_description, descriptions",
+    [
+        pytest.param(
+            "Short.\n\nLong.\n\n:param a: A.\n\nNote.\n\n:param b: B.",
+            "Long.\n\nNote.",
+            ["A.", "B."],
+            id="text between fields",
+        ),
+        pytest.param(
+            "Short.\r\n\r\n:param a: A.\r\n\r\nExample:\r\n\r\n>>> f()",
+            "Example:\r\n\r\n>>> f()",
+            ["A."],
+            id="CRLF line endings",
+        ),
+        pytest.param(
+            "Short.\n\n:param a: A.\n\n    More about a.\n:param b: B.",
+            None,
+            ["A.\nMore about a.", "B."],
+            id="indented paragraph stays in the field",
+        ),
+    ],
+)
+def test_text_outside_fields(
+    source: str,
+    long_description: T.Optional[str],
+    descriptions: T.List[str],
+) -> None:
+    """Test that text outside the fields goes to the long description."""
+    docstring = parse(source)
+    assert docstring.long_description == long_description
+    assert [p.description for p in docstring.params] == descriptions
+
+
 def test_yields() -> None:
     """Test parsing yields."""
     docstring = parse(
