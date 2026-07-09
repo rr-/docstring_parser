@@ -127,9 +127,21 @@ def parse(text: T.Optional[str]) -> Docstring:
 
     types = {}
     rtypes = {}
+    # Text between or after the fields, such as an example block, which
+    # goes to the long description instead of being dropped.
+    loose_chunks = []
+    loose_start = 0
+    # A field ends at the next field (``^:``), at the end of the chunk
+    # (``\Z``), or at a blank line followed by unindented, non-field
+    # content. The last case ends the field list so that a trailing block
+    # (e.g. an ``Example`` section) is not absorbed into the last field.
     for match in re.finditer(
-        r"(^:.*?)(?=^:|\Z)", meta_chunk, flags=re.S | re.M
+        r"(^:.*?)(?=^:|\r?\n[ \t]*\r?\n(?=[^ \t\r\n:])|\Z)",
+        meta_chunk,
+        flags=re.S | re.M,
     ):
+        loose_chunks.append(meta_chunk[loose_start : match.start()])
+        loose_start = match.end()
         chunk = match.group(0)
         if not chunk:
             continue
@@ -153,6 +165,19 @@ def parse(text: T.Optional[str]) -> Docstring:
             rtypes[None if len(args) == 1 else args[1]] = desc
         else:
             ret.meta.append(_build_meta(args, desc))
+    loose_chunks.append(meta_chunk[loose_start:])
+
+    loose_text = "\n\n".join(
+        part.strip() for part in loose_chunks if part.strip()
+    )
+    if loose_text:
+        ret.long_description = (
+            f"{ret.long_description}\n\n{loose_text}"
+            if ret.long_description
+            else loose_text
+        )
+        ret.blank_after_short_description = True
+        ret.blank_after_long_description = True
 
     for meta in ret.meta:
         if isinstance(meta, DocstringParam):
