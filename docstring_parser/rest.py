@@ -127,8 +127,15 @@ def parse(text: T.Optional[str]) -> Docstring:
 
     types = {}
     rtypes = {}
+    # A field ends at the next field (``^:``), at the end of the chunk
+    # (``\Z``), or at a blank line followed by unindented, non-field
+    # content. The last case terminates the field list so that trailing
+    # blocks (e.g. an ``Example`` section) are not absorbed into the
+    # preceding field's value.
     for match in re.finditer(
-        r"(^:.*?)(?=^:|\Z)", meta_chunk, flags=re.S | re.M
+        r"(^:.*?)(?=^:|\n[ \t]*\n(?=[^ \t\n:])|\Z)",
+        meta_chunk,
+        flags=re.S | re.M,
     ):
         chunk = match.group(0)
         if not chunk:

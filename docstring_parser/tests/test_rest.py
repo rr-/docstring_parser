@@ -378,6 +378,38 @@ def test_returns() -> None:
     assert docstring.many_returns == [docstring.returns]
 
 
+def test_returns_does_not_absorb_trailing_block() -> None:
+    """Test that a trailing block after the field list is not absorbed.
+
+    A blank line followed by unindented content terminates the field
+    list, so the last field's value must not swallow the rest of the
+    docstring (e.g. a trailing ``Example`` block).
+    """
+    docstring = parse(
+        """
+        Creates a user with the given username.
+
+        :param username: The username of the user.
+        :type username: str
+        :return: A dictionary representing the created user.
+        :rtype: dict
+
+        Example:
+
+        >>> create_user("Alice", 25)
+        {'username': 'Alice'}
+        """
+    )
+    assert docstring.returns is not None
+    assert docstring.returns.type_name == "dict"
+    assert (
+        docstring.returns.description
+        == "A dictionary representing the created user."
+    )
+    assert docstring.many_returns[-1].type_name == "dict"
+    assert docstring.meta[-1].type_name == "dict"
+
+
 def test_yields() -> None:
     """Test parsing yields."""
     docstring = parse(
