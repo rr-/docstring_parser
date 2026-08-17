@@ -475,15 +475,20 @@ def compose(
 
     process_sect(
         "Parameters",
-        [item for item in docstring.params or [] if item.args[0] == "param"],
+        [
+            item
+            for item in docstring.meta
+            if isinstance(item, DocstringParam) and item.args[0] == "param"
+        ],
     )
 
     process_sect(
         "Attributes",
         [
             item
-            for item in docstring.params or []
-            if item.args[0] == "attribute"
+            for item in docstring.meta
+            if isinstance(item, DocstringParam)
+            and item.args[0] == "attribute"
         ],
     )
 
@@ -511,8 +516,8 @@ def compose(
         "Receives",
         [
             item
-            for item in docstring.params or []
-            if item.args[0] == "receives"
+            for item in docstring.meta
+            if isinstance(item, DocstringParam) and item.args[0] == "receives"
         ],
     )
 
@@ -520,8 +525,9 @@ def compose(
         "Other Parameters",
         [
             item
-            for item in docstring.params or []
-            if item.args[0] == "other_param"
+            for item in docstring.meta
+            if isinstance(item, DocstringParam)
+            and item.args[0] == "other_param"
         ],
     )
 

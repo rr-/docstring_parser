@@ -183,8 +183,26 @@ class Docstring:
 
     @property
     def params(self) -> T.List[DocstringParam]:
-        """Return a list of information on function params."""
-        return [item for item in self.meta if isinstance(item, DocstringParam)]
+        """Return a list of information on function params.
+
+        For NumpydocStyle docstrings, entries coming from an "Attributes"
+        section (which documents class attributes, not function parameters)
+        are excluded -- they are a semantically distinct concept tagged with
+        ``args[0] == "attribute"`` by the numpydoc parser. Other styles keep
+        their existing behavior, since they don't share this ambiguity (e.g.
+        Google-style intentionally folds "Attributes" entries into
+        ``params``, and this property is relied upon).
+        """
+        return [
+            item
+            for item in self.meta
+            if isinstance(item, DocstringParam)
+            and not (
+                self.style == DocstringStyle.NUMPYDOC
+                and item.args
+                and item.args[0] == "attribute"
+            )
+        ]
 
     @property
     def raises(self) -> T.List[DocstringRaises]:
