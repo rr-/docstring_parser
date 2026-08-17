@@ -110,7 +110,15 @@ def add_attribute_docstrings(
     :param docstring: Docstring object where found attributes are added
     :returns: list with names of added attributes
     """
-    params = set(p.arg_name for p in docstring.params)
+    # Dedup against *all* DocstringParam entries in meta (regardless of
+    # style-specific args[0] tag such as "param" vs "attribute"), not just
+    # docstring.params -- that property is intentionally narrower for
+    # NumpydocStyle docstrings (see Docstring.params) and would otherwise
+    # cause an attribute already documented via an explicit "Attributes"
+    # section to be re-added here, producing a duplicate entry.
+    params = set(
+        p.arg_name for p in docstring.meta if isinstance(p, DocstringParam)
+    )
     for arg_name, (description, type_name, default) in (
         AttributeDocstrings().get_attr_docs(obj).items()
     ):

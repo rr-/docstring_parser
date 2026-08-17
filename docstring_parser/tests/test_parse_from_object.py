@@ -3,6 +3,7 @@
 from unittest.mock import patch
 
 from docstring_parser import parse_from_object
+from docstring_parser.common import DocstringParam
 
 module_attr: int = 1
 """Description for module_attr"""
@@ -84,6 +85,41 @@ def test_from_class_without_source() -> None:
     assert docstring.long_description is None
     assert docstring.description == "Short description"
     assert len(docstring.params) == 0
+
+
+def test_from_class_with_numpydoc_attributes_section_no_duplicate() -> None:
+    """Regression test for issue #21 (attrdoc + NumpydocStyle interaction).
+
+    When a class uses NumpydocStyle and already documents an attribute in
+    an explicit "Attributes" section, ``add_attribute_docstrings`` must not
+    add a second, duplicate ``DocstringParam`` entry for the same attribute
+    just because ``Docstring.params`` (which now excludes "attribute"-tagged
+    numpydoc entries, see #21) no longer lists it.
+    """
+
+    class WithNumpydocAttributes:
+        """Short description.
+
+        Attributes
+        ----------
+        attr_one : str
+            Description from the Attributes section.
+        """
+
+        attr_one: str
+        """Description from the source-level docstring"""
+
+    docstring = parse_from_object(WithNumpydocAttributes)
+
+    matches = [
+        item
+        for item in docstring.meta
+        if isinstance(item, DocstringParam) and item.arg_name == "attr_one"
+    ]
+    assert len(matches) == 1
+    assert matches[0].description == (
+        "Description from the Attributes section."
+    )
 
 
 def test_from_function() -> None:
