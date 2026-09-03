@@ -2,6 +2,7 @@
 
 - Google: Parse PEP 604 union types (e.g. `int | str`) in return sections (thanks to @binggao1230)
 - Google: Avoid regex backtracking when parsing parameter types
+- Google: Parse docstrings that open with a section title (thanks to @HardMax71)
 - General: Replace pylint, black and isort with ruff, and pre-commit with prek
 - General: Check commit messages for a `scope: description` subject and the 50/72 rule
 - General: Replace pip, venv and hatchling with uv; development dependencies are now dependency groups instead of extras
