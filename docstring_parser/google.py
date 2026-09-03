@@ -215,6 +215,12 @@ class GoogleParser:
         if not text:
             return ret
 
+        # A title on the first line has no summary before it. Push it below
+        # one so that cleandoc dedents it with its entries instead of stripping
+        # only the first line and leaving the entries flush with the title.
+        if self.titles_re.match(text.lstrip()):
+            text = "\n" + text
+
         # Clean according to PEP-0257
         text = inspect.cleandoc(text)
 

@@ -245,3 +245,18 @@ def test_autodetection_error_detection() -> None:
 
     assert docstring
     assert docstring.style == DocstringStyle.GOOGLE
+
+
+def test_google_without_summary_is_detected() -> None:
+    """A Google docstring that opens with a section title must not fall
+    back to a REST parse with no params.
+    """
+    docstring = parse(
+        """Args:
+            spam: description
+        """
+    )
+    assert docstring.style == DocstringStyle.GOOGLE
+    assert len(docstring.params) == 1
+    assert docstring.params[0].arg_name == "spam"
+    assert docstring.params[0].description == "description"
