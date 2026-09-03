@@ -469,6 +469,37 @@ def test_params() -> None:
     assert docstring.params[1].description == "description 2"
 
 
+def test_params_without_summary() -> None:
+    """Test parsing params when the docstring opens with the section title."""
+    docstring = parse(
+        """Args:
+            name: description 1.
+            priority (int): description 2.
+        """
+    )
+    assert docstring.short_description is None
+    assert docstring.long_description is None
+    assert len(docstring.params) == 2
+    assert docstring.params[0].arg_name == "name"
+    assert docstring.params[0].description == "description 1."
+    assert docstring.params[1].arg_name == "priority"
+    assert docstring.params[1].type_name == "int"
+    assert docstring.params[1].description == "description 2."
+
+
+def test_returns_without_summary() -> None:
+    """Test parsing returns when the docstring opens with the section title."""
+    docstring = parse(
+        """Returns:
+            int: description
+        """
+    )
+    assert docstring.short_description is None
+    assert docstring.returns is not None
+    assert docstring.returns.type_name == "int"
+    assert docstring.returns.description == "description"
+
+
 def test_attributes() -> None:
     """Test parsing attributes."""
     docstring = parse("Short description")
