@@ -1,5 +1,7 @@
 """Tests for Google-style docstring routines."""
 
+import subprocess
+import sys
 import typing as T
 
 import pytest
@@ -1021,3 +1023,61 @@ def test_compose_expanded(source: str, expected: str) -> None:
         compose(parse(source), rendering_style=RenderingStyle.EXPANDED)
         == expected
     )
+
+
+@pytest.mark.parametrize(
+    "declaration, name, type_name",
+    [
+        ("value (int)", "value", "int"),
+        (
+            "value (int) trailing\n        extra\n        (more)",
+            "value",
+            "int",
+        ),
+        (
+            "value (List[\n        tuple[int,\n        str]])",
+            "value (List[tuple[int,\nstr]])",
+            None,
+        ),
+        ("value (int\n        \n        )", "value", "int"),
+        ("value (int)\n        \n        )", "value", "int)"),
+        (
+            "value (Callable[[int], tuple[str, int]])",
+            "value",
+            "Callable[[int], tuple[str, int]]",
+        ),
+        ('value (constr(regex="(a|b)+"))', "value", 'constr(regex="(a|b)+")'),
+        ("value (  int  ) trailing", "value", "int"),
+        ("value ()", "value ()", None),
+        ("value (   )", "value (   )", None),
+        ("value (int", "value (int", None),
+        ("value) (int)", "value)", "int"),
+        ("value (tuple[int, str], optional)", "value", "tuple[int, str]"),
+        ("value (int?)", "value", "int"),
+        ("value (" + "T" * 512 + ")", "value", "T" * 512),
+    ],
+)
+def test_google_typed_parameter_delimiters(declaration, name, type_name):
+    """Keep nested and long types while preserving incomplete declarations."""
+    docstring = parse(
+        "Summary.\n\nArgs:\n    " + declaration + ": description"
+    )
+    assert len(docstring.params) == 1
+    assert docstring.params[0].arg_name == name
+    assert docstring.params[0].type_name == type_name
+
+
+def test_google_incomplete_type_finishes_promptly():
+    """A bounded malformed declaration must not stall schema extraction."""
+    code = """
+from docstring_parser import parse, parse_from_object
+name = 'a(' * 2048
+doc = 'Summary.\\n\\nArgs:\\n    ' + name + ': description'
+def tool():
+    pass
+tool.__doc__ = doc
+for result in (parse(doc), parse_from_object(tool)):
+    assert result.params[0].arg_name == name
+    assert result.params[0].type_name is None
+"""
+    subprocess.run([sys.executable, "-c", code], check=True, timeout=5)

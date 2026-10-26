@@ -41,7 +41,6 @@ class Section(namedtuple("SectionBase", "title key type")):
     """A docstring section."""
 
 
-GOOGLE_TYPED_ARG_REGEX = re.compile(r"\s*(.+?)\s*\(\s*(.*[^\s]+)\s*\)")
 GOOGLE_ARG_DESC_REGEX = re.compile(r".*\. Defaults to (.+)\.")
 MULTIPLE_PATTERN = re.compile(
     r"(\s*[^:\s]+:)|"  # simple word:
@@ -63,6 +62,31 @@ DEFAULT_SECTIONS = [
     Section("Returns", "returns", SectionType.SINGULAR_OR_MULTIPLE),
     Section("Yields", "yields", SectionType.SINGULAR_OR_MULTIPLE),
 ]
+
+
+def _split_typed_arg(text: str) -> T.Optional[T.Tuple[str, str]]:
+    """Split a parameter name and type without backtracking over delimiters."""
+    text = text.lstrip()
+    opening = text.find("(", 1)
+    if opening < 0:
+        return None
+    name = text[:opening].rstrip()
+    if not name or "\n" in name:
+        return None
+    remainder = text[opening + 1 :].lstrip()
+    first_line, newline, rest = remainder.partition("\n")
+    # The old matcher allowed whitespace before the closing delimiter, but
+    # did not include newlines in the type itself.
+    if newline and rest.lstrip().startswith(")"):
+        type_name = first_line.rstrip()
+    else:
+        closing = first_line.rfind(")")
+        if closing < 0:
+            return None
+        type_name = first_line[:closing].rstrip()
+    if not type_name:
+        return None
+    return name, type_name
 
 
 class GoogleParser:
@@ -158,9 +182,9 @@ class GoogleParser:
         section: Section, before: str, desc: str
     ) -> DocstringMeta:
         if section.key in PARAM_KEYWORDS:
-            match = GOOGLE_TYPED_ARG_REGEX.match(before)
-            if match:
-                arg_name, type_name = match.group(1, 2)
+            typed_arg = _split_typed_arg(before)
+            if typed_arg:
+                arg_name, type_name = typed_arg
                 if type_name.endswith(", optional"):
                     is_optional = True
                     type_name = type_name[:-10]
