@@ -71,11 +71,12 @@ def parse(text: T.Optional[str]) -> Docstring:
         if not chunk:
             continue
 
-        param_match = re.search(param_pattern, chunk)
-        attribute_match = re.search(attribute_pattern, chunk)
-        raise_match = re.search(raise_pattern, chunk)
-        return_match = re.search(return_pattern, chunk)
-        meta_match = re.search(meta_pattern, chunk)
+        # Each chunk starts with @; description text is not a field header.
+        param_match = param_pattern.match(chunk, 1)
+        attribute_match = attribute_pattern.match(chunk, 1)
+        raise_match = raise_pattern.match(chunk, 1)
+        return_match = return_pattern.match(chunk, 1)
+        meta_match = meta_pattern.match(chunk, 1)
 
         match = (
             param_match
