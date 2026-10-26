@@ -771,3 +771,47 @@ def test_short_rtype() -> None:
     string = "Short description.\n\n@rtype: float"
     docstring = parse(string)
     assert compose(docstring) == string
+
+
+@pytest.mark.parametrize(
+    "description",
+    [
+        "param value: detail",
+        "ivar value: detail",
+        "raise Error: detail",
+        "return: detail",
+        "custom arg: detail",
+    ],
+)
+def test_epydoc_description_does_not_override_header(description: str) -> None:
+    """Field-like text in a description is not another field header."""
+    result = parse("Summary.\n\n@note: " + description)
+    assert len(result.meta) == 1
+    assert result.meta[0].args == ["note"]
+    assert result.meta[0].description == description
+    assert not result.params
+    assert not result.returns
+    assert not result.raises
+
+
+@pytest.mark.parametrize("field", ["myparam", "myivar", "myraise", "myreturn"])
+def test_epydoc_custom_field_keyword_suffix(field: str) -> None:
+    """A known keyword suffix does not change a custom field's identity."""
+    result = parse("Summary.\n\n@" + field + " value: detail")
+    assert result.meta[0].args == [field, "value"]
+    assert result.meta[0].description == "detail"
+    assert not result.params
+    assert not result.raises
+
+
+def test_epydoc_incomplete_field_finishes_promptly() -> None:
+    """Reject a bounded missing-colon header without repeated suffix scans."""
+    with pytest.raises(ParseError):
+        parse("@meta " + "word " * 8192)
+
+
+@pytest.mark.parametrize("header", ["@ param value:", "@!param value:"])
+def test_epydoc_rejects_text_before_field_name(header: str) -> None:
+    """A field name must immediately follow its opening marker."""
+    with pytest.raises(ParseError):
+        parse("Summary.\n\n" + header + " detail")
