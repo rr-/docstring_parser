@@ -113,7 +113,7 @@ class GoogleParser:
             colon = ""
         self.titles_re = re.compile(
             "^("
-            + "|".join(f"({t})" for t in self.sections)
+            + "|".join(f"({re.escape(t)})" for t in self.sections)
             + ")"
             + colon
             + "[ \t\r\f\v]*$",

@@ -82,7 +82,7 @@ class Section:
         an anonymous group.
         """
         dashes = "-" * len(self.title)
-        return rf"^({self.title})\s*?\n{dashes}\s*$"
+        return rf"^({re.escape(self.title)})\s*?\n{dashes}\s*$"
 
     def parse(self, text: str) -> T.Iterable[DocstringMeta]:
         """Parse ``DocstringMeta`` objects from the body of this section.
@@ -127,7 +127,7 @@ class _SphinxSection(Section):
 
     @property
     def title_pattern(self) -> str:
-        return rf"^\.\.\s*({self.title})\s*::"
+        return rf"^\.\.\s*({re.escape(self.title)})\s*::"
 
 
 class ParamSection(_KVSection):

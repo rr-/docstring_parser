@@ -1228,3 +1228,13 @@ def test_compose(source: str, expected: str, expected_num_metas: int) -> None:
     assert len(docstring.meta) == expected_num_metas
 
     assert compose(docstring) == expected
+
+
+@pytest.mark.parametrize("title", ["Notes?", "C++ Notes", "Args (old)"])
+def test_section_title_is_literal(title: str) -> None:
+    """Test that regex characters in a section title match literally."""
+    parser = NumpydocParser([Section(title, "custom")])
+    docstring = parser.parse(f"Short.\n\n{title}\n{'-' * len(title)}\ntext")
+    assert [(m.args, m.description) for m in docstring.meta] == [
+        (["custom"], "text")
+    ]

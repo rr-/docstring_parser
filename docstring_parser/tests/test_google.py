@@ -1104,3 +1104,15 @@ for result in (parse(doc), parse_from_object(tool)):
     assert result.params[0].type_name is None
 """
     subprocess.run([sys.executable, "-c", code], check=True, timeout=5)
+
+
+@pytest.mark.parametrize("title", ["Notes?", "C++ Notes", "Args (old)"])
+def test_section_title_is_literal(title: str) -> None:
+    """Test that regex characters in a section title match literally."""
+    parser = GoogleParser(
+        [Section(title, "custom", SectionType.SINGULAR)], title_colon=True
+    )
+    docstring = parser.parse(f"Short.\n\n{title}:\n    text")
+    assert [(m.args, m.description) for m in docstring.meta] == [
+        (["custom"], "text")
+    ]
