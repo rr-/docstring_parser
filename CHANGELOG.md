@@ -1,3 +1,8 @@
+# Unreleased
+
+- Google: Parse PEP 604 union types (e.g. `int | str`) in return sections (thanks to @binggao1230)
+- Google: Avoid regex backtracking when parsing parameter types
+
 # 0.18 (2026-04-14)
 
 - General: Allow `parse()` to work with missing `__doc__` (thanks to @jamesbraza)
