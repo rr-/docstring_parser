@@ -12,6 +12,7 @@
 - General: Type-check with ty
 - General: `compose()` raises `ValueError` instead of `KeyError` when the docstring has no style and none is given
 - Numpydoc: Fix the type of `NumpydocParser`'s `sections` argument, which takes a list of sections
+- Numpydoc: A deprecation directive ends at its indented body, so a long description written after it is no longer parsed as part of the deprecation
 
 # 0.18 (2026-04-14)
 
