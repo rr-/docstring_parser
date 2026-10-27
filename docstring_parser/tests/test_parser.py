@@ -404,3 +404,46 @@ def test_auto_field_with_no_name() -> None:
     docstring = parse("Short.\n\n:  : text")
     assert docstring.long_description == ":  : text"
     assert not docstring.meta
+
+
+@pytest.mark.parametrize(
+    "style", [DocstringStyle.GOOGLE, DocstringStyle.NUMPYDOC]
+)
+def test_compose_keeps_rest_params(style: DocstringStyle) -> None:
+    """Test that ReST param aliases and attributes survive another style."""
+    docstring = parse(
+        "Short.\n\n"
+        ":param a: A.\n"
+        ":keyword k: K.\n"
+        ":arg g: G.\n"
+        ":parameter p: P.\n"
+        ":ivar z: Z.",
+        DocstringStyle.REST,
+    )
+    composed = parse(compose(docstring, style=style), style)
+    assert [
+        (p.args[0], p.arg_name, p.description) for p in composed.params
+    ] == [
+        ("param", "a", "A."),
+        ("param", "k", "K."),
+        ("param", "g", "G."),
+        ("param", "p", "P."),
+        ("attribute", "z", "Z."),
+    ]
+
+
+def test_compose_keeps_numpydoc_params_in_google() -> None:
+    """Test that Numpydoc's other and received params survive Google."""
+    docstring = parse(
+        "Short.\n\n"
+        "Other Parameters\n----------------\nq : int\n    Q.\n\n"
+        "Receives\n--------\nr\n    R.",
+        DocstringStyle.NUMPYDOC,
+    )
+    composed = parse(
+        compose(docstring, style=DocstringStyle.GOOGLE), DocstringStyle.GOOGLE
+    )
+    assert [(p.arg_name, p.type_name) for p in composed.params] == [
+        ("q", "int"),
+        ("r", None),
+    ]

@@ -23,6 +23,8 @@
 - Numpydoc: `compose()` no longer ends the docstring with a blank line
 - Numpydoc: `compose()` separates the deprecation block from the long description with a blank line, and no longer leaves trailing spaces on its blank lines
 - Numpydoc: A deprecation directive ends at its indented body, so a long description written after it is no longer parsed as part of the deprecation
+- Google, Numpydoc: `compose()` keeps params of every kind, such as ReST's `:keyword:` or Numpydoc's other params, instead of dropping those it has no section for
+- Google, Numpydoc: `compose()` writes ReST's `:ivar:`, `:var:` and `:cvar:` fields as named attributes instead of a nameless section
 
 # 0.18 (2026-04-14)
 
