@@ -3,6 +3,7 @@
 - Google: Parse PEP 604 union types (e.g. `int | str`) in return sections (thanks to @binggao1230)
 - Google: Avoid regex backtracking when parsing parameter types
 - Google: Parse docstrings that open with a section title (thanks to @HardMax71)
+- Google: `compose()` writes a return with no type as just its description, instead of prefixing it with a colon that grew on every round trip
 - ReST: Stop the last field from absorbing text after the field list; that text now goes to the long description (thanks to @apoorvdarshan)
 - Epydoc: Match fields only at their header, so field-like text in a description no longer replaces it and a header missing its colon no longer stalls the parser (thanks to @akshitkhokhani)
 - General: Replace pylint, black and isort with ruff, and pre-commit with prek

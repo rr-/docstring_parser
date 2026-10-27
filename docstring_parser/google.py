@@ -367,6 +367,21 @@ def compose(
         else:
             optional = ""
 
+        if (
+            isinstance(one, DocstringReturns)
+            and not head
+            and not one.type_name
+            and one.description
+        ):
+            # A return with neither name nor type is just its description;
+            # a colon before it would be read back as text.
+            parts.append(
+                "\n".join(
+                    indent + line for line in one.description.splitlines()
+                )
+            )
+            return
+
         if one.type_name and head:
             head += f" ({one.type_name}{optional}):"
         elif one.type_name:
