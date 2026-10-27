@@ -423,7 +423,7 @@ def test_returns_does_not_absorb_trailing_block() -> None:
         ),
         pytest.param(
             "Short.\r\n\r\n:param a: A.\r\n\r\nExample:\r\n\r\n>>> f()",
-            "Example:\r\n\r\n>>> f()",
+            "Example:\n\n>>> f()",
             ["A."],
             id="CRLF line endings",
         ),

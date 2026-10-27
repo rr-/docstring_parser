@@ -261,3 +261,67 @@ def test_google_without_summary_is_detected() -> None:
     assert len(docstring.params) == 1
     assert docstring.params[0].arg_name == "spam"
     assert docstring.params[0].description == "description"
+
+
+@pytest.mark.parametrize(
+    "style, source",
+    [
+        (
+            DocstringStyle.REST,
+            """Short.
+
+            Long.
+
+            :param a: first
+            :returns: result
+            """,
+        ),
+        (
+            DocstringStyle.GOOGLE,
+            """Short.
+
+            Args:
+                a: first
+
+            Returns:
+                result
+            """,
+        ),
+        (
+            DocstringStyle.NUMPYDOC,
+            """Short.
+
+            Parameters
+            ----------
+            a
+                first
+
+            Returns
+            -------
+            result
+            """,
+        ),
+        (
+            DocstringStyle.EPYDOC,
+            """Short.
+
+            @param a: first
+            @return: result
+            """,
+        ),
+    ],
+)
+@pytest.mark.parametrize("line_ending", ["\r\n", "\r"])
+def test_line_endings(
+    style: DocstringStyle, source: str, line_ending: str
+) -> None:
+    """Test that other line endings parse the same as newlines."""
+    expected = parse(source, style)
+    docstring = parse(source.replace("\n", line_ending), style)
+    assert len(expected.meta) == 2
+    assert docstring.short_description == expected.short_description
+    assert docstring.long_description == expected.long_description
+    assert [m.args for m in docstring.meta] == [m.args for m in expected.meta]
+    assert [m.description for m in docstring.meta] == [
+        m.description for m in expected.meta
+    ]
