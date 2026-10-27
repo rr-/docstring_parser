@@ -26,6 +26,7 @@
 - Google, Numpydoc: `compose()` keeps params of every kind, such as ReST's `:keyword:` or Numpydoc's other params, instead of dropping those it has no section for
 - Google, Numpydoc: `compose()` writes ReST's `:ivar:`, `:var:` and `:cvar:` fields as named attributes instead of a nameless section
 - Numpydoc: Parse examples sections in linear time instead of quadratic
+- Google, Numpydoc: Match custom section titles literally, so titles with characters such as `?`, `+` or `(` work instead of being ignored or raising `re.error`
 
 # 0.18 (2026-04-14)
 
