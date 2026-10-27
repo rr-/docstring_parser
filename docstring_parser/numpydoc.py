@@ -264,17 +264,18 @@ class ExamplesSection(Section):
                      ``inspect.cleandoc`` before parsing.
         """
         lines = dedent(text).strip().splitlines()
-        while lines:
+        # Walk an index instead of popping from the front, which is
+        # quadratic in the number of lines.
+        i = 0
+        while i < len(lines):
             snippet_lines = []
             description_lines = []
-            while lines:
-                if not lines[0].startswith(">>>"):
-                    break
-                snippet_lines.append(lines.pop(0))
-            while lines:
-                if lines[0].startswith(">>>"):
-                    break
-                description_lines.append(lines.pop(0))
+            while i < len(lines) and lines[i].startswith(">>>"):
+                snippet_lines.append(lines[i])
+                i += 1
+            while i < len(lines) and not lines[i].startswith(">>>"):
+                description_lines.append(lines[i])
+                i += 1
             yield DocstringExample(
                 [self.key],
                 snippet="\n".join(snippet_lines) if snippet_lines else None,

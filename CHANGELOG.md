@@ -12,6 +12,7 @@
 - General: Type-check with ty
 - General: `compose()` raises `ValueError` instead of `KeyError` when the docstring has no style and none is given
 - Numpydoc: Fix the type of `NumpydocParser`'s `sections` argument, which takes a list of sections
+- Numpydoc: Parse examples sections in linear time instead of quadratic
 
 # 0.18 (2026-04-14)
 
