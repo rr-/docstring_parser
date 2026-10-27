@@ -41,7 +41,7 @@ test = [
     "pytest",
 ]
 docs = [
-    "pydoctor >= 25.4.0; python_version>='3.9'",
+    "pydoctor >= 25.4.0; python_version>='3.11'",
 ]
 dev = [
     {include-group = "test"},
