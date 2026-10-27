@@ -2,6 +2,8 @@
 
 - Google: Parse PEP 604 union types (e.g. `int | str`) in return sections (thanks to @binggao1230)
 - Google: Avoid regex backtracking when parsing parameter types
+- General: Replace pylint, black and isort with ruff, and pre-commit with prek
+- General: Check commit messages for a `scope: description` subject and the 50/72 rule
 
 # 0.18 (2026-04-14)
 

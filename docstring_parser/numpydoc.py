@@ -47,14 +47,14 @@ PARAM_OPTIONAL_REGEX = re.compile(r"(?P<type>.*?)(?:, optional|\(optional\))$")
 #   copy : bool, default: True
 #
 PARAM_DEFAULT_REGEX = re.compile(
-    r"(?P<type>.*?)(?:, default|\(default\))(?: | |=| = |= |: |)*(?P<value>.*)$"  # pylint: disable=C0301
+    r"(?P<type>.*?)(?:, default|\(default\))(?: | |=| = |= |: |)*(?P<value>.*)$"  # noqa: E501
 )
 
 # If the default value isn't specified in the type declaration,
 # it might be in the description. There isn't any formal grammar for this
 # in numpydoc, but we can make some educated guesses.
 PARAM_DEFAULT_REGEX_IN_DESC = re.compile(
-    r"(?<!\S)[Dd]efault(?:s to |(?:\s*(?:is|[=:])\s*|\s+))(?P<value>(?:['\"]).*?(?:['\"])|[\w\-\.]*\w)"  # pylint: disable=C0301
+    r"(?<!\S)[Dd]efault(?:s to |(?:\s*(?:is|[=:])\s*|\s+))(?P<value>(?:['\"]).*?(?:['\"])|[\w\-\.]*\w)"  # noqa: E501
 )
 
 RETURN_KEY_REGEX = re.compile(r"^(?:(?P<name>.*?)\s*:\s*)?(?P<type>.*?)$")
@@ -398,7 +398,6 @@ def parse(text: T.Optional[str]) -> Docstring:
 
 
 def compose(
-    # pylint: disable=W0613
     docstring: Docstring,
     rendering_style: RenderingStyle = RenderingStyle.COMPACT,
     indent: str = "    ",

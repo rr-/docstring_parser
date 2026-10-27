@@ -10,7 +10,7 @@ module_attr: int = 1
 
 def test_from_module_attribute_docstrings() -> None:
     """Test the parse of attribute docstrings from a module."""
-    from . import test_parse_from_object  # pylint: disable=C0415,W0406
+    from . import test_parse_from_object  # noqa: PLC0415,PLW0406
 
     docstring = parse_from_object(test_parse_from_object)
 
@@ -51,7 +51,7 @@ def test_from_class_attribute_docstrings() -> None:
 def test_from_class_attribute_docstrings_without_type() -> None:
     """Test the parse of untyped attribute docstrings."""
 
-    class WithoutType:  # pylint: disable=missing-class-docstring
+    class WithoutType:
         attr_one = "value"
         """Description for attr_one"""
 

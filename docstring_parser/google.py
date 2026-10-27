@@ -432,7 +432,7 @@ def compose(
             continue  # Already handled
         parts.append(meta.args[0].replace("_", "").title() + ":")
         if meta.description:
-            lines = [indent + l for l in meta.description.splitlines()]
+            lines = [indent + line for line in meta.description.splitlines()]
             parts.append("\n".join(lines))
         parts.append("")
 

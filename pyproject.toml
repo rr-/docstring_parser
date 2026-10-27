@@ -46,7 +46,7 @@ docs = [
 dev = [
     "docstring_parser[test]",
     "docstring_parser[docs]",
-    "pre-commit >= 2.16.0; python_version>='3.9'",
+    "prek",
 ]
 
 [tool.hatch.build.targets.wheel]
@@ -54,30 +54,18 @@ exclude = [
     "/docstring_parser/tests",
 ]
 
-[tool.black]
+[tool.ruff]
 line-length = 79
+target-version = "py38"
 
-[tool.isort]
-known_third_party = "docstring_parser"
-multi_line_output = 3
-include_trailing_comma = true
-
-[tool.pylint.master]
-jobs = 4
-
-[tool.pylint.format]
-max-line-length = 79
-
-[tool.pylint.messages_control]
-reports = "no"
-disable = [
-    "import-error",
-    "duplicate-code",
-    "too-many-locals",
-    "too-many-lines",
-    "too-many-branches",
-    "too-many-statements",
-    "too-many-arguments",
-    "too-many-positional-arguments",
-    "too-few-public-methods",
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "PL"]
+ignore = [
+    "PLR0911",  # too-many-return-statements
+    "PLR0912",  # too-many-branches
+    "PLR0913",  # too-many-arguments
+    "PLR0915",  # too-many-statements
+    "PLR0917",  # too-many-positional-arguments
+    "PLR2004",  # magic-value-comparison
+    "PLW2901",  # redefined-loop-name
 ]

@@ -254,6 +254,6 @@ def compose(
             text = f":raises{type_text}:" + process_desc(meta.description)
             parts.append(text)
         else:
-            text = f':{" ".join(meta.args)}:' + process_desc(meta.description)
+            text = f":{' '.join(meta.args)}:" + process_desc(meta.description)
             parts.append(text)
     return "\n".join(parts)

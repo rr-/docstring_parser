@@ -3,6 +3,7 @@
 import typing as T
 
 import pytest
+
 from docstring_parser.common import DocstringStyle, ParseError
 from docstring_parser.parser import parse
 
@@ -52,9 +53,7 @@ def test_rest() -> None:
     assert docstring.style == DocstringStyle.REST
     assert docstring.short_description == "Short description"
     assert docstring.long_description == (
-        "Long description\n\n"
-        "Causing people to indent:\n\n"
-        "    A lot sometimes"
+        "Long description\n\nCausing people to indent:\n\n    A lot sometimes"
     )
     assert docstring.description == (
         "Short description\n\n"
@@ -110,9 +109,7 @@ def test_google() -> None:
     assert docstring.style == DocstringStyle.GOOGLE
     assert docstring.short_description == "Short description"
     assert docstring.long_description == (
-        "Long description\n\n"
-        "Causing people to indent:\n\n"
-        "    A lot sometimes"
+        "Long description\n\nCausing people to indent:\n\n    A lot sometimes"
     )
     assert docstring.description == (
         "Short description\n\n"
@@ -190,9 +187,7 @@ def test_numpydoc() -> None:
     assert docstring.style == DocstringStyle.NUMPYDOC
     assert docstring.short_description == "Short description"
     assert docstring.long_description == (
-        "Long description\n\n"
-        "Causing people to indent:\n\n"
-        "    A lot sometimes"
+        "Long description\n\nCausing people to indent:\n\n    A lot sometimes"
     )
     assert docstring.description == (
         "Short description\n\n"

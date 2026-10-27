@@ -5,6 +5,7 @@ import sys
 import typing as T
 
 import pytest
+
 from docstring_parser.common import ParseError, RenderingStyle
 from docstring_parser.google import (
     GoogleParser,
@@ -826,11 +827,7 @@ def test_empty_example() -> None:
             Meta:
                 asd
             """,
-            "Short description\n"
-            "First line\n"
-            "    Second line\n"
-            "Meta:\n"
-            "    asd",
+            "Short description\nFirst line\n    Second line\nMeta:\n    asd",
         ),
         (
             """
@@ -841,12 +838,7 @@ def test_empty_example() -> None:
             Meta:
                 asd
             """,
-            "Short description\n"
-            "\n"
-            "First line\n"
-            "    Second line\n"
-            "Meta:\n"
-            "    asd",
+            "Short description\n\nFirst line\n    Second line\nMeta:\n    asd",
         ),
         (
             """

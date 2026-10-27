@@ -71,7 +71,7 @@ python -m venv venv  # create environment
 source venv/bin/activate  # activate environment
 
 pip install -e ".[dev]"  # install as editable
-pre-commit install  # make sure pre-commit is setup
+prek install  # set up the lint and message hooks
 ```
 
 To run tests:

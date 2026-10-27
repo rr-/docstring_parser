@@ -3,6 +3,7 @@
 import typing as T
 
 import pytest
+
 from docstring_parser.numpydoc import (
     DEFAULT_SECTIONS,
     PARAM_DEFAULT_REGEX,
@@ -1028,11 +1029,7 @@ def test_deprecation(
             ----
             asd
             """,
-            "Short description\n"
-            "Long description\n\n"
-            "Meta\n"
-            "----\n"
-            "asd",
+            "Short description\nLong description\n\nMeta\n----\nasd",
             1,
         ),
         (
@@ -1101,13 +1098,7 @@ def test_deprecation(
                     2
                 3
             """,
-            "Short description\n\n\n"
-            "Meta\n"
-            "----\n"
-            "asd\n"
-            "    1\n"
-            "        2\n"
-            "    3",
+            "Short description\n\n\nMeta\n----\nasd\n    1\n        2\n    3",
             1,
         ),
         (
@@ -1188,11 +1179,7 @@ def test_deprecation(
             ValueError
                 description
             """,
-            "Short description\n\n"
-            "Raises\n"
-            "------\n"
-            "ValueError\n"
-            "    description",
+            "Short description\n\nRaises\n------\nValueError\n    description",
             1,
         ),
         (

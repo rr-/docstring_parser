@@ -3,6 +3,7 @@
 import typing as T
 
 import pytest
+
 from docstring_parser.common import ParseError, RenderingStyle
 from docstring_parser.epydoc import compose, parse
 
@@ -564,11 +565,7 @@ def test_broken_meta() -> None:
                 Second line
             @meta: asd
             """,
-            "Short description\n"
-            "\n"
-            "First line\n"
-            "    Second line\n"
-            "@meta: asd",
+            "Short description\n\nFirst line\n    Second line\n@meta: asd",
         ),
         (
             """
@@ -579,12 +576,7 @@ def test_broken_meta() -> None:
 
             @meta: asd
             """,
-            "Short description\n"
-            "\n"
-            "First line\n"
-            "    Second line\n"
-            "\n"
-            "@meta: asd",
+            "Short description\n\nFirst line\n    Second line\n\n@meta: asd",
         ),
         (
             """
@@ -601,12 +593,7 @@ def test_broken_meta() -> None:
                     2
                 3
             """,
-            "Short description\n"
-            "\n"
-            "@meta: asd\n"
-            "    1\n"
-            "        2\n"
-            "    3",
+            "Short description\n\n@meta: asd\n    1\n        2\n    3",
         ),
         (
             """

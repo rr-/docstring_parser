@@ -2,8 +2,6 @@
 docstring_parser.tests from the API documentation. Based on Twisted code.
 """
 
-# pylint: disable=invalid-name
-
 try:
     from pydoctor.model import Documentable, PrivacyClass, System
 except ImportError:

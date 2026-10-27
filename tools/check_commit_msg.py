@@ -1,0 +1,94 @@
+#!/usr/bin/env python3
+"""Fail the commit if its message breaks the 50/72 rule.
+
+Subject line <= 50 chars, a blank line, then body wrapped at <= 72 chars.
+The subject also has to open with a scope prefix. Wired in as a prek
+commit-msg hook so it is enforced mechanically instead of by memory.
+"""
+
+import re
+import sys
+import typing as T
+from pathlib import Path
+
+MAX_SUBJECT = 50
+MAX_BODY = 72
+
+# `scope: description`, the scope at the very start of the subject. A scope
+# names a module, so it spells the name as the file does: underscores within
+# a name, `/` between folders, `+` between two modules.
+SUBJECT_RE = re.compile(r"^[a-z0-9][a-z0-9_+./]*: \S")
+
+# Subjects git or a rebase writes itself, which the rule is not about.
+EXEMPT_PREFIXES = ("Merge ", "Revert ", "fixup! ", "squash! ", "amend! ")
+
+
+def main(argv: T.Sequence[str]) -> int:
+    if len(argv) != 2:
+        sys.stderr.write(f"Usage: {argv[0]} COMMIT_MSG_FILE\n")
+        return 2
+
+    message_path = Path(argv[1])
+    with message_path.open(encoding="utf-8") as handle:
+        raw_lines = handle.read().splitlines()
+
+    # `git commit -v` appends a diff below a scissors line; ignore it.
+    cut = next(
+        (
+            i
+            for i, line in enumerate(raw_lines)
+            if ">8" in line and line[:1] == "#"
+        ),
+        None,
+    )
+    if cut is not None:
+        raw_lines = raw_lines[:cut]
+
+    lines = [line for line in raw_lines if not line.startswith("#")]
+    while lines and not lines[-1].strip():
+        lines.pop()
+    if not lines:
+        return 0
+
+    errors: T.List[str] = []
+    subject = lines[0]
+    if not subject.startswith(EXEMPT_PREFIXES):
+        if len(subject) > MAX_SUBJECT:
+            errors.append(
+                f"subject is {len(subject)} chars (max {MAX_SUBJECT})"
+            )
+        if not SUBJECT_RE.match(subject):
+            head = subject.split(":")[0]
+            if "," in head:
+                errors.append(
+                    f"scope `{head}` separates modules with a comma; join"
+                    " them with `+`"
+                )
+            elif "-" in head:
+                errors.append(
+                    f"scope `{head}` uses a dash; spell the module as its"
+                    f" file does (`{head.replace('-', '_')}`)"
+                )
+            else:
+                errors.append(
+                    "subject must open with a lowercase scope, as in"
+                    " `google: parse PEP 604 union return types`"
+                )
+    if len(lines) > 1 and lines[1].strip():
+        errors.append("second line must be blank (subject, blank, body)")
+    for number, line in enumerate(lines[2:], start=3):
+        if len(line) > MAX_BODY:
+            errors.append(
+                f"body line {number} is {len(line)} chars (max {MAX_BODY})"
+            )
+
+    if errors:
+        sys.stderr.write("Commit message breaks the 50/72 rule:\n")
+        for error in errors:
+            sys.stderr.write(f"  - {error}\n")
+        return 1
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv))
