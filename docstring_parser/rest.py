@@ -19,6 +19,7 @@ from .common import (
     DocstringStyle,
     ParseError,
     RenderingStyle,
+    normalize_line_endings,
 )
 
 
@@ -108,7 +109,7 @@ def parse(text: T.Optional[str]) -> Docstring:
     if not text:
         return ret
 
-    text = inspect.cleandoc(text)
+    text = inspect.cleandoc(normalize_line_endings(text))
     match = re.search("^:", text, flags=re.M)
     if match:
         desc_chunk = text[: match.start()]
@@ -136,7 +137,7 @@ def parse(text: T.Optional[str]) -> Docstring:
     # content. The last case ends the field list so that a trailing block
     # (e.g. an ``Example`` section) is not absorbed into the last field.
     for match in re.finditer(
-        r"(^:.*?)(?=^:|\r?\n[ \t]*\r?\n(?=[^ \t\r\n:])|\Z)",
+        r"(^:.*?)(?=^:|\n[ \t]*\n(?=[^ \t\n:])|\Z)",
         meta_chunk,
         flags=re.S | re.M,
     ):

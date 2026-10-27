@@ -5,6 +5,7 @@
 - Google: Parse docstrings that open with a section title (thanks to @HardMax71)
 - ReST: Stop the last field from absorbing text after the field list; that text now goes to the long description (thanks to @apoorvdarshan)
 - Epydoc: Match fields only at their header, so field-like text in a description no longer replaces it and a header missing its colon no longer stalls the parser (thanks to @akshitkhokhani)
+- General: Parse docstrings with `\r\n` or `\r` line endings the same as with `\n`, on every Python version
 - General: Replace pylint, black and isort with ruff, and pre-commit with prek
 - General: Check commit messages for a `scope: description` subject and the 50/72 rule
 - General: Replace pip, venv and hatchling with uv; development dependencies are now dependency groups instead of extras

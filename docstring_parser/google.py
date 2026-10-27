@@ -21,6 +21,7 @@ from .common import (
     DocstringStyle,
     ParseError,
     RenderingStyle,
+    normalize_line_endings,
 )
 
 
@@ -238,6 +239,7 @@ class GoogleParser:
         ret = Docstring(style=DocstringStyle.GOOGLE)
         if not text:
             return ret
+        text = normalize_line_endings(text)
 
         # A title on the first line has no summary before it. Push it below
         # one so that cleandoc dedents it with its entries instead of stripping
