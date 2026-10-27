@@ -4,6 +4,7 @@ import typing as T
 
 import pytest
 
+from docstring_parser import epydoc, google, numpydoc
 from docstring_parser.common import Docstring, DocstringStyle, ParseError
 from docstring_parser.parser import compose, parse
 
@@ -261,3 +262,74 @@ def test_google_without_summary_is_detected() -> None:
     assert len(docstring.params) == 1
     assert docstring.params[0].arg_name == "spam"
     assert docstring.params[0].description == "description"
+
+
+def test_auto_skips_parsers_for_plain_text(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """Test that text no style finds fields in is parsed as ReST only."""
+
+    def fail(text: T.Optional[str]) -> Docstring:
+        raise AssertionError("only ReST should parse this")
+
+    for module in (google, numpydoc, epydoc):
+        monkeypatch.setattr(module, "parse", fail)
+    docstring = parse("Short.\n\nLong text, e.g. this - with dashes.")
+    assert docstring.style == DocstringStyle.REST
+    assert docstring.long_description == "Long text, e.g. this - with dashes."
+
+
+@pytest.mark.parametrize(
+    "line",
+    [
+        ":param a: x",
+        "@param a: x",
+        "Args:",
+        "    Returns:  ",
+        "----------",
+        ".. deprecated:: 1.0",
+        "----------\xa0",
+        "\xa0@param a: x",
+        "Returns:\u3000",
+    ],
+)
+def test_auto_parses_every_style_for_field_lines(
+    monkeypatch: pytest.MonkeyPatch, line: str
+) -> None:
+    """Test that a line that may start a field runs every style."""
+    calls = []
+    for module in (google, numpydoc, epydoc):
+        monkeypatch.setattr(
+            module,
+            "parse",
+            lambda text, parse=module.parse: calls.append(1) or parse(text),
+        )
+    parse(f"Short.\n\n{line}")
+    assert len(calls) == 3
+
+
+def test_auto_parses_every_style_for_custom_numpydoc_titles(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """Test that a custom Numpydoc title pattern turns the shortcut off."""
+
+    class StarSection(numpydoc.Section):
+        @property
+        def title_pattern(self) -> str:
+            return r"^\*\*(Stars)\*\*$"
+
+    monkeypatch.setattr(
+        numpydoc,
+        "DEFAULT_SECTIONS",
+        [*numpydoc.DEFAULT_SECTIONS, StarSection("Stars", "stars")],
+    )
+    docstring = parse("Short.\n\n**Stars**\nfive")
+    assert docstring.style == DocstringStyle.NUMPYDOC
+    assert docstring.meta[0].args == ["stars"]
+
+
+def test_auto_finds_fields_after_unusual_whitespace() -> None:
+    """Test that a non-breaking space doesn't hide a Numpydoc section."""
+    docstring = parse("Short.\n\nParameters\n----------\xa0\nx\n    desc")
+    assert docstring.style == DocstringStyle.NUMPYDOC
+    assert docstring.params[0].arg_name == "x"

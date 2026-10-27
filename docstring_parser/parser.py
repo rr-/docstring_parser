@@ -1,6 +1,7 @@
 """The main parsing routine."""
 
 import inspect
+import re
 import typing as T
 
 from docstring_parser import epydoc, google, numpydoc, rest
@@ -19,6 +20,40 @@ _STYLE_MAP = {
     DocstringStyle.EPYDOC: epydoc,
 }
 
+# Any line that could start a field or a section in some style: a ReST
+# ``:field``, an Epydoc ``@field``, a Google title ending in a colon, or a
+# Numpydoc dashes underline or ``..`` directive.
+_FIELD_LINE = re.compile(
+    r"^[^\S\n]*[:@]"
+    r"|:[^\S\n]*$"
+    r"|^[^\S\n]*-+[^\S\n]*$"
+    r"|^[^\S\n]*\.\.",
+    flags=re.M,
+)
+
+_NUMPYDOC_TITLE_PATTERNS = (
+    numpydoc.Section.title_pattern,
+    numpydoc._SphinxSection.title_pattern,
+)
+
+
+def _has_no_fields(text: str) -> bool:
+    """Tell whether no style can find a field or a section in the text.
+
+    Every style then parses it with no meta and without raising, so the
+    ReST result wins the tie that auto-detection would otherwise break
+    after parsing it four times.
+    """
+    if "\r" in text:
+        text = text.replace("\r\n", "\n").replace("\r", "\n")
+    # A custom Numpydoc section may match its title any way it likes.
+    if any(
+        type(section).title_pattern not in _NUMPYDOC_TITLE_PATTERNS
+        for section in numpydoc.DEFAULT_SECTIONS
+    ):
+        return False
+    return _FIELD_LINE.search(text) is None
+
 
 def parse(
     text: T.Optional[str], style: DocstringStyle = DocstringStyle.AUTO
@@ -31,6 +66,9 @@ def parse(
     """
     if style != DocstringStyle.AUTO:
         return _STYLE_MAP[style].parse(text)
+
+    if not text or _has_no_fields(text):
+        return rest.parse(text)
 
     exc: T.Optional[Exception] = None
     rets = []
