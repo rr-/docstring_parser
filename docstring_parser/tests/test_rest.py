@@ -611,3 +611,27 @@ def test_short_rtype() -> None:
     docstring = parse(string)
     rendering_style = RenderingStyle.EXPANDED
     assert compose(docstring, rendering_style=rendering_style) == string
+
+
+@pytest.mark.parametrize(
+    "source",
+    [
+        "Short.\n\n:param a: first line\n    :class:`Foo` starts this one",
+        "Short.\n\n:param a: first paragraph\n\n    second paragraph",
+        "Short.\n\n:returns: first line\n    :data:`x` second",
+    ],
+)
+@pytest.mark.parametrize(
+    "rendering_style", [RenderingStyle.COMPACT, RenderingStyle.CLEAN]
+)
+def test_compose_indents_continuation_lines(
+    source: str, rendering_style: RenderingStyle
+) -> None:
+    """Test that continuation lines stay part of their field."""
+    docstring = parse(source)
+    again = parse(compose(docstring, rendering_style=rendering_style))
+    assert [m.args for m in again.meta] == [m.args for m in docstring.meta]
+    assert [m.description for m in again.meta] == [
+        m.description for m in docstring.meta
+    ]
+    assert again.long_description == docstring.long_description

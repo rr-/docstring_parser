@@ -4,6 +4,7 @@
 - Google: Avoid regex backtracking when parsing parameter types
 - Google: Parse docstrings that open with a section title (thanks to @HardMax71)
 - ReST: Stop the last field from absorbing text after the field list; that text now goes to the long description (thanks to @apoorvdarshan)
+- ReST: `compose()` indents continuation lines in compact mode, so one starting with a role such as `:class:` is no longer read back as a new field
 - Epydoc: Match fields only at their header, so field-like text in a description no longer replaces it and a header missing its colon no longer stalls the parser (thanks to @akshitkhokhani)
 - General: Replace pylint, black and isort with ruff, and pre-commit with prek
 - General: Check commit messages for a `scope: description` subject and the 50/72 rule

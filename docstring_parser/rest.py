@@ -217,17 +217,13 @@ def compose(
         if not desc:
             return ""
 
-        if rendering_style == RenderingStyle.CLEAN:
-            (first, *rest) = desc.splitlines()
-            return "\n".join([" " + first] + [indent + line for line in rest])
-
+        # Continuation lines are indented, so that one starting with a colon
+        # is not read back as a field of its own.
+        (first, *rest) = desc.splitlines()
+        rest = [indent + line if line else "" for line in rest]
         if rendering_style == RenderingStyle.EXPANDED:
-            (first, *rest) = desc.splitlines()
-            return "\n".join(
-                ["\n" + indent + first] + [indent + line for line in rest]
-            )
-
-        return " " + desc
+            return "\n".join(["\n" + indent + first] + rest)
+        return "\n".join([" " + first] + rest)
 
     parts: T.List[str] = []
     if docstring.short_description:
