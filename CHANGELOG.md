@@ -12,6 +12,10 @@
 - General: Type-check with ty
 - General: `compose()` raises `ValueError` instead of `KeyError` when the docstring has no style and none is given
 - Numpydoc: Fix the type of `NumpydocParser`'s `sections` argument, which takes a list of sections
+- Numpydoc: `compose()` writes sections such as See Also with their own titles and underlines, instead of e.g. `Seealso`
+- Numpydoc: `compose()` no longer adds a blank line on every round trip of a docstring without a long description
+- Numpydoc: `compose()` no longer ends the docstring with a blank line
+- Numpydoc: `compose()` separates the deprecation block from the long description with a blank line, and no longer leaves trailing spaces on its blank lines
 
 # 0.18 (2026-04-14)
 

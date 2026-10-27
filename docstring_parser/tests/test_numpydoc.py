@@ -1098,7 +1098,7 @@ def test_deprecation(
                     2
                 3
             """,
-            "Short description\n\n\nMeta\n----\nasd\n    1\n        2\n    3",
+            "Short description\n\nMeta\n----\nasd\n    1\n        2\n    3",
             1,
         ),
         (
@@ -1118,7 +1118,7 @@ def test_deprecation(
             -----
             derp
             """,
-            "Short description\n\n\n"
+            "Short description\n\n"
             "Meta1\n"
             "-----\n"
             "asd\n"
@@ -1153,7 +1153,7 @@ def test_deprecation(
             default_arg: str, default=10
                 description 6, defaults to 10
             """,
-            "Short description\n\n\n"
+            "Short description\n\n"
             "Parameters\n"
             "----------\n"
             "name\n"
@@ -1228,3 +1228,52 @@ def test_compose(source: str, expected: str, expected_num_metas: int) -> None:
     assert len(docstring.meta) == expected_num_metas
 
     assert compose(docstring) == expected
+
+
+@pytest.mark.parametrize(
+    "title, key",
+    [
+        ("See Also", "see_also"),
+        ("Notes", "notes"),
+        ("Warnings", "warnings"),
+        ("References", "references"),
+    ],
+)
+def test_compose_section_title(title: str, key: str) -> None:
+    """Test that a section composes with its own title and underline."""
+    source = f"Short.\n\n{title}\n{'-' * len(title)}\nSome text."
+    docstring = parse(source)
+    assert docstring.meta[0].args == [key]
+    assert compose(docstring) == source
+
+
+@pytest.mark.parametrize(
+    "source",
+    [
+        "Short.\n\nParameters\n----------\na\n    x",
+        "Short.\n\nLong.\n\nSee Also\n--------\nother\n\n"
+        "Notes\n-----\nA note.",
+    ],
+)
+def test_compose_is_stable(source: str) -> None:
+    """Test that composing a composed docstring changes nothing."""
+    composed = compose(parse(source))
+    assert compose(parse(composed)) == composed
+
+
+def test_compose_deprecation_layout() -> None:
+    """Test that a deprecation is set off and has no trailing spaces."""
+    docstring = parse(
+        "Short.\n\n.. deprecated:: 1.0\n    Use other.\n\n    More."
+    )
+    docstring.long_description = "Long."
+    assert compose(docstring) == (
+        "Short.\n\n.. deprecated:: 1.0\n    Use other.\n\n    More.\n\nLong."
+    )
+
+
+def test_compose_does_not_end_with_blank_line() -> None:
+    """Test that a blank line after the last block is left out."""
+    docstring = parse("Short.\n\nLong.")
+    docstring.blank_after_long_description = True
+    assert compose(docstring) == "Short.\n\nLong."
