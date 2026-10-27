@@ -75,3 +75,5 @@ To run tests:
 ```
 uv run pytest
 ```
+
+The `justfile` wraps these and other common tasks; run `just` to list them.
