@@ -1149,3 +1149,15 @@ def test_compose_typeless_return(
 ) -> None:
     """Test that a return with no type composes as its description."""
     assert compose(parse(source), rendering_style=rendering_style) == source
+
+
+@pytest.mark.parametrize("title", ["Notes?", "C++ Notes", "Args (old)"])
+def test_section_title_is_literal(title: str) -> None:
+    """Test that regex characters in a section title match literally."""
+    parser = GoogleParser(
+        [Section(title, "custom", SectionType.SINGULAR)], title_colon=True
+    )
+    docstring = parser.parse(f"Short.\n\n{title}:\n    text")
+    assert [(m.args, m.description) for m in docstring.meta] == [
+        (["custom"], "text")
+    ]

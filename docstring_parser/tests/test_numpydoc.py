@@ -1363,3 +1363,13 @@ def test_examples_section_finishes_promptly() -> None:
     assert len(docstring.examples) == 50_000
     assert docstring.examples[-1].snippet == ">>> f()"
     assert docstring.examples[-1].description == "out"
+
+
+@pytest.mark.parametrize("title", ["Notes?", "C++ Notes", "Args (old)"])
+def test_section_title_is_literal(title: str) -> None:
+    """Test that regex characters in a section title match literally."""
+    parser = NumpydocParser([Section(title, "custom")])
+    docstring = parser.parse(f"Short.\n\n{title}\n{'-' * len(title)}\ntext")
+    assert [(m.args, m.description) for m in docstring.meta] == [
+        (["custom"], "text")
+    ]
