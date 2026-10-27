@@ -19,6 +19,7 @@ from .common import (
     DocstringReturns,
     DocstringStyle,
     RenderingStyle,
+    normalize_line_endings,
 )
 
 
@@ -354,7 +355,7 @@ class NumpydocParser:
             return ret
 
         # Clean according to PEP-0257
-        text = inspect.cleandoc(text)
+        text = inspect.cleandoc(normalize_line_endings(text))
 
         # Find first title and split on its position
         match = self.titles_re.search(text)
