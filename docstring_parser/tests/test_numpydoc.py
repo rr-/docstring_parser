@@ -1354,3 +1354,12 @@ def test_deprecation_keeps_blank_after_short(blank: bool) -> None:
     docstring = parse(f"Short.\n{gap}.. deprecated:: 1.0\n    Use.\n\nLong.")
     assert docstring.long_description == "Long."
     assert docstring.blank_after_short_description is blank
+
+
+def test_examples_section_finishes_promptly() -> None:
+    """Parse a long examples section without rescanning its lines."""
+    lines = [">>> f()" if i % 2 == 0 else "out" for i in range(100_000)]
+    docstring = parse("Short.\n\nExamples\n--------\n" + "\n".join(lines))
+    assert len(docstring.examples) == 50_000
+    assert docstring.examples[-1].snippet == ">>> f()"
+    assert docstring.examples[-1].description == "out"
