@@ -1104,3 +1104,22 @@ for result in (parse(doc), parse_from_object(tool)):
     assert result.params[0].type_name is None
 """
     subprocess.run([sys.executable, "-c", code], check=True, timeout=5)
+
+
+@pytest.mark.parametrize(
+    "source",
+    [
+        "Short.\n\nReturns:\n    The value.",
+        "Short.\n\nYields:\n    The value.",
+        "Short.\n\nReturns:\n    The value,\n    over two lines.",
+        "Short.\n\nReturns:\n    The value: with a colon.",
+    ],
+)
+@pytest.mark.parametrize(
+    "rendering_style", [RenderingStyle.COMPACT, RenderingStyle.CLEAN]
+)
+def test_compose_typeless_return(
+    source: str, rendering_style: RenderingStyle
+) -> None:
+    """Test that a return with no type composes as its description."""
+    assert compose(parse(source), rendering_style=rendering_style) == source
