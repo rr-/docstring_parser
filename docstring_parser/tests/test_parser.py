@@ -397,3 +397,10 @@ def test_auto_finds_fields_after_unusual_whitespace() -> None:
     docstring = parse("Short.\n\nParameters\n----------\xa0\nx\n    desc")
     assert docstring.style == DocstringStyle.NUMPYDOC
     assert docstring.params[0].arg_name == "x"
+
+
+def test_auto_field_with_no_name() -> None:
+    """Test that a nameless ReST field does not crash auto-detection."""
+    docstring = parse("Short.\n\n:  : text")
+    assert docstring.long_description == ":  : text"
+    assert not docstring.meta
