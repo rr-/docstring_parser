@@ -389,12 +389,23 @@ class NumpydocParser:
         return ret
 
 
+_default_parser: T.Optional[NumpydocParser] = None
+_default_parser_sections: T.Tuple[Section, ...] = ()
+
+
 def parse(text: T.Optional[str]) -> Docstring:
     """Parse the numpy-style docstring into its components.
 
     :returns: parsed docstring
     """
-    return NumpydocParser().parse(text)
+    global _default_parser, _default_parser_sections  # noqa: PLW0603
+    # Building a parser compiles its title regex, so reuse one until
+    # DEFAULT_SECTIONS changes.
+    sections = tuple(DEFAULT_SECTIONS)
+    if _default_parser is None or sections != _default_parser_sections:
+        _default_parser = NumpydocParser()
+        _default_parser_sections = sections
+    return _default_parser.parse(text)
 
 
 def compose(

@@ -4,6 +4,7 @@ import typing as T
 
 import pytest
 
+from docstring_parser import numpydoc
 from docstring_parser.numpydoc import (
     DEFAULT_SECTIONS,
     PARAM_DEFAULT_REGEX,
@@ -1228,3 +1229,25 @@ def test_compose(source: str, expected: str, expected_num_metas: int) -> None:
     assert len(docstring.meta) == expected_num_metas
 
     assert compose(docstring) == expected
+
+
+def test_parse_reuses_default_parser() -> None:
+    """Test that parse builds the default parser once."""
+    numpydoc.parse("Short.")
+    parser = numpydoc._default_parser
+    numpydoc.parse("Short.\n\nParameters\n----------\na\n    A.")
+    assert numpydoc._default_parser is parser
+
+
+def test_parse_follows_default_sections(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """Test that parse picks up changes to DEFAULT_SECTIONS."""
+    text = "Short.\n\nMeta\n----\nasd"
+    assert parse(text).meta == []
+    monkeypatch.setattr(
+        numpydoc,
+        "DEFAULT_SECTIONS",
+        [*numpydoc.DEFAULT_SECTIONS, Section("Meta", "meta")],
+    )
+    assert parse(text).meta[0].args == ["meta"]
