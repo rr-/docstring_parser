@@ -1228,3 +1228,12 @@ def test_compose(source: str, expected: str, expected_num_metas: int) -> None:
     assert len(docstring.meta) == expected_num_metas
 
     assert compose(docstring) == expected
+
+
+def test_examples_section_finishes_promptly() -> None:
+    """Parse a long examples section without rescanning its lines."""
+    lines = [">>> f()" if i % 2 == 0 else "out" for i in range(100_000)]
+    docstring = parse("Short.\n\nExamples\n--------\n" + "\n".join(lines))
+    assert len(docstring.examples) == 50_000
+    assert docstring.examples[-1].snippet == ">>> f()"
+    assert docstring.examples[-1].description == "out"
