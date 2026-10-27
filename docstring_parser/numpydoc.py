@@ -442,9 +442,14 @@ def compose(
         else:
             parts.append(head)
 
+    def blank_line() -> None:
+        # One blank line between blocks, however many ask for one.
+        if parts and parts[-1] != "":
+            parts.append("")
+
     def process_sect(name: str, args: T.List[T.Any]):
         if args:
-            parts.append("")
+            blank_line()
             parts.append(name)
             parts.append("-" * len(parts[-1]))
             for arg in args:
@@ -454,7 +459,7 @@ def compose(
     if docstring.short_description:
         parts.append(docstring.short_description)
     if docstring.blank_after_short_description:
-        parts.append("")
+        blank_line()
 
     if docstring.deprecation:
         first = ".. deprecated::"
@@ -464,13 +469,18 @@ def compose(
             rest = docstring.deprecation.description.splitlines()
         else:
             rest = []
-        sep = f"\n{indent}"
-        parts.append(sep.join([first] + rest))
+        parts.append(
+            "\n".join(
+                [first] + [indent + line if line else "" for line in rest]
+            )
+        )
+        if docstring.long_description:
+            blank_line()
 
     if docstring.long_description:
         parts.append(docstring.long_description)
-    if docstring.blank_after_long_description:
-        parts.append("")
+        if docstring.blank_after_long_description:
+            blank_line()
 
     process_sect(
         "Parameters",
@@ -535,7 +545,7 @@ def compose(
     )
 
     if len(docstring.examples) > 0:
-        parts.append("")
+        blank_line()
         parts.append("Examples")
         parts.append("--------")
         for example in docstring.examples:
@@ -557,11 +567,20 @@ def compose(
         ):
             continue  # Already handled
 
-        parts.append("")
-        parts.append(meta.args[0].replace("_", "").title())
-        parts.append("-" * len(meta.args[0]))
+        # Use the section's own title, e.g. "See Also" for see_also.
+        key = meta.args[0]
+        title = next(
+            (s.title for s in DEFAULT_SECTIONS if s.key == key),
+            key.replace("_", "").title(),
+        )
+        blank_line()
+        parts.append(title)
+        parts.append("-" * len(title))
 
         if meta.description:
             parts.append(meta.description)
 
+    # A blank line at the very end separates nothing.
+    while parts and parts[-1] == "":
+        parts.pop()
     return "\n".join(parts)
