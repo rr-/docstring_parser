@@ -4,8 +4,8 @@ import typing as T
 
 import pytest
 
-from docstring_parser.common import DocstringStyle, ParseError
-from docstring_parser.parser import parse
+from docstring_parser.common import Docstring, DocstringStyle, ParseError
+from docstring_parser.parser import compose, parse
 
 
 @pytest.mark.parametrize(
@@ -240,3 +240,9 @@ def test_autodetection_error_detection() -> None:
 
     assert docstring
     assert docstring.style == DocstringStyle.GOOGLE
+
+
+def test_compose_without_style() -> None:
+    """Test composing a docstring that has no style to fall back on."""
+    with pytest.raises(ValueError):
+        compose(Docstring())

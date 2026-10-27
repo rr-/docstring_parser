@@ -43,6 +43,7 @@ def parse(
             rets.append(ret)
 
     if not rets:
+        assert exc is not None
         raise exc
 
     return sorted(rets, key=lambda d: len(d.meta), reverse=True)[0]
@@ -92,9 +93,13 @@ def compose(
     :param indent: the characters used as indentation in the docstring string
     :returns: docstring text
     """
-    module = _STYLE_MAP[
-        docstring.style if style == DocstringStyle.AUTO else style
-    ]
+    if style == DocstringStyle.AUTO:
+        if docstring.style is None:
+            raise ValueError(
+                "Docstring has no style to render with; pass one explicitly"
+            )
+        style = docstring.style
+    module = _STYLE_MAP[style]
     return module.compose(
         docstring, rendering_style=rendering_style, indent=indent
     )

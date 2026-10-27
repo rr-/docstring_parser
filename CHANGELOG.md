@@ -6,6 +6,9 @@
 - General: Check commit messages for a `scope: description` subject and the 50/72 rule
 - General: Replace pip, venv and hatchling with uv; development dependencies are now dependency groups instead of extras
 - General: Add a justfile for common development tasks
+- General: Type-check with ty
+- General: `compose()` raises `ValueError` instead of `KeyError` when the docstring has no style and none is given
+- Numpydoc: Fix the type of `NumpydocParser`'s `sections` argument, which takes a list of sections
 
 # 0.18 (2026-04-14)
 

@@ -14,6 +14,7 @@ def test_from_module_attribute_docstrings() -> None:
 
     docstring = parse_from_object(test_parse_from_object)
 
+    assert docstring.short_description is not None
     assert "parse_from_object" in docstring.short_description
     assert len(docstring.params) == 1
     assert docstring.params[0].arg_name == "module_attr"

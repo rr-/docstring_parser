@@ -105,7 +105,7 @@ class _KVSection(Section):
     """
 
     def _parse_item(self, key: str, value: str) -> DocstringMeta:
-        pass
+        raise NotImplementedError
 
     def parse(self, text: str) -> T.Iterable[DocstringMeta]:
         for match, next_match in _pairwise(KV_REGEX.finditer(text)):
@@ -142,24 +142,25 @@ class ParamSection(_KVSection):
     """
 
     def _parse_item(self, key: str, value: str) -> DocstringParam:
+        # The key is a single line, which the pattern always matches.
         match = PARAM_KEY_REGEX.match(key)
-        arg_name = type_name = is_optional = default = None
-        if match is not None:
-            arg_name = match.group("name")
-            type_name = match.group("type")
-            if type_name is not None:
-                optional_match = PARAM_OPTIONAL_REGEX.match(type_name)
-                if optional_match is not None:
-                    type_name = optional_match.group("type")
-                    is_optional = True
-                else:
-                    is_optional = False
+        assert match is not None
+        arg_name: str = match.group("name")
+        type_name: T.Optional[str] = match.group("type")
+        is_optional = default = None
+        if type_name is not None:
+            optional_match = PARAM_OPTIONAL_REGEX.match(type_name)
+            if optional_match is not None:
+                type_name = optional_match.group("type")
+                is_optional = True
+            else:
+                is_optional = False
 
-                default_match = PARAM_DEFAULT_REGEX.match(type_name)
-                if default_match is not None:
-                    is_optional = True
-                    type_name = default_match.group("type")
-                    default = default_match.group("value")
+            default_match = PARAM_DEFAULT_REGEX.match(type_name)
+            if default_match is not None:
+                is_optional = True
+                type_name = default_match.group("type")
+                default = default_match.group("value")
 
         # If the default wasn't specifified in the type declaration,
         # try and see if we can find it in the description.
@@ -234,13 +235,12 @@ class DeprecationSection(_SphinxSection):
     """Parser for numpydoc "deprecation warning" sections."""
 
     def parse(self, text: str) -> T.Iterable[DocstringDeprecated]:
-        version, desc, *_ = text.split(sep="\n", maxsplit=1) + [None, None]
-
-        if desc is not None:
-            desc = _clean_str(inspect.cleandoc(desc))
+        version, _, desc = text.partition("\n")
 
         yield DocstringDeprecated(
-            args=[self.key], description=desc, version=_clean_str(version)
+            args=[self.key],
+            description=_clean_str(inspect.cleandoc(desc)),
+            version=_clean_str(version),
         )
 
 
@@ -320,7 +320,7 @@ DEFAULT_SECTIONS = [
 class NumpydocParser:
     """Parser for numpydoc-style docstrings."""
 
-    def __init__(self, sections: T.Optional[T.Dict[str, Section]] = None):
+    def __init__(self, sections: T.Optional[T.List[Section]] = None):
         """Setup sections.
 
         :param sections: Recognized sections or None to defaults.

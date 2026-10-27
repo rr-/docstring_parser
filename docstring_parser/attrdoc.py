@@ -60,7 +60,7 @@ def ast_get_attribute(
 class AttributeDocstrings(ast.NodeVisitor):
     """An ast.NodeVisitor that collects attribute docstrings."""
 
-    attr_docs = None
+    attr_docs: T.Dict[str, T.Tuple[str, T.Optional[str], T.Optional[str]]]
     prev_attr = None
 
     def visit(self, node):
