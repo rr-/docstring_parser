@@ -1228,3 +1228,57 @@ def test_compose(source: str, expected: str, expected_num_metas: int) -> None:
     assert len(docstring.meta) == expected_num_metas
 
     assert compose(docstring) == expected
+
+
+@pytest.mark.parametrize(
+    "source, long_description, description",
+    [
+        pytest.param(
+            "Short.\n\n.. deprecated:: 1.0\n    Use other.\n\nLong.",
+            "Long.",
+            "Use other.",
+            id="long description after the deprecation",
+        ),
+        pytest.param(
+            "Short.\n\n"
+            ".. deprecated:: 1.0\n    Use other.\n\n    More.\n\n"
+            "Long.\n\n"
+            "See Also\n--------\nother",
+            "Long.",
+            "Use other.\n\nMore.",
+            id="indented paragraphs stay in the deprecation",
+        ),
+        pytest.param(
+            "Short.\n\nLong.\n\n.. deprecated:: 1.0\n    Use other.",
+            "Long.",
+            "Use other.",
+            id="long description before the deprecation",
+        ),
+        pytest.param(
+            "Short.\n\n.. deprecated:: 1.0\nUse other.",
+            None,
+            "Use other.",
+            id="unindented line right after the directive",
+        ),
+    ],
+)
+def test_deprecation_body(
+    source: str,
+    long_description: T.Optional[str],
+    description: str,
+) -> None:
+    """Test that a deprecation ends where its indented body does."""
+    docstring = parse(source)
+    assert docstring.long_description == long_description
+    assert docstring.deprecation is not None
+    assert docstring.deprecation.version == "1.0"
+    assert docstring.deprecation.description == description
+
+
+@pytest.mark.parametrize("blank", [True, False])
+def test_deprecation_keeps_blank_after_short(blank: bool) -> None:
+    """Test that moving text past a directive keeps the summary's spacing."""
+    gap = "\n" if blank else ""
+    docstring = parse(f"Short.\n{gap}.. deprecated:: 1.0\n    Use.\n\nLong.")
+    assert docstring.long_description == "Long."
+    assert docstring.blank_after_short_description is blank

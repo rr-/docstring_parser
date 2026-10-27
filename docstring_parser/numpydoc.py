@@ -231,6 +231,20 @@ class YieldsSection(ReturnsSection):
     is_generator = True
 
 
+def _split_directive(text: str) -> T.Tuple[str, str]:
+    """Split a directive from the unindented text that follows its body.
+
+    The body is the directive's first line and the indented lines after it.
+    It ends at a blank line followed by an unindented one.
+    """
+    lines = text.split("\n")
+    for i in range(2, len(lines)):
+        line = lines[i]
+        if line and not line[0].isspace() and not lines[i - 1].strip():
+            return "\n".join(lines[:i]), "\n".join(lines[i:])
+    return text, ""
+
+
 class DeprecationSection(_SphinxSection):
     """Parser for numpydoc "deprecation warning" sections."""
 
@@ -376,6 +390,8 @@ class NumpydocParser:
             ret.blank_after_long_description = long_desc_chunk.endswith("\n\n")
             ret.long_description = long_desc_chunk.strip() or None
 
+        # Text after a directive's body, which goes to the long description.
+        loose_chunks = []
         for match, nextmatch in _pairwise(self.titles_re.finditer(meta_chunk)):
             title = next(g for g in match.groups() if g is not None)
             factory = self.sections[title]
@@ -384,7 +400,20 @@ class NumpydocParser:
             # ends at the start of the next header
             start = match.end()
             end = nextmatch.start() if nextmatch is not None else None
-            ret.meta.extend(factory.parse(meta_chunk[start:end]))
+            chunk = meta_chunk[start:end]
+            if isinstance(factory, _SphinxSection):
+                chunk, loose = _split_directive(chunk)
+                if loose.strip():
+                    loose_chunks.append(loose.strip())
+            ret.meta.extend(factory.parse(chunk))
+
+        if loose_chunks:
+            loose_text = "\n\n".join(loose_chunks)
+            ret.long_description = (
+                f"{ret.long_description}\n\n{loose_text}"
+                if ret.long_description
+                else loose_text
+            )
 
         return ret
 
