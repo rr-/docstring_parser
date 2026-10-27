@@ -3,7 +3,11 @@ docstring_parser.tests from the API documentation. Based on Twisted code.
 """
 
 try:
-    from pydoctor.model import Documentable, PrivacyClass, System
+    from pydoctor.model import (  # ty: ignore[unresolved-import]
+        Documentable,
+        PrivacyClass,
+        System,
+    )
 except ImportError:
     pass
 else:

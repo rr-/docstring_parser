@@ -20,7 +20,7 @@ build:
 
 # Generate the API documentation into apidocs/
 docs:
-    uv run --only-group docs pydoctor \
+    uv run --isolated --python 3.12 --only-group docs pydoctor \
         --project-name=docstring_parser \
         --make-html \
         --html-output=./apidocs \
