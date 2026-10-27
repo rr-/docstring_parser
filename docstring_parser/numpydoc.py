@@ -19,6 +19,7 @@ from .common import (
     DocstringReturns,
     DocstringStyle,
     RenderingStyle,
+    meta_as_attribute,
 )
 
 
@@ -472,9 +473,15 @@ def compose(
     if docstring.blank_after_long_description:
         parts.append("")
 
+    # Params of any other kind, such as ReST's :keyword:, go with the
+    # parameters rather than being dropped.
     process_sect(
         "Parameters",
-        [item for item in docstring.params or [] if item.args[0] == "param"],
+        [
+            item
+            for item in docstring.params or []
+            if item.args[0] not in {"attribute", "other_param", "receives"}
+        ],
     )
 
     process_sect(
@@ -483,7 +490,8 @@ def compose(
             item
             for item in docstring.params or []
             if item.args[0] == "attribute"
-        ],
+        ]
+        + [m for m in map(meta_as_attribute, docstring.meta) if m],
     )
 
     process_sect(
@@ -554,7 +562,7 @@ def compose(
                 DocstringRaises,
                 DocstringExample,
             ),
-        ):
+        ) or meta_as_attribute(meta):
             continue  # Already handled
 
         parts.append("")
