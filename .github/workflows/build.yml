@@ -2,11 +2,11 @@ name: Build
 
 on:
   push:
-    branches: [master]
+    branches: [main]
     tags:
       - '[0-9]*'
   pull_request:
-    branches: [master]
+    branches: [main]
   workflow_dispatch:
 
 env:

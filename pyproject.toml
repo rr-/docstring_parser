@@ -34,7 +34,7 @@ requires-python = ">=3.8"
 [project.urls]
 homepage = "https://github.com/rr-/docstring_parser"
 repository = "https://github.com/rr-/docstring_parser"
-changelog = "https://github.com/rr-/docstring_parser/blob/master/CHANGELOG.md"
+changelog = "https://github.com/rr-/docstring_parser/blob/main/CHANGELOG.md"
 
 [dependency-groups]
 test = [
