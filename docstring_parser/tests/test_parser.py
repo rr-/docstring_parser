@@ -261,3 +261,10 @@ def test_google_without_summary_is_detected() -> None:
     assert len(docstring.params) == 1
     assert docstring.params[0].arg_name == "spam"
     assert docstring.params[0].description == "description"
+
+
+def test_auto_field_with_no_name() -> None:
+    """Test that a nameless ReST field does not crash auto-detection."""
+    docstring = parse("Short.\n\n:  : text")
+    assert docstring.long_description == ":  : text"
+    assert not docstring.meta

@@ -152,6 +152,8 @@ def parse(text: T.Optional[str]) -> Docstring:
                 f'Error parsing meta information near "{chunk}".'
             ) from ex
         args = args_chunk.split()
+        if not args:
+            raise ParseError(f'Error parsing meta information near "{chunk}".')
         desc = desc_chunk.strip()
 
         if "\n" in desc:
