@@ -19,6 +19,17 @@ YIELDS_KEYWORDS = {"yield", "yields"}
 EXAMPLES_KEYWORDS = {"example", "examples"}
 
 
+def normalize_line_endings(text: str) -> str:
+    """Turn Windows and old Mac line endings into plain newlines.
+
+    ``inspect.cleandoc`` splits lines on ``\\n`` only, so a ``\\r`` stays at
+    the end of each line. From Python 3.13 on it measures indentation by
+    stripping spaces only, so a blank line holding just ``\\r`` counts as
+    unindented text and nothing gets dedented.
+    """
+    return text.replace("\r\n", "\n").replace("\r", "\n")
+
+
 class ParseError(RuntimeError):
     """Base class for all parsing related errors."""
 
