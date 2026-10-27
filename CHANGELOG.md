@@ -12,6 +12,7 @@
 - General: Type-check with ty
 - General: `compose()` raises `ValueError` instead of `KeyError` when the docstring has no style and none is given
 - Numpydoc: Fix the type of `NumpydocParser`'s `sections` argument, which takes a list of sections
+- Google, Numpydoc: Match custom section titles literally, so titles with characters such as `?`, `+` or `(` work instead of being ignored or raising `re.error`
 
 # 0.18 (2026-04-14)
 
