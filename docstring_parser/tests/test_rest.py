@@ -530,6 +530,12 @@ def test_broken_meta() -> None:
     with pytest.raises(ParseError):
         parse(":param with too many args: desc")
 
+    with pytest.raises(ParseError):
+        parse(":  : field with no name")
+
+    with pytest.raises(ParseError):
+        parse("Short.\n\n:param a: x\n: : y")
+
     # these should not raise any errors
     parse(":sthstrange: desc")
 
