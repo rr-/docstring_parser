@@ -6,6 +6,7 @@ import typing as T
 
 import pytest
 
+from docstring_parser import google
 from docstring_parser.common import ParseError, RenderingStyle
 from docstring_parser.google import (
     GoogleParser,
@@ -1104,3 +1105,28 @@ for result in (parse(doc), parse_from_object(tool)):
     assert result.params[0].type_name is None
 """
     subprocess.run([sys.executable, "-c", code], check=True, timeout=5)
+
+
+def test_parse_reuses_default_parser() -> None:
+    """Test that parse builds the default parser once."""
+    google.parse("Short.")
+    parser = google._default_parser
+    google.parse("Short.\n\nArgs:\n    a: A.")
+    assert google._default_parser is parser
+
+
+def test_parse_follows_default_sections(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """Test that parse picks up changes to DEFAULT_SECTIONS."""
+    text = "Short.\n\nNotes:\n    Mind the gap."
+    assert parse(text).meta == []
+    monkeypatch.setattr(
+        google,
+        "DEFAULT_SECTIONS",
+        [
+            *google.DEFAULT_SECTIONS,
+            Section("Notes", "notes", SectionType.SINGULAR),
+        ],
+    )
+    assert parse(text).meta[0].args == ["notes"]
