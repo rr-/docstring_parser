@@ -4,6 +4,7 @@
 - Google: Avoid regex backtracking when parsing parameter types
 - General: Replace pylint, black and isort with ruff, and pre-commit with prek
 - General: Check commit messages for a `scope: description` subject and the 50/72 rule
+- General: Replace pip, venv and hatchling with uv; development dependencies are now dependency groups instead of extras
 
 # 0.18 (2026-04-14)
 

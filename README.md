@@ -67,15 +67,11 @@ To set up the project:
 git clone https://github.com/rr-/docstring_parser.git
 cd docstring_parser
 
-python -m venv venv  # create environment
-source venv/bin/activate  # activate environment
-
-pip install -e ".[dev]"  # install as editable
-prek install  # set up the lint and message hooks
+uv sync  # create .venv with the dev dependencies
+uv run prek install  # set up the lint and message hooks
 ```
 
 To run tests:
 ```
-source venv/bin/activate
-pytest
+uv run pytest
 ```

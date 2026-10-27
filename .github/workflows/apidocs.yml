@@ -8,20 +8,16 @@ jobs:
 
     steps:
     - uses: actions/checkout@v6
-    - name: Set up Python 3.12
-      uses: actions/setup-python@v6
+    - name: Set up uv with Python 3.12
+      uses: astral-sh/setup-uv@v10.3.2
       with:
         python-version: 3.12
-
-    - name: Install requirements for documentation generation
-      run: |
-        python -m pip install .[docs]
 
     - name: Generate API documentation with pydoctor
       run: |
 
         # Run simple pydoctor build
-        pydoctor \
+        uv run --locked --only-group docs pydoctor \
             --project-name=docstring_parser \
             --project-url=https://github.com/$GITHUB_REPOSITORY \
             --html-viewsource-base=https://github.com/$GITHUB_REPOSITORY/tree/$GITHUB_SHA \
