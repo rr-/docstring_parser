@@ -147,6 +147,32 @@ class DocstringExample(DocstringMeta):
         self.description = description
 
 
+# ReST fields for attributes, which parse as plain meta rather than params.
+ATTRIBUTE_FIELD_KEYWORDS = {"ivar", "var", "cvar"}
+
+
+def meta_as_attribute(meta: DocstringMeta) -> T.Optional[DocstringParam]:
+    """Return a ReST ``:ivar name:`` style field as an attribute param.
+
+    :param meta: any docstring meta
+    :returns: the attribute, or None if the meta is not such a field
+    """
+    if (
+        type(meta) is DocstringMeta
+        and len(meta.args) == 2
+        and meta.args[0] in ATTRIBUTE_FIELD_KEYWORDS
+    ):
+        return DocstringParam(
+            args=["attribute", meta.args[1]],
+            description=meta.description,
+            arg_name=meta.args[1],
+            type_name=None,
+            is_optional=None,
+            default=None,
+        )
+    return None
+
+
 class Docstring:
     """Docstring object representation."""
 

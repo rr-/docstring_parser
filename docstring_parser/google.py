@@ -21,6 +21,7 @@ from .common import (
     DocstringStyle,
     ParseError,
     RenderingStyle,
+    meta_as_attribute,
 )
 
 
@@ -405,13 +406,18 @@ def compose(
     if docstring.blank_after_long_description:
         parts.append("")
 
+    # Google has no sections of its own for keyword, other or received
+    # params, so they go with the others rather than being dropped.
     process_sect(
-        "Args:", [p for p in docstring.params or [] if p.args[0] == "param"]
+        "Args:",
+        [p for p in docstring.params or [] if p.args[0] != "attribute"],
     )
 
+    attributes = [m for m in map(meta_as_attribute, docstring.meta) if m]
     process_sect(
         "Attributes:",
-        [p for p in docstring.params or [] if p.args[0] == "attribute"],
+        [p for p in docstring.params or [] if p.args[0] == "attribute"]
+        + attributes,
     )
 
     process_sect(
@@ -434,7 +440,7 @@ def compose(
     for meta in docstring.meta:
         if isinstance(
             meta, (DocstringParam, DocstringReturns, DocstringRaises)
-        ):
+        ) or meta_as_attribute(meta):
             continue  # Already handled
         parts.append(meta.args[0].replace("_", "").title() + ":")
         if meta.description:
