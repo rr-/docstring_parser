@@ -605,6 +605,26 @@ def test_compose(rendering_style: RenderingStyle, expected: str) -> None:
     assert compose(docstring, rendering_style=rendering_style) == expected
 
 
+@pytest.mark.parametrize("rendering_style", list(RenderingStyle))
+def test_compose_raises(rendering_style: RenderingStyle) -> None:
+    """Test compose with raises, with and without an exception type."""
+    docstring = parse(
+        """
+        Short description.
+
+        :raises ValueError: a description
+        :raises: another description
+        """
+    )
+    text = compose(docstring, rendering_style=rendering_style)
+    assert ":raises ValueError:" in text
+    assert ":raises:" in text
+    assert [(r.type_name, r.description) for r in parse(text).raises] == [
+        ("ValueError", "a description"),
+        (None, "another description"),
+    ]
+
+
 def test_short_rtype() -> None:
     """Test abbreviated docstring with only return type information."""
     string = "Short description.\n\n:rtype: float"
