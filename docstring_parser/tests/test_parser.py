@@ -1,5 +1,6 @@
 """Tests for generic docstring routines."""
 
+import sys
 import typing as T
 
 import pytest
@@ -333,7 +334,7 @@ def test_auto_skips_parsers_for_plain_text(
 ) -> None:
     """Test that text no style finds fields in is parsed as ReST only."""
 
-    def fail(text: T.Optional[str]) -> Docstring:
+    def fail(text: T.Optional[str], **kwargs: T.Any) -> Docstring:
         raise AssertionError("only ReST should parse this")
 
     for module in (google, numpydoc, epydoc):
@@ -366,7 +367,9 @@ def test_auto_parses_every_style_for_field_lines(
         monkeypatch.setattr(
             module,
             "parse",
-            lambda text, parse=module.parse: calls.append(1) or parse(text),
+            lambda text, parse=module.parse, **kwargs: (
+                calls.append(1) or parse(text, **kwargs)
+            ),
         )
     parse(f"Short.\n\n{line}")
     assert len(calls) == 3
@@ -447,3 +450,18 @@ def test_compose_keeps_numpydoc_params_in_google() -> None:
         ("q", "int"),
         ("r", None),
     ]
+
+
+@pytest.mark.skipif(sys.version_info >= (3, 10), reason="Python < 3.10 only")
+@pytest.mark.parametrize(
+    "style",
+    [style for style in DocstringStyle if style != DocstringStyle.AUTO],
+)
+def test_new_parser_requires_python_310(style: DocstringStyle) -> None:
+    """Without legacy, parsing and composing fail clearly before 3.10."""
+    with pytest.raises(RuntimeError, match="requires Python 3.10"):
+        parse("Summary.", style, legacy=False)
+    docstring = parse("Summary.", style)
+    docstring.legacy = False
+    with pytest.raises(RuntimeError, match="requires Python 3.10"):
+        compose(docstring)

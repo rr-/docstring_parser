@@ -27,6 +27,8 @@
 - Google, Numpydoc: `compose()` writes ReST's `:ivar:`, `:var:` and `:cvar:` fields as named attributes instead of a nameless section
 - Numpydoc: Parse examples sections in linear time instead of quadratic
 - Google, Numpydoc: Match custom section titles literally, so titles with characters such as `?`, `+` or `(` work instead of being ignored or raising `re.error`
+- General: Add `legacy=False` to `parse`, `parse_from_object`, `combine_docstrings` and the style specific parsers. It enables a new implementation in which all styles share the same rules; see `BEHAVIOR.md`. It requires Python 3.10 or newer and will become the default in the next major version. `legacy=True`, the default, keeps the previous behavior, now pinned by golden tests over a corpus of real-world docstrings
+- General: Add `Docstring.attributes`, `DocstringParam.is_attribute` and `Docstring.legacy`
 
 # 0.18 (2026-04-14)
 

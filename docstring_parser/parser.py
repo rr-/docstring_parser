@@ -22,11 +22,12 @@ _STYLE_MAP = {
 
 # Any line that could start a field or a section in some style: a ReST
 # ``:field``, an Epydoc ``@field``, a Google title ending in a colon, or a
-# Numpydoc dashes underline or ``..`` directive.
+# Numpydoc underline or ``..`` directive. ``=`` underlines are only recognized
+# with ``legacy=False``.
 _FIELD_LINE = re.compile(
     r"^[^\S\n]*[:@]"
     r"|:[^\S\n]*$"
-    r"|^[^\S\n]*-+[^\S\n]*$"
+    r"|^[^\S\n]*(?:-+|=+)[^\S\n]*$"
     r"|^[^\S\n]*\.\.",
     flags=re.M,
 )
@@ -56,25 +57,35 @@ def _has_no_fields(text: str) -> bool:
 
 
 def parse(
-    text: T.Optional[str], style: DocstringStyle = DocstringStyle.AUTO
+    text: T.Optional[str],
+    style: DocstringStyle = DocstringStyle.AUTO,
+    *,
+    legacy: bool = True,
 ) -> Docstring:
     """Parse the docstring into its components.
 
+    With ``legacy=False`` all styles share one parsing model whose rules are
+    documented in ``BEHAVIOR.md``: no text is silently dropped, defaults and
+    optional markers are recognized the same way in every style, item keys
+    are canonical and attributes are kept apart from parameters. This will
+    become the default in the next major version.
+
     :param text: docstring text to parse
     :param style: docstring style
+    :param legacy: whether to keep the behavior of previous versions
     :returns: parsed docstring representation
     """
     if style != DocstringStyle.AUTO:
-        return _STYLE_MAP[style].parse(text)
+        return _STYLE_MAP[style].parse(text, legacy=legacy)
 
     if not text or _has_no_fields(text):
-        return rest.parse(text)
+        return rest.parse(text, legacy=legacy)
 
     exc: T.Optional[Exception] = None
     rets = []
     for module in _STYLE_MAP.values():
         try:
-            ret = module.parse(text)
+            ret = module.parse(text, legacy=legacy)
         except ParseError as ex:
             exc = ex
         else:
@@ -90,6 +101,8 @@ def parse(
 def parse_from_object(
     obj: T.Any,
     style: DocstringStyle = DocstringStyle.AUTO,
+    *,
+    legacy: bool = True,
 ) -> Docstring:
     """Parse the object's docstring(s) into its components.
 
@@ -108,9 +121,11 @@ def parse_from_object(
 
     :param obj: object from which to parse the docstring(s)
     :param style: docstring style
+    :param legacy: whether to keep the behavior of previous versions; see
+        :func:`parse`
     :returns: parsed docstring representation
     """
-    docstring = parse(obj.__doc__, style=style)
+    docstring = parse(obj.__doc__, style=style, legacy=legacy)
 
     if inspect.isclass(obj) or inspect.ismodule(obj):
         add_attribute_docstrings(obj, docstring)
