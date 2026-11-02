@@ -22,9 +22,6 @@ UNSTABLE_COMPOSE = {
     "google/examples/01.txt": (
         "google: an example titled like a section is composed as one"
     ),
-    "google/google_typed_parameter_delimiters/03.txt": (
-        "google: a type split over lines fails to parse once composed"
-    ),
 }
 
 
