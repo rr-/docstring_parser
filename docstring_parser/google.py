@@ -84,6 +84,13 @@ def _split_typed_arg(text: str) -> T.Optional[T.Tuple[str, str]]:
         type_name = first_line.rstrip()
     else:
         closing = first_line.rfind(")")
+        if closing < 0 and newline:
+            # A type wrapped over several lines, such as a long subscript,
+            # is joined back the way the declaration's second line is.
+            first_line = "".join(
+                line.strip() for line in remainder.splitlines()
+            )
+            closing = first_line.rfind(")")
         if closing < 0:
             return None
         type_name = first_line[:closing].rstrip()
