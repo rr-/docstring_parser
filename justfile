@@ -12,7 +12,7 @@ test *args:
 
 # Rewrite the expected output in the text case files from the current code
 update-cases:
-    UPDATE_CASES=1 uv run pytest -q docstring_parser/tests/test_cases.py
+    UPDATE_CASES=1 uv run pytest -q docstring_parser/tests/test_cases.py::test_case
 
 # Download the corpus docstrings again and fill in their expected output
 harvest:
