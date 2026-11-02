@@ -154,6 +154,7 @@ style: google
   args: ['attribute', 'metadata']
   description: |
     The metadata list. Contains all the data that isn't expressed as direct `FieldInfo` attributes, including:
+    
     * Type-specific constraints, such as `gt` or `min_length` (these are converted to metadata classes such as `annotated_types.Gt`).
     * Any other arbitrary object used within [`Annotated`][typing.Annotated] metadata
       (e.g. [custom types handlers](../concepts/types.md#as-an-annotation) or any object not recognized by Pydantic).
@@ -199,6 +200,7 @@ Attributes:
     init_var: Whether the field should _only_ be included in the constructor of the dataclass, and not stored.
     kw_only: Whether the field should be a keyword-only argument in the constructor of the dataclass.
     metadata: The metadata list. Contains all the data that isn't expressed as direct `FieldInfo` attributes, including:
+        
         * Type-specific constraints, such as `gt` or `min_length` (these are converted to metadata classes such as `annotated_types.Gt`).
         * Any other arbitrary object used within [`Annotated`][typing.Annotated] metadata
           (e.g. [custom types handlers](../concepts/types.md#as-an-annotation) or any object not recognized by Pydantic).

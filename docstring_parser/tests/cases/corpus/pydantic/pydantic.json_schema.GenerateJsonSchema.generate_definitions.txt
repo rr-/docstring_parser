@@ -32,6 +32,7 @@ style: google
   args: ['param', 'inputs']
   description: |
     A sequence of tuples, where:
+    
     - The first element is a JSON schema key type.
     - The second element is the JSON mode: either 'validation' or 'serialization'.
     - The third element is a core schema.
@@ -59,6 +60,7 @@ mapping that links the input keys to the definition references.
 
 Args:
     inputs: A sequence of tuples, where:
+        
         - The first element is a JSON schema key type.
         - The second element is the JSON mode: either 'validation' or 'serialization'.
         - The third element is a core schema.

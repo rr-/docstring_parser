@@ -42,6 +42,7 @@ style: google
   args: ['param', 'union_format']
   description: |
     The format to use when combining schemas from unions together. Can be one of:
+    
     - `'any_of'`: Use the [`anyOf`](https://json-schema.org/understanding-json-schema/reference/combining#anyOf)
     keyword to combine schemas (the default).
     - `'primitive_type_array'`: Use the [`type`](https://json-schema.org/understanding-json-schema/reference/type)
@@ -74,6 +75,7 @@ Args:
         schemas). An explicit value takes precedence over the configuration.
     ref_template: The reference template.
     union_format: The format to use when combining schemas from unions together. Can be one of:
+        
         - `'any_of'`: Use the [`anyOf`](https://json-schema.org/understanding-json-schema/reference/combining#anyOf)
         keyword to combine schemas (the default).
         - `'primitive_type_array'`: Use the [`type`](https://json-schema.org/understanding-json-schema/reference/type)

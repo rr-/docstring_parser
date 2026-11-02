@@ -2,6 +2,7 @@
 
 import inspect
 import re
+import textwrap
 import typing as T
 from collections import OrderedDict, namedtuple
 from enum import IntEnum
@@ -152,8 +153,11 @@ class GoogleParser:
         if desc:
             desc = desc[1:] if desc[0] == " " else desc
             if "\n" in desc:
+                # Dedent every continuation line alike. cleandoc would strip
+                # the first of them entirely and lose its indent relative
+                # to the rest.
                 first_line, rest = desc.split("\n", 1)
-                desc = first_line + "\n" + inspect.cleandoc(rest)
+                desc = first_line + "\n" + textwrap.dedent(rest)
             desc = desc.strip("\n")
 
         return self._build_multi_meta(section, before, desc)
@@ -349,6 +353,12 @@ def parse(text: T.Optional[str]) -> Docstring:
     return _default_parser.parse(text)
 
 
+def _continuation_indented(text: str) -> bool:
+    """Tell whether every non-blank line after the first is indented."""
+    rest = [line for line in text.splitlines()[1:] if line.strip()]
+    return bool(rest) and all(line[0].isspace() for line in rest)
+
+
 def compose(
     docstring: Docstring,
     rendering_style: RenderingStyle = RenderingStyle.COMPACT,
@@ -404,7 +414,13 @@ def compose(
             head += ":"
         head = indent + head
 
-        if one.description and rendering_style == RenderingStyle.EXPANDED:
+        # Lines after the first that are all indented further than it lose
+        # that indent when read back, unless the first line goes below the
+        # head with them.
+        if one.description and (
+            rendering_style == RenderingStyle.EXPANDED
+            or _continuation_indented(one.description)
+        ):
             body = f"\n{indent}{indent}".join(
                 [head] + one.description.splitlines()
             )

@@ -4,6 +4,7 @@
 - Google: Avoid regex backtracking when parsing parameter types
 - Google: Parse docstrings that open with a section title (thanks to @HardMax71)
 - Google: `compose()` writes a return with no type as just its description, instead of prefixing it with a colon that grew on every round trip
+- Google: Keep the indent of a description's continuation lines relative to each other, and the blank lines between them, so literal blocks and nested admonitions survive; `compose()` starts such a description on its own line
 - ReST: Stop the last field from absorbing text after the field list; that text now goes to the long description (thanks to @apoorvdarshan)
 - ReST: Raise `ParseError` instead of `IndexError` for a field with no name
 - ReST: `compose()` indents continuation lines in compact mode, so one starting with a role such as `:class:` is no longer read back as a new field
