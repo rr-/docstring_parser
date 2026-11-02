@@ -62,7 +62,7 @@ style: numpydoc
   args: ['param', 'notebook']
   description: 'Whether the generated HTML is for IPython Notebook.'
   arg_name: 'notebook'
-  type_name: '{True, False}, optional'
+  type_name: '{True, False}'
   is_optional: True
   default: 'False'
 - DocstringParam
@@ -106,7 +106,7 @@ encoding : str, default=“utf-8”
 classes : str or list-like
     classes to include in the `class` attribute of the opening
     ``<table>`` tag, in addition to the default "dataframe".
-notebook : {True, False}, optional, default=False
+notebook : {True, False}, default=False
     Whether the generated HTML is for IPython Notebook.
 border : int or bool
     When an integer value is provided, it sets the border attribute in

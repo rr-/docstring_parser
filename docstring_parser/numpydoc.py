@@ -153,18 +153,19 @@ class ParamSection(_KVSection):
         type_name: T.Optional[str] = match.group("type")
         is_optional = default = None
         if type_name is not None:
-            optional_match = PARAM_OPTIONAL_REGEX.match(type_name)
-            if optional_match is not None:
-                type_name = optional_match.group("type")
-                is_optional = True
-            else:
-                is_optional = False
-
-            default_match = PARAM_DEFAULT_REGEX.match(type_name)
-            if default_match is not None:
-                is_optional = True
-                type_name = default_match.group("type")
-                default = default_match.group("value")
+            is_optional = False
+            # "optional" may come before the default or after it.
+            for regex in (
+                PARAM_OPTIONAL_REGEX,
+                PARAM_DEFAULT_REGEX,
+                PARAM_OPTIONAL_REGEX,
+            ):
+                match = regex.match(type_name)
+                if match is not None:
+                    type_name = match.group("type")
+                    is_optional = True
+                    if regex is PARAM_DEFAULT_REGEX:
+                        default = match.group("value")
 
         # If the default wasn't specifified in the type declaration,
         # try and see if we can find it in the description.
