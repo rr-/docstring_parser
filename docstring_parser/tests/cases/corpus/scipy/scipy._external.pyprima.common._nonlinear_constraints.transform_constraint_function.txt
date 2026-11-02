@@ -9,7 +9,7 @@
     have a shape consistent with the output of the constraint function.
     
 === parse numpydoc
-short_description: 'The Python interfaces receives the constraints as lb <= constraint(x) <= ub, '
+short_description: 'The Python interfaces receives the constraints as lb <= constraint(x) <= ub,'
 long_description: |
   but the Fortran backend expects the nonlinear constraints to be constraint(x) <= 0.
   Thus a conversion is needed.
@@ -22,7 +22,7 @@ style: numpydoc
 === detect
 rest
 === compose numpydoc
-The Python interfaces receives the constraints as lb <= constraint(x) <= ub, 
+The Python interfaces receives the constraints as lb <= constraint(x) <= ub,
 but the Fortran backend expects the nonlinear constraints to be constraint(x) <= 0.
 Thus a conversion is needed.
 
