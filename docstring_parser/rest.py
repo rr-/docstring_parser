@@ -22,6 +22,7 @@ from .common import (
     ParseError,
     RenderingStyle,
     continuation_indented,
+    excerpt,
     normalize_line_endings,
 )
 
@@ -160,11 +161,13 @@ def parse(text: T.Optional[str]) -> Docstring:
             args_chunk, desc_chunk = chunk.lstrip(":").split(":", 1)
         except ValueError as ex:
             raise ParseError(
-                f'Error parsing meta information near "{chunk}".'
+                f'Error parsing meta information near "{excerpt(chunk)}".'
             ) from ex
         args = args_chunk.split()
         if not args:
-            raise ParseError(f'Error parsing meta information near "{chunk}".')
+            raise ParseError(
+                f'Error parsing meta information near "{excerpt(chunk)}".'
+            )
         desc = desc_chunk.strip()
 
         if "\n" in desc:

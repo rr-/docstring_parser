@@ -20,6 +20,7 @@
 - Google, Numpydoc: Reuse the default parser between `parse()` calls instead of building a new one each time, making parsing about 30–50% faster
 - General: Parse docstrings with `\r\n` or `\r` line endings the same as with `\n`, on every Python version
 - General: Strip the short description, which kept leading spaces when a later line was indented less than it
+- General: `ParseError` messages quote at most the first 60 characters of the text they point at, instead of the whole chunk
 - General: Auto-detection parses a docstring with no fields or sections once instead of four times, making it about 47% faster
 - General: Snapshot-test the parsers on 1100 docstrings from real projects, kept as text case files
 - General: Replace pylint, black and isort with ruff, and pre-commit with prek

@@ -41,6 +41,11 @@ def continuation_indented(text: str) -> bool:
     return bool(rest) and all(line[0].isspace() for line in rest)
 
 
+def excerpt(text: str, limit: int = 60) -> str:
+    """Shorten text quoted in an error message to its first characters."""
+    return text if len(text) <= limit else text[:limit] + "..."
+
+
 class ParseError(RuntimeError):
     """Base class for all parsing related errors."""
 
