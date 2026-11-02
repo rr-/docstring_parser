@@ -96,7 +96,6 @@ style: numpydoc
   arg_name: 'default'
   type_name: 'Optional[Callable]'
   is_optional: True
-  default: 'implementation'
 - DocstringExample
   args: ['examples']
   description: |
@@ -171,7 +170,7 @@ argument_replacer : ArgumentReplacerType
     args/kwargs.
 domain : str
     A string value indicating the domain of this multimethod.
-default : Optional[Callable], default=implementation
+default : Optional[Callable], optional
     The default implementation of this multimethod, where ``None`` (the default)
     specifies there is no default implementation.
 

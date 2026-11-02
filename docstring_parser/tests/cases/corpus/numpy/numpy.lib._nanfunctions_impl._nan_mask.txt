@@ -36,7 +36,6 @@ style: numpydoc
   arg_name: 'out'
   type_name: 'ndarray'
   is_optional: True
-  default: 'is'
 - DocstringReturns
   args: ['returns']
   description: |
@@ -53,7 +52,7 @@ Parameters
 ----------
 a : array-like
     Input array with at least 1 dimension.
-out : ndarray, default=is
+out : ndarray, optional
     Alternate output array in which to place the result.  The default
     is ``None``; if provided, it must have the same shape as the
     expected output and will prevent the allocation of a new array.

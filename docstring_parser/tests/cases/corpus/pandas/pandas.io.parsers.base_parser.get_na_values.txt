@@ -53,7 +53,6 @@ style: numpydoc
   arg_name: 'keep_default_na'
   type_name: 'bool'
   is_optional: False
-  default: 'NaN'
 - DocstringReturns
   args: ['returns']
   description: |
@@ -75,7 +74,7 @@ na_values : array-like, dict
     The object listing the NaN values as strings.
 na_fvalues : array-like, dict
     The object listing the NaN values as floats.
-keep_default_na : bool, default=NaN
+keep_default_na : bool
     If `na_values` is a dict, and the column is not mapped in the
     dictionary, whether to return the default NaN values or the empty set.
 

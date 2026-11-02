@@ -133,14 +133,12 @@ style: numpydoc
   arg_name: 'high'
   type_name: 'float'
   is_optional: True
-  default: 'is'
 - DocstringParam
   args: ['param', 'low']
   description: 'Lower boundary of the principal value of an angle.  Default is ``0``.'
   arg_name: 'low'
   type_name: 'float'
   is_optional: True
-  default: 'is'
 - DocstringParam
   args: ['param', 'axis']
   description: |
@@ -274,9 +272,9 @@ Parameters
 samples : array_like
     Input array of angle observations.  The value of a full angle is
     equal to ``(high - low)``.
-high : float, default=is
+high : float, optional
     Upper boundary of the principal value of an angle.  Default is ``2*pi``.
-low : float, default=is
+low : float, optional
     Lower boundary of the principal value of an angle.  Default is ``0``.
 axis : int or None, optional
     If an int, the axis of the input along which to compute the statistic.

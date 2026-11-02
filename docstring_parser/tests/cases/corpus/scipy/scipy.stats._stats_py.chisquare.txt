@@ -178,7 +178,6 @@ style: numpydoc
   arg_name: 'ddof'
   type_name: 'int'
   is_optional: True
-  default: 'value'
 - DocstringParam
   args: ['param', 'axis']
   description: |
@@ -359,7 +358,7 @@ f_obs : array_like
 f_exp : array_like, optional
     Expected frequencies in each category. By default, the categories are
     assumed to be equally likely.
-ddof : int, default=value
+ddof : int, optional
     "Delta degrees of freedom": adjustment to the degrees of freedom
     for the p-value.  The p-value is computed using a chi-squared
     distribution with ``k - 1 - ddof`` degrees of freedom, where ``k``

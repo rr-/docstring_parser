@@ -52,7 +52,6 @@ style: numpydoc
   arg_name: 'style'
   type_name: 'str'
   is_optional: False
-  default: 'printing'
 - DocstringMeta
   args: ['notes']
   description: |
@@ -97,7 +96,7 @@ or 'unicode'.
 
 Parameters
 ----------
-style : str, default=printing
+style : str
     Format string for default printing style. Must be either 'ascii' or
     'unicode'.
 

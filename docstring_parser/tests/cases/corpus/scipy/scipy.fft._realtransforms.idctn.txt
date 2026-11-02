@@ -76,7 +76,6 @@ style: numpydoc
   arg_name: 'type'
   type_name: '{1, 2, 3, 4}'
   is_optional: True
-  default: 'type'
 - DocstringParam
   args: ['param', 's']
   description: |
@@ -164,7 +163,7 @@ Parameters
 ----------
 x : array_like
     The input array.
-type : {1, 2, 3, 4}, default=type
+type : {1, 2, 3, 4}, optional
     Type of the DCT (see Notes). Default type is 2.
 s : int or array_like of ints or None, optional
     The shape of the result.  If both `s` and `axes` (see below) are

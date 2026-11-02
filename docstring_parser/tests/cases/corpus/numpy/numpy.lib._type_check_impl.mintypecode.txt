@@ -71,7 +71,6 @@ style: numpydoc
   arg_name: 'typeset'
   type_name: 'str or list of str'
   is_optional: True
-  default: 'set'
 - DocstringParam
   args: ['param', 'default']
   description: |
@@ -80,7 +79,6 @@ style: numpydoc
   arg_name: 'default'
   type_name: 'str'
   is_optional: True
-  default: 'character'
 - DocstringReturns
   args: ['returns']
   description: 'The character representing the minimum-size type that was found.'
@@ -124,10 +122,10 @@ Parameters
 typechars : list of str or array_like
     If a list of strings, each string should represent a dtype.
     If array_like, the character representation of the array dtype is used.
-typeset : str or list of str, default=set
+typeset : str or list of str, optional
     The set of characters that the returned character is chosen from.
     The default set is 'GDFgdf'.
-default : str, default=character
+default : str, optional
     The default character, this is returned if none of the characters in
     `typechars` matches a character in `typeset`.
 

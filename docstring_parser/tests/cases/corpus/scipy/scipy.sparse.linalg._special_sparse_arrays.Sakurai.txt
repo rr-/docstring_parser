@@ -118,7 +118,6 @@ style: numpydoc
   arg_name: 'dtype'
   type_name: 'dtype'
   is_optional: False
-  default: 'is'
 - DocstringParam
   args: ['param', 'Methods']
   arg_name: 'Methods'
@@ -240,7 +239,7 @@ Parameters
 ----------
 n : int
     The size of the matrix.
-dtype : dtype, default=is
+dtype : dtype
     Numerical type of the array. Default is ``np.int8``.
 Methods
 -------
