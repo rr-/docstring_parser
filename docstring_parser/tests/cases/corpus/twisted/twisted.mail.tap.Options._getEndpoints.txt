@@ -34,7 +34,7 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: epydoc
 - DocstringParam
-  args: ['type', 'reactor']
+  args: ['param', 'reactor']
   description: |
     If any endpoints are created, the reactor with
     which they are created.
@@ -44,7 +44,7 @@ style: epydoc
     provider
   is_optional: False
 - DocstringParam
-  args: ['type', 'service']
+  args: ['param', 'service']
   description: |
     The type of service for which to retrieve endpoints,
     either C{b'pop3'} or C{b'smtp'}.

@@ -22,7 +22,7 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: epydoc
 - DocstringParam
-  args: ['type', 'reason']
+  args: ['param', 'reason']
   description: 'The reason the connection was terminated.'
   arg_name: 'reason'
   type_name: 'L{Failure <twisted.python.failure.Failure>}'

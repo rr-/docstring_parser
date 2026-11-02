@@ -12,7 +12,7 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: epydoc
 - DocstringParam
-  args: ['type', 'mx']
+  args: ['param', 'mx']
   description: 'The hostname of a mail exchange host.'
   arg_name: 'mx'
   type_name: 'L{bytes}'

@@ -22,7 +22,7 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: epydoc
 - DocstringParam
-  args: ['type', 'path']
+  args: ['param', 'path']
   description: 'the directory to remove.'
   arg_name: 'path'
   type_name: 'L{bytes}'

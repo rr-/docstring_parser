@@ -15,6 +15,7 @@
 - ReST: End a `:type:` or `:rtype:` field at the next unindented line, which goes to the long description instead of into the type
 - ReST: Keep the blank lines and relative indents in a field's description, so its paragraphs and literal blocks survive; `compose()` starts such a description on its own line
 - Epydoc: Match fields only at their header, so field-like text in a description no longer replaces it and a header missing its colon no longer stalls the parser (thanks to @akshitkhokhani)
+- Epydoc: Take a param's kind in `args[0]` from its `@param`, `@keyword` or `@ivar` field, instead of `type` when its `@type` field comes first
 - Google, Numpydoc: Reuse the default parser between `parse()` calls instead of building a new one each time, making parsing about 30–50% faster
 - General: Parse docstrings with `\r\n` or `\r` line endings the same as with `\n`, on every Python version
 - General: Strip the short description, which kept leading spaces when a later line was indented less than it

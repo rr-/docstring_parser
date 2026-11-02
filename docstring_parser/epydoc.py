@@ -146,6 +146,10 @@ def parse(text: T.Optional[str]) -> Docstring:
         info = params.setdefault(arg_name, {})
         info_key = "type_name" if "type" in key else "description"
         info[info_key] = desc
+        if info_key == "description":
+            # The field that says what kind of param this is, even when a
+            # @type field for it comes first.
+            info["key"] = key
 
         if base == "return":
             is_generator = key in {"ytype", "yield"}
@@ -171,7 +175,7 @@ def parse(text: T.Optional[str]) -> Docstring:
             default = match.group(1).rstrip(".") if match else None
 
             meta_item = DocstringParam(
-                args=[key, arg_name],
+                args=[info.get("key", key), arg_name],
                 description=info.get("description"),
                 arg_name=arg_name,
                 type_name=type_name,

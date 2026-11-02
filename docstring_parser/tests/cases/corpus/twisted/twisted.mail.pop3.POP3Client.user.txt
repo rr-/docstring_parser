@@ -12,7 +12,7 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: epydoc
 - DocstringParam
-  args: ['type', 'name']
+  args: ['param', 'name']
   description: 'The username with which to log in.'
   arg_name: 'name'
   type_name: 'L{bytes}'

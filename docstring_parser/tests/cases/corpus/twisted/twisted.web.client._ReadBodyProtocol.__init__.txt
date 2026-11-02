@@ -15,7 +15,7 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: epydoc
 - DocstringParam
-  args: ['param', 'status']
+  args: ['ivar', 'status']
   description: 'L{int}'
   arg_name: 'status'
   is_optional: False
