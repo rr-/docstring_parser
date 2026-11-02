@@ -15,6 +15,12 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringReturns
+  args: ['returns']
+  description: |
+    x (int): absolute x (column)
+    y (int): optional y offset (row)
+  is_generator: False
+- DocstringReturns
   args: ['returns', '~Control']
   description: 'Control object.'
   type_name: '~Control'
@@ -25,4 +31,6 @@ google
 Move to the given column, optionally add offset to row.
 
 Returns:
+    x (int): absolute x (column)
+    y (int): optional y offset (row)
     ~Control: Control object.

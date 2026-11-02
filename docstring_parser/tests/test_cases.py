@@ -16,14 +16,6 @@ from .cases import CASES_DIR, Case, read_case, run, write_case
 
 CASE_PATHS = sorted(CASES_DIR.rglob("*.txt"))
 
-# Cases whose composed docstring does not come back the same after another
-# parse and compose, and why.
-UNSTABLE_COMPOSE = {
-    "google/examples/01.txt": (
-        "google: an example titled like a section is composed as one"
-    ),
-}
-
 
 def _case_paths(paths: T.List[Path] = CASE_PATHS) -> T.Any:
     return pytest.mark.parametrize(
@@ -60,13 +52,8 @@ def test_case_line_endings(path: Path, line_ending: str) -> None:
 
 
 @_case_paths()
-def test_case_compose_is_stable(
-    path: Path, request: pytest.FixtureRequest
-) -> None:
+def test_case_compose_is_stable(path: Path) -> None:
     """Test that a composed docstring parses and composes back the same."""
-    reason = UNSTABLE_COMPOSE.get(str(path.relative_to(CASES_DIR)))
-    if reason:
-        request.applymarker(pytest.mark.xfail(reason=reason, strict=True))
     case = read_case(path)
     styles = [
         DocstringStyle[name.split()[1].upper()]
