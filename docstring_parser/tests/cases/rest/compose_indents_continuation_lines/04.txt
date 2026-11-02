@@ -1,0 +1,22 @@
+# Test that continuation lines stay part of their field.
+=== input
+Short.
+
+:returns: first line
+    :data:`x` second
+=== parse rest
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringReturns
+  args: ['returns']
+  description: |
+    first line
+    :data:`x` second
+  is_generator: False
+=== compose rest
+Short.
+
+:returns: first line
+    :data:`x` second

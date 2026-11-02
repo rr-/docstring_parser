@@ -1,0 +1,6 @@
+# Test parsing broken meta.
+=== input
+Args:
+    herp derp
+=== parse google
+ParseError: Expected a colon in 'herp derp'.

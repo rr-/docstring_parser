@@ -1,0 +1,5 @@
+# Test parsing broken meta.
+=== input
+:param herp derp
+=== parse rest
+ParseError: Error parsing meta information near ":param herp derp".

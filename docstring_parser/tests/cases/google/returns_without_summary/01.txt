@@ -1,0 +1,14 @@
+# Test parsing returns when the docstring opens with the section title.
+=== input
+Returns:
+            int: description
+        
+=== parse google
+blank_after_short_description: False
+blank_after_long_description: False
+style: google
+- DocstringReturns
+  args: ['returns', 'int']
+  description: 'description'
+  type_name: 'int'
+  is_generator: False

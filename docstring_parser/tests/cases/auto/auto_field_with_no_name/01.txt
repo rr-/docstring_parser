@@ -1,0 +1,11 @@
+# Test that a nameless ReST field does not crash auto-detection.
+=== input
+Short.
+
+:  : text
+=== parse auto
+short_description: 'Short.'
+long_description: ':  : text'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google

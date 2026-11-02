@@ -1,0 +1,19 @@
+# Test that Numpydoc's other and received params survive Google.
+=== input
+Short.
+
+Other Parameters
+----------------
+q : int
+    Q.
+
+Receives
+--------
+r
+    R.
+=== convert numpydoc google
+Short.
+
+Args:
+    q (int): Q.
+    r: R.

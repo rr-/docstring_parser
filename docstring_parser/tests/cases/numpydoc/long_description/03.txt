@@ -1,0 +1,16 @@
+# Test parsing long description.
+=== input
+
+            Short description
+
+            Long description
+            Second line
+            
+=== parse numpydoc
+short_description: 'Short description'
+long_description: |
+  Long description
+  Second line
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc

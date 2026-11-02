@@ -1,0 +1,56 @@
+# Test parsing simple sections.
+=== input
+
+        Short description
+
+        See Also
+        --------
+        something : some thing you can also see
+        actually, anything can go in this section
+
+        Warnings
+        --------
+        Here be dragons
+
+        Notes
+        -----
+        None of this is real
+
+        References
+        ----------
+        Cite the relevant literature, e.g. [1]_.  You may also cite these
+        references in the notes section above.
+
+        .. [1] O. McNoleg, "The integration of GIS, remote sensing,
+           expert systems and adaptive co-kriging for environmental habitat
+           modelling of the Highland Haggis using object-oriented, fuzzy-logic
+           and neural-network techniques," Computers & Geosciences, vol. 22,
+           pp. 585-588, 1996.
+        
+=== parse numpydoc
+short_description: 'Short description'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringMeta
+  args: ['see_also']
+  description: |
+    something : some thing you can also see
+    actually, anything can go in this section
+- DocstringMeta
+  args: ['warnings']
+  description: 'Here be dragons'
+- DocstringMeta
+  args: ['notes']
+  description: 'None of this is real'
+- DocstringMeta
+  args: ['references']
+  description: |
+    Cite the relevant literature, e.g. [1]_.  You may also cite these
+    references in the notes section above.
+    
+    .. [1] O. McNoleg, "The integration of GIS, remote sensing,
+       expert systems and adaptive co-kriging for environmental habitat
+       modelling of the Highland Haggis using object-oriented, fuzzy-logic
+       and neural-network techniques," Computers & Geosciences, vol. 22,
+       pp. 585-588, 1996.

@@ -1,0 +1,13 @@
+# Field-like text in a description is not another field header.
+=== input
+Summary.
+
+@note: ivar value: detail
+=== parse epydoc
+short_description: 'Summary.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringMeta
+  args: ['note']
+  description: 'ivar value: detail'

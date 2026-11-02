@@ -1,0 +1,22 @@
+# Test parsing examples.
+=== input
+Description
+Examples
+--------
+>>> test1
+desc1
+>>> test2
+desc2
+=== parse numpydoc
+short_description: 'Description'
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+- DocstringExample
+  args: ['examples']
+  description: 'desc1'
+  snippet: '>>> test1'
+- DocstringExample
+  args: ['examples']
+  description: 'desc2'
+  snippet: '>>> test2'

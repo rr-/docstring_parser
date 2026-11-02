@@ -1,0 +1,18 @@
+# Test parsing raises.
+=== input
+
+        Short description
+        Raises
+        ------
+        ValueError
+            description
+        
+=== parse numpydoc
+short_description: 'Short description'
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+- DocstringRaises
+  args: ['raises', 'ValueError']
+  description: 'description'
+  type_name: 'ValueError'

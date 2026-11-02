@@ -1,0 +1,48 @@
+# Test compose
+=== input
+
+        Short description.
+
+        Long description.
+
+        :param int foo: a description
+        :param int bar: another description
+        :return float: a return
+        
+=== parse rest
+short_description: 'Short description.'
+long_description: 'Long description.'
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringParam
+  args: ['param', 'int', 'foo']
+  description: 'a description'
+  arg_name: 'foo'
+  type_name: 'int'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'int', 'bar']
+  description: 'another description'
+  arg_name: 'bar'
+  type_name: 'int'
+  is_optional: False
+- DocstringReturns
+  args: ['return', 'float']
+  description: 'a return'
+  type_name: 'float'
+  is_generator: False
+=== compose rest expanded
+Short description.
+
+Long description.
+
+:param foo:
+    a description
+:type foo: int
+:param bar:
+    another description
+:type bar: int
+:returns:
+    a return
+:rtype: float

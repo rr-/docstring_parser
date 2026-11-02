@@ -1,0 +1,22 @@
+# Test that text outside the fields goes to the long description.
+=== input
+Short.
+
+:param a: A.
+
+Example:
+
+>>> f()
+=== parse rest
+short_description: 'Short.'
+long_description: |
+  Example:
+  
+  >>> f()
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringParam
+  args: ['param', 'a']
+  description: 'A.'
+  arg_name: 'a'

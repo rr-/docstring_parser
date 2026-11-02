@@ -1,0 +1,30 @@
+# Test that a deprecation ends where its indented body does.
+=== input
+Short.
+
+.. deprecated:: 1.0
+    Use other.
+
+    More.
+
+Long.
+
+See Also
+--------
+other
+=== parse numpydoc
+short_description: 'Short.'
+long_description: 'Long.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringDeprecated
+  args: ['deprecation']
+  description: |
+    Use other.
+    
+    More.
+  version: '1.0'
+- DocstringMeta
+  args: ['see_also']
+  description: 'other'

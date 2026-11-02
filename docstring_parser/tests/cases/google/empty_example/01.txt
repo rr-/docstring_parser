@@ -1,0 +1,21 @@
+# Test parsing empty examples section.
+=== input
+Short description
+
+        Example:
+
+        Raises:
+            IOError: some error
+        
+=== parse google
+short_description: 'Short description'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringExample
+  args: ['examples']
+  description: ''
+- DocstringRaises
+  args: ['raises', 'IOError']
+  description: 'some error'
+  type_name: 'IOError'

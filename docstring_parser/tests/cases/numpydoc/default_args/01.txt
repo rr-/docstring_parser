@@ -1,0 +1,18 @@
+# Test parsing default arguments.
+=== input
+
+                Parameters
+                ----------
+                arg1 : int
+                    The first arg
+                
+=== parse numpydoc
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'arg1']
+  description: 'The first arg'
+  arg_name: 'arg1'
+  type_name: 'int'
+  is_optional: False

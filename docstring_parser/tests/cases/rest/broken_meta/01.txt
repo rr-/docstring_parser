@@ -1,0 +1,5 @@
+# Test parsing broken meta.
+=== input
+:
+=== parse rest
+ParseError: Error parsing meta information near ":".

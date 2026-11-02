@@ -1,0 +1,5 @@
+# Test parsing broken meta.
+=== input
+:param with too many args: desc
+=== parse rest
+ParseError: Expected one or two arguments for a param keyword.

@@ -1,0 +1,19 @@
+# Keep nested and long types while preserving incomplete declarations.
+=== input
+Summary.
+
+Args:
+    value (int) trailing
+        extra
+        (more): description
+=== parse google
+short_description: 'Summary.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'value (int) trailingextra\n(more)']
+  description: 'description'
+  arg_name: 'value'
+  type_name: 'int'
+  is_optional: False

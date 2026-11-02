@@ -1,0 +1,16 @@
+# Test parsing returns.
+=== input
+
+        Short description
+        Returns:
+            description
+        
+=== parse google
+short_description: 'Short description'
+blank_after_short_description: False
+blank_after_long_description: False
+style: google
+- DocstringReturns
+  args: ['returns']
+  description: 'description'
+  is_generator: False

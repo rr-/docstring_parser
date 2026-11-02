@@ -1,0 +1,10 @@
+# Test parsing yields.
+=== input
+
+        Short description
+        
+=== parse rest
+short_description: 'Short description'
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest

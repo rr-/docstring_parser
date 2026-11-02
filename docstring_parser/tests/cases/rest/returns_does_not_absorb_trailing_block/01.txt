@@ -1,0 +1,35 @@
+# Test that a trailing block after the field list is not absorbed.
+=== input
+
+        Creates a user with the given username.
+
+        :param username: The username of the user.
+        :type username: str
+        :return: A dictionary representing the created user.
+        :rtype: dict
+
+        Example:
+
+        >>> create_user("Alice", 25)
+        {'username': 'Alice'}
+        
+=== parse rest
+short_description: 'Creates a user with the given username.'
+long_description: |
+  Example:
+  
+  >>> create_user("Alice", 25)
+  {'username': 'Alice'}
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringParam
+  args: ['param', 'username']
+  description: 'The username of the user.'
+  arg_name: 'username'
+  type_name: 'str'
+- DocstringReturns
+  args: ['return']
+  description: 'A dictionary representing the created user.'
+  type_name: 'dict'
+  is_generator: False

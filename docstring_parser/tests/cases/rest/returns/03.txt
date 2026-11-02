@@ -1,0 +1,16 @@
+# Test parsing returns.
+=== input
+
+        Short description
+        :returns int: description
+        
+=== parse rest
+short_description: 'Short description'
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+- DocstringReturns
+  args: ['returns', 'int']
+  description: 'description'
+  type_name: 'int'
+  is_generator: False

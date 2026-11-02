@@ -1,0 +1,25 @@
+# Test parsing examples.
+=== input
+
+        Short description
+        Example:
+            example: 1
+        Examples:
+            long example
+
+            more here
+        
+=== parse google
+short_description: 'Short description'
+blank_after_short_description: False
+blank_after_long_description: False
+style: google
+- DocstringExample
+  args: ['examples']
+  description: 'example: 1'
+- DocstringExample
+  args: ['examples']
+  description: |
+    long example
+    
+    more here

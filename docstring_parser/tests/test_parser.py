@@ -5,263 +5,36 @@ import typing as T
 import pytest
 
 from docstring_parser import epydoc, google, numpydoc
-from docstring_parser.common import Docstring, DocstringStyle, ParseError
+from docstring_parser.common import Docstring, DocstringStyle
 from docstring_parser.parser import compose, parse
 
 
-@pytest.mark.parametrize(
-    "source, expected",
-    [
-        pytest.param(None, None, id="No __doc__"),
-        ("", None),
-        ("\n", None),
-        ("Short description", "Short description"),
-        ("\nShort description\n", "Short description"),
-        ("\n   Short description\n", "Short description"),
-    ],
-)
-def test_short_description(
-    source: T.Optional[str], expected: T.Optional[str]
-) -> None:
-    """Test parsing short description."""
-    docstring = parse(source)
-    assert docstring.short_description == expected
-    assert docstring.description == expected
+@pytest.mark.parametrize("style", list(DocstringStyle))
+def test_no_docstring(style: DocstringStyle) -> None:
+    """Test parsing an object with no __doc__."""
+    docstring = parse(None, style)
+    assert docstring.short_description is None
     assert docstring.long_description is None
+    assert docstring.description is None
     assert not docstring.meta
 
 
-def test_rest() -> None:
-    """Test ReST-style parser autodetection."""
-    docstring = parse(
-        """
-        Short description
-
-        Long description
-
-        Causing people to indent:
-
-            A lot sometimes
-
-        :param spam: spam desc
-        :param int bla: bla desc
-        :param str yay:
-        :raises ValueError: exc desc
-        :returns tuple: ret desc
-        """
-    )
-
-    assert docstring.style == DocstringStyle.REST
-    assert docstring.short_description == "Short description"
-    assert docstring.long_description == (
-        "Long description\n\nCausing people to indent:\n\n    A lot sometimes"
-    )
-    assert docstring.description == (
-        "Short description\n\n"
-        "Long description\n\n"
-        "Causing people to indent:\n\n"
-        "    A lot sometimes"
-    )
-    assert len(docstring.params) == 3
-    assert docstring.params[0].arg_name == "spam"
-    assert docstring.params[0].type_name is None
-    assert docstring.params[0].description == "spam desc"
-    assert docstring.params[1].arg_name == "bla"
-    assert docstring.params[1].type_name == "int"
-    assert docstring.params[1].description == "bla desc"
-    assert docstring.params[2].arg_name == "yay"
-    assert docstring.params[2].type_name == "str"
-    assert docstring.params[2].description == ""
-    assert len(docstring.raises) == 1
-    assert docstring.raises[0].type_name == "ValueError"
-    assert docstring.raises[0].description == "exc desc"
-    assert docstring.returns is not None
-    assert docstring.returns.type_name == "tuple"
-    assert docstring.returns.description == "ret desc"
-    assert docstring.many_returns is not None
-    assert len(docstring.many_returns) == 1
-    assert docstring.many_returns[0] == docstring.returns
-
-
-def test_google() -> None:
-    """Test Google-style parser autodetection."""
-    docstring = parse(
-        """Short description
-
-        Long description
-
-        Causing people to indent:
-
-            A lot sometimes
-
-        Args:
-            spam: spam desc
-            bla (int): bla desc
-            yay (str):
-
-        Raises:
-            ValueError: exc desc
-
-        Returns:
-            tuple: ret desc
-        """
-    )
-
-    assert docstring.style == DocstringStyle.GOOGLE
-    assert docstring.short_description == "Short description"
-    assert docstring.long_description == (
-        "Long description\n\nCausing people to indent:\n\n    A lot sometimes"
-    )
-    assert docstring.description == (
-        "Short description\n\n"
-        "Long description\n\n"
-        "Causing people to indent:\n\n"
-        "    A lot sometimes"
-    )
-    assert len(docstring.params) == 3
-    assert docstring.params[0].arg_name == "spam"
-    assert docstring.params[0].type_name is None
-    assert docstring.params[0].description == "spam desc"
-    assert docstring.params[1].arg_name == "bla"
-    assert docstring.params[1].type_name == "int"
-    assert docstring.params[1].description == "bla desc"
-    assert docstring.params[2].arg_name == "yay"
-    assert docstring.params[2].type_name == "str"
-    assert docstring.params[2].description == ""
-    assert len(docstring.raises) == 1
-    assert docstring.raises[0].type_name == "ValueError"
-    assert docstring.raises[0].description == "exc desc"
-    assert docstring.returns is not None
-    assert docstring.returns.type_name == "tuple"
-    assert docstring.returns.description == "ret desc"
-    assert docstring.many_returns is not None
-    assert len(docstring.many_returns) == 1
-    assert docstring.many_returns[0] == docstring.returns
-
-
-def test_numpydoc() -> None:
-    """Test numpydoc-style parser autodetection."""
-    docstring = parse(
-        """Short description
-
-        Long description
-
-        Causing people to indent:
-
-            A lot sometimes
-
-        Parameters
-        ----------
-        spam
-            spam desc
-        bla : int
-            bla desc
-        yay : str
-
-        Raises
-        ------
-        ValueError
-            exc desc
-
-        Other Parameters
-        ----------------
-        this_guy : int, optional
-            you know him
-
-        Returns
-        -------
-        tuple
-            ret desc
-
-        See Also
-        --------
-        multiple lines...
-        something else?
-
-        Warnings
-        --------
-        multiple lines...
-        none of this is real!
-        """
-    )
-
-    assert docstring.style == DocstringStyle.NUMPYDOC
-    assert docstring.short_description == "Short description"
-    assert docstring.long_description == (
-        "Long description\n\nCausing people to indent:\n\n    A lot sometimes"
-    )
-    assert docstring.description == (
-        "Short description\n\n"
-        "Long description\n\n"
-        "Causing people to indent:\n\n"
-        "    A lot sometimes"
-    )
-    assert len(docstring.params) == 4
-    assert docstring.params[0].arg_name == "spam"
-    assert docstring.params[0].type_name is None
-    assert docstring.params[0].description == "spam desc"
-    assert docstring.params[1].arg_name == "bla"
-    assert docstring.params[1].type_name == "int"
-    assert docstring.params[1].description == "bla desc"
-    assert docstring.params[2].arg_name == "yay"
-    assert docstring.params[2].type_name == "str"
-    assert docstring.params[2].description is None
-    assert docstring.params[3].arg_name == "this_guy"
-    assert docstring.params[3].type_name == "int"
-    assert docstring.params[3].is_optional
-    assert docstring.params[3].description == "you know him"
-
-    assert len(docstring.raises) == 1
-    assert docstring.raises[0].type_name == "ValueError"
-    assert docstring.raises[0].description == "exc desc"
-    assert docstring.returns is not None
-    assert docstring.returns.type_name == "tuple"
-    assert docstring.returns.description == "ret desc"
-    assert docstring.many_returns is not None
-    assert len(docstring.many_returns) == 1
-    assert docstring.many_returns[0] == docstring.returns
-
-
-def test_autodetection_error_detection() -> None:
-    """Test autodection for the case where one of the parsers throws an error
-    and another one succeeds.
-    """
-    source = """
-    Does something useless
-
-    :param 3 + 3 a: a param
-    """
-
-    with pytest.raises(ParseError):
-        # assert that one of the parsers does raise
-        parse(source, DocstringStyle.REST)
-
-    # assert that autodetection still works
-    docstring = parse(source)
-
-    assert docstring
-    assert docstring.style == DocstringStyle.GOOGLE
+@pytest.mark.parametrize(
+    "blank, expected", [(True, "Short.\n\nLong."), (False, "Short.\nLong.")]
+)
+def test_description(blank: bool, expected: str) -> None:
+    """Test that the description joins the short and long ones."""
+    docstring = Docstring()
+    docstring.short_description = "Short."
+    docstring.long_description = "Long."
+    docstring.blank_after_short_description = blank
+    assert docstring.description == expected
 
 
 def test_compose_without_style() -> None:
     """Test composing a docstring that has no style to fall back on."""
     with pytest.raises(ValueError):
         compose(Docstring())
-
-
-def test_google_without_summary_is_detected() -> None:
-    """A Google docstring that opens with a section title must not fall
-    back to a REST parse with no params.
-    """
-    docstring = parse(
-        """Args:
-            spam: description
-        """
-    )
-    assert docstring.style == DocstringStyle.GOOGLE
-    assert len(docstring.params) == 1
-    assert docstring.params[0].arg_name == "spam"
-    assert docstring.params[0].description == "description"
 
 
 @pytest.mark.parametrize(
@@ -390,60 +163,3 @@ def test_auto_parses_every_style_for_custom_numpydoc_titles(
     docstring = parse("Short.\n\n**Stars**\nfive")
     assert docstring.style == DocstringStyle.NUMPYDOC
     assert docstring.meta[0].args == ["stars"]
-
-
-def test_auto_finds_fields_after_unusual_whitespace() -> None:
-    """Test that a non-breaking space doesn't hide a Numpydoc section."""
-    docstring = parse("Short.\n\nParameters\n----------\xa0\nx\n    desc")
-    assert docstring.style == DocstringStyle.NUMPYDOC
-    assert docstring.params[0].arg_name == "x"
-
-
-def test_auto_field_with_no_name() -> None:
-    """Test that a nameless ReST field does not crash auto-detection."""
-    docstring = parse("Short.\n\n:  : text")
-    assert docstring.long_description == ":  : text"
-    assert not docstring.meta
-
-
-@pytest.mark.parametrize(
-    "style", [DocstringStyle.GOOGLE, DocstringStyle.NUMPYDOC]
-)
-def test_compose_keeps_rest_params(style: DocstringStyle) -> None:
-    """Test that ReST param aliases and attributes survive another style."""
-    docstring = parse(
-        "Short.\n\n"
-        ":param a: A.\n"
-        ":keyword k: K.\n"
-        ":arg g: G.\n"
-        ":parameter p: P.\n"
-        ":ivar z: Z.",
-        DocstringStyle.REST,
-    )
-    composed = parse(compose(docstring, style=style), style)
-    assert [
-        (p.args[0], p.arg_name, p.description) for p in composed.params
-    ] == [
-        ("param", "a", "A."),
-        ("param", "k", "K."),
-        ("param", "g", "G."),
-        ("param", "p", "P."),
-        ("attribute", "z", "Z."),
-    ]
-
-
-def test_compose_keeps_numpydoc_params_in_google() -> None:
-    """Test that Numpydoc's other and received params survive Google."""
-    docstring = parse(
-        "Short.\n\n"
-        "Other Parameters\n----------------\nq : int\n    Q.\n\n"
-        "Receives\n--------\nr\n    R.",
-        DocstringStyle.NUMPYDOC,
-    )
-    composed = parse(
-        compose(docstring, style=DocstringStyle.GOOGLE), DocstringStyle.GOOGLE
-    )
-    assert [(p.arg_name, p.type_name) for p in composed.params] == [
-        ("q", "int"),
-        ("r", None),
-    ]

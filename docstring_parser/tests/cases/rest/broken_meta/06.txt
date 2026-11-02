@@ -1,0 +1,8 @@
+# Test parsing broken meta.
+=== input
+Short.
+
+:param a: x
+: : y
+=== parse rest
+ParseError: Error parsing meta information near ": : y".

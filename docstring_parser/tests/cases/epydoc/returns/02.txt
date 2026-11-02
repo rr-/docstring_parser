@@ -1,0 +1,15 @@
+# Test parsing returns.
+=== input
+
+        Short description
+        @return: description
+        
+=== parse epydoc
+short_description: 'Short description'
+blank_after_short_description: False
+blank_after_long_description: False
+style: epydoc
+- DocstringReturns
+  args: ['return']
+  description: 'description'
+  is_generator: False

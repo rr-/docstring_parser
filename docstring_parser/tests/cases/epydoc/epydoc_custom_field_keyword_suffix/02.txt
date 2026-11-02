@@ -1,0 +1,13 @@
+# A known keyword suffix does not change a custom field's identity.
+=== input
+Summary.
+
+@myivar value: detail
+=== parse epydoc
+short_description: 'Summary.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringMeta
+  args: ['myivar', 'value']
+  description: 'detail'

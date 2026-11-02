@@ -1,0 +1,15 @@
+# Test parsing returns.
+=== input
+
+        Returns:
+            int | str | bool: three-way union
+        
+=== parse google
+blank_after_short_description: False
+blank_after_long_description: False
+style: google
+- DocstringReturns
+  args: ['returns', 'int | str | bool']
+  description: 'three-way union'
+  type_name: 'int | str | bool'
+  is_generator: False

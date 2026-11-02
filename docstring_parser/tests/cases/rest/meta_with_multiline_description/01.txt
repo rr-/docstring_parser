@@ -1,0 +1,22 @@
+# Test parsing multiline meta documentation.
+=== input
+
+        Short description
+
+        :meta: asd
+            1
+                2
+            3
+        
+=== parse rest
+short_description: 'Short description'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringMeta
+  args: ['meta']
+  description: |
+    asd
+    1
+        2
+    3

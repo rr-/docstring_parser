@@ -1,0 +1,64 @@
+# Test compose in expanded mode.
+=== input
+
+            Short description
+
+            Args:
+                name: description 1
+                priority (int): description 2
+                sender (str, optional): description 3
+                message (str, optional): description 4, defaults to 'hello'
+                multiline (str?):
+                    long description 5,
+                        defaults to 'bye'
+            
+=== parse google
+short_description: 'Short description'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'name']
+  description: 'description 1'
+  arg_name: 'name'
+- DocstringParam
+  args: ['param', 'priority (int)']
+  description: 'description 2'
+  arg_name: 'priority'
+  type_name: 'int'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'sender (str, optional)']
+  description: 'description 3'
+  arg_name: 'sender'
+  type_name: 'str'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'message (str, optional)']
+  description: "description 4, defaults to 'hello'"
+  arg_name: 'message'
+  type_name: 'str'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'multiline (str?)']
+  description: |
+    long description 5,
+    defaults to 'bye'
+  arg_name: 'multiline'
+  type_name: 'str'
+  is_optional: True
+=== compose google expanded
+Short description
+
+Args:
+    name:
+        description 1
+    priority (int):
+        description 2
+    sender (str, optional):
+        description 3
+    message (str, optional):
+        description 4, defaults to 'hello'
+    multiline (str, optional):
+        long description 5,
+        defaults to 'bye'

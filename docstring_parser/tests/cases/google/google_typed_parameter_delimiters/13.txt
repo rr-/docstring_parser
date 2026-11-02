@@ -1,0 +1,17 @@
+# Keep nested and long types while preserving incomplete declarations.
+=== input
+Summary.
+
+Args:
+    value (tuple[int, str], optional): description
+=== parse google
+short_description: 'Summary.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'value (tuple[int, str], optional)']
+  description: 'description'
+  arg_name: 'value'
+  type_name: 'tuple[int, str]'
+  is_optional: True

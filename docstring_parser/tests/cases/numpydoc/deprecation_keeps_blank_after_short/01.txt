@@ -1,0 +1,18 @@
+# Test that moving text past a directive keeps the summary's spacing.
+=== input
+Short.
+
+.. deprecated:: 1.0
+    Use.
+
+Long.
+=== parse numpydoc
+short_description: 'Short.'
+long_description: 'Long.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringDeprecated
+  args: ['deprecation']
+  description: 'Use.'
+  version: '1.0'

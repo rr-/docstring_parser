@@ -1,0 +1,22 @@
+# Test that continuation lines stay part of their field.
+=== input
+Short.
+
+:param a: first line
+    :class:`Foo` starts this one
+=== parse rest
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringParam
+  args: ['param', 'a']
+  description: |
+    first line
+    :class:`Foo` starts this one
+  arg_name: 'a'
+=== compose rest clean
+Short.
+
+:param a: first line
+    :class:`Foo` starts this one

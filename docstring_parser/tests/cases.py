@@ -8,7 +8,11 @@ run on it:
 
 - ``parse <style>``: the parsed docstring, dumped by :func:`dump`
 - ``detect``: the style that auto-detection picks
-- ``compose <style>``: the docstring parsed and composed back in a style
+- ``compose <style> [<rendering>]``: the docstring parsed and composed
+  back in a style, with a lowercase :class:`RenderingStyle` name that
+  defaults to compact
+- ``convert <style> <style>``: the docstring parsed in the first style
+  and composed in the second one
 
 Styles are the lowercase :class:`DocstringStyle` names.
 """
@@ -21,6 +25,7 @@ from docstring_parser.common import (
     Docstring,
     DocstringStyle,
     ParseError,
+    RenderingStyle,
 )
 from docstring_parser.parser import compose, parse
 
@@ -40,7 +45,8 @@ class Case(T.NamedTuple):
 
 def read_case(path: Path) -> Case:
     """Read a case file."""
-    text = path.read_text(encoding="utf-8")
+    # Read the bytes so that \r in an input survives universal newlines.
+    text = path.read_bytes().decode("utf-8")
     if text.endswith("\n"):
         text = text[:-1]
     comments: T.List[str] = []
@@ -73,7 +79,7 @@ def write_case(path: Path, case: Case) -> None:
         parts.append(f"=== {name}")
         parts.append(body)
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text("\n".join(parts) + "\n", encoding="utf-8")
+    path.write_bytes(("\n".join(parts) + "\n").encode("utf-8"))
 
 
 def _style(name: str) -> DocstringStyle:
@@ -125,10 +131,12 @@ def run(command: str, text: str) -> str:
             style = parse(text).style
             assert style is not None
             return style.name.lower()
-        if name == "compose" and len(args) == 1:
+        if name == "compose" and len(args) in {1, 2}:
             style = _style(args[0])
-            return compose(parse(text, style), style)
+            rendering = RenderingStyle[(args[1:] or ["compact"])[0].upper()]
+            return compose(parse(text, style), style, rendering)
+        if name == "convert" and len(args) == 2:
+            return compose(parse(text, _style(args[0])), _style(args[1]))
     except ParseError as ex:
         return f"ParseError: {ex}"
     raise ValueError(f"Unknown case command {command!r}")
-

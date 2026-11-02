@@ -1,0 +1,23 @@
+# Test parsing newlines around description sections.
+=== input
+
+            Short description
+
+            First line
+                Second line
+
+            Args:
+                asd:
+            
+=== parse google
+short_description: 'Short description'
+long_description: |
+  First line
+      Second line
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'asd']
+  description: ''
+  arg_name: 'asd'
