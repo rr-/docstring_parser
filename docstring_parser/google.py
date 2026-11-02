@@ -68,33 +68,48 @@ DEFAULT_SECTIONS = [
 ]
 
 
+def _join_wrapped(text: str) -> str:
+    """Join the lines of a wrapped item head into one line.
+
+    Lines are joined with a space, as wrapped prose and types are written,
+    except right inside brackets: ``List[`` and ``int]`` give ``List[int]``.
+    """
+    joined = ""
+    for line in text.splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        if joined and not joined.endswith(("(", "[", "{")):
+            if not line.startswith((")", "]", "}")):
+                joined += " "
+        joined += line
+    return joined
+
+
 def _split_typed_arg(text: str) -> T.Optional[T.Tuple[str, str]]:
-    """Split a parameter name and type without backtracking over delimiters."""
+    """Split a parameter name and the type in parentheses after it.
+
+    The type ends at the parenthesis matching the opening one, found in a
+    single pass, so anything after it is ignored.
+    """
     text = text.lstrip()
     opening = text.find("(", 1)
     if opening < 0:
         return None
     name = text[:opening].rstrip()
-    if not name or "\n" in name:
+    if not name:
         return None
-    remainder = text[opening + 1 :].lstrip()
-    first_line, newline, rest = remainder.partition("\n")
-    # The old matcher allowed whitespace before the closing delimiter, but
-    # did not include newlines in the type itself.
-    if newline and rest.lstrip().startswith(")"):
-        type_name = first_line.rstrip()
+    depth = 0
+    for closing in range(opening, len(text)):
+        if text[closing] in "([{":
+            depth += 1
+        elif text[closing] in ")]}":
+            depth -= 1
+            if depth == 0:
+                break
     else:
-        closing = first_line.rfind(")")
-        if closing < 0 and newline:
-            # A type wrapped over several lines, such as a long subscript,
-            # is joined back the way the declaration's second line is.
-            first_line = "".join(
-                line.strip() for line in remainder.splitlines()
-            )
-            closing = first_line.rfind(")")
-        if closing < 0:
-            return None
-        type_name = first_line[:closing].rstrip()
+        return None
+    type_name = text[opening + 1 : closing].strip()
     if not type_name:
         return None
     return name, type_name
@@ -154,9 +169,7 @@ class GoogleParser:
         before, desc = text.split(":", 1)
 
         if before and "\n" in before:
-            # If there is a newline in the first line, clean it up
-            first_line, rest = before.split("\n", 1)
-            before = first_line + inspect.cleandoc(rest)
+            before = _join_wrapped(before)
 
         if desc:
             desc = desc[1:] if desc[0] == " " else desc

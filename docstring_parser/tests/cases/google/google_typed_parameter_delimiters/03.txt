@@ -12,8 +12,8 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'value (List[tuple[int,\nstr]])']
+  args: ['param', 'value (List[tuple[int, str]])']
   description: 'description'
   arg_name: 'value'
-  type_name: 'List[tuple[int,str]]'
+  type_name: 'List[tuple[int, str]]'
   is_optional: False
