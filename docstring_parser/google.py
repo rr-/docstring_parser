@@ -4,7 +4,7 @@ import inspect
 import re
 import textwrap
 import typing as T
-from collections import OrderedDict, namedtuple
+from collections import namedtuple
 from enum import IntEnum
 
 from .common import (
@@ -291,7 +291,9 @@ class GoogleParser:
             splits.append((matches[j].end(), matches[j + 1].start()))
         splits.append((matches[-1].end(), len(meta_chunk)))
 
-        chunks = OrderedDict()  # type: T.Mapping[str,str]
+        # A list rather than a dict, so that a section whose title appears
+        # twice keeps both of its chunks.
+        chunks: T.List[T.Tuple[str, str]] = []
         for j, (start, end) in enumerate(splits):
             title = matches[j].group(1)
             if title not in self.sections:
@@ -304,12 +306,12 @@ class GoogleParser:
             if unknown_meta is not None:
                 meta_details = meta_details[: unknown_meta.start()]
 
-            chunks[title] = meta_details.strip("\n")
+            chunks.append((title, meta_details.strip("\n")))
         if not chunks:
             return ret
 
         # Add elements from each chunk
-        for title, chunk in chunks.items():
+        for title, chunk in chunks:
             # Determine indent
             indent_match = re.search(r"^\s*", chunk)
             if not indent_match:
