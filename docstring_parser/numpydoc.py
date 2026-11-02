@@ -342,11 +342,14 @@ class NumpydocParser:
 
         :param sections: Recognized sections or None to defaults.
         """
+        self._default_sections = not sections
         sections = sections or DEFAULT_SECTIONS
         self.sections = {s.title: s for s in sections}
+        self._specs: T.Optional[T.Dict[str, T.Any]] = None
         self._setup()
 
     def _setup(self):
+        self._specs = None
         self.titles_re = re.compile(
             r"|".join(s.title_pattern for s in self.sections.values()),
             flags=re.M,
@@ -361,11 +364,18 @@ class NumpydocParser:
         self.sections[section.title] = section
         self._setup()
 
-    def parse(self, text: T.Optional[str]) -> Docstring:
+    def parse(
+        self, text: T.Optional[str], *, legacy: bool = True
+    ) -> Docstring:
         """Parse the numpy-style docstring into its components.
 
+        :param text: docstring text to parse
+        :param legacy: whether to keep the behavior of previous versions; see
+            :func:`docstring_parser.parse`
         :returns: parsed docstring
         """
+        if not legacy:
+            return self._parse_new(text)
         ret = Docstring(style=DocstringStyle.NUMPYDOC)
         if not text:
             return ret
@@ -420,14 +430,51 @@ class NumpydocParser:
 
         return ret
 
+    def _parse_new(self, text: T.Optional[str]) -> Docstring:
+        from ._core import numpydoc as _numpydoc
+        from ._core.build import canonical_key
+
+        Kind = _numpydoc.Kind
+        if self._specs is None:
+            kinds = {
+                ParamSection: Kind.PARAM,
+                ReturnsSection: Kind.RETURNS,
+                YieldsSection: Kind.RETURNS,
+                RaisesSection: Kind.RAISES,
+                ExamplesSection: Kind.EXAMPLES,
+                Section: Kind.TEXT,
+            }
+            specs = {}
+            if self._default_sections:
+                # Recognized only without legacy behavior.
+                specs["methods"] = _numpydoc.SectionSpec(
+                    "methods", Kind.METHODS
+                )
+            for title, section in self.sections.items():
+                if isinstance(section, DeprecationSection):  # see _core.text
+                    continue
+                kind = kinds.get(type(section))
+                key = canonical_key(section.key)
+                if kind is None:
+                    specs[title.lower()] = _numpydoc.SectionSpec(
+                        key, Kind.TEXT, section.parse
+                    )
+                else:
+                    specs[title.lower()] = _numpydoc.SectionSpec(key, kind)
+            self._specs = specs
+        return _numpydoc.parse(text, self._specs)
+
 
 _default_parser: T.Optional[NumpydocParser] = None
 _default_parser_sections: T.Tuple[Section, ...] = ()
 
 
-def parse(text: T.Optional[str]) -> Docstring:
+def parse(text: T.Optional[str], *, legacy: bool = True) -> Docstring:
     """Parse the numpy-style docstring into its components.
 
+    :param text: docstring text to parse
+    :param legacy: whether to keep the behavior of previous versions; see
+        :func:`docstring_parser.parse`
     :returns: parsed docstring
     """
     global _default_parser, _default_parser_sections  # noqa: PLW0603
@@ -437,7 +484,7 @@ def parse(text: T.Optional[str]) -> Docstring:
     if _default_parser is None or sections != _default_parser_sections:
         _default_parser = NumpydocParser()
         _default_parser_sections = sections
-    return _default_parser.parse(text)
+    return _default_parser.parse(text, legacy=legacy)
 
 
 def compose(
@@ -452,6 +499,10 @@ def compose(
     :param indent: the characters used as indentation in the docstring string
     :returns: docstring text
     """
+    if not docstring.legacy:
+        from ._core import numpydoc as _numpydoc
+
+        return _numpydoc.compose(docstring, indent)
 
     def process_one(
         one: T.Union[DocstringParam, DocstringReturns, DocstringRaises],

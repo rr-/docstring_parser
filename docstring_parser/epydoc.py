@@ -27,11 +27,19 @@ def _clean_str(string: str) -> T.Optional[str]:
     return None
 
 
-def parse(text: T.Optional[str]) -> Docstring:
+def parse(text: T.Optional[str], *, legacy: bool = True) -> Docstring:
     """Parse the epydoc-style docstring into its components.
 
+    :param text: docstring text to parse
+    :param legacy: whether to keep the behavior of previous versions; see
+        :func:`docstring_parser.parse`
     :returns: parsed docstring
     """
+    if not legacy:
+        from ._core import epydoc as _epydoc
+
+        return _epydoc.parse(text)
+
     ret = Docstring(style=DocstringStyle.EPYDOC)
     if not text:
         return ret
@@ -222,6 +230,10 @@ def compose(
     :param indent: the characters used as indentation in the docstring string
     :returns: docstring text
     """
+    if not docstring.legacy:
+        from ._core import epydoc as _epydoc
+
+        return _epydoc.compose(docstring, rendering_style, indent)
 
     def process_desc(desc: T.Optional[str], is_type: bool) -> str:
         if not desc:

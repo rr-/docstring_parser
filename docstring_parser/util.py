@@ -24,6 +24,7 @@ def combine_docstrings(
     exclude: T.Iterable[T.Type[DocstringMeta]] = (),
     style: DocstringStyle = DocstringStyle.AUTO,
     rendering_style: RenderingStyle = RenderingStyle.COMPACT,
+    legacy: bool = True,
 ) -> _Func:
     """A function decorator that parses the docstrings from `others`,
     programmatically combines them with the parsed docstring of the decorated
@@ -87,14 +88,18 @@ def combine_docstrings(
     :param style: style composed docstring. The default will infer the style
         from the decorated function.
     :param rendering_style: The rendering style used to compose a docstring.
+    :param legacy: whether to parse and compose with the behavior of previous
+        versions; see :func:`docstring_parser.parse`.
     :return: the decorated function with a modified docstring.
     """
 
     def wrapper(func: _Func) -> _Func:
         sig = Signature.from_callable(func)
 
-        comb_doc = parse(func.__doc__ or "")
-        docs = [parse(other.__doc__ or "") for other in others] + [comb_doc]
+        comb_doc = parse(func.__doc__ or "", legacy=legacy)
+        docs = [
+            parse(other.__doc__ or "", legacy=legacy) for other in others
+        ] + [comb_doc]
         params = dict(
             ChainMap(
                 *(
@@ -136,7 +141,22 @@ def combine_docstrings(
         combined[DocstringParam] = [
             params[name] for name in sig.parameters if name in params
         ]
+        if not legacy:
+            # Documented attributes are not parameters, keep them all.
+            attributes = {
+                attr.arg_name: attr for doc in docs for attr in doc.attributes
+            }
+            combined[DocstringParam] += list(attributes.values())
         comb_doc.meta = list(chain(*combined.values()))
+        if not legacy:
+            # Separate the description from the items now added to it.
+            comb_doc.blank_after_short_description = bool(
+                comb_doc.short_description
+                and (comb_doc.long_description or comb_doc.meta)
+            )
+            comb_doc.blank_after_long_description = bool(
+                comb_doc.long_description and comb_doc.meta
+            )
         func.__doc__ = compose(
             comb_doc, style=style, rendering_style=rendering_style
         )

@@ -106,14 +106,21 @@ def add_attribute_docstrings(
 ) -> None:
     """Add attribute docstrings found in the object's source code.
 
+    Attributes already documented in the docstring are not added again. For
+    non-legacy docstrings, descriptions are cleaned like docstrings.
+
     :param obj: object from which to parse attribute docstrings
     :param docstring: Docstring object where found attributes are added
     :returns: list with names of added attributes
     """
-    params = set(p.arg_name for p in docstring.params)
+    params = set(
+        p.arg_name for p in docstring.meta if isinstance(p, DocstringParam)
+    )
     for arg_name, (description, type_name, default) in (
         AttributeDocstrings().get_attr_docs(obj).items()
     ):
+        if not docstring.legacy:
+            description = inspect.cleandoc(description) or None
         if arg_name not in params:
             param = DocstringParam(
                 args=["attribute", arg_name],

@@ -17,6 +17,7 @@ DEPRECATION_KEYWORDS = {"deprecation", "deprecated"}
 RETURNS_KEYWORDS = {"return", "returns"}
 YIELDS_KEYWORDS = {"yield", "yields"}
 EXAMPLES_KEYWORDS = {"example", "examples"}
+ATTRIBUTE_KEYWORDS = {"attribute", "ivar", "cvar", "var"}
 
 
 def normalize_line_endings(text: str) -> str:
@@ -93,6 +94,11 @@ class DocstringParam(DocstringMeta):
         self.type_name = type_name
         self.is_optional = is_optional
         self.default = default
+
+    @property
+    def is_attribute(self) -> bool:
+        """Whether this item documents an attribute rather than a parameter."""
+        return bool(self.args) and self.args[0] in ATTRIBUTE_KEYWORDS
 
 
 class DocstringReturns(DocstringMeta):
@@ -198,6 +204,13 @@ class Docstring:
         self.blank_after_long_description = False
         self.meta = []  # type: T.List[DocstringMeta]
         self.style = style  # type: T.Optional[DocstringStyle]
+        self.legacy = True
+        """Whether this docstring follows the legacy behavior.
+
+        Docstrings parsed with ``legacy=False`` have this set to False. It
+        changes which items :attr:`params` returns and how :func:`compose`
+        renders the docstring.
+        """
 
     @property
     def description(self) -> T.Optional[str]:
@@ -220,8 +233,26 @@ class Docstring:
 
     @property
     def params(self) -> T.List[DocstringParam]:
-        """Return a list of information on function params."""
-        return [item for item in self.meta if isinstance(item, DocstringParam)]
+        """Return a list of information on function params.
+
+        In legacy mode documented attributes are included. Otherwise they are
+        only available through :attr:`attributes`.
+        """
+        return [
+            item
+            for item in self.meta
+            if isinstance(item, DocstringParam)
+            and (self.legacy or not item.is_attribute)
+        ]
+
+    @property
+    def attributes(self) -> T.List[DocstringParam]:
+        """Return a list of information on documented attributes."""
+        return [
+            item
+            for item in self.meta
+            if isinstance(item, DocstringParam) and item.is_attribute
+        ]
 
     @property
     def raises(self) -> T.List[DocstringRaises]:

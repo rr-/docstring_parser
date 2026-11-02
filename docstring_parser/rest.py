@@ -100,11 +100,19 @@ def _build_meta(args: T.List[str], desc: str) -> DocstringMeta:
     return DocstringMeta(args=args, description=desc)
 
 
-def parse(text: T.Optional[str]) -> Docstring:
+def parse(text: T.Optional[str], *, legacy: bool = True) -> Docstring:
     """Parse the ReST-style docstring into its components.
 
+    :param text: docstring text to parse
+    :param legacy: whether to keep the behavior of previous versions; see
+        :func:`docstring_parser.parse`
     :returns: parsed docstring
     """
+    if not legacy:
+        from ._core import rest as _rest
+
+        return _rest.parse(text)
+
     ret = Docstring(style=DocstringStyle.REST)
     if not text:
         return ret
@@ -215,6 +223,10 @@ def compose(
     :param indent: the characters used as indentation in the docstring string
     :returns: docstring text
     """
+    if not docstring.legacy:
+        from ._core import rest as _rest
+
+        return _rest.compose(docstring, rendering_style, indent)
 
     def process_desc(desc: T.Optional[str]) -> str:
         if not desc:

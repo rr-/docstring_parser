@@ -37,6 +37,23 @@ Example usage:
 
 Read [API Documentation](https://rr-.github.io/docstring_parser/).
 
+# Legacy and new behavior
+
+By default, parsing behaves exactly as in previous versions. Passing
+`legacy=False` enables a parser with consistent rules across styles: no text
+is silently dropped, defaults and optional markers are recognized the same way
+in every style, item keys are canonical, attributes are kept apart from
+parameters, and composing a parsed docstring gives text that parses back to
+the same result.
+
+```python
+>>> docstring = parse(text, legacy=False)
+```
+
+It requires Python 3.10 or newer; on older versions only the legacy behavior
+is available. This will become the default in the next major version. See
+[BEHAVIOR.md](BEHAVIOR.md) for the rules and a list of differences.
+
 # Installation
 
 Installation using pip
@@ -77,3 +94,9 @@ uv run pytest
 ```
 
 The `justfile` wraps these and other common tasks; run `just` to list them.
+
+The tests include golden results over a corpus of real-world docstrings. If a
+change to the `legacy=False` behavior is intended, review it with
+`uv run python scripts/golden_diff.py` and record it with
+`uv run pytest --update-golden`. The legacy results change only with a
+deliberate fix to a legacy parser; review those with `--legacy`.

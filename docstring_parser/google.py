@@ -102,13 +102,16 @@ class GoogleParser:
         :param sections: Recognized sections or None to defaults.
         :param title_colon: require colon after section title.
         """
+        self._default_sections = not sections
         if not sections:
             sections = DEFAULT_SECTIONS
         self.sections = {s.title: s for s in sections}
+        self._specs: T.Optional[T.Dict[str, T.Any]] = None
         self.title_colon = title_colon
         self._setup()
 
     def _setup(self):
+        self._specs = None
         if self.title_colon:
             colon = ":"
         else:
@@ -232,11 +235,18 @@ class GoogleParser:
         self.sections[section.title] = section
         self._setup()
 
-    def parse(self, text: T.Optional[str]) -> Docstring:
+    def parse(
+        self, text: T.Optional[str], *, legacy: bool = True
+    ) -> Docstring:
         """Parse the Google-style docstring into its components.
 
+        :param text: docstring text to parse
+        :param legacy: whether to keep the behavior of previous versions; see
+            :func:`docstring_parser.parse`
         :returns: parsed docstring
         """
+        if not legacy:
+            return self._parse_new(text)
         ret = Docstring(style=DocstringStyle.GOOGLE)
         if not text:
             return ret
@@ -329,14 +339,40 @@ class GoogleParser:
 
         return ret
 
+    def _parse_new(self, text: T.Optional[str]) -> Docstring:
+        from ._core import google as _google
+        from ._core.build import canonical_key
+
+        if self._specs is None:
+            specs = (
+                _google.default_sections() if self._default_sections else {}
+            )
+            for title, section in self.sections.items():
+                # The new parser has its own table for the default sections,
+                # but entries added to DEFAULT_SECTIONS still count.
+                if (
+                    self._default_sections
+                    and section in DEFAULT_SECTIONS
+                    and title.lower() in specs
+                ):
+                    continue
+                specs[title.lower()] = _google.SectionSpec(
+                    canonical_key(section.key), _google.Kind(section.type)
+                )
+            self._specs = specs
+        return _google.parse(text, self._specs, self.title_colon)
+
 
 _default_parser: T.Optional[GoogleParser] = None
 _default_parser_sections: T.Tuple[Section, ...] = ()
 
 
-def parse(text: T.Optional[str]) -> Docstring:
+def parse(text: T.Optional[str], *, legacy: bool = True) -> Docstring:
     """Parse the Google-style docstring into its components.
 
+    :param text: docstring text to parse
+    :param legacy: whether to keep the behavior of previous versions; see
+        :func:`docstring_parser.parse`
     :returns: parsed docstring
     """
     global _default_parser, _default_parser_sections  # noqa: PLW0603
@@ -346,7 +382,7 @@ def parse(text: T.Optional[str]) -> Docstring:
     if _default_parser is None or sections != _default_parser_sections:
         _default_parser = GoogleParser()
         _default_parser_sections = sections
-    return _default_parser.parse(text)
+    return _default_parser.parse(text, legacy=legacy)
 
 
 def compose(
@@ -361,6 +397,10 @@ def compose(
     :param indent: the characters used as indentation in the docstring string
     :returns: docstring text
     """
+    if not docstring.legacy:
+        from ._core import google as _google
+
+        return _google.compose(docstring, rendering_style, indent)
 
     def process_one(
         one: T.Union[DocstringParam, DocstringReturns, DocstringRaises],

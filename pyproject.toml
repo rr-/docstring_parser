@@ -39,6 +39,7 @@ changelog = "https://github.com/rr-/docstring_parser/blob/main/CHANGELOG.md"
 [dependency-groups]
 test = [
     "pytest",
+    "hypothesis",
 ]
 docs = [
     "pydoctor >= 25.4.0; python_version>='3.11'",
@@ -56,6 +57,8 @@ wheel-exclude = ["docstring_parser/tests"]
 [tool.ruff]
 line-length = 79
 target-version = "py38"
+# The new parser (legacy=False) requires Python 3.10.
+per-file-target-version = { "docstring_parser/_core/**" = "py310" }
 
 [tool.ruff.lint]
 select = ["E", "F", "W", "I", "PL"]
@@ -68,3 +71,7 @@ ignore = [
     "PLR2004",  # magic-value-comparison
     "PLW2901",  # redefined-loop-name
 ]
+
+[tool.ruff.lint.per-file-ignores]
+# They import docstring_parser._core lazily, since it requires Python 3.10.
+"docstring_parser/{epydoc,google,numpydoc,rest}.py" = ["PLC0415"]
