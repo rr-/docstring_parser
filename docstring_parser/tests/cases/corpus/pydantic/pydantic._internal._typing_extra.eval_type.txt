@@ -1,0 +1,50 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Evaluate the annotation using the provided namespaces.
+
+    This function relies on our vendored `typing._eval_type()` function, and provide better error messages
+    if possible.
+
+    Args:
+        value: The value to evaluate (will be converted to `NoneType` if `None`, and to a `ForwardRef` instance if a string).
+        localns: The global namespace to use during annotation evaluation.
+        globalns: The local namespace to use during annotation evaluation.
+        type_params: The type params belonging to the object being evaluated.
+    
+=== parse google
+short_description: 'Evaluate the annotation using the provided namespaces.'
+long_description: |
+  This function relies on our vendored `typing._eval_type()` function, and provide better error messages
+  if possible.
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'value']
+  description: 'The value to evaluate (will be converted to `NoneType` if `None`, and to a `ForwardRef` instance if a string).'
+  arg_name: 'value'
+- DocstringParam
+  args: ['param', 'localns']
+  description: 'The global namespace to use during annotation evaluation.'
+  arg_name: 'localns'
+- DocstringParam
+  args: ['param', 'globalns']
+  description: 'The local namespace to use during annotation evaluation.'
+  arg_name: 'globalns'
+- DocstringParam
+  args: ['param', 'type_params']
+  description: 'The type params belonging to the object being evaluated.'
+  arg_name: 'type_params'
+=== detect
+google
+=== compose google
+Evaluate the annotation using the provided namespaces.
+
+This function relies on our vendored `typing._eval_type()` function, and provide better error messages
+if possible.
+
+Args:
+    value: The value to evaluate (will be converted to `NoneType` if `None`, and to a `ForwardRef` instance if a string).
+    localns: The global namespace to use during annotation evaluation.
+    globalns: The local namespace to use during annotation evaluation.
+    type_params: The type params belonging to the object being evaluated.

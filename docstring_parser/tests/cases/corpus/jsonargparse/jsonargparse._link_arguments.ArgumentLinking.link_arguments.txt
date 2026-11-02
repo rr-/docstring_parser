@@ -1,0 +1,56 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Makes an argument value be derived from the values of other arguments.
+
+        Refer to :ref:`argument-linking` for a detailed explanation and examples.
+
+        Args:
+            source: Key(s) from which the target value is derived.
+            target: Key to where the value is set.
+            compute_fn: Function to compute target value from source.
+            apply_on: At what point to set target value, 'parse' or 'instantiate'.
+
+        Raises:
+            ValueError: If an invalid parameter is given.
+        
+=== parse google
+short_description: 'Makes an argument value be derived from the values of other arguments.'
+long_description: 'Refer to :ref:`argument-linking` for a detailed explanation and examples.'
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'source']
+  description: 'Key(s) from which the target value is derived.'
+  arg_name: 'source'
+- DocstringParam
+  args: ['param', 'target']
+  description: 'Key to where the value is set.'
+  arg_name: 'target'
+- DocstringParam
+  args: ['param', 'compute_fn']
+  description: 'Function to compute target value from source.'
+  arg_name: 'compute_fn'
+- DocstringParam
+  args: ['param', 'apply_on']
+  description: "At what point to set target value, 'parse' or 'instantiate'."
+  arg_name: 'apply_on'
+- DocstringRaises
+  args: ['raises', 'ValueError']
+  description: 'If an invalid parameter is given.'
+  type_name: 'ValueError'
+=== detect
+google
+=== compose google
+Makes an argument value be derived from the values of other arguments.
+
+Refer to :ref:`argument-linking` for a detailed explanation and examples.
+
+Args:
+    source: Key(s) from which the target value is derived.
+    target: Key to where the value is set.
+    compute_fn: Function to compute target value from source.
+    apply_on: At what point to set target value, 'parse' or 'instantiate'.
+
+Raises:
+    ValueError: If an invalid parameter is given.

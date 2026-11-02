@@ -1,0 +1,245 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Return (z,p,k) for analog prototype of an Nth-order Bessel filter.
+
+    Parameters
+    ----------
+    N : int
+        The order of the filter.
+    norm : {'phase', 'delay', 'mag'}, optional
+        Frequency normalization:
+
+        ``phase``
+            The filter is normalized such that the phase response reaches its
+            midpoint at an angular (e.g., rad/s) cutoff frequency of 1. This
+            happens for both low-pass and high-pass filters, so this is the
+            "phase-matched" case. [6]_
+
+            The magnitude response asymptotes are the same as a Butterworth
+            filter of the same order with a cutoff of `Wn`.
+
+            This is the default, and matches MATLAB's implementation.
+
+        ``delay``
+            The filter is normalized such that the group delay in the passband
+            is 1 (e.g., 1 second). This is the "natural" type obtained by
+            solving Bessel polynomials
+
+        ``mag``
+            The filter is normalized such that the gain magnitude is -3 dB at
+            angular frequency 1. This is called "frequency normalization" by
+            Bond. [1]_
+
+        .. versionadded:: 0.18.0
+
+    %(xp_device_snippet)s
+
+    Returns
+    -------
+    z : ndarray[float64]
+        Zeros of the transfer function. Is always an empty array.
+    p : ndarray[complex128]
+        Poles of the transfer function.
+    k : float
+        Gain of the transfer function. For phase-normalized, this is always 1.
+
+    See Also
+    --------
+    bessel : Filter design function using this prototype
+
+    Notes
+    -----
+    To find the pole locations, approximate starting points are generated [2]_
+    for the zeros of the ordinary Bessel polynomial [3]_, then the
+    Aberth-Ehrlich method [4]_ [5]_ is used on the Kv(x) Bessel function to
+    calculate more accurate zeros, and these locations are then inverted about
+    the unit circle.
+
+    References
+    ----------
+    .. [1] C.R. Bond, "Bessel Filter Constants",
+           http://www.crbond.com/papers/bsf.pdf
+    .. [2] Campos and Calderon, "Approximate closed-form formulas for the
+           zeros of the Bessel Polynomials", :arXiv:`1105.0957`.
+    .. [3] Thomson, W.E., "Delay Networks having Maximally Flat Frequency
+           Characteristics", Proceedings of the Institution of Electrical
+           Engineers, Part III, November 1949, Vol. 96, No. 44, pp. 487-490.
+    .. [4] Aberth, "Iteration Methods for Finding all Zeros of a Polynomial
+           Simultaneously", Mathematics of Computation, Vol. 27, No. 122,
+           April 1973
+    .. [5] Ehrlich, "A modified Newton method for polynomials", Communications
+           of the ACM, Vol. 10, Issue 2, pp. 107-108, Feb. 1967,
+           :doi:`10.1145/363067.363115`.
+    .. [6] Miller and Bohn, "A Bessel Filter Crossover, and Its Relation to
+           Others", RaneNote 147, 1998,
+           https://www.ranecommercial.com/legacy/note147.html
+
+    
+=== parse numpydoc
+short_description: 'Return (z,p,k) for analog prototype of an Nth-order Bessel filter.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'N']
+  description: 'The order of the filter.'
+  arg_name: 'N'
+  type_name: 'int'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'norm']
+  description: |
+    Frequency normalization:
+    
+    ``phase``
+        The filter is normalized such that the phase response reaches its
+        midpoint at an angular (e.g., rad/s) cutoff frequency of 1. This
+        happens for both low-pass and high-pass filters, so this is the
+        "phase-matched" case. [6]_
+    
+        The magnitude response asymptotes are the same as a Butterworth
+        filter of the same order with a cutoff of `Wn`.
+    
+        This is the default, and matches MATLAB's implementation.
+    
+    ``delay``
+        The filter is normalized such that the group delay in the passband
+        is 1 (e.g., 1 second). This is the "natural" type obtained by
+        solving Bessel polynomials
+    
+    ``mag``
+        The filter is normalized such that the gain magnitude is -3 dB at
+        angular frequency 1. This is called "frequency normalization" by
+        Bond. [1]_
+    
+    .. versionadded:: 0.18.0
+  arg_name: 'norm'
+  type_name: "{'phase', 'delay', 'mag'}"
+  is_optional: True
+- DocstringParam
+  args: ['param', '%(xp_device_snippet)s']
+  arg_name: '%(xp_device_snippet)s'
+- DocstringReturns
+  args: ['returns']
+  description: 'Zeros of the transfer function. Is always an empty array.'
+  type_name: 'ndarray[float64]'
+  is_generator: False
+  return_name: 'z'
+- DocstringReturns
+  args: ['returns']
+  description: 'Poles of the transfer function.'
+  type_name: 'ndarray[complex128]'
+  is_generator: False
+  return_name: 'p'
+- DocstringReturns
+  args: ['returns']
+  description: 'Gain of the transfer function. For phase-normalized, this is always 1.'
+  type_name: 'float'
+  is_generator: False
+  return_name: 'k'
+- DocstringMeta
+  args: ['see_also']
+  description: 'bessel : Filter design function using this prototype'
+- DocstringMeta
+  args: ['notes']
+  description: |
+    To find the pole locations, approximate starting points are generated [2]_
+    for the zeros of the ordinary Bessel polynomial [3]_, then the
+    Aberth-Ehrlich method [4]_ [5]_ is used on the Kv(x) Bessel function to
+    calculate more accurate zeros, and these locations are then inverted about
+    the unit circle.
+- DocstringMeta
+  args: ['references']
+  description: |
+    .. [1] C.R. Bond, "Bessel Filter Constants",
+           http://www.crbond.com/papers/bsf.pdf
+    .. [2] Campos and Calderon, "Approximate closed-form formulas for the
+           zeros of the Bessel Polynomials", :arXiv:`1105.0957`.
+    .. [3] Thomson, W.E., "Delay Networks having Maximally Flat Frequency
+           Characteristics", Proceedings of the Institution of Electrical
+           Engineers, Part III, November 1949, Vol. 96, No. 44, pp. 487-490.
+    .. [4] Aberth, "Iteration Methods for Finding all Zeros of a Polynomial
+           Simultaneously", Mathematics of Computation, Vol. 27, No. 122,
+           April 1973
+    .. [5] Ehrlich, "A modified Newton method for polynomials", Communications
+           of the ACM, Vol. 10, Issue 2, pp. 107-108, Feb. 1967,
+           :doi:`10.1145/363067.363115`.
+    .. [6] Miller and Bohn, "A Bessel Filter Crossover, and Its Relation to
+           Others", RaneNote 147, 1998,
+           https://www.ranecommercial.com/legacy/note147.html
+=== detect
+numpydoc
+=== compose numpydoc
+Return (z,p,k) for analog prototype of an Nth-order Bessel filter.
+
+Parameters
+----------
+N : int
+    The order of the filter.
+norm : {'phase', 'delay', 'mag'}, optional
+    Frequency normalization:
+    
+    ``phase``
+        The filter is normalized such that the phase response reaches its
+        midpoint at an angular (e.g., rad/s) cutoff frequency of 1. This
+        happens for both low-pass and high-pass filters, so this is the
+        "phase-matched" case. [6]_
+    
+        The magnitude response asymptotes are the same as a Butterworth
+        filter of the same order with a cutoff of `Wn`.
+    
+        This is the default, and matches MATLAB's implementation.
+    
+    ``delay``
+        The filter is normalized such that the group delay in the passband
+        is 1 (e.g., 1 second). This is the "natural" type obtained by
+        solving Bessel polynomials
+    
+    ``mag``
+        The filter is normalized such that the gain magnitude is -3 dB at
+        angular frequency 1. This is called "frequency normalization" by
+        Bond. [1]_
+    
+    .. versionadded:: 0.18.0
+%(xp_device_snippet)s
+
+Returns
+-------
+z : ndarray[float64]
+    Zeros of the transfer function. Is always an empty array.
+p : ndarray[complex128]
+    Poles of the transfer function.
+k : float
+    Gain of the transfer function. For phase-normalized, this is always 1.
+
+See Also
+--------
+bessel : Filter design function using this prototype
+
+Notes
+-----
+To find the pole locations, approximate starting points are generated [2]_
+for the zeros of the ordinary Bessel polynomial [3]_, then the
+Aberth-Ehrlich method [4]_ [5]_ is used on the Kv(x) Bessel function to
+calculate more accurate zeros, and these locations are then inverted about
+the unit circle.
+
+References
+----------
+.. [1] C.R. Bond, "Bessel Filter Constants",
+       http://www.crbond.com/papers/bsf.pdf
+.. [2] Campos and Calderon, "Approximate closed-form formulas for the
+       zeros of the Bessel Polynomials", :arXiv:`1105.0957`.
+.. [3] Thomson, W.E., "Delay Networks having Maximally Flat Frequency
+       Characteristics", Proceedings of the Institution of Electrical
+       Engineers, Part III, November 1949, Vol. 96, No. 44, pp. 487-490.
+.. [4] Aberth, "Iteration Methods for Finding all Zeros of a Polynomial
+       Simultaneously", Mathematics of Computation, Vol. 27, No. 122,
+       April 1973
+.. [5] Ehrlich, "A modified Newton method for polynomials", Communications
+       of the ACM, Vol. 10, Issue 2, pp. 107-108, Feb. 1967,
+       :doi:`10.1145/363067.363115`.
+.. [6] Miller and Bohn, "A Bessel Filter Crossover, and Its Relation to
+       Others", RaneNote 147, 1998,
+       https://www.ranecommercial.com/legacy/note147.html

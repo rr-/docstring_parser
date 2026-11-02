@@ -1,0 +1,228 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Compute the (Moore-Penrose) pseudo-inverse of a Hermitian matrix.
+
+    Calculate a generalized inverse of a complex Hermitian/real symmetric
+    matrix using its eigenvalue decomposition and including all eigenvalues
+    with 'large' absolute value.
+
+    Parameters
+    ----------
+    a : (N, N) array_like
+        Real symmetric or complex hermetian matrix to be pseudo-inverted
+
+    atol : float, optional
+        Absolute threshold term, default value is 0.
+
+        .. versionadded:: 1.7.0
+
+    rtol : float, optional
+        Relative threshold term, default value is ``N * eps`` where
+        ``eps`` is the machine precision value of the datatype of ``a``.
+
+        .. versionadded:: 1.7.0
+
+    lower : bool, optional
+        Whether the pertinent array data is taken from the lower or upper
+        triangle of `a`. (Default: lower)
+    return_rank : bool, optional
+        If True, return the effective rank of the matrix.
+    check_finite : bool, optional
+        Whether to check that the input matrix contains only finite numbers.
+        Disabling may give a performance gain, but may result in problems
+        (crashes, non-termination) if the inputs do contain infinities or NaNs.
+
+    Returns
+    -------
+    B : (N, N) ndarray
+        The pseudo-inverse of matrix `a`.
+    rank : int
+        The effective rank of the matrix.  Returned if `return_rank` is True.
+
+    Raises
+    ------
+    LinAlgError
+        If eigenvalue algorithm does not converge.
+
+    See Also
+    --------
+    pinv : Moore-Penrose pseudoinverse of a matrix.
+
+    Examples
+    --------
+
+    For a more detailed example see `pinv`.
+
+    >>> import numpy as np
+    >>> from scipy.linalg import pinvh
+    >>> rng = np.random.default_rng()
+    >>> a = rng.standard_normal((9, 6))
+    >>> a = np.dot(a, a.T)
+    >>> B = pinvh(a)
+    >>> np.allclose(a, a @ B @ a)
+    True
+    >>> np.allclose(B, B @ a @ B)
+    True
+
+    
+=== parse numpydoc
+short_description: 'Compute the (Moore-Penrose) pseudo-inverse of a Hermitian matrix.'
+long_description: |
+  Calculate a generalized inverse of a complex Hermitian/real symmetric
+  matrix using its eigenvalue decomposition and including all eigenvalues
+  with 'large' absolute value.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'a']
+  description: 'Real symmetric or complex hermetian matrix to be pseudo-inverted'
+  arg_name: 'a'
+  type_name: '(N, N) array_like'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'atol']
+  description: |
+    Absolute threshold term, default value is 0.
+    
+    .. versionadded:: 1.7.0
+  arg_name: 'atol'
+  type_name: 'float'
+  is_optional: True
+  default: 'value'
+- DocstringParam
+  args: ['param', 'rtol']
+  description: |
+    Relative threshold term, default value is ``N * eps`` where
+    ``eps`` is the machine precision value of the datatype of ``a``.
+    
+    .. versionadded:: 1.7.0
+  arg_name: 'rtol'
+  type_name: 'float'
+  is_optional: True
+  default: 'value'
+- DocstringParam
+  args: ['param', 'lower']
+  description: |
+    Whether the pertinent array data is taken from the lower or upper
+    triangle of `a`. (Default: lower)
+  arg_name: 'lower'
+  type_name: 'bool'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'return_rank']
+  description: 'If True, return the effective rank of the matrix.'
+  arg_name: 'return_rank'
+  type_name: 'bool'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'check_finite']
+  description: |
+    Whether to check that the input matrix contains only finite numbers.
+    Disabling may give a performance gain, but may result in problems
+    (crashes, non-termination) if the inputs do contain infinities or NaNs.
+  arg_name: 'check_finite'
+  type_name: 'bool'
+  is_optional: True
+- DocstringReturns
+  args: ['returns']
+  description: 'The pseudo-inverse of matrix `a`.'
+  type_name: '(N, N) ndarray'
+  is_generator: False
+  return_name: 'B'
+- DocstringReturns
+  args: ['returns']
+  description: 'The effective rank of the matrix.  Returned if `return_rank` is True.'
+  type_name: 'int'
+  is_generator: False
+  return_name: 'rank'
+- DocstringRaises
+  args: ['raises', 'LinAlgError']
+  description: 'If eigenvalue algorithm does not converge.'
+  type_name: 'LinAlgError'
+- DocstringMeta
+  args: ['see_also']
+  description: 'pinv : Moore-Penrose pseudoinverse of a matrix.'
+- DocstringExample
+  args: ['examples']
+  description: |
+    For a more detailed example see `pinv`.
+    
+- DocstringExample
+  args: ['examples']
+  description: 'True'
+  snippet: |
+    >>> import numpy as np
+    >>> from scipy.linalg import pinvh
+    >>> rng = np.random.default_rng()
+    >>> a = rng.standard_normal((9, 6))
+    >>> a = np.dot(a, a.T)
+    >>> B = pinvh(a)
+    >>> np.allclose(a, a @ B @ a)
+- DocstringExample
+  args: ['examples']
+  description: 'True'
+  snippet: '>>> np.allclose(B, B @ a @ B)'
+=== detect
+numpydoc
+=== compose numpydoc
+Compute the (Moore-Penrose) pseudo-inverse of a Hermitian matrix.
+
+Calculate a generalized inverse of a complex Hermitian/real symmetric
+matrix using its eigenvalue decomposition and including all eigenvalues
+with 'large' absolute value.
+
+Parameters
+----------
+a : (N, N) array_like
+    Real symmetric or complex hermetian matrix to be pseudo-inverted
+atol : float, default=value
+    Absolute threshold term, default value is 0.
+    
+    .. versionadded:: 1.7.0
+rtol : float, default=value
+    Relative threshold term, default value is ``N * eps`` where
+    ``eps`` is the machine precision value of the datatype of ``a``.
+    
+    .. versionadded:: 1.7.0
+lower : bool, optional
+    Whether the pertinent array data is taken from the lower or upper
+    triangle of `a`. (Default: lower)
+return_rank : bool, optional
+    If True, return the effective rank of the matrix.
+check_finite : bool, optional
+    Whether to check that the input matrix contains only finite numbers.
+    Disabling may give a performance gain, but may result in problems
+    (crashes, non-termination) if the inputs do contain infinities or NaNs.
+
+Returns
+-------
+B : (N, N) ndarray
+    The pseudo-inverse of matrix `a`.
+rank : int
+    The effective rank of the matrix.  Returned if `return_rank` is True.
+
+Raises
+------
+LinAlgError
+    If eigenvalue algorithm does not converge.
+
+Examples
+--------
+For a more detailed example see `pinv`.
+
+>>> import numpy as np
+>>> from scipy.linalg import pinvh
+>>> rng = np.random.default_rng()
+>>> a = rng.standard_normal((9, 6))
+>>> a = np.dot(a, a.T)
+>>> B = pinvh(a)
+>>> np.allclose(a, a @ B @ a)
+True
+>>> np.allclose(B, B @ a @ B)
+True
+
+See Also
+--------
+pinv : Moore-Penrose pseudoinverse of a matrix.

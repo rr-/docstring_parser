@@ -1,0 +1,29 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Return a string which is the concatenation of the strings in the
+        sequence `seq`.
+
+        See Also
+        --------
+        char.join
+
+        
+=== parse numpydoc
+short_description: 'Return a string which is the concatenation of the strings in the'
+long_description: 'sequence `seq`.'
+blank_after_short_description: False
+blank_after_long_description: True
+style: numpydoc
+- DocstringMeta
+  args: ['see_also']
+  description: 'char.join'
+=== detect
+numpydoc
+=== compose numpydoc
+Return a string which is the concatenation of the strings in the
+sequence `seq`.
+
+See Also
+--------
+char.join

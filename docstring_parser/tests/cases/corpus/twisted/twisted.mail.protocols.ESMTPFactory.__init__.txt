@@ -1,0 +1,24 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        @param args: Arguments for L{SMTPFactory.__init__}
+
+        @see: L{SMTPFactory.__init__}
+        
+=== parse epydoc
+blank_after_short_description: False
+blank_after_long_description: False
+style: epydoc
+- DocstringParam
+  args: ['param', 'args']
+  description: 'Arguments for L{SMTPFactory.__init__}'
+  arg_name: 'args'
+  is_optional: False
+- DocstringMeta
+  args: ['see']
+  description: 'L{SMTPFactory.__init__}'
+=== detect
+epydoc
+=== compose epydoc
+@param args: Arguments for L{SMTPFactory.__init__}
+@see: L{SMTPFactory.__init__}

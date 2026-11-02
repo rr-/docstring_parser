@@ -1,0 +1,89 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Handle an exception that did not have an error handler
+        associated with it, or that was raised from an error handler.
+        This always causes a 500 ``InternalServerError``.
+
+        Always sends the :data:`got_request_exception` signal.
+
+        If :data:`PROPAGATE_EXCEPTIONS` is ``True``, such as in debug
+        mode, the error will be re-raised so that the debugger can
+        display it. Otherwise, the original exception is logged, and
+        an :exc:`~werkzeug.exceptions.InternalServerError` is returned.
+
+        If an error handler is registered for ``InternalServerError`` or
+        ``500``, it will be used. For consistency, the handler will
+        always receive the ``InternalServerError``. The original
+        unhandled exception is available as ``e.original_exception``.
+
+        .. versionchanged:: 1.1.0
+            Always passes the ``InternalServerError`` instance to the
+            handler, setting ``original_exception`` to the unhandled
+            error.
+
+        .. versionchanged:: 1.1.0
+            ``after_request`` functions and other finalization is done
+            even for the default 500 response when there is no handler.
+
+        .. versionadded:: 0.3
+        
+=== parse rest
+short_description: 'Handle an exception that did not have an error handler'
+long_description: |
+  associated with it, or that was raised from an error handler.
+  This always causes a 500 ``InternalServerError``.
+  
+  Always sends the :data:`got_request_exception` signal.
+  
+  If :data:`PROPAGATE_EXCEPTIONS` is ``True``, such as in debug
+  mode, the error will be re-raised so that the debugger can
+  display it. Otherwise, the original exception is logged, and
+  an :exc:`~werkzeug.exceptions.InternalServerError` is returned.
+  
+  If an error handler is registered for ``InternalServerError`` or
+  ``500``, it will be used. For consistency, the handler will
+  always receive the ``InternalServerError``. The original
+  unhandled exception is available as ``e.original_exception``.
+  
+  .. versionchanged:: 1.1.0
+      Always passes the ``InternalServerError`` instance to the
+      handler, setting ``original_exception`` to the unhandled
+      error.
+  
+  .. versionchanged:: 1.1.0
+      ``after_request`` functions and other finalization is done
+      even for the default 500 response when there is no handler.
+  
+  .. versionadded:: 0.3
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Handle an exception that did not have an error handler
+associated with it, or that was raised from an error handler.
+This always causes a 500 ``InternalServerError``.
+
+Always sends the :data:`got_request_exception` signal.
+
+If :data:`PROPAGATE_EXCEPTIONS` is ``True``, such as in debug
+mode, the error will be re-raised so that the debugger can
+display it. Otherwise, the original exception is logged, and
+an :exc:`~werkzeug.exceptions.InternalServerError` is returned.
+
+If an error handler is registered for ``InternalServerError`` or
+``500``, it will be used. For consistency, the handler will
+always receive the ``InternalServerError``. The original
+unhandled exception is available as ``e.original_exception``.
+
+.. versionchanged:: 1.1.0
+    Always passes the ``InternalServerError`` instance to the
+    handler, setting ``original_exception`` to the unhandled
+    error.
+
+.. versionchanged:: 1.1.0
+    ``after_request`` functions and other finalization is done
+    even for the default 500 response when there is no handler.
+
+.. versionadded:: 0.3

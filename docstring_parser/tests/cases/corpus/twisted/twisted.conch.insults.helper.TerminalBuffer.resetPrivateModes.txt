@@ -1,0 +1,26 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Disable the given modes.
+
+        @see: L{setPrivateModes}
+        @see: L{insults.ITerminalTransport.resetPrivateModes}
+        
+=== parse epydoc
+short_description: 'Disable the given modes.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringMeta
+  args: ['see']
+  description: 'L{setPrivateModes}'
+- DocstringMeta
+  args: ['see']
+  description: 'L{insults.ITerminalTransport.resetPrivateModes}'
+=== detect
+epydoc
+=== compose epydoc
+Disable the given modes.
+
+@see: L{setPrivateModes}
+@see: L{insults.ITerminalTransport.resetPrivateModes}

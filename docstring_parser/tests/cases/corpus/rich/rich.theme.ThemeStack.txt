@@ -1,0 +1,25 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+A stack of themes.
+
+    Args:
+        theme (Theme): A theme instance
+    
+=== parse google
+short_description: 'A stack of themes.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'theme (Theme)']
+  description: 'A theme instance'
+  arg_name: 'theme'
+  type_name: 'Theme'
+  is_optional: False
+=== detect
+google
+=== compose google
+A stack of themes.
+
+Args:
+    theme (Theme): A theme instance

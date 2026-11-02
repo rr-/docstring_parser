@@ -1,0 +1,32 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Property for the error_handler function that is called when there are parsing errors.
+
+        :getter: Returns the current error_handler function.
+        :setter: Sets a new error_handler function (Callable[self, message:str] or None).
+
+        Raises:
+            ValueError: If an invalid value is given.
+        
+=== parse google
+short_description: 'Property for the error_handler function that is called when there are parsing errors.'
+long_description: |
+  :getter: Returns the current error_handler function.
+  :setter: Sets a new error_handler function (Callable[self, message:str] or None).
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringRaises
+  args: ['raises', 'ValueError']
+  description: 'If an invalid value is given.'
+  type_name: 'ValueError'
+=== detect
+rest
+=== compose google
+Property for the error_handler function that is called when there are parsing errors.
+
+:getter: Returns the current error_handler function.
+:setter: Sets a new error_handler function (Callable[self, message:str] or None).
+
+Raises:
+    ValueError: If an invalid value is given.

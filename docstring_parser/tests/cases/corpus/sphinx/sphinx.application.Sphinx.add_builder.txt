@@ -1,0 +1,40 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Register a new builder.
+
+        :param builder: A builder class
+        :param override: If true, install the builder forcedly even if another builder
+                         is already installed as the same name
+
+        .. versionchanged:: 1.8
+           Add *override* keyword.
+        
+=== parse rest
+short_description: 'Register a new builder.'
+long_description: |
+  .. versionchanged:: 1.8
+     Add *override* keyword.
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringParam
+  args: ['param', 'builder']
+  description: 'A builder class'
+  arg_name: 'builder'
+- DocstringParam
+  args: ['param', 'override']
+  description: |
+    If true, install the builder forcedly even if another builder
+    is already installed as the same name
+  arg_name: 'override'
+=== detect
+rest
+=== compose rest
+Register a new builder.
+
+.. versionchanged:: 1.8
+   Add *override* keyword.
+
+:param builder: A builder class
+:param override: If true, install the builder forcedly even if another builder
+    is already installed as the same name

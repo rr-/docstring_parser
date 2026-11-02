@@ -1,0 +1,24 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+    L{ILogFilterPredicate} that filters out events with a log level lower than
+    the log level for the event's namespace.
+
+    Events that not not have a log level or namespace are also dropped.
+    
+=== parse epydoc
+short_description: 'L{ILogFilterPredicate} that filters out events with a log level lower than'
+long_description: |
+  the log level for the event's namespace.
+  
+  Events that not not have a log level or namespace are also dropped.
+blank_after_short_description: False
+blank_after_long_description: False
+style: epydoc
+=== detect
+rest
+=== compose epydoc
+L{ILogFilterPredicate} that filters out events with a log level lower than
+the log level for the event's namespace.
+
+Events that not not have a log level or namespace are also dropped.

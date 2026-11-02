@@ -1,0 +1,128 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Update the Fortran-to-C type mapping dictionary with new mappings and
+    return a list of successfully mapped C types.
+
+    This function integrates a new mapping dictionary into an existing
+    Fortran-to-C type mapping dictionary. It ensures that all keys are in
+    lowercase and validates new entries against a given C-to-Python mapping
+    dictionary. Redefinitions and invalid entries are reported with a warning.
+
+    Parameters
+    ----------
+    f2cmap_all : dict
+        The existing Fortran-to-C type mapping dictionary that will be updated.
+        It should be a dictionary of dictionaries where the main keys represent
+        Fortran types and the nested dictionaries map Fortran type specifiers
+        to corresponding C types.
+
+    new_map : dict
+        A dictionary containing new type mappings to be added to `f2cmap_all`.
+        The structure should be similar to `f2cmap_all`, with keys representing
+        Fortran types and values being dictionaries of type specifiers and their
+        C type equivalents.
+
+    c2py_map : dict
+        A dictionary used for validating the C types in `new_map`. It maps C
+        types to corresponding Python types and is used to ensure that the C
+        types specified in `new_map` are valid.
+
+    verbose : boolean
+        A flag used to provide information about the types mapped
+
+    Returns
+    -------
+    tuple of (dict, list)
+        The updated Fortran-to-C type mapping dictionary and a list of
+        successfully mapped C types.
+    
+=== parse numpydoc
+short_description: 'Update the Fortran-to-C type mapping dictionary with new mappings and'
+long_description: |
+  return a list of successfully mapped C types.
+  
+  This function integrates a new mapping dictionary into an existing
+  Fortran-to-C type mapping dictionary. It ensures that all keys are in
+  lowercase and validates new entries against a given C-to-Python mapping
+  dictionary. Redefinitions and invalid entries are reported with a warning.
+blank_after_short_description: False
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'f2cmap_all']
+  description: |
+    The existing Fortran-to-C type mapping dictionary that will be updated.
+    It should be a dictionary of dictionaries where the main keys represent
+    Fortran types and the nested dictionaries map Fortran type specifiers
+    to corresponding C types.
+  arg_name: 'f2cmap_all'
+  type_name: 'dict'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'new_map']
+  description: |
+    A dictionary containing new type mappings to be added to `f2cmap_all`.
+    The structure should be similar to `f2cmap_all`, with keys representing
+    Fortran types and values being dictionaries of type specifiers and their
+    C type equivalents.
+  arg_name: 'new_map'
+  type_name: 'dict'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'c2py_map']
+  description: |
+    A dictionary used for validating the C types in `new_map`. It maps C
+    types to corresponding Python types and is used to ensure that the C
+    types specified in `new_map` are valid.
+  arg_name: 'c2py_map'
+  type_name: 'dict'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'verbose']
+  description: 'A flag used to provide information about the types mapped'
+  arg_name: 'verbose'
+  type_name: 'boolean'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: |
+    The updated Fortran-to-C type mapping dictionary and a list of
+    successfully mapped C types.
+  type_name: 'tuple of (dict, list)'
+  is_generator: False
+=== detect
+numpydoc
+=== compose numpydoc
+Update the Fortran-to-C type mapping dictionary with new mappings and
+return a list of successfully mapped C types.
+
+This function integrates a new mapping dictionary into an existing
+Fortran-to-C type mapping dictionary. It ensures that all keys are in
+lowercase and validates new entries against a given C-to-Python mapping
+dictionary. Redefinitions and invalid entries are reported with a warning.
+
+Parameters
+----------
+f2cmap_all : dict
+    The existing Fortran-to-C type mapping dictionary that will be updated.
+    It should be a dictionary of dictionaries where the main keys represent
+    Fortran types and the nested dictionaries map Fortran type specifiers
+    to corresponding C types.
+new_map : dict
+    A dictionary containing new type mappings to be added to `f2cmap_all`.
+    The structure should be similar to `f2cmap_all`, with keys representing
+    Fortran types and values being dictionaries of type specifiers and their
+    C type equivalents.
+c2py_map : dict
+    A dictionary used for validating the C types in `new_map`. It maps C
+    types to corresponding Python types and is used to ensure that the C
+    types specified in `new_map` are valid.
+verbose : boolean
+    A flag used to provide information about the types mapped
+
+Returns
+-------
+tuple of (dict, list)
+    The updated Fortran-to-C type mapping dictionary and a list of
+    successfully mapped C types.

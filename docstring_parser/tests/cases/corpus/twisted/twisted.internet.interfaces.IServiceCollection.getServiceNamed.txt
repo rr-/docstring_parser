@@ -1,0 +1,19 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Retrieve the named service from this application.
+
+        Raise a C{KeyError} if there is no such service name.
+        
+=== parse epydoc
+short_description: 'Retrieve the named service from this application.'
+long_description: 'Raise a C{KeyError} if there is no such service name.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+=== detect
+rest
+=== compose epydoc
+Retrieve the named service from this application.
+
+Raise a C{KeyError} if there is no such service name.

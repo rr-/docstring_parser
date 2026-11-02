@@ -1,0 +1,51 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Construct locally (approximately) convex bounds
+
+        Parameters
+        ----------
+        v_min : Vertex object
+                The minimizer vertex
+
+        Returns
+        -------
+        cbounds : list of lists
+            List of size dimension with length-2 list of bounds for each
+            dimension.
+
+        
+=== parse numpydoc
+short_description: 'Construct locally (approximately) convex bounds'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'v_min']
+  description: 'The minimizer vertex'
+  arg_name: 'v_min'
+  type_name: 'Vertex object'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: |
+    List of size dimension with length-2 list of bounds for each
+    dimension.
+  type_name: 'list of lists'
+  is_generator: False
+  return_name: 'cbounds'
+=== detect
+numpydoc
+=== compose numpydoc
+Construct locally (approximately) convex bounds
+
+Parameters
+----------
+v_min : Vertex object
+    The minimizer vertex
+
+Returns
+-------
+cbounds : list of lists
+    List of size dimension with length-2 list of bounds for each
+    dimension.

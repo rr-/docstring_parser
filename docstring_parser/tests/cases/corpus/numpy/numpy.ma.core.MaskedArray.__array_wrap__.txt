@@ -1,0 +1,20 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Special hook for ufuncs.
+
+        Wraps the numpy array and sets the mask according to context.
+
+        
+=== parse numpydoc
+short_description: 'Special hook for ufuncs.'
+long_description: 'Wraps the numpy array and sets the mask according to context.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Special hook for ufuncs.
+
+Wraps the numpy array and sets the mask according to context.

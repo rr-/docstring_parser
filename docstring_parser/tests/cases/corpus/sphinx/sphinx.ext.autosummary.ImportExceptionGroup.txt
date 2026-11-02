@@ -1,0 +1,18 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Exceptions raised during importing the target objects.
+
+    It contains an error message and a list of exceptions as its arguments.
+    
+=== parse rest
+short_description: 'Exceptions raised during importing the target objects.'
+long_description: 'It contains an error message and a list of exceptions as its arguments.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Exceptions raised during importing the target objects.
+
+It contains an error message and a list of exceptions as its arguments.

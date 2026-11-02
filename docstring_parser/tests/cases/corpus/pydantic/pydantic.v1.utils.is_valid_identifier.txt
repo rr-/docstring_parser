@@ -1,0 +1,21 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+    Checks that a string is a valid identifier and not a Python keyword.
+    :param identifier: The identifier to test.
+    :return: True if the identifier is valid.
+    
+=== parse google
+short_description: 'Checks that a string is a valid identifier and not a Python keyword.'
+long_description: |
+  :param identifier: The identifier to test.
+  :return: True if the identifier is valid.
+blank_after_short_description: False
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Checks that a string is a valid identifier and not a Python keyword.
+:param identifier: The identifier to test.
+:return: True if the identifier is valid.

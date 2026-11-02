@@ -1,0 +1,25 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Detect dumb terminal.
+
+        Returns:
+            bool: True if writing to a dumb terminal, otherwise False.
+
+        
+=== parse google
+short_description: 'Detect dumb terminal.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringReturns
+  args: ['returns', 'bool']
+  description: 'True if writing to a dumb terminal, otherwise False.'
+  type_name: 'bool'
+  is_generator: False
+=== detect
+google
+=== compose google
+Detect dumb terminal.
+
+Returns:
+    bool: True if writing to a dumb terminal, otherwise False.

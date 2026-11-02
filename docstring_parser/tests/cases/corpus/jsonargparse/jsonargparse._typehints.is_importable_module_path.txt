@@ -1,0 +1,22 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Whether a value is the import path of a module, checked without importing it.
+
+    Only the parent packages of the module get imported, which is unavoidable
+    since they are the ones that know how to find their submodules.
+    
+=== parse google
+short_description: 'Whether a value is the import path of a module, checked without importing it.'
+long_description: |
+  Only the parent packages of the module get imported, which is unavoidable
+  since they are the ones that know how to find their submodules.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Whether a value is the import path of a module, checked without importing it.
+
+Only the parent packages of the module get imported, which is unavoidable
+since they are the ones that know how to find their submodules.

@@ -1,0 +1,55 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Method that can be used to parse Jsonnet independent from an :class:`.ArgumentParser`.
+
+        Args:
+            jsonnet: Either a path to a Jsonnet file or the Jsonnet content.
+            ext_vars: External variables. Values can be strings or any other basic type.
+            with_meta: Whether to include metadata in config object.
+
+        Returns:
+            The parsed Jsonnet object.
+
+        Raises:
+            TypeError: If the input is neither a path to an existent file nor a Jsonnet.
+        
+=== parse google
+short_description: 'Method that can be used to parse Jsonnet independent from an :class:`.ArgumentParser`.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'jsonnet']
+  description: 'Either a path to a Jsonnet file or the Jsonnet content.'
+  arg_name: 'jsonnet'
+- DocstringParam
+  args: ['param', 'ext_vars']
+  description: 'External variables. Values can be strings or any other basic type.'
+  arg_name: 'ext_vars'
+- DocstringParam
+  args: ['param', 'with_meta']
+  description: 'Whether to include metadata in config object.'
+  arg_name: 'with_meta'
+- DocstringReturns
+  args: ['returns']
+  description: 'The parsed Jsonnet object.'
+  is_generator: False
+- DocstringRaises
+  args: ['raises', 'TypeError']
+  description: 'If the input is neither a path to an existent file nor a Jsonnet.'
+  type_name: 'TypeError'
+=== detect
+google
+=== compose google
+Method that can be used to parse Jsonnet independent from an :class:`.ArgumentParser`.
+
+Args:
+    jsonnet: Either a path to a Jsonnet file or the Jsonnet content.
+    ext_vars: External variables. Values can be strings or any other basic type.
+    with_meta: Whether to include metadata in config object.
+
+Returns:
+    The parsed Jsonnet object.
+
+Raises:
+    TypeError: If the input is neither a path to an existent file nor a Jsonnet.

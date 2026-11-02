@@ -1,0 +1,34 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Returns the canonical paths that must be allowed for an object to be usable.
+
+    A class, routine or module has a single defining path. An object that instead
+    wraps or exposes a callable without an import path of its own, e.g. a
+    ``functools.partial`` or a callable instance, is denied by the callable it
+    reaches: the bound function for a partial and the defining class for an
+    instance. Otherwise binding or instancing a denied callable under an allowed
+    name would evade the denylist.
+    
+=== parse google
+short_description: 'Returns the canonical paths that must be allowed for an object to be usable.'
+long_description: |
+  A class, routine or module has a single defining path. An object that instead
+  wraps or exposes a callable without an import path of its own, e.g. a
+  ``functools.partial`` or a callable instance, is denied by the callable it
+  reaches: the bound function for a partial and the defining class for an
+  instance. Otherwise binding or instancing a denied callable under an allowed
+  name would evade the denylist.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Returns the canonical paths that must be allowed for an object to be usable.
+
+A class, routine or module has a single defining path. An object that instead
+wraps or exposes a callable without an import path of its own, e.g. a
+``functools.partial`` or a callable instance, is denied by the callable it
+reaches: the bound function for a partial and the defining class for an
+instance. Otherwise binding or instancing a denied callable under an allowed
+name would evade the denylist.

@@ -1,0 +1,40 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Return a binary method that always raises a TypeError.
+
+    Parameters
+    ----------
+    name : str
+
+    Returns
+    -------
+    invalid_op : function
+    
+=== parse numpydoc
+short_description: 'Return a binary method that always raises a TypeError.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'name']
+  arg_name: 'name'
+  type_name: 'str'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  type_name: 'function'
+  is_generator: False
+  return_name: 'invalid_op'
+=== detect
+numpydoc
+=== compose numpydoc
+Return a binary method that always raises a TypeError.
+
+Parameters
+----------
+name : str
+
+Returns
+-------
+invalid_op : function

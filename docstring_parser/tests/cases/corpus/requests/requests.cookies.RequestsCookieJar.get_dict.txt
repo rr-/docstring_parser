@@ -1,0 +1,28 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Takes as an argument an optional domain and path and returns a plain
+        old Python dict of name-value pairs of cookies that meet the
+        requirements.
+
+        :rtype: dict
+        
+=== parse rest
+short_description: 'Takes as an argument an optional domain and path and returns a plain'
+long_description: |
+  old Python dict of name-value pairs of cookies that meet the
+  requirements.
+blank_after_short_description: False
+blank_after_long_description: True
+style: rest
+- DocstringReturns
+  args: []
+  type_name: 'dict'
+  is_generator: False
+=== detect
+rest
+=== compose rest
+Takes as an argument an optional domain and path and returns a plain
+old Python dict of name-value pairs of cookies that meet the
+requirements.
+
+:returns dict:

@@ -1,0 +1,58 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Serialize the given arguments as JSON, and return a
+        :class:`~flask.Response` object with the ``application/json``
+        mimetype.
+
+        The :func:`~flask.json.jsonify` function calls this method for
+        the current application.
+
+        Either positional or keyword arguments can be given, not both.
+        If no arguments are given, ``None`` is serialized.
+
+        :param args: A single value to serialize, or multiple values to
+            treat as a list to serialize.
+        :param kwargs: Treat as a dict to serialize.
+        
+=== parse rest
+short_description: 'Serialize the given arguments as JSON, and return a'
+long_description: |
+  The :func:`~flask.json.jsonify` function calls this method for
+  the current application.
+  
+  Either positional or keyword arguments can be given, not both.
+  If no arguments are given, ``None`` is serialized.
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringMeta
+  args: ['class']
+  description: |
+    `~flask.Response` object with the ``application/json``
+    mimetype.
+- DocstringParam
+  args: ['param', 'args']
+  description: |
+    A single value to serialize, or multiple values to
+    treat as a list to serialize.
+  arg_name: 'args'
+- DocstringParam
+  args: ['param', 'kwargs']
+  description: 'Treat as a dict to serialize.'
+  arg_name: 'kwargs'
+=== detect
+rest
+=== compose rest
+Serialize the given arguments as JSON, and return a
+
+The :func:`~flask.json.jsonify` function calls this method for
+the current application.
+
+Either positional or keyword arguments can be given, not both.
+If no arguments are given, ``None`` is serialized.
+
+:class: `~flask.Response` object with the ``application/json``
+    mimetype.
+:param args: A single value to serialize, or multiple values to
+    treat as a list to serialize.
+:param kwargs: Treat as a dict to serialize.

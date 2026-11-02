@@ -1,0 +1,20 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Prepare integrator for call: allocate memory, set flags, etc.
+        n - number of equations.
+        has_jac - if user has supplied function for evaluating Jacobian.
+        
+=== parse numpydoc
+short_description: 'Prepare integrator for call: allocate memory, set flags, etc.'
+long_description: |
+  n - number of equations.
+  has_jac - if user has supplied function for evaluating Jacobian.
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Prepare integrator for call: allocate memory, set flags, etc.
+n - number of equations.
+has_jac - if user has supplied function for evaluating Jacobian.

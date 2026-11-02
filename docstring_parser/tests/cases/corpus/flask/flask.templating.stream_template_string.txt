@@ -1,0 +1,41 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Render a template from the given source string with the given
+    context as a stream. This returns an iterator of strings, which can
+    be used as a streaming response from a view.
+
+    :param source: The source code of the template to render.
+    :param context: The variables to make available in the template.
+
+    .. versionadded:: 2.2
+    
+=== parse rest
+short_description: 'Render a template from the given source string with the given'
+long_description: |
+  context as a stream. This returns an iterator of strings, which can
+  be used as a streaming response from a view.
+  
+  .. versionadded:: 2.2
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringParam
+  args: ['param', 'source']
+  description: 'The source code of the template to render.'
+  arg_name: 'source'
+- DocstringParam
+  args: ['param', 'context']
+  description: 'The variables to make available in the template.'
+  arg_name: 'context'
+=== detect
+rest
+=== compose rest
+Render a template from the given source string with the given
+
+context as a stream. This returns an iterator of strings, which can
+be used as a streaming response from a view.
+
+.. versionadded:: 2.2
+
+:param source: The source code of the template to render.
+:param context: The variables to make available in the template.

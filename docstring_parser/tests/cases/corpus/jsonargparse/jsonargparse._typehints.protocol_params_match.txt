@@ -1,0 +1,22 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Whether a method can be called in all the ways that a protocol method can be called.
+
+    Types are required to match exactly, except when the protocol has no annotation or ``Any``, in
+    which case any type in the implementation is accepted.
+    
+=== parse google
+short_description: 'Whether a method can be called in all the ways that a protocol method can be called.'
+long_description: |
+  Types are required to match exactly, except when the protocol has no annotation or ``Any``, in
+  which case any type in the implementation is accepted.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Whether a method can be called in all the ways that a protocol method can be called.
+
+Types are required to match exactly, except when the protocol has no annotation or ``Any``, in
+which case any type in the implementation is accepted.

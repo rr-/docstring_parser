@@ -1,0 +1,70 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Pop the header name for MultiIndex parsing.
+
+    Parameters
+    ----------
+    row : list
+        The data row to parse for the header name.
+    index_col : int, list
+        The index columns for our data. Assumed to be non-null.
+        If a list is passed, the maximum ``index_col`` value is used.
+
+    Returns
+    -------
+    header_name : str
+        The extracted header name.
+    trimmed_row : list
+        The original data row with the header name removed.
+    
+=== parse numpydoc
+short_description: 'Pop the header name for MultiIndex parsing.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'row']
+  description: 'The data row to parse for the header name.'
+  arg_name: 'row'
+  type_name: 'list'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'index_col']
+  description: |
+    The index columns for our data. Assumed to be non-null.
+    If a list is passed, the maximum ``index_col`` value is used.
+  arg_name: 'index_col'
+  type_name: 'int, list'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: 'The extracted header name.'
+  type_name: 'str'
+  is_generator: False
+  return_name: 'header_name'
+- DocstringReturns
+  args: ['returns']
+  description: 'The original data row with the header name removed.'
+  type_name: 'list'
+  is_generator: False
+  return_name: 'trimmed_row'
+=== detect
+numpydoc
+=== compose numpydoc
+Pop the header name for MultiIndex parsing.
+
+Parameters
+----------
+row : list
+    The data row to parse for the header name.
+index_col : int, list
+    The index columns for our data. Assumed to be non-null.
+    If a list is passed, the maximum ``index_col`` value is used.
+
+Returns
+-------
+header_name : str
+    The extracted header name.
+trimmed_row : list
+    The original data row with the header name removed.

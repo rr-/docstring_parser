@@ -1,0 +1,36 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Combine styles and get result.
+
+        Args:
+            styles (Iterable[Style]): Styles to combine.
+
+        Returns:
+            Style: A new style instance.
+        
+=== parse google
+short_description: 'Combine styles and get result.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'styles (Iterable[Style])']
+  description: 'Styles to combine.'
+  arg_name: 'styles'
+  type_name: 'Iterable[Style]'
+  is_optional: False
+- DocstringReturns
+  args: ['returns', 'Style']
+  description: 'A new style instance.'
+  type_name: 'Style'
+  is_generator: False
+=== detect
+google
+=== compose google
+Combine styles and get result.
+
+Args:
+    styles (Iterable[Style]): Styles to combine.
+
+Returns:
+    Style: A new style instance.

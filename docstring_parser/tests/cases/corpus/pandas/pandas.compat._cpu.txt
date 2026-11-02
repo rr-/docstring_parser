@@ -1,0 +1,29 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+Detection of the CPU allocation actually available to this process.
+
+Used to bound the default worker count for parallel I/O, so that a default
+:func:`~pandas.read_csv` does not oversubscribe a machine on which the process
+has been given only a slice of the CPUs -- a CPU affinity mask, or a cgroup CPU
+quota as set by ``docker --cpus`` and Kubernetes CPU limits.
+
+=== parse numpydoc
+short_description: 'Detection of the CPU allocation actually available to this process.'
+long_description: |
+  Used to bound the default worker count for parallel I/O, so that a default
+  :func:`~pandas.read_csv` does not oversubscribe a machine on which the process
+  has been given only a slice of the CPUs -- a CPU affinity mask, or a cgroup CPU
+  quota as set by ``docker --cpus`` and Kubernetes CPU limits.
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Detection of the CPU allocation actually available to this process.
+
+Used to bound the default worker count for parallel I/O, so that a default
+:func:`~pandas.read_csv` does not oversubscribe a machine on which the process
+has been given only a slice of the CPUs -- a CPU affinity mask, or a cgroup CPU
+quota as set by ``docker --cpus`` and Kubernetes CPU limits.

@@ -1,0 +1,22 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Make a cookie from underspecified parameters.
+
+    By default, the pair of `name` and `value` will be set for the domain ''
+    and sent on every request (this is sometimes called a "supercookie").
+    
+=== parse rest
+short_description: 'Make a cookie from underspecified parameters.'
+long_description: |
+  By default, the pair of `name` and `value` will be set for the domain ''
+  and sent on every request (this is sometimes called a "supercookie").
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Make a cookie from underspecified parameters.
+
+By default, the pair of `name` and `value` will be set for the domain ''
+and sent on every request (this is sometimes called a "supercookie").

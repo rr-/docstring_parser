@@ -1,0 +1,64 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+A module that provides functions for handling rapt authentication.
+
+Reauth is a process of obtaining additional authentication (such as password,
+security token, etc.) while refreshing OAuth 2.0 credentials for a user.
+
+Credentials that use the Reauth flow must have the reauth scope,
+``https://www.googleapis.com/auth/accounts.reauth``.
+
+This module provides a high-level function for executing the Reauth process,
+:func:`refresh_grant`, and lower-level helpers for doing the individual
+steps of the reauth process.
+
+Those steps are:
+
+1. Obtaining a list of challenges from the reauth server.
+2. Running through each challenge and sending the result back to the reauth
+   server.
+3. Refreshing the access token using the returned rapt token.
+
+=== parse google
+short_description: 'A module that provides functions for handling rapt authentication.'
+long_description: |
+  Reauth is a process of obtaining additional authentication (such as password,
+  security token, etc.) while refreshing OAuth 2.0 credentials for a user.
+  
+  Credentials that use the Reauth flow must have the reauth scope,
+  ``https://www.googleapis.com/auth/accounts.reauth``.
+  
+  This module provides a high-level function for executing the Reauth process,
+  :func:`refresh_grant`, and lower-level helpers for doing the individual
+  steps of the reauth process.
+  
+  Those steps are:
+  
+  1. Obtaining a list of challenges from the reauth server.
+  2. Running through each challenge and sending the result back to the reauth
+     server.
+  3. Refreshing the access token using the returned rapt token.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+A module that provides functions for handling rapt authentication.
+
+Reauth is a process of obtaining additional authentication (such as password,
+security token, etc.) while refreshing OAuth 2.0 credentials for a user.
+
+Credentials that use the Reauth flow must have the reauth scope,
+``https://www.googleapis.com/auth/accounts.reauth``.
+
+This module provides a high-level function for executing the Reauth process,
+:func:`refresh_grant`, and lower-level helpers for doing the individual
+steps of the reauth process.
+
+Those steps are:
+
+1. Obtaining a list of challenges from the reauth server.
+2. Running through each challenge and sending the result back to the reauth
+   server.
+3. Refreshing the access token using the returned rapt token.

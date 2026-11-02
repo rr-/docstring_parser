@@ -1,0 +1,197 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Create a Table schema from ``data``.
+
+    This method is a utility to generate a JSON-serializable schema
+    representation of a pandas Series or DataFrame, compatible with the
+    Table Schema specification. It enables structured data to be shared
+    and validated in various applications, ensuring consistency and
+    interoperability.
+
+    Parameters
+    ----------
+    data : Series or DataFrame
+        The input data for which the table schema is to be created.
+    index : bool, default True
+        Whether to include ``data.index`` in the schema.
+    primary_key : bool or None, default True
+        Column names to designate as the primary key.
+        The default `None` will set `'primaryKey'` to the index
+        level or levels if the index is unique.
+    version : bool, default True
+        Whether to include a field `pandas_version` with the version
+        of pandas that last revised the table schema. This version
+        can be different from the installed pandas version.
+
+    Returns
+    -------
+    dict
+        A dictionary representing the Table schema.
+
+    See Also
+    --------
+    DataFrame.to_json : Convert the object to a JSON string.
+    read_json : Convert a JSON string to pandas object.
+
+    Notes
+    -----
+    See `Table Schema
+    <https://pandas.pydata.org/docs/user_guide/io.html#table-schema>`__ for
+    conversion types.
+    Timedeltas as converted to ISO8601 duration format with
+    9 decimal places after the seconds field for nanosecond precision.
+
+    Categoricals are converted to the `any` dtype, and use the `enum` field
+    constraint to list the allowed values. The `ordered` attribute is included
+    in an `ordered` field.
+
+    Examples
+    --------
+    >>> from pandas.io.json._table_schema import build_table_schema
+    >>> df = pd.DataFrame(
+    ...     {'A': [1, 2, 3],
+    ...      'B': ['a', 'b', 'c'],
+    ...      'C': pd.date_range('2016-01-01', freq='D', periods=3),
+    ...      }, index=pd.Index(range(3), name='idx'))
+    >>> build_table_schema(df)
+    {'fields': [{'name': 'idx', 'type': 'integer'}, {'name': 'A', 'type': 'integer'}, {'name': 'B', 'type': 'string', 'extDtype': 'str'}, {'name': 'C', 'type': 'datetime'}], 'primaryKey': ['idx'], 'pandas_version': '1.4.0'}
+    
+=== parse numpydoc
+short_description: 'Create a Table schema from ``data``.'
+long_description: |
+  This method is a utility to generate a JSON-serializable schema
+  representation of a pandas Series or DataFrame, compatible with the
+  Table Schema specification. It enables structured data to be shared
+  and validated in various applications, ensuring consistency and
+  interoperability.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'data']
+  description: 'The input data for which the table schema is to be created.'
+  arg_name: 'data'
+  type_name: 'Series or DataFrame'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'index']
+  description: 'Whether to include ``data.index`` in the schema.'
+  arg_name: 'index'
+  type_name: 'bool'
+  is_optional: True
+  default: 'True'
+- DocstringParam
+  args: ['param', 'primary_key']
+  description: |
+    Column names to designate as the primary key.
+    The default `None` will set `'primaryKey'` to the index
+    level or levels if the index is unique.
+  arg_name: 'primary_key'
+  type_name: 'bool or None'
+  is_optional: True
+  default: 'True'
+- DocstringParam
+  args: ['param', 'version']
+  description: |
+    Whether to include a field `pandas_version` with the version
+    of pandas that last revised the table schema. This version
+    can be different from the installed pandas version.
+  arg_name: 'version'
+  type_name: 'bool'
+  is_optional: True
+  default: 'True'
+- DocstringReturns
+  args: ['returns']
+  description: 'A dictionary representing the Table schema.'
+  type_name: 'dict'
+  is_generator: False
+- DocstringMeta
+  args: ['see_also']
+  description: |
+    DataFrame.to_json : Convert the object to a JSON string.
+    read_json : Convert a JSON string to pandas object.
+- DocstringMeta
+  args: ['notes']
+  description: |
+    See `Table Schema
+    <https://pandas.pydata.org/docs/user_guide/io.html#table-schema>`__ for
+    conversion types.
+    Timedeltas as converted to ISO8601 duration format with
+    9 decimal places after the seconds field for nanosecond precision.
+    
+    Categoricals are converted to the `any` dtype, and use the `enum` field
+    constraint to list the allowed values. The `ordered` attribute is included
+    in an `ordered` field.
+- DocstringExample
+  args: ['examples']
+  description: |
+    ...     {'A': [1, 2, 3],
+    ...      'B': ['a', 'b', 'c'],
+    ...      'C': pd.date_range('2016-01-01', freq='D', periods=3),
+    ...      }, index=pd.Index(range(3), name='idx'))
+  snippet: |
+    >>> from pandas.io.json._table_schema import build_table_schema
+    >>> df = pd.DataFrame(
+- DocstringExample
+  args: ['examples']
+  description: "{'fields': [{'name': 'idx', 'type': 'integer'}, {'name': 'A', 'type': 'integer'}, {'name': 'B', 'type': 'string', 'extDtype': 'str'}, {'name': 'C', 'type': 'datetime'}], 'primaryKey': ['idx'], 'pandas_version': '1.4.0'}"
+  snippet: '>>> build_table_schema(df)'
+=== detect
+numpydoc
+=== compose numpydoc
+Create a Table schema from ``data``.
+
+This method is a utility to generate a JSON-serializable schema
+representation of a pandas Series or DataFrame, compatible with the
+Table Schema specification. It enables structured data to be shared
+and validated in various applications, ensuring consistency and
+interoperability.
+
+Parameters
+----------
+data : Series or DataFrame
+    The input data for which the table schema is to be created.
+index : bool, default=True
+    Whether to include ``data.index`` in the schema.
+primary_key : bool or None, default=True
+    Column names to designate as the primary key.
+    The default `None` will set `'primaryKey'` to the index
+    level or levels if the index is unique.
+version : bool, default=True
+    Whether to include a field `pandas_version` with the version
+    of pandas that last revised the table schema. This version
+    can be different from the installed pandas version.
+
+Returns
+-------
+dict
+    A dictionary representing the Table schema.
+
+Examples
+--------
+>>> from pandas.io.json._table_schema import build_table_schema
+>>> df = pd.DataFrame(
+...     {'A': [1, 2, 3],
+...      'B': ['a', 'b', 'c'],
+...      'C': pd.date_range('2016-01-01', freq='D', periods=3),
+...      }, index=pd.Index(range(3), name='idx'))
+>>> build_table_schema(df)
+{'fields': [{'name': 'idx', 'type': 'integer'}, {'name': 'A', 'type': 'integer'}, {'name': 'B', 'type': 'string', 'extDtype': 'str'}, {'name': 'C', 'type': 'datetime'}], 'primaryKey': ['idx'], 'pandas_version': '1.4.0'}
+
+See Also
+--------
+DataFrame.to_json : Convert the object to a JSON string.
+read_json : Convert a JSON string to pandas object.
+
+Notes
+-----
+See `Table Schema
+<https://pandas.pydata.org/docs/user_guide/io.html#table-schema>`__ for
+conversion types.
+Timedeltas as converted to ISO8601 duration format with
+9 decimal places after the seconds field for nanosecond precision.
+
+Categoricals are converted to the `any` dtype, and use the `enum` field
+constraint to list the allowed values. The `ordered` attribute is included
+in an `ordered` field.

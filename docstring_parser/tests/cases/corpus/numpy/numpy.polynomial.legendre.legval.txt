@@ -1,0 +1,183 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Evaluate a Legendre series at points x.
+
+    If `c` is of length ``n + 1``, this function returns the value:
+
+    .. math:: p(x) = c_0 * L_0(x) + c_1 * L_1(x) + ... + c_n * L_n(x)
+
+    The parameter `x` is converted to an array only if it is a tuple or a
+    list, otherwise it is treated as a scalar. In either case, either `x`
+    or its elements must support multiplication and addition both with
+    themselves and with the elements of `c`.
+
+    If `c` is a 1-D array, then ``p(x)`` will have the same shape as `x`.  If
+    `c` is multidimensional, then the shape of the result depends on the
+    value of `tensor`. If `tensor` is true the shape will be c.shape[1:] +
+    x.shape. If `tensor` is false the shape will be c.shape[1:]. Note that
+    scalars have shape (,).
+
+    Trailing zeros in the coefficients will be used in the evaluation, so
+    they should be avoided if efficiency is a concern.
+
+    Parameters
+    ----------
+    x : array_like, compatible object
+        If `x` is a list or tuple, it is converted to an ndarray, otherwise
+        it is left unchanged and treated as a scalar. In either case, `x`
+        or its elements must support addition and multiplication with
+        themselves and with the elements of `c`.
+    c : array_like
+        Array of coefficients ordered so that the coefficients for terms of
+        degree n are contained in c[n]. If `c` is multidimensional the
+        remaining indices enumerate multiple polynomials. In the two
+        dimensional case the coefficients may be thought of as stored in
+        the columns of `c`.
+    tensor : boolean, optional
+        If True, the shape of the coefficient array is extended with ones
+        on the right, one for each dimension of `x`. Scalars have dimension 0
+        for this action. The result is that every column of coefficients in
+        `c` is evaluated for every element of `x`. If False, `x` is broadcast
+        over the columns of `c` for the evaluation.  This keyword is useful
+        when `c` is multidimensional. The default value is True.
+
+    Returns
+    -------
+    values : ndarray, algebra_like
+        The shape of the return value is described above.
+
+    See Also
+    --------
+    legval2d, leggrid2d, legval3d, leggrid3d
+
+    Notes
+    -----
+    The evaluation uses Clenshaw recursion, aka synthetic division.
+
+    
+=== parse numpydoc
+short_description: 'Evaluate a Legendre series at points x.'
+long_description: |
+  If `c` is of length ``n + 1``, this function returns the value:
+  
+  .. math:: p(x) = c_0 * L_0(x) + c_1 * L_1(x) + ... + c_n * L_n(x)
+  
+  The parameter `x` is converted to an array only if it is a tuple or a
+  list, otherwise it is treated as a scalar. In either case, either `x`
+  or its elements must support multiplication and addition both with
+  themselves and with the elements of `c`.
+  
+  If `c` is a 1-D array, then ``p(x)`` will have the same shape as `x`.  If
+  `c` is multidimensional, then the shape of the result depends on the
+  value of `tensor`. If `tensor` is true the shape will be c.shape[1:] +
+  x.shape. If `tensor` is false the shape will be c.shape[1:]. Note that
+  scalars have shape (,).
+  
+  Trailing zeros in the coefficients will be used in the evaluation, so
+  they should be avoided if efficiency is a concern.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'x']
+  description: |
+    If `x` is a list or tuple, it is converted to an ndarray, otherwise
+    it is left unchanged and treated as a scalar. In either case, `x`
+    or its elements must support addition and multiplication with
+    themselves and with the elements of `c`.
+  arg_name: 'x'
+  type_name: 'array_like, compatible object'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'c']
+  description: |
+    Array of coefficients ordered so that the coefficients for terms of
+    degree n are contained in c[n]. If `c` is multidimensional the
+    remaining indices enumerate multiple polynomials. In the two
+    dimensional case the coefficients may be thought of as stored in
+    the columns of `c`.
+  arg_name: 'c'
+  type_name: 'array_like'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'tensor']
+  description: |
+    If True, the shape of the coefficient array is extended with ones
+    on the right, one for each dimension of `x`. Scalars have dimension 0
+    for this action. The result is that every column of coefficients in
+    `c` is evaluated for every element of `x`. If False, `x` is broadcast
+    over the columns of `c` for the evaluation.  This keyword is useful
+    when `c` is multidimensional. The default value is True.
+  arg_name: 'tensor'
+  type_name: 'boolean'
+  is_optional: True
+  default: 'value'
+- DocstringReturns
+  args: ['returns']
+  description: 'The shape of the return value is described above.'
+  type_name: 'ndarray, algebra_like'
+  is_generator: False
+  return_name: 'values'
+- DocstringMeta
+  args: ['see_also']
+  description: 'legval2d, leggrid2d, legval3d, leggrid3d'
+- DocstringMeta
+  args: ['notes']
+  description: 'The evaluation uses Clenshaw recursion, aka synthetic division.'
+=== detect
+numpydoc
+=== compose numpydoc
+Evaluate a Legendre series at points x.
+
+If `c` is of length ``n + 1``, this function returns the value:
+
+.. math:: p(x) = c_0 * L_0(x) + c_1 * L_1(x) + ... + c_n * L_n(x)
+
+The parameter `x` is converted to an array only if it is a tuple or a
+list, otherwise it is treated as a scalar. In either case, either `x`
+or its elements must support multiplication and addition both with
+themselves and with the elements of `c`.
+
+If `c` is a 1-D array, then ``p(x)`` will have the same shape as `x`.  If
+`c` is multidimensional, then the shape of the result depends on the
+value of `tensor`. If `tensor` is true the shape will be c.shape[1:] +
+x.shape. If `tensor` is false the shape will be c.shape[1:]. Note that
+scalars have shape (,).
+
+Trailing zeros in the coefficients will be used in the evaluation, so
+they should be avoided if efficiency is a concern.
+
+Parameters
+----------
+x : array_like, compatible object
+    If `x` is a list or tuple, it is converted to an ndarray, otherwise
+    it is left unchanged and treated as a scalar. In either case, `x`
+    or its elements must support addition and multiplication with
+    themselves and with the elements of `c`.
+c : array_like
+    Array of coefficients ordered so that the coefficients for terms of
+    degree n are contained in c[n]. If `c` is multidimensional the
+    remaining indices enumerate multiple polynomials. In the two
+    dimensional case the coefficients may be thought of as stored in
+    the columns of `c`.
+tensor : boolean, default=value
+    If True, the shape of the coefficient array is extended with ones
+    on the right, one for each dimension of `x`. Scalars have dimension 0
+    for this action. The result is that every column of coefficients in
+    `c` is evaluated for every element of `x`. If False, `x` is broadcast
+    over the columns of `c` for the evaluation.  This keyword is useful
+    when `c` is multidimensional. The default value is True.
+
+Returns
+-------
+values : ndarray, algebra_like
+    The shape of the return value is described above.
+
+See Also
+--------
+legval2d, leggrid2d, legval3d, leggrid3d
+
+Notes
+-----
+The evaluation uses Clenshaw recursion, aka synthetic division.

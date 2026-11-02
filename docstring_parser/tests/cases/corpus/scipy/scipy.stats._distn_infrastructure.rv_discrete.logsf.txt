@@ -1,0 +1,79 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Log of the survival function of the given RV.
+
+        Returns the log of the "survival function," defined as 1 - `cdf`,
+        evaluated at `k`.
+
+        Parameters
+        ----------
+        k : array_like
+            Quantiles.
+        arg1, arg2, arg3,... : array_like
+            The shape parameter(s) for the distribution (see docstring of the
+            instance object for more information).
+        loc : array_like, optional
+            Location parameter (default=0).
+
+        Returns
+        -------
+        logsf : ndarray
+            Log of the survival function evaluated at `k`.
+
+        
+=== parse numpydoc
+short_description: 'Log of the survival function of the given RV.'
+long_description: |
+  Returns the log of the "survival function," defined as 1 - `cdf`,
+  evaluated at `k`.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'k']
+  description: 'Quantiles.'
+  arg_name: 'k'
+  type_name: 'array_like'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'arg1, arg2, arg3,...']
+  description: |
+    The shape parameter(s) for the distribution (see docstring of the
+    instance object for more information).
+  arg_name: 'arg1, arg2, arg3,...'
+  type_name: 'array_like'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'loc']
+  description: 'Location parameter (default=0).'
+  arg_name: 'loc'
+  type_name: 'array_like'
+  is_optional: True
+- DocstringReturns
+  args: ['returns']
+  description: 'Log of the survival function evaluated at `k`.'
+  type_name: 'ndarray'
+  is_generator: False
+  return_name: 'logsf'
+=== detect
+numpydoc
+=== compose numpydoc
+Log of the survival function of the given RV.
+
+Returns the log of the "survival function," defined as 1 - `cdf`,
+evaluated at `k`.
+
+Parameters
+----------
+k : array_like
+    Quantiles.
+arg1, arg2, arg3,... : array_like
+    The shape parameter(s) for the distribution (see docstring of the
+    instance object for more information).
+loc : array_like, optional
+    Location parameter (default=0).
+
+Returns
+-------
+logsf : ndarray
+    Log of the survival function evaluated at `k`.

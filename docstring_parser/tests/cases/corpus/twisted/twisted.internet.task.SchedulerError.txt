@@ -1,0 +1,24 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+    The operation could not be completed because the scheduler or one of its
+    tasks was in an invalid state.  This exception should not be raised
+    directly, but is a superclass of various scheduler-state-related
+    exceptions.
+    
+=== parse epydoc
+short_description: 'The operation could not be completed because the scheduler or one of its'
+long_description: |
+  tasks was in an invalid state.  This exception should not be raised
+  directly, but is a superclass of various scheduler-state-related
+  exceptions.
+blank_after_short_description: False
+blank_after_long_description: False
+style: epydoc
+=== detect
+rest
+=== compose epydoc
+The operation could not be completed because the scheduler or one of its
+tasks was in an invalid state.  This exception should not be raised
+directly, but is a superclass of various scheduler-state-related
+exceptions.

@@ -1,0 +1,16 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Check the existence of runtime instance attribute after failing to import the
+        attribute.
+        
+=== parse rest
+short_description: 'Check the existence of runtime instance attribute after failing to import the'
+long_description: 'attribute.'
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Check the existence of runtime instance attribute after failing to import the
+attribute.

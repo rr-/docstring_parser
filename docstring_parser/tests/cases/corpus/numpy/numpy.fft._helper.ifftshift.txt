@@ -1,0 +1,115 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    The inverse of `fftshift`. Although identical for even-length `x`, the
+    functions differ by one sample for odd-length `x`.
+
+    Parameters
+    ----------
+    x : array_like
+        Input array.
+    axes : int or shape tuple, optional
+        Axes over which to calculate.  Defaults to None, which shifts all axes.
+
+    Returns
+    -------
+    y : ndarray
+        The shifted array.
+
+    See Also
+    --------
+    fftshift : Shift zero-frequency component to the center of the spectrum.
+
+    Examples
+    --------
+    >>> import numpy as np
+    >>> freqs = np.fft.fftfreq(9, d=1./9).reshape(3, 3)
+    >>> freqs
+    array([[ 0.,  1.,  2.],
+           [ 3.,  4., -4.],
+           [-3., -2., -1.]])
+    >>> np.fft.ifftshift(np.fft.fftshift(freqs))
+    array([[ 0.,  1.,  2.],
+           [ 3.,  4., -4.],
+           [-3., -2., -1.]])
+
+    
+=== parse numpydoc
+short_description: 'The inverse of `fftshift`. Although identical for even-length `x`, the'
+long_description: 'functions differ by one sample for odd-length `x`.'
+blank_after_short_description: False
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'x']
+  description: 'Input array.'
+  arg_name: 'x'
+  type_name: 'array_like'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'axes']
+  description: 'Axes over which to calculate.  Defaults to None, which shifts all axes.'
+  arg_name: 'axes'
+  type_name: 'int or shape tuple'
+  is_optional: True
+  default: 'None'
+- DocstringReturns
+  args: ['returns']
+  description: 'The shifted array.'
+  type_name: 'ndarray'
+  is_generator: False
+  return_name: 'y'
+- DocstringMeta
+  args: ['see_also']
+  description: 'fftshift : Shift zero-frequency component to the center of the spectrum.'
+- DocstringExample
+  args: ['examples']
+  description: |
+    array([[ 0.,  1.,  2.],
+           [ 3.,  4., -4.],
+           [-3., -2., -1.]])
+  snippet: |
+    >>> import numpy as np
+    >>> freqs = np.fft.fftfreq(9, d=1./9).reshape(3, 3)
+    >>> freqs
+- DocstringExample
+  args: ['examples']
+  description: |
+    array([[ 0.,  1.,  2.],
+           [ 3.,  4., -4.],
+           [-3., -2., -1.]])
+  snippet: '>>> np.fft.ifftshift(np.fft.fftshift(freqs))'
+=== detect
+numpydoc
+=== compose numpydoc
+The inverse of `fftshift`. Although identical for even-length `x`, the
+functions differ by one sample for odd-length `x`.
+
+Parameters
+----------
+x : array_like
+    Input array.
+axes : int or shape tuple, optional
+    Axes over which to calculate.  Defaults to None, which shifts all axes.
+
+Returns
+-------
+y : ndarray
+    The shifted array.
+
+Examples
+--------
+>>> import numpy as np
+>>> freqs = np.fft.fftfreq(9, d=1./9).reshape(3, 3)
+>>> freqs
+array([[ 0.,  1.,  2.],
+       [ 3.,  4., -4.],
+       [-3., -2., -1.]])
+>>> np.fft.ifftshift(np.fft.fftshift(freqs))
+array([[ 0.,  1.,  2.],
+       [ 3.,  4., -4.],
+       [-3., -2., -1.]])
+
+See Also
+--------
+fftshift : Shift zero-frequency component to the center of the spectrum.

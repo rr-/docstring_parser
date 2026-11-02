@@ -1,0 +1,25 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Peak-to-peak value of x.
+
+    This implementation avoids the problem of signed integer arrays having a
+    peak-to-peak value that cannot be represented with the array's data type.
+    This function returns an unsigned value for signed integer arrays.
+    
+=== parse numpydoc
+short_description: 'Peak-to-peak value of x.'
+long_description: |
+  This implementation avoids the problem of signed integer arrays having a
+  peak-to-peak value that cannot be represented with the array's data type.
+  This function returns an unsigned value for signed integer arrays.
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Peak-to-peak value of x.
+
+This implementation avoids the problem of signed integer arrays having a
+peak-to-peak value that cannot be represented with the array's data type.
+This function returns an unsigned value for signed integer arrays.

@@ -1,0 +1,28 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Type hint that stands in for one that can't be validated, accepting any value.
+
+    A type hint can't be validated when it fails to resolve, e.g. a missing
+    import or a typo in a postponed annotation, or an unsupported type.
+    Instances are used as the type hint, keeping what the source code has, such
+    that the help shows it as Unvalidated<...>.
+    
+=== parse google
+short_description: "Type hint that stands in for one that can't be validated, accepting any value."
+long_description: |
+  A type hint can't be validated when it fails to resolve, e.g. a missing
+  import or a typo in a postponed annotation, or an unsupported type.
+  Instances are used as the type hint, keeping what the source code has, such
+  that the help shows it as Unvalidated<...>.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Type hint that stands in for one that can't be validated, accepting any value.
+
+A type hint can't be validated when it fails to resolve, e.g. a missing
+import or a typo in a postponed annotation, or an unsupported type.
+Instances are used as the type hint, keeping what the source code has, such
+that the help shows it as Unvalidated<...>.

@@ -1,0 +1,28 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Interface for a callable that makes HTTP requests.
+
+    Specific transport implementations should provide an implementation of
+    this that adapts their specific request / response API.
+
+    .. automethod:: __call__
+    
+=== parse google
+short_description: 'Interface for a callable that makes HTTP requests.'
+long_description: |
+  Specific transport implementations should provide an implementation of
+  this that adapts their specific request / response API.
+  
+  .. automethod:: __call__
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Interface for a callable that makes HTTP requests.
+
+Specific transport implementations should provide an implementation of
+this that adapts their specific request / response API.
+
+.. automethod:: __call__

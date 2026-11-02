@@ -1,0 +1,106 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Renders an auto-updating live display of any given renderable.
+
+    Args:
+        renderable (RenderableType, optional): The renderable to live display. Defaults to displaying nothing.
+        console (Console, optional): Optional Console instance. Defaults to an internal Console instance writing to stdout.
+        screen (bool, optional): Enable alternate screen mode. Defaults to False.
+        auto_refresh (bool, optional): Enable auto refresh. If disabled, you will need to call `refresh()` or `update()` with refresh flag. Defaults to True
+        refresh_per_second (float, optional): Number of times per second to refresh the live display. Defaults to 4.
+        transient (bool, optional): Clear the renderable on exit (has no effect when screen=True). Defaults to False.
+        redirect_stdout (bool, optional): Enable redirection of stdout, so ``print`` may be used. Defaults to True.
+        redirect_stderr (bool, optional): Enable redirection of stderr. Defaults to True.
+        vertical_overflow (VerticalOverflowMethod, optional): How to handle renderable when it is too tall for the console. Defaults to "ellipsis".
+        get_renderable (Callable[[], RenderableType], optional): Optional callable to get renderable. Defaults to None.
+    
+=== parse google
+short_description: 'Renders an auto-updating live display of any given renderable.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'renderable (RenderableType, optional)']
+  description: 'The renderable to live display. Defaults to displaying nothing.'
+  arg_name: 'renderable'
+  type_name: 'RenderableType'
+  is_optional: True
+  default: 'displaying nothing'
+- DocstringParam
+  args: ['param', 'console (Console, optional)']
+  description: 'Optional Console instance. Defaults to an internal Console instance writing to stdout.'
+  arg_name: 'console'
+  type_name: 'Console'
+  is_optional: True
+  default: 'an internal Console instance writing to stdout'
+- DocstringParam
+  args: ['param', 'screen (bool, optional)']
+  description: 'Enable alternate screen mode. Defaults to False.'
+  arg_name: 'screen'
+  type_name: 'bool'
+  is_optional: True
+  default: 'False'
+- DocstringParam
+  args: ['param', 'auto_refresh (bool, optional)']
+  description: 'Enable auto refresh. If disabled, you will need to call `refresh()` or `update()` with refresh flag. Defaults to True'
+  arg_name: 'auto_refresh'
+  type_name: 'bool'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'refresh_per_second (float, optional)']
+  description: 'Number of times per second to refresh the live display. Defaults to 4.'
+  arg_name: 'refresh_per_second'
+  type_name: 'float'
+  is_optional: True
+  default: '4'
+- DocstringParam
+  args: ['param', 'transient (bool, optional)']
+  description: 'Clear the renderable on exit (has no effect when screen=True). Defaults to False.'
+  arg_name: 'transient'
+  type_name: 'bool'
+  is_optional: True
+  default: 'False'
+- DocstringParam
+  args: ['param', 'redirect_stdout (bool, optional)']
+  description: 'Enable redirection of stdout, so ``print`` may be used. Defaults to True.'
+  arg_name: 'redirect_stdout'
+  type_name: 'bool'
+  is_optional: True
+  default: 'True'
+- DocstringParam
+  args: ['param', 'redirect_stderr (bool, optional)']
+  description: 'Enable redirection of stderr. Defaults to True.'
+  arg_name: 'redirect_stderr'
+  type_name: 'bool'
+  is_optional: True
+  default: 'True'
+- DocstringParam
+  args: ['param', 'vertical_overflow (VerticalOverflowMethod, optional)']
+  description: 'How to handle renderable when it is too tall for the console. Defaults to "ellipsis".'
+  arg_name: 'vertical_overflow'
+  type_name: 'VerticalOverflowMethod'
+  is_optional: True
+  default: '"ellipsis"'
+- DocstringParam
+  args: ['param', 'get_renderable (Callable[[], RenderableType], optional)']
+  description: 'Optional callable to get renderable. Defaults to None.'
+  arg_name: 'get_renderable'
+  type_name: 'Callable[[], RenderableType]'
+  is_optional: True
+  default: 'None'
+=== detect
+google
+=== compose google
+Renders an auto-updating live display of any given renderable.
+
+Args:
+    renderable (RenderableType?): The renderable to live display. Defaults to displaying nothing.
+    console (Console?): Optional Console instance. Defaults to an internal Console instance writing to stdout.
+    screen (bool?): Enable alternate screen mode. Defaults to False.
+    auto_refresh (bool?): Enable auto refresh. If disabled, you will need to call `refresh()` or `update()` with refresh flag. Defaults to True
+    refresh_per_second (float?): Number of times per second to refresh the live display. Defaults to 4.
+    transient (bool?): Clear the renderable on exit (has no effect when screen=True). Defaults to False.
+    redirect_stdout (bool?): Enable redirection of stdout, so ``print`` may be used. Defaults to True.
+    redirect_stderr (bool?): Enable redirection of stderr. Defaults to True.
+    vertical_overflow (VerticalOverflowMethod?): How to handle renderable when it is too tall for the console. Defaults to "ellipsis".
+    get_renderable (Callable[[], RenderableType]?): Optional callable to get renderable. Defaults to None.

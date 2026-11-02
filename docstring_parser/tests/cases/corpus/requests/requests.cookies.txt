@@ -1,0 +1,30 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+
+requests.cookies
+~~~~~~~~~~~~~~~~
+
+Compatibility code to be able to use `http.cookiejar.CookieJar` with requests.
+
+requests.utils imports from here, so be careful with imports.
+
+=== parse rest
+short_description: 'requests.cookies'
+long_description: |
+  ~~~~~~~~~~~~~~~~
+  
+  Compatibility code to be able to use `http.cookiejar.CookieJar` with requests.
+  
+  requests.utils imports from here, so be careful with imports.
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+requests.cookies
+~~~~~~~~~~~~~~~~
+
+Compatibility code to be able to use `http.cookiejar.CookieJar` with requests.
+
+requests.utils imports from here, so be careful with imports.

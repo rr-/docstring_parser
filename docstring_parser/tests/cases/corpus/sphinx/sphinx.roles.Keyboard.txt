@@ -1,0 +1,22 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Implement the :kbd: role.
+
+    Split words in the text by separator or whitespace,
+    but keep multi-word keys together.
+    
+=== parse rest
+short_description: 'Implement the :kbd: role.'
+long_description: |
+  Split words in the text by separator or whitespace,
+  but keep multi-word keys together.
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Implement the :kbd: role.
+
+Split words in the text by separator or whitespace,
+but keep multi-word keys together.

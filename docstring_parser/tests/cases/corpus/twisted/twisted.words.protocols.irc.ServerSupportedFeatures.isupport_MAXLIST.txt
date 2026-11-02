@@ -1,0 +1,19 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Maximum number of "list modes" a client may set on a channel at once.
+
+        List modes are identified by the "addressModes" key in CHANMODES.
+        
+=== parse epydoc
+short_description: 'Maximum number of "list modes" a client may set on a channel at once.'
+long_description: 'List modes are identified by the "addressModes" key in CHANMODES.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+=== detect
+rest
+=== compose epydoc
+Maximum number of "list modes" a client may set on a channel at once.
+
+List modes are identified by the "addressModes" key in CHANMODES.

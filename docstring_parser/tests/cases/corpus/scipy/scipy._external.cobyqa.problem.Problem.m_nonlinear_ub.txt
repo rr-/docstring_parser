@@ -1,0 +1,43 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Number of nonlinear inequality constraints.
+
+        Returns
+        -------
+        int
+            Number of nonlinear inequality constraints.
+
+        Raises
+        ------
+        ValueError
+            If the number of nonlinear inequality constraints is not known.
+        
+=== parse numpydoc
+short_description: 'Number of nonlinear inequality constraints.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringReturns
+  args: ['returns']
+  description: 'Number of nonlinear inequality constraints.'
+  type_name: 'int'
+  is_generator: False
+- DocstringRaises
+  args: ['raises', 'ValueError']
+  description: 'If the number of nonlinear inequality constraints is not known.'
+  type_name: 'ValueError'
+=== detect
+numpydoc
+=== compose numpydoc
+Number of nonlinear inequality constraints.
+
+Returns
+-------
+int
+    Number of nonlinear inequality constraints.
+
+Raises
+------
+ValueError
+    If the number of nonlinear inequality constraints is not known.

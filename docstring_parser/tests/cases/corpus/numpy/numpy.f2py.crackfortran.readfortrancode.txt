@@ -1,0 +1,24 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Read fortran codes from files and
+     1) Get rid of comments, line continuations, and empty lines; lower cases.
+     2) Call dowithline(line) on every line.
+     3) Recursively call itself when statement "include '<filename>'" is met.
+    
+=== parse numpydoc
+short_description: 'Read fortran codes from files and'
+long_description: |
+  1) Get rid of comments, line continuations, and empty lines; lower cases.
+   2) Call dowithline(line) on every line.
+   3) Recursively call itself when statement "include '<filename>'" is met.
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Read fortran codes from files and
+1) Get rid of comments, line continuations, and empty lines; lower cases.
+ 2) Call dowithline(line) on every line.
+ 3) Recursively call itself when statement "include '<filename>'" is met.

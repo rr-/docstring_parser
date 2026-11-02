@@ -1,0 +1,45 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+    XmlStream factory mixin that takes care of event handlers.
+
+    All positional and keyword arguments passed to create this factory are
+    passed on as-is to the protocol.
+
+    @ivar args: Positional arguments passed to the protocol upon instantiation.
+    @type args: C{tuple}.
+    @ivar kwargs: Keyword arguments passed to the protocol upon instantiation.
+    @type kwargs: C{dict}.
+    
+=== parse epydoc
+short_description: 'XmlStream factory mixin that takes care of event handlers.'
+long_description: |
+  All positional and keyword arguments passed to create this factory are
+  passed on as-is to the protocol.
+blank_after_short_description: True
+blank_after_long_description: True
+style: epydoc
+- DocstringParam
+  args: ['ivar', 'args']
+  description: 'Positional arguments passed to the protocol upon instantiation.'
+  arg_name: 'args'
+  type_name: 'C{tuple}.'
+  is_optional: False
+- DocstringParam
+  args: ['ivar', 'kwargs']
+  description: 'Keyword arguments passed to the protocol upon instantiation.'
+  arg_name: 'kwargs'
+  type_name: 'C{dict}.'
+  is_optional: False
+=== detect
+epydoc
+=== compose epydoc
+XmlStream factory mixin that takes care of event handlers.
+
+All positional and keyword arguments passed to create this factory are
+passed on as-is to the protocol.
+
+@type args: C{tuple}.
+@param args: Positional arguments passed to the protocol upon instantiation.
+@type kwargs: C{dict}.
+@param kwargs: Keyword arguments passed to the protocol upon instantiation.

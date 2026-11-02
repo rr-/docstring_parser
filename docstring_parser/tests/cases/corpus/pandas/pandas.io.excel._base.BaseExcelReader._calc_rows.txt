@@ -1,0 +1,76 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        If nrows specified, find the number of rows needed from the
+        file, otherwise return None.
+
+
+        Parameters
+        ----------
+        header : int, list of int, or None
+            See read_excel docstring.
+        index_col : int, str, list of int, or None
+            See read_excel docstring.
+        skiprows : list-like, int, callable, or None
+            See read_excel docstring.
+        nrows : int or None
+            See read_excel docstring.
+
+        Returns
+        -------
+        int or None
+        
+=== parse numpydoc
+short_description: 'If nrows specified, find the number of rows needed from the'
+long_description: 'file, otherwise return None.'
+blank_after_short_description: False
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'header']
+  description: 'See read_excel docstring.'
+  arg_name: 'header'
+  type_name: 'int, list of int, or None'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'index_col']
+  description: 'See read_excel docstring.'
+  arg_name: 'index_col'
+  type_name: 'int, str, list of int, or None'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'skiprows']
+  description: 'See read_excel docstring.'
+  arg_name: 'skiprows'
+  type_name: 'list-like, int, callable, or None'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'nrows']
+  description: 'See read_excel docstring.'
+  arg_name: 'nrows'
+  type_name: 'int or None'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  type_name: 'int or None'
+  is_generator: False
+=== detect
+numpydoc
+=== compose numpydoc
+If nrows specified, find the number of rows needed from the
+file, otherwise return None.
+
+Parameters
+----------
+header : int, list of int, or None
+    See read_excel docstring.
+index_col : int, str, list of int, or None
+    See read_excel docstring.
+skiprows : list-like, int, callable, or None
+    See read_excel docstring.
+nrows : int or None
+    See read_excel docstring.
+
+Returns
+-------
+int or None

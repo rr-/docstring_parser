@@ -1,0 +1,22 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Create the toc navigation structure.
+
+        Subelements of a node are nested inside the navpoint.  For nested nodes
+        the parent node is reinserted in the subnav.
+        
+=== parse rest
+short_description: 'Create the toc navigation structure.'
+long_description: |
+  Subelements of a node are nested inside the navpoint.  For nested nodes
+  the parent node is reinserted in the subnav.
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Create the toc navigation structure.
+
+Subelements of a node are nested inside the navpoint.  For nested nodes
+the parent node is reinserted in the subnav.

@@ -1,0 +1,196 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Find contiguous unmasked data in a masked array along the given axis.
+
+    Parameters
+    ----------
+    a : array_like
+        The input array.
+    axis : int, optional
+        Axis along which to perform the operation.
+        If None (default), applies to a flattened version of the array, and this
+        is the same as `flatnotmasked_contiguous`.
+
+    Returns
+    -------
+    endpoints : list
+        A list of slices (start and end indexes) of unmasked indexes
+        in the array.
+
+        If the input is 2d and axis is specified, the result is a list of lists.
+
+    See Also
+    --------
+    flatnotmasked_edges, flatnotmasked_contiguous, notmasked_edges
+    clump_masked, clump_unmasked
+
+    Notes
+    -----
+    Only accepts 2-D arrays at most.
+
+    Examples
+    --------
+    >>> import numpy as np
+    >>> a = np.arange(12).reshape((3, 4))
+    >>> mask = np.zeros_like(a)
+    >>> mask[1:, :-1] = 1; mask[0, 1] = 1; mask[-1, 0] = 0
+    >>> ma = np.ma.array(a, mask=mask)
+    >>> ma
+    masked_array(
+      data=[[0, --, 2, 3],
+            [--, --, --, 7],
+            [8, --, --, 11]],
+      mask=[[False,  True, False, False],
+            [ True,  True,  True, False],
+            [False,  True,  True, False]],
+      fill_value=999999)
+    >>> np.array(ma[~ma.mask])
+    array([ 0,  2,  3,  7, 8, 11])
+
+    >>> np.ma.notmasked_contiguous(ma)
+    [slice(0, 1, None), slice(2, 4, None), slice(7, 9, None), slice(11, 12, None)]
+
+    >>> np.ma.notmasked_contiguous(ma, axis=0)
+    [[slice(0, 1, None), slice(2, 3, None)], [], [slice(0, 1, None)], [slice(0, 3, None)]]
+
+    >>> np.ma.notmasked_contiguous(ma, axis=1)
+    [[slice(0, 1, None), slice(2, 4, None)], [slice(3, 4, None)], [slice(0, 1, None), slice(3, 4, None)]]
+
+    
+=== parse numpydoc
+short_description: 'Find contiguous unmasked data in a masked array along the given axis.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'a']
+  description: 'The input array.'
+  arg_name: 'a'
+  type_name: 'array_like'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'axis']
+  description: |
+    Axis along which to perform the operation.
+    If None (default), applies to a flattened version of the array, and this
+    is the same as `flatnotmasked_contiguous`.
+  arg_name: 'axis'
+  type_name: 'int'
+  is_optional: True
+- DocstringReturns
+  args: ['returns']
+  description: |
+    A list of slices (start and end indexes) of unmasked indexes
+    in the array.
+    
+    If the input is 2d and axis is specified, the result is a list of lists.
+  type_name: 'list'
+  is_generator: False
+  return_name: 'endpoints'
+- DocstringMeta
+  args: ['see_also']
+  description: |
+    flatnotmasked_edges, flatnotmasked_contiguous, notmasked_edges
+    clump_masked, clump_unmasked
+- DocstringMeta
+  args: ['notes']
+  description: 'Only accepts 2-D arrays at most.'
+- DocstringExample
+  args: ['examples']
+  description: |
+    masked_array(
+      data=[[0, --, 2, 3],
+            [--, --, --, 7],
+            [8, --, --, 11]],
+      mask=[[False,  True, False, False],
+            [ True,  True,  True, False],
+            [False,  True,  True, False]],
+      fill_value=999999)
+  snippet: |
+    >>> import numpy as np
+    >>> a = np.arange(12).reshape((3, 4))
+    >>> mask = np.zeros_like(a)
+    >>> mask[1:, :-1] = 1; mask[0, 1] = 1; mask[-1, 0] = 0
+    >>> ma = np.ma.array(a, mask=mask)
+    >>> ma
+- DocstringExample
+  args: ['examples']
+  description: |
+    array([ 0,  2,  3,  7, 8, 11])
+    
+  snippet: '>>> np.array(ma[~ma.mask])'
+- DocstringExample
+  args: ['examples']
+  description: |
+    [slice(0, 1, None), slice(2, 4, None), slice(7, 9, None), slice(11, 12, None)]
+    
+  snippet: '>>> np.ma.notmasked_contiguous(ma)'
+- DocstringExample
+  args: ['examples']
+  description: |
+    [[slice(0, 1, None), slice(2, 3, None)], [], [slice(0, 1, None)], [slice(0, 3, None)]]
+    
+  snippet: '>>> np.ma.notmasked_contiguous(ma, axis=0)'
+- DocstringExample
+  args: ['examples']
+  description: '[[slice(0, 1, None), slice(2, 4, None)], [slice(3, 4, None)], [slice(0, 1, None), slice(3, 4, None)]]'
+  snippet: '>>> np.ma.notmasked_contiguous(ma, axis=1)'
+=== detect
+numpydoc
+=== compose numpydoc
+Find contiguous unmasked data in a masked array along the given axis.
+
+Parameters
+----------
+a : array_like
+    The input array.
+axis : int, optional
+    Axis along which to perform the operation.
+    If None (default), applies to a flattened version of the array, and this
+    is the same as `flatnotmasked_contiguous`.
+
+Returns
+-------
+endpoints : list
+    A list of slices (start and end indexes) of unmasked indexes
+    in the array.
+    
+    If the input is 2d and axis is specified, the result is a list of lists.
+
+Examples
+--------
+>>> import numpy as np
+>>> a = np.arange(12).reshape((3, 4))
+>>> mask = np.zeros_like(a)
+>>> mask[1:, :-1] = 1; mask[0, 1] = 1; mask[-1, 0] = 0
+>>> ma = np.ma.array(a, mask=mask)
+>>> ma
+masked_array(
+  data=[[0, --, 2, 3],
+        [--, --, --, 7],
+        [8, --, --, 11]],
+  mask=[[False,  True, False, False],
+        [ True,  True,  True, False],
+        [False,  True,  True, False]],
+  fill_value=999999)
+>>> np.array(ma[~ma.mask])
+array([ 0,  2,  3,  7, 8, 11])
+
+>>> np.ma.notmasked_contiguous(ma)
+[slice(0, 1, None), slice(2, 4, None), slice(7, 9, None), slice(11, 12, None)]
+
+>>> np.ma.notmasked_contiguous(ma, axis=0)
+[[slice(0, 1, None), slice(2, 3, None)], [], [slice(0, 1, None)], [slice(0, 3, None)]]
+
+>>> np.ma.notmasked_contiguous(ma, axis=1)
+[[slice(0, 1, None), slice(2, 4, None)], [slice(3, 4, None)], [slice(0, 1, None), slice(3, 4, None)]]
+
+See Also
+--------
+flatnotmasked_edges, flatnotmasked_contiguous, notmasked_edges
+clump_masked, clump_unmasked
+
+Notes
+-----
+Only accepts 2-D arrays at most.

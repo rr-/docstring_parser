@@ -1,0 +1,34 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Check whether *attr_name* is implemented on a builtin class.
+
+        >>> is_builtin_class_method(int, '__init__')
+        True
+
+
+    This function is needed since CPython implements ``int.__init__`` via
+    descriptors, but PyPy implementation is written in pure Python code.
+    
+=== parse rest
+short_description: 'Check whether *attr_name* is implemented on a builtin class.'
+long_description: |
+  >>> is_builtin_class_method(int, '__init__')
+      True
+  
+  
+  This function is needed since CPython implements ``int.__init__`` via
+  descriptors, but PyPy implementation is written in pure Python code.
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Check whether *attr_name* is implemented on a builtin class.
+
+>>> is_builtin_class_method(int, '__init__')
+    True
+
+
+This function is needed since CPython implements ``int.__init__`` via
+descriptors, but PyPy implementation is written in pure Python code.

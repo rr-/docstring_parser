@@ -1,0 +1,88 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Return the companion matrix of c.
+
+    The companion matrix for power series cannot be made symmetric by
+    scaling the basis, so this function differs from those for the
+    orthogonal polynomials.
+
+    Parameters
+    ----------
+    c : array_like
+        1-D array of polynomial coefficients ordered from low to high
+        degree.
+
+    Returns
+    -------
+    mat : ndarray
+        Companion matrix of dimensions (deg, deg).
+
+    Examples
+    --------
+    >>> from numpy.polynomial import polynomial as P
+    >>> c = (1, 2, 3)
+    >>> P.polycompanion(c)
+    array([[ 0.        , -0.33333333],
+           [ 1.        , -0.66666667]])
+
+    
+=== parse numpydoc
+short_description: 'Return the companion matrix of c.'
+long_description: |
+  The companion matrix for power series cannot be made symmetric by
+  scaling the basis, so this function differs from those for the
+  orthogonal polynomials.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'c']
+  description: |
+    1-D array of polynomial coefficients ordered from low to high
+    degree.
+  arg_name: 'c'
+  type_name: 'array_like'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: 'Companion matrix of dimensions (deg, deg).'
+  type_name: 'ndarray'
+  is_generator: False
+  return_name: 'mat'
+- DocstringExample
+  args: ['examples']
+  description: |
+    array([[ 0.        , -0.33333333],
+           [ 1.        , -0.66666667]])
+  snippet: |
+    >>> from numpy.polynomial import polynomial as P
+    >>> c = (1, 2, 3)
+    >>> P.polycompanion(c)
+=== detect
+numpydoc
+=== compose numpydoc
+Return the companion matrix of c.
+
+The companion matrix for power series cannot be made symmetric by
+scaling the basis, so this function differs from those for the
+orthogonal polynomials.
+
+Parameters
+----------
+c : array_like
+    1-D array of polynomial coefficients ordered from low to high
+    degree.
+
+Returns
+-------
+mat : ndarray
+    Companion matrix of dimensions (deg, deg).
+
+Examples
+--------
+>>> from numpy.polynomial import polynomial as P
+>>> c = (1, 2, 3)
+>>> P.polycompanion(c)
+array([[ 0.        , -0.33333333],
+       [ 1.        , -0.66666667]])

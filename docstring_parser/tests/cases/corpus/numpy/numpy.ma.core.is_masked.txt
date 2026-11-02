@@ -1,0 +1,156 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Determine whether input has masked values.
+
+    Accepts any object as input, but always returns False unless the
+    input is a MaskedArray containing masked values.
+
+    Parameters
+    ----------
+    x : array_like
+        Array to check for masked values.
+
+    Returns
+    -------
+    result : bool
+        True if `x` is a MaskedArray with masked values, False otherwise.
+
+    Examples
+    --------
+    >>> import numpy as np
+    >>> import numpy.ma as ma
+    >>> x = ma.masked_equal([0, 1, 0, 2, 3], 0)
+    >>> x
+    masked_array(data=[--, 1, --, 2, 3],
+                 mask=[ True, False,  True, False, False],
+           fill_value=0)
+    >>> ma.is_masked(x)
+    True
+    >>> x = ma.masked_equal([0, 1, 0, 2, 3], 42)
+    >>> x
+    masked_array(data=[0, 1, 0, 2, 3],
+                 mask=False,
+           fill_value=42)
+    >>> ma.is_masked(x)
+    False
+
+    Always returns False if `x` isn't a MaskedArray.
+
+    >>> x = [False, True, False]
+    >>> ma.is_masked(x)
+    False
+    >>> x = 'a string'
+    >>> ma.is_masked(x)
+    False
+
+    
+=== parse numpydoc
+short_description: 'Determine whether input has masked values.'
+long_description: |
+  Accepts any object as input, but always returns False unless the
+  input is a MaskedArray containing masked values.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'x']
+  description: 'Array to check for masked values.'
+  arg_name: 'x'
+  type_name: 'array_like'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: 'True if `x` is a MaskedArray with masked values, False otherwise.'
+  type_name: 'bool'
+  is_generator: False
+  return_name: 'result'
+- DocstringExample
+  args: ['examples']
+  description: |
+    masked_array(data=[--, 1, --, 2, 3],
+                 mask=[ True, False,  True, False, False],
+           fill_value=0)
+  snippet: |
+    >>> import numpy as np
+    >>> import numpy.ma as ma
+    >>> x = ma.masked_equal([0, 1, 0, 2, 3], 0)
+    >>> x
+- DocstringExample
+  args: ['examples']
+  description: 'True'
+  snippet: '>>> ma.is_masked(x)'
+- DocstringExample
+  args: ['examples']
+  description: |
+    masked_array(data=[0, 1, 0, 2, 3],
+                 mask=False,
+           fill_value=42)
+  snippet: |
+    >>> x = ma.masked_equal([0, 1, 0, 2, 3], 42)
+    >>> x
+- DocstringExample
+  args: ['examples']
+  description: |
+    False
+    
+    Always returns False if `x` isn't a MaskedArray.
+    
+  snippet: '>>> ma.is_masked(x)'
+- DocstringExample
+  args: ['examples']
+  description: 'False'
+  snippet: |
+    >>> x = [False, True, False]
+    >>> ma.is_masked(x)
+- DocstringExample
+  args: ['examples']
+  description: 'False'
+  snippet: |
+    >>> x = 'a string'
+    >>> ma.is_masked(x)
+=== detect
+numpydoc
+=== compose numpydoc
+Determine whether input has masked values.
+
+Accepts any object as input, but always returns False unless the
+input is a MaskedArray containing masked values.
+
+Parameters
+----------
+x : array_like
+    Array to check for masked values.
+
+Returns
+-------
+result : bool
+    True if `x` is a MaskedArray with masked values, False otherwise.
+
+Examples
+--------
+>>> import numpy as np
+>>> import numpy.ma as ma
+>>> x = ma.masked_equal([0, 1, 0, 2, 3], 0)
+>>> x
+masked_array(data=[--, 1, --, 2, 3],
+             mask=[ True, False,  True, False, False],
+       fill_value=0)
+>>> ma.is_masked(x)
+True
+>>> x = ma.masked_equal([0, 1, 0, 2, 3], 42)
+>>> x
+masked_array(data=[0, 1, 0, 2, 3],
+             mask=False,
+       fill_value=42)
+>>> ma.is_masked(x)
+False
+
+Always returns False if `x` isn't a MaskedArray.
+
+>>> x = [False, True, False]
+>>> ma.is_masked(x)
+False
+>>> x = 'a string'
+>>> ma.is_masked(x)
+False

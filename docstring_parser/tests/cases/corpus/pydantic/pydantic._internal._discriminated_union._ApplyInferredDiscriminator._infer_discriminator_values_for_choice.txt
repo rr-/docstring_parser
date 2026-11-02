@@ -1,0 +1,18 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+This function recurses over `choice`, extracting all discriminator values that should map to this choice.
+
+        `model_name` is accepted for the purpose of producing useful error messages.
+        
+=== parse google
+short_description: 'This function recurses over `choice`, extracting all discriminator values that should map to this choice.'
+long_description: '`model_name` is accepted for the purpose of producing useful error messages.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+This function recurses over `choice`, extracting all discriminator values that should map to this choice.
+
+`model_name` is accepted for the purpose of producing useful error messages.

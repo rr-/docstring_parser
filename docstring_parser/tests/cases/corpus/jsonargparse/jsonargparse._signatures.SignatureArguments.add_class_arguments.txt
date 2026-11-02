@@ -1,0 +1,110 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Adds arguments from a class based on its type hints and docstrings.
+
+        Note: Keyword arguments without at least one valid type are ignored.
+
+        Args:
+            class_type: Class from which to add arguments.
+            nested_key: Key for nested namespace.
+            as_group: Whether arguments should be added to a new argument group.
+            as_positional: Whether to add required parameters as positional arguments.
+            default: Default value used to override parameter defaults.
+            skip: Names of parameters or number of positionals that should be skipped.
+            instantiate: Whether the class group should be instantiated by
+                :meth:`instantiate <.ArgumentParser.instantiate>`.
+            fail_untyped: Whether to raise an exception for parameters that don't have a type:
+                True for the required ones, "all" for all of them, False for none.
+            sub_configs: Whether subclass type hints should be loadable from inner config file.
+
+        Returns:
+            The list of arguments added.
+
+        Raises:
+            ValueError: When not given a class.
+            ValueError: When there are required parameters without at least one valid type.
+        
+=== parse google
+short_description: 'Adds arguments from a class based on its type hints and docstrings.'
+long_description: 'Note: Keyword arguments without at least one valid type are ignored.'
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'class_type']
+  description: 'Class from which to add arguments.'
+  arg_name: 'class_type'
+- DocstringParam
+  args: ['param', 'nested_key']
+  description: 'Key for nested namespace.'
+  arg_name: 'nested_key'
+- DocstringParam
+  args: ['param', 'as_group']
+  description: 'Whether arguments should be added to a new argument group.'
+  arg_name: 'as_group'
+- DocstringParam
+  args: ['param', 'as_positional']
+  description: 'Whether to add required parameters as positional arguments.'
+  arg_name: 'as_positional'
+- DocstringParam
+  args: ['param', 'default']
+  description: 'Default value used to override parameter defaults.'
+  arg_name: 'default'
+- DocstringParam
+  args: ['param', 'skip']
+  description: 'Names of parameters or number of positionals that should be skipped.'
+  arg_name: 'skip'
+- DocstringParam
+  args: ['param', 'instantiate']
+  description: |
+    Whether the class group should be instantiated by
+    :meth:`instantiate <.ArgumentParser.instantiate>`.
+  arg_name: 'instantiate'
+- DocstringParam
+  args: ['param', 'fail_untyped']
+  description: |
+    Whether to raise an exception for parameters that don't have a type:
+    True for the required ones, "all" for all of them, False for none.
+  arg_name: 'fail_untyped'
+- DocstringParam
+  args: ['param', 'sub_configs']
+  description: 'Whether subclass type hints should be loadable from inner config file.'
+  arg_name: 'sub_configs'
+- DocstringReturns
+  args: ['returns']
+  description: 'The list of arguments added.'
+  is_generator: False
+- DocstringRaises
+  args: ['raises', 'ValueError']
+  description: 'When not given a class.'
+  type_name: 'ValueError'
+- DocstringRaises
+  args: ['raises', 'ValueError']
+  description: 'When there are required parameters without at least one valid type.'
+  type_name: 'ValueError'
+=== detect
+google
+=== compose google
+Adds arguments from a class based on its type hints and docstrings.
+
+Note: Keyword arguments without at least one valid type are ignored.
+
+Args:
+    class_type: Class from which to add arguments.
+    nested_key: Key for nested namespace.
+    as_group: Whether arguments should be added to a new argument group.
+    as_positional: Whether to add required parameters as positional arguments.
+    default: Default value used to override parameter defaults.
+    skip: Names of parameters or number of positionals that should be skipped.
+    instantiate: Whether the class group should be instantiated by
+        :meth:`instantiate <.ArgumentParser.instantiate>`.
+    fail_untyped: Whether to raise an exception for parameters that don't have a type:
+        True for the required ones, "all" for all of them, False for none.
+    sub_configs: Whether subclass type hints should be loadable from inner config file.
+
+Returns:
+    The list of arguments added.
+
+Raises:
+    ValueError: When not given a class.
+    ValueError: When there are required parameters without at least one valid type.

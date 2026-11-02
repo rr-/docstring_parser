@@ -1,0 +1,127 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Inspect any Python object.
+
+    * inspect(<OBJECT>) to see summarized info.
+    * inspect(<OBJECT>, methods=True) to see methods.
+    * inspect(<OBJECT>, help=True) to see full (non-abbreviated) help.
+    * inspect(<OBJECT>, private=True) to see private attributes (single underscore).
+    * inspect(<OBJECT>, dunder=True) to see attributes beginning with double underscore.
+    * inspect(<OBJECT>, all=True) to see all attributes.
+
+    Args:
+        obj (Any): An object to inspect.
+        title (str, optional): Title to display over inspect result, or None use type. Defaults to None.
+        help (bool, optional): Show full help text rather than just first paragraph. Defaults to False.
+        methods (bool, optional): Enable inspection of callables. Defaults to False.
+        docs (bool, optional): Also render doc strings. Defaults to True.
+        private (bool, optional): Show private attributes (beginning with underscore). Defaults to False.
+        dunder (bool, optional): Show attributes starting with double underscore. Defaults to False.
+        sort (bool, optional):  Sort attributes alphabetically, callables at the top, leading and trailing underscores ignored. Defaults to True.
+        all (bool, optional): Show all attributes. Defaults to False.
+        value (bool, optional): Pretty print value. Defaults to True.
+    
+=== parse google
+short_description: 'Inspect any Python object.'
+long_description: |
+  * inspect(<OBJECT>) to see summarized info.
+  * inspect(<OBJECT>, methods=True) to see methods.
+  * inspect(<OBJECT>, help=True) to see full (non-abbreviated) help.
+  * inspect(<OBJECT>, private=True) to see private attributes (single underscore).
+  * inspect(<OBJECT>, dunder=True) to see attributes beginning with double underscore.
+  * inspect(<OBJECT>, all=True) to see all attributes.
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'obj (Any)']
+  description: 'An object to inspect.'
+  arg_name: 'obj'
+  type_name: 'Any'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'title (str, optional)']
+  description: 'Title to display over inspect result, or None use type. Defaults to None.'
+  arg_name: 'title'
+  type_name: 'str'
+  is_optional: True
+  default: 'None'
+- DocstringParam
+  args: ['param', 'help (bool, optional)']
+  description: 'Show full help text rather than just first paragraph. Defaults to False.'
+  arg_name: 'help'
+  type_name: 'bool'
+  is_optional: True
+  default: 'False'
+- DocstringParam
+  args: ['param', 'methods (bool, optional)']
+  description: 'Enable inspection of callables. Defaults to False.'
+  arg_name: 'methods'
+  type_name: 'bool'
+  is_optional: True
+  default: 'False'
+- DocstringParam
+  args: ['param', 'docs (bool, optional)']
+  description: 'Also render doc strings. Defaults to True.'
+  arg_name: 'docs'
+  type_name: 'bool'
+  is_optional: True
+  default: 'True'
+- DocstringParam
+  args: ['param', 'private (bool, optional)']
+  description: 'Show private attributes (beginning with underscore). Defaults to False.'
+  arg_name: 'private'
+  type_name: 'bool'
+  is_optional: True
+  default: 'False'
+- DocstringParam
+  args: ['param', 'dunder (bool, optional)']
+  description: 'Show attributes starting with double underscore. Defaults to False.'
+  arg_name: 'dunder'
+  type_name: 'bool'
+  is_optional: True
+  default: 'False'
+- DocstringParam
+  args: ['param', 'sort (bool, optional)']
+  description: ' Sort attributes alphabetically, callables at the top, leading and trailing underscores ignored. Defaults to True.'
+  arg_name: 'sort'
+  type_name: 'bool'
+  is_optional: True
+  default: 'True'
+- DocstringParam
+  args: ['param', 'all (bool, optional)']
+  description: 'Show all attributes. Defaults to False.'
+  arg_name: 'all'
+  type_name: 'bool'
+  is_optional: True
+  default: 'False'
+- DocstringParam
+  args: ['param', 'value (bool, optional)']
+  description: 'Pretty print value. Defaults to True.'
+  arg_name: 'value'
+  type_name: 'bool'
+  is_optional: True
+  default: 'True'
+=== detect
+google
+=== compose google
+Inspect any Python object.
+
+* inspect(<OBJECT>) to see summarized info.
+* inspect(<OBJECT>, methods=True) to see methods.
+* inspect(<OBJECT>, help=True) to see full (non-abbreviated) help.
+* inspect(<OBJECT>, private=True) to see private attributes (single underscore).
+* inspect(<OBJECT>, dunder=True) to see attributes beginning with double underscore.
+* inspect(<OBJECT>, all=True) to see all attributes.
+
+Args:
+    obj (Any): An object to inspect.
+    title (str?): Title to display over inspect result, or None use type. Defaults to None.
+    help (bool?): Show full help text rather than just first paragraph. Defaults to False.
+    methods (bool?): Enable inspection of callables. Defaults to False.
+    docs (bool?): Also render doc strings. Defaults to True.
+    private (bool?): Show private attributes (beginning with underscore). Defaults to False.
+    dunder (bool?): Show attributes starting with double underscore. Defaults to False.
+    sort (bool?):  Sort attributes alphabetically, callables at the top, leading and trailing underscores ignored. Defaults to True.
+    all (bool?): Show all attributes. Defaults to False.
+    value (bool?): Pretty print value. Defaults to True.

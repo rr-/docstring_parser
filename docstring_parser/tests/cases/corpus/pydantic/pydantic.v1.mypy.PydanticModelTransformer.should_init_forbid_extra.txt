@@ -1,0 +1,23 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Indicates whether the generated `__init__` should get a `**kwargs` at the end of its signature
+
+        We disallow arbitrary kwargs if the extra config setting is "forbid", or if the plugin config says to,
+        *unless* a required dynamic alias is present (since then we can't determine a valid signature).
+        
+=== parse google
+short_description: 'Indicates whether the generated `__init__` should get a `**kwargs` at the end of its signature'
+long_description: |
+  We disallow arbitrary kwargs if the extra config setting is "forbid", or if the plugin config says to,
+  *unless* a required dynamic alias is present (since then we can't determine a valid signature).
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Indicates whether the generated `__init__` should get a `**kwargs` at the end of its signature
+
+We disallow arbitrary kwargs if the extra config setting is "forbid", or if the plugin config says to,
+*unless* a required dynamic alias is present (since then we can't determine a valid signature).

@@ -1,0 +1,83 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Return a list of endpoints for the specified service, constructing
+        defaults if necessary.
+
+        If no endpoints were configured for the service and the protocol
+        was not explicitly disabled with a I{--no-*} option, a default
+        endpoint for the service is created.
+
+        @type reactor: L{IReactorTCP <twisted.internet.interfaces.IReactorTCP>}
+            provider
+        @param reactor: If any endpoints are created, the reactor with
+            which they are created.
+
+        @type service: L{bytes}
+        @param service: The type of service for which to retrieve endpoints,
+            either C{b'pop3'} or C{b'smtp'}.
+
+        @rtype: L{list} of L{IStreamServerEndpoint
+            <twisted.internet.interfaces.IStreamServerEndpoint>} provider
+        @return: The endpoints for the specified service as configured by the
+            command line parameters.
+        
+=== parse epydoc
+short_description: 'Return a list of endpoints for the specified service, constructing'
+long_description: |
+  defaults if necessary.
+  
+  If no endpoints were configured for the service and the protocol
+  was not explicitly disabled with a I{--no-*} option, a default
+  endpoint for the service is created.
+blank_after_short_description: False
+blank_after_long_description: True
+style: epydoc
+- DocstringParam
+  args: ['type', 'reactor']
+  description: |
+    If any endpoints are created, the reactor with
+    which they are created.
+  arg_name: 'reactor'
+  type_name: |
+    L{IReactorTCP <twisted.internet.interfaces.IReactorTCP>}
+    provider
+  is_optional: False
+- DocstringParam
+  args: ['type', 'service']
+  description: |
+    The type of service for which to retrieve endpoints,
+    either C{b'pop3'} or C{b'smtp'}.
+  arg_name: 'service'
+  type_name: 'L{bytes}'
+  is_optional: False
+- DocstringReturns
+  args: ['rtype']
+  description: |
+    The endpoints for the specified service as configured by the
+    command line parameters.
+  type_name: |
+    L{list} of L{IStreamServerEndpoint
+    <twisted.internet.interfaces.IStreamServerEndpoint>} provider
+  is_generator: False
+=== detect
+epydoc
+=== compose epydoc
+Return a list of endpoints for the specified service, constructing
+defaults if necessary.
+
+If no endpoints were configured for the service and the protocol
+was not explicitly disabled with a I{--no-*} option, a default
+endpoint for the service is created.
+
+@type reactor: L{IReactorTCP <twisted.internet.interfaces.IReactorTCP>}
+    provider
+@param reactor: If any endpoints are created, the reactor with
+    which they are created.
+@type service: L{bytes}
+@param service: The type of service for which to retrieve endpoints,
+    either C{b'pop3'} or C{b'smtp'}.
+@rtype: L{list} of L{IStreamServerEndpoint
+    <twisted.internet.interfaces.IStreamServerEndpoint>} provider
+@return: The endpoints for the specified service as configured by the
+    command line parameters.

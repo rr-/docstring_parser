@@ -1,0 +1,93 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+    Invoke a function that may or may not return a L{Deferred} or coroutine.
+
+    Call the given function with the given arguments.  Then:
+
+      - If the returned object is a L{Deferred}, return it.
+
+      - If the returned object is a L{Failure}, wrap it with L{fail} and
+        return it.
+
+      - If the returned object is a L{types.CoroutineType}, wrap it with
+        L{Deferred.fromCoroutine} and return it.
+
+      - Otherwise, wrap it in L{succeed} and return it.
+
+      - If an exception is raised, convert it to a L{Failure}, wrap it in
+        L{fail}, and then return it.
+
+    @param f: The callable to invoke
+    @param args: The arguments to pass to C{f}
+    @param kwargs: The keyword arguments to pass to C{f}
+
+    @return: The result of the function call, wrapped in a L{Deferred} if
+    necessary.
+    
+=== parse epydoc
+short_description: 'Invoke a function that may or may not return a L{Deferred} or coroutine.'
+long_description: |
+  Call the given function with the given arguments.  Then:
+  
+    - If the returned object is a L{Deferred}, return it.
+  
+    - If the returned object is a L{Failure}, wrap it with L{fail} and
+      return it.
+  
+    - If the returned object is a L{types.CoroutineType}, wrap it with
+      L{Deferred.fromCoroutine} and return it.
+  
+    - Otherwise, wrap it in L{succeed} and return it.
+  
+    - If an exception is raised, convert it to a L{Failure}, wrap it in
+      L{fail}, and then return it.
+blank_after_short_description: True
+blank_after_long_description: True
+style: epydoc
+- DocstringParam
+  args: ['param', 'f']
+  description: 'The callable to invoke'
+  arg_name: 'f'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'args']
+  description: 'The arguments to pass to C{f}'
+  arg_name: 'args'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'kwargs']
+  description: 'The keyword arguments to pass to C{f}'
+  arg_name: 'kwargs'
+  is_optional: False
+- DocstringReturns
+  args: ['return']
+  description: |
+    The result of the function call, wrapped in a L{Deferred} if
+    necessary.
+  is_generator: False
+=== detect
+epydoc
+=== compose epydoc
+Invoke a function that may or may not return a L{Deferred} or coroutine.
+
+Call the given function with the given arguments.  Then:
+
+  - If the returned object is a L{Deferred}, return it.
+
+  - If the returned object is a L{Failure}, wrap it with L{fail} and
+    return it.
+
+  - If the returned object is a L{types.CoroutineType}, wrap it with
+    L{Deferred.fromCoroutine} and return it.
+
+  - Otherwise, wrap it in L{succeed} and return it.
+
+  - If an exception is raised, convert it to a L{Failure}, wrap it in
+    L{fail}, and then return it.
+
+@param f: The callable to invoke
+@param args: The arguments to pass to C{f}
+@param kwargs: The keyword arguments to pass to C{f}
+@return: The result of the function call, wrapped in a L{Deferred} if
+    necessary.

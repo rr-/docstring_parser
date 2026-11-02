@@ -1,0 +1,28 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Resolves a forward reference given as bound, constraint or PEP 696 default of a TypeVar.
+
+    The reference is resolved with the names of the module in which the TypeVar
+    is defined, since that is the scope in which it was written. An unresolvable
+    reference becomes an ``Unvalidated<...>``, i.e. it accepts any value and the
+    help shows it as in the source code.
+    
+=== parse google
+short_description: 'Resolves a forward reference given as bound, constraint or PEP 696 default of a TypeVar.'
+long_description: |
+  The reference is resolved with the names of the module in which the TypeVar
+  is defined, since that is the scope in which it was written. An unresolvable
+  reference becomes an ``Unvalidated<...>``, i.e. it accepts any value and the
+  help shows it as in the source code.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Resolves a forward reference given as bound, constraint or PEP 696 default of a TypeVar.
+
+The reference is resolved with the names of the module in which the TypeVar
+is defined, since that is the scope in which it was written. An unresolvable
+reference becomes an ``Unvalidated<...>``, i.e. it accepts any value and the
+help shows it as in the source code.

@@ -1,0 +1,33 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Safely closes the underlying cloned request transport, if applicable.
+
+    Args:
+        lookup_request (Any): The request object/transport to close.
+        is_cloned (bool): Whether the request was actually cloned.
+    
+=== parse google
+short_description: 'Safely closes the underlying cloned request transport, if applicable.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'lookup_request (Any)']
+  description: 'The request object/transport to close.'
+  arg_name: 'lookup_request'
+  type_name: 'Any'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'is_cloned (bool)']
+  description: 'Whether the request was actually cloned.'
+  arg_name: 'is_cloned'
+  type_name: 'bool'
+  is_optional: False
+=== detect
+google
+=== compose google
+Safely closes the underlying cloned request transport, if applicable.
+
+Args:
+    lookup_request (Any): The request object/transport to close.
+    is_cloned (bool): Whether the request was actually cloned.

@@ -1,0 +1,133 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Add new categories.
+
+        `new_categories` will be included at the last/highest place in the
+        categories and will be unused directly after this call.
+
+        Parameters
+        ----------
+        new_categories : category or list-like of category
+            The new categories to be included.
+
+        Returns
+        -------
+        Categorical
+            Categorical with new categories added.
+
+        Raises
+        ------
+        ValueError
+            If the new categories include old categories or do not validate as
+            categories
+
+        See Also
+        --------
+        rename_categories : Rename categories.
+        reorder_categories : Reorder categories.
+        remove_categories : Remove the specified categories.
+        remove_unused_categories : Remove categories which are not used.
+        set_categories : Set the categories to the specified ones.
+
+        Examples
+        --------
+        >>> c = pd.Categorical(["c", "b", "c"])
+        >>> c
+        ['c', 'b', 'c']
+        Categories (2, str): ['b', 'c']
+
+        >>> c.add_categories(["d", "a"])
+        ['c', 'b', 'c']
+        Categories (4, str): ['b', 'c', 'd', 'a']
+        
+=== parse numpydoc
+short_description: 'Add new categories.'
+long_description: |
+  `new_categories` will be included at the last/highest place in the
+  categories and will be unused directly after this call.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'new_categories']
+  description: 'The new categories to be included.'
+  arg_name: 'new_categories'
+  type_name: 'category or list-like of category'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: 'Categorical with new categories added.'
+  type_name: 'Categorical'
+  is_generator: False
+- DocstringRaises
+  args: ['raises', 'ValueError']
+  description: |
+    If the new categories include old categories or do not validate as
+    categories
+  type_name: 'ValueError'
+- DocstringMeta
+  args: ['see_also']
+  description: |
+    rename_categories : Rename categories.
+    reorder_categories : Reorder categories.
+    remove_categories : Remove the specified categories.
+    remove_unused_categories : Remove categories which are not used.
+    set_categories : Set the categories to the specified ones.
+- DocstringExample
+  args: ['examples']
+  description: |
+    ['c', 'b', 'c']
+    Categories (2, str): ['b', 'c']
+    
+  snippet: |
+    >>> c = pd.Categorical(["c", "b", "c"])
+    >>> c
+- DocstringExample
+  args: ['examples']
+  description: |
+    ['c', 'b', 'c']
+    Categories (4, str): ['b', 'c', 'd', 'a']
+  snippet: '>>> c.add_categories(["d", "a"])'
+=== detect
+numpydoc
+=== compose numpydoc
+Add new categories.
+
+`new_categories` will be included at the last/highest place in the
+categories and will be unused directly after this call.
+
+Parameters
+----------
+new_categories : category or list-like of category
+    The new categories to be included.
+
+Returns
+-------
+Categorical
+    Categorical with new categories added.
+
+Raises
+------
+ValueError
+    If the new categories include old categories or do not validate as
+    categories
+
+Examples
+--------
+>>> c = pd.Categorical(["c", "b", "c"])
+>>> c
+['c', 'b', 'c']
+Categories (2, str): ['b', 'c']
+
+>>> c.add_categories(["d", "a"])
+['c', 'b', 'c']
+Categories (4, str): ['b', 'c', 'd', 'a']
+
+See Also
+--------
+rename_categories : Rename categories.
+reorder_categories : Reorder categories.
+remove_categories : Remove the specified categories.
+remove_unused_categories : Remove categories which are not used.
+set_categories : Set the categories to the specified ones.

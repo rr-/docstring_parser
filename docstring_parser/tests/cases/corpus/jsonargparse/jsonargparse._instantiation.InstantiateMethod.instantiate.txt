@@ -1,0 +1,132 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Instantiates all signature components in a configuration namespace.
+
+        Processes the configuration recursively, converting each signature
+        component registered with the parser into its corresponding Python
+        object:
+
+        - **Class/subclass type arguments** (``add_argument`` with a class type
+          or ``add_class_arguments``/``add_subclass_arguments``): An object with
+          ``class_path`` and optionally ``init_args`` is replaced by an instance
+          of the referenced class, created by calling
+          ``class_type(**init_args)``. For the case of classes with disabled
+          subclasses, the namespace can have directly the init args without the
+          ``class_path`` + ``init_args`` wrapper.
+
+        - **Callable type arguments**: A dot-import string pointing to a
+          function or method is resolved to the callable object. When
+          ``class_path``/``init_args`` is given instead and the class
+          instantiates into a callable (or is a subclass of the callable's
+          return type), the result is either a class instance or — when not all
+          call arguments are provided yet — a :func:`functools.partial` bound to
+          the given ``init_args``.
+
+        - **Instantiation order**: Components are processed in the order
+          determined by argument links applied on instantiation.
+
+        Args:
+            namespace: The configuration object to use. Must have been produced
+                by one of the ``parse_*`` methods and not modified in a way that
+                breaks the structure expected by the parser.
+            instantiate_groups: Whether class groups should be instantiated.
+            instantiators: Custom instantiators for this call, a list of ``(instantiator, class_type,
+                subclasses)`` tuples, see :func:`.add_instantiator`. The first match is used, before any
+                others.
+
+        Returns:
+            A new configuration object where every registered signature
+            component has been replaced by its corresponding Python object.
+        
+=== parse google
+short_description: 'Instantiates all signature components in a configuration namespace.'
+long_description: |
+  Processes the configuration recursively, converting each signature
+  component registered with the parser into its corresponding Python
+  object:
+  
+  - **Class/subclass type arguments** (``add_argument`` with a class type
+    or ``add_class_arguments``/``add_subclass_arguments``): An object with
+    ``class_path`` and optionally ``init_args`` is replaced by an instance
+    of the referenced class, created by calling
+    ``class_type(**init_args)``. For the case of classes with disabled
+    subclasses, the namespace can have directly the init args without the
+    ``class_path`` + ``init_args`` wrapper.
+  
+  - **Callable type arguments**: A dot-import string pointing to a
+    function or method is resolved to the callable object. When
+    ``class_path``/``init_args`` is given instead and the class
+    instantiates into a callable (or is a subclass of the callable's
+    return type), the result is either a class instance or — when not all
+    call arguments are provided yet — a :func:`functools.partial` bound to
+    the given ``init_args``.
+  
+  - **Instantiation order**: Components are processed in the order
+    determined by argument links applied on instantiation.
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'namespace']
+  description: |
+    The configuration object to use. Must have been produced
+    by one of the ``parse_*`` methods and not modified in a way that
+    breaks the structure expected by the parser.
+  arg_name: 'namespace'
+- DocstringParam
+  args: ['param', 'instantiate_groups']
+  description: 'Whether class groups should be instantiated.'
+  arg_name: 'instantiate_groups'
+- DocstringParam
+  args: ['param', 'instantiators']
+  description: |
+    Custom instantiators for this call, a list of ``(instantiator, class_type,
+    subclasses)`` tuples, see :func:`.add_instantiator`. The first match is used, before any
+    others.
+  arg_name: 'instantiators'
+- DocstringReturns
+  args: ['returns']
+  description: |
+    A new configuration object where every registered signature
+    component has been replaced by its corresponding Python object.
+  is_generator: False
+=== detect
+google
+=== compose google
+Instantiates all signature components in a configuration namespace.
+
+Processes the configuration recursively, converting each signature
+component registered with the parser into its corresponding Python
+object:
+
+- **Class/subclass type arguments** (``add_argument`` with a class type
+  or ``add_class_arguments``/``add_subclass_arguments``): An object with
+  ``class_path`` and optionally ``init_args`` is replaced by an instance
+  of the referenced class, created by calling
+  ``class_type(**init_args)``. For the case of classes with disabled
+  subclasses, the namespace can have directly the init args without the
+  ``class_path`` + ``init_args`` wrapper.
+
+- **Callable type arguments**: A dot-import string pointing to a
+  function or method is resolved to the callable object. When
+  ``class_path``/``init_args`` is given instead and the class
+  instantiates into a callable (or is a subclass of the callable's
+  return type), the result is either a class instance or — when not all
+  call arguments are provided yet — a :func:`functools.partial` bound to
+  the given ``init_args``.
+
+- **Instantiation order**: Components are processed in the order
+  determined by argument links applied on instantiation.
+
+Args:
+    namespace: The configuration object to use. Must have been produced
+        by one of the ``parse_*`` methods and not modified in a way that
+        breaks the structure expected by the parser.
+    instantiate_groups: Whether class groups should be instantiated.
+    instantiators: Custom instantiators for this call, a list of ``(instantiator, class_type,
+        subclasses)`` tuples, see :func:`.add_instantiator`. The first match is used, before any
+        others.
+
+Returns:
+    A new configuration object where every registered signature
+    component has been replaced by its corresponding Python object.

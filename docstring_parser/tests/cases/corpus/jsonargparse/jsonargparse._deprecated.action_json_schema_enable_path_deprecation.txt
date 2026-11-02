@@ -1,0 +1,22 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Handle deprecated ``enable_path`` parameter in ``ActionJsonSchema``.
+
+    If ``enable_path`` is present in kwargs, emit a deprecation warning and
+    return its value (popping it from kwargs). Returns ``None`` if not present.
+    
+=== parse google
+short_description: 'Handle deprecated ``enable_path`` parameter in ``ActionJsonSchema``.'
+long_description: |
+  If ``enable_path`` is present in kwargs, emit a deprecation warning and
+  return its value (popping it from kwargs). Returns ``None`` if not present.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Handle deprecated ``enable_path`` parameter in ``ActionJsonSchema``.
+
+If ``enable_path`` is present in kwargs, emit a deprecation warning and
+return its value (popping it from kwargs). Returns ``None`` if not present.

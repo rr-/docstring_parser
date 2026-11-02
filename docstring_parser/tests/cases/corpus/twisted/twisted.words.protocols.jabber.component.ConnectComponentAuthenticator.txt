@@ -1,0 +1,21 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+    Authenticator to permit an XmlStream to authenticate against a Jabber
+    server as an external component (where the Authenticator is initiating the
+    stream).
+    
+=== parse epydoc
+short_description: 'Authenticator to permit an XmlStream to authenticate against a Jabber'
+long_description: |
+  server as an external component (where the Authenticator is initiating the
+  stream).
+blank_after_short_description: False
+blank_after_long_description: False
+style: epydoc
+=== detect
+rest
+=== compose epydoc
+Authenticator to permit an XmlStream to authenticate against a Jabber
+server as an external component (where the Authenticator is initiating the
+stream).

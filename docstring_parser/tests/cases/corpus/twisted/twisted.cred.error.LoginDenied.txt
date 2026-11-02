@@ -1,0 +1,26 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+    The realm rejected this login for some reason.
+
+    Examples of reasons this might be raised include an avatar logging in
+    too frequently, a quota having been fully used, or the overall server
+    load being too high.
+    
+=== parse epydoc
+short_description: 'The realm rejected this login for some reason.'
+long_description: |
+  Examples of reasons this might be raised include an avatar logging in
+  too frequently, a quota having been fully used, or the overall server
+  load being too high.
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+=== detect
+rest
+=== compose epydoc
+The realm rejected this login for some reason.
+
+Examples of reasons this might be raised include an avatar logging in
+too frequently, a quota having been fully used, or the overall server
+load being too high.

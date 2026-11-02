@@ -1,0 +1,46 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Parse a style definition.
+
+        Args:
+            style_definition (str): A string containing a style.
+
+        Raises:
+            errors.StyleSyntaxError: If the style definition syntax is invalid.
+
+        Returns:
+            `Style`: A Style instance.
+        
+=== parse google
+short_description: 'Parse a style definition.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'style_definition (str)']
+  description: 'A string containing a style.'
+  arg_name: 'style_definition'
+  type_name: 'str'
+  is_optional: False
+- DocstringRaises
+  args: ['raises', 'errors.StyleSyntaxError']
+  description: 'If the style definition syntax is invalid.'
+  type_name: 'errors.StyleSyntaxError'
+- DocstringReturns
+  args: ['returns', '`Style`']
+  description: 'A Style instance.'
+  type_name: '`Style`'
+  is_generator: False
+=== detect
+google
+=== compose google
+Parse a style definition.
+
+Args:
+    style_definition (str): A string containing a style.
+
+Returns:
+    `Style`: A Style instance.
+
+Raises:
+    errors.StyleSyntaxError: If the style definition syntax is invalid.

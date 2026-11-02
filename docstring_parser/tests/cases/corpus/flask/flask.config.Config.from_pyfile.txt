@@ -1,0 +1,63 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Updates the values in the config from a Python file.  This function
+        behaves as if the file was imported as module with the
+        :meth:`from_object` function.
+
+        :param filename: the filename of the config.  This can either be an
+                         absolute filename or a filename relative to the
+                         root path.
+        :param silent: set to ``True`` if you want silent failure for missing
+                       files.
+        :return: ``True`` if the file was loaded successfully.
+
+        .. versionadded:: 0.7
+           `silent` parameter.
+        
+=== parse rest
+short_description: 'Updates the values in the config from a Python file.  This function'
+long_description: |
+  behaves as if the file was imported as module with the
+  
+  .. versionadded:: 0.7
+     `silent` parameter.
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringMeta
+  args: ['meth']
+  description: '`from_object` function.'
+- DocstringParam
+  args: ['param', 'filename']
+  description: |
+    the filename of the config.  This can either be an
+    absolute filename or a filename relative to the
+    root path.
+  arg_name: 'filename'
+- DocstringParam
+  args: ['param', 'silent']
+  description: |
+    set to ``True`` if you want silent failure for missing
+    files.
+  arg_name: 'silent'
+- DocstringReturns
+  args: ['return']
+  description: '``True`` if the file was loaded successfully.'
+  is_generator: False
+=== detect
+rest
+=== compose rest
+Updates the values in the config from a Python file.  This function
+
+behaves as if the file was imported as module with the
+
+.. versionadded:: 0.7
+   `silent` parameter.
+
+:meth: `from_object` function.
+:param filename: the filename of the config.  This can either be an
+    absolute filename or a filename relative to the
+    root path.
+:param silent: set to ``True`` if you want silent failure for missing
+    files.
+:returns: ``True`` if the file was loaded successfully.

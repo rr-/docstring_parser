@@ -1,0 +1,31 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Configuration option type for Sphinx.
+
+        The type is intended to be immutable; changing the field values
+        is an unsupported action.
+        No validation is performed on the values, though consumers will
+        likely expect them to be of the types advertised.
+        The old tuple-based interface will be removed in Sphinx 9.
+        
+=== parse rest
+short_description: 'Configuration option type for Sphinx.'
+long_description: |
+  The type is intended to be immutable; changing the field values
+  is an unsupported action.
+  No validation is performed on the values, though consumers will
+  likely expect them to be of the types advertised.
+  The old tuple-based interface will be removed in Sphinx 9.
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Configuration option type for Sphinx.
+
+The type is intended to be immutable; changing the field values
+is an unsupported action.
+No validation is performed on the values, though consumers will
+likely expect them to be of the types advertised.
+The old tuple-based interface will be removed in Sphinx 9.

@@ -1,0 +1,64 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Perform a binary operation between two arrays.
+
+    Parameters
+    ----------
+    left : Union[SparseArray, ndarray]
+    right : Union[SparseArray, ndarray]
+    op : Callable
+        The binary operation to perform
+    name str
+        Name of the callable.
+
+    Returns
+    -------
+    SparseArray
+    
+=== parse numpydoc
+short_description: 'Perform a binary operation between two arrays.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'left']
+  arg_name: 'left'
+  type_name: 'Union[SparseArray, ndarray]'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'right']
+  arg_name: 'right'
+  type_name: 'Union[SparseArray, ndarray]'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'op']
+  description: 'The binary operation to perform'
+  arg_name: 'op'
+  type_name: 'Callable'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'name str']
+  description: 'Name of the callable.'
+  arg_name: 'name str'
+- DocstringReturns
+  args: ['returns']
+  type_name: 'SparseArray'
+  is_generator: False
+=== detect
+numpydoc
+=== compose numpydoc
+Perform a binary operation between two arrays.
+
+Parameters
+----------
+left : Union[SparseArray, ndarray]
+right : Union[SparseArray, ndarray]
+op : Callable
+    The binary operation to perform
+name str
+    Name of the callable.
+
+Returns
+-------
+SparseArray

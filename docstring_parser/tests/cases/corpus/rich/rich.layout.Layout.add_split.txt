@@ -1,0 +1,26 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Add a new layout(s) to existing split.
+
+        Args:
+            *layouts (Union[Layout, RenderableType]): Positional arguments should be renderables or (sub) Layout instances.
+
+        
+=== parse google
+short_description: 'Add a new layout(s) to existing split.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', '*layouts (Union[Layout, RenderableType])']
+  description: 'Positional arguments should be renderables or (sub) Layout instances.'
+  arg_name: '*layouts'
+  type_name: 'Union[Layout, RenderableType]'
+  is_optional: False
+=== detect
+google
+=== compose google
+Add a new layout(s) to existing split.
+
+Args:
+    *layouts (Union[Layout, RenderableType]): Positional arguments should be renderables or (sub) Layout instances.

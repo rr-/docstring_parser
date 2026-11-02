@@ -1,0 +1,91 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Return (x1 <= x2) element-wise.
+
+    Unlike `numpy.less_equal`, this comparison is performed by first
+    stripping whitespace characters from the end of the string.  This
+    behavior is provided for backward-compatibility with numarray.
+
+    Parameters
+    ----------
+    x1, x2 : array_like of str or unicode
+        Input arrays of the same shape.
+
+    Returns
+    -------
+    out : ndarray
+        Output array of bools.
+
+    See Also
+    --------
+    equal, not_equal, greater_equal, greater, less
+
+    Examples
+    --------
+    >>> import numpy as np
+    >>> x1 = np.array(['a', 'b', 'c'])
+    >>> np.char.less_equal(x1, 'b')
+    array([ True,  True, False])
+
+    
+=== parse numpydoc
+short_description: 'Return (x1 <= x2) element-wise.'
+long_description: |
+  Unlike `numpy.less_equal`, this comparison is performed by first
+  stripping whitespace characters from the end of the string.  This
+  behavior is provided for backward-compatibility with numarray.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'x1, x2']
+  description: 'Input arrays of the same shape.'
+  arg_name: 'x1, x2'
+  type_name: 'array_like of str or unicode'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: 'Output array of bools.'
+  type_name: 'ndarray'
+  is_generator: False
+  return_name: 'out'
+- DocstringMeta
+  args: ['see_also']
+  description: 'equal, not_equal, greater_equal, greater, less'
+- DocstringExample
+  args: ['examples']
+  description: 'array([ True,  True, False])'
+  snippet: |
+    >>> import numpy as np
+    >>> x1 = np.array(['a', 'b', 'c'])
+    >>> np.char.less_equal(x1, 'b')
+=== detect
+numpydoc
+=== compose numpydoc
+Return (x1 <= x2) element-wise.
+
+Unlike `numpy.less_equal`, this comparison is performed by first
+stripping whitespace characters from the end of the string.  This
+behavior is provided for backward-compatibility with numarray.
+
+Parameters
+----------
+x1, x2 : array_like of str or unicode
+    Input arrays of the same shape.
+
+Returns
+-------
+out : ndarray
+    Output array of bools.
+
+Examples
+--------
+>>> import numpy as np
+>>> x1 = np.array(['a', 'b', 'c'])
+>>> np.char.less_equal(x1, 'b')
+array([ True,  True, False])
+
+See Also
+--------
+equal, not_equal, greater_equal, greater, less

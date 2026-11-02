@@ -1,0 +1,23 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Return a registered error handler for an exception in this order:
+        blueprint handler for a specific code, app handler for a specific code,
+        blueprint handler for an exception class, app handler for an exception
+        class, or ``None`` if a suitable handler is not found.
+        
+=== parse rest
+short_description: 'Return a registered error handler for an exception in this order:'
+long_description: |
+  blueprint handler for a specific code, app handler for a specific code,
+  blueprint handler for an exception class, app handler for an exception
+  class, or ``None`` if a suitable handler is not found.
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Return a registered error handler for an exception in this order:
+blueprint handler for a specific code, app handler for a specific code,
+blueprint handler for an exception class, app handler for an exception
+class, or ``None`` if a suitable handler is not found.

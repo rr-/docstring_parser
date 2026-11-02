@@ -1,0 +1,173 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Generate a URL to the given endpoint with the given values.
+
+        This is called by :func:`flask.url_for`, and can be called
+        directly as well.
+
+        An *endpoint* is the name of a URL rule, usually added with
+        :meth:`@app.route() <route>`, and usually the same name as the
+        view function. A route defined in a :class:`~flask.Blueprint`
+        will prepend the blueprint's name separated by a ``.`` to the
+        endpoint.
+
+        In some cases, such as email messages, you want URLs to include
+        the scheme and domain, like ``https://example.com/hello``. When
+        not in an active request, URLs will be external by default, but
+        this requires setting :data:`SERVER_NAME` so Flask knows what
+        domain to use. :data:`APPLICATION_ROOT` and
+        :data:`PREFERRED_URL_SCHEME` should also be configured as
+        needed. This config is only used when not in an active request.
+
+        Functions can be decorated with :meth:`url_defaults` to modify
+        keyword arguments before the URL is built.
+
+        If building fails for some reason, such as an unknown endpoint
+        or incorrect values, the app's :meth:`handle_url_build_error`
+        method is called. If that returns a string, that is returned,
+        otherwise a :exc:`~werkzeug.routing.BuildError` is raised.
+
+        :param endpoint: The endpoint name associated with the URL to
+            generate. If this starts with a ``.``, the current blueprint
+            name (if any) will be used.
+        :param _anchor: If given, append this as ``#anchor`` to the URL.
+        :param _method: If given, generate the URL associated with this
+            method for the endpoint.
+        :param _scheme: If given, the URL will have this scheme if it
+            is external.
+        :param _external: If given, prefer the URL to be internal
+            (False) or require it to be external (True). External URLs
+            include the scheme and domain. When not in an active
+            request, URLs are external by default.
+        :param values: Values to use for the variable parts of the URL
+            rule. Unknown keys are appended as query string arguments,
+            like ``?a=b&c=d``.
+
+        .. versionadded:: 2.2
+            Moved from ``flask.url_for``, which calls this method.
+        
+=== parse rest
+short_description: 'Generate a URL to the given endpoint with the given values.'
+long_description: |
+  This is called by :func:`flask.url_for`, and can be called
+  directly as well.
+  
+  An *endpoint* is the name of a URL rule, usually added with
+  
+  In some cases, such as email messages, you want URLs to include
+  the scheme and domain, like ``https://example.com/hello``. When
+  not in an active request, URLs will be external by default, but
+  this requires setting :data:`SERVER_NAME` so Flask knows what
+  domain to use. :data:`APPLICATION_ROOT` and
+  
+  Functions can be decorated with :meth:`url_defaults` to modify
+  keyword arguments before the URL is built.
+  
+  If building fails for some reason, such as an unknown endpoint
+  or incorrect values, the app's :meth:`handle_url_build_error`
+  method is called. If that returns a string, that is returned,
+  otherwise a :exc:`~werkzeug.routing.BuildError` is raised.
+  
+  .. versionadded:: 2.2
+      Moved from ``flask.url_for``, which calls this method.
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringMeta
+  args: ['meth']
+  description: |
+    `@app.route() <route>`, and usually the same name as the
+    view function. A route defined in a :class:`~flask.Blueprint`
+    will prepend the blueprint's name separated by a ``.`` to the
+    endpoint.
+- DocstringMeta
+  args: ['data']
+  description: |
+    `PREFERRED_URL_SCHEME` should also be configured as
+    needed. This config is only used when not in an active request.
+- DocstringParam
+  args: ['param', 'endpoint']
+  description: |
+    The endpoint name associated with the URL to
+    generate. If this starts with a ``.``, the current blueprint
+    name (if any) will be used.
+  arg_name: 'endpoint'
+- DocstringParam
+  args: ['param', '_anchor']
+  description: 'If given, append this as ``#anchor`` to the URL.'
+  arg_name: '_anchor'
+- DocstringParam
+  args: ['param', '_method']
+  description: |
+    If given, generate the URL associated with this
+    method for the endpoint.
+  arg_name: '_method'
+- DocstringParam
+  args: ['param', '_scheme']
+  description: |
+    If given, the URL will have this scheme if it
+    is external.
+  arg_name: '_scheme'
+- DocstringParam
+  args: ['param', '_external']
+  description: |
+    If given, prefer the URL to be internal
+    (False) or require it to be external (True). External URLs
+    include the scheme and domain. When not in an active
+    request, URLs are external by default.
+  arg_name: '_external'
+- DocstringParam
+  args: ['param', 'values']
+  description: |
+    Values to use for the variable parts of the URL
+    rule. Unknown keys are appended as query string arguments,
+    like ``?a=b&c=d``.
+  arg_name: 'values'
+=== detect
+rest
+=== compose rest
+Generate a URL to the given endpoint with the given values.
+
+This is called by :func:`flask.url_for`, and can be called
+directly as well.
+
+An *endpoint* is the name of a URL rule, usually added with
+
+In some cases, such as email messages, you want URLs to include
+the scheme and domain, like ``https://example.com/hello``. When
+not in an active request, URLs will be external by default, but
+this requires setting :data:`SERVER_NAME` so Flask knows what
+domain to use. :data:`APPLICATION_ROOT` and
+
+Functions can be decorated with :meth:`url_defaults` to modify
+keyword arguments before the URL is built.
+
+If building fails for some reason, such as an unknown endpoint
+or incorrect values, the app's :meth:`handle_url_build_error`
+method is called. If that returns a string, that is returned,
+otherwise a :exc:`~werkzeug.routing.BuildError` is raised.
+
+.. versionadded:: 2.2
+    Moved from ``flask.url_for``, which calls this method.
+
+:meth: `@app.route() <route>`, and usually the same name as the
+    view function. A route defined in a :class:`~flask.Blueprint`
+    will prepend the blueprint's name separated by a ``.`` to the
+    endpoint.
+:data: `PREFERRED_URL_SCHEME` should also be configured as
+    needed. This config is only used when not in an active request.
+:param endpoint: The endpoint name associated with the URL to
+    generate. If this starts with a ``.``, the current blueprint
+    name (if any) will be used.
+:param _anchor: If given, append this as ``#anchor`` to the URL.
+:param _method: If given, generate the URL associated with this
+    method for the endpoint.
+:param _scheme: If given, the URL will have this scheme if it
+    is external.
+:param _external: If given, prefer the URL to be internal
+    (False) or require it to be external (True). External URLs
+    include the scheme and domain. When not in an active
+    request, URLs are external by default.
+:param values: Values to use for the variable parts of the URL
+    rule. Unknown keys are appended as query string arguments,
+    like ``?a=b&c=d``.

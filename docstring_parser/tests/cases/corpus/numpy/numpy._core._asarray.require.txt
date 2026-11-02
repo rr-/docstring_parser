@@ -1,0 +1,224 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Return an ndarray of the provided type that satisfies requirements.
+
+    This function is useful to be sure that an array with the correct flags
+    is returned for passing to compiled code (perhaps through ctypes).
+
+    Parameters
+    ----------
+    a : array_like
+       The object to be converted to a type-and-requirement-satisfying array.
+    dtype : data-type
+       The required data-type. If None preserve the current dtype. If your
+       application requires the data to be in native byteorder, include
+       a byteorder specification as a part of the dtype specification.
+    requirements : str or sequence of str
+       The requirements list can be any of the following
+
+       * 'F_CONTIGUOUS' ('F') - ensure a Fortran-contiguous array
+       * 'C_CONTIGUOUS' ('C') - ensure a C-contiguous array
+       * 'ALIGNED' ('A')      - ensure a data-type aligned array
+       * 'WRITEABLE' ('W')    - ensure a writable array
+       * 'OWNDATA' ('O')      - ensure an array that owns its own data
+       * 'ENSUREARRAY', ('E') - ensure a base array, instead of a subclass
+    ${ARRAY_FUNCTION_LIKE}
+
+        .. versionadded:: 1.20.0
+
+    Returns
+    -------
+    out : ndarray
+        Array with specified requirements and type if given.
+
+    See Also
+    --------
+    asarray : Convert input to an ndarray.
+    asanyarray : Convert to an ndarray, but pass through ndarray subclasses.
+    ascontiguousarray : Convert input to a contiguous array.
+    asfortranarray : Convert input to an ndarray with column-major
+                     memory order.
+    ndarray.flags : Information about the memory layout of the array.
+
+    Notes
+    -----
+    The returned array will be guaranteed to have the listed requirements
+    by making a copy if needed.
+
+    Examples
+    --------
+    >>> import numpy as np
+    >>> x = np.arange(6).reshape(2,3)
+    >>> x.flags
+      C_CONTIGUOUS : True
+      F_CONTIGUOUS : False
+      OWNDATA : False
+      WRITEABLE : True
+      ALIGNED : True
+      WRITEBACKIFCOPY : False
+
+    >>> y = np.require(x, dtype=np.float32, requirements=['A', 'O', 'W', 'F'])
+    >>> y.flags
+      C_CONTIGUOUS : False
+      F_CONTIGUOUS : True
+      OWNDATA : True
+      WRITEABLE : True
+      ALIGNED : True
+      WRITEBACKIFCOPY : False
+
+    
+=== parse numpydoc
+short_description: 'Return an ndarray of the provided type that satisfies requirements.'
+long_description: |
+  This function is useful to be sure that an array with the correct flags
+  is returned for passing to compiled code (perhaps through ctypes).
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'a']
+  description: 'The object to be converted to a type-and-requirement-satisfying array.'
+  arg_name: 'a'
+  type_name: 'array_like'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'dtype']
+  description: |
+    The required data-type. If None preserve the current dtype. If your
+    application requires the data to be in native byteorder, include
+    a byteorder specification as a part of the dtype specification.
+  arg_name: 'dtype'
+  type_name: 'data-type'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'requirements']
+  description: |
+    The requirements list can be any of the following
+    
+    * 'F_CONTIGUOUS' ('F') - ensure a Fortran-contiguous array
+    * 'C_CONTIGUOUS' ('C') - ensure a C-contiguous array
+    * 'ALIGNED' ('A')      - ensure a data-type aligned array
+    * 'WRITEABLE' ('W')    - ensure a writable array
+    * 'OWNDATA' ('O')      - ensure an array that owns its own data
+    * 'ENSUREARRAY', ('E') - ensure a base array, instead of a subclass
+  arg_name: 'requirements'
+  type_name: 'str or sequence of str'
+  is_optional: False
+- DocstringParam
+  args: ['param', '${ARRAY_FUNCTION_LIKE}']
+  description: '.. versionadded:: 1.20.0'
+  arg_name: '${ARRAY_FUNCTION_LIKE}'
+- DocstringReturns
+  args: ['returns']
+  description: 'Array with specified requirements and type if given.'
+  type_name: 'ndarray'
+  is_generator: False
+  return_name: 'out'
+- DocstringMeta
+  args: ['see_also']
+  description: |
+    asarray : Convert input to an ndarray.
+    asanyarray : Convert to an ndarray, but pass through ndarray subclasses.
+    ascontiguousarray : Convert input to a contiguous array.
+    asfortranarray : Convert input to an ndarray with column-major
+                     memory order.
+    ndarray.flags : Information about the memory layout of the array.
+- DocstringMeta
+  args: ['notes']
+  description: |
+    The returned array will be guaranteed to have the listed requirements
+    by making a copy if needed.
+- DocstringExample
+  args: ['examples']
+  description: |
+      C_CONTIGUOUS : True
+      F_CONTIGUOUS : False
+      OWNDATA : False
+      WRITEABLE : True
+      ALIGNED : True
+      WRITEBACKIFCOPY : False
+    
+  snippet: |
+    >>> import numpy as np
+    >>> x = np.arange(6).reshape(2,3)
+    >>> x.flags
+- DocstringExample
+  args: ['examples']
+  description: |
+      C_CONTIGUOUS : False
+      F_CONTIGUOUS : True
+      OWNDATA : True
+      WRITEABLE : True
+      ALIGNED : True
+      WRITEBACKIFCOPY : False
+  snippet: |
+    >>> y = np.require(x, dtype=np.float32, requirements=['A', 'O', 'W', 'F'])
+    >>> y.flags
+=== detect
+numpydoc
+=== compose numpydoc
+Return an ndarray of the provided type that satisfies requirements.
+
+This function is useful to be sure that an array with the correct flags
+is returned for passing to compiled code (perhaps through ctypes).
+
+Parameters
+----------
+a : array_like
+    The object to be converted to a type-and-requirement-satisfying array.
+dtype : data-type
+    The required data-type. If None preserve the current dtype. If your
+    application requires the data to be in native byteorder, include
+    a byteorder specification as a part of the dtype specification.
+requirements : str or sequence of str
+    The requirements list can be any of the following
+    
+    * 'F_CONTIGUOUS' ('F') - ensure a Fortran-contiguous array
+    * 'C_CONTIGUOUS' ('C') - ensure a C-contiguous array
+    * 'ALIGNED' ('A')      - ensure a data-type aligned array
+    * 'WRITEABLE' ('W')    - ensure a writable array
+    * 'OWNDATA' ('O')      - ensure an array that owns its own data
+    * 'ENSUREARRAY', ('E') - ensure a base array, instead of a subclass
+${ARRAY_FUNCTION_LIKE}
+    .. versionadded:: 1.20.0
+
+Returns
+-------
+out : ndarray
+    Array with specified requirements and type if given.
+
+Examples
+--------
+>>> import numpy as np
+>>> x = np.arange(6).reshape(2,3)
+>>> x.flags
+  C_CONTIGUOUS : True
+  F_CONTIGUOUS : False
+  OWNDATA : False
+  WRITEABLE : True
+  ALIGNED : True
+  WRITEBACKIFCOPY : False
+
+>>> y = np.require(x, dtype=np.float32, requirements=['A', 'O', 'W', 'F'])
+>>> y.flags
+  C_CONTIGUOUS : False
+  F_CONTIGUOUS : True
+  OWNDATA : True
+  WRITEABLE : True
+  ALIGNED : True
+  WRITEBACKIFCOPY : False
+
+See Also
+--------
+asarray : Convert input to an ndarray.
+asanyarray : Convert to an ndarray, but pass through ndarray subclasses.
+ascontiguousarray : Convert input to a contiguous array.
+asfortranarray : Convert input to an ndarray with column-major
+                 memory order.
+ndarray.flags : Information about the memory layout of the array.
+
+Notes
+-----
+The returned array will be guaranteed to have the listed requirements
+by making a copy if needed.

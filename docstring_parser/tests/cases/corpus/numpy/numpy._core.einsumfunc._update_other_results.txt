@@ -1,0 +1,74 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Update the positions and provisional input_sets of ``results``
+    based on performing the contraction result ``best``. Remove any
+    involving the tensors contracted.
+
+    Parameters
+    ----------
+    results : list
+        List of contraction results produced by
+        ``_parse_possible_contraction``.
+    best : list
+        The best contraction of ``results`` i.e. the one that
+        will be performed.
+
+    Returns
+    -------
+    mod_results : list
+        The list of modified results, updated with outcome of
+        ``best`` contraction.
+    
+=== parse numpydoc
+short_description: 'Update the positions and provisional input_sets of ``results``'
+long_description: |
+  based on performing the contraction result ``best``. Remove any
+  involving the tensors contracted.
+blank_after_short_description: False
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'results']
+  description: |
+    List of contraction results produced by
+    ``_parse_possible_contraction``.
+  arg_name: 'results'
+  type_name: 'list'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'best']
+  description: |
+    The best contraction of ``results`` i.e. the one that
+    will be performed.
+  arg_name: 'best'
+  type_name: 'list'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: |
+    The list of modified results, updated with outcome of
+    ``best`` contraction.
+  type_name: 'list'
+  is_generator: False
+  return_name: 'mod_results'
+=== detect
+numpydoc
+=== compose numpydoc
+Update the positions and provisional input_sets of ``results``
+based on performing the contraction result ``best``. Remove any
+involving the tensors contracted.
+
+Parameters
+----------
+results : list
+    List of contraction results produced by
+    ``_parse_possible_contraction``.
+best : list
+    The best contraction of ``results`` i.e. the one that
+    will be performed.
+
+Returns
+-------
+mod_results : list
+    The list of modified results, updated with outcome of
+    ``best`` contraction.

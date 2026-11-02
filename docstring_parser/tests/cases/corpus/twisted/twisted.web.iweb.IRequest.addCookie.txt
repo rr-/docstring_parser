@@ -1,0 +1,26 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Set an outgoing HTTP cookie.
+
+        In general, you should consider using sessions instead of cookies, see
+        L{twisted.web.server.Request.getSession} and the
+        L{twisted.web.server.Session} class for details.
+        
+=== parse epydoc
+short_description: 'Set an outgoing HTTP cookie.'
+long_description: |
+  In general, you should consider using sessions instead of cookies, see
+  L{twisted.web.server.Request.getSession} and the
+  L{twisted.web.server.Session} class for details.
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+=== detect
+rest
+=== compose epydoc
+Set an outgoing HTTP cookie.
+
+In general, you should consider using sessions instead of cookies, see
+L{twisted.web.server.Request.getSession} and the
+L{twisted.web.server.Session} class for details.

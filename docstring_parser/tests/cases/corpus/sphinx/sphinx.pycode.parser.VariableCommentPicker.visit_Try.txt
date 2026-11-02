@@ -1,0 +1,18 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Handles Try node and processes body and else-clause.
+
+        .. note:: pycode parser ignores objects definition in except-clause.
+        
+=== parse rest
+short_description: 'Handles Try node and processes body and else-clause.'
+long_description: '.. note:: pycode parser ignores objects definition in except-clause.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Handles Try node and processes body and else-clause.
+
+.. note:: pycode parser ignores objects definition in except-clause.

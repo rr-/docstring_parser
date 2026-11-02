@@ -1,0 +1,18 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+The query part of the URL as a list of key-value pairs.
+
+        e.g. `[('foo', 'bar')]` in `https://user:pass@host:port/path?foo=bar#fragment`
+        
+=== parse google
+short_description: 'The query part of the URL as a list of key-value pairs.'
+long_description: "e.g. `[('foo', 'bar')]` in `https://user:pass@host:port/path?foo=bar#fragment`"
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+The query part of the URL as a list of key-value pairs.
+
+e.g. `[('foo', 'bar')]` in `https://user:pass@host:port/path?foo=bar#fragment`

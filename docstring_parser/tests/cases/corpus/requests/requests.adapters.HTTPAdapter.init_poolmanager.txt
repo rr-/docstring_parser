@@ -1,0 +1,52 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Initializes a urllib3 PoolManager.
+
+        This method should not be called from user code, and is only
+        exposed for use when subclassing the
+        :class:`HTTPAdapter <requests.adapters.HTTPAdapter>`.
+
+        :param connections: The number of urllib3 connection pools to cache.
+        :param maxsize: The maximum number of connections to save in the pool.
+        :param block: Block when no free connections are available.
+        :param pool_kwargs: Extra keyword arguments used to initialize the Pool Manager.
+        
+=== parse rest
+short_description: 'Initializes a urllib3 PoolManager.'
+long_description: |
+  This method should not be called from user code, and is only
+  exposed for use when subclassing the
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringMeta
+  args: ['class']
+  description: '`HTTPAdapter <requests.adapters.HTTPAdapter>`.'
+- DocstringParam
+  args: ['param', 'connections']
+  description: 'The number of urllib3 connection pools to cache.'
+  arg_name: 'connections'
+- DocstringParam
+  args: ['param', 'maxsize']
+  description: 'The maximum number of connections to save in the pool.'
+  arg_name: 'maxsize'
+- DocstringParam
+  args: ['param', 'block']
+  description: 'Block when no free connections are available.'
+  arg_name: 'block'
+- DocstringParam
+  args: ['param', 'pool_kwargs']
+  description: 'Extra keyword arguments used to initialize the Pool Manager.'
+  arg_name: 'pool_kwargs'
+=== detect
+rest
+=== compose rest
+Initializes a urllib3 PoolManager.
+
+This method should not be called from user code, and is only
+exposed for use when subclassing the
+:class: `HTTPAdapter <requests.adapters.HTTPAdapter>`.
+:param connections: The number of urllib3 connection pools to cache.
+:param maxsize: The maximum number of connections to save in the pool.
+:param block: Block when no free connections are available.
+:param pool_kwargs: Extra keyword arguments used to initialize the Pool Manager.

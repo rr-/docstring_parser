@@ -1,0 +1,16 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+There are two cookies that meet the criteria specified in the cookie jar.
+    Use .get and .set and include domain and path args in order to be more specific.
+    
+=== parse rest
+short_description: 'There are two cookies that meet the criteria specified in the cookie jar.'
+long_description: 'Use .get and .set and include domain and path args in order to be more specific.'
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+There are two cookies that meet the criteria specified in the cookie jar.
+Use .get and .set and include domain and path args in order to be more specific.

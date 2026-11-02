@@ -1,0 +1,17 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Retrieve value associated with 'key' or return default value
+        if 'key' doesn't exist.
+        
+=== parse epydoc
+short_description: "Retrieve value associated with 'key' or return default value"
+long_description: "if 'key' doesn't exist."
+blank_after_short_description: False
+blank_after_long_description: False
+style: epydoc
+=== detect
+rest
+=== compose epydoc
+Retrieve value associated with 'key' or return default value
+if 'key' doesn't exist.

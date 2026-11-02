@@ -1,0 +1,63 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+    Process a list of models and generate a single JSON Schema with all of them defined in the ``definitions``
+    top-level JSON key, including their sub-models.
+
+    :param models: a list of models to include in the generated JSON Schema
+    :param by_alias: generate the schemas using the aliases defined, if any
+    :param title: title for the generated schema that includes the definitions
+    :param description: description for the generated schema
+    :param ref_prefix: the JSON Pointer prefix for schema references with ``$ref``, if None, will be set to the
+      default of ``#/definitions/``. Update it if you want the schemas to reference the definitions somewhere
+      else, e.g. for OpenAPI use ``#/components/schemas/``. The resulting generated schemas will still be at the
+      top-level key ``definitions``, so you can extract them from there. But all the references will have the set
+      prefix.
+    :param ref_template: Use a ``string.format()`` template for ``$ref`` instead of a prefix. This can be useful
+      for references that cannot be represented by ``ref_prefix`` such as a definition stored in another file. For
+      a sibling json file in a ``/schemas`` directory use ``"/schemas/${model}.json#"``.
+    :return: dict with the JSON Schema with a ``definitions`` top-level key including the schema definitions for
+      the models and sub-models passed in ``models``.
+    
+=== parse google
+short_description: 'Process a list of models and generate a single JSON Schema with all of them defined in the ``definitions``'
+long_description: |
+  top-level JSON key, including their sub-models.
+  
+  :param models: a list of models to include in the generated JSON Schema
+  :param by_alias: generate the schemas using the aliases defined, if any
+  :param title: title for the generated schema that includes the definitions
+  :param description: description for the generated schema
+  :param ref_prefix: the JSON Pointer prefix for schema references with ``$ref``, if None, will be set to the
+    default of ``#/definitions/``. Update it if you want the schemas to reference the definitions somewhere
+    else, e.g. for OpenAPI use ``#/components/schemas/``. The resulting generated schemas will still be at the
+    top-level key ``definitions``, so you can extract them from there. But all the references will have the set
+    prefix.
+  :param ref_template: Use a ``string.format()`` template for ``$ref`` instead of a prefix. This can be useful
+    for references that cannot be represented by ``ref_prefix`` such as a definition stored in another file. For
+    a sibling json file in a ``/schemas`` directory use ``"/schemas/${model}.json#"``.
+  :return: dict with the JSON Schema with a ``definitions`` top-level key including the schema definitions for
+    the models and sub-models passed in ``models``.
+blank_after_short_description: False
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Process a list of models and generate a single JSON Schema with all of them defined in the ``definitions``
+top-level JSON key, including their sub-models.
+
+:param models: a list of models to include in the generated JSON Schema
+:param by_alias: generate the schemas using the aliases defined, if any
+:param title: title for the generated schema that includes the definitions
+:param description: description for the generated schema
+:param ref_prefix: the JSON Pointer prefix for schema references with ``$ref``, if None, will be set to the
+  default of ``#/definitions/``. Update it if you want the schemas to reference the definitions somewhere
+  else, e.g. for OpenAPI use ``#/components/schemas/``. The resulting generated schemas will still be at the
+  top-level key ``definitions``, so you can extract them from there. But all the references will have the set
+  prefix.
+:param ref_template: Use a ``string.format()`` template for ``$ref`` instead of a prefix. This can be useful
+  for references that cannot be represented by ``ref_prefix`` such as a definition stored in another file. For
+  a sibling json file in a ``/schemas`` directory use ``"/schemas/${model}.json#"``.
+:return: dict with the JSON Schema with a ``definitions`` top-level key including the schema definitions for
+  the models and sub-models passed in ``models``.

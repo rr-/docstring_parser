@@ -1,0 +1,20 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Define a valid interval for the `tan` function, so that:
+
+    ``domain_tan(eps) = True`` where ``abs(cos(x)) < eps``
+
+    
+=== parse numpydoc
+short_description: 'Define a valid interval for the `tan` function, so that:'
+long_description: '``domain_tan(eps) = True`` where ``abs(cos(x)) < eps``'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Define a valid interval for the `tan` function, so that:
+
+``domain_tan(eps) = True`` where ``abs(cos(x)) < eps``

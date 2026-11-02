@@ -1,0 +1,16 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Creates a new document object which has a special reporter object good
+        for logging.
+        
+=== parse rest
+short_description: 'Creates a new document object which has a special reporter object good'
+long_description: 'for logging.'
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Creates a new document object which has a special reporter object good
+for logging.

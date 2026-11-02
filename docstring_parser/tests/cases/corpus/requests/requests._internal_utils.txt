@@ -1,0 +1,27 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+
+requests._internal_utils
+~~~~~~~~~~~~~~
+
+Provides utility functions that are consumed internally by Requests
+which depend on extremely few external helpers (such as compat)
+
+=== parse rest
+short_description: 'requests._internal_utils'
+long_description: |
+  ~~~~~~~~~~~~~~
+  
+  Provides utility functions that are consumed internally by Requests
+  which depend on extremely few external helpers (such as compat)
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+requests._internal_utils
+~~~~~~~~~~~~~~
+
+Provides utility functions that are consumed internally by Requests
+which depend on extremely few external helpers (such as compat)

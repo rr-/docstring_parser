@@ -1,0 +1,20 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Split text by cell position.
+
+    If the cell position falls within a double width character, it is converted to two spaces.
+
+    Args:
+        text: Text to split.
+        cell_position Offset in cells.
+        unicode_version: Unicode version, `"auto"` to auto detect, `"latest"` for the latest unicode version.
+
+    Returns:
+        Tuple to two split strings.
+    
+=== parse google
+ParseError: Expected a colon in 'cell_position Offset in cells.'.
+=== detect
+rest
+=== compose google
+ParseError: Expected a colon in 'cell_position Offset in cells.'.

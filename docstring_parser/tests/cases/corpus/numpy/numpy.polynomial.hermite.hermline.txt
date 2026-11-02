@@ -1,0 +1,103 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Hermite series whose graph is a straight line.
+
+
+
+    Parameters
+    ----------
+    off, scl : scalars
+        The specified line is given by ``off + scl*x``.
+
+    Returns
+    -------
+    y : ndarray
+        This module's representation of the Hermite series for
+        ``off + scl*x``.
+
+    See Also
+    --------
+    numpy.polynomial.polynomial.polyline
+    numpy.polynomial.chebyshev.chebline
+    numpy.polynomial.legendre.legline
+    numpy.polynomial.laguerre.lagline
+    numpy.polynomial.hermite_e.hermeline
+
+    Examples
+    --------
+    >>> from numpy.polynomial.hermite import hermline, hermval
+    >>> hermval(0,hermline(3, 2))
+    3.0
+    >>> hermval(1,hermline(3, 2))
+    5.0
+
+    
+=== parse numpydoc
+short_description: 'Hermite series whose graph is a straight line.'
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'off, scl']
+  description: 'The specified line is given by ``off + scl*x``.'
+  arg_name: 'off, scl'
+  type_name: 'scalars'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: |
+    This module's representation of the Hermite series for
+    ``off + scl*x``.
+  type_name: 'ndarray'
+  is_generator: False
+  return_name: 'y'
+- DocstringMeta
+  args: ['see_also']
+  description: |
+    numpy.polynomial.polynomial.polyline
+    numpy.polynomial.chebyshev.chebline
+    numpy.polynomial.legendre.legline
+    numpy.polynomial.laguerre.lagline
+    numpy.polynomial.hermite_e.hermeline
+- DocstringExample
+  args: ['examples']
+  description: '3.0'
+  snippet: |
+    >>> from numpy.polynomial.hermite import hermline, hermval
+    >>> hermval(0,hermline(3, 2))
+- DocstringExample
+  args: ['examples']
+  description: '5.0'
+  snippet: '>>> hermval(1,hermline(3, 2))'
+=== detect
+numpydoc
+=== compose numpydoc
+Hermite series whose graph is a straight line.
+
+Parameters
+----------
+off, scl : scalars
+    The specified line is given by ``off + scl*x``.
+
+Returns
+-------
+y : ndarray
+    This module's representation of the Hermite series for
+    ``off + scl*x``.
+
+Examples
+--------
+>>> from numpy.polynomial.hermite import hermline, hermval
+>>> hermval(0,hermline(3, 2))
+3.0
+>>> hermval(1,hermline(3, 2))
+5.0
+
+See Also
+--------
+numpy.polynomial.polynomial.polyline
+numpy.polynomial.chebyshev.chebline
+numpy.polynomial.legendre.legline
+numpy.polynomial.laguerre.lagline
+numpy.polynomial.hermite_e.hermeline

@@ -1,0 +1,61 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Monkey patch an object for the duration of the test.
+
+        The monkey patch will be reverted at the end of the test using the
+        L{addCleanup} mechanism.
+
+        The L{monkey.MonkeyPatcher} is returned so that users can restore and
+        re-apply the monkey patch within their tests.
+
+        @param obj: The object to monkey patch.
+        @param attribute: The name of the attribute to change.
+        @param value: The value to set the attribute to.
+        @return: A L{monkey.MonkeyPatcher} object.
+        
+=== parse epydoc
+short_description: 'Monkey patch an object for the duration of the test.'
+long_description: |
+  The monkey patch will be reverted at the end of the test using the
+  L{addCleanup} mechanism.
+  
+  The L{monkey.MonkeyPatcher} is returned so that users can restore and
+  re-apply the monkey patch within their tests.
+blank_after_short_description: True
+blank_after_long_description: True
+style: epydoc
+- DocstringParam
+  args: ['param', 'obj']
+  description: 'The object to monkey patch.'
+  arg_name: 'obj'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'attribute']
+  description: 'The name of the attribute to change.'
+  arg_name: 'attribute'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'value']
+  description: 'The value to set the attribute to.'
+  arg_name: 'value'
+  is_optional: False
+- DocstringReturns
+  args: ['return']
+  description: 'A L{monkey.MonkeyPatcher} object.'
+  is_generator: False
+=== detect
+epydoc
+=== compose epydoc
+Monkey patch an object for the duration of the test.
+
+The monkey patch will be reverted at the end of the test using the
+L{addCleanup} mechanism.
+
+The L{monkey.MonkeyPatcher} is returned so that users can restore and
+re-apply the monkey patch within their tests.
+
+@param obj: The object to monkey patch.
+@param attribute: The name of the attribute to change.
+@param value: The value to set the attribute to.
+@return: A L{monkey.MonkeyPatcher} object.

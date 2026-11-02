@@ -1,0 +1,30 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    The Python interfaces receives the constraints as lb <= constraint(x) <= ub, 
+    but the Fortran backend expects the nonlinear constraints to be constraint(x) <= 0.
+    Thus a conversion is needed.
+    
+    In addition to the conversion, we add a check to ensure that the provided lower/upper bounds
+    have a shape consistent with the output of the constraint function.
+    
+=== parse numpydoc
+short_description: 'The Python interfaces receives the constraints as lb <= constraint(x) <= ub, '
+long_description: |
+  but the Fortran backend expects the nonlinear constraints to be constraint(x) <= 0.
+  Thus a conversion is needed.
+  
+  In addition to the conversion, we add a check to ensure that the provided lower/upper bounds
+  have a shape consistent with the output of the constraint function.
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+The Python interfaces receives the constraints as lb <= constraint(x) <= ub, 
+but the Fortran backend expects the nonlinear constraints to be constraint(x) <= 0.
+Thus a conversion is needed.
+
+In addition to the conversion, we add a check to ensure that the provided lower/upper bounds
+have a shape consistent with the output of the constraint function.

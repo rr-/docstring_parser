@@ -1,0 +1,52 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Distribute an integer total in to parts based on ratios.
+
+    Args:
+        total (int): The total to divide.
+        ratios (List[int]): A list of integer ratios.
+        minimums (List[int]): List of minimum values for each slot.
+
+    Returns:
+        List[int]: A list of integers guaranteed to sum to total.
+    
+=== parse google
+short_description: 'Distribute an integer total in to parts based on ratios.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'total (int)']
+  description: 'The total to divide.'
+  arg_name: 'total'
+  type_name: 'int'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'ratios (List[int])']
+  description: 'A list of integer ratios.'
+  arg_name: 'ratios'
+  type_name: 'List[int]'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'minimums (List[int])']
+  description: 'List of minimum values for each slot.'
+  arg_name: 'minimums'
+  type_name: 'List[int]'
+  is_optional: False
+- DocstringReturns
+  args: ['returns', 'List[int]']
+  description: 'A list of integers guaranteed to sum to total.'
+  type_name: 'List[int]'
+  is_generator: False
+=== detect
+google
+=== compose google
+Distribute an integer total in to parts based on ratios.
+
+Args:
+    total (int): The total to divide.
+    ratios (List[int]): A list of integer ratios.
+    minimums (List[int]): List of minimum values for each slot.
+
+Returns:
+    List[int]: A list of integers guaranteed to sum to total.

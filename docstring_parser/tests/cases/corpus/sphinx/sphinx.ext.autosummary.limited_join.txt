@@ -1,0 +1,28 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Join a number of strings into one, limiting the length to *max_chars*.
+
+    If the string overflows this limit, replace the last fitting item by
+    *overflow_marker*.
+
+    Returns: joined_string
+    
+=== parse rest
+short_description: 'Join a number of strings into one, limiting the length to *max_chars*.'
+long_description: |
+  If the string overflows this limit, replace the last fitting item by
+  *overflow_marker*.
+  
+  Returns: joined_string
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Join a number of strings into one, limiting the length to *max_chars*.
+
+If the string overflows this limit, replace the last fitting item by
+*overflow_marker*.
+
+Returns: joined_string

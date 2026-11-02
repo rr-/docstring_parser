@@ -1,0 +1,41 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Sets the comments for the class types that are items of a list.
+
+        Args:
+            cfg: The ruamel.yaml object.
+            action: The action that corresponds to the given list.
+            depth: The nested level of the keys of the items of the list.
+            typehint: The type of the list, defaults to the type of the action.
+        
+=== parse google
+short_description: 'Sets the comments for the class types that are items of a list.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'cfg']
+  description: 'The ruamel.yaml object.'
+  arg_name: 'cfg'
+- DocstringParam
+  args: ['param', 'action']
+  description: 'The action that corresponds to the given list.'
+  arg_name: 'action'
+- DocstringParam
+  args: ['param', 'depth']
+  description: 'The nested level of the keys of the items of the list.'
+  arg_name: 'depth'
+- DocstringParam
+  args: ['param', 'typehint']
+  description: 'The type of the list, defaults to the type of the action.'
+  arg_name: 'typehint'
+=== detect
+google
+=== compose google
+Sets the comments for the class types that are items of a list.
+
+Args:
+    cfg: The ruamel.yaml object.
+    action: The action that corresponds to the given list.
+    depth: The nested level of the keys of the items of the list.
+    typehint: The type of the list, defaults to the type of the action.

@@ -1,0 +1,22 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+The URL as a unicode string, unlike `__str__()` this will not punycode encode the host.
+
+        If the URL must be punycode encoded, this is the decoded string, e.g. if the input URL is `https://£££.com`,
+        `unicode_string()` will be `https://£££.com`
+        
+=== parse google
+short_description: 'The URL as a unicode string, unlike `__str__()` this will not punycode encode the host.'
+long_description: |
+  If the URL must be punycode encoded, this is the decoded string, e.g. if the input URL is `https://£££.com`,
+  `unicode_string()` will be `https://£££.com`
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+The URL as a unicode string, unlike `__str__()` this will not punycode encode the host.
+
+If the URL must be punycode encoded, this is the decoded string, e.g. if the input URL is `https://£££.com`,
+`unicode_string()` will be `https://£££.com`

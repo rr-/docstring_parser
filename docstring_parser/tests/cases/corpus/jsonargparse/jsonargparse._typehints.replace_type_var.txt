@@ -1,0 +1,25 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Returns the type that a TypeVar stands for, or the TypeVar when there is none.
+
+    What a TypeVar stands for is given by its PEP 696 default, its constraints
+    or its bound. As the subtype of a ``type[...]`` it additionally stands for
+    ``object``, i.e. any class, since there a TypeVar is always a class.
+    
+=== parse google
+short_description: 'Returns the type that a TypeVar stands for, or the TypeVar when there is none.'
+long_description: |
+  What a TypeVar stands for is given by its PEP 696 default, its constraints
+  or its bound. As the subtype of a ``type[...]`` it additionally stands for
+  ``object``, i.e. any class, since there a TypeVar is always a class.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Returns the type that a TypeVar stands for, or the TypeVar when there is none.
+
+What a TypeVar stands for is given by its PEP 696 default, its constraints
+or its bound. As the subtype of a ``type[...]`` it additionally stands for
+``object``, i.e. any class, since there a TypeVar is always a class.

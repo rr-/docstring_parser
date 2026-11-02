@@ -1,0 +1,28 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Move to the given column, optionally add offset to row.
+
+        Returns:
+            x (int): absolute x (column)
+            y (int): optional y offset (row)
+
+        Returns:
+            ~Control: Control object.
+        
+=== parse google
+short_description: 'Move to the given column, optionally add offset to row.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringReturns
+  args: ['returns', '~Control']
+  description: 'Control object.'
+  type_name: '~Control'
+  is_generator: False
+=== detect
+google
+=== compose google
+Move to the given column, optionally add offset to row.
+
+Returns:
+    ~Control: Control object.

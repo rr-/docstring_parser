@@ -1,0 +1,44 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Find the prefix that a package is installed under, and the path
+    that it would be imported from.
+
+    The prefix is the directory containing the standard directory
+    hierarchy (lib, bin, etc.). If the package is not installed to the
+    system (:attr:`sys.prefix`) or a virtualenv (``site-packages``),
+    ``None`` is returned.
+
+    The path is the entry in :attr:`sys.path` that contains the package
+    for import. If the package is not installed, it's assumed that the
+    package was imported from the current working directory.
+    
+=== parse rest
+short_description: 'Find the prefix that a package is installed under, and the path'
+long_description: |
+  that it would be imported from.
+  
+  The prefix is the directory containing the standard directory
+  hierarchy (lib, bin, etc.). If the package is not installed to the
+  system (:attr:`sys.prefix`) or a virtualenv (``site-packages``),
+  ``None`` is returned.
+  
+  The path is the entry in :attr:`sys.path` that contains the package
+  for import. If the package is not installed, it's assumed that the
+  package was imported from the current working directory.
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Find the prefix that a package is installed under, and the path
+that it would be imported from.
+
+The prefix is the directory containing the standard directory
+hierarchy (lib, bin, etc.). If the package is not installed to the
+system (:attr:`sys.prefix`) or a virtualenv (``site-packages``),
+``None`` is returned.
+
+The path is the entry in :attr:`sys.path` that contains the package
+for import. If the package is not installed, it's assumed that the
+package was imported from the current working directory.

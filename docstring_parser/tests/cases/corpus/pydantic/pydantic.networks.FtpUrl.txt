@@ -1,0 +1,22 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+A type that will accept ftp URL.
+
+    * TLD not required
+    * Host not required
+    
+=== parse google
+short_description: 'A type that will accept ftp URL.'
+long_description: |
+  * TLD not required
+  * Host not required
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+A type that will accept ftp URL.
+
+* TLD not required
+* Host not required

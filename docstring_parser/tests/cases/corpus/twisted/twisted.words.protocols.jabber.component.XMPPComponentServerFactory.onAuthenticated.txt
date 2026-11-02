@@ -1,0 +1,23 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Called when a component has successfully authenticated.
+
+        Add the component to the routing table and establish a handler
+        for a closed connection.
+        
+=== parse epydoc
+short_description: 'Called when a component has successfully authenticated.'
+long_description: |
+  Add the component to the routing table and establish a handler
+  for a closed connection.
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+=== detect
+rest
+=== compose epydoc
+Called when a component has successfully authenticated.
+
+Add the component to the routing table and establish a handler
+for a closed connection.

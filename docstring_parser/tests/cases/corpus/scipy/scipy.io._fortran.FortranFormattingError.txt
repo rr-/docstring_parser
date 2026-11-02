@@ -1,0 +1,19 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Indicates that the file ended mid-record.
+
+    Descends from TypeError for backward compatibility.
+
+    
+=== parse numpydoc
+short_description: 'Indicates that the file ended mid-record.'
+long_description: 'Descends from TypeError for backward compatibility.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Indicates that the file ended mid-record.
+
+Descends from TypeError for backward compatibility.

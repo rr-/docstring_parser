@@ -1,0 +1,23 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Get extra fields set during validation.
+
+        Returns:
+            A dictionary of extra fields, or `None` if `config.extra` is not set to `"allow"`.
+        
+=== parse google
+short_description: 'Get extra fields set during validation.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringReturns
+  args: ['returns']
+  description: 'A dictionary of extra fields, or `None` if `config.extra` is not set to `"allow"`.'
+  is_generator: False
+=== detect
+google
+=== compose google
+Get extra fields set during validation.
+
+Returns:
+    A dictionary of extra fields, or `None` if `config.extra` is not set to `"allow"`.

@@ -1,0 +1,57 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+The hosts of the `MultiHostUrl` as [`MultiHostHost`][pydantic_core.MultiHostHost] typed dicts.
+
+        ```python
+        from pydantic_core import MultiHostUrl
+
+        mhu = MultiHostUrl('https://foo.com:123,foo:bar@bar.com/path')
+        print(mhu.hosts())
+        """
+        [
+            {'username': None, 'password': None, 'host': 'foo.com', 'port': 123},
+            {'username': 'foo', 'password': 'bar', 'host': 'bar.com', 'port': 443}
+        ]
+        ```
+        Returns:
+            A list of dicts, each representing a host.
+        
+=== parse google
+short_description: 'The hosts of the `MultiHostUrl` as [`MultiHostHost`][pydantic_core.MultiHostHost] typed dicts.'
+long_description: |
+  ```python
+  from pydantic_core import MultiHostUrl
+  
+  mhu = MultiHostUrl('https://foo.com:123,foo:bar@bar.com/path')
+  print(mhu.hosts())
+  """
+  [
+      {'username': None, 'password': None, 'host': 'foo.com', 'port': 123},
+      {'username': 'foo', 'password': 'bar', 'host': 'bar.com', 'port': 443}
+  ]
+  ```
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringReturns
+  args: ['returns']
+  description: 'A list of dicts, each representing a host.'
+  is_generator: False
+=== detect
+google
+=== compose google
+The hosts of the `MultiHostUrl` as [`MultiHostHost`][pydantic_core.MultiHostHost] typed dicts.
+
+```python
+from pydantic_core import MultiHostUrl
+
+mhu = MultiHostUrl('https://foo.com:123,foo:bar@bar.com/path')
+print(mhu.hosts())
+"""
+[
+    {'username': None, 'password': None, 'host': 'foo.com', 'port': 123},
+    {'username': 'foo', 'password': 'bar', 'host': 'bar.com', 'port': 443}
+]
+```
+Returns:
+    A list of dicts, each representing a host.

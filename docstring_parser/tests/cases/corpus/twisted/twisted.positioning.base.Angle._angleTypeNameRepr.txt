@@ -1,0 +1,30 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Returns a string representation of the type of this angle.
+
+        This is a helper function for the actual C{__repr__}.
+
+        @return: The string representation.
+        @rtype: C{str}
+        
+=== parse epydoc
+short_description: 'Returns a string representation of the type of this angle.'
+long_description: 'This is a helper function for the actual C{__repr__}.'
+blank_after_short_description: True
+blank_after_long_description: True
+style: epydoc
+- DocstringReturns
+  args: ['return']
+  description: 'The string representation.'
+  type_name: 'C{str}'
+  is_generator: False
+=== detect
+epydoc
+=== compose epydoc
+Returns a string representation of the type of this angle.
+
+This is a helper function for the actual C{__repr__}.
+
+@rtype: C{str}
+@return: The string representation.

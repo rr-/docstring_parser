@@ -1,0 +1,22 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Indicate whether this message has subparts.
+
+        @rtype: L{bool}
+        
+=== parse epydoc
+short_description: 'Indicate whether this message has subparts.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringReturns
+  args: ['rtype']
+  type_name: 'L{bool}'
+  is_generator: False
+=== detect
+epydoc
+=== compose epydoc
+Indicate whether this message has subparts.
+
+@rtype: L{bool}

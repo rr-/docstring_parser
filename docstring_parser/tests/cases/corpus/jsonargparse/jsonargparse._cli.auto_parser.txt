@@ -1,0 +1,18 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Same as :func:`.auto_cli`, but returns the parser, doesn't parse arguments or run.
+
+    This is a shorthand for ``capture_parser(lambda: auto_cli(*args, **kwargs))``.
+    
+=== parse google
+short_description: "Same as :func:`.auto_cli`, but returns the parser, doesn't parse arguments or run."
+long_description: 'This is a shorthand for ``capture_parser(lambda: auto_cli(*args, **kwargs))``.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Same as :func:`.auto_cli`, but returns the parser, doesn't parse arguments or run.
+
+This is a shorthand for ``capture_parser(lambda: auto_cli(*args, **kwargs))``.

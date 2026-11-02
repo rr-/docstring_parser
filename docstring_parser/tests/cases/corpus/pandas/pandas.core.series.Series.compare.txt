@@ -1,0 +1,300 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Compare to another Series and show the differences.
+
+        This method aligns two Series and highlights only the values that
+        differ between them. Equal values are shown as NaN by default.
+
+        Parameters
+        ----------
+        other : Series
+            Object to compare with.
+
+        align_axis : {0 or 'index', 1 or 'columns'}, default 1
+            Determine which axis to align the comparison on.
+
+            * 0, or 'index' : Resulting differences are stacked vertically
+              with rows drawn alternately from self and other.
+            * 1, or 'columns' : Resulting differences are aligned horizontally
+              with columns drawn alternately from self and other.
+
+        keep_shape : bool, default False
+            If true, all rows and columns are kept.
+            Otherwise, only the ones with different values are kept.
+
+        keep_equal : bool, default False
+            If true, the result keeps values that are equal.
+            Otherwise, equal values are shown as NaNs.
+
+        result_names : tuple, default ('self', 'other')
+            Set the dataframes names in the comparison.
+
+        Returns
+        -------
+        Series or DataFrame
+            If axis is 0 or 'index' the result will be a Series.
+            The resulting index will be a MultiIndex with 'self' and 'other'
+            stacked alternately at the inner level.
+
+            If axis is 1 or 'columns' the result will be a DataFrame.
+            It will have two columns namely 'self' and 'other'.
+
+        See Also
+        --------
+        DataFrame.compare : Compare with another DataFrame and show differences.
+
+        Notes
+        -----
+        Matching NaNs will not appear as a difference.
+
+        Examples
+        --------
+        >>> s1 = pd.Series(["a", "b", "c", "d", "e"])
+        >>> s2 = pd.Series(["a", "a", "c", "b", "e"])
+
+        Align the differences on columns
+
+        >>> s1.compare(s2)
+          self other
+        1    b     a
+        3    d     b
+
+        Stack the differences on indices
+
+        >>> s1.compare(s2, align_axis=0)
+        1  self     b
+           other    a
+        3  self     d
+           other    b
+        dtype: str
+
+        Keep all original rows
+
+        >>> s1.compare(s2, keep_shape=True)
+          self other
+        0  NaN   NaN
+        1    b     a
+        2  NaN   NaN
+        3    d     b
+        4  NaN   NaN
+
+        Keep all original rows and also all original values
+
+        >>> s1.compare(s2, keep_shape=True, keep_equal=True)
+          self other
+        0    a     a
+        1    b     a
+        2    c     c
+        3    d     b
+        4    e     e
+        
+=== parse numpydoc
+short_description: 'Compare to another Series and show the differences.'
+long_description: |
+  This method aligns two Series and highlights only the values that
+  differ between them. Equal values are shown as NaN by default.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'other']
+  description: 'Object to compare with.'
+  arg_name: 'other'
+  type_name: 'Series'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'align_axis']
+  description: |
+    Determine which axis to align the comparison on.
+    
+    * 0, or 'index' : Resulting differences are stacked vertically
+      with rows drawn alternately from self and other.
+    * 1, or 'columns' : Resulting differences are aligned horizontally
+      with columns drawn alternately from self and other.
+  arg_name: 'align_axis'
+  type_name: "{0 or 'index', 1 or 'columns'}"
+  is_optional: True
+  default: '1'
+- DocstringParam
+  args: ['param', 'keep_shape']
+  description: |
+    If true, all rows and columns are kept.
+    Otherwise, only the ones with different values are kept.
+  arg_name: 'keep_shape'
+  type_name: 'bool'
+  is_optional: True
+  default: 'False'
+- DocstringParam
+  args: ['param', 'keep_equal']
+  description: |
+    If true, the result keeps values that are equal.
+    Otherwise, equal values are shown as NaNs.
+  arg_name: 'keep_equal'
+  type_name: 'bool'
+  is_optional: True
+  default: 'False'
+- DocstringParam
+  args: ['param', 'result_names']
+  description: 'Set the dataframes names in the comparison.'
+  arg_name: 'result_names'
+  type_name: 'tuple'
+  is_optional: True
+  default: "('self', 'other')"
+- DocstringReturns
+  args: ['returns']
+  description: |
+    If axis is 0 or 'index' the result will be a Series.
+    The resulting index will be a MultiIndex with 'self' and 'other'
+    stacked alternately at the inner level.
+    
+    If axis is 1 or 'columns' the result will be a DataFrame.
+    It will have two columns namely 'self' and 'other'.
+  type_name: 'Series or DataFrame'
+  is_generator: False
+- DocstringMeta
+  args: ['see_also']
+  description: 'DataFrame.compare : Compare with another DataFrame and show differences.'
+- DocstringMeta
+  args: ['notes']
+  description: 'Matching NaNs will not appear as a difference.'
+- DocstringExample
+  args: ['examples']
+  description: |
+    
+    Align the differences on columns
+    
+  snippet: |
+    >>> s1 = pd.Series(["a", "b", "c", "d", "e"])
+    >>> s2 = pd.Series(["a", "a", "c", "b", "e"])
+- DocstringExample
+  args: ['examples']
+  description: |
+      self other
+    1    b     a
+    3    d     b
+    
+    Stack the differences on indices
+    
+  snippet: '>>> s1.compare(s2)'
+- DocstringExample
+  args: ['examples']
+  description: |
+    1  self     b
+       other    a
+    3  self     d
+       other    b
+    dtype: str
+    
+    Keep all original rows
+    
+  snippet: '>>> s1.compare(s2, align_axis=0)'
+- DocstringExample
+  args: ['examples']
+  description: |
+      self other
+    0  NaN   NaN
+    1    b     a
+    2  NaN   NaN
+    3    d     b
+    4  NaN   NaN
+    
+    Keep all original rows and also all original values
+    
+  snippet: '>>> s1.compare(s2, keep_shape=True)'
+- DocstringExample
+  args: ['examples']
+  description: |
+      self other
+    0    a     a
+    1    b     a
+    2    c     c
+    3    d     b
+    4    e     e
+  snippet: '>>> s1.compare(s2, keep_shape=True, keep_equal=True)'
+=== detect
+numpydoc
+=== compose numpydoc
+Compare to another Series and show the differences.
+
+This method aligns two Series and highlights only the values that
+differ between them. Equal values are shown as NaN by default.
+
+Parameters
+----------
+other : Series
+    Object to compare with.
+align_axis : {0 or 'index', 1 or 'columns'}, default=1
+    Determine which axis to align the comparison on.
+    
+    * 0, or 'index' : Resulting differences are stacked vertically
+      with rows drawn alternately from self and other.
+    * 1, or 'columns' : Resulting differences are aligned horizontally
+      with columns drawn alternately from self and other.
+keep_shape : bool, default=False
+    If true, all rows and columns are kept.
+    Otherwise, only the ones with different values are kept.
+keep_equal : bool, default=False
+    If true, the result keeps values that are equal.
+    Otherwise, equal values are shown as NaNs.
+result_names : tuple, default=('self', 'other')
+    Set the dataframes names in the comparison.
+
+Returns
+-------
+Series or DataFrame
+    If axis is 0 or 'index' the result will be a Series.
+    The resulting index will be a MultiIndex with 'self' and 'other'
+    stacked alternately at the inner level.
+    
+    If axis is 1 or 'columns' the result will be a DataFrame.
+    It will have two columns namely 'self' and 'other'.
+
+Examples
+--------
+>>> s1 = pd.Series(["a", "b", "c", "d", "e"])
+>>> s2 = pd.Series(["a", "a", "c", "b", "e"])
+
+Align the differences on columns
+
+>>> s1.compare(s2)
+  self other
+1    b     a
+3    d     b
+
+Stack the differences on indices
+
+>>> s1.compare(s2, align_axis=0)
+1  self     b
+   other    a
+3  self     d
+   other    b
+dtype: str
+
+Keep all original rows
+
+>>> s1.compare(s2, keep_shape=True)
+  self other
+0  NaN   NaN
+1    b     a
+2  NaN   NaN
+3    d     b
+4  NaN   NaN
+
+Keep all original rows and also all original values
+
+>>> s1.compare(s2, keep_shape=True, keep_equal=True)
+  self other
+0    a     a
+1    b     a
+2    c     c
+3    d     b
+4    e     e
+
+See Also
+--------
+DataFrame.compare : Compare with another DataFrame and show differences.
+
+Notes
+-----
+Matching NaNs will not appear as a difference.

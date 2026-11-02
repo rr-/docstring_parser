@@ -1,0 +1,56 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Return a masking array of same size/shape as arr
+    with entries equaling value set to True.
+
+    Parameters
+    ----------
+    arr : ArrayLike
+    value : scalar-like
+        Caller has ensured `not is_list_like(value)` and that it can be held
+        by `arr`.
+
+    Returns
+    -------
+    np.ndarray[bool]
+    
+=== parse numpydoc
+short_description: 'Return a masking array of same size/shape as arr'
+long_description: 'with entries equaling value set to True.'
+blank_after_short_description: False
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'arr']
+  arg_name: 'arr'
+  type_name: 'ArrayLike'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'value']
+  description: |
+    Caller has ensured `not is_list_like(value)` and that it can be held
+    by `arr`.
+  arg_name: 'value'
+  type_name: 'scalar-like'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  type_name: 'np.ndarray[bool]'
+  is_generator: False
+=== detect
+numpydoc
+=== compose numpydoc
+Return a masking array of same size/shape as arr
+with entries equaling value set to True.
+
+Parameters
+----------
+arr : ArrayLike
+value : scalar-like
+    Caller has ensured `not is_list_like(value)` and that it can be held
+    by `arr`.
+
+Returns
+-------
+np.ndarray[bool]

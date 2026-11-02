@@ -1,0 +1,31 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Help message formatter that includes types, default values and env var names.
+
+    This class is an extension of `argparse.HelpFormatter
+    <https://docs.python.org/3/library/argparse.html#argparse.HelpFormatter>`_.
+    Default values are always included. Furthermore, if the parser is configured
+    with ``default_env=True`` command line options are preceded by ``ARG:`` and
+    the respective environment variable name is included preceded by ``ENV:``.
+    
+=== parse google
+short_description: 'Help message formatter that includes types, default values and env var names.'
+long_description: |
+  This class is an extension of `argparse.HelpFormatter
+  <https://docs.python.org/3/library/argparse.html#argparse.HelpFormatter>`_.
+  Default values are always included. Furthermore, if the parser is configured
+  with ``default_env=True`` command line options are preceded by ``ARG:`` and
+  the respective environment variable name is included preceded by ``ENV:``.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Help message formatter that includes types, default values and env var names.
+
+This class is an extension of `argparse.HelpFormatter
+<https://docs.python.org/3/library/argparse.html#argparse.HelpFormatter>`_.
+Default values are always included. Furthermore, if the parser is configured
+with ``default_env=True`` command line options are preceded by ``ARG:`` and
+the respective environment variable name is included preceded by ``ENV:``.

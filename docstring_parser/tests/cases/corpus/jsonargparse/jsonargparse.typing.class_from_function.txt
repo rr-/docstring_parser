@@ -1,0 +1,36 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Creates a dynamic class which if instantiated is equivalent to calling func.
+
+    Args:
+        func: A function that returns an instance of a class.
+        func_return: The return type of the function. Required if func does not have a return type annotation.
+        name: The name of the class. Defaults to function name suffixed with ``_class``.
+    
+=== parse google
+short_description: 'Creates a dynamic class which if instantiated is equivalent to calling func.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'func']
+  description: 'A function that returns an instance of a class.'
+  arg_name: 'func'
+- DocstringParam
+  args: ['param', 'func_return']
+  description: 'The return type of the function. Required if func does not have a return type annotation.'
+  arg_name: 'func_return'
+- DocstringParam
+  args: ['param', 'name']
+  description: 'The name of the class. Defaults to function name suffixed with ``_class``.'
+  arg_name: 'name'
+  default: 'function name suffixed with ``_class``'
+=== detect
+google
+=== compose google
+Creates a dynamic class which if instantiated is equivalent to calling func.
+
+Args:
+    func: A function that returns an instance of a class.
+    func_return: The return type of the function. Required if func does not have a return type annotation.
+    name: The name of the class. Defaults to function name suffixed with ``_class``.

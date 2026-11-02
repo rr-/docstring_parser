@@ -1,0 +1,22 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Whether a function can be called in all the ways that the __call__ of a protocol can.
+
+    Only a protocol whose single method is __call__ can be implemented by a function,
+    since a function doesn't have any other method.
+    
+=== parse google
+short_description: 'Whether a function can be called in all the ways that the __call__ of a protocol can.'
+long_description: |
+  Only a protocol whose single method is __call__ can be implemented by a function,
+  since a function doesn't have any other method.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Whether a function can be called in all the ways that the __call__ of a protocol can.
+
+Only a protocol whose single method is __call__ can be implemented by a function,
+since a function doesn't have any other method.

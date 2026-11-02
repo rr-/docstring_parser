@@ -1,0 +1,23 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Splits an ``ext_vars`` dict into the ``ext_codes`` and ``ext_vars`` required by Jsonnet.
+
+        Args:
+            ext_vars: External variables. Values can be strings or any other basic type.
+        
+=== parse google
+short_description: 'Splits an ``ext_vars`` dict into the ``ext_codes`` and ``ext_vars`` required by Jsonnet.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'ext_vars']
+  description: 'External variables. Values can be strings or any other basic type.'
+  arg_name: 'ext_vars'
+=== detect
+google
+=== compose google
+Splits an ``ext_vars`` dict into the ``ext_codes`` and ``ext_vars`` required by Jsonnet.
+
+Args:
+    ext_vars: External variables. Values can be strings or any other basic type.

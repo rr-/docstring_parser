@@ -1,0 +1,16 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Mixin for DataDocumenter and AttributeDocumenter to provide the feature for
+    supporting GenericAliases.
+    
+=== parse rest
+short_description: 'Mixin for DataDocumenter and AttributeDocumenter to provide the feature for'
+long_description: 'supporting GenericAliases.'
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Mixin for DataDocumenter and AttributeDocumenter to provide the feature for
+supporting GenericAliases.

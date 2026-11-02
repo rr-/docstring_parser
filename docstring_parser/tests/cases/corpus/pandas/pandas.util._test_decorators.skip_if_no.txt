@@ -1,0 +1,103 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Generic function to help skip tests when required packages are not
+    present on the testing system.
+
+    This function returns a pytest mark with a skip condition that will be
+    evaluated during test collection. An attempt will be made to import the
+    specified ``package`` and optionally ensure it meets the ``min_version``
+
+    The mark can be used as either a decorator for a test class or to be
+    applied to parameters in pytest.mark.parametrize calls or parametrized
+    fixtures. Use pytest.importorskip if an imported module is later needed
+    or for test functions.
+
+    If the import and version check are unsuccessful, then the test function
+    (or test case when used in conjunction with parametrization) will be
+    skipped.
+
+    Parameters
+    ----------
+    package: str
+        The name of the required package.
+    min_version: str or None, default None
+        Optional minimum version of the package.
+
+    Returns
+    -------
+    pytest.MarkDecorator
+        a pytest.mark.skipif to use as either a test decorator or a
+        parametrization mark.
+    
+=== parse numpydoc
+short_description: 'Generic function to help skip tests when required packages are not'
+long_description: |
+  present on the testing system.
+  
+  This function returns a pytest mark with a skip condition that will be
+  evaluated during test collection. An attempt will be made to import the
+  specified ``package`` and optionally ensure it meets the ``min_version``
+  
+  The mark can be used as either a decorator for a test class or to be
+  applied to parameters in pytest.mark.parametrize calls or parametrized
+  fixtures. Use pytest.importorskip if an imported module is later needed
+  or for test functions.
+  
+  If the import and version check are unsuccessful, then the test function
+  (or test case when used in conjunction with parametrization) will be
+  skipped.
+blank_after_short_description: False
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'package']
+  description: 'The name of the required package.'
+  arg_name: 'package'
+  type_name: 'str'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'min_version']
+  description: 'Optional minimum version of the package.'
+  arg_name: 'min_version'
+  type_name: 'str or None'
+  is_optional: True
+  default: 'None'
+- DocstringReturns
+  args: ['returns']
+  description: |
+    a pytest.mark.skipif to use as either a test decorator or a
+    parametrization mark.
+  type_name: 'pytest.MarkDecorator'
+  is_generator: False
+=== detect
+numpydoc
+=== compose numpydoc
+Generic function to help skip tests when required packages are not
+present on the testing system.
+
+This function returns a pytest mark with a skip condition that will be
+evaluated during test collection. An attempt will be made to import the
+specified ``package`` and optionally ensure it meets the ``min_version``
+
+The mark can be used as either a decorator for a test class or to be
+applied to parameters in pytest.mark.parametrize calls or parametrized
+fixtures. Use pytest.importorskip if an imported module is later needed
+or for test functions.
+
+If the import and version check are unsuccessful, then the test function
+(or test case when used in conjunction with parametrization) will be
+skipped.
+
+Parameters
+----------
+package : str
+    The name of the required package.
+min_version : str or None, optional
+    Optional minimum version of the package.
+
+Returns
+-------
+pytest.MarkDecorator
+    a pytest.mark.skipif to use as either a test decorator or a
+    parametrization mark.

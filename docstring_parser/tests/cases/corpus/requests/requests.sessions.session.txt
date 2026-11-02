@@ -1,0 +1,40 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+
+    Returns a :class:`Session` for context-management.
+
+    .. deprecated:: 1.0.0
+
+        This method has been deprecated since version 1.0.0 and is only kept for
+        backwards compatibility. New code should use :class:`~requests.sessions.Session`
+        to create a session. This may be removed at a future date.
+
+    :rtype: Session
+    
+=== parse rest
+short_description: 'Returns a :class:`Session` for context-management.'
+long_description: |
+  .. deprecated:: 1.0.0
+  
+      This method has been deprecated since version 1.0.0 and is only kept for
+      backwards compatibility. New code should use :class:`~requests.sessions.Session`
+      to create a session. This may be removed at a future date.
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringReturns
+  args: []
+  type_name: 'Session'
+  is_generator: False
+=== detect
+rest
+=== compose rest
+Returns a :class:`Session` for context-management.
+
+.. deprecated:: 1.0.0
+
+    This method has been deprecated since version 1.0.0 and is only kept for
+    backwards compatibility. New code should use :class:`~requests.sessions.Session`
+    to create a session. This may be removed at a future date.
+
+:returns Session:

@@ -1,0 +1,79 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Return the indices and values of the nonzero elements of a matrix.
+
+    Parameters
+    ----------
+    A : dense or sparse array or matrix
+        Matrix whose nonzero elements are desired.
+
+    Returns
+    -------
+    (I,J,V) : tuple of arrays
+        I,J, and V contain the row indices, column indices, and values
+        of the nonzero entries.
+
+
+    Examples
+    --------
+    >>> from scipy.sparse import csr_array, find
+    >>> A = csr_array([[7.0, 8.0, 0],[0, 0, 9.0]])
+    >>> find(A)
+    (array([0, 0, 1], dtype=int32),
+     array([0, 1, 2], dtype=int32),
+     array([ 7.,  8.,  9.]))
+
+    
+=== parse numpydoc
+short_description: 'Return the indices and values of the nonzero elements of a matrix.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'A']
+  description: 'Matrix whose nonzero elements are desired.'
+  arg_name: 'A'
+  type_name: 'dense or sparse array or matrix'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: |
+    I,J, and V contain the row indices, column indices, and values
+    of the nonzero entries.
+  type_name: 'tuple of arrays'
+  is_generator: False
+  return_name: '(I,J,V)'
+- DocstringExample
+  args: ['examples']
+  description: |
+    (array([0, 0, 1], dtype=int32),
+     array([0, 1, 2], dtype=int32),
+     array([ 7.,  8.,  9.]))
+  snippet: |
+    >>> from scipy.sparse import csr_array, find
+    >>> A = csr_array([[7.0, 8.0, 0],[0, 0, 9.0]])
+    >>> find(A)
+=== detect
+numpydoc
+=== compose numpydoc
+Return the indices and values of the nonzero elements of a matrix.
+
+Parameters
+----------
+A : dense or sparse array or matrix
+    Matrix whose nonzero elements are desired.
+
+Returns
+-------
+(I,J,V) : tuple of arrays
+    I,J, and V contain the row indices, column indices, and values
+    of the nonzero entries.
+
+Examples
+--------
+>>> from scipy.sparse import csr_array, find
+>>> A = csr_array([[7.0, 8.0, 0],[0, 0, 9.0]])
+>>> find(A)
+(array([0, 0, 1], dtype=int32),
+ array([0, 1, 2], dtype=int32),
+ array([ 7.,  8.,  9.]))

@@ -1,0 +1,67 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+    This class is used to wrap a string-ified exception from the remote side to
+    be able to reraise it. (Raising string exceptions is no longer possible in
+    Python 2.6+)
+
+    The value of this exception will be a str() representation of the remote
+    value.
+
+    @ivar remoteType: The full import path of the exception class which was
+        raised on the remote end.
+    @type remoteType: C{str}
+
+    @ivar remoteTraceback: The remote traceback.
+    @type remoteTraceback: C{str}
+
+    @note: It's not possible to include the remoteTraceback if this exception is
+        thrown into a generator. It must be accessed as an attribute.
+    
+=== parse epydoc
+short_description: 'This class is used to wrap a string-ified exception from the remote side to'
+long_description: |
+  be able to reraise it. (Raising string exceptions is no longer possible in
+  Python 2.6+)
+  
+  The value of this exception will be a str() representation of the remote
+  value.
+blank_after_short_description: False
+blank_after_long_description: True
+style: epydoc
+- DocstringParam
+  args: ['ivar', 'remoteType']
+  description: |
+    The full import path of the exception class which was
+    raised on the remote end.
+  arg_name: 'remoteType'
+  type_name: 'C{str}'
+  is_optional: False
+- DocstringParam
+  args: ['ivar', 'remoteTraceback']
+  description: 'The remote traceback.'
+  arg_name: 'remoteTraceback'
+  type_name: 'C{str}'
+  is_optional: False
+- DocstringMeta
+  args: ['note']
+  description: |
+    It's not possible to include the remoteTraceback if this exception is
+    thrown into a generator. It must be accessed as an attribute.
+=== detect
+epydoc
+=== compose epydoc
+This class is used to wrap a string-ified exception from the remote side to
+be able to reraise it. (Raising string exceptions is no longer possible in
+Python 2.6+)
+
+The value of this exception will be a str() representation of the remote
+value.
+
+@type remoteType: C{str}
+@param remoteType: The full import path of the exception class which was
+    raised on the remote end.
+@type remoteTraceback: C{str}
+@param remoteTraceback: The remote traceback.
+@note: It's not possible to include the remoteTraceback if this exception is
+    thrown into a generator. It must be accessed as an attribute.

@@ -1,0 +1,64 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Expand the annotations.
+
+    Args:
+        annotations: An iterable of annotations.
+
+    Returns:
+        An iterable of expanded annotations.
+
+    Example:
+        ```python
+        from annotated_types import Ge, Len
+
+        from pydantic._internal._known_annotated_metadata import expand_grouped_metadata
+
+        print(list(expand_grouped_metadata([Ge(4), Len(5)])))
+        #> [Ge(ge=4), MinLen(min_length=5)]
+        ```
+    
+=== parse google
+short_description: 'Expand the annotations.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'annotations']
+  description: 'An iterable of annotations.'
+  arg_name: 'annotations'
+- DocstringReturns
+  args: ['returns']
+  description: 'An iterable of expanded annotations.'
+  is_generator: False
+- DocstringExample
+  args: ['examples']
+  description: |
+    ```python
+    from annotated_types import Ge, Len
+    
+    from pydantic._internal._known_annotated_metadata import expand_grouped_metadata
+    
+    print(list(expand_grouped_metadata([Ge(4), Len(5)])))
+    #> [Ge(ge=4), MinLen(min_length=5)]
+    ```
+=== detect
+google
+=== compose google
+Expand the annotations.
+
+Args:
+    annotations: An iterable of annotations.
+
+Returns:
+    An iterable of expanded annotations.
+
+Examples:
+    ```python
+    from annotated_types import Ge, Len
+    
+    from pydantic._internal._known_annotated_metadata import expand_grouped_metadata
+    
+    print(list(expand_grouped_metadata([Ge(4), Len(5)])))
+    #> [Ge(ge=4), MinLen(min_length=5)]
+    ```

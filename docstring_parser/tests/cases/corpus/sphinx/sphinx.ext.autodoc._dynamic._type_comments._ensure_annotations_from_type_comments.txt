@@ -1,0 +1,67 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Ensures `obj.__annotations__` includes type comment information.
+
+    Failures to assign to `__annotations__` are silently ignored.
+
+    If `obj` is a class type, this also ensures that type comment
+    information is incorporated into the `__annotations__` member of
+    all parent classes, if possible.
+
+    This mutates the `__annotations__` of existing imported objects,
+    in order to allow the existing `typing.get_type_hints` method to
+    take the modified annotations into account.
+
+    Modifying existing imported objects is unfortunate but avoids the
+    need to reimplement `typing.get_type_hints` in order to take into
+    account type comment information.
+
+    Note that this does not directly include type comment information
+    from parent classes, but `typing.get_type_hints` takes that into
+    account.
+    
+=== parse rest
+short_description: 'Ensures `obj.__annotations__` includes type comment information.'
+long_description: |
+  Failures to assign to `__annotations__` are silently ignored.
+  
+  If `obj` is a class type, this also ensures that type comment
+  information is incorporated into the `__annotations__` member of
+  all parent classes, if possible.
+  
+  This mutates the `__annotations__` of existing imported objects,
+  in order to allow the existing `typing.get_type_hints` method to
+  take the modified annotations into account.
+  
+  Modifying existing imported objects is unfortunate but avoids the
+  need to reimplement `typing.get_type_hints` in order to take into
+  account type comment information.
+  
+  Note that this does not directly include type comment information
+  from parent classes, but `typing.get_type_hints` takes that into
+  account.
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Ensures `obj.__annotations__` includes type comment information.
+
+Failures to assign to `__annotations__` are silently ignored.
+
+If `obj` is a class type, this also ensures that type comment
+information is incorporated into the `__annotations__` member of
+all parent classes, if possible.
+
+This mutates the `__annotations__` of existing imported objects,
+in order to allow the existing `typing.get_type_hints` method to
+take the modified annotations into account.
+
+Modifying existing imported objects is unfortunate but avoids the
+need to reimplement `typing.get_type_hints` in order to take into
+account type comment information.
+
+Note that this does not directly include type comment information
+from parent classes, but `typing.get_type_hints` takes that into
+account.

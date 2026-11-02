@@ -1,0 +1,22 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+
+    Return a string representing the default user agent.
+
+    :rtype: str
+    
+=== parse rest
+short_description: 'Return a string representing the default user agent.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringReturns
+  args: []
+  type_name: 'str'
+  is_generator: False
+=== detect
+rest
+=== compose rest
+Return a string representing the default user agent.
+
+:returns str:

@@ -1,0 +1,380 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Upsample, FIR filter, and downsample.
+
+    Parameters
+    ----------
+    h : array_like
+        1-D FIR (finite-impulse response) filter coefficients.
+    x : array_like
+        Input signal array.
+    up : int, optional
+        Upsampling rate. Default is 1.
+    down : int, optional
+        Downsampling rate. Default is 1.
+    axis : int, optional
+        The axis of the input data array along which to apply the
+        linear filter. The filter is applied to each subarray along
+        this axis. Default is -1.
+    mode : str, optional
+        The signal extension mode to use. The set
+        ``{"constant", "symmetric", "reflect", "edge", "wrap"}`` correspond to
+        modes provided by `numpy.pad`. ``"smooth"`` implements a smooth
+        extension by extending based on the slope of the last 2 points at each
+        end of the array. ``"antireflect"`` and ``"antisymmetric"`` are
+        anti-symmetric versions of ``"reflect"`` and ``"symmetric"``. The mode
+        `"line"` extends the signal based on a linear trend defined by the
+        first and last points along the ``axis``.
+
+        .. versionadded:: 1.4.0
+    cval : float, optional
+        The constant value to use when ``mode == "constant"``.
+
+        .. versionadded:: 1.4.0
+
+    Returns
+    -------
+    y : ndarray
+        The output signal array. Dimensions will be the same as `x` except
+        for along `axis`, which will change size according to the `h`,
+        `up`,  and `down` parameters.
+
+    Notes
+    -----
+    The algorithm is an implementation of the block diagram shown on page 129
+    of the Vaidyanathan text [1]_ (Figure 4.3-8d).
+
+    The direct approach of upsampling by factor of P with zero insertion,
+    FIR filtering of length ``N``, and downsampling by factor of Q is
+    O(N*Q) per output sample. The polyphase implementation used here is
+    O(N/P).
+
+    .. versionadded:: 0.18
+
+    References
+    ----------
+    .. [1] P. P. Vaidyanathan, Multirate Systems and Filter Banks,
+           Prentice Hall, 1993.
+
+    Examples
+    --------
+    Simple operations:
+
+    >>> import numpy as np
+    >>> from scipy.signal import upfirdn
+    >>> upfirdn([1, 1, 1], [1, 1, 1])   # FIR filter
+    array([ 1.,  2.,  3.,  2.,  1.])
+    >>> upfirdn([1], [1, 2, 3], 3)  # upsampling with zeros insertion
+    array([ 1.,  0.,  0.,  2.,  0.,  0.,  3.])
+    >>> upfirdn([1, 1, 1], [1, 2, 3], 3)  # upsampling with sample-and-hold
+    array([ 1.,  1.,  1.,  2.,  2.,  2.,  3.,  3.,  3.])
+    >>> upfirdn([.5, 1, .5], [1, 1, 1], 2)  # linear interpolation
+    array([ 0.5,  1. ,  1. ,  1. ,  1. ,  1. ,  0.5])
+    >>> upfirdn([1], np.arange(10), 1, 3)  # decimation by 3
+    array([ 0.,  3.,  6.,  9.])
+    >>> upfirdn([.5, 1, .5], np.arange(10), 2, 3)  # linear interp, rate 2/3
+    array([ 0. ,  1. ,  2.5,  4. ,  5.5,  7. ,  8.5])
+
+    Apply a single filter to multiple signals:
+
+    >>> x = np.reshape(np.arange(8), (4, 2))
+    >>> x
+    array([[0, 1],
+           [2, 3],
+           [4, 5],
+           [6, 7]])
+
+    Apply along the last dimension of ``x``:
+
+    >>> h = [1, 1]
+    >>> upfirdn(h, x, 2)
+    array([[ 0.,  0.,  1.,  1.],
+           [ 2.,  2.,  3.,  3.],
+           [ 4.,  4.,  5.,  5.],
+           [ 6.,  6.,  7.,  7.]])
+
+    Apply along the 0th dimension of ``x``:
+
+    >>> upfirdn(h, x, 2, axis=0)
+    array([[ 0.,  1.],
+           [ 0.,  1.],
+           [ 2.,  3.],
+           [ 2.,  3.],
+           [ 4.,  5.],
+           [ 4.,  5.],
+           [ 6.,  7.],
+           [ 6.,  7.]])
+    
+=== parse numpydoc
+short_description: 'Upsample, FIR filter, and downsample.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'h']
+  description: '1-D FIR (finite-impulse response) filter coefficients.'
+  arg_name: 'h'
+  type_name: 'array_like'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'x']
+  description: 'Input signal array.'
+  arg_name: 'x'
+  type_name: 'array_like'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'up']
+  description: 'Upsampling rate. Default is 1.'
+  arg_name: 'up'
+  type_name: 'int'
+  is_optional: True
+  default: '1'
+- DocstringParam
+  args: ['param', 'down']
+  description: 'Downsampling rate. Default is 1.'
+  arg_name: 'down'
+  type_name: 'int'
+  is_optional: True
+  default: '1'
+- DocstringParam
+  args: ['param', 'axis']
+  description: |
+    The axis of the input data array along which to apply the
+    linear filter. The filter is applied to each subarray along
+    this axis. Default is -1.
+  arg_name: 'axis'
+  type_name: 'int'
+  is_optional: True
+  default: '-1'
+- DocstringParam
+  args: ['param', 'mode']
+  description: |
+    The signal extension mode to use. The set
+    ``{"constant", "symmetric", "reflect", "edge", "wrap"}`` correspond to
+    modes provided by `numpy.pad`. ``"smooth"`` implements a smooth
+    extension by extending based on the slope of the last 2 points at each
+    end of the array. ``"antireflect"`` and ``"antisymmetric"`` are
+    anti-symmetric versions of ``"reflect"`` and ``"symmetric"``. The mode
+    `"line"` extends the signal based on a linear trend defined by the
+    first and last points along the ``axis``.
+    
+    .. versionadded:: 1.4.0
+  arg_name: 'mode'
+  type_name: 'str'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'cval']
+  description: |
+    The constant value to use when ``mode == "constant"``.
+    
+    .. versionadded:: 1.4.0
+  arg_name: 'cval'
+  type_name: 'float'
+  is_optional: True
+- DocstringReturns
+  args: ['returns']
+  description: |
+    The output signal array. Dimensions will be the same as `x` except
+    for along `axis`, which will change size according to the `h`,
+    `up`,  and `down` parameters.
+  type_name: 'ndarray'
+  is_generator: False
+  return_name: 'y'
+- DocstringMeta
+  args: ['notes']
+  description: |
+    The algorithm is an implementation of the block diagram shown on page 129
+    of the Vaidyanathan text [1]_ (Figure 4.3-8d).
+    
+    The direct approach of upsampling by factor of P with zero insertion,
+    FIR filtering of length ``N``, and downsampling by factor of Q is
+    O(N*Q) per output sample. The polyphase implementation used here is
+    O(N/P).
+    
+    .. versionadded:: 0.18
+- DocstringMeta
+  args: ['references']
+  description: |
+    .. [1] P. P. Vaidyanathan, Multirate Systems and Filter Banks,
+           Prentice Hall, 1993.
+- DocstringExample
+  args: ['examples']
+  description: |
+    Simple operations:
+    
+- DocstringExample
+  args: ['examples']
+  description: 'array([ 1.,  2.,  3.,  2.,  1.])'
+  snippet: |
+    >>> import numpy as np
+    >>> from scipy.signal import upfirdn
+    >>> upfirdn([1, 1, 1], [1, 1, 1])   # FIR filter
+- DocstringExample
+  args: ['examples']
+  description: 'array([ 1.,  0.,  0.,  2.,  0.,  0.,  3.])'
+  snippet: '>>> upfirdn([1], [1, 2, 3], 3)  # upsampling with zeros insertion'
+- DocstringExample
+  args: ['examples']
+  description: 'array([ 1.,  1.,  1.,  2.,  2.,  2.,  3.,  3.,  3.])'
+  snippet: '>>> upfirdn([1, 1, 1], [1, 2, 3], 3)  # upsampling with sample-and-hold'
+- DocstringExample
+  args: ['examples']
+  description: 'array([ 0.5,  1. ,  1. ,  1. ,  1. ,  1. ,  0.5])'
+  snippet: '>>> upfirdn([.5, 1, .5], [1, 1, 1], 2)  # linear interpolation'
+- DocstringExample
+  args: ['examples']
+  description: 'array([ 0.,  3.,  6.,  9.])'
+  snippet: '>>> upfirdn([1], np.arange(10), 1, 3)  # decimation by 3'
+- DocstringExample
+  args: ['examples']
+  description: |
+    array([ 0. ,  1. ,  2.5,  4. ,  5.5,  7. ,  8.5])
+    
+    Apply a single filter to multiple signals:
+    
+  snippet: '>>> upfirdn([.5, 1, .5], np.arange(10), 2, 3)  # linear interp, rate 2/3'
+- DocstringExample
+  args: ['examples']
+  description: |
+    array([[0, 1],
+           [2, 3],
+           [4, 5],
+           [6, 7]])
+    
+    Apply along the last dimension of ``x``:
+    
+  snippet: |
+    >>> x = np.reshape(np.arange(8), (4, 2))
+    >>> x
+- DocstringExample
+  args: ['examples']
+  description: |
+    array([[ 0.,  0.,  1.,  1.],
+           [ 2.,  2.,  3.,  3.],
+           [ 4.,  4.,  5.,  5.],
+           [ 6.,  6.,  7.,  7.]])
+    
+    Apply along the 0th dimension of ``x``:
+    
+  snippet: |
+    >>> h = [1, 1]
+    >>> upfirdn(h, x, 2)
+- DocstringExample
+  args: ['examples']
+  description: |
+    array([[ 0.,  1.],
+           [ 0.,  1.],
+           [ 2.,  3.],
+           [ 2.,  3.],
+           [ 4.,  5.],
+           [ 4.,  5.],
+           [ 6.,  7.],
+           [ 6.,  7.]])
+  snippet: '>>> upfirdn(h, x, 2, axis=0)'
+=== detect
+numpydoc
+=== compose numpydoc
+Upsample, FIR filter, and downsample.
+
+Parameters
+----------
+h : array_like
+    1-D FIR (finite-impulse response) filter coefficients.
+x : array_like
+    Input signal array.
+up : int, default=1
+    Upsampling rate. Default is 1.
+down : int, default=1
+    Downsampling rate. Default is 1.
+axis : int, default=-1
+    The axis of the input data array along which to apply the
+    linear filter. The filter is applied to each subarray along
+    this axis. Default is -1.
+mode : str, optional
+    The signal extension mode to use. The set
+    ``{"constant", "symmetric", "reflect", "edge", "wrap"}`` correspond to
+    modes provided by `numpy.pad`. ``"smooth"`` implements a smooth
+    extension by extending based on the slope of the last 2 points at each
+    end of the array. ``"antireflect"`` and ``"antisymmetric"`` are
+    anti-symmetric versions of ``"reflect"`` and ``"symmetric"``. The mode
+    `"line"` extends the signal based on a linear trend defined by the
+    first and last points along the ``axis``.
+    
+    .. versionadded:: 1.4.0
+cval : float, optional
+    The constant value to use when ``mode == "constant"``.
+    
+    .. versionadded:: 1.4.0
+
+Returns
+-------
+y : ndarray
+    The output signal array. Dimensions will be the same as `x` except
+    for along `axis`, which will change size according to the `h`,
+    `up`,  and `down` parameters.
+
+Examples
+--------
+Simple operations:
+
+>>> import numpy as np
+>>> from scipy.signal import upfirdn
+>>> upfirdn([1, 1, 1], [1, 1, 1])   # FIR filter
+array([ 1.,  2.,  3.,  2.,  1.])
+>>> upfirdn([1], [1, 2, 3], 3)  # upsampling with zeros insertion
+array([ 1.,  0.,  0.,  2.,  0.,  0.,  3.])
+>>> upfirdn([1, 1, 1], [1, 2, 3], 3)  # upsampling with sample-and-hold
+array([ 1.,  1.,  1.,  2.,  2.,  2.,  3.,  3.,  3.])
+>>> upfirdn([.5, 1, .5], [1, 1, 1], 2)  # linear interpolation
+array([ 0.5,  1. ,  1. ,  1. ,  1. ,  1. ,  0.5])
+>>> upfirdn([1], np.arange(10), 1, 3)  # decimation by 3
+array([ 0.,  3.,  6.,  9.])
+>>> upfirdn([.5, 1, .5], np.arange(10), 2, 3)  # linear interp, rate 2/3
+array([ 0. ,  1. ,  2.5,  4. ,  5.5,  7. ,  8.5])
+
+Apply a single filter to multiple signals:
+
+>>> x = np.reshape(np.arange(8), (4, 2))
+>>> x
+array([[0, 1],
+       [2, 3],
+       [4, 5],
+       [6, 7]])
+
+Apply along the last dimension of ``x``:
+
+>>> h = [1, 1]
+>>> upfirdn(h, x, 2)
+array([[ 0.,  0.,  1.,  1.],
+       [ 2.,  2.,  3.,  3.],
+       [ 4.,  4.,  5.,  5.],
+       [ 6.,  6.,  7.,  7.]])
+
+Apply along the 0th dimension of ``x``:
+
+>>> upfirdn(h, x, 2, axis=0)
+array([[ 0.,  1.],
+       [ 0.,  1.],
+       [ 2.,  3.],
+       [ 2.,  3.],
+       [ 4.,  5.],
+       [ 4.,  5.],
+       [ 6.,  7.],
+       [ 6.,  7.]])
+
+Notes
+-----
+The algorithm is an implementation of the block diagram shown on page 129
+of the Vaidyanathan text [1]_ (Figure 4.3-8d).
+
+The direct approach of upsampling by factor of P with zero insertion,
+FIR filtering of length ``N``, and downsampling by factor of Q is
+O(N*Q) per output sample. The polyphase implementation used here is
+O(N/P).
+
+.. versionadded:: 0.18
+
+References
+----------
+.. [1] P. P. Vaidyanathan, Multirate Systems and Filter Banks,
+       Prentice Hall, 1993.

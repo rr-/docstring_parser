@@ -1,0 +1,48 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Helper function used to implement the ``<type>pow`` functions.
+
+    Parameters
+    ----------
+    mul_f : function(array_like, array_like) -> ndarray
+        The ``<type>mul`` function, such as ``polymul``
+    c : array_like
+        1-D array of array of series coefficients
+    pow, maxpower
+        See the ``<type>pow`` functions for more detail
+    
+=== parse numpydoc
+short_description: 'Helper function used to implement the ``<type>pow`` functions.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'mul_f']
+  description: 'The ``<type>mul`` function, such as ``polymul``'
+  arg_name: 'mul_f'
+  type_name: 'function(array_like, array_like) -> ndarray'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'c']
+  description: '1-D array of array of series coefficients'
+  arg_name: 'c'
+  type_name: 'array_like'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'pow, maxpower']
+  description: 'See the ``<type>pow`` functions for more detail'
+  arg_name: 'pow, maxpower'
+=== detect
+numpydoc
+=== compose numpydoc
+Helper function used to implement the ``<type>pow`` functions.
+
+Parameters
+----------
+mul_f : function(array_like, array_like) -> ndarray
+    The ``<type>mul`` function, such as ``polymul``
+c : array_like
+    1-D array of array of series coefficients
+pow, maxpower
+    See the ``<type>pow`` functions for more detail

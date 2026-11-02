@@ -1,0 +1,44 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+    TLS stream initializer for the initiating entity.
+
+    It is strongly required to include this initializer in the list of
+    initializers for an XMPP stream. By default it will try to negotiate TLS.
+    An XMPP server may indicate that TLS is required. If TLS is not desired,
+    set the C{wanted} attribute to False instead of removing it from the list
+    of initializers, so a proper exception L{TLSRequired} can be raised.
+
+    @ivar wanted: indicates if TLS negotiation is wanted.
+    @type wanted: C{bool}
+    
+=== parse epydoc
+short_description: 'TLS stream initializer for the initiating entity.'
+long_description: |
+  It is strongly required to include this initializer in the list of
+  initializers for an XMPP stream. By default it will try to negotiate TLS.
+  An XMPP server may indicate that TLS is required. If TLS is not desired,
+  set the C{wanted} attribute to False instead of removing it from the list
+  of initializers, so a proper exception L{TLSRequired} can be raised.
+blank_after_short_description: True
+blank_after_long_description: True
+style: epydoc
+- DocstringParam
+  args: ['ivar', 'wanted']
+  description: 'indicates if TLS negotiation is wanted.'
+  arg_name: 'wanted'
+  type_name: 'C{bool}'
+  is_optional: False
+=== detect
+epydoc
+=== compose epydoc
+TLS stream initializer for the initiating entity.
+
+It is strongly required to include this initializer in the list of
+initializers for an XMPP stream. By default it will try to negotiate TLS.
+An XMPP server may indicate that TLS is required. If TLS is not desired,
+set the C{wanted} attribute to False instead of removing it from the list
+of initializers, so a proper exception L{TLSRequired} can be raised.
+
+@type wanted: C{bool}
+@param wanted: indicates if TLS negotiation is wanted.

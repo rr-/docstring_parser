@@ -1,0 +1,58 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Chebyshev points of the second kind.
+
+    The Chebyshev points of the second kind are the points ``cos(x)``,
+    where ``x = [pi*k/(npts - 1) for k in range(npts)]`` sorted in ascending
+    order.
+
+    Parameters
+    ----------
+    npts : int
+        Number of sample points desired.
+
+    Returns
+    -------
+    pts : ndarray
+        The Chebyshev points of the second kind.
+    
+=== parse numpydoc
+short_description: 'Chebyshev points of the second kind.'
+long_description: |
+  The Chebyshev points of the second kind are the points ``cos(x)``,
+  where ``x = [pi*k/(npts - 1) for k in range(npts)]`` sorted in ascending
+  order.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'npts']
+  description: 'Number of sample points desired.'
+  arg_name: 'npts'
+  type_name: 'int'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: 'The Chebyshev points of the second kind.'
+  type_name: 'ndarray'
+  is_generator: False
+  return_name: 'pts'
+=== detect
+numpydoc
+=== compose numpydoc
+Chebyshev points of the second kind.
+
+The Chebyshev points of the second kind are the points ``cos(x)``,
+where ``x = [pi*k/(npts - 1) for k in range(npts)]`` sorted in ascending
+order.
+
+Parameters
+----------
+npts : int
+    Number of sample points desired.
+
+Returns
+-------
+pts : ndarray
+    The Chebyshev points of the second kind.

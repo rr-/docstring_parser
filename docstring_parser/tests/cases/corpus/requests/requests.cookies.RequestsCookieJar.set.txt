@@ -1,0 +1,20 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Dict-like set() that also supports optional domain and path args in
+        order to resolve naming collisions from using one cookie jar over
+        multiple domains.
+        
+=== parse rest
+short_description: 'Dict-like set() that also supports optional domain and path args in'
+long_description: |
+  order to resolve naming collisions from using one cookie jar over
+  multiple domains.
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Dict-like set() that also supports optional domain and path args in
+order to resolve naming collisions from using one cookie jar over
+multiple domains.

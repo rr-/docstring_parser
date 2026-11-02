@@ -1,0 +1,16 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Directive to notify Sphinx about the hierarchical structure of the docs,
+    and to include a table-of-contents like tree in the current document.
+    
+=== parse rest
+short_description: 'Directive to notify Sphinx about the hierarchical structure of the docs,'
+long_description: 'and to include a table-of-contents like tree in the current document.'
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Directive to notify Sphinx about the hierarchical structure of the docs,
+and to include a table-of-contents like tree in the current document.

@@ -1,0 +1,31 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Called by the builder to initialize the template system.
+
+        *builder* is the builder object; you'll probably want to look at the
+        value of ``builder.config.templates_path``.
+
+        *theme* is a :class:`sphinx.theming.Theme` object or None; in the latter
+        case, *dirs* can be list of fixed directories to look for templates.
+        
+=== parse rest
+short_description: 'Called by the builder to initialize the template system.'
+long_description: |
+  *builder* is the builder object; you'll probably want to look at the
+  value of ``builder.config.templates_path``.
+  
+  *theme* is a :class:`sphinx.theming.Theme` object or None; in the latter
+  case, *dirs* can be list of fixed directories to look for templates.
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Called by the builder to initialize the template system.
+
+*builder* is the builder object; you'll probably want to look at the
+value of ``builder.config.templates_path``.
+
+*theme* is a :class:`sphinx.theming.Theme` object or None; in the latter
+case, *dirs* can be list of fixed directories to look for templates.

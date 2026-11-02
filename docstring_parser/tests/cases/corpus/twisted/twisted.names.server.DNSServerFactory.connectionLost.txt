@@ -1,0 +1,30 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Stop tracking a no-longer connected L{DNSProtocol}.
+
+        @param protocol: The tracked protocol instance to be which has been
+            lost.
+        @type protocol: L{dns.DNSProtocol}
+        
+=== parse epydoc
+short_description: 'Stop tracking a no-longer connected L{DNSProtocol}.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringParam
+  args: ['param', 'protocol']
+  description: |
+    The tracked protocol instance to be which has been
+    lost.
+  arg_name: 'protocol'
+  type_name: 'L{dns.DNSProtocol}'
+  is_optional: False
+=== detect
+epydoc
+=== compose epydoc
+Stop tracking a no-longer connected L{DNSProtocol}.
+
+@type protocol: L{dns.DNSProtocol}
+@param protocol: The tracked protocol instance to be which has been
+    lost.

@@ -1,0 +1,27 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Select a proxy for the url, if applicable.
+
+    :param url: The url being for the request
+    :param proxies: A dictionary of schemes or schemes and hosts to proxy URLs
+    
+=== parse rest
+short_description: 'Select a proxy for the url, if applicable.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringParam
+  args: ['param', 'url']
+  description: 'The url being for the request'
+  arg_name: 'url'
+- DocstringParam
+  args: ['param', 'proxies']
+  description: 'A dictionary of schemes or schemes and hosts to proxy URLs'
+  arg_name: 'proxies'
+=== detect
+rest
+=== compose rest
+Select a proxy for the url, if applicable.
+
+:param url: The url being for the request
+:param proxies: A dictionary of schemes or schemes and hosts to proxy URLs

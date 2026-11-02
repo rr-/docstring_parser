@@ -1,0 +1,18 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Helper base class for injecting a fixed list of classes.
+
+    Use as the first base class.
+    
+=== parse rest
+short_description: 'Helper base class for injecting a fixed list of classes.'
+long_description: 'Use as the first base class.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Helper base class for injecting a fixed list of classes.
+
+Use as the first base class.

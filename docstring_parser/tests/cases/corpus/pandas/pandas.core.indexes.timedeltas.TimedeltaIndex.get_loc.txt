@@ -1,0 +1,27 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Get integer location for requested label
+
+        Returns
+        -------
+        loc : int, slice, or ndarray[int]
+        
+=== parse numpydoc
+short_description: 'Get integer location for requested label'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringReturns
+  args: ['returns']
+  type_name: 'int, slice, or ndarray[int]'
+  is_generator: False
+  return_name: 'loc'
+=== detect
+numpydoc
+=== compose numpydoc
+Get integer location for requested label
+
+Returns
+-------
+loc : int, slice, or ndarray[int]

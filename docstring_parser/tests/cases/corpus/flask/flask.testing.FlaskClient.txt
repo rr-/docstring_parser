@@ -1,0 +1,44 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Works like a regular Werkzeug test client but has knowledge about
+    Flask's contexts to defer the cleanup of the request context until
+    the end of a ``with`` block. For general information about how to
+    use this class refer to :class:`werkzeug.test.Client`.
+
+    .. versionchanged:: 0.12
+       `app.test_client()` includes preset default environment, which can be
+       set after instantiation of the `app.test_client()` object in
+       `client.environ_base`.
+
+    Basic usage is outlined in the :doc:`/testing` chapter.
+    
+=== parse rest
+short_description: 'Works like a regular Werkzeug test client but has knowledge about'
+long_description: |
+  Flask's contexts to defer the cleanup of the request context until
+  the end of a ``with`` block. For general information about how to
+  use this class refer to :class:`werkzeug.test.Client`.
+  
+  .. versionchanged:: 0.12
+     `app.test_client()` includes preset default environment, which can be
+     set after instantiation of the `app.test_client()` object in
+     `client.environ_base`.
+  
+  Basic usage is outlined in the :doc:`/testing` chapter.
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Works like a regular Werkzeug test client but has knowledge about
+Flask's contexts to defer the cleanup of the request context until
+the end of a ``with`` block. For general information about how to
+use this class refer to :class:`werkzeug.test.Client`.
+
+.. versionchanged:: 0.12
+   `app.test_client()` includes preset default environment, which can be
+   set after instantiation of the `app.test_client()` object in
+   `client.environ_base`.
+
+Basic usage is outlined in the :doc:`/testing` chapter.

@@ -1,0 +1,27 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+    DNS protocol mixin shared by UDP and TCP implementations.
+
+    @ivar _reactor: A L{IReactorTime} and L{IReactorUDP} provider which will
+        be used to issue DNS queries and manage request timeouts.
+    
+=== parse epydoc
+short_description: 'DNS protocol mixin shared by UDP and TCP implementations.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringParam
+  args: ['ivar', '_reactor']
+  description: |
+    A L{IReactorTime} and L{IReactorUDP} provider which will
+    be used to issue DNS queries and manage request timeouts.
+  arg_name: '_reactor'
+  is_optional: False
+=== detect
+epydoc
+=== compose epydoc
+DNS protocol mixin shared by UDP and TCP implementations.
+
+@param _reactor: A L{IReactorTime} and L{IReactorUDP} provider which will
+    be used to issue DNS queries and manage request timeouts.

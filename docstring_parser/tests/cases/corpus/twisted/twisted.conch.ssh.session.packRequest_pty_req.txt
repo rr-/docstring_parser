@@ -1,0 +1,31 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+    Pack a pty-req request so that it is suitable for sending.
+
+    NOTE: modes must be packed before being sent here.
+
+    @type geometry: L{tuple}
+    @param geometry: A tuple of (rows, columns, xpixel, ypixel)
+    
+=== parse epydoc
+short_description: 'Pack a pty-req request so that it is suitable for sending.'
+long_description: 'NOTE: modes must be packed before being sent here.'
+blank_after_short_description: True
+blank_after_long_description: True
+style: epydoc
+- DocstringParam
+  args: ['type', 'geometry']
+  description: 'A tuple of (rows, columns, xpixel, ypixel)'
+  arg_name: 'geometry'
+  type_name: 'L{tuple}'
+  is_optional: False
+=== detect
+epydoc
+=== compose epydoc
+Pack a pty-req request so that it is suitable for sending.
+
+NOTE: modes must be packed before being sent here.
+
+@type geometry: L{tuple}
+@param geometry: A tuple of (rows, columns, xpixel, ypixel)

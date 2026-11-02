@@ -1,0 +1,130 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Align a renderable by adding spaces if necessary.
+
+    Args:
+        renderable (RenderableType): A console renderable.
+        align (AlignMethod): One of "left", "center", or "right""
+        style (StyleType, optional): An optional style to apply to the background.
+        vertical (Optional[VerticalAlignMethod], optional): Optional vertical align, one of "top", "middle", or "bottom". Defaults to None.
+        pad (bool, optional): Pad the right with spaces. Defaults to True.
+        width (int, optional): Restrict contents to given width, or None to use default width. Defaults to None.
+        height (int, optional): Set height of align renderable, or None to fit to contents. Defaults to None.
+
+    Raises:
+        ValueError: if ``align`` is not one of the expected values.
+
+    Example:
+        .. code-block:: python
+
+            from rich.console import Console
+            from rich.align import Align
+            from rich.panel import Panel
+
+            console = Console()
+            # Create a panel 20 characters wide
+            p = Panel("Hello, [b]World[/b]!", style="on green", width=20)
+
+            # Renders the panel centered in the terminal
+            console.print(Align(p, align="center"))
+    
+=== parse google
+short_description: 'Align a renderable by adding spaces if necessary.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'renderable (RenderableType)']
+  description: 'A console renderable.'
+  arg_name: 'renderable'
+  type_name: 'RenderableType'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'align (AlignMethod)']
+  description: 'One of "left", "center", or "right""'
+  arg_name: 'align'
+  type_name: 'AlignMethod'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'style (StyleType, optional)']
+  description: 'An optional style to apply to the background.'
+  arg_name: 'style'
+  type_name: 'StyleType'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'vertical (Optional[VerticalAlignMethod], optional)']
+  description: 'Optional vertical align, one of "top", "middle", or "bottom". Defaults to None.'
+  arg_name: 'vertical'
+  type_name: 'Optional[VerticalAlignMethod]'
+  is_optional: True
+  default: 'None'
+- DocstringParam
+  args: ['param', 'pad (bool, optional)']
+  description: 'Pad the right with spaces. Defaults to True.'
+  arg_name: 'pad'
+  type_name: 'bool'
+  is_optional: True
+  default: 'True'
+- DocstringParam
+  args: ['param', 'width (int, optional)']
+  description: 'Restrict contents to given width, or None to use default width. Defaults to None.'
+  arg_name: 'width'
+  type_name: 'int'
+  is_optional: True
+  default: 'None'
+- DocstringParam
+  args: ['param', 'height (int, optional)']
+  description: 'Set height of align renderable, or None to fit to contents. Defaults to None.'
+  arg_name: 'height'
+  type_name: 'int'
+  is_optional: True
+  default: 'None'
+- DocstringRaises
+  args: ['raises', 'ValueError']
+  description: 'if ``align`` is not one of the expected values.'
+  type_name: 'ValueError'
+- DocstringExample
+  args: ['examples']
+  description: |
+    .. code-block:: python
+    
+    from rich.console import Console
+    from rich.align import Align
+    from rich.panel import Panel
+    
+    console = Console()
+    # Create a panel 20 characters wide
+    p = Panel("Hello, [b]World[/b]!", style="on green", width=20)
+    
+    # Renders the panel centered in the terminal
+    console.print(Align(p, align="center"))
+=== detect
+google
+=== compose google
+Align a renderable by adding spaces if necessary.
+
+Args:
+    renderable (RenderableType): A console renderable.
+    align (AlignMethod): One of "left", "center", or "right""
+    style (StyleType?): An optional style to apply to the background.
+    vertical (Optional[VerticalAlignMethod]?): Optional vertical align, one of "top", "middle", or "bottom". Defaults to None.
+    pad (bool?): Pad the right with spaces. Defaults to True.
+    width (int?): Restrict contents to given width, or None to use default width. Defaults to None.
+    height (int?): Set height of align renderable, or None to fit to contents. Defaults to None.
+
+Raises:
+    ValueError: if ``align`` is not one of the expected values.
+
+Examples:
+    .. code-block:: python
+    
+    from rich.console import Console
+    from rich.align import Align
+    from rich.panel import Panel
+    
+    console = Console()
+    # Create a panel 20 characters wide
+    p = Panel("Hello, [b]World[/b]!", style="on green", width=20)
+    
+    # Renders the panel centered in the terminal
+    console.print(Align(p, align="center"))

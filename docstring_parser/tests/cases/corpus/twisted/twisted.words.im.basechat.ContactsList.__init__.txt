@@ -1,0 +1,21 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        @param chatui: The GUI chat client associated with this contacts list.
+        @type chatui: L{ChatUI}
+        
+=== parse epydoc
+blank_after_short_description: False
+blank_after_long_description: False
+style: epydoc
+- DocstringParam
+  args: ['param', 'chatui']
+  description: 'The GUI chat client associated with this contacts list.'
+  arg_name: 'chatui'
+  type_name: 'L{ChatUI}'
+  is_optional: False
+=== detect
+epydoc
+=== compose epydoc
+@type chatui: L{ChatUI}
+@param chatui: The GUI chat client associated with this contacts list.

@@ -1,0 +1,45 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Get the quadratic models of the nonlinear equality constraints.
+
+        Parameters
+        ----------
+        mask : `numpy.ndarray`, shape (m_nonlinear_eq,), optional
+            Mask of the quadratic models to return.
+
+        Returns
+        -------
+        `numpy.ndarray`
+            Quadratic models of the nonlinear equality constraints.
+        
+=== parse numpydoc
+short_description: 'Get the quadratic models of the nonlinear equality constraints.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'mask']
+  description: 'Mask of the quadratic models to return.'
+  arg_name: 'mask'
+  type_name: '`numpy.ndarray`, shape (m_nonlinear_eq,)'
+  is_optional: True
+- DocstringReturns
+  args: ['returns']
+  description: 'Quadratic models of the nonlinear equality constraints.'
+  type_name: '`numpy.ndarray`'
+  is_generator: False
+=== detect
+numpydoc
+=== compose numpydoc
+Get the quadratic models of the nonlinear equality constraints.
+
+Parameters
+----------
+mask : `numpy.ndarray`, shape (m_nonlinear_eq,), optional
+    Mask of the quadratic models to return.
+
+Returns
+-------
+`numpy.ndarray`
+    Quadratic models of the nonlinear equality constraints.

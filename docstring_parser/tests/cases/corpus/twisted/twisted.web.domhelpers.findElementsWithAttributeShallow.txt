@@ -1,0 +1,17 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+    Return an iterable of the elements which are direct children of C{parent}
+    and which have the C{attribute} attribute.
+    
+=== parse epydoc
+short_description: 'Return an iterable of the elements which are direct children of C{parent}'
+long_description: 'and which have the C{attribute} attribute.'
+blank_after_short_description: False
+blank_after_long_description: False
+style: epydoc
+=== detect
+rest
+=== compose epydoc
+Return an iterable of the elements which are direct children of C{parent}
+and which have the C{attribute} attribute.

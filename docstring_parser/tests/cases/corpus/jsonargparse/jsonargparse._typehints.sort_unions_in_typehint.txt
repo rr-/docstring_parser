@@ -1,0 +1,25 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Returns the type hint with the subtypes of all its unions sorted, including nested ones.
+
+    Done when an argument is added, such that the help shows the type hint with
+    the subtypes of unions in the order in which they are attempted when
+    parsing, see union_subtype_sort_key.
+    
+=== parse google
+short_description: 'Returns the type hint with the subtypes of all its unions sorted, including nested ones.'
+long_description: |
+  Done when an argument is added, such that the help shows the type hint with
+  the subtypes of unions in the order in which they are attempted when
+  parsing, see union_subtype_sort_key.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Returns the type hint with the subtypes of all its unions sorted, including nested ones.
+
+Done when an argument is added, such that the help shows the type hint with
+the subtypes of unions in the order in which they are attempted when
+parsing, see union_subtype_sort_key.

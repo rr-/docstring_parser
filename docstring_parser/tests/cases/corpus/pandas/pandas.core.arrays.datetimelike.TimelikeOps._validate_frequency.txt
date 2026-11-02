@@ -1,0 +1,43 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Validate that a frequency is compatible with the values of a given
+        Datetime Array/Index or Timedelta Array/Index
+
+        Parameters
+        ----------
+        index : DatetimeIndex or TimedeltaIndex
+            The index on which to determine if the given frequency is valid
+        freq : DateOffset
+            The frequency to validate
+        
+=== parse numpydoc
+short_description: 'Validate that a frequency is compatible with the values of a given'
+long_description: 'Datetime Array/Index or Timedelta Array/Index'
+blank_after_short_description: False
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'index']
+  description: 'The index on which to determine if the given frequency is valid'
+  arg_name: 'index'
+  type_name: 'DatetimeIndex or TimedeltaIndex'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'freq']
+  description: 'The frequency to validate'
+  arg_name: 'freq'
+  type_name: 'DateOffset'
+  is_optional: False
+=== detect
+numpydoc
+=== compose numpydoc
+Validate that a frequency is compatible with the values of a given
+Datetime Array/Index or Timedelta Array/Index
+
+Parameters
+----------
+index : DatetimeIndex or TimedeltaIndex
+    The index on which to determine if the given frequency is valid
+freq : DateOffset
+    The frequency to validate

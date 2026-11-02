@@ -1,0 +1,33 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Add cookies to cookiejar and returns a merged CookieJar.
+
+    :param cookiejar: CookieJar object to add the cookies to.
+    :param cookies: Dictionary or CookieJar object to be added.
+    :rtype: CookieJar
+    
+=== parse rest
+short_description: 'Add cookies to cookiejar and returns a merged CookieJar.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringParam
+  args: ['param', 'cookiejar']
+  description: 'CookieJar object to add the cookies to.'
+  arg_name: 'cookiejar'
+- DocstringParam
+  args: ['param', 'cookies']
+  description: 'Dictionary or CookieJar object to be added.'
+  arg_name: 'cookies'
+- DocstringReturns
+  args: []
+  type_name: 'CookieJar'
+  is_generator: False
+=== detect
+rest
+=== compose rest
+Add cookies to cookiejar and returns a merged CookieJar.
+
+:param cookiejar: CookieJar object to add the cookies to.
+:param cookies: Dictionary or CookieJar object to be added.
+:returns CookieJar:

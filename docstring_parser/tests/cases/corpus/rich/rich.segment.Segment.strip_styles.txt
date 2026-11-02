@@ -1,0 +1,36 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Remove all styles from an iterable of segments.
+
+        Args:
+            segments (Iterable[Segment]): An iterable segments.
+
+        Yields:
+            Segment: Segments with styles replace with None
+        
+=== parse google
+short_description: 'Remove all styles from an iterable of segments.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'segments (Iterable[Segment])']
+  description: 'An iterable segments.'
+  arg_name: 'segments'
+  type_name: 'Iterable[Segment]'
+  is_optional: False
+- DocstringReturns
+  args: ['yields', 'Segment']
+  description: 'Segments with styles replace with None'
+  type_name: 'Segment'
+  is_generator: True
+=== detect
+google
+=== compose google
+Remove all styles from an iterable of segments.
+
+Args:
+    segments (Iterable[Segment]): An iterable segments.
+
+Yields:
+    Segment: Segments with styles replace with None

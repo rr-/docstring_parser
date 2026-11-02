@@ -1,0 +1,106 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+!!! abstract "Usage Documentation"
+        [String types](./standard_library_types.md#strings)
+
+    A field metadata class to apply constraints to `str` types.
+    Use this class as an annotation via [`Annotated`](https://docs.python.org/3/library/typing.html#typing.Annotated), as seen below.
+
+    Attributes:
+        strip_whitespace: Whether to remove leading and trailing whitespace.
+        to_upper: Whether to convert the string to uppercase.
+        to_lower: Whether to convert the string to lowercase.
+        strict: Whether to validate the string in strict mode.
+        min_length: The minimum length of the string.
+        max_length: The maximum length of the string.
+        pattern: A regex pattern that the string must match.
+        ascii_only: Whether the string should contain only ASCII characters.
+
+    Example:
+        ```python
+        from typing import Annotated
+
+        from pydantic.types import StringConstraints
+
+        ConstrainedStr = Annotated[str, StringConstraints(min_length=1, max_length=10)]
+        ```
+    
+=== parse google
+short_description: '!!! abstract "Usage Documentation"'
+long_description: |
+  [String types](./standard_library_types.md#strings)
+  
+  A field metadata class to apply constraints to `str` types.
+  Use this class as an annotation via [`Annotated`](https://docs.python.org/3/library/typing.html#typing.Annotated), as seen below.
+blank_after_short_description: False
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['attribute', 'strip_whitespace']
+  description: 'Whether to remove leading and trailing whitespace.'
+  arg_name: 'strip_whitespace'
+- DocstringParam
+  args: ['attribute', 'to_upper']
+  description: 'Whether to convert the string to uppercase.'
+  arg_name: 'to_upper'
+- DocstringParam
+  args: ['attribute', 'to_lower']
+  description: 'Whether to convert the string to lowercase.'
+  arg_name: 'to_lower'
+- DocstringParam
+  args: ['attribute', 'strict']
+  description: 'Whether to validate the string in strict mode.'
+  arg_name: 'strict'
+- DocstringParam
+  args: ['attribute', 'min_length']
+  description: 'The minimum length of the string.'
+  arg_name: 'min_length'
+- DocstringParam
+  args: ['attribute', 'max_length']
+  description: 'The maximum length of the string.'
+  arg_name: 'max_length'
+- DocstringParam
+  args: ['attribute', 'pattern']
+  description: 'A regex pattern that the string must match.'
+  arg_name: 'pattern'
+- DocstringParam
+  args: ['attribute', 'ascii_only']
+  description: 'Whether the string should contain only ASCII characters.'
+  arg_name: 'ascii_only'
+- DocstringExample
+  args: ['examples']
+  description: |
+    ```python
+    from typing import Annotated
+    
+    from pydantic.types import StringConstraints
+    
+    ConstrainedStr = Annotated[str, StringConstraints(min_length=1, max_length=10)]
+    ```
+=== detect
+google
+=== compose google
+!!! abstract "Usage Documentation"
+[String types](./standard_library_types.md#strings)
+
+A field metadata class to apply constraints to `str` types.
+Use this class as an annotation via [`Annotated`](https://docs.python.org/3/library/typing.html#typing.Annotated), as seen below.
+
+Attributes:
+    strip_whitespace: Whether to remove leading and trailing whitespace.
+    to_upper: Whether to convert the string to uppercase.
+    to_lower: Whether to convert the string to lowercase.
+    strict: Whether to validate the string in strict mode.
+    min_length: The minimum length of the string.
+    max_length: The maximum length of the string.
+    pattern: A regex pattern that the string must match.
+    ascii_only: Whether the string should contain only ASCII characters.
+
+Examples:
+    ```python
+    from typing import Annotated
+    
+    from pydantic.types import StringConstraints
+    
+    ConstrainedStr = Annotated[str, StringConstraints(min_length=1, max_length=10)]
+    ```

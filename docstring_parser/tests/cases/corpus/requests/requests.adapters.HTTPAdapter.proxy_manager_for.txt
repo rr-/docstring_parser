@@ -1,0 +1,48 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Return urllib3 ProxyManager for the given proxy.
+
+        This method should not be called from user code, and is only
+        exposed for use when subclassing the
+        :class:`HTTPAdapter <requests.adapters.HTTPAdapter>`.
+
+        :param proxy: The proxy to return a urllib3 ProxyManager for.
+        :param proxy_kwargs: Extra keyword arguments used to configure the Proxy Manager.
+        :returns: ProxyManager
+        :rtype: urllib3.ProxyManager
+        
+=== parse rest
+short_description: 'Return urllib3 ProxyManager for the given proxy.'
+long_description: |
+  This method should not be called from user code, and is only
+  exposed for use when subclassing the
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringMeta
+  args: ['class']
+  description: '`HTTPAdapter <requests.adapters.HTTPAdapter>`.'
+- DocstringParam
+  args: ['param', 'proxy']
+  description: 'The proxy to return a urllib3 ProxyManager for.'
+  arg_name: 'proxy'
+- DocstringParam
+  args: ['param', 'proxy_kwargs']
+  description: 'Extra keyword arguments used to configure the Proxy Manager.'
+  arg_name: 'proxy_kwargs'
+- DocstringReturns
+  args: ['returns']
+  description: 'ProxyManager'
+  type_name: 'urllib3.ProxyManager'
+  is_generator: False
+=== detect
+rest
+=== compose rest
+Return urllib3 ProxyManager for the given proxy.
+
+This method should not be called from user code, and is only
+exposed for use when subclassing the
+:class: `HTTPAdapter <requests.adapters.HTTPAdapter>`.
+:param proxy: The proxy to return a urllib3 ProxyManager for.
+:param proxy_kwargs: Extra keyword arguments used to configure the Proxy Manager.
+:returns urllib3.ProxyManager: ProxyManager

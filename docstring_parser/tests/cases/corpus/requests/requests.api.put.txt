@@ -1,0 +1,51 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Sends a PUT request.
+
+    :param url: URL for the new :class:`Request` object.
+    :param data: (optional) Dictionary, list of tuples, bytes, or file-like
+        object to send in the body of the :class:`Request`.
+    :param json: (optional) A JSON serializable Python object to send in the body of the :class:`Request`.
+    :param \*\*kwargs: Optional arguments that ``request`` takes.
+    :return: :class:`Response <Response>` object
+    :rtype: requests.Response
+    
+=== parse rest
+short_description: 'Sends a PUT request.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringParam
+  args: ['param', 'url']
+  description: 'URL for the new :class:`Request` object.'
+  arg_name: 'url'
+- DocstringParam
+  args: ['param', 'data']
+  description: |
+    (optional) Dictionary, list of tuples, bytes, or file-like
+    object to send in the body of the :class:`Request`.
+  arg_name: 'data'
+- DocstringParam
+  args: ['param', 'json']
+  description: '(optional) A JSON serializable Python object to send in the body of the :class:`Request`.'
+  arg_name: 'json'
+- DocstringParam
+  args: ['param', '\\*\\*kwargs']
+  description: 'Optional arguments that ``request`` takes.'
+  arg_name: '\\*\\*kwargs'
+- DocstringReturns
+  args: ['return']
+  description: ':class:`Response <Response>` object'
+  type_name: 'requests.Response'
+  is_generator: False
+=== detect
+rest
+=== compose rest
+Sends a PUT request.
+
+:param url: URL for the new :class:`Request` object.
+:param data: (optional) Dictionary, list of tuples, bytes, or file-like
+    object to send in the body of the :class:`Request`.
+:param json: (optional) A JSON serializable Python object to send in the body of the :class:`Request`.
+:param \*\*kwargs: Optional arguments that ``request`` takes.
+:returns requests.Response: :class:`Response <Response>` object

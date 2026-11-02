@@ -1,0 +1,50 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+DEPRECATED: Users should move to `get_connection_with_tls_context`
+        for all subclasses of HTTPAdapter using Requests>=2.32.2.
+
+        Returns a urllib3 connection for the given URL. This should not be
+        called from user code, and is only exposed for use when subclassing the
+        :class:`HTTPAdapter <requests.adapters.HTTPAdapter>`.
+
+        :param url: The URL to connect to.
+        :param proxies: (optional) A Requests-style dictionary of proxies used on this request.
+        :rtype: urllib3.HTTPConnectionPool
+        
+=== parse rest
+short_description: 'DEPRECATED: Users should move to `get_connection_with_tls_context`'
+long_description: |
+  for all subclasses of HTTPAdapter using Requests>=2.32.2.
+  
+  Returns a urllib3 connection for the given URL. This should not be
+  called from user code, and is only exposed for use when subclassing the
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+- DocstringMeta
+  args: ['class']
+  description: '`HTTPAdapter <requests.adapters.HTTPAdapter>`.'
+- DocstringParam
+  args: ['param', 'url']
+  description: 'The URL to connect to.'
+  arg_name: 'url'
+- DocstringParam
+  args: ['param', 'proxies']
+  description: '(optional) A Requests-style dictionary of proxies used on this request.'
+  arg_name: 'proxies'
+- DocstringReturns
+  args: []
+  type_name: 'urllib3.HTTPConnectionPool'
+  is_generator: False
+=== detect
+rest
+=== compose rest
+DEPRECATED: Users should move to `get_connection_with_tls_context`
+for all subclasses of HTTPAdapter using Requests>=2.32.2.
+
+Returns a urllib3 connection for the given URL. This should not be
+called from user code, and is only exposed for use when subclassing the
+:class: `HTTPAdapter <requests.adapters.HTTPAdapter>`.
+:param url: The URL to connect to.
+:param proxies: (optional) A Requests-style dictionary of proxies used on this request.
+:returns urllib3.HTTPConnectionPool:

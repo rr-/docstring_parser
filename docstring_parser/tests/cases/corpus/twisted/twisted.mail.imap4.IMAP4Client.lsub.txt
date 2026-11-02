@@ -1,0 +1,32 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        List a subset of the subscribed available mailboxes
+
+        This command is allowed in the Authenticated and Selected states.
+
+        The parameters and returned object are the same as for the L{list}
+        method, with one slight difference: Only mailboxes which have been
+        subscribed can be included in the resulting list.
+        
+=== parse epydoc
+short_description: 'List a subset of the subscribed available mailboxes'
+long_description: |
+  This command is allowed in the Authenticated and Selected states.
+  
+  The parameters and returned object are the same as for the L{list}
+  method, with one slight difference: Only mailboxes which have been
+  subscribed can be included in the resulting list.
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+=== detect
+rest
+=== compose epydoc
+List a subset of the subscribed available mailboxes
+
+This command is allowed in the Authenticated and Selected states.
+
+The parameters and returned object are the same as for the L{list}
+method, with one slight difference: Only mailboxes which have been
+subscribed can be included in the resulting list.

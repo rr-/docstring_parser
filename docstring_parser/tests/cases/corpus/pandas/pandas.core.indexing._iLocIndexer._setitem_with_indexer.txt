@@ -1,0 +1,27 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        _setitem_with_indexer is for setting values on a Series/DataFrame
+        using positional indexers.
+
+        If the relevant keys are not present, the Series/DataFrame may be
+        expanded.
+        
+=== parse numpydoc
+short_description: '_setitem_with_indexer is for setting values on a Series/DataFrame'
+long_description: |
+  using positional indexers.
+  
+  If the relevant keys are not present, the Series/DataFrame may be
+  expanded.
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+_setitem_with_indexer is for setting values on a Series/DataFrame
+using positional indexers.
+
+If the relevant keys are not present, the Series/DataFrame may be
+expanded.

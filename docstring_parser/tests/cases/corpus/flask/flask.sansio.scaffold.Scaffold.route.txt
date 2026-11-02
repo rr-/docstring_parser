@@ -1,0 +1,80 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Decorate a view function to register it with the given URL
+        rule and options. Calls :meth:`add_url_rule`, which has more
+        details about the implementation.
+
+        .. code-block:: python
+
+            @app.route("/")
+            def index():
+                return "Hello, World!"
+
+        See :ref:`url-route-registrations`.
+
+        The endpoint name for the route defaults to the name of the view
+        function if the ``endpoint`` parameter isn't passed.
+
+        The ``methods`` parameter defaults to ``["GET"]``. ``HEAD`` and
+        ``OPTIONS`` are added automatically.
+
+        :param rule: The URL rule string.
+        :param options: Extra options passed to the
+            :class:`~werkzeug.routing.Rule` object.
+        
+=== parse rest
+short_description: 'Decorate a view function to register it with the given URL'
+long_description: |
+  rule and options. Calls :meth:`add_url_rule`, which has more
+  details about the implementation.
+  
+  .. code-block:: python
+  
+      @app.route("/")
+      def index():
+          return "Hello, World!"
+  
+  See :ref:`url-route-registrations`.
+  
+  The endpoint name for the route defaults to the name of the view
+  function if the ``endpoint`` parameter isn't passed.
+  
+  The ``methods`` parameter defaults to ``["GET"]``. ``HEAD`` and
+  ``OPTIONS`` are added automatically.
+blank_after_short_description: False
+blank_after_long_description: True
+style: rest
+- DocstringParam
+  args: ['param', 'rule']
+  description: 'The URL rule string.'
+  arg_name: 'rule'
+- DocstringParam
+  args: ['param', 'options']
+  description: |
+    Extra options passed to the
+    :class:`~werkzeug.routing.Rule` object.
+  arg_name: 'options'
+=== detect
+rest
+=== compose rest
+Decorate a view function to register it with the given URL
+rule and options. Calls :meth:`add_url_rule`, which has more
+details about the implementation.
+
+.. code-block:: python
+
+    @app.route("/")
+    def index():
+        return "Hello, World!"
+
+See :ref:`url-route-registrations`.
+
+The endpoint name for the route defaults to the name of the view
+function if the ``endpoint`` parameter isn't passed.
+
+The ``methods`` parameter defaults to ``["GET"]``. ``HEAD`` and
+``OPTIONS`` are added automatically.
+
+:param rule: The URL rule string.
+:param options: Extra options passed to the
+    :class:`~werkzeug.routing.Rule` object.

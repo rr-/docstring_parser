@@ -1,0 +1,68 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+An Index is the description for a domain-specific index.  To add an index to
+    a domain, subclass Index, overriding the three name attributes:
+
+    * `name` is an identifier used for generating file names.
+      It is also used for a hyperlink target for the index. Therefore, users can
+      refer the index page using ``ref`` role and a string which is combined
+      domain name and ``name`` attribute (ex. ``:ref:`py-modindex```).
+    * `localname` is the section title for the index.
+    * `shortname` is a short name for the index, for use in the relation bar in
+      HTML output.  Can be empty to disable entries in the relation bar.
+
+    and providing a :meth:`generate` method.  Then, add the index class to
+    your domain's `indices` list.  Extensions can add indices to existing
+    domains using :meth:`~sphinx.application.Sphinx.add_index_to_domain`.
+
+    .. versionchanged:: 3.0
+
+       Index pages can be referred by domain name and index name via
+       :rst:role:`ref` role.
+    
+=== parse rest
+short_description: 'An Index is the description for a domain-specific index.  To add an index to'
+long_description: |
+  a domain, subclass Index, overriding the three name attributes:
+  
+  * `name` is an identifier used for generating file names.
+    It is also used for a hyperlink target for the index. Therefore, users can
+    refer the index page using ``ref`` role and a string which is combined
+    domain name and ``name`` attribute (ex. ``:ref:`py-modindex```).
+  * `localname` is the section title for the index.
+  * `shortname` is a short name for the index, for use in the relation bar in
+    HTML output.  Can be empty to disable entries in the relation bar.
+  
+  and providing a :meth:`generate` method.  Then, add the index class to
+  your domain's `indices` list.  Extensions can add indices to existing
+  domains using :meth:`~sphinx.application.Sphinx.add_index_to_domain`.
+  
+  .. versionchanged:: 3.0
+  
+     Index pages can be referred by domain name and index name via
+     :rst:role:`ref` role.
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+An Index is the description for a domain-specific index.  To add an index to
+a domain, subclass Index, overriding the three name attributes:
+
+* `name` is an identifier used for generating file names.
+  It is also used for a hyperlink target for the index. Therefore, users can
+  refer the index page using ``ref`` role and a string which is combined
+  domain name and ``name`` attribute (ex. ``:ref:`py-modindex```).
+* `localname` is the section title for the index.
+* `shortname` is a short name for the index, for use in the relation bar in
+  HTML output.  Can be empty to disable entries in the relation bar.
+
+and providing a :meth:`generate` method.  Then, add the index class to
+your domain's `indices` list.  Extensions can add indices to existing
+domains using :meth:`~sphinx.application.Sphinx.add_index_to_domain`.
+
+.. versionchanged:: 3.0
+
+   Index pages can be referred by domain name and index name via
+   :rst:role:`ref` role.

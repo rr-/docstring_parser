@@ -1,0 +1,93 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Propagate metadata from other to self.
+
+        This is the default implementation. Subclasses may override this method to
+        implement their own metadata handling.
+
+        Parameters
+        ----------
+        other : the object from which to get the attributes that we are going
+            to propagate. If ``other`` has an ``input_objs`` attribute, then
+            this attribute must contain an iterable of objects, each with an
+            ``attrs`` attribute.
+        method : str, optional
+            A passed method name providing context on where ``__finalize__``
+            was called.
+
+            .. warning::
+
+               The value passed as `method` are not currently considered
+               stable across pandas releases.
+
+        Notes
+        -----
+        In case ``other`` has an ``input_objs`` attribute, this method only
+        propagates its metadata if each object in ``input_objs`` has the exact
+        same metadata as the others.
+        
+=== parse numpydoc
+short_description: 'Propagate metadata from other to self.'
+long_description: |
+  This is the default implementation. Subclasses may override this method to
+  implement their own metadata handling.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'other']
+  description: |
+    to propagate. If ``other`` has an ``input_objs`` attribute, then
+    this attribute must contain an iterable of objects, each with an
+    ``attrs`` attribute.
+  arg_name: 'other'
+  type_name: 'the object from which to get the attributes that we are going'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'method']
+  description: |
+    A passed method name providing context on where ``__finalize__``
+    was called.
+    
+    .. warning::
+    
+       The value passed as `method` are not currently considered
+       stable across pandas releases.
+  arg_name: 'method'
+  type_name: 'str'
+  is_optional: True
+- DocstringMeta
+  args: ['notes']
+  description: |
+    In case ``other`` has an ``input_objs`` attribute, this method only
+    propagates its metadata if each object in ``input_objs`` has the exact
+    same metadata as the others.
+=== detect
+numpydoc
+=== compose numpydoc
+Propagate metadata from other to self.
+
+This is the default implementation. Subclasses may override this method to
+implement their own metadata handling.
+
+Parameters
+----------
+other : the object from which to get the attributes that we are going
+    to propagate. If ``other`` has an ``input_objs`` attribute, then
+    this attribute must contain an iterable of objects, each with an
+    ``attrs`` attribute.
+method : str, optional
+    A passed method name providing context on where ``__finalize__``
+    was called.
+    
+    .. warning::
+    
+       The value passed as `method` are not currently considered
+       stable across pandas releases.
+
+Notes
+-----
+In case ``other`` has an ``input_objs`` attribute, this method only
+propagates its metadata if each object in ``input_objs`` has the exact
+same metadata as the others.

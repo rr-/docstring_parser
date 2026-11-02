@@ -1,0 +1,155 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Compute the roots of a Laguerre series.
+
+    Return the roots (a.k.a. "zeros") of the polynomial
+
+    .. math:: p(x) = \sum_i c[i] * L_i(x).
+
+    Parameters
+    ----------
+    c : 1-D array_like
+        1-D array of coefficients.
+
+    Returns
+    -------
+    out : ndarray
+        Array of the roots of the series. If all the roots are real,
+        then `out` is also real, otherwise it is complex.
+
+    See Also
+    --------
+    numpy.polynomial.polynomial.polyroots
+    numpy.polynomial.legendre.legroots
+    numpy.polynomial.chebyshev.chebroots
+    numpy.polynomial.hermite.hermroots
+    numpy.polynomial.hermite_e.hermeroots
+
+    Notes
+    -----
+    The root estimates are obtained as the eigenvalues of the companion
+    matrix, Roots far from the origin of the complex plane may have large
+    errors due to the numerical instability of the series for such
+    values. Roots with multiplicity greater than 1 will also show larger
+    errors as the value of the series near such points is relatively
+    insensitive to errors in the roots. Isolated roots near the origin can
+    be improved by a few iterations of Newton's method.
+
+    The Laguerre series basis polynomials aren't powers of `x` so the
+    results of this function may seem unintuitive.
+
+    Examples
+    --------
+    >>> from numpy.polynomial.laguerre import lagroots, lagfromroots
+    >>> coef = lagfromroots([0, 1, 2])
+    >>> coef
+    array([  2.,  -8.,  12.,  -6.])
+    >>> lagroots(coef)
+    array([-4.4408921e-16,  1.0000000e+00,  2.0000000e+00])
+
+    
+=== parse numpydoc
+short_description: 'Compute the roots of a Laguerre series.'
+long_description: |
+  Return the roots (a.k.a. "zeros") of the polynomial
+  
+  .. math:: p(x) = \sum_i c[i] * L_i(x).
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'c']
+  description: '1-D array of coefficients.'
+  arg_name: 'c'
+  type_name: '1-D array_like'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: |
+    Array of the roots of the series. If all the roots are real,
+    then `out` is also real, otherwise it is complex.
+  type_name: 'ndarray'
+  is_generator: False
+  return_name: 'out'
+- DocstringMeta
+  args: ['see_also']
+  description: |
+    numpy.polynomial.polynomial.polyroots
+    numpy.polynomial.legendre.legroots
+    numpy.polynomial.chebyshev.chebroots
+    numpy.polynomial.hermite.hermroots
+    numpy.polynomial.hermite_e.hermeroots
+- DocstringMeta
+  args: ['notes']
+  description: |
+    The root estimates are obtained as the eigenvalues of the companion
+    matrix, Roots far from the origin of the complex plane may have large
+    errors due to the numerical instability of the series for such
+    values. Roots with multiplicity greater than 1 will also show larger
+    errors as the value of the series near such points is relatively
+    insensitive to errors in the roots. Isolated roots near the origin can
+    be improved by a few iterations of Newton's method.
+    
+    The Laguerre series basis polynomials aren't powers of `x` so the
+    results of this function may seem unintuitive.
+- DocstringExample
+  args: ['examples']
+  description: 'array([  2.,  -8.,  12.,  -6.])'
+  snippet: |
+    >>> from numpy.polynomial.laguerre import lagroots, lagfromroots
+    >>> coef = lagfromroots([0, 1, 2])
+    >>> coef
+- DocstringExample
+  args: ['examples']
+  description: 'array([-4.4408921e-16,  1.0000000e+00,  2.0000000e+00])'
+  snippet: '>>> lagroots(coef)'
+=== detect
+numpydoc
+=== compose numpydoc
+Compute the roots of a Laguerre series.
+
+Return the roots (a.k.a. "zeros") of the polynomial
+
+.. math:: p(x) = \sum_i c[i] * L_i(x).
+
+Parameters
+----------
+c : 1-D array_like
+    1-D array of coefficients.
+
+Returns
+-------
+out : ndarray
+    Array of the roots of the series. If all the roots are real,
+    then `out` is also real, otherwise it is complex.
+
+Examples
+--------
+>>> from numpy.polynomial.laguerre import lagroots, lagfromroots
+>>> coef = lagfromroots([0, 1, 2])
+>>> coef
+array([  2.,  -8.,  12.,  -6.])
+>>> lagroots(coef)
+array([-4.4408921e-16,  1.0000000e+00,  2.0000000e+00])
+
+See Also
+--------
+numpy.polynomial.polynomial.polyroots
+numpy.polynomial.legendre.legroots
+numpy.polynomial.chebyshev.chebroots
+numpy.polynomial.hermite.hermroots
+numpy.polynomial.hermite_e.hermeroots
+
+Notes
+-----
+The root estimates are obtained as the eigenvalues of the companion
+matrix, Roots far from the origin of the complex plane may have large
+errors due to the numerical instability of the series for such
+values. Roots with multiplicity greater than 1 will also show larger
+errors as the value of the series near such points is relatively
+insensitive to errors in the roots. Isolated roots near the origin can
+be improved by a few iterations of Newton's method.
+
+The Laguerre series basis polynomials aren't powers of `x` so the
+results of this function may seem unintuitive.

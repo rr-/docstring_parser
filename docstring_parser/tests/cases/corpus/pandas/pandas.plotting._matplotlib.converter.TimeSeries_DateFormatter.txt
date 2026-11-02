@@ -1,0 +1,56 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Formats the ticks along an axis controlled by a :class:`PeriodIndex`.
+
+    Parameters
+    ----------
+    freq : BaseOffset
+        Valid frequency specifier.
+    minor_locator : bool, default False
+        Whether the current formatter should apply to minor ticks (True) or
+        major ticks (False).
+    dynamic_mode : bool, default True
+        Whether the formatter works in dynamic mode or not.
+    
+=== parse numpydoc
+short_description: 'Formats the ticks along an axis controlled by a :class:`PeriodIndex`.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'freq']
+  description: 'Valid frequency specifier.'
+  arg_name: 'freq'
+  type_name: 'BaseOffset'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'minor_locator']
+  description: |
+    Whether the current formatter should apply to minor ticks (True) or
+    major ticks (False).
+  arg_name: 'minor_locator'
+  type_name: 'bool'
+  is_optional: True
+  default: 'False'
+- DocstringParam
+  args: ['param', 'dynamic_mode']
+  description: 'Whether the formatter works in dynamic mode or not.'
+  arg_name: 'dynamic_mode'
+  type_name: 'bool'
+  is_optional: True
+  default: 'True'
+=== detect
+numpydoc
+=== compose numpydoc
+Formats the ticks along an axis controlled by a :class:`PeriodIndex`.
+
+Parameters
+----------
+freq : BaseOffset
+    Valid frequency specifier.
+minor_locator : bool, default=False
+    Whether the current formatter should apply to minor ticks (True) or
+    major ticks (False).
+dynamic_mode : bool, default=True
+    Whether the formatter works in dynamic mode or not.

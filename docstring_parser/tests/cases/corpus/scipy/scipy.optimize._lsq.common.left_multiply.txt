@@ -1,0 +1,18 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Compute diag(d) J.
+
+    If `copy` is False, `J` is modified in place (unless being LinearOperator).
+    
+=== parse numpydoc
+short_description: 'Compute diag(d) J.'
+long_description: 'If `copy` is False, `J` is modified in place (unless being LinearOperator).'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Compute diag(d) J.
+
+If `copy` is False, `J` is modified in place (unless being LinearOperator).

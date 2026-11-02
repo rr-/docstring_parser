@@ -1,0 +1,28 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Returns the annotation of a TypedDict key or a NamedTuple field with the TypeVars in it resolved.
+
+    First the TypeVars that the subscript binds are substituted, then the ones
+    that it doesn't are replaced by what they stand for, i.e. their default,
+    constraints or bound. A TypeVar that stands for nothing is left as is, so
+    that it becomes an Unvalidated<...>, the same as for a signature parameter.
+    
+=== parse google
+short_description: 'Returns the annotation of a TypedDict key or a NamedTuple field with the TypeVars in it resolved.'
+long_description: |
+  First the TypeVars that the subscript binds are substituted, then the ones
+  that it doesn't are replaced by what they stand for, i.e. their default,
+  constraints or bound. A TypeVar that stands for nothing is left as is, so
+  that it becomes an Unvalidated<...>, the same as for a signature parameter.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Returns the annotation of a TypedDict key or a NamedTuple field with the TypeVars in it resolved.
+
+First the TypeVars that the subscript binds are substituted, then the ones
+that it doesn't are replaced by what they stand for, i.e. their default,
+constraints or bound. A TypeVar that stands for nothing is left as is, so
+that it becomes an Unvalidated<...>, the same as for a signature parameter.

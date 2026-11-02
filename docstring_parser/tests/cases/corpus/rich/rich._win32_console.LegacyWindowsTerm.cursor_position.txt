@@ -1,0 +1,24 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Returns the current position of the cursor (0-based)
+
+        Returns:
+            WindowsCoordinates: The current cursor position.
+        
+=== parse google
+short_description: 'Returns the current position of the cursor (0-based)'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringReturns
+  args: ['returns', 'WindowsCoordinates']
+  description: 'The current cursor position.'
+  type_name: 'WindowsCoordinates'
+  is_generator: False
+=== detect
+google
+=== compose google
+Returns the current position of the cursor (0-based)
+
+Returns:
+    WindowsCoordinates: The current cursor position.

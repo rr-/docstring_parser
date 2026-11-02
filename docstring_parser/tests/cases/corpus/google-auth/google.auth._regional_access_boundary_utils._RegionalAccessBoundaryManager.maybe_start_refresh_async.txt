@@ -1,0 +1,33 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Starts a background refresh or performs a blocking refresh asynchronously.
+
+        Args:
+            credentials (google.auth.credentials.Credentials): The credentials to refresh.
+            request (google.auth.aio.transport.Request): The object used to make HTTP requests.
+        
+=== parse google
+short_description: 'Starts a background refresh or performs a blocking refresh asynchronously.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'credentials (google.auth.credentials.Credentials)']
+  description: 'The credentials to refresh.'
+  arg_name: 'credentials'
+  type_name: 'google.auth.credentials.Credentials'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'request (google.auth.aio.transport.Request)']
+  description: 'The object used to make HTTP requests.'
+  arg_name: 'request'
+  type_name: 'google.auth.aio.transport.Request'
+  is_optional: False
+=== detect
+google
+=== compose google
+Starts a background refresh or performs a blocking refresh asynchronously.
+
+Args:
+    credentials (google.auth.credentials.Credentials): The credentials to refresh.
+    request (google.auth.aio.transport.Request): The object used to make HTTP requests.

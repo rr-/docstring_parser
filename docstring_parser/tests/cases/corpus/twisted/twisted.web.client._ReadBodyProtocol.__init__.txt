@@ -1,0 +1,41 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        @param status: Status of L{IResponse}
+        @ivar status: L{int}
+
+        @param message: Message of L{IResponse}
+        @type message: L{bytes}
+
+        @param deferred: deferred to fire when response is complete
+        @type deferred: L{Deferred} firing with L{bytes}
+        
+=== parse epydoc
+blank_after_short_description: False
+blank_after_long_description: False
+style: epydoc
+- DocstringParam
+  args: ['param', 'status']
+  description: 'L{int}'
+  arg_name: 'status'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'message']
+  description: 'Message of L{IResponse}'
+  arg_name: 'message'
+  type_name: 'L{bytes}'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'deferred']
+  description: 'deferred to fire when response is complete'
+  arg_name: 'deferred'
+  type_name: 'L{Deferred} firing with L{bytes}'
+  is_optional: False
+=== detect
+epydoc
+=== compose epydoc
+@param status: L{int}
+@type message: L{bytes}
+@param message: Message of L{IResponse}
+@type deferred: L{Deferred} firing with L{bytes}
+@param deferred: deferred to fire when response is complete

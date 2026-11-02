@@ -1,0 +1,36 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Check that extensions mentioned in :confval:`needs_extensions` satisfy the version
+    requirement, and warn if an extension is not loaded.
+
+    Warns if an extension in :confval:`needs_extension` is not loaded.
+
+    :raises VersionRequirementError: if the version of an extension in
+    :confval:`needs_extension` is unknown or older than the required version.
+    
+=== parse rest
+short_description: 'Check that extensions mentioned in :confval:`needs_extensions` satisfy the version'
+long_description: |
+  requirement, and warn if an extension is not loaded.
+  
+  Warns if an extension in :confval:`needs_extension` is not loaded.
+blank_after_short_description: False
+blank_after_long_description: True
+style: rest
+- DocstringRaises
+  args: ['raises', 'VersionRequirementError']
+  description: 'if the version of an extension in'
+  type_name: 'VersionRequirementError'
+- DocstringMeta
+  args: ['confval']
+  description: '`needs_extension` is unknown or older than the required version.'
+=== detect
+rest
+=== compose rest
+Check that extensions mentioned in :confval:`needs_extensions` satisfy the version
+requirement, and warn if an extension is not loaded.
+
+Warns if an extension in :confval:`needs_extension` is not loaded.
+
+:raises VersionRequirementError : if the version of an extension in
+:confval: `needs_extension` is unknown or older than the required version.

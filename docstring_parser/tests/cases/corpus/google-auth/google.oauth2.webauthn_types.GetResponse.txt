@@ -1,0 +1,41 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+WebAuthn get (assertion) response.
+
+    Args:
+        id: <url-safe base64-encoded> credential id (key handle).
+        response: The authenticator assertion response.
+        authenticator_attachment: <'cross-platform'|'platform'> The attachment status of the authenticator.
+        client_extension_results: WebAuthn authentication extensions output results in a dictionary.
+    
+=== parse google
+short_description: 'WebAuthn get (assertion) response.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'id']
+  description: '<url-safe base64-encoded> credential id (key handle).'
+  arg_name: 'id'
+- DocstringParam
+  args: ['param', 'response']
+  description: 'The authenticator assertion response.'
+  arg_name: 'response'
+- DocstringParam
+  args: ['param', 'authenticator_attachment']
+  description: "<'cross-platform'|'platform'> The attachment status of the authenticator."
+  arg_name: 'authenticator_attachment'
+- DocstringParam
+  args: ['param', 'client_extension_results']
+  description: 'WebAuthn authentication extensions output results in a dictionary.'
+  arg_name: 'client_extension_results'
+=== detect
+google
+=== compose google
+WebAuthn get (assertion) response.
+
+Args:
+    id: <url-safe base64-encoded> credential id (key handle).
+    response: The authenticator assertion response.
+    authenticator_attachment: <'cross-platform'|'platform'> The attachment status of the authenticator.
+    client_extension_results: WebAuthn authentication extensions output results in a dictionary.

@@ -1,0 +1,24 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+
+        Construct the JSONDecodeError instance first with all
+        args. Then use it's args to construct the IOError so that
+        the json specific args aren't used as IOError specific args
+        and the error message from JSONDecodeError is preserved.
+        
+=== parse rest
+short_description: 'Construct the JSONDecodeError instance first with all'
+long_description: |
+  args. Then use it's args to construct the IOError so that
+  the json specific args aren't used as IOError specific args
+  and the error message from JSONDecodeError is preserved.
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Construct the JSONDecodeError instance first with all
+args. Then use it's args to construct the IOError so that
+the json specific args aren't used as IOError specific args
+and the error message from JSONDecodeError is preserved.

@@ -1,0 +1,111 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+A generalized gamma continuous random variable.
+
+    %(before_notes)s
+
+    See Also
+    --------
+    gamma, halfgennorm, invgamma, weibull_min
+
+    Notes
+    -----
+    The probability density function for `gengamma` is ([1]_, [2]_):
+
+    .. math::
+
+        f(x, a, c) = \frac{|c| x^{c a-1} \exp(-x^c)}{\Gamma(a)}
+
+    for :math:`x \ge 0`, :math:`a > 0`, and :math:`c \ne 0`.
+    :math:`\Gamma` is the gamma function (`scipy.special.gamma`).
+
+    `gengamma` takes :math:`a` and :math:`c` as shape parameters.
+
+    The SciPy distribution `halfgennorm` is a special case of
+    `gengamma`: ``halfgennorm(beta) = gengamma(a=1/beta, c=beta)``.
+
+    %(after_notes)s
+
+    References
+    ----------
+    .. [1] E.W. Stacy, "A Generalization of the Gamma Distribution",
+           Annals of Mathematical Statistics, Vol 33(3), pp. 1187--1192.
+    .. [2] "Generalized gamma distribution", Wikipedia,
+           https://en.wikipedia.org/wiki/Generalized_gamma_distribution
+
+    %(example)s
+
+    
+=== parse numpydoc
+short_description: 'A generalized gamma continuous random variable.'
+long_description: '%(before_notes)s'
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringMeta
+  args: ['see_also']
+  description: 'gamma, halfgennorm, invgamma, weibull_min'
+- DocstringMeta
+  args: ['notes']
+  description: |
+    The probability density function for `gengamma` is ([1]_, [2]_):
+    
+    .. math::
+    
+        f(x, a, c) = \frac{|c| x^{c a-1} \exp(-x^c)}{\Gamma(a)}
+    
+    for :math:`x \ge 0`, :math:`a > 0`, and :math:`c \ne 0`.
+    :math:`\Gamma` is the gamma function (`scipy.special.gamma`).
+    
+    `gengamma` takes :math:`a` and :math:`c` as shape parameters.
+    
+    The SciPy distribution `halfgennorm` is a special case of
+    `gengamma`: ``halfgennorm(beta) = gengamma(a=1/beta, c=beta)``.
+    
+    %(after_notes)s
+- DocstringMeta
+  args: ['references']
+  description: |
+    .. [1] E.W. Stacy, "A Generalization of the Gamma Distribution",
+           Annals of Mathematical Statistics, Vol 33(3), pp. 1187--1192.
+    .. [2] "Generalized gamma distribution", Wikipedia,
+           https://en.wikipedia.org/wiki/Generalized_gamma_distribution
+    
+    %(example)s
+=== detect
+numpydoc
+=== compose numpydoc
+A generalized gamma continuous random variable.
+
+%(before_notes)s
+
+See Also
+--------
+gamma, halfgennorm, invgamma, weibull_min
+
+Notes
+-----
+The probability density function for `gengamma` is ([1]_, [2]_):
+
+.. math::
+
+    f(x, a, c) = \frac{|c| x^{c a-1} \exp(-x^c)}{\Gamma(a)}
+
+for :math:`x \ge 0`, :math:`a > 0`, and :math:`c \ne 0`.
+:math:`\Gamma` is the gamma function (`scipy.special.gamma`).
+
+`gengamma` takes :math:`a` and :math:`c` as shape parameters.
+
+The SciPy distribution `halfgennorm` is a special case of
+`gengamma`: ``halfgennorm(beta) = gengamma(a=1/beta, c=beta)``.
+
+%(after_notes)s
+
+References
+----------
+.. [1] E.W. Stacy, "A Generalization of the Gamma Distribution",
+       Annals of Mathematical Statistics, Vol 33(3), pp. 1187--1192.
+.. [2] "Generalized gamma distribution", Wikipedia,
+       https://en.wikipedia.org/wiki/Generalized_gamma_distribution
+
+%(example)s

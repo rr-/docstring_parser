@@ -1,0 +1,89 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Creates a string repr of the dtype, excluding the 'dtype()' part
+    surrounding the object. This object may be a string, a list, or
+    a dict depending on the nature of the dtype. This
+    is the object passed as the first parameter to the dtype
+    constructor, and if no additional constructor parameters are
+    given, will reproduce the exact memory layout.
+
+    Parameters
+    ----------
+    short : bool
+        If true, this creates a shorter repr using 'kind' and 'itemsize',
+        instead of the longer type name.
+
+    include_align : bool
+        If true, this includes the 'align=True' parameter
+        inside the struct dtype construction dict when needed. Use this flag
+        if you want a proper repr string without the 'dtype()' part around it.
+
+        If false, this does not preserve the
+        'align=True' parameter or sticky NPY_ALIGNED_STRUCT flag for
+        struct arrays like the regular repr does, because the 'align'
+        flag is not part of first dtype constructor parameter. This
+        mode is intended for a full 'repr', where the 'align=True' is
+        provided as the second parameter.
+    
+=== parse numpydoc
+short_description: "Creates a string repr of the dtype, excluding the 'dtype()' part"
+long_description: |
+  surrounding the object. This object may be a string, a list, or
+  a dict depending on the nature of the dtype. This
+  is the object passed as the first parameter to the dtype
+  constructor, and if no additional constructor parameters are
+  given, will reproduce the exact memory layout.
+blank_after_short_description: False
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'short']
+  description: |
+    If true, this creates a shorter repr using 'kind' and 'itemsize',
+    instead of the longer type name.
+  arg_name: 'short'
+  type_name: 'bool'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'include_align']
+  description: |
+    If true, this includes the 'align=True' parameter
+    inside the struct dtype construction dict when needed. Use this flag
+    if you want a proper repr string without the 'dtype()' part around it.
+    
+    If false, this does not preserve the
+    'align=True' parameter or sticky NPY_ALIGNED_STRUCT flag for
+    struct arrays like the regular repr does, because the 'align'
+    flag is not part of first dtype constructor parameter. This
+    mode is intended for a full 'repr', where the 'align=True' is
+    provided as the second parameter.
+  arg_name: 'include_align'
+  type_name: 'bool'
+  is_optional: False
+=== detect
+numpydoc
+=== compose numpydoc
+Creates a string repr of the dtype, excluding the 'dtype()' part
+surrounding the object. This object may be a string, a list, or
+a dict depending on the nature of the dtype. This
+is the object passed as the first parameter to the dtype
+constructor, and if no additional constructor parameters are
+given, will reproduce the exact memory layout.
+
+Parameters
+----------
+short : bool
+    If true, this creates a shorter repr using 'kind' and 'itemsize',
+    instead of the longer type name.
+include_align : bool
+    If true, this includes the 'align=True' parameter
+    inside the struct dtype construction dict when needed. Use this flag
+    if you want a proper repr string without the 'dtype()' part around it.
+    
+    If false, this does not preserve the
+    'align=True' parameter or sticky NPY_ALIGNED_STRUCT flag for
+    struct arrays like the regular repr does, because the 'align'
+    flag is not part of first dtype constructor parameter. This
+    mode is intended for a full 'repr', where the 'align=True' is
+    provided as the second parameter.

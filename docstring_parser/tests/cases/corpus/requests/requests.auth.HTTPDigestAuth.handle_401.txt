@@ -1,0 +1,22 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+
+        Takes the given response and tries digest-auth, if needed.
+
+        :rtype: requests.Response
+        
+=== parse rest
+short_description: 'Takes the given response and tries digest-auth, if needed.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringReturns
+  args: []
+  type_name: 'requests.Response'
+  is_generator: False
+=== detect
+rest
+=== compose rest
+Takes the given response and tries digest-auth, if needed.
+
+:returns requests.Response:

@@ -1,0 +1,98 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Shortcut to construct and run a prompt loop and return the result.
+
+        Example:
+            >>> filename = Prompt.ask("Enter a filename")
+
+        Args:
+            prompt (TextType, optional): Prompt text. Defaults to "".
+            console (Console, optional): A Console instance or None to use global console. Defaults to None.
+            password (bool, optional): Enable password input. Defaults to False.
+            choices (List[str], optional): A list of valid choices. Defaults to None.
+            case_sensitive (bool, optional): Matching of choices should be case-sensitive. Defaults to True.
+            show_default (bool, optional): Show default in prompt. Defaults to True.
+            show_choices (bool, optional): Show choices in prompt. Defaults to True.
+            stream (TextIO, optional): Optional text file open for reading to get input. Defaults to None.
+        
+=== parse google
+short_description: 'Shortcut to construct and run a prompt loop and return the result.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringExample
+  args: ['examples']
+  description: '>>> filename = Prompt.ask("Enter a filename")'
+- DocstringParam
+  args: ['param', 'prompt (TextType, optional)']
+  description: 'Prompt text. Defaults to "".'
+  arg_name: 'prompt'
+  type_name: 'TextType'
+  is_optional: True
+  default: '""'
+- DocstringParam
+  args: ['param', 'console (Console, optional)']
+  description: 'A Console instance or None to use global console. Defaults to None.'
+  arg_name: 'console'
+  type_name: 'Console'
+  is_optional: True
+  default: 'None'
+- DocstringParam
+  args: ['param', 'password (bool, optional)']
+  description: 'Enable password input. Defaults to False.'
+  arg_name: 'password'
+  type_name: 'bool'
+  is_optional: True
+  default: 'False'
+- DocstringParam
+  args: ['param', 'choices (List[str], optional)']
+  description: 'A list of valid choices. Defaults to None.'
+  arg_name: 'choices'
+  type_name: 'List[str]'
+  is_optional: True
+  default: 'None'
+- DocstringParam
+  args: ['param', 'case_sensitive (bool, optional)']
+  description: 'Matching of choices should be case-sensitive. Defaults to True.'
+  arg_name: 'case_sensitive'
+  type_name: 'bool'
+  is_optional: True
+  default: 'True'
+- DocstringParam
+  args: ['param', 'show_default (bool, optional)']
+  description: 'Show default in prompt. Defaults to True.'
+  arg_name: 'show_default'
+  type_name: 'bool'
+  is_optional: True
+  default: 'True'
+- DocstringParam
+  args: ['param', 'show_choices (bool, optional)']
+  description: 'Show choices in prompt. Defaults to True.'
+  arg_name: 'show_choices'
+  type_name: 'bool'
+  is_optional: True
+  default: 'True'
+- DocstringParam
+  args: ['param', 'stream (TextIO, optional)']
+  description: 'Optional text file open for reading to get input. Defaults to None.'
+  arg_name: 'stream'
+  type_name: 'TextIO'
+  is_optional: True
+  default: 'None'
+=== detect
+google
+=== compose google
+Shortcut to construct and run a prompt loop and return the result.
+
+Args:
+    prompt (TextType?): Prompt text. Defaults to "".
+    console (Console?): A Console instance or None to use global console. Defaults to None.
+    password (bool?): Enable password input. Defaults to False.
+    choices (List[str]?): A list of valid choices. Defaults to None.
+    case_sensitive (bool?): Matching of choices should be case-sensitive. Defaults to True.
+    show_default (bool?): Show default in prompt. Defaults to True.
+    show_choices (bool?): Show choices in prompt. Defaults to True.
+    stream (TextIO?): Optional text file open for reading to get input. Defaults to None.
+
+Examples:
+    >>> filename = Prompt.ask("Enter a filename")

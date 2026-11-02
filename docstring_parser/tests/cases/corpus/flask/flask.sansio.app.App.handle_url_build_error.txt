@@ -1,0 +1,60 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Called by :meth:`.url_for` if a
+        :exc:`~werkzeug.routing.BuildError` was raised. If this returns
+        a value, it will be returned by ``url_for``, otherwise the error
+        will be re-raised.
+
+        Each function in :attr:`url_build_error_handlers` is called with
+        ``error``, ``endpoint`` and ``values``. If a function returns
+        ``None`` or raises a ``BuildError``, it is skipped. Otherwise,
+        its return value is returned by ``url_for``.
+
+        :param error: The active ``BuildError`` being handled.
+        :param endpoint: The endpoint being built.
+        :param values: The keyword arguments passed to ``url_for``.
+        
+=== parse rest
+short_description: 'Called by :meth:`.url_for` if a'
+long_description: |
+  Each function in :attr:`url_build_error_handlers` is called with
+  ``error``, ``endpoint`` and ``values``. If a function returns
+  ``None`` or raises a ``BuildError``, it is skipped. Otherwise,
+  its return value is returned by ``url_for``.
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringMeta
+  args: ['exc']
+  description: |
+    `~werkzeug.routing.BuildError` was raised. If this returns
+    a value, it will be returned by ``url_for``, otherwise the error
+    will be re-raised.
+- DocstringParam
+  args: ['param', 'error']
+  description: 'The active ``BuildError`` being handled.'
+  arg_name: 'error'
+- DocstringParam
+  args: ['param', 'endpoint']
+  description: 'The endpoint being built.'
+  arg_name: 'endpoint'
+- DocstringParam
+  args: ['param', 'values']
+  description: 'The keyword arguments passed to ``url_for``.'
+  arg_name: 'values'
+=== detect
+rest
+=== compose rest
+Called by :meth:`.url_for` if a
+
+Each function in :attr:`url_build_error_handlers` is called with
+``error``, ``endpoint`` and ``values``. If a function returns
+``None`` or raises a ``BuildError``, it is skipped. Otherwise,
+its return value is returned by ``url_for``.
+
+:exc: `~werkzeug.routing.BuildError` was raised. If this returns
+    a value, it will be returned by ``url_for``, otherwise the error
+    will be re-raised.
+:param error: The active ``BuildError`` being handled.
+:param endpoint: The endpoint being built.
+:param values: The keyword arguments passed to ``url_for``.

@@ -1,0 +1,91 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Updates a URL's query parameters.
+
+    Replaces any current values if they are already present in the URL.
+
+    Args:
+        url (str): The URL to update.
+        params (Mapping[str, str]): A mapping of query parameter
+            keys to values.
+        remove (Sequence[str]): Parameters to remove from the query string.
+
+    Returns:
+        str: The URL with updated query parameters.
+
+    Examples:
+
+        >>> url = 'http://example.com?a=1'
+        >>> update_query(url, {'a': '2'})
+        http://example.com?a=2
+        >>> update_query(url, {'b': '3'})
+        http://example.com?a=1&b=3
+        >> update_query(url, {'b': '3'}, remove=['a'])
+        http://example.com?b=3
+
+    
+=== parse google
+short_description: "Updates a URL's query parameters."
+long_description: 'Replaces any current values if they are already present in the URL.'
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'url (str)']
+  description: 'The URL to update.'
+  arg_name: 'url'
+  type_name: 'str'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'params (Mapping[str, str])']
+  description: |
+    A mapping of query parameter
+    keys to values.
+  arg_name: 'params'
+  type_name: 'Mapping[str, str]'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'remove (Sequence[str])']
+  description: 'Parameters to remove from the query string.'
+  arg_name: 'remove'
+  type_name: 'Sequence[str]'
+  is_optional: False
+- DocstringReturns
+  args: ['returns', 'str']
+  description: 'The URL with updated query parameters.'
+  type_name: 'str'
+  is_generator: False
+- DocstringExample
+  args: ['examples']
+  description: |
+    >>> url = 'http://example.com?a=1'
+    >>> update_query(url, {'a': '2'})
+    http://example.com?a=2
+    >>> update_query(url, {'b': '3'})
+    http://example.com?a=1&b=3
+    >> update_query(url, {'b': '3'}, remove=['a'])
+    http://example.com?b=3
+=== detect
+google
+=== compose google
+Updates a URL's query parameters.
+
+Replaces any current values if they are already present in the URL.
+
+Args:
+    url (str): The URL to update.
+    params (Mapping[str, str]): A mapping of query parameter
+        keys to values.
+    remove (Sequence[str]): Parameters to remove from the query string.
+
+Returns:
+    str: The URL with updated query parameters.
+
+Examples:
+    >>> url = 'http://example.com?a=1'
+    >>> update_query(url, {'a': '2'})
+    http://example.com?a=2
+    >>> update_query(url, {'b': '3'})
+    http://example.com?a=1&b=3
+    >> update_query(url, {'b': '3'}, remove=['a'])
+    http://example.com?b=3

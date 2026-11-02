@@ -1,0 +1,41 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Spawn an operating-system process.
+
+        This is where the hard work of disconnecting all currently open
+        files / forking / executing the new process happens.  (This is
+        executed automatically when a Process is instantiated.)
+
+        This will also run the subprocess as a given user ID and group ID, if
+        specified.  (Implementation Note: this doesn't support all the arcane
+        nuances of setXXuid on UNIX: it will assume that either your effective
+        or real UID is 0.)
+        
+=== parse epydoc
+short_description: 'Spawn an operating-system process.'
+long_description: |
+  This is where the hard work of disconnecting all currently open
+  files / forking / executing the new process happens.  (This is
+  executed automatically when a Process is instantiated.)
+  
+  This will also run the subprocess as a given user ID and group ID, if
+  specified.  (Implementation Note: this doesn't support all the arcane
+  nuances of setXXuid on UNIX: it will assume that either your effective
+  or real UID is 0.)
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+=== detect
+rest
+=== compose epydoc
+Spawn an operating-system process.
+
+This is where the hard work of disconnecting all currently open
+files / forking / executing the new process happens.  (This is
+executed automatically when a Process is instantiated.)
+
+This will also run the subprocess as a given user ID and group ID, if
+specified.  (Implementation Note: this doesn't support all the arcane
+nuances of setXXuid on UNIX: it will assume that either your effective
+or real UID is 0.)

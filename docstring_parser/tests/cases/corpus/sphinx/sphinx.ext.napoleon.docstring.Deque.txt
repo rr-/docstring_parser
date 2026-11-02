@@ -1,0 +1,18 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+A subclass of deque that mimics ``pockets.iterators.modify_iter``.
+
+    The `.Deque.get` and `.Deque.next` methods are added.
+    
+=== parse rest
+short_description: 'A subclass of deque that mimics ``pockets.iterators.modify_iter``.'
+long_description: 'The `.Deque.get` and `.Deque.next` methods are added.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+A subclass of deque that mimics ``pockets.iterators.modify_iter``.
+
+The `.Deque.get` and `.Deque.next` methods are added.

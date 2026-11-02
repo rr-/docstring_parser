@@ -1,0 +1,42 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Constructs a :class:`PreparedRequest <PreparedRequest>` for
+        transmission and returns it. The :class:`PreparedRequest` has settings
+        merged from the :class:`Request <Request>` instance and those of the
+        :class:`Session`.
+
+        :param request: :class:`Request` instance to prepare with this
+            session's settings.
+        :rtype: requests.PreparedRequest
+        
+=== parse rest
+short_description: 'Constructs a :class:`PreparedRequest <PreparedRequest>` for'
+long_description: |
+  transmission and returns it. The :class:`PreparedRequest` has settings
+  merged from the :class:`Request <Request>` instance and those of the
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+- DocstringMeta
+  args: ['class']
+  description: '`Session`.'
+- DocstringParam
+  args: ['param', 'request']
+  description: |
+    :class:`Request` instance to prepare with this
+    session's settings.
+  arg_name: 'request'
+- DocstringReturns
+  args: []
+  type_name: 'requests.PreparedRequest'
+  is_generator: False
+=== detect
+rest
+=== compose rest
+Constructs a :class:`PreparedRequest <PreparedRequest>` for
+transmission and returns it. The :class:`PreparedRequest` has settings
+merged from the :class:`Request <Request>` instance and those of the
+:class: `Session`.
+:param request: :class:`Request` instance to prepare with this
+    session's settings.
+:returns requests.PreparedRequest:

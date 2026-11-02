@@ -1,0 +1,16 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Get the total table of contents, containing the master_doc
+        and pre and post files not managed by Sphinx.
+        
+=== parse rest
+short_description: 'Get the total table of contents, containing the master_doc'
+long_description: 'and pre and post files not managed by Sphinx.'
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Get the total table of contents, containing the master_doc
+and pre and post files not managed by Sphinx.

@@ -1,0 +1,22 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Get type_comment'ed FunctionDef object from living object.
+
+    This tries to parse original code for living object and returns
+    Signature for given *obj*.
+    
+=== parse rest
+short_description: "Get type_comment'ed FunctionDef object from living object."
+long_description: |
+  This tries to parse original code for living object and returns
+  Signature for given *obj*.
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Get type_comment'ed FunctionDef object from living object.
+
+This tries to parse original code for living object and returns
+Signature for given *obj*.

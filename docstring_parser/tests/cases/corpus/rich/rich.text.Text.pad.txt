@@ -1,0 +1,33 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Pad left and right with a given number of characters.
+
+        Args:
+            count (int): Width of padding.
+            character (str): The character to pad with. Must be a string of length 1.
+        
+=== parse google
+short_description: 'Pad left and right with a given number of characters.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'count (int)']
+  description: 'Width of padding.'
+  arg_name: 'count'
+  type_name: 'int'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'character (str)']
+  description: 'The character to pad with. Must be a string of length 1.'
+  arg_name: 'character'
+  type_name: 'str'
+  is_optional: False
+=== detect
+google
+=== compose google
+Pad left and right with a given number of characters.
+
+Args:
+    count (int): Width of padding.
+    character (str): The character to pad with. Must be a string of length 1.

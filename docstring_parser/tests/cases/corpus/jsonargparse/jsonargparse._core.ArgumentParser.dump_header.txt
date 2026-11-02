@@ -1,0 +1,32 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Header to include as comment when dumping a config object.
+
+        :getter: Returns the current dump header.
+        :setter: Sets the dump header.
+
+        Raises:
+            ValueError: If an invalid value is given.
+        
+=== parse google
+short_description: 'Header to include as comment when dumping a config object.'
+long_description: |
+  :getter: Returns the current dump header.
+  :setter: Sets the dump header.
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringRaises
+  args: ['raises', 'ValueError']
+  description: 'If an invalid value is given.'
+  type_name: 'ValueError'
+=== detect
+rest
+=== compose google
+Header to include as comment when dumping a config object.
+
+:getter: Returns the current dump header.
+:setter: Sets the dump header.
+
+Raises:
+    ValueError: If an invalid value is given.

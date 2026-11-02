@@ -1,0 +1,32 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+    Make a generic function which calls a validator with the right arguments.
+
+    Unfortunately other approaches (eg. return a partial of a function that builds the arguments) is slow,
+    hence this laborious way of doing things.
+
+    It's done like this so validators don't all need **kwargs in their signature, eg. any combination of
+    the arguments "values", "fields" and/or "config" are permitted.
+    
+=== parse google
+short_description: 'Make a generic function which calls a validator with the right arguments.'
+long_description: |
+  Unfortunately other approaches (eg. return a partial of a function that builds the arguments) is slow,
+  hence this laborious way of doing things.
+  
+  It's done like this so validators don't all need **kwargs in their signature, eg. any combination of
+  the arguments "values", "fields" and/or "config" are permitted.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Make a generic function which calls a validator with the right arguments.
+
+Unfortunately other approaches (eg. return a partial of a function that builds the arguments) is slow,
+hence this laborious way of doing things.
+
+It's done like this so validators don't all need **kwargs in their signature, eg. any combination of
+the arguments "values", "fields" and/or "config" are permitted.

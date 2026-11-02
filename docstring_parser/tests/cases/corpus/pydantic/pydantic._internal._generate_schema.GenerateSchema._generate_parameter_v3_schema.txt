@@ -1,0 +1,22 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Generate the definition of a parameter in a function signature.
+
+        This definition is meant to be used for the `'arguments-v3'` core schema, which will replace
+        the `'arguments`' schema in V3.
+        
+=== parse google
+short_description: 'Generate the definition of a parameter in a function signature.'
+long_description: |
+  This definition is meant to be used for the `'arguments-v3'` core schema, which will replace
+  the `'arguments`' schema in V3.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Generate the definition of a parameter in a function signature.
+
+This definition is meant to be used for the `'arguments-v3'` core schema, which will replace
+the `'arguments`' schema in V3.

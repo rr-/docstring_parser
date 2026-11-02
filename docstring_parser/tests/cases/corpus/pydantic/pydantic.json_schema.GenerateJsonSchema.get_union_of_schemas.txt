@@ -1,0 +1,38 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Returns the JSON Schema representation for the union of the provided JSON Schemas.
+
+        The result depends on the configured `'union_format'`.
+
+        Args:
+            schemas: The list of JSON Schemas to be included in the union.
+
+        Returns:
+            The JSON Schema representing the union of schemas.
+        
+=== parse google
+short_description: 'Returns the JSON Schema representation for the union of the provided JSON Schemas.'
+long_description: "The result depends on the configured `'union_format'`."
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'schemas']
+  description: 'The list of JSON Schemas to be included in the union.'
+  arg_name: 'schemas'
+- DocstringReturns
+  args: ['returns']
+  description: 'The JSON Schema representing the union of schemas.'
+  is_generator: False
+=== detect
+google
+=== compose google
+Returns the JSON Schema representation for the union of the provided JSON Schemas.
+
+The result depends on the configured `'union_format'`.
+
+Args:
+    schemas: The list of JSON Schemas to be included in the union.
+
+Returns:
+    The JSON Schema representing the union of schemas.

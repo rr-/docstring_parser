@@ -1,0 +1,18 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Generates a unique id for each section.
+
+        Assigns the attribute ``node_name`` to each section.
+        
+=== parse rest
+short_description: 'Generates a unique id for each section.'
+long_description: 'Assigns the attribute ``node_name`` to each section.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Generates a unique id for each section.
+
+Assigns the attribute ``node_name`` to each section.

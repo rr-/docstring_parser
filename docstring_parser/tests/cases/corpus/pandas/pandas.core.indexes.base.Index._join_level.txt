@@ -1,0 +1,33 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        The join method *only* affects the level of the resulting
+        MultiIndex. Otherwise it just exactly aligns the Index data to the
+        labels of the level in the MultiIndex.
+
+        If ```keep_order == True```, the order of the data indexed by the
+        MultiIndex will not be changed; otherwise, it will tie out
+        with `other`.
+        
+=== parse numpydoc
+short_description: 'The join method *only* affects the level of the resulting'
+long_description: |
+  MultiIndex. Otherwise it just exactly aligns the Index data to the
+  labels of the level in the MultiIndex.
+  
+  If ```keep_order == True```, the order of the data indexed by the
+  MultiIndex will not be changed; otherwise, it will tie out
+  with `other`.
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+The join method *only* affects the level of the resulting
+MultiIndex. Otherwise it just exactly aligns the Index data to the
+labels of the level in the MultiIndex.
+
+If ```keep_order == True```, the order of the data indexed by the
+MultiIndex will not be changed; otherwise, it will tie out
+with `other`.

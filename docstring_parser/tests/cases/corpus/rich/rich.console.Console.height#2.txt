@@ -1,0 +1,25 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Set height.
+
+        Args:
+            height (int): new height.
+        
+=== parse google
+short_description: 'Set height.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'height (int)']
+  description: 'new height.'
+  arg_name: 'height'
+  type_name: 'int'
+  is_optional: False
+=== detect
+google
+=== compose google
+Set height.
+
+Args:
+    height (int): new height.

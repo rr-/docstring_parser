@@ -1,0 +1,728 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Return a fixed frequency DatetimeIndex.
+
+    Returns the range of equally spaced time points (where the difference between any
+    two adjacent points is specified by the given frequency) such that they fall in the
+    range `[start, end]` , where the first one and the last one are, resp., the first
+    and last time points in that range that fall on the boundary of ``freq`` (if given
+    as a frequency string) or that are valid for ``freq`` (if given as a
+    :class:`pandas.tseries.offsets.DateOffset`). If ``freq`` is positive, the points
+    satisfy `start <[=] x <[=] end`, and if ``freq`` is negative, the points satisfy
+    `end <[=] x <[=] start`. (If exactly one of ``start``, ``end``, or ``freq`` is *not*
+    specified, this missing parameter can be computed given ``periods``, the number of
+    timesteps in the range. See the note below.)
+
+    Parameters
+    ----------
+    start : str or datetime-like, optional
+        Left bound for generating dates.
+    end : str or datetime-like, optional
+        Right bound for generating dates.
+    periods : int, optional
+        Number of periods to generate.
+    freq : str, Timedelta, datetime.timedelta, or DateOffset, default 'D'
+        Frequency strings can have multiples, e.g. '5h'. See
+        :ref:`here <timeseries.offset_aliases>` for a list of
+        frequency aliases.
+    tz : str or tzinfo, optional
+        Time zone name for returning localized DatetimeIndex, for example
+        'Asia/Hong_Kong'. By default, the resulting DatetimeIndex is
+        timezone-naive unless timezone-aware datetime-likes are passed.
+    normalize : bool, default False
+        Normalize start/end dates to midnight before generating date range.
+    name : Hashable, default None
+        Name of the resulting DatetimeIndex.
+    inclusive : {"both", "neither", "left", "right"}, default "both"
+        Include boundaries; Whether to set each bound as closed or open.
+    unit : {'s', 'ms', 'us', 'ns', None}, default None
+        Specify the desired resolution of the result.
+        If not specified, this is inferred from the 'start', 'end', and 'freq'
+        using the same inference as :class:`Timestamp` taking the highest
+        resolution of the three that are provided.
+
+        .. versionadded:: 2.0.0
+    ambiguous : 'infer', bool-ndarray, 'NaT', default 'raise'
+        When clocks moved backward due to DST, ambiguous times may arise.
+        For example in Central European Time (UTC+01), when going from 03:00
+        DST to 02:00 non-DST, 02:30:00 local time occurs both at 00:30:00 UTC
+        and at 01:30:00 UTC. In such a situation, the `ambiguous` parameter
+        dictates how ambiguous times should be handled.
+
+        - 'infer' will attempt to infer fall dst-transition hours based on
+          order. Requires that the timestamps are monotonically increasing.
+        - bool-ndarray where True signifies a DST time, False signifies a
+          non-DST time (note that this flag is only applicable for ambiguous
+          times)
+        - 'NaT' will return NaT where there are ambiguous times
+        - 'raise' will raise a ValueError if there are ambiguous times.
+    nonexistent : 'shift_forward', 'shift_backward', 'NaT', timedelta,     default 'raise'
+        A nonexistent time does not exist in a particular timezone
+        where clocks moved forward due to DST.
+
+        - 'shift_forward' will shift the nonexistent time forward to the
+          closest existing time
+        - 'shift_backward' will shift the nonexistent time backward to the
+          closest existing time
+        - 'NaT' will return NaT where there are nonexistent times
+        - timedelta objects will shift nonexistent times by the timedelta
+        - 'raise' will raise a ValueError if there are nonexistent times.
+    **kwargs
+        For compatibility. Has no effect on the result.
+
+    Returns
+    -------
+    DatetimeIndex
+        A DatetimeIndex object of the generated dates.
+
+    See Also
+    --------
+    DatetimeIndex : An immutable container for datetimes.
+    timedelta_range : Return a fixed frequency TimedeltaIndex.
+    period_range : Return a fixed frequency PeriodIndex.
+    interval_range : Return a fixed frequency IntervalIndex.
+
+    Notes
+    -----
+    Of the four parameters ``start``, ``end``, ``periods``, and ``freq``,
+    a maximum of three can be specified at once. Of the three parameters
+    ``start``, ``end``, and ``periods``, at least two must be specified.
+    If ``freq`` is omitted, the resulting ``DatetimeIndex`` will have
+    ``periods`` linearly spaced elements between ``start`` and ``end``
+    (closed on both sides).
+
+    To learn more about the frequency strings, please see
+    :ref:`this link<timeseries.offset_aliases>`.
+
+    Examples
+    --------
+    **Specifying the values**
+
+    The next four examples generate the same `DatetimeIndex`, but vary
+    the combination of `start`, `end` and `periods`.
+
+    Specify `start` and `end`, with the default daily frequency.
+
+    >>> pd.date_range(start="1/1/2018", end="1/08/2018")
+    DatetimeIndex(['2018-01-01', '2018-01-02', '2018-01-03', '2018-01-04',
+                   '2018-01-05', '2018-01-06', '2018-01-07', '2018-01-08'],
+                  dtype='datetime64[us]', freq='D')
+
+    Specify timezone-aware `start` and `end`, with the default daily frequency.
+
+    >>> pd.date_range(
+    ...     start=pd.to_datetime("1/1/2018").tz_localize("Europe/Berlin"),
+    ...     end=pd.to_datetime("1/08/2018").tz_localize("Europe/Berlin"),
+    ... )
+    DatetimeIndex(['2018-01-01 00:00:00+01:00', '2018-01-02 00:00:00+01:00',
+                   '2018-01-03 00:00:00+01:00', '2018-01-04 00:00:00+01:00',
+                   '2018-01-05 00:00:00+01:00', '2018-01-06 00:00:00+01:00',
+                   '2018-01-07 00:00:00+01:00', '2018-01-08 00:00:00+01:00'],
+                  dtype='datetime64[us, Europe/Berlin]', freq='D')
+
+    Specify `start` and `periods`, the number of periods (days).
+
+    >>> pd.date_range(start="1/1/2018", periods=8)
+    DatetimeIndex(['2018-01-01', '2018-01-02', '2018-01-03', '2018-01-04',
+                   '2018-01-05', '2018-01-06', '2018-01-07', '2018-01-08'],
+                  dtype='datetime64[us]', freq='D')
+
+    Specify `end` and `periods`, the number of periods (days).
+
+    >>> pd.date_range(end="1/1/2018", periods=8)
+    DatetimeIndex(['2017-12-25', '2017-12-26', '2017-12-27', '2017-12-28',
+                   '2017-12-29', '2017-12-30', '2017-12-31', '2018-01-01'],
+                  dtype='datetime64[us]', freq='D')
+
+    Specify `start`, `end`, and `periods`; the frequency is generated
+    automatically (linearly spaced).
+
+    >>> pd.date_range(start="2018-04-24", end="2018-04-27", periods=3)
+    DatetimeIndex(['2018-04-24 00:00:00', '2018-04-25 12:00:00',
+                   '2018-04-27 00:00:00'],
+                  dtype='datetime64[us]', freq=None)
+
+    **Other Parameters**
+
+    Changed the `freq` (frequency) to ``'ME'`` (month end frequency).
+
+    >>> pd.date_range(start="1/1/2018", periods=5, freq="ME")
+    DatetimeIndex(['2018-01-31', '2018-02-28', '2018-03-31', '2018-04-30',
+                   '2018-05-31'],
+                  dtype='datetime64[us]', freq='ME')
+
+    Multiples are allowed
+
+    >>> pd.date_range(start="1/1/2018", periods=5, freq="3ME")
+    DatetimeIndex(['2018-01-31', '2018-04-30', '2018-07-31', '2018-10-31',
+                   '2019-01-31'],
+                  dtype='datetime64[us]', freq='3ME')
+
+    `freq` can also be specified as an Offset object.
+
+    >>> pd.date_range(start="1/1/2018", periods=5, freq=pd.offsets.MonthEnd(3))
+    DatetimeIndex(['2018-01-31', '2018-04-30', '2018-07-31', '2018-10-31',
+                   '2019-01-31'],
+                  dtype='datetime64[us]', freq='3ME')
+
+    Use :class:`pandas.DateOffset` for calendar steps that are not anchored to
+    the start or end of a period.
+
+    >>> pd.date_range(end="2017-03-12", periods=3, freq=pd.DateOffset(years=1))
+    DatetimeIndex(['2015-03-12', '2016-03-12', '2017-03-12'],
+                  dtype='datetime64[us]', freq='<DateOffset: years=1>')
+
+    Specify `tz` to set the timezone.
+
+    >>> pd.date_range(start="1/1/2018", periods=5, tz="Asia/Tokyo")
+    DatetimeIndex(['2018-01-01 00:00:00+09:00', '2018-01-02 00:00:00+09:00',
+                   '2018-01-03 00:00:00+09:00', '2018-01-04 00:00:00+09:00',
+                   '2018-01-05 00:00:00+09:00'],
+                  dtype='datetime64[us, Asia/Tokyo]', freq='D')
+
+    `inclusive` controls whether to include `start` and `end` that are on the
+    boundary. The default, "both", includes boundary points on either end.
+
+    >>> pd.date_range(start="2017-01-01", end="2017-01-04", inclusive="both")
+    DatetimeIndex(['2017-01-01', '2017-01-02', '2017-01-03', '2017-01-04'],
+                  dtype='datetime64[us]', freq='D')
+
+    Use ``inclusive='left'`` to exclude `end` if it falls on the boundary.
+
+    >>> pd.date_range(start="2017-01-01", end="2017-01-04", inclusive="left")
+    DatetimeIndex(['2017-01-01', '2017-01-02', '2017-01-03'],
+                  dtype='datetime64[us]', freq='D')
+
+    Use ``inclusive='right'`` to exclude `start` if it falls on the boundary, and
+    similarly ``inclusive='neither'`` will exclude both `start` and `end`.
+
+    >>> pd.date_range(start="2017-01-01", end="2017-01-04", inclusive="right")
+    DatetimeIndex(['2017-01-02', '2017-01-03', '2017-01-04'],
+                  dtype='datetime64[us]', freq='D')
+
+    **Specify a unit**
+
+    >>> pd.date_range(start="2017-01-01", periods=10, freq="100YS", unit="s")
+    DatetimeIndex(['2017-01-01', '2117-01-01', '2217-01-01', '2317-01-01',
+                   '2417-01-01', '2517-01-01', '2617-01-01', '2717-01-01',
+                   '2817-01-01', '2917-01-01'],
+                  dtype='datetime64[s]', freq='100YS-JAN')
+    
+=== parse numpydoc
+short_description: 'Return a fixed frequency DatetimeIndex.'
+long_description: |
+  Returns the range of equally spaced time points (where the difference between any
+  two adjacent points is specified by the given frequency) such that they fall in the
+  range `[start, end]` , where the first one and the last one are, resp., the first
+  and last time points in that range that fall on the boundary of ``freq`` (if given
+  as a frequency string) or that are valid for ``freq`` (if given as a
+  :class:`pandas.tseries.offsets.DateOffset`). If ``freq`` is positive, the points
+  satisfy `start <[=] x <[=] end`, and if ``freq`` is negative, the points satisfy
+  `end <[=] x <[=] start`. (If exactly one of ``start``, ``end``, or ``freq`` is *not*
+  specified, this missing parameter can be computed given ``periods``, the number of
+  timesteps in the range. See the note below.)
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'start']
+  description: 'Left bound for generating dates.'
+  arg_name: 'start'
+  type_name: 'str or datetime-like'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'end']
+  description: 'Right bound for generating dates.'
+  arg_name: 'end'
+  type_name: 'str or datetime-like'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'periods']
+  description: 'Number of periods to generate.'
+  arg_name: 'periods'
+  type_name: 'int'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'freq']
+  description: |
+    Frequency strings can have multiples, e.g. '5h'. See
+    :ref:`here <timeseries.offset_aliases>` for a list of
+    frequency aliases.
+  arg_name: 'freq'
+  type_name: 'str, Timedelta, datetime.timedelta, or DateOffset'
+  is_optional: True
+  default: "'D'"
+- DocstringParam
+  args: ['param', 'tz']
+  description: |
+    Time zone name for returning localized DatetimeIndex, for example
+    'Asia/Hong_Kong'. By default, the resulting DatetimeIndex is
+    timezone-naive unless timezone-aware datetime-likes are passed.
+  arg_name: 'tz'
+  type_name: 'str or tzinfo'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'normalize']
+  description: 'Normalize start/end dates to midnight before generating date range.'
+  arg_name: 'normalize'
+  type_name: 'bool'
+  is_optional: True
+  default: 'False'
+- DocstringParam
+  args: ['param', 'name']
+  description: 'Name of the resulting DatetimeIndex.'
+  arg_name: 'name'
+  type_name: 'Hashable'
+  is_optional: True
+  default: 'None'
+- DocstringParam
+  args: ['param', 'inclusive']
+  description: 'Include boundaries; Whether to set each bound as closed or open.'
+  arg_name: 'inclusive'
+  type_name: '{"both", "neither", "left", "right"}'
+  is_optional: True
+  default: '"both"'
+- DocstringParam
+  args: ['param', 'unit']
+  description: |
+    Specify the desired resolution of the result.
+    If not specified, this is inferred from the 'start', 'end', and 'freq'
+    using the same inference as :class:`Timestamp` taking the highest
+    resolution of the three that are provided.
+    
+    .. versionadded:: 2.0.0
+  arg_name: 'unit'
+  type_name: "{'s', 'ms', 'us', 'ns', None}"
+  is_optional: True
+  default: 'None'
+- DocstringParam
+  args: ['param', 'ambiguous']
+  description: |
+    When clocks moved backward due to DST, ambiguous times may arise.
+    For example in Central European Time (UTC+01), when going from 03:00
+    DST to 02:00 non-DST, 02:30:00 local time occurs both at 00:30:00 UTC
+    and at 01:30:00 UTC. In such a situation, the `ambiguous` parameter
+    dictates how ambiguous times should be handled.
+    
+    - 'infer' will attempt to infer fall dst-transition hours based on
+      order. Requires that the timestamps are monotonically increasing.
+    - bool-ndarray where True signifies a DST time, False signifies a
+      non-DST time (note that this flag is only applicable for ambiguous
+      times)
+    - 'NaT' will return NaT where there are ambiguous times
+    - 'raise' will raise a ValueError if there are ambiguous times.
+  arg_name: 'ambiguous'
+  type_name: "'infer', bool-ndarray, 'NaT'"
+  is_optional: True
+  default: "'raise'"
+- DocstringParam
+  args: ['param', 'nonexistent']
+  description: |
+    A nonexistent time does not exist in a particular timezone
+    where clocks moved forward due to DST.
+    
+    - 'shift_forward' will shift the nonexistent time forward to the
+      closest existing time
+    - 'shift_backward' will shift the nonexistent time backward to the
+      closest existing time
+    - 'NaT' will return NaT where there are nonexistent times
+    - timedelta objects will shift nonexistent times by the timedelta
+    - 'raise' will raise a ValueError if there are nonexistent times.
+  arg_name: 'nonexistent'
+  type_name: "'shift_forward', 'shift_backward', 'NaT', timedelta,     default 'raise'"
+  is_optional: False
+- DocstringParam
+  args: ['param', '**kwargs']
+  description: 'For compatibility. Has no effect on the result.'
+  arg_name: '**kwargs'
+- DocstringReturns
+  args: ['returns']
+  description: 'A DatetimeIndex object of the generated dates.'
+  type_name: 'DatetimeIndex'
+  is_generator: False
+- DocstringMeta
+  args: ['see_also']
+  description: |
+    DatetimeIndex : An immutable container for datetimes.
+    timedelta_range : Return a fixed frequency TimedeltaIndex.
+    period_range : Return a fixed frequency PeriodIndex.
+    interval_range : Return a fixed frequency IntervalIndex.
+- DocstringMeta
+  args: ['notes']
+  description: |
+    Of the four parameters ``start``, ``end``, ``periods``, and ``freq``,
+    a maximum of three can be specified at once. Of the three parameters
+    ``start``, ``end``, and ``periods``, at least two must be specified.
+    If ``freq`` is omitted, the resulting ``DatetimeIndex`` will have
+    ``periods`` linearly spaced elements between ``start`` and ``end``
+    (closed on both sides).
+    
+    To learn more about the frequency strings, please see
+    :ref:`this link<timeseries.offset_aliases>`.
+- DocstringExample
+  args: ['examples']
+  description: |
+    **Specifying the values**
+    
+    The next four examples generate the same `DatetimeIndex`, but vary
+    the combination of `start`, `end` and `periods`.
+    
+    Specify `start` and `end`, with the default daily frequency.
+    
+- DocstringExample
+  args: ['examples']
+  description: |
+    DatetimeIndex(['2018-01-01', '2018-01-02', '2018-01-03', '2018-01-04',
+                   '2018-01-05', '2018-01-06', '2018-01-07', '2018-01-08'],
+                  dtype='datetime64[us]', freq='D')
+    
+    Specify timezone-aware `start` and `end`, with the default daily frequency.
+    
+  snippet: '>>> pd.date_range(start="1/1/2018", end="1/08/2018")'
+- DocstringExample
+  args: ['examples']
+  description: |
+    ...     start=pd.to_datetime("1/1/2018").tz_localize("Europe/Berlin"),
+    ...     end=pd.to_datetime("1/08/2018").tz_localize("Europe/Berlin"),
+    ... )
+    DatetimeIndex(['2018-01-01 00:00:00+01:00', '2018-01-02 00:00:00+01:00',
+                   '2018-01-03 00:00:00+01:00', '2018-01-04 00:00:00+01:00',
+                   '2018-01-05 00:00:00+01:00', '2018-01-06 00:00:00+01:00',
+                   '2018-01-07 00:00:00+01:00', '2018-01-08 00:00:00+01:00'],
+                  dtype='datetime64[us, Europe/Berlin]', freq='D')
+    
+    Specify `start` and `periods`, the number of periods (days).
+    
+  snippet: '>>> pd.date_range('
+- DocstringExample
+  args: ['examples']
+  description: |
+    DatetimeIndex(['2018-01-01', '2018-01-02', '2018-01-03', '2018-01-04',
+                   '2018-01-05', '2018-01-06', '2018-01-07', '2018-01-08'],
+                  dtype='datetime64[us]', freq='D')
+    
+    Specify `end` and `periods`, the number of periods (days).
+    
+  snippet: '>>> pd.date_range(start="1/1/2018", periods=8)'
+- DocstringExample
+  args: ['examples']
+  description: |
+    DatetimeIndex(['2017-12-25', '2017-12-26', '2017-12-27', '2017-12-28',
+                   '2017-12-29', '2017-12-30', '2017-12-31', '2018-01-01'],
+                  dtype='datetime64[us]', freq='D')
+    
+    Specify `start`, `end`, and `periods`; the frequency is generated
+    automatically (linearly spaced).
+    
+  snippet: '>>> pd.date_range(end="1/1/2018", periods=8)'
+- DocstringExample
+  args: ['examples']
+  description: |
+    DatetimeIndex(['2018-04-24 00:00:00', '2018-04-25 12:00:00',
+                   '2018-04-27 00:00:00'],
+                  dtype='datetime64[us]', freq=None)
+    
+    **Other Parameters**
+    
+    Changed the `freq` (frequency) to ``'ME'`` (month end frequency).
+    
+  snippet: '>>> pd.date_range(start="2018-04-24", end="2018-04-27", periods=3)'
+- DocstringExample
+  args: ['examples']
+  description: |
+    DatetimeIndex(['2018-01-31', '2018-02-28', '2018-03-31', '2018-04-30',
+                   '2018-05-31'],
+                  dtype='datetime64[us]', freq='ME')
+    
+    Multiples are allowed
+    
+  snippet: '>>> pd.date_range(start="1/1/2018", periods=5, freq="ME")'
+- DocstringExample
+  args: ['examples']
+  description: |
+    DatetimeIndex(['2018-01-31', '2018-04-30', '2018-07-31', '2018-10-31',
+                   '2019-01-31'],
+                  dtype='datetime64[us]', freq='3ME')
+    
+    `freq` can also be specified as an Offset object.
+    
+  snippet: '>>> pd.date_range(start="1/1/2018", periods=5, freq="3ME")'
+- DocstringExample
+  args: ['examples']
+  description: |
+    DatetimeIndex(['2018-01-31', '2018-04-30', '2018-07-31', '2018-10-31',
+                   '2019-01-31'],
+                  dtype='datetime64[us]', freq='3ME')
+    
+    Use :class:`pandas.DateOffset` for calendar steps that are not anchored to
+    the start or end of a period.
+    
+  snippet: '>>> pd.date_range(start="1/1/2018", periods=5, freq=pd.offsets.MonthEnd(3))'
+- DocstringExample
+  args: ['examples']
+  description: |
+    DatetimeIndex(['2015-03-12', '2016-03-12', '2017-03-12'],
+                  dtype='datetime64[us]', freq='<DateOffset: years=1>')
+    
+    Specify `tz` to set the timezone.
+    
+  snippet: '>>> pd.date_range(end="2017-03-12", periods=3, freq=pd.DateOffset(years=1))'
+- DocstringExample
+  args: ['examples']
+  description: |
+    DatetimeIndex(['2018-01-01 00:00:00+09:00', '2018-01-02 00:00:00+09:00',
+                   '2018-01-03 00:00:00+09:00', '2018-01-04 00:00:00+09:00',
+                   '2018-01-05 00:00:00+09:00'],
+                  dtype='datetime64[us, Asia/Tokyo]', freq='D')
+    
+    `inclusive` controls whether to include `start` and `end` that are on the
+    boundary. The default, "both", includes boundary points on either end.
+    
+  snippet: '>>> pd.date_range(start="1/1/2018", periods=5, tz="Asia/Tokyo")'
+- DocstringExample
+  args: ['examples']
+  description: |
+    DatetimeIndex(['2017-01-01', '2017-01-02', '2017-01-03', '2017-01-04'],
+                  dtype='datetime64[us]', freq='D')
+    
+    Use ``inclusive='left'`` to exclude `end` if it falls on the boundary.
+    
+  snippet: '>>> pd.date_range(start="2017-01-01", end="2017-01-04", inclusive="both")'
+- DocstringExample
+  args: ['examples']
+  description: |
+    DatetimeIndex(['2017-01-01', '2017-01-02', '2017-01-03'],
+                  dtype='datetime64[us]', freq='D')
+    
+    Use ``inclusive='right'`` to exclude `start` if it falls on the boundary, and
+    similarly ``inclusive='neither'`` will exclude both `start` and `end`.
+    
+  snippet: '>>> pd.date_range(start="2017-01-01", end="2017-01-04", inclusive="left")'
+- DocstringExample
+  args: ['examples']
+  description: |
+    DatetimeIndex(['2017-01-02', '2017-01-03', '2017-01-04'],
+                  dtype='datetime64[us]', freq='D')
+    
+    **Specify a unit**
+    
+  snippet: '>>> pd.date_range(start="2017-01-01", end="2017-01-04", inclusive="right")'
+- DocstringExample
+  args: ['examples']
+  description: |
+    DatetimeIndex(['2017-01-01', '2117-01-01', '2217-01-01', '2317-01-01',
+                   '2417-01-01', '2517-01-01', '2617-01-01', '2717-01-01',
+                   '2817-01-01', '2917-01-01'],
+                  dtype='datetime64[s]', freq='100YS-JAN')
+  snippet: '>>> pd.date_range(start="2017-01-01", periods=10, freq="100YS", unit="s")'
+=== detect
+numpydoc
+=== compose numpydoc
+Return a fixed frequency DatetimeIndex.
+
+Returns the range of equally spaced time points (where the difference between any
+two adjacent points is specified by the given frequency) such that they fall in the
+range `[start, end]` , where the first one and the last one are, resp., the first
+and last time points in that range that fall on the boundary of ``freq`` (if given
+as a frequency string) or that are valid for ``freq`` (if given as a
+:class:`pandas.tseries.offsets.DateOffset`). If ``freq`` is positive, the points
+satisfy `start <[=] x <[=] end`, and if ``freq`` is negative, the points satisfy
+`end <[=] x <[=] start`. (If exactly one of ``start``, ``end``, or ``freq`` is *not*
+specified, this missing parameter can be computed given ``periods``, the number of
+timesteps in the range. See the note below.)
+
+Parameters
+----------
+start : str or datetime-like, optional
+    Left bound for generating dates.
+end : str or datetime-like, optional
+    Right bound for generating dates.
+periods : int, optional
+    Number of periods to generate.
+freq : str, Timedelta, datetime.timedelta, or DateOffset, default='D'
+    Frequency strings can have multiples, e.g. '5h'. See
+    :ref:`here <timeseries.offset_aliases>` for a list of
+    frequency aliases.
+tz : str or tzinfo, optional
+    Time zone name for returning localized DatetimeIndex, for example
+    'Asia/Hong_Kong'. By default, the resulting DatetimeIndex is
+    timezone-naive unless timezone-aware datetime-likes are passed.
+normalize : bool, default=False
+    Normalize start/end dates to midnight before generating date range.
+name : Hashable, optional
+    Name of the resulting DatetimeIndex.
+inclusive : {"both", "neither", "left", "right"}, default="both"
+    Include boundaries; Whether to set each bound as closed or open.
+unit : {'s', 'ms', 'us', 'ns', None}, optional
+    Specify the desired resolution of the result.
+    If not specified, this is inferred from the 'start', 'end', and 'freq'
+    using the same inference as :class:`Timestamp` taking the highest
+    resolution of the three that are provided.
+    
+    .. versionadded:: 2.0.0
+ambiguous : 'infer', bool-ndarray, 'NaT', default='raise'
+    When clocks moved backward due to DST, ambiguous times may arise.
+    For example in Central European Time (UTC+01), when going from 03:00
+    DST to 02:00 non-DST, 02:30:00 local time occurs both at 00:30:00 UTC
+    and at 01:30:00 UTC. In such a situation, the `ambiguous` parameter
+    dictates how ambiguous times should be handled.
+    
+    - 'infer' will attempt to infer fall dst-transition hours based on
+      order. Requires that the timestamps are monotonically increasing.
+    - bool-ndarray where True signifies a DST time, False signifies a
+      non-DST time (note that this flag is only applicable for ambiguous
+      times)
+    - 'NaT' will return NaT where there are ambiguous times
+    - 'raise' will raise a ValueError if there are ambiguous times.
+nonexistent : 'shift_forward', 'shift_backward', 'NaT', timedelta,     default 'raise'
+    A nonexistent time does not exist in a particular timezone
+    where clocks moved forward due to DST.
+    
+    - 'shift_forward' will shift the nonexistent time forward to the
+      closest existing time
+    - 'shift_backward' will shift the nonexistent time backward to the
+      closest existing time
+    - 'NaT' will return NaT where there are nonexistent times
+    - timedelta objects will shift nonexistent times by the timedelta
+    - 'raise' will raise a ValueError if there are nonexistent times.
+**kwargs
+    For compatibility. Has no effect on the result.
+
+Returns
+-------
+DatetimeIndex
+    A DatetimeIndex object of the generated dates.
+
+Examples
+--------
+**Specifying the values**
+
+The next four examples generate the same `DatetimeIndex`, but vary
+the combination of `start`, `end` and `periods`.
+
+Specify `start` and `end`, with the default daily frequency.
+
+>>> pd.date_range(start="1/1/2018", end="1/08/2018")
+DatetimeIndex(['2018-01-01', '2018-01-02', '2018-01-03', '2018-01-04',
+               '2018-01-05', '2018-01-06', '2018-01-07', '2018-01-08'],
+              dtype='datetime64[us]', freq='D')
+
+Specify timezone-aware `start` and `end`, with the default daily frequency.
+
+>>> pd.date_range(
+...     start=pd.to_datetime("1/1/2018").tz_localize("Europe/Berlin"),
+...     end=pd.to_datetime("1/08/2018").tz_localize("Europe/Berlin"),
+... )
+DatetimeIndex(['2018-01-01 00:00:00+01:00', '2018-01-02 00:00:00+01:00',
+               '2018-01-03 00:00:00+01:00', '2018-01-04 00:00:00+01:00',
+               '2018-01-05 00:00:00+01:00', '2018-01-06 00:00:00+01:00',
+               '2018-01-07 00:00:00+01:00', '2018-01-08 00:00:00+01:00'],
+              dtype='datetime64[us, Europe/Berlin]', freq='D')
+
+Specify `start` and `periods`, the number of periods (days).
+
+>>> pd.date_range(start="1/1/2018", periods=8)
+DatetimeIndex(['2018-01-01', '2018-01-02', '2018-01-03', '2018-01-04',
+               '2018-01-05', '2018-01-06', '2018-01-07', '2018-01-08'],
+              dtype='datetime64[us]', freq='D')
+
+Specify `end` and `periods`, the number of periods (days).
+
+>>> pd.date_range(end="1/1/2018", periods=8)
+DatetimeIndex(['2017-12-25', '2017-12-26', '2017-12-27', '2017-12-28',
+               '2017-12-29', '2017-12-30', '2017-12-31', '2018-01-01'],
+              dtype='datetime64[us]', freq='D')
+
+Specify `start`, `end`, and `periods`; the frequency is generated
+automatically (linearly spaced).
+
+>>> pd.date_range(start="2018-04-24", end="2018-04-27", periods=3)
+DatetimeIndex(['2018-04-24 00:00:00', '2018-04-25 12:00:00',
+               '2018-04-27 00:00:00'],
+              dtype='datetime64[us]', freq=None)
+
+**Other Parameters**
+
+Changed the `freq` (frequency) to ``'ME'`` (month end frequency).
+
+>>> pd.date_range(start="1/1/2018", periods=5, freq="ME")
+DatetimeIndex(['2018-01-31', '2018-02-28', '2018-03-31', '2018-04-30',
+               '2018-05-31'],
+              dtype='datetime64[us]', freq='ME')
+
+Multiples are allowed
+
+>>> pd.date_range(start="1/1/2018", periods=5, freq="3ME")
+DatetimeIndex(['2018-01-31', '2018-04-30', '2018-07-31', '2018-10-31',
+               '2019-01-31'],
+              dtype='datetime64[us]', freq='3ME')
+
+`freq` can also be specified as an Offset object.
+
+>>> pd.date_range(start="1/1/2018", periods=5, freq=pd.offsets.MonthEnd(3))
+DatetimeIndex(['2018-01-31', '2018-04-30', '2018-07-31', '2018-10-31',
+               '2019-01-31'],
+              dtype='datetime64[us]', freq='3ME')
+
+Use :class:`pandas.DateOffset` for calendar steps that are not anchored to
+the start or end of a period.
+
+>>> pd.date_range(end="2017-03-12", periods=3, freq=pd.DateOffset(years=1))
+DatetimeIndex(['2015-03-12', '2016-03-12', '2017-03-12'],
+              dtype='datetime64[us]', freq='<DateOffset: years=1>')
+
+Specify `tz` to set the timezone.
+
+>>> pd.date_range(start="1/1/2018", periods=5, tz="Asia/Tokyo")
+DatetimeIndex(['2018-01-01 00:00:00+09:00', '2018-01-02 00:00:00+09:00',
+               '2018-01-03 00:00:00+09:00', '2018-01-04 00:00:00+09:00',
+               '2018-01-05 00:00:00+09:00'],
+              dtype='datetime64[us, Asia/Tokyo]', freq='D')
+
+`inclusive` controls whether to include `start` and `end` that are on the
+boundary. The default, "both", includes boundary points on either end.
+
+>>> pd.date_range(start="2017-01-01", end="2017-01-04", inclusive="both")
+DatetimeIndex(['2017-01-01', '2017-01-02', '2017-01-03', '2017-01-04'],
+              dtype='datetime64[us]', freq='D')
+
+Use ``inclusive='left'`` to exclude `end` if it falls on the boundary.
+
+>>> pd.date_range(start="2017-01-01", end="2017-01-04", inclusive="left")
+DatetimeIndex(['2017-01-01', '2017-01-02', '2017-01-03'],
+              dtype='datetime64[us]', freq='D')
+
+Use ``inclusive='right'`` to exclude `start` if it falls on the boundary, and
+similarly ``inclusive='neither'`` will exclude both `start` and `end`.
+
+>>> pd.date_range(start="2017-01-01", end="2017-01-04", inclusive="right")
+DatetimeIndex(['2017-01-02', '2017-01-03', '2017-01-04'],
+              dtype='datetime64[us]', freq='D')
+
+**Specify a unit**
+
+>>> pd.date_range(start="2017-01-01", periods=10, freq="100YS", unit="s")
+DatetimeIndex(['2017-01-01', '2117-01-01', '2217-01-01', '2317-01-01',
+               '2417-01-01', '2517-01-01', '2617-01-01', '2717-01-01',
+               '2817-01-01', '2917-01-01'],
+              dtype='datetime64[s]', freq='100YS-JAN')
+
+See Also
+--------
+DatetimeIndex : An immutable container for datetimes.
+timedelta_range : Return a fixed frequency TimedeltaIndex.
+period_range : Return a fixed frequency PeriodIndex.
+interval_range : Return a fixed frequency IntervalIndex.
+
+Notes
+-----
+Of the four parameters ``start``, ``end``, ``periods``, and ``freq``,
+a maximum of three can be specified at once. Of the three parameters
+``start``, ``end``, and ``periods``, at least two must be specified.
+If ``freq`` is omitted, the resulting ``DatetimeIndex`` will have
+``periods`` linearly spaced elements between ``start`` and ``end``
+(closed on both sides).
+
+To learn more about the frequency strings, please see
+:ref:`this link<timeseries.offset_aliases>`.

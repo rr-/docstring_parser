@@ -1,0 +1,33 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Encode the data from bytes to a base64 encoded bytes.
+
+        Args:
+            value: The data to encode.
+
+        Returns:
+            The encoded data.
+        
+=== parse google
+short_description: 'Encode the data from bytes to a base64 encoded bytes.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'value']
+  description: 'The data to encode.'
+  arg_name: 'value'
+- DocstringReturns
+  args: ['returns']
+  description: 'The encoded data.'
+  is_generator: False
+=== detect
+google
+=== compose google
+Encode the data from bytes to a base64 encoded bytes.
+
+Args:
+    value: The data to encode.
+
+Returns:
+    The encoded data.

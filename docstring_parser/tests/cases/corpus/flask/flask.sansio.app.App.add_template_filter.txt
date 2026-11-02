@@ -1,0 +1,29 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Register a custom template filter.  Works exactly like the
+        :meth:`template_filter` decorator.
+
+        :param name: the optional name of the filter, otherwise the
+                     function name will be used.
+        
+=== parse rest
+short_description: 'Register a custom template filter.  Works exactly like the'
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+- DocstringMeta
+  args: ['meth']
+  description: '`template_filter` decorator.'
+- DocstringParam
+  args: ['param', 'name']
+  description: |
+    the optional name of the filter, otherwise the
+    function name will be used.
+  arg_name: 'name'
+=== detect
+rest
+=== compose rest
+Register a custom template filter.  Works exactly like the
+:meth: `template_filter` decorator.
+:param name: the optional name of the filter, otherwise the
+    function name will be used.

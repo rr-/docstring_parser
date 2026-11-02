@@ -1,0 +1,18 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Returns a dict of config keys to values.
+
+    It reads configs from toml file and returns `None` if the file is not a toml file.
+    
+=== parse google
+short_description: 'Returns a dict of config keys to values.'
+long_description: 'It reads configs from toml file and returns `None` if the file is not a toml file.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Returns a dict of config keys to values.
+
+It reads configs from toml file and returns `None` if the file is not a toml file.

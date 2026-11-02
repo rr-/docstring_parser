@@ -1,0 +1,22 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+
+    Produce an appropriate Cookie header string to be sent with `request`, or None.
+
+    :rtype: str
+    
+=== parse rest
+short_description: 'Produce an appropriate Cookie header string to be sent with `request`, or None.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringReturns
+  args: []
+  type_name: 'str'
+  is_generator: False
+=== detect
+rest
+=== compose rest
+Produce an appropriate Cookie header string to be sent with `request`, or None.
+
+:returns str:

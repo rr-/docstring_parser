@@ -1,0 +1,25 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Allow todos to be inserted into your documentation.
+
+Inclusion of todos can be switched of by a configuration variable.
+The todolist directive collects all todos of your project and lists them along
+with a backlink to the original location.
+
+=== parse rest
+short_description: 'Allow todos to be inserted into your documentation.'
+long_description: |
+  Inclusion of todos can be switched of by a configuration variable.
+  The todolist directive collects all todos of your project and lists them along
+  with a backlink to the original location.
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Allow todos to be inserted into your documentation.
+
+Inclusion of todos can be switched of by a configuration variable.
+The todolist directive collects all todos of your project and lists them along
+with a backlink to the original location.

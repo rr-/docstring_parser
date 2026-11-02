@@ -1,0 +1,21 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Fail the L{Deferred} for the current request, notify the request
+        object that it does not need to continue transmitting itself, and
+        move to the C{'CONNECTION_LOST'} state.
+        
+=== parse epydoc
+short_description: 'Fail the L{Deferred} for the current request, notify the request'
+long_description: |
+  object that it does not need to continue transmitting itself, and
+  move to the C{'CONNECTION_LOST'} state.
+blank_after_short_description: False
+blank_after_long_description: False
+style: epydoc
+=== detect
+rest
+=== compose epydoc
+Fail the L{Deferred} for the current request, notify the request
+object that it does not need to continue transmitting itself, and
+move to the C{'CONNECTION_LOST'} state.

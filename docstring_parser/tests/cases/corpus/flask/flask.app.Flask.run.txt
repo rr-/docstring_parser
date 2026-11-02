@@ -1,0 +1,191 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Runs the application on a local development server.
+
+        Do not use ``run()`` in a production setting. It is not intended to
+        meet security and performance requirements for a production server.
+        Instead, see :doc:`/deploying/index` for WSGI server recommendations.
+
+        If the :attr:`debug` flag is set the server will automatically reload
+        for code changes and show a debugger in case an exception happened.
+
+        If you want to run the application in debug mode, but disable the
+        code execution on the interactive debugger, you can pass
+        ``use_evalex=False`` as parameter.  This will keep the debugger's
+        traceback screen active, but disable code execution.
+
+        It is not recommended to use this function for development with
+        automatic reloading as this is badly supported.  Instead you should
+        be using the :command:`flask` command line script's ``run`` support.
+
+        .. admonition:: Keep in Mind
+
+           Flask will suppress any server error with a generic error page
+           unless it is in debug mode.  As such to enable just the
+           interactive debugger without the code reloading, you have to
+           invoke :meth:`run` with ``debug=True`` and ``use_reloader=False``.
+           Setting ``use_debugger`` to ``True`` without being in debug mode
+           won't catch any exceptions because there won't be any to
+           catch.
+
+        :param host: the hostname to listen on. Set this to ``'0.0.0.0'`` to
+            have the server available externally as well. Defaults to
+            ``'127.0.0.1'`` or the host in the ``SERVER_NAME`` config variable
+            if present.
+        :param port: the port of the webserver. Defaults to ``5000`` or the
+            port defined in the ``SERVER_NAME`` config variable if present.
+        :param debug: if given, enable or disable debug mode. See
+            :attr:`debug`.
+        :param load_dotenv: Load the nearest :file:`.env` and :file:`.flaskenv`
+            files to set environment variables. Will also change the working
+            directory to the directory containing the first file found.
+        :param options: the options to be forwarded to the underlying Werkzeug
+            server. See :func:`werkzeug.serving.run_simple` for more
+            information.
+
+        .. versionchanged:: 1.0
+            If installed, python-dotenv will be used to load environment
+            variables from :file:`.env` and :file:`.flaskenv` files.
+
+            The :envvar:`FLASK_DEBUG` environment variable will override :attr:`debug`.
+
+            Threaded mode is enabled by default.
+
+        .. versionchanged:: 0.10
+            The default port is now picked from the ``SERVER_NAME``
+            variable.
+        
+=== parse rest
+short_description: 'Runs the application on a local development server.'
+long_description: |
+  Do not use ``run()`` in a production setting. It is not intended to
+  meet security and performance requirements for a production server.
+  Instead, see :doc:`/deploying/index` for WSGI server recommendations.
+  
+  If the :attr:`debug` flag is set the server will automatically reload
+  for code changes and show a debugger in case an exception happened.
+  
+  If you want to run the application in debug mode, but disable the
+  code execution on the interactive debugger, you can pass
+  ``use_evalex=False`` as parameter.  This will keep the debugger's
+  traceback screen active, but disable code execution.
+  
+  It is not recommended to use this function for development with
+  automatic reloading as this is badly supported.  Instead you should
+  be using the :command:`flask` command line script's ``run`` support.
+  
+  .. admonition:: Keep in Mind
+  
+     Flask will suppress any server error with a generic error page
+     unless it is in debug mode.  As such to enable just the
+     interactive debugger without the code reloading, you have to
+     invoke :meth:`run` with ``debug=True`` and ``use_reloader=False``.
+     Setting ``use_debugger`` to ``True`` without being in debug mode
+     won't catch any exceptions because there won't be any to
+     catch.
+  
+  .. versionchanged:: 1.0
+      If installed, python-dotenv will be used to load environment
+      variables from :file:`.env` and :file:`.flaskenv` files.
+  
+      The :envvar:`FLASK_DEBUG` environment variable will override :attr:`debug`.
+  
+      Threaded mode is enabled by default.
+  
+  .. versionchanged:: 0.10
+      The default port is now picked from the ``SERVER_NAME``
+      variable.
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringParam
+  args: ['param', 'host']
+  description: |
+    the hostname to listen on. Set this to ``'0.0.0.0'`` to
+    have the server available externally as well. Defaults to
+    ``'127.0.0.1'`` or the host in the ``SERVER_NAME`` config variable
+    if present.
+  arg_name: 'host'
+- DocstringParam
+  args: ['param', 'port']
+  description: |
+    the port of the webserver. Defaults to ``5000`` or the
+    port defined in the ``SERVER_NAME`` config variable if present.
+  arg_name: 'port'
+- DocstringParam
+  args: ['param', 'debug']
+  description: |
+    if given, enable or disable debug mode. See
+    :attr:`debug`.
+  arg_name: 'debug'
+- DocstringParam
+  args: ['param', 'load_dotenv']
+  description: |
+    Load the nearest :file:`.env` and :file:`.flaskenv`
+    files to set environment variables. Will also change the working
+    directory to the directory containing the first file found.
+  arg_name: 'load_dotenv'
+- DocstringParam
+  args: ['param', 'options']
+  description: |
+    the options to be forwarded to the underlying Werkzeug
+    server. See :func:`werkzeug.serving.run_simple` for more
+    information.
+  arg_name: 'options'
+=== detect
+rest
+=== compose rest
+Runs the application on a local development server.
+
+Do not use ``run()`` in a production setting. It is not intended to
+meet security and performance requirements for a production server.
+Instead, see :doc:`/deploying/index` for WSGI server recommendations.
+
+If the :attr:`debug` flag is set the server will automatically reload
+for code changes and show a debugger in case an exception happened.
+
+If you want to run the application in debug mode, but disable the
+code execution on the interactive debugger, you can pass
+``use_evalex=False`` as parameter.  This will keep the debugger's
+traceback screen active, but disable code execution.
+
+It is not recommended to use this function for development with
+automatic reloading as this is badly supported.  Instead you should
+be using the :command:`flask` command line script's ``run`` support.
+
+.. admonition:: Keep in Mind
+
+   Flask will suppress any server error with a generic error page
+   unless it is in debug mode.  As such to enable just the
+   interactive debugger without the code reloading, you have to
+   invoke :meth:`run` with ``debug=True`` and ``use_reloader=False``.
+   Setting ``use_debugger`` to ``True`` without being in debug mode
+   won't catch any exceptions because there won't be any to
+   catch.
+
+.. versionchanged:: 1.0
+    If installed, python-dotenv will be used to load environment
+    variables from :file:`.env` and :file:`.flaskenv` files.
+
+    The :envvar:`FLASK_DEBUG` environment variable will override :attr:`debug`.
+
+    Threaded mode is enabled by default.
+
+.. versionchanged:: 0.10
+    The default port is now picked from the ``SERVER_NAME``
+    variable.
+
+:param host: the hostname to listen on. Set this to ``'0.0.0.0'`` to
+    have the server available externally as well. Defaults to
+    ``'127.0.0.1'`` or the host in the ``SERVER_NAME`` config variable
+    if present.
+:param port: the port of the webserver. Defaults to ``5000`` or the
+    port defined in the ``SERVER_NAME`` config variable if present.
+:param debug: if given, enable or disable debug mode. See
+    :attr:`debug`.
+:param load_dotenv: Load the nearest :file:`.env` and :file:`.flaskenv`
+    files to set environment variables. Will also change the working
+    directory to the directory containing the first file found.
+:param options: the options to be forwarded to the underlying Werkzeug
+    server. See :func:`werkzeug.serving.run_simple` for more
+    information.

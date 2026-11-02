@@ -1,0 +1,23 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Dict-like iterkeys() that returns an iterator of names of cookies
+        from the jar.
+
+        .. seealso:: itervalues() and iteritems().
+        
+=== parse rest
+short_description: 'Dict-like iterkeys() that returns an iterator of names of cookies'
+long_description: |
+  from the jar.
+  
+  .. seealso:: itervalues() and iteritems().
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Dict-like iterkeys() that returns an iterator of names of cookies
+from the jar.
+
+.. seealso:: itervalues() and iteritems().

@@ -1,0 +1,187 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Return a Gaussian window.
+
+    Parameters
+    ----------
+    M : int
+        Number of points in the output window. If zero, an empty array
+        is returned. An exception is thrown when it is negative.
+    std : float
+        The standard deviation, sigma.
+    sym : bool, optional
+        When True (default), generates a symmetric window, for use in filter
+        design.
+        When False, generates a periodic window, for use in spectral analysis.
+    %(xp_device_snippet)s
+
+    Returns
+    -------
+    w : ndarray
+        The window, with the maximum value normalized to 1 (though the value 1
+        does not appear if `M` is even and `sym` is True).
+
+    Notes
+    -----
+    The Gaussian window is defined as
+
+    .. math::  w(n) = e^{ -\frac{1}{2}\left(\frac{n}{\sigma}\right)^2 }
+
+    Examples
+    --------
+    Plot the window and its frequency response:
+
+    >>> import numpy as np
+    >>> from scipy import signal
+    >>> from scipy.fft import fft, fftshift
+    >>> import matplotlib.pyplot as plt
+
+    >>> window = signal.windows.gaussian(51, std=7)
+    >>> plt.plot(window)
+    >>> plt.title(r"Gaussian window ($\sigma$=7)")
+    >>> plt.ylabel("Amplitude")
+    >>> plt.xlabel("Sample")
+
+    >>> plt.figure()
+    >>> A = fft(window, 2048) / (len(window)/2.0)
+    >>> freq = np.linspace(-0.5, 0.5, len(A))
+    >>> response = 20 * np.log10(np.abs(fftshift(A / abs(A).max())))
+    >>> plt.plot(freq, response)
+    >>> plt.axis([-0.5, 0.5, -120, 0])
+    >>> plt.title(r"Frequency response of the Gaussian window ($\sigma$=7)")
+    >>> plt.ylabel("Normalized magnitude [dB]")
+    >>> plt.xlabel("Normalized frequency [cycles per sample]")
+
+    
+=== parse numpydoc
+short_description: 'Return a Gaussian window.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'M']
+  description: |
+    Number of points in the output window. If zero, an empty array
+    is returned. An exception is thrown when it is negative.
+  arg_name: 'M'
+  type_name: 'int'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'std']
+  description: 'The standard deviation, sigma.'
+  arg_name: 'std'
+  type_name: 'float'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'sym']
+  description: |
+    When True (default), generates a symmetric window, for use in filter
+    design.
+    When False, generates a periodic window, for use in spectral analysis.
+  arg_name: 'sym'
+  type_name: 'bool'
+  is_optional: True
+- DocstringParam
+  args: ['param', '%(xp_device_snippet)s']
+  arg_name: '%(xp_device_snippet)s'
+- DocstringReturns
+  args: ['returns']
+  description: |
+    The window, with the maximum value normalized to 1 (though the value 1
+    does not appear if `M` is even and `sym` is True).
+  type_name: 'ndarray'
+  is_generator: False
+  return_name: 'w'
+- DocstringMeta
+  args: ['notes']
+  description: |
+    The Gaussian window is defined as
+    
+    .. math::  w(n) = e^{ -\frac{1}{2}\left(\frac{n}{\sigma}\right)^2 }
+- DocstringExample
+  args: ['examples']
+  description: |
+    Plot the window and its frequency response:
+    
+- DocstringExample
+  args: ['examples']
+  description: ''
+  snippet: |
+    >>> import numpy as np
+    >>> from scipy import signal
+    >>> from scipy.fft import fft, fftshift
+    >>> import matplotlib.pyplot as plt
+- DocstringExample
+  args: ['examples']
+  description: ''
+  snippet: |
+    >>> window = signal.windows.gaussian(51, std=7)
+    >>> plt.plot(window)
+    >>> plt.title(r"Gaussian window ($\sigma$=7)")
+    >>> plt.ylabel("Amplitude")
+    >>> plt.xlabel("Sample")
+- DocstringExample
+  args: ['examples']
+  description: ''
+  snippet: |
+    >>> plt.figure()
+    >>> A = fft(window, 2048) / (len(window)/2.0)
+    >>> freq = np.linspace(-0.5, 0.5, len(A))
+    >>> response = 20 * np.log10(np.abs(fftshift(A / abs(A).max())))
+    >>> plt.plot(freq, response)
+    >>> plt.axis([-0.5, 0.5, -120, 0])
+    >>> plt.title(r"Frequency response of the Gaussian window ($\sigma$=7)")
+    >>> plt.ylabel("Normalized magnitude [dB]")
+    >>> plt.xlabel("Normalized frequency [cycles per sample]")
+=== detect
+numpydoc
+=== compose numpydoc
+Return a Gaussian window.
+
+Parameters
+----------
+M : int
+    Number of points in the output window. If zero, an empty array
+    is returned. An exception is thrown when it is negative.
+std : float
+    The standard deviation, sigma.
+sym : bool, optional
+    When True (default), generates a symmetric window, for use in filter
+    design.
+    When False, generates a periodic window, for use in spectral analysis.
+%(xp_device_snippet)s
+
+Returns
+-------
+w : ndarray
+    The window, with the maximum value normalized to 1 (though the value 1
+    does not appear if `M` is even and `sym` is True).
+
+Examples
+--------
+Plot the window and its frequency response:
+
+>>> import numpy as np
+>>> from scipy import signal
+>>> from scipy.fft import fft, fftshift
+>>> import matplotlib.pyplot as plt
+>>> window = signal.windows.gaussian(51, std=7)
+>>> plt.plot(window)
+>>> plt.title(r"Gaussian window ($\sigma$=7)")
+>>> plt.ylabel("Amplitude")
+>>> plt.xlabel("Sample")
+>>> plt.figure()
+>>> A = fft(window, 2048) / (len(window)/2.0)
+>>> freq = np.linspace(-0.5, 0.5, len(A))
+>>> response = 20 * np.log10(np.abs(fftshift(A / abs(A).max())))
+>>> plt.plot(freq, response)
+>>> plt.axis([-0.5, 0.5, -120, 0])
+>>> plt.title(r"Frequency response of the Gaussian window ($\sigma$=7)")
+>>> plt.ylabel("Normalized magnitude [dB]")
+>>> plt.xlabel("Normalized frequency [cycles per sample]")
+
+Notes
+-----
+The Gaussian window is defined as
+
+.. math::  w(n) = e^{ -\frac{1}{2}\left(\frac{n}{\sigma}\right)^2 }

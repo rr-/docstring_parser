@@ -1,0 +1,61 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Base type for all URLs.
+
+    * Any scheme allowed
+    * Top-level domain (TLD) not required
+    * Host not required
+
+    Assuming an input URL of `http://samuel:pass@example.com:8000/the/path/?query=here#fragment=is;this=bit`,
+    the types export the following properties:
+
+    - `scheme`: the URL scheme (`http`), always set.
+    - `host`: the URL host (`example.com`).
+    - `username`: optional username if included (`samuel`).
+    - `password`: optional password if included (`pass`).
+    - `port`: optional port (`8000`).
+    - `path`: optional path (`/the/path/`).
+    - `query`: optional URL query (for example, `GET` arguments or "search string", such as `query=here`).
+    - `fragment`: optional fragment (`fragment=is;this=bit`).
+    
+=== parse google
+short_description: 'Base type for all URLs.'
+long_description: |
+  * Any scheme allowed
+  * Top-level domain (TLD) not required
+  * Host not required
+  
+  Assuming an input URL of `http://samuel:pass@example.com:8000/the/path/?query=here#fragment=is;this=bit`,
+  the types export the following properties:
+  
+  - `scheme`: the URL scheme (`http`), always set.
+  - `host`: the URL host (`example.com`).
+  - `username`: optional username if included (`samuel`).
+  - `password`: optional password if included (`pass`).
+  - `port`: optional port (`8000`).
+  - `path`: optional path (`/the/path/`).
+  - `query`: optional URL query (for example, `GET` arguments or "search string", such as `query=here`).
+  - `fragment`: optional fragment (`fragment=is;this=bit`).
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Base type for all URLs.
+
+* Any scheme allowed
+* Top-level domain (TLD) not required
+* Host not required
+
+Assuming an input URL of `http://samuel:pass@example.com:8000/the/path/?query=here#fragment=is;this=bit`,
+the types export the following properties:
+
+- `scheme`: the URL scheme (`http`), always set.
+- `host`: the URL host (`example.com`).
+- `username`: optional username if included (`samuel`).
+- `password`: optional password if included (`pass`).
+- `port`: optional port (`8000`).
+- `path`: optional path (`/the/path/`).
+- `query`: optional URL query (for example, `GET` arguments or "search string", such as `query=here`).
+- `fragment`: optional fragment (`fragment=is;this=bit`).

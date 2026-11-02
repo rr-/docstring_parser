@@ -1,0 +1,25 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Adds parse_as_dict support to ArgumentParser as a patch.
+
+    This is a temporal backward compatible support for parse_as_dict to have
+    cleaner code in v4.0.0 and warn users about the deprecation and future
+    removal.
+    
+=== parse google
+short_description: 'Adds parse_as_dict support to ArgumentParser as a patch.'
+long_description: |
+  This is a temporal backward compatible support for parse_as_dict to have
+  cleaner code in v4.0.0 and warn users about the deprecation and future
+  removal.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Adds parse_as_dict support to ArgumentParser as a patch.
+
+This is a temporal backward compatible support for parse_as_dict to have
+cleaner code in v4.0.0 and warn users about the deprecation and future
+removal.

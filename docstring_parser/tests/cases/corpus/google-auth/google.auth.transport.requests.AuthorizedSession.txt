@@ -1,0 +1,294 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+A Requests Session class with credentials.
+
+    This class is used to perform requests to API endpoints that require
+    authorization::
+
+        from google.auth.transport.requests import AuthorizedSession
+
+        authed_session = AuthorizedSession(credentials)
+
+        response = authed_session.request(
+            'GET', 'https://www.googleapis.com/storage/v1/b')
+
+
+    The underlying :meth:`request` implementation handles adding the
+    credentials' headers to the request and refreshing credentials as needed.
+
+    This class also supports mutual TLS via :meth:`configure_mtls_channel`
+    method. In order to use this method, the `GOOGLE_API_USE_CLIENT_CERTIFICATE`
+    environment variable must be explicitly set to ``true``, otherwise it does
+    nothing. Assume the environment is set to ``true``, the method behaves in the
+    following manner:
+
+    If client_cert_callback is provided, client certificate and private
+    key are loaded using the callback; if client_cert_callback is None,
+    application default SSL credentials will be used. Exceptions are raised if
+    there are problems with the certificate, private key, or the loading process,
+    so it should be called within a try/except block.
+
+    First we set the environment variable to ``true``, then create an :class:`AuthorizedSession`
+    instance and specify the endpoints::
+
+        regular_endpoint = 'https://pubsub.googleapis.com/v1/projects/{my_project_id}/topics'
+        mtls_endpoint = 'https://pubsub.mtls.googleapis.com/v1/projects/{my_project_id}/topics'
+
+        authed_session = AuthorizedSession(credentials)
+
+    Now we can pass a callback to :meth:`configure_mtls_channel`::
+
+        def my_cert_callback():
+            # some code to load client cert bytes and private key bytes, both in
+            # PEM format.
+            some_code_to_load_client_cert_and_key()
+            if loaded:
+                return cert, key
+            raise MyClientCertFailureException()
+
+        # Always call configure_mtls_channel within a try/except block.
+        try:
+            authed_session.configure_mtls_channel(my_cert_callback)
+        except:
+            # handle exceptions.
+
+        if authed_session.is_mtls:
+            response = authed_session.request('GET', mtls_endpoint)
+        else:
+            response = authed_session.request('GET', regular_endpoint)
+
+
+    You can alternatively use application default SSL credentials like this::
+
+        try:
+            authed_session.configure_mtls_channel()
+        except:
+            # handle exceptions.
+
+    Args:
+        credentials (google.auth.credentials.Credentials): The credentials to
+            add to the request.
+        refresh_status_codes (Sequence[int]): Which HTTP status codes indicate
+            that credentials should be refreshed and the request should be
+            retried.
+        max_refresh_attempts (int): The maximum number of times to attempt to
+            refresh the credentials and retry the request.
+        refresh_timeout (Optional[int]): The timeout value in seconds for
+            credential refresh HTTP requests.
+        auth_request (google.auth.transport.requests.Request):
+            (Optional) An instance of
+            :class:`~google.auth.transport.requests.Request` used when
+            refreshing credentials. If not passed,
+            an instance of :class:`~google.auth.transport.requests.Request`
+            is created.
+        default_host (Optional[str]): A host like "pubsub.googleapis.com".
+            This is used when a self-signed JWT is created from service
+            account credentials.
+    
+=== parse google
+short_description: 'A Requests Session class with credentials.'
+long_description: |
+  This class is used to perform requests to API endpoints that require
+  authorization::
+  
+      from google.auth.transport.requests import AuthorizedSession
+  
+      authed_session = AuthorizedSession(credentials)
+  
+      response = authed_session.request(
+          'GET', 'https://www.googleapis.com/storage/v1/b')
+  
+  
+  The underlying :meth:`request` implementation handles adding the
+  credentials' headers to the request and refreshing credentials as needed.
+  
+  This class also supports mutual TLS via :meth:`configure_mtls_channel`
+  method. In order to use this method, the `GOOGLE_API_USE_CLIENT_CERTIFICATE`
+  environment variable must be explicitly set to ``true``, otherwise it does
+  nothing. Assume the environment is set to ``true``, the method behaves in the
+  following manner:
+  
+  If client_cert_callback is provided, client certificate and private
+  key are loaded using the callback; if client_cert_callback is None,
+  application default SSL credentials will be used. Exceptions are raised if
+  there are problems with the certificate, private key, or the loading process,
+  so it should be called within a try/except block.
+  
+  First we set the environment variable to ``true``, then create an :class:`AuthorizedSession`
+  instance and specify the endpoints::
+  
+      regular_endpoint = 'https://pubsub.googleapis.com/v1/projects/{my_project_id}/topics'
+      mtls_endpoint = 'https://pubsub.mtls.googleapis.com/v1/projects/{my_project_id}/topics'
+  
+      authed_session = AuthorizedSession(credentials)
+  
+  Now we can pass a callback to :meth:`configure_mtls_channel`::
+  
+      def my_cert_callback():
+          # some code to load client cert bytes and private key bytes, both in
+          # PEM format.
+          some_code_to_load_client_cert_and_key()
+          if loaded:
+              return cert, key
+          raise MyClientCertFailureException()
+  
+      # Always call configure_mtls_channel within a try/except block.
+      try:
+          authed_session.configure_mtls_channel(my_cert_callback)
+      except:
+          # handle exceptions.
+  
+      if authed_session.is_mtls:
+          response = authed_session.request('GET', mtls_endpoint)
+      else:
+          response = authed_session.request('GET', regular_endpoint)
+  
+  
+  You can alternatively use application default SSL credentials like this::
+  
+      try:
+          authed_session.configure_mtls_channel()
+      except:
+          # handle exceptions.
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'credentials (google.auth.credentials.Credentials)']
+  description: |
+    The credentials to
+    add to the request.
+  arg_name: 'credentials'
+  type_name: 'google.auth.credentials.Credentials'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'refresh_status_codes (Sequence[int])']
+  description: |
+    Which HTTP status codes indicate
+    that credentials should be refreshed and the request should be
+    retried.
+  arg_name: 'refresh_status_codes'
+  type_name: 'Sequence[int]'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'max_refresh_attempts (int)']
+  description: |
+    The maximum number of times to attempt to
+    refresh the credentials and retry the request.
+  arg_name: 'max_refresh_attempts'
+  type_name: 'int'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'refresh_timeout (Optional[int])']
+  description: |
+    The timeout value in seconds for
+    credential refresh HTTP requests.
+  arg_name: 'refresh_timeout'
+  type_name: 'Optional[int]'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'auth_request (google.auth.transport.requests.Request)']
+  description: |
+    (Optional) An instance of
+    :class:`~google.auth.transport.requests.Request` used when
+    refreshing credentials. If not passed,
+    an instance of :class:`~google.auth.transport.requests.Request`
+    is created.
+  arg_name: 'auth_request'
+  type_name: 'google.auth.transport.requests.Request'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'default_host (Optional[str])']
+  description: |
+    A host like "pubsub.googleapis.com".
+    This is used when a self-signed JWT is created from service
+    account credentials.
+  arg_name: 'default_host'
+  type_name: 'Optional[str]'
+  is_optional: False
+=== detect
+google
+=== compose google
+A Requests Session class with credentials.
+
+This class is used to perform requests to API endpoints that require
+authorization::
+
+    from google.auth.transport.requests import AuthorizedSession
+
+    authed_session = AuthorizedSession(credentials)
+
+    response = authed_session.request(
+        'GET', 'https://www.googleapis.com/storage/v1/b')
+
+
+The underlying :meth:`request` implementation handles adding the
+credentials' headers to the request and refreshing credentials as needed.
+
+This class also supports mutual TLS via :meth:`configure_mtls_channel`
+method. In order to use this method, the `GOOGLE_API_USE_CLIENT_CERTIFICATE`
+environment variable must be explicitly set to ``true``, otherwise it does
+nothing. Assume the environment is set to ``true``, the method behaves in the
+following manner:
+
+If client_cert_callback is provided, client certificate and private
+key are loaded using the callback; if client_cert_callback is None,
+application default SSL credentials will be used. Exceptions are raised if
+there are problems with the certificate, private key, or the loading process,
+so it should be called within a try/except block.
+
+First we set the environment variable to ``true``, then create an :class:`AuthorizedSession`
+instance and specify the endpoints::
+
+    regular_endpoint = 'https://pubsub.googleapis.com/v1/projects/{my_project_id}/topics'
+    mtls_endpoint = 'https://pubsub.mtls.googleapis.com/v1/projects/{my_project_id}/topics'
+
+    authed_session = AuthorizedSession(credentials)
+
+Now we can pass a callback to :meth:`configure_mtls_channel`::
+
+    def my_cert_callback():
+        # some code to load client cert bytes and private key bytes, both in
+        # PEM format.
+        some_code_to_load_client_cert_and_key()
+        if loaded:
+            return cert, key
+        raise MyClientCertFailureException()
+
+    # Always call configure_mtls_channel within a try/except block.
+    try:
+        authed_session.configure_mtls_channel(my_cert_callback)
+    except:
+        # handle exceptions.
+
+    if authed_session.is_mtls:
+        response = authed_session.request('GET', mtls_endpoint)
+    else:
+        response = authed_session.request('GET', regular_endpoint)
+
+
+You can alternatively use application default SSL credentials like this::
+
+    try:
+        authed_session.configure_mtls_channel()
+    except:
+        # handle exceptions.
+
+Args:
+    credentials (google.auth.credentials.Credentials): The credentials to
+        add to the request.
+    refresh_status_codes (Sequence[int]): Which HTTP status codes indicate
+        that credentials should be refreshed and the request should be
+        retried.
+    max_refresh_attempts (int): The maximum number of times to attempt to
+        refresh the credentials and retry the request.
+    refresh_timeout (Optional[int]): The timeout value in seconds for
+        credential refresh HTTP requests.
+    auth_request (google.auth.transport.requests.Request): (Optional) An instance of
+        :class:`~google.auth.transport.requests.Request` used when
+        refreshing credentials. If not passed,
+        an instance of :class:`~google.auth.transport.requests.Request`
+        is created.
+    default_host (Optional[str]): A host like "pubsub.googleapis.com".
+        This is used when a self-signed JWT is created from service
+        account credentials.

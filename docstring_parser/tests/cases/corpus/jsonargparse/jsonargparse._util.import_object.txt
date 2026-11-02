@@ -1,0 +1,22 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Returns an object in a module given its dot import path.
+
+    ``check_path`` must only be false when the path comes from code, e.g. a type
+    annotation, instead of from a parsed value.
+    
+=== parse google
+short_description: 'Returns an object in a module given its dot import path.'
+long_description: |
+  ``check_path`` must only be false when the path comes from code, e.g. a type
+  annotation, instead of from a parsed value.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Returns an object in a module given its dot import path.
+
+``check_path`` must only be false when the path comes from code, e.g. a type
+annotation, instead of from a parsed value.

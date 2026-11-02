@@ -1,0 +1,24 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Dynamically determines the domain for IAM credentials based on active mTLS configuration.
+
+    Returns:
+        str: The dynamic domain string.
+    
+=== parse google
+short_description: 'Dynamically determines the domain for IAM credentials based on active mTLS configuration.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringReturns
+  args: ['returns', 'str']
+  description: 'The dynamic domain string.'
+  type_name: 'str'
+  is_generator: False
+=== detect
+google
+=== compose google
+Dynamically determines the domain for IAM credentials based on active mTLS configuration.
+
+Returns:
+    str: The dynamic domain string.

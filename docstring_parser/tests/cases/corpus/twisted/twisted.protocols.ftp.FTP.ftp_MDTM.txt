@@ -1,0 +1,41 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        File Modification Time (MDTM)
+
+        The FTP command, MODIFICATION TIME (MDTM), can be used to determine
+        when a file in the server NVFS was last modified.  This command has
+        existed in many FTP servers for many years, as an adjunct to the REST
+        command for STREAM mode, thus is widely available.  However, where
+        supported, the "modify" fact that can be provided in the result from
+        the new MLST command is recommended as a superior alternative.
+
+        http://tools.ietf.org/html/rfc3659
+        
+=== parse epydoc
+short_description: 'File Modification Time (MDTM)'
+long_description: |
+  The FTP command, MODIFICATION TIME (MDTM), can be used to determine
+  when a file in the server NVFS was last modified.  This command has
+  existed in many FTP servers for many years, as an adjunct to the REST
+  command for STREAM mode, thus is widely available.  However, where
+  supported, the "modify" fact that can be provided in the result from
+  the new MLST command is recommended as a superior alternative.
+  
+  http://tools.ietf.org/html/rfc3659
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+=== detect
+rest
+=== compose epydoc
+File Modification Time (MDTM)
+
+The FTP command, MODIFICATION TIME (MDTM), can be used to determine
+when a file in the server NVFS was last modified.  This command has
+existed in many FTP servers for many years, as an adjunct to the REST
+command for STREAM mode, thus is widely available.  However, where
+supported, the "modify" fact that can be provided in the result from
+the new MLST command is recommended as a superior alternative.
+
+http://tools.ietf.org/html/rfc3659

@@ -1,0 +1,191 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    is_busday(
+        dates,
+        weekmask='1111100',
+        holidays=None,
+        busdaycal=None,
+        out=None,
+    )
+
+    Calculates which of the given dates are valid days, and which are not.
+
+    Parameters
+    ----------
+    dates : array_like of datetime64[D]
+        The array of dates to process.
+    weekmask : str or array_like of bool, optional
+        A seven-element array indicating which of Monday through Sunday are
+        valid days. May be specified as a length-seven list or array, like
+        [1,1,1,1,1,0,0]; a length-seven string, like '1111100'; or a string
+        like "Mon Tue Wed Thu Fri", made up of 3-character abbreviations for
+        weekdays, optionally separated by white space. Valid abbreviations
+        are: Mon Tue Wed Thu Fri Sat Sun
+    holidays : array_like of datetime64[D], optional
+        An array of dates to consider as invalid dates.  They may be
+        specified in any order, and NaT (not-a-time) dates are ignored.
+        This list is saved in a normalized form that is suited for
+        fast calculations of valid days.
+    busdaycal : busdaycalendar, optional
+        A `busdaycalendar` object which specifies the valid days. If this
+        parameter is provided, neither weekmask nor holidays may be
+        provided.
+    out : array of bool, optional
+        If provided, this array is filled with the result.
+
+    Returns
+    -------
+    out : array of bool
+        An array with the same shape as ``dates``, containing True for
+        each valid day, and False for each invalid day.
+
+    See Also
+    --------
+    busdaycalendar : An object that specifies a custom set of valid days.
+    busday_offset : Applies an offset counted in valid days.
+    busday_count : Counts how many valid days are in a half-open date range.
+
+    Examples
+    --------
+    >>> import numpy as np
+    >>> # The weekdays are Friday, Saturday, and Monday
+    ... np.is_busday(['2011-07-01', '2011-07-02', '2011-07-18'],
+    ...                 holidays=['2011-07-01', '2011-07-04', '2011-07-17'])
+    array([False, False,  True])
+    
+=== parse numpydoc
+short_description: 'is_busday('
+long_description: |
+  dates,
+      weekmask='1111100',
+      holidays=None,
+      busdaycal=None,
+      out=None,
+  )
+  
+  Calculates which of the given dates are valid days, and which are not.
+blank_after_short_description: False
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'dates']
+  description: 'The array of dates to process.'
+  arg_name: 'dates'
+  type_name: 'array_like of datetime64[D]'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'weekmask']
+  description: |
+    A seven-element array indicating which of Monday through Sunday are
+    valid days. May be specified as a length-seven list or array, like
+    [1,1,1,1,1,0,0]; a length-seven string, like '1111100'; or a string
+    like "Mon Tue Wed Thu Fri", made up of 3-character abbreviations for
+    weekdays, optionally separated by white space. Valid abbreviations
+    are: Mon Tue Wed Thu Fri Sat Sun
+  arg_name: 'weekmask'
+  type_name: 'str or array_like of bool'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'holidays']
+  description: |
+    An array of dates to consider as invalid dates.  They may be
+    specified in any order, and NaT (not-a-time) dates are ignored.
+    This list is saved in a normalized form that is suited for
+    fast calculations of valid days.
+  arg_name: 'holidays'
+  type_name: 'array_like of datetime64[D]'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'busdaycal']
+  description: |
+    A `busdaycalendar` object which specifies the valid days. If this
+    parameter is provided, neither weekmask nor holidays may be
+    provided.
+  arg_name: 'busdaycal'
+  type_name: 'busdaycalendar'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'out']
+  description: 'If provided, this array is filled with the result.'
+  arg_name: 'out'
+  type_name: 'array of bool'
+  is_optional: True
+- DocstringReturns
+  args: ['returns']
+  description: |
+    An array with the same shape as ``dates``, containing True for
+    each valid day, and False for each invalid day.
+  type_name: 'array of bool'
+  is_generator: False
+  return_name: 'out'
+- DocstringMeta
+  args: ['see_also']
+  description: |
+    busdaycalendar : An object that specifies a custom set of valid days.
+    busday_offset : Applies an offset counted in valid days.
+    busday_count : Counts how many valid days are in a half-open date range.
+- DocstringExample
+  args: ['examples']
+  description: |
+    ... np.is_busday(['2011-07-01', '2011-07-02', '2011-07-18'],
+    ...                 holidays=['2011-07-01', '2011-07-04', '2011-07-17'])
+    array([False, False,  True])
+  snippet: |
+    >>> import numpy as np
+    >>> # The weekdays are Friday, Saturday, and Monday
+=== detect
+numpydoc
+=== compose numpydoc
+is_busday(
+dates,
+    weekmask='1111100',
+    holidays=None,
+    busdaycal=None,
+    out=None,
+)
+
+Calculates which of the given dates are valid days, and which are not.
+
+Parameters
+----------
+dates : array_like of datetime64[D]
+    The array of dates to process.
+weekmask : str or array_like of bool, optional
+    A seven-element array indicating which of Monday through Sunday are
+    valid days. May be specified as a length-seven list or array, like
+    [1,1,1,1,1,0,0]; a length-seven string, like '1111100'; or a string
+    like "Mon Tue Wed Thu Fri", made up of 3-character abbreviations for
+    weekdays, optionally separated by white space. Valid abbreviations
+    are: Mon Tue Wed Thu Fri Sat Sun
+holidays : array_like of datetime64[D], optional
+    An array of dates to consider as invalid dates.  They may be
+    specified in any order, and NaT (not-a-time) dates are ignored.
+    This list is saved in a normalized form that is suited for
+    fast calculations of valid days.
+busdaycal : busdaycalendar, optional
+    A `busdaycalendar` object which specifies the valid days. If this
+    parameter is provided, neither weekmask nor holidays may be
+    provided.
+out : array of bool, optional
+    If provided, this array is filled with the result.
+
+Returns
+-------
+out : array of bool
+    An array with the same shape as ``dates``, containing True for
+    each valid day, and False for each invalid day.
+
+Examples
+--------
+>>> import numpy as np
+>>> # The weekdays are Friday, Saturday, and Monday
+... np.is_busday(['2011-07-01', '2011-07-02', '2011-07-18'],
+...                 holidays=['2011-07-01', '2011-07-04', '2011-07-17'])
+array([False, False,  True])
+
+See Also
+--------
+busdaycalendar : An object that specifies a custom set of valid days.
+busday_offset : Applies an offset counted in valid days.
+busday_count : Counts how many valid days are in a half-open date range.

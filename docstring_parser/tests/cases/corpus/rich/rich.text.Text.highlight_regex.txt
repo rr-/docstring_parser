@@ -1,0 +1,59 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Highlight text with a regular expression, where group names are
+        translated to styles.
+
+        Args:
+            re_highlight (Union[re.Pattern, str]): A regular expression object or string.
+            style (Union[GetStyleCallable, StyleType]): Optional style to apply to whole match, or a callable
+                which accepts the matched text and returns a style. Defaults to None.
+            style_prefix (str, optional): Optional prefix to add to style group names.
+
+        Returns:
+            int: Number of regex matches
+        
+=== parse google
+short_description: 'Highlight text with a regular expression, where group names are'
+long_description: 'translated to styles.'
+blank_after_short_description: False
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 're_highlight (Union[re.Pattern, str])']
+  description: 'A regular expression object or string.'
+  arg_name: 're_highlight'
+  type_name: 'Union[re.Pattern, str]'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'style (Union[GetStyleCallable, StyleType])']
+  description: |
+    Optional style to apply to whole match, or a callable
+    which accepts the matched text and returns a style. Defaults to None.
+  arg_name: 'style'
+  type_name: 'Union[GetStyleCallable, StyleType]'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'style_prefix (str, optional)']
+  description: 'Optional prefix to add to style group names.'
+  arg_name: 'style_prefix'
+  type_name: 'str'
+  is_optional: True
+- DocstringReturns
+  args: ['returns', 'int']
+  description: 'Number of regex matches'
+  type_name: 'int'
+  is_generator: False
+=== detect
+google
+=== compose google
+Highlight text with a regular expression, where group names are
+translated to styles.
+
+Args:
+    re_highlight (Union[re.Pattern, str]): A regular expression object or string.
+    style (Union[GetStyleCallable, StyleType]): Optional style to apply to whole match, or a callable
+        which accepts the matched text and returns a style. Defaults to None.
+    style_prefix (str?): Optional prefix to add to style group names.
+
+Returns:
+    int: Number of regex matches

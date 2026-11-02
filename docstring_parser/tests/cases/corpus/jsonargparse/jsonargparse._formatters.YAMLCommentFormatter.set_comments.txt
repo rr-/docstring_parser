@@ -1,0 +1,47 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Sets the comments for all the keys of a config object.
+
+        Args:
+            cfg: The ruamel.yaml object.
+            parser: The parser from which help content is obtained.
+            group_titles: Map of parser keys to the title of the group they belong to.
+            prefix: The parser key that corresponds to the given config object.
+            depth: The nested level of the keys of the config object.
+        
+=== parse google
+short_description: 'Sets the comments for all the keys of a config object.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'cfg']
+  description: 'The ruamel.yaml object.'
+  arg_name: 'cfg'
+- DocstringParam
+  args: ['param', 'parser']
+  description: 'The parser from which help content is obtained.'
+  arg_name: 'parser'
+- DocstringParam
+  args: ['param', 'group_titles']
+  description: 'Map of parser keys to the title of the group they belong to.'
+  arg_name: 'group_titles'
+- DocstringParam
+  args: ['param', 'prefix']
+  description: 'The parser key that corresponds to the given config object.'
+  arg_name: 'prefix'
+- DocstringParam
+  args: ['param', 'depth']
+  description: 'The nested level of the keys of the config object.'
+  arg_name: 'depth'
+=== detect
+google
+=== compose google
+Sets the comments for all the keys of a config object.
+
+Args:
+    cfg: The ruamel.yaml object.
+    parser: The parser from which help content is obtained.
+    group_titles: Map of parser keys to the title of the group they belong to.
+    prefix: The parser key that corresponds to the given config object.
+    depth: The nested level of the keys of the config object.

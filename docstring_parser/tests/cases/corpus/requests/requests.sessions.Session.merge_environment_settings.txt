@@ -1,0 +1,22 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+
+        Check the environment and merge it with some settings.
+
+        :rtype: dict
+        
+=== parse rest
+short_description: 'Check the environment and merge it with some settings.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringReturns
+  args: []
+  type_name: 'dict'
+  is_generator: False
+=== detect
+rest
+=== compose rest
+Check the environment and merge it with some settings.
+
+:returns dict:

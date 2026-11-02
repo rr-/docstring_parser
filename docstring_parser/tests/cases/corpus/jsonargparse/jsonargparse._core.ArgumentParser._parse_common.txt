@@ -1,0 +1,79 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Common parsing code used by other parse methods.
+
+        Args:
+            cfg: The configuration object.
+            env: Whether to merge with the parsed environment, ``None`` to use the parser's default.
+            defaults: Whether to merge with the parser's defaults.
+            skip_validation: Whether to skip validation of configuration.
+            skip_required: Whether to skip check of required arguments.
+            skip_subcommands: Whether to skip subcommand processing.
+            fail_no_subcommand: Whether to fail if no subcommand given.
+            nested_parse: Whether the result is to be merged into an ongoing parse of another parser,
+                in which case the internal representation of values must be preserved.
+
+        Returns:
+            A config object with all parsed values.
+        
+=== parse google
+short_description: 'Common parsing code used by other parse methods.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'cfg']
+  description: 'The configuration object.'
+  arg_name: 'cfg'
+- DocstringParam
+  args: ['param', 'env']
+  description: "Whether to merge with the parsed environment, ``None`` to use the parser's default."
+  arg_name: 'env'
+- DocstringParam
+  args: ['param', 'defaults']
+  description: "Whether to merge with the parser's defaults."
+  arg_name: 'defaults'
+- DocstringParam
+  args: ['param', 'skip_validation']
+  description: 'Whether to skip validation of configuration.'
+  arg_name: 'skip_validation'
+- DocstringParam
+  args: ['param', 'skip_required']
+  description: 'Whether to skip check of required arguments.'
+  arg_name: 'skip_required'
+- DocstringParam
+  args: ['param', 'skip_subcommands']
+  description: 'Whether to skip subcommand processing.'
+  arg_name: 'skip_subcommands'
+- DocstringParam
+  args: ['param', 'fail_no_subcommand']
+  description: 'Whether to fail if no subcommand given.'
+  arg_name: 'fail_no_subcommand'
+- DocstringParam
+  args: ['param', 'nested_parse']
+  description: |
+    Whether the result is to be merged into an ongoing parse of another parser,
+    in which case the internal representation of values must be preserved.
+  arg_name: 'nested_parse'
+- DocstringReturns
+  args: ['returns']
+  description: 'A config object with all parsed values.'
+  is_generator: False
+=== detect
+google
+=== compose google
+Common parsing code used by other parse methods.
+
+Args:
+    cfg: The configuration object.
+    env: Whether to merge with the parsed environment, ``None`` to use the parser's default.
+    defaults: Whether to merge with the parser's defaults.
+    skip_validation: Whether to skip validation of configuration.
+    skip_required: Whether to skip check of required arguments.
+    skip_subcommands: Whether to skip subcommand processing.
+    fail_no_subcommand: Whether to fail if no subcommand given.
+    nested_parse: Whether the result is to be merged into an ongoing parse of another parser,
+        in which case the internal representation of values must be preserved.
+
+Returns:
+    A config object with all parsed values.

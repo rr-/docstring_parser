@@ -1,0 +1,93 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Register a Docutils node class as a numfig target.
+
+        Sphinx numbers the node automatically. And then the users can refer it
+        using :rst:role:`numref`.
+
+        :param node: A node class
+        :param figtype: The type of enumerable nodes.  Each figtype has individual numbering
+                        sequences.  As system figtypes, ``figure``, ``table`` and
+                        ``code-block`` are defined.  It is possible to add custom nodes to
+                        these default figtypes.  It is also possible to define new custom
+                        figtype if a new figtype is given.
+        :param title_getter: A getter function to obtain the title of node.  It takes an
+                             instance of the enumerable node, and it must return its title as
+                             string.  The title is used to the default title of references for
+                             :rst:role:`ref`.  By default, Sphinx searches
+                             ``docutils.nodes.caption`` or ``docutils.nodes.title`` from the
+                             node as a title.
+        :param kwargs: Visitor functions for each builder (same as :meth:`add_node`)
+        :param override: If true, install the node forcedly even if another node is already
+                         installed as the same name
+
+        .. versionadded:: 1.4
+        
+=== parse rest
+short_description: 'Register a Docutils node class as a numfig target.'
+long_description: |
+  Sphinx numbers the node automatically. And then the users can refer it
+  using :rst:role:`numref`.
+  
+  .. versionadded:: 1.4
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringParam
+  args: ['param', 'node']
+  description: 'A node class'
+  arg_name: 'node'
+- DocstringParam
+  args: ['param', 'figtype']
+  description: |
+    The type of enumerable nodes.  Each figtype has individual numbering
+    sequences.  As system figtypes, ``figure``, ``table`` and
+    ``code-block`` are defined.  It is possible to add custom nodes to
+    these default figtypes.  It is also possible to define new custom
+    figtype if a new figtype is given.
+  arg_name: 'figtype'
+- DocstringParam
+  args: ['param', 'title_getter']
+  description: |
+    A getter function to obtain the title of node.  It takes an
+    instance of the enumerable node, and it must return its title as
+    string.  The title is used to the default title of references for
+    :rst:role:`ref`.  By default, Sphinx searches
+    ``docutils.nodes.caption`` or ``docutils.nodes.title`` from the
+    node as a title.
+  arg_name: 'title_getter'
+- DocstringParam
+  args: ['param', 'kwargs']
+  description: 'Visitor functions for each builder (same as :meth:`add_node`)'
+  arg_name: 'kwargs'
+- DocstringParam
+  args: ['param', 'override']
+  description: |
+    If true, install the node forcedly even if another node is already
+    installed as the same name
+  arg_name: 'override'
+=== detect
+rest
+=== compose rest
+Register a Docutils node class as a numfig target.
+
+Sphinx numbers the node automatically. And then the users can refer it
+using :rst:role:`numref`.
+
+.. versionadded:: 1.4
+
+:param node: A node class
+:param figtype: The type of enumerable nodes.  Each figtype has individual numbering
+    sequences.  As system figtypes, ``figure``, ``table`` and
+    ``code-block`` are defined.  It is possible to add custom nodes to
+    these default figtypes.  It is also possible to define new custom
+    figtype if a new figtype is given.
+:param title_getter: A getter function to obtain the title of node.  It takes an
+    instance of the enumerable node, and it must return its title as
+    string.  The title is used to the default title of references for
+    :rst:role:`ref`.  By default, Sphinx searches
+    ``docutils.nodes.caption`` or ``docutils.nodes.title`` from the
+    node as a title.
+:param kwargs: Visitor functions for each builder (same as :meth:`add_node`)
+:param override: If true, install the node forcedly even if another node is already
+    installed as the same name

@@ -1,0 +1,26 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Checks if `key` is a deprecated option and if so, prints a warning.
+
+    Returns
+    -------
+    bool - True if `key` is deprecated, False otherwise.
+    
+=== parse numpydoc
+short_description: 'Checks if `key` is a deprecated option and if so, prints a warning.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringReturns
+  args: ['returns']
+  type_name: 'bool - True if `key` is deprecated, False otherwise.'
+  is_generator: False
+=== detect
+numpydoc
+=== compose numpydoc
+Checks if `key` is a deprecated option and if so, prints a warning.
+
+Returns
+-------
+bool - True if `key` is deprecated, False otherwise.

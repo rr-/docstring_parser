@@ -1,0 +1,43 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+This method re-evaluates the proxy configuration by considering the
+        environment variables. If we are redirected to a URL covered by
+        NO_PROXY, we strip the proxy configuration. Otherwise, we set missing
+        proxy keys for this URL (in case they were stripped by a previous
+        redirect).
+
+        This method also replaces the Proxy-Authorization header where
+        necessary.
+
+        :rtype: dict
+        
+=== parse rest
+short_description: 'This method re-evaluates the proxy configuration by considering the'
+long_description: |
+  environment variables. If we are redirected to a URL covered by
+  NO_PROXY, we strip the proxy configuration. Otherwise, we set missing
+  proxy keys for this URL (in case they were stripped by a previous
+  redirect).
+  
+  This method also replaces the Proxy-Authorization header where
+  necessary.
+blank_after_short_description: False
+blank_after_long_description: True
+style: rest
+- DocstringReturns
+  args: []
+  type_name: 'dict'
+  is_generator: False
+=== detect
+rest
+=== compose rest
+This method re-evaluates the proxy configuration by considering the
+environment variables. If we are redirected to a URL covered by
+NO_PROXY, we strip the proxy configuration. Otherwise, we set missing
+proxy keys for this URL (in case they were stripped by a previous
+redirect).
+
+This method also replaces the Proxy-Authorization header where
+necessary.
+
+:returns dict:

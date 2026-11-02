@@ -1,0 +1,201 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Build a masked array from a suitable flexible-type array.
+
+    The input array has to have a data-type with ``_data`` and ``_mask``
+    fields. This type of array is output by `MaskedArray.toflex`.
+
+    Parameters
+    ----------
+    fxarray : ndarray
+        The structured input array, containing ``_data`` and ``_mask``
+        fields. If present, other fields are discarded.
+
+    Returns
+    -------
+    result : MaskedArray
+        The constructed masked array.
+
+    See Also
+    --------
+    MaskedArray.toflex : Build a flexible-type array from a masked array.
+
+    Examples
+    --------
+    >>> import numpy as np
+    >>> x = np.ma.array(np.arange(9).reshape(3, 3), mask=[0] + [1, 0] * 4)
+    >>> rec = x.toflex()
+    >>> rec
+    array([[(0, False), (1,  True), (2, False)],
+           [(3,  True), (4, False), (5,  True)],
+           [(6, False), (7,  True), (8, False)]],
+          dtype=[('_data', '<i8'), ('_mask', '?')])
+    >>> x2 = np.ma.fromflex(rec)
+    >>> x2
+    masked_array(
+      data=[[0, --, 2],
+            [--, 4, --],
+            [6, --, 8]],
+      mask=[[False,  True, False],
+            [ True, False,  True],
+            [False,  True, False]],
+      fill_value=999999)
+
+    Extra fields can be present in the structured array but are discarded:
+
+    >>> dt = [('_data', '<i4'), ('_mask', '|b1'), ('field3', '<f4')]
+    >>> rec2 = np.zeros((2, 2), dtype=dt)
+    >>> rec2
+    array([[(0, False, 0.), (0, False, 0.)],
+           [(0, False, 0.), (0, False, 0.)]],
+          dtype=[('_data', '<i4'), ('_mask', '?'), ('field3', '<f4')])
+    >>> y = np.ma.fromflex(rec2)
+    >>> y
+    masked_array(
+      data=[[0, 0],
+            [0, 0]],
+      mask=[[False, False],
+            [False, False]],
+      fill_value=np.int64(999999),
+      dtype=int32)
+
+    
+=== parse numpydoc
+short_description: 'Build a masked array from a suitable flexible-type array.'
+long_description: |
+  The input array has to have a data-type with ``_data`` and ``_mask``
+  fields. This type of array is output by `MaskedArray.toflex`.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'fxarray']
+  description: |
+    The structured input array, containing ``_data`` and ``_mask``
+    fields. If present, other fields are discarded.
+  arg_name: 'fxarray'
+  type_name: 'ndarray'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: 'The constructed masked array.'
+  type_name: 'MaskedArray'
+  is_generator: False
+  return_name: 'result'
+- DocstringMeta
+  args: ['see_also']
+  description: 'MaskedArray.toflex : Build a flexible-type array from a masked array.'
+- DocstringExample
+  args: ['examples']
+  description: |
+    array([[(0, False), (1,  True), (2, False)],
+           [(3,  True), (4, False), (5,  True)],
+           [(6, False), (7,  True), (8, False)]],
+          dtype=[('_data', '<i8'), ('_mask', '?')])
+  snippet: |
+    >>> import numpy as np
+    >>> x = np.ma.array(np.arange(9).reshape(3, 3), mask=[0] + [1, 0] * 4)
+    >>> rec = x.toflex()
+    >>> rec
+- DocstringExample
+  args: ['examples']
+  description: |
+    masked_array(
+      data=[[0, --, 2],
+            [--, 4, --],
+            [6, --, 8]],
+      mask=[[False,  True, False],
+            [ True, False,  True],
+            [False,  True, False]],
+      fill_value=999999)
+    
+    Extra fields can be present in the structured array but are discarded:
+    
+  snippet: |
+    >>> x2 = np.ma.fromflex(rec)
+    >>> x2
+- DocstringExample
+  args: ['examples']
+  description: |
+    array([[(0, False, 0.), (0, False, 0.)],
+           [(0, False, 0.), (0, False, 0.)]],
+          dtype=[('_data', '<i4'), ('_mask', '?'), ('field3', '<f4')])
+  snippet: |
+    >>> dt = [('_data', '<i4'), ('_mask', '|b1'), ('field3', '<f4')]
+    >>> rec2 = np.zeros((2, 2), dtype=dt)
+    >>> rec2
+- DocstringExample
+  args: ['examples']
+  description: |
+    masked_array(
+      data=[[0, 0],
+            [0, 0]],
+      mask=[[False, False],
+            [False, False]],
+      fill_value=np.int64(999999),
+      dtype=int32)
+  snippet: |
+    >>> y = np.ma.fromflex(rec2)
+    >>> y
+=== detect
+numpydoc
+=== compose numpydoc
+Build a masked array from a suitable flexible-type array.
+
+The input array has to have a data-type with ``_data`` and ``_mask``
+fields. This type of array is output by `MaskedArray.toflex`.
+
+Parameters
+----------
+fxarray : ndarray
+    The structured input array, containing ``_data`` and ``_mask``
+    fields. If present, other fields are discarded.
+
+Returns
+-------
+result : MaskedArray
+    The constructed masked array.
+
+Examples
+--------
+>>> import numpy as np
+>>> x = np.ma.array(np.arange(9).reshape(3, 3), mask=[0] + [1, 0] * 4)
+>>> rec = x.toflex()
+>>> rec
+array([[(0, False), (1,  True), (2, False)],
+       [(3,  True), (4, False), (5,  True)],
+       [(6, False), (7,  True), (8, False)]],
+      dtype=[('_data', '<i8'), ('_mask', '?')])
+>>> x2 = np.ma.fromflex(rec)
+>>> x2
+masked_array(
+  data=[[0, --, 2],
+        [--, 4, --],
+        [6, --, 8]],
+  mask=[[False,  True, False],
+        [ True, False,  True],
+        [False,  True, False]],
+  fill_value=999999)
+
+Extra fields can be present in the structured array but are discarded:
+
+>>> dt = [('_data', '<i4'), ('_mask', '|b1'), ('field3', '<f4')]
+>>> rec2 = np.zeros((2, 2), dtype=dt)
+>>> rec2
+array([[(0, False, 0.), (0, False, 0.)],
+       [(0, False, 0.), (0, False, 0.)]],
+      dtype=[('_data', '<i4'), ('_mask', '?'), ('field3', '<f4')])
+>>> y = np.ma.fromflex(rec2)
+>>> y
+masked_array(
+  data=[[0, 0],
+        [0, 0]],
+  mask=[[False, False],
+        [False, False]],
+  fill_value=np.int64(999999),
+  dtype=int32)
+
+See Also
+--------
+MaskedArray.toflex : Build a flexible-type array from a masked array.

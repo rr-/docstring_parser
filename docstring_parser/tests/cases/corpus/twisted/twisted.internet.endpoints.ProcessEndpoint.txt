@@ -1,0 +1,29 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+    An endpoint for child processes
+
+    @ivar _spawnProcess: A hook used for testing the spawning of child process.
+
+    @since: 13.1
+    
+=== parse epydoc
+short_description: 'An endpoint for child processes'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringParam
+  args: ['ivar', '_spawnProcess']
+  description: 'A hook used for testing the spawning of child process.'
+  arg_name: '_spawnProcess'
+  is_optional: False
+- DocstringMeta
+  args: ['since']
+  description: '13.1'
+=== detect
+epydoc
+=== compose epydoc
+An endpoint for child processes
+
+@param _spawnProcess: A hook used for testing the spawning of child process.
+@since: 13.1

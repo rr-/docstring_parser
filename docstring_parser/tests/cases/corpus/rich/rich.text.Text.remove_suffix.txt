@@ -1,0 +1,25 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Remove a suffix if it exists.
+
+        Args:
+            suffix (str): Suffix to remove.
+        
+=== parse google
+short_description: 'Remove a suffix if it exists.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'suffix (str)']
+  description: 'Suffix to remove.'
+  arg_name: 'suffix'
+  type_name: 'str'
+  is_optional: False
+=== detect
+google
+=== compose google
+Remove a suffix if it exists.
+
+Args:
+    suffix (str): Suffix to remove.

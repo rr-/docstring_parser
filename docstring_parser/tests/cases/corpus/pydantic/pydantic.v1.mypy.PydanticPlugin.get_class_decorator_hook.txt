@@ -1,0 +1,18 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Mark pydantic.dataclasses as dataclass.
+
+        Mypy version 1.1.1 added support for `@dataclass_transform` decorator.
+        
+=== parse google
+short_description: 'Mark pydantic.dataclasses as dataclass.'
+long_description: 'Mypy version 1.1.1 added support for `@dataclass_transform` decorator.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Mark pydantic.dataclasses as dataclass.
+
+Mypy version 1.1.1 added support for `@dataclass_transform` decorator.

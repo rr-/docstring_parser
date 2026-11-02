@@ -1,0 +1,126 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Set the default format for the string representation of polynomials.
+
+    Values for ``style`` must be valid inputs to ``__format__``, i.e. 'ascii'
+    or 'unicode'.
+
+    Parameters
+    ----------
+    style : str
+        Format string for default printing style. Must be either 'ascii' or
+        'unicode'.
+
+    Notes
+    -----
+    The default format depends on the platform: 'unicode' is used on
+    Unix-based systems and 'ascii' on Windows. This determination is based on
+    default font support for the unicode superscript and subscript ranges.
+
+    Examples
+    --------
+    >>> p = np.polynomial.Polynomial([1, 2, 3])
+    >>> c = np.polynomial.Chebyshev([1, 2, 3])
+    >>> np.polynomial.set_default_printstyle('unicode')
+    >>> print(p)
+    1.0 + 2.0·x + 3.0·x²
+    >>> print(c)
+    1.0 + 2.0·T₁(x) + 3.0·T₂(x)
+    >>> np.polynomial.set_default_printstyle('ascii')
+    >>> print(p)
+    1.0 + 2.0 x + 3.0 x**2
+    >>> print(c)
+    1.0 + 2.0 T_1(x) + 3.0 T_2(x)
+    >>> # Formatting supersedes all class/package-level defaults
+    >>> print(f"{p:unicode}")
+    1.0 + 2.0·x + 3.0·x²
+    
+=== parse numpydoc
+short_description: 'Set the default format for the string representation of polynomials.'
+long_description: |
+  Values for ``style`` must be valid inputs to ``__format__``, i.e. 'ascii'
+  or 'unicode'.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'style']
+  description: |
+    Format string for default printing style. Must be either 'ascii' or
+    'unicode'.
+  arg_name: 'style'
+  type_name: 'str'
+  is_optional: False
+  default: 'printing'
+- DocstringMeta
+  args: ['notes']
+  description: |
+    The default format depends on the platform: 'unicode' is used on
+    Unix-based systems and 'ascii' on Windows. This determination is based on
+    default font support for the unicode superscript and subscript ranges.
+- DocstringExample
+  args: ['examples']
+  description: '1.0 + 2.0·x + 3.0·x²'
+  snippet: |
+    >>> p = np.polynomial.Polynomial([1, 2, 3])
+    >>> c = np.polynomial.Chebyshev([1, 2, 3])
+    >>> np.polynomial.set_default_printstyle('unicode')
+    >>> print(p)
+- DocstringExample
+  args: ['examples']
+  description: '1.0 + 2.0·T₁(x) + 3.0·T₂(x)'
+  snippet: '>>> print(c)'
+- DocstringExample
+  args: ['examples']
+  description: '1.0 + 2.0 x + 3.0 x**2'
+  snippet: |
+    >>> np.polynomial.set_default_printstyle('ascii')
+    >>> print(p)
+- DocstringExample
+  args: ['examples']
+  description: '1.0 + 2.0 T_1(x) + 3.0 T_2(x)'
+  snippet: '>>> print(c)'
+- DocstringExample
+  args: ['examples']
+  description: '1.0 + 2.0·x + 3.0·x²'
+  snippet: |
+    >>> # Formatting supersedes all class/package-level defaults
+    >>> print(f"{p:unicode}")
+=== detect
+numpydoc
+=== compose numpydoc
+Set the default format for the string representation of polynomials.
+
+Values for ``style`` must be valid inputs to ``__format__``, i.e. 'ascii'
+or 'unicode'.
+
+Parameters
+----------
+style : str, default=printing
+    Format string for default printing style. Must be either 'ascii' or
+    'unicode'.
+
+Examples
+--------
+>>> p = np.polynomial.Polynomial([1, 2, 3])
+>>> c = np.polynomial.Chebyshev([1, 2, 3])
+>>> np.polynomial.set_default_printstyle('unicode')
+>>> print(p)
+1.0 + 2.0·x + 3.0·x²
+>>> print(c)
+1.0 + 2.0·T₁(x) + 3.0·T₂(x)
+>>> np.polynomial.set_default_printstyle('ascii')
+>>> print(p)
+1.0 + 2.0 x + 3.0 x**2
+>>> print(c)
+1.0 + 2.0 T_1(x) + 3.0 T_2(x)
+>>> # Formatting supersedes all class/package-level defaults
+>>> print(f"{p:unicode}")
+1.0 + 2.0·x + 3.0·x²
+
+Notes
+-----
+The default format depends on the platform: 'unicode' is used on
+Unix-based systems and 'ascii' on Windows. This determination is based on
+default font support for the unicode superscript and subscript ranges.

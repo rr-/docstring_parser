@@ -1,0 +1,25 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Warns instead of failing when an import path given as a value is denied.
+
+    Remove in v5.0.0, changing the default of the ``import_paths_enforced``
+    setting from ``False`` to ``True``, and thus making
+    ``_common.check_import_path`` always raise.
+    
+=== parse google
+short_description: 'Warns instead of failing when an import path given as a value is denied.'
+long_description: |
+  Remove in v5.0.0, changing the default of the ``import_paths_enforced``
+  setting from ``False`` to ``True``, and thus making
+  ``_common.check_import_path`` always raise.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Warns instead of failing when an import path given as a value is denied.
+
+Remove in v5.0.0, changing the default of the ``import_paths_enforced``
+setting from ``False`` to ``True``, and thus making
+``_common.check_import_path`` always raise.

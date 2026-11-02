@@ -1,0 +1,235 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Estimate the covariance matrix.
+
+    Except for the handling of missing data this function does the same as
+    `numpy.cov`. For more details and examples, see `numpy.cov`.
+
+    By default, masked values are recognized as such. If `x` and `y` have the
+    same shape, a common mask is allocated: if ``x[i,j]`` is masked, then
+    ``y[i,j]`` will also be masked.
+    Setting `allow_masked` to False will raise an exception if values are
+    missing in either of the input arrays.
+
+    Parameters
+    ----------
+    x : array_like
+        A 1-D or 2-D array containing multiple variables and observations.
+        Each row of `x` represents a variable, and each column a single
+        observation of all those variables. Also see `rowvar` below.
+    y : array_like, optional
+        An additional set of variables and observations. `y` has the same
+        shape as `x`.
+    rowvar : bool, optional
+        If `rowvar` is True (default), then each row represents a
+        variable, with observations in the columns. Otherwise, the relationship
+        is transposed: each column represents a variable, while the rows
+        contain observations.
+    bias : bool, optional
+        Default normalization (False) is by ``(N-1)``, where ``N`` is the
+        number of observations given (unbiased estimate). If `bias` is True,
+        then normalization is by ``N``. This keyword can be overridden by
+        the keyword ``ddof`` in numpy versions >= 1.5.
+    allow_masked : bool, optional
+        If True, masked values are propagated pair-wise: if a value is masked
+        in `x`, the corresponding value is masked in `y`.
+        If False, raises a `ValueError` exception when some values are missing.
+    ddof : {None, int}, optional
+        If not ``None`` normalization is by ``(N - ddof)``, where ``N`` is
+        the number of observations; this overrides the value implied by
+        ``bias``. The default value is ``None``.
+
+    Raises
+    ------
+    ValueError
+        Raised if some values are missing and `allow_masked` is False.
+
+    See Also
+    --------
+    numpy.cov
+
+    Examples
+    --------
+    >>> import numpy as np
+    >>> x = np.ma.array([[0, 1], [1, 1]], mask=[0, 1, 0, 1])
+    >>> y = np.ma.array([[1, 0], [0, 1]], mask=[0, 0, 1, 1])
+    >>> np.ma.cov(x, y)
+    masked_array(
+    data=[[--, --, --, --],
+          [--, --, --, --],
+          [--, --, --, --],
+          [--, --, --, --]],
+    mask=[[ True,  True,  True,  True],
+          [ True,  True,  True,  True],
+          [ True,  True,  True,  True],
+          [ True,  True,  True,  True]],
+    fill_value=1e+20,
+    dtype=float64)
+
+    
+=== parse numpydoc
+short_description: 'Estimate the covariance matrix.'
+long_description: |
+  Except for the handling of missing data this function does the same as
+  `numpy.cov`. For more details and examples, see `numpy.cov`.
+  
+  By default, masked values are recognized as such. If `x` and `y` have the
+  same shape, a common mask is allocated: if ``x[i,j]`` is masked, then
+  ``y[i,j]`` will also be masked.
+  Setting `allow_masked` to False will raise an exception if values are
+  missing in either of the input arrays.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'x']
+  description: |
+    A 1-D or 2-D array containing multiple variables and observations.
+    Each row of `x` represents a variable, and each column a single
+    observation of all those variables. Also see `rowvar` below.
+  arg_name: 'x'
+  type_name: 'array_like'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'y']
+  description: |
+    An additional set of variables and observations. `y` has the same
+    shape as `x`.
+  arg_name: 'y'
+  type_name: 'array_like'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'rowvar']
+  description: |
+    If `rowvar` is True (default), then each row represents a
+    variable, with observations in the columns. Otherwise, the relationship
+    is transposed: each column represents a variable, while the rows
+    contain observations.
+  arg_name: 'rowvar'
+  type_name: 'bool'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'bias']
+  description: |
+    Default normalization (False) is by ``(N-1)``, where ``N`` is the
+    number of observations given (unbiased estimate). If `bias` is True,
+    then normalization is by ``N``. This keyword can be overridden by
+    the keyword ``ddof`` in numpy versions >= 1.5.
+  arg_name: 'bias'
+  type_name: 'bool'
+  is_optional: True
+  default: 'normalization'
+- DocstringParam
+  args: ['param', 'allow_masked']
+  description: |
+    If True, masked values are propagated pair-wise: if a value is masked
+    in `x`, the corresponding value is masked in `y`.
+    If False, raises a `ValueError` exception when some values are missing.
+  arg_name: 'allow_masked'
+  type_name: 'bool'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'ddof']
+  description: |
+    If not ``None`` normalization is by ``(N - ddof)``, where ``N`` is
+    the number of observations; this overrides the value implied by
+    ``bias``. The default value is ``None``.
+  arg_name: 'ddof'
+  type_name: '{None, int}'
+  is_optional: True
+  default: 'value'
+- DocstringRaises
+  args: ['raises', 'ValueError']
+  description: 'Raised if some values are missing and `allow_masked` is False.'
+  type_name: 'ValueError'
+- DocstringMeta
+  args: ['see_also']
+  description: 'numpy.cov'
+- DocstringExample
+  args: ['examples']
+  description: |
+    masked_array(
+    data=[[--, --, --, --],
+          [--, --, --, --],
+          [--, --, --, --],
+          [--, --, --, --]],
+    mask=[[ True,  True,  True,  True],
+          [ True,  True,  True,  True],
+          [ True,  True,  True,  True],
+          [ True,  True,  True,  True]],
+    fill_value=1e+20,
+    dtype=float64)
+  snippet: |
+    >>> import numpy as np
+    >>> x = np.ma.array([[0, 1], [1, 1]], mask=[0, 1, 0, 1])
+    >>> y = np.ma.array([[1, 0], [0, 1]], mask=[0, 0, 1, 1])
+    >>> np.ma.cov(x, y)
+=== detect
+numpydoc
+=== compose numpydoc
+Estimate the covariance matrix.
+
+Except for the handling of missing data this function does the same as
+`numpy.cov`. For more details and examples, see `numpy.cov`.
+
+By default, masked values are recognized as such. If `x` and `y` have the
+same shape, a common mask is allocated: if ``x[i,j]`` is masked, then
+``y[i,j]`` will also be masked.
+Setting `allow_masked` to False will raise an exception if values are
+missing in either of the input arrays.
+
+Parameters
+----------
+x : array_like
+    A 1-D or 2-D array containing multiple variables and observations.
+    Each row of `x` represents a variable, and each column a single
+    observation of all those variables. Also see `rowvar` below.
+y : array_like, optional
+    An additional set of variables and observations. `y` has the same
+    shape as `x`.
+rowvar : bool, optional
+    If `rowvar` is True (default), then each row represents a
+    variable, with observations in the columns. Otherwise, the relationship
+    is transposed: each column represents a variable, while the rows
+    contain observations.
+bias : bool, default=normalization
+    Default normalization (False) is by ``(N-1)``, where ``N`` is the
+    number of observations given (unbiased estimate). If `bias` is True,
+    then normalization is by ``N``. This keyword can be overridden by
+    the keyword ``ddof`` in numpy versions >= 1.5.
+allow_masked : bool, optional
+    If True, masked values are propagated pair-wise: if a value is masked
+    in `x`, the corresponding value is masked in `y`.
+    If False, raises a `ValueError` exception when some values are missing.
+ddof : {None, int}, default=value
+    If not ``None`` normalization is by ``(N - ddof)``, where ``N`` is
+    the number of observations; this overrides the value implied by
+    ``bias``. The default value is ``None``.
+
+Raises
+------
+ValueError
+    Raised if some values are missing and `allow_masked` is False.
+
+Examples
+--------
+>>> import numpy as np
+>>> x = np.ma.array([[0, 1], [1, 1]], mask=[0, 1, 0, 1])
+>>> y = np.ma.array([[1, 0], [0, 1]], mask=[0, 0, 1, 1])
+>>> np.ma.cov(x, y)
+masked_array(
+data=[[--, --, --, --],
+      [--, --, --, --],
+      [--, --, --, --],
+      [--, --, --, --]],
+mask=[[ True,  True,  True,  True],
+      [ True,  True,  True,  True],
+      [ True,  True,  True,  True],
+      [ True,  True,  True,  True]],
+fill_value=1e+20,
+dtype=float64)
+
+See Also
+--------
+numpy.cov

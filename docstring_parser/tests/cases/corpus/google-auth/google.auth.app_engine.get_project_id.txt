@@ -1,0 +1,34 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Gets the project ID for the current App Engine application.
+
+    Returns:
+        str: The project ID
+
+    Raises:
+        google.auth.exceptions.OSError: If the App Engine APIs are unavailable.
+    
+=== parse google
+short_description: 'Gets the project ID for the current App Engine application.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringReturns
+  args: ['returns', 'str']
+  description: 'The project ID'
+  type_name: 'str'
+  is_generator: False
+- DocstringRaises
+  args: ['raises', 'google.auth.exceptions.OSError']
+  description: 'If the App Engine APIs are unavailable.'
+  type_name: 'google.auth.exceptions.OSError'
+=== detect
+google
+=== compose google
+Gets the project ID for the current App Engine application.
+
+Returns:
+    str: The project ID
+
+Raises:
+    google.auth.exceptions.OSError: If the App Engine APIs are unavailable.

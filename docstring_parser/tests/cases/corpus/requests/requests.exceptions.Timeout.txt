@@ -1,0 +1,28 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+The request timed out.
+
+    Catching this error will catch both
+    :exc:`~requests.exceptions.ConnectTimeout` and
+    :exc:`~requests.exceptions.ReadTimeout` errors.
+    
+=== parse rest
+short_description: 'The request timed out.'
+long_description: 'Catching this error will catch both'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringMeta
+  args: ['exc']
+  description: '`~requests.exceptions.ConnectTimeout` and'
+- DocstringMeta
+  args: ['exc']
+  description: '`~requests.exceptions.ReadTimeout` errors.'
+=== detect
+rest
+=== compose rest
+The request timed out.
+
+Catching this error will catch both
+:exc: `~requests.exceptions.ConnectTimeout` and
+:exc: `~requests.exceptions.ReadTimeout` errors.

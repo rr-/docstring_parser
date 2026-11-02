@@ -1,0 +1,44 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Factory to create markdown element,
+
+        Args:
+            markdown (Markdown): The parent Markdown object.
+            token (Any): A token from markdown-it.
+
+        Returns:
+            MarkdownElement: A new markdown element
+        
+=== parse google
+short_description: 'Factory to create markdown element,'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'markdown (Markdown)']
+  description: 'The parent Markdown object.'
+  arg_name: 'markdown'
+  type_name: 'Markdown'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'token (Any)']
+  description: 'A token from markdown-it.'
+  arg_name: 'token'
+  type_name: 'Any'
+  is_optional: False
+- DocstringReturns
+  args: ['returns', 'MarkdownElement']
+  description: 'A new markdown element'
+  type_name: 'MarkdownElement'
+  is_generator: False
+=== detect
+google
+=== compose google
+Factory to create markdown element,
+
+Args:
+    markdown (Markdown): The parent Markdown object.
+    token (Any): A token from markdown-it.
+
+Returns:
+    MarkdownElement: A new markdown element

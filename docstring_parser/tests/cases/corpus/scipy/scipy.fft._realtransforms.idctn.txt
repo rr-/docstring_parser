@@ -1,0 +1,216 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Return multidimensional Inverse Discrete Cosine Transform along the specified axes.
+
+    Parameters
+    ----------
+    x : array_like
+        The input array.
+    type : {1, 2, 3, 4}, optional
+        Type of the DCT (see Notes). Default type is 2.
+    s : int or array_like of ints or None, optional
+        The shape of the result.  If both `s` and `axes` (see below) are
+        None, `s` is ``x.shape``; if `s` is None but `axes` is
+        not None, then `s` is ``numpy.take(x.shape, axes, axis=0)``.
+        If ``s[i] > x.shape[i]``, the ith dimension of the input is padded with zeros.
+        If ``s[i] < x.shape[i]``, the ith dimension of the input is truncated to length
+        ``s[i]``.
+        If any element of `s` is -1, the size of the corresponding dimension of
+        `x` is used.
+    axes : int or array_like of ints or None, optional
+        Axes over which the IDCT is computed. If not given, the last ``len(s)``
+        axes are used, or all axes if `s` is also not specified.
+    norm : {"backward", "ortho", "forward"}, optional
+        Normalization mode (see Notes). Default is "backward".
+    overwrite_x : bool, optional
+        If True, the contents of `x` can be destroyed; the default is False.
+    workers : int, optional
+        Maximum number of workers to use for parallel computation. If negative,
+        the value wraps around from ``os.cpu_count()``.
+        See :func:`~scipy.fft.fft` for more details.
+    orthogonalize : bool, optional
+        Whether to use the orthogonalized IDCT variant (see Notes).
+        Defaults to ``True`` when ``norm="ortho"`` and ``False`` otherwise.
+
+        .. versionadded:: 1.8.0
+
+    Returns
+    -------
+    y : ndarray of real
+        The transformed input array.
+
+    See Also
+    --------
+    dctn : multidimensional DCT
+
+    Notes
+    -----
+    For full details of the IDCT types and normalization modes, as well as
+    references, see `idct`.
+
+    Examples
+    --------
+    >>> import numpy as np
+    >>> from scipy.fft import dctn, idctn
+    >>> rng = np.random.default_rng()
+    >>> y = rng.standard_normal((16, 16))
+    >>> np.allclose(y, idctn(dctn(y)))
+    True
+
+    
+=== parse numpydoc
+short_description: 'Return multidimensional Inverse Discrete Cosine Transform along the specified axes.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'x']
+  description: 'The input array.'
+  arg_name: 'x'
+  type_name: 'array_like'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'type']
+  description: 'Type of the DCT (see Notes). Default type is 2.'
+  arg_name: 'type'
+  type_name: '{1, 2, 3, 4}'
+  is_optional: True
+  default: 'type'
+- DocstringParam
+  args: ['param', 's']
+  description: |
+    The shape of the result.  If both `s` and `axes` (see below) are
+    None, `s` is ``x.shape``; if `s` is None but `axes` is
+    not None, then `s` is ``numpy.take(x.shape, axes, axis=0)``.
+    If ``s[i] > x.shape[i]``, the ith dimension of the input is padded with zeros.
+    If ``s[i] < x.shape[i]``, the ith dimension of the input is truncated to length
+    ``s[i]``.
+    If any element of `s` is -1, the size of the corresponding dimension of
+    `x` is used.
+  arg_name: 's'
+  type_name: 'int or array_like of ints or None'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'axes']
+  description: |
+    Axes over which the IDCT is computed. If not given, the last ``len(s)``
+    axes are used, or all axes if `s` is also not specified.
+  arg_name: 'axes'
+  type_name: 'int or array_like of ints or None'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'norm']
+  description: 'Normalization mode (see Notes). Default is "backward".'
+  arg_name: 'norm'
+  type_name: '{"backward", "ortho", "forward"}'
+  is_optional: True
+  default: '"backward"'
+- DocstringParam
+  args: ['param', 'overwrite_x']
+  description: 'If True, the contents of `x` can be destroyed; the default is False.'
+  arg_name: 'overwrite_x'
+  type_name: 'bool'
+  is_optional: True
+  default: 'False'
+- DocstringParam
+  args: ['param', 'workers']
+  description: |
+    Maximum number of workers to use for parallel computation. If negative,
+    the value wraps around from ``os.cpu_count()``.
+    See :func:`~scipy.fft.fft` for more details.
+  arg_name: 'workers'
+  type_name: 'int'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'orthogonalize']
+  description: |
+    Whether to use the orthogonalized IDCT variant (see Notes).
+    Defaults to ``True`` when ``norm="ortho"`` and ``False`` otherwise.
+    
+    .. versionadded:: 1.8.0
+  arg_name: 'orthogonalize'
+  type_name: 'bool'
+  is_optional: True
+- DocstringReturns
+  args: ['returns']
+  description: 'The transformed input array.'
+  type_name: 'ndarray of real'
+  is_generator: False
+  return_name: 'y'
+- DocstringMeta
+  args: ['see_also']
+  description: 'dctn : multidimensional DCT'
+- DocstringMeta
+  args: ['notes']
+  description: |
+    For full details of the IDCT types and normalization modes, as well as
+    references, see `idct`.
+- DocstringExample
+  args: ['examples']
+  description: 'True'
+  snippet: |
+    >>> import numpy as np
+    >>> from scipy.fft import dctn, idctn
+    >>> rng = np.random.default_rng()
+    >>> y = rng.standard_normal((16, 16))
+    >>> np.allclose(y, idctn(dctn(y)))
+=== detect
+numpydoc
+=== compose numpydoc
+Return multidimensional Inverse Discrete Cosine Transform along the specified axes.
+
+Parameters
+----------
+x : array_like
+    The input array.
+type : {1, 2, 3, 4}, default=type
+    Type of the DCT (see Notes). Default type is 2.
+s : int or array_like of ints or None, optional
+    The shape of the result.  If both `s` and `axes` (see below) are
+    None, `s` is ``x.shape``; if `s` is None but `axes` is
+    not None, then `s` is ``numpy.take(x.shape, axes, axis=0)``.
+    If ``s[i] > x.shape[i]``, the ith dimension of the input is padded with zeros.
+    If ``s[i] < x.shape[i]``, the ith dimension of the input is truncated to length
+    ``s[i]``.
+    If any element of `s` is -1, the size of the corresponding dimension of
+    `x` is used.
+axes : int or array_like of ints or None, optional
+    Axes over which the IDCT is computed. If not given, the last ``len(s)``
+    axes are used, or all axes if `s` is also not specified.
+norm : {"backward", "ortho", "forward"}, default="backward"
+    Normalization mode (see Notes). Default is "backward".
+overwrite_x : bool, default=False
+    If True, the contents of `x` can be destroyed; the default is False.
+workers : int, optional
+    Maximum number of workers to use for parallel computation. If negative,
+    the value wraps around from ``os.cpu_count()``.
+    See :func:`~scipy.fft.fft` for more details.
+orthogonalize : bool, optional
+    Whether to use the orthogonalized IDCT variant (see Notes).
+    Defaults to ``True`` when ``norm="ortho"`` and ``False`` otherwise.
+    
+    .. versionadded:: 1.8.0
+
+Returns
+-------
+y : ndarray of real
+    The transformed input array.
+
+Examples
+--------
+>>> import numpy as np
+>>> from scipy.fft import dctn, idctn
+>>> rng = np.random.default_rng()
+>>> y = rng.standard_normal((16, 16))
+>>> np.allclose(y, idctn(dctn(y)))
+True
+
+See Also
+--------
+dctn : multidimensional DCT
+
+Notes
+-----
+For full details of the IDCT types and normalization modes, as well as
+references, see `idct`.

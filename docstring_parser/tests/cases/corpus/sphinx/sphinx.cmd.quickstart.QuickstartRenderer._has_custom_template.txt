@@ -1,0 +1,22 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Check if custom template file exists.
+
+        Note: Please don't use this function from extensions.
+              It will be removed in the future without deprecation period.
+        
+=== parse rest
+short_description: 'Check if custom template file exists.'
+long_description: |
+  Note: Please don't use this function from extensions.
+        It will be removed in the future without deprecation period.
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Check if custom template file exists.
+
+Note: Please don't use this function from extensions.
+      It will be removed in the future without deprecation period.

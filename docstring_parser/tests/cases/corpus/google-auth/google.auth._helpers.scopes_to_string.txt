@@ -1,0 +1,39 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Converts scope value to a string suitable for sending to OAuth 2.0
+    authorization servers.
+
+    Args:
+        scopes (Sequence[str]): The sequence of scopes to convert.
+
+    Returns:
+        str: The scopes formatted as a single string.
+    
+=== parse google
+short_description: 'Converts scope value to a string suitable for sending to OAuth 2.0'
+long_description: 'authorization servers.'
+blank_after_short_description: False
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'scopes (Sequence[str])']
+  description: 'The sequence of scopes to convert.'
+  arg_name: 'scopes'
+  type_name: 'Sequence[str]'
+  is_optional: False
+- DocstringReturns
+  args: ['returns', 'str']
+  description: 'The scopes formatted as a single string.'
+  type_name: 'str'
+  is_generator: False
+=== detect
+google
+=== compose google
+Converts scope value to a string suitable for sending to OAuth 2.0
+authorization servers.
+
+Args:
+    scopes (Sequence[str]): The sequence of scopes to convert.
+
+Returns:
+    str: The scopes formatted as a single string.

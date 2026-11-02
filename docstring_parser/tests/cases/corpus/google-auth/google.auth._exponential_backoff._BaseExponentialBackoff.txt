@@ -1,0 +1,79 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+An exponential backoff iterator base class.
+
+    Args:
+        total_attempts Optional[int]:
+            The maximum amount of retries that should happen.
+            The default value is 3 attempts.
+        initial_wait_seconds Optional[int]:
+            The amount of time to sleep in the first backoff. This parameter
+            should be in seconds.
+            The default value is 1 second.
+        randomization_factor Optional[float]:
+            The amount of jitter that should be in each backoff. For example,
+            a value of 0.1 will introduce a jitter range of 10% to the
+            current backoff period.
+            The default value is 0.1.
+        multiplier Optional[float]:
+            The backoff multipler. This adjusts how much each backoff will
+            increase. For example a value of 2.0 leads to a 200% backoff
+            on each attempt. If the initial_wait is 1.0 it would look like
+            this sequence [1.0, 2.0, 4.0, 8.0].
+            The default value is 2.0.
+    
+=== parse google
+short_description: 'An exponential backoff iterator base class.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'total_attempts Optional[int]']
+  description: |
+    The maximum amount of retries that should happen.
+    The default value is 3 attempts.
+  arg_name: 'total_attempts Optional[int]'
+- DocstringParam
+  args: ['param', 'initial_wait_seconds Optional[int]']
+  description: |
+    The amount of time to sleep in the first backoff. This parameter
+    should be in seconds.
+    The default value is 1 second.
+  arg_name: 'initial_wait_seconds Optional[int]'
+- DocstringParam
+  args: ['param', 'randomization_factor Optional[float]']
+  description: |
+    The amount of jitter that should be in each backoff. For example,
+    a value of 0.1 will introduce a jitter range of 10% to the
+    current backoff period.
+    The default value is 0.1.
+  arg_name: 'randomization_factor Optional[float]'
+- DocstringParam
+  args: ['param', 'multiplier Optional[float]']
+  description: |
+    The backoff multipler. This adjusts how much each backoff will
+    increase. For example a value of 2.0 leads to a 200% backoff
+    on each attempt. If the initial_wait is 1.0 it would look like
+    this sequence [1.0, 2.0, 4.0, 8.0].
+    The default value is 2.0.
+  arg_name: 'multiplier Optional[float]'
+=== detect
+google
+=== compose google
+An exponential backoff iterator base class.
+
+Args:
+    total_attempts Optional[int]: The maximum amount of retries that should happen.
+        The default value is 3 attempts.
+    initial_wait_seconds Optional[int]: The amount of time to sleep in the first backoff. This parameter
+        should be in seconds.
+        The default value is 1 second.
+    randomization_factor Optional[float]: The amount of jitter that should be in each backoff. For example,
+        a value of 0.1 will introduce a jitter range of 10% to the
+        current backoff period.
+        The default value is 0.1.
+    multiplier Optional[float]: The backoff multipler. This adjusts how much each backoff will
+        increase. For example a value of 2.0 leads to a 200% backoff
+        on each attempt. If the initial_wait is 1.0 it would look like
+        this sequence [1.0, 2.0, 4.0, 8.0].
+        The default value is 2.0.

@@ -1,0 +1,43 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Returns the requested content back in unicode.
+
+    :param r: Response object to get unicode content from.
+
+    Tried:
+
+    1. charset from content-type
+    2. fall back and replace all unicode characters
+
+    :rtype: str
+    
+=== parse rest
+short_description: 'Returns the requested content back in unicode.'
+long_description: |
+  Tried:
+  
+  1. charset from content-type
+  2. fall back and replace all unicode characters
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringParam
+  args: ['param', 'r']
+  description: 'Response object to get unicode content from.'
+  arg_name: 'r'
+- DocstringReturns
+  args: []
+  type_name: 'str'
+  is_generator: False
+=== detect
+rest
+=== compose rest
+Returns the requested content back in unicode.
+
+Tried:
+
+1. charset from content-type
+2. fall back and replace all unicode characters
+
+:param r: Response object to get unicode content from.
+:returns str:

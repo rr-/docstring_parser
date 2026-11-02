@@ -1,0 +1,40 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+
+    timeout_guard is an asynchronous context manager to apply a timeout to an asynchronous block of code.
+
+    Args:
+        timeout (float): The time in seconds before the context manager times out.
+
+    Raises:
+        google.auth.exceptions.TimeoutError: If the code within the context exceeds the provided timeout.
+
+    Usage:
+        async with timeout_guard(10) as with_timeout:
+            await with_timeout(async_function())
+    
+=== parse google
+short_description: 'timeout_guard is an asynchronous context manager to apply a timeout to an asynchronous block of code.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'timeout (float)']
+  description: 'The time in seconds before the context manager times out.'
+  arg_name: 'timeout'
+  type_name: 'float'
+  is_optional: False
+- DocstringRaises
+  args: ['raises', 'google.auth.exceptions.TimeoutError']
+  description: 'If the code within the context exceeds the provided timeout.'
+  type_name: 'google.auth.exceptions.TimeoutError'
+=== detect
+google
+=== compose google
+timeout_guard is an asynchronous context manager to apply a timeout to an asynchronous block of code.
+
+Args:
+    timeout (float): The time in seconds before the context manager times out.
+
+Raises:
+    google.auth.exceptions.TimeoutError: If the code within the context exceeds the provided timeout.

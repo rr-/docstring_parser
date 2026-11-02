@@ -1,0 +1,28 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Create a new model by parsing and validating input data from keyword arguments.
+
+        Raises [`ValidationError`][pydantic_core.ValidationError] if the input data cannot be
+        validated to form a valid model.
+
+        `self` is explicitly positional-only to allow `self` as a field name.
+        
+=== parse google
+short_description: 'Create a new model by parsing and validating input data from keyword arguments.'
+long_description: |
+  Raises [`ValidationError`][pydantic_core.ValidationError] if the input data cannot be
+  validated to form a valid model.
+  
+  `self` is explicitly positional-only to allow `self` as a field name.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Create a new model by parsing and validating input data from keyword arguments.
+
+Raises [`ValidationError`][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.
+
+`self` is explicitly positional-only to allow `self` as a field name.

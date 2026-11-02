@@ -1,0 +1,45 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Checks the value for a given action.
+
+        Args:
+            action: The action used for parsing.
+            value: The value to parse.
+            key: The configuration key.
+
+        Raises:
+            TypeError: If the value is not valid.
+        
+=== parse google
+short_description: 'Checks the value for a given action.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'action']
+  description: 'The action used for parsing.'
+  arg_name: 'action'
+- DocstringParam
+  args: ['param', 'value']
+  description: 'The value to parse.'
+  arg_name: 'value'
+- DocstringParam
+  args: ['param', 'key']
+  description: 'The configuration key.'
+  arg_name: 'key'
+- DocstringRaises
+  args: ['raises', 'TypeError']
+  description: 'If the value is not valid.'
+  type_name: 'TypeError'
+=== detect
+google
+=== compose google
+Checks the value for a given action.
+
+Args:
+    action: The action used for parsing.
+    value: The value to parse.
+    key: The configuration key.
+
+Raises:
+    TypeError: If the value is not valid.

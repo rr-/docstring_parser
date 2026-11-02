@@ -1,0 +1,18 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Context manager to postpone logging warnings temporarily.
+
+    Similar to :func:`pending_logging`.
+    
+=== parse rest
+short_description: 'Context manager to postpone logging warnings temporarily.'
+long_description: 'Similar to :func:`pending_logging`.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Context manager to postpone logging warnings temporarily.
+
+Similar to :func:`pending_logging`.

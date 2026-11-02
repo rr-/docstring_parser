@@ -1,0 +1,86 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Estimate rms values of collocation residuals using Lobatto quadrature.
+
+    The residuals are defined as the difference between the derivatives of
+    our solution and rhs of the ODE system. We use relative residuals, i.e.,
+    normalized by 1 + np.abs(f). RMS values are computed as sqrt from the
+    normalized integrals of the squared relative residuals over each interval.
+    Integrals are estimated using 5-point Lobatto quadrature [1]_, we use the
+    fact that residuals at the mesh nodes are identically zero.
+
+    In [2] they don't normalize integrals by interval lengths, which gives
+    a higher rate of convergence of the residuals by the factor of h**0.5.
+    I chose to do such normalization for an ease of interpretation of return
+    values as RMS estimates.
+
+    Returns
+    -------
+    rms_res : ndarray, shape (m - 1,)
+        Estimated rms values of the relative residuals over each interval.
+
+    References
+    ----------
+    .. [1] http://mathworld.wolfram.com/LobattoQuadrature.html
+    .. [2] J. Kierzenka, L. F. Shampine, "A BVP Solver Based on Residual
+       Control and the Maltab PSE", ACM Trans. Math. Softw., Vol. 27,
+       Number 3, pp. 299-316, 2001.
+    
+=== parse numpydoc
+short_description: 'Estimate rms values of collocation residuals using Lobatto quadrature.'
+long_description: |
+  The residuals are defined as the difference between the derivatives of
+  our solution and rhs of the ODE system. We use relative residuals, i.e.,
+  normalized by 1 + np.abs(f). RMS values are computed as sqrt from the
+  normalized integrals of the squared relative residuals over each interval.
+  Integrals are estimated using 5-point Lobatto quadrature [1]_, we use the
+  fact that residuals at the mesh nodes are identically zero.
+  
+  In [2] they don't normalize integrals by interval lengths, which gives
+  a higher rate of convergence of the residuals by the factor of h**0.5.
+  I chose to do such normalization for an ease of interpretation of return
+  values as RMS estimates.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringReturns
+  args: ['returns']
+  description: 'Estimated rms values of the relative residuals over each interval.'
+  type_name: 'ndarray, shape (m - 1,)'
+  is_generator: False
+  return_name: 'rms_res'
+- DocstringMeta
+  args: ['references']
+  description: |
+    .. [1] http://mathworld.wolfram.com/LobattoQuadrature.html
+    .. [2] J. Kierzenka, L. F. Shampine, "A BVP Solver Based on Residual
+       Control and the Maltab PSE", ACM Trans. Math. Softw., Vol. 27,
+       Number 3, pp. 299-316, 2001.
+=== detect
+numpydoc
+=== compose numpydoc
+Estimate rms values of collocation residuals using Lobatto quadrature.
+
+The residuals are defined as the difference between the derivatives of
+our solution and rhs of the ODE system. We use relative residuals, i.e.,
+normalized by 1 + np.abs(f). RMS values are computed as sqrt from the
+normalized integrals of the squared relative residuals over each interval.
+Integrals are estimated using 5-point Lobatto quadrature [1]_, we use the
+fact that residuals at the mesh nodes are identically zero.
+
+In [2] they don't normalize integrals by interval lengths, which gives
+a higher rate of convergence of the residuals by the factor of h**0.5.
+I chose to do such normalization for an ease of interpretation of return
+values as RMS estimates.
+
+Returns
+-------
+rms_res : ndarray, shape (m - 1,)
+    Estimated rms values of the relative residuals over each interval.
+
+References
+----------
+.. [1] http://mathworld.wolfram.com/LobattoQuadrature.html
+.. [2] J. Kierzenka, L. F. Shampine, "A BVP Solver Based on Residual
+   Control and the Maltab PSE", ACM Trans. Math. Softw., Vol. 27,
+   Number 3, pp. 299-316, 2001.

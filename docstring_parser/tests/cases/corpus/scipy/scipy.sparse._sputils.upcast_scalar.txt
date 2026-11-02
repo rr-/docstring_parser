@@ -1,0 +1,16 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Determine data type for binary operation between an array of
+    type `dtype` and a scalar.
+    
+=== parse numpydoc
+short_description: 'Determine data type for binary operation between an array of'
+long_description: 'type `dtype` and a scalar.'
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Determine data type for binary operation between an array of
+type `dtype` and a scalar.

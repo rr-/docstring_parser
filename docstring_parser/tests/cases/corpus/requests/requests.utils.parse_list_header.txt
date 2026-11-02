@@ -1,0 +1,78 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Parse lists as described by RFC 2068 Section 2.
+
+    In particular, parse comma-separated lists where the elements of
+    the list may include quoted-strings.  A quoted-string could
+    contain a comma.  A non-quoted string could have quotes in the
+    middle.  Quotes are removed automatically after parsing.
+
+    It basically works like :func:`parse_set_header` just that items
+    may appear multiple times and case sensitivity is preserved.
+
+    The return value is a standard :class:`list`:
+
+    >>> parse_list_header('token, "quoted value"')
+    ['token', 'quoted value']
+
+    To create a header from the :class:`list` again, use the
+    :func:`dump_header` function.
+
+    :param value: a string with a list header.
+    :return: :class:`list`
+    :rtype: list
+    
+=== parse rest
+short_description: 'Parse lists as described by RFC 2068 Section 2.'
+long_description: |
+  In particular, parse comma-separated lists where the elements of
+  the list may include quoted-strings.  A quoted-string could
+  contain a comma.  A non-quoted string could have quotes in the
+  middle.  Quotes are removed automatically after parsing.
+  
+  It basically works like :func:`parse_set_header` just that items
+  may appear multiple times and case sensitivity is preserved.
+  
+  The return value is a standard :class:`list`:
+  
+  >>> parse_list_header('token, "quoted value"')
+  ['token', 'quoted value']
+  
+  To create a header from the :class:`list` again, use the
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringMeta
+  args: ['func']
+  description: '`dump_header` function.'
+- DocstringParam
+  args: ['param', 'value']
+  description: 'a string with a list header.'
+  arg_name: 'value'
+- DocstringReturns
+  args: ['return']
+  description: ':class:`list`'
+  type_name: 'list'
+  is_generator: False
+=== detect
+rest
+=== compose rest
+Parse lists as described by RFC 2068 Section 2.
+
+In particular, parse comma-separated lists where the elements of
+the list may include quoted-strings.  A quoted-string could
+contain a comma.  A non-quoted string could have quotes in the
+middle.  Quotes are removed automatically after parsing.
+
+It basically works like :func:`parse_set_header` just that items
+may appear multiple times and case sensitivity is preserved.
+
+The return value is a standard :class:`list`:
+
+>>> parse_list_header('token, "quoted value"')
+['token', 'quoted value']
+
+To create a header from the :class:`list` again, use the
+:func: `dump_header` function.
+:param value: a string with a list header.
+:returns list: :class:`list`

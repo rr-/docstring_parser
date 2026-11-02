@@ -1,0 +1,58 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Open a resource file relative to :attr:`root_path` for reading. The
+        blueprint-relative equivalent of the app's :meth:`~.Flask.open_resource`
+        method.
+
+        :param resource: Path to the resource relative to :attr:`root_path`.
+        :param mode: Open the file in this mode. Only reading is supported,
+            valid values are ``"r"`` (or ``"rt"``) and ``"rb"``.
+        :param encoding: Open the file with this encoding when opening in text
+            mode. This is ignored when opening in binary mode.
+
+        .. versionchanged:: 3.1
+            Added the ``encoding`` parameter.
+        
+=== parse rest
+short_description: 'Open a resource file relative to :attr:`root_path` for reading. The'
+long_description: |
+  blueprint-relative equivalent of the app's :meth:`~.Flask.open_resource`
+  method.
+  
+  .. versionchanged:: 3.1
+      Added the ``encoding`` parameter.
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringParam
+  args: ['param', 'resource']
+  description: 'Path to the resource relative to :attr:`root_path`.'
+  arg_name: 'resource'
+- DocstringParam
+  args: ['param', 'mode']
+  description: |
+    Open the file in this mode. Only reading is supported,
+    valid values are ``"r"`` (or ``"rt"``) and ``"rb"``.
+  arg_name: 'mode'
+- DocstringParam
+  args: ['param', 'encoding']
+  description: |
+    Open the file with this encoding when opening in text
+    mode. This is ignored when opening in binary mode.
+  arg_name: 'encoding'
+=== detect
+rest
+=== compose rest
+Open a resource file relative to :attr:`root_path` for reading. The
+
+blueprint-relative equivalent of the app's :meth:`~.Flask.open_resource`
+method.
+
+.. versionchanged:: 3.1
+    Added the ``encoding`` parameter.
+
+:param resource: Path to the resource relative to :attr:`root_path`.
+:param mode: Open the file in this mode. Only reading is supported,
+    valid values are ``"r"`` (or ``"rt"``) and ``"rb"``.
+:param encoding: Open the file with this encoding when opening in text
+    mode. This is ignored when opening in binary mode.

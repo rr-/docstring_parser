@@ -1,0 +1,75 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Verifies an ID Token issued by Firebase Authentication.
+
+    Args:
+        id_token (Union[str, bytes]): The encoded token.
+        request (google.auth.transport.Request): The object used to make
+            HTTP requests.
+        audience (str): The audience that this token is intended for. This is
+            typically your Firebase application ID. If None then the audience
+            is not verified.
+        clock_skew_in_seconds (int): The clock skew used for `iat` and `exp`
+            validation.
+
+    Returns:
+        Mapping[str, Any]: The decoded token.
+    
+=== parse google
+short_description: 'Verifies an ID Token issued by Firebase Authentication.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'id_token (Union[str, bytes])']
+  description: 'The encoded token.'
+  arg_name: 'id_token'
+  type_name: 'Union[str, bytes]'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'request (google.auth.transport.Request)']
+  description: |
+    The object used to make
+    HTTP requests.
+  arg_name: 'request'
+  type_name: 'google.auth.transport.Request'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'audience (str)']
+  description: |
+    The audience that this token is intended for. This is
+    typically your Firebase application ID. If None then the audience
+    is not verified.
+  arg_name: 'audience'
+  type_name: 'str'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'clock_skew_in_seconds (int)']
+  description: |
+    The clock skew used for `iat` and `exp`
+    validation.
+  arg_name: 'clock_skew_in_seconds'
+  type_name: 'int'
+  is_optional: False
+- DocstringReturns
+  args: ['returns', 'Mapping[str, Any]']
+  description: 'The decoded token.'
+  type_name: 'Mapping[str, Any]'
+  is_generator: False
+=== detect
+google
+=== compose google
+Verifies an ID Token issued by Firebase Authentication.
+
+Args:
+    id_token (Union[str, bytes]): The encoded token.
+    request (google.auth.transport.Request): The object used to make
+        HTTP requests.
+    audience (str): The audience that this token is intended for. This is
+        typically your Firebase application ID. If None then the audience
+        is not verified.
+    clock_skew_in_seconds (int): The clock skew used for `iat` and `exp`
+        validation.
+
+Returns:
+    Mapping[str, Any]: The decoded token.

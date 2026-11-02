@@ -1,0 +1,76 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+urllib3 request adapter.
+
+    This class is used internally for making requests using various transports
+    in a consistent way. If you use :class:`AuthorizedHttp` you do not need
+    to construct or use this class directly.
+
+    This class can be useful if you want to manually refresh a
+    :class:`~google.auth.credentials.Credentials` instance::
+
+        import google.auth.transport.urllib3
+        import urllib3
+
+        http = urllib3.PoolManager()
+        request = google.auth.transport.urllib3.Request(http)
+
+        credentials.refresh(request)
+
+    Args:
+        http (urllib3.PoolManager): An instance of a urllib3 class that implements
+            the request interface (e.g. :class:`urllib3.PoolManager`).
+
+    .. automethod:: __call__
+    
+=== parse google
+short_description: 'urllib3 request adapter.'
+long_description: |
+  This class is used internally for making requests using various transports
+  in a consistent way. If you use :class:`AuthorizedHttp` you do not need
+  to construct or use this class directly.
+  
+  This class can be useful if you want to manually refresh a
+  :class:`~google.auth.credentials.Credentials` instance::
+  
+      import google.auth.transport.urllib3
+      import urllib3
+  
+      http = urllib3.PoolManager()
+      request = google.auth.transport.urllib3.Request(http)
+  
+      credentials.refresh(request)
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'http (urllib3.PoolManager)']
+  description: |
+    An instance of a urllib3 class that implements
+    the request interface (e.g. :class:`urllib3.PoolManager`).
+  arg_name: 'http'
+  type_name: 'urllib3.PoolManager'
+  is_optional: False
+=== detect
+rest
+=== compose google
+urllib3 request adapter.
+
+This class is used internally for making requests using various transports
+in a consistent way. If you use :class:`AuthorizedHttp` you do not need
+to construct or use this class directly.
+
+This class can be useful if you want to manually refresh a
+:class:`~google.auth.credentials.Credentials` instance::
+
+    import google.auth.transport.urllib3
+    import urllib3
+
+    http = urllib3.PoolManager()
+    request = google.auth.transport.urllib3.Request(http)
+
+    credentials.refresh(request)
+
+Args:
+    http (urllib3.PoolManager): An instance of a urllib3 class that implements
+        the request interface (e.g. :class:`urllib3.PoolManager`).

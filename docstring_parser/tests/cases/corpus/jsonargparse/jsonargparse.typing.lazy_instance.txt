@@ -1,0 +1,41 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Instantiates a lazy instance of the given type.
+
+    By lazy it is meant that the ``__init__`` is delayed until the first time that a
+    method of the instance is called. It also provides a `lazy_get_init_data` method
+    useful for serializing.
+
+    Args:
+        class_type: The class to instantiate.
+        **kwargs: Any keyword arguments to use for instantiation.
+    
+=== parse google
+short_description: 'Instantiates a lazy instance of the given type.'
+long_description: |
+  By lazy it is meant that the ``__init__`` is delayed until the first time that a
+  method of the instance is called. It also provides a `lazy_get_init_data` method
+  useful for serializing.
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'class_type']
+  description: 'The class to instantiate.'
+  arg_name: 'class_type'
+- DocstringParam
+  args: ['param', '**kwargs']
+  description: 'Any keyword arguments to use for instantiation.'
+  arg_name: '**kwargs'
+=== detect
+google
+=== compose google
+Instantiates a lazy instance of the given type.
+
+By lazy it is meant that the ``__init__`` is delayed until the first time that a
+method of the instance is called. It also provides a `lazy_get_init_data` method
+useful for serializing.
+
+Args:
+    class_type: The class to instantiate.
+    **kwargs: Any keyword arguments to use for instantiation.

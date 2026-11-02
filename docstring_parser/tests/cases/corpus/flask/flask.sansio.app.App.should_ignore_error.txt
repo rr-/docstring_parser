@@ -1,0 +1,29 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+This is called to figure out if an error should be ignored
+        or not as far as the teardown system is concerned.  If this
+        function returns ``True`` then the teardown handlers will not be
+        passed the error.
+
+        .. versionadded:: 0.10
+        
+=== parse rest
+short_description: 'This is called to figure out if an error should be ignored'
+long_description: |
+  or not as far as the teardown system is concerned.  If this
+  function returns ``True`` then the teardown handlers will not be
+  passed the error.
+  
+  .. versionadded:: 0.10
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+This is called to figure out if an error should be ignored
+or not as far as the teardown system is concerned.  If this
+function returns ``True`` then the teardown handlers will not be
+passed the error.
+
+.. versionadded:: 0.10

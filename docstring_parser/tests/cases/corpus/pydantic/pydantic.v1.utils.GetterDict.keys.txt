@@ -1,0 +1,17 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Keys of the pseudo dictionary, uses a list not set so order information can be maintained like python
+        dictionaries.
+        
+=== parse google
+short_description: 'Keys of the pseudo dictionary, uses a list not set so order information can be maintained like python'
+long_description: 'dictionaries.'
+blank_after_short_description: False
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Keys of the pseudo dictionary, uses a list not set so order information can be maintained like python
+dictionaries.

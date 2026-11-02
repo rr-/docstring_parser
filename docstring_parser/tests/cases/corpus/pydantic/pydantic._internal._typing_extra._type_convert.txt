@@ -1,0 +1,31 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Convert `None` to `NoneType` and strings to `ForwardRef` instances.
+
+    This is a vendored version of the private `typing._type_convert()` function. When
+    evaluating a type, `ForwardRef._evaluate()` ends up being called, and is
+    responsible for making this conversion. However, we still have to apply
+    it for the first argument passed to our type evaluation functions, similarly
+    to the `typing.get_type_hints()` function.
+    
+=== parse google
+short_description: 'Convert `None` to `NoneType` and strings to `ForwardRef` instances.'
+long_description: |
+  This is a vendored version of the private `typing._type_convert()` function. When
+  evaluating a type, `ForwardRef._evaluate()` ends up being called, and is
+  responsible for making this conversion. However, we still have to apply
+  it for the first argument passed to our type evaluation functions, similarly
+  to the `typing.get_type_hints()` function.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Convert `None` to `NoneType` and strings to `ForwardRef` instances.
+
+This is a vendored version of the private `typing._type_convert()` function. When
+evaluating a type, `ForwardRef._evaluate()` ends up being called, and is
+responsible for making this conversion. However, we still have to apply
+it for the first argument passed to our type evaluation functions, similarly
+to the `typing.get_type_hints()` function.

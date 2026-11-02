@@ -1,0 +1,25 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Returns whether the field is frozen, extracted from the declaration of the field defined in `stmt`.
+
+        Note that this is only whether the field was declared to be frozen in a `<field_name> = Field(frozen=True)`
+        sense; this does not determine whether the field is frozen because the entire model is frozen; that is
+        handled separately.
+        
+=== parse google
+short_description: 'Returns whether the field is frozen, extracted from the declaration of the field defined in `stmt`.'
+long_description: |
+  Note that this is only whether the field was declared to be frozen in a `<field_name> = Field(frozen=True)`
+  sense; this does not determine whether the field is frozen because the entire model is frozen; that is
+  handled separately.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Returns whether the field is frozen, extracted from the declaration of the field defined in `stmt`.
+
+Note that this is only whether the field was declared to be frozen in a `<field_name> = Field(frozen=True)`
+sense; this does not determine whether the field is frozen because the entire model is frozen; that is
+handled separately.

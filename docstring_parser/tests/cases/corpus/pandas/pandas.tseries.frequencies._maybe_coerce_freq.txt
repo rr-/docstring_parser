@@ -1,0 +1,44 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+we might need to coerce a code to a rule_code
+    and uppercase it
+
+    Parameters
+    ----------
+    code : str or DateOffset
+        Frequency converting from
+
+    Returns
+    -------
+    str
+    
+=== parse numpydoc
+short_description: 'we might need to coerce a code to a rule_code'
+long_description: 'and uppercase it'
+blank_after_short_description: False
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'code']
+  description: 'Frequency converting from'
+  arg_name: 'code'
+  type_name: 'str or DateOffset'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  type_name: 'str'
+  is_generator: False
+=== detect
+numpydoc
+=== compose numpydoc
+we might need to coerce a code to a rule_code
+and uppercase it
+
+Parameters
+----------
+code : str or DateOffset
+    Frequency converting from
+
+Returns
+-------
+str

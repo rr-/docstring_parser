@@ -1,0 +1,53 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Verify a SSL certificate. This method should not be called from user
+        code, and is only exposed for use when subclassing the
+        :class:`HTTPAdapter <requests.adapters.HTTPAdapter>`.
+
+        :param conn: The urllib3 connection object associated with the cert.
+        :param url: The requested URL.
+        :param verify: Either a boolean, in which case it controls whether we verify
+            the server's TLS certificate, or a string, in which case it must be a path
+            to a CA bundle to use
+        :param cert: The SSL certificate to verify.
+        
+=== parse rest
+short_description: 'Verify a SSL certificate. This method should not be called from user'
+long_description: 'code, and is only exposed for use when subclassing the'
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+- DocstringMeta
+  args: ['class']
+  description: '`HTTPAdapter <requests.adapters.HTTPAdapter>`.'
+- DocstringParam
+  args: ['param', 'conn']
+  description: 'The urllib3 connection object associated with the cert.'
+  arg_name: 'conn'
+- DocstringParam
+  args: ['param', 'url']
+  description: 'The requested URL.'
+  arg_name: 'url'
+- DocstringParam
+  args: ['param', 'verify']
+  description: |
+    Either a boolean, in which case it controls whether we verify
+    the server's TLS certificate, or a string, in which case it must be a path
+    to a CA bundle to use
+  arg_name: 'verify'
+- DocstringParam
+  args: ['param', 'cert']
+  description: 'The SSL certificate to verify.'
+  arg_name: 'cert'
+=== detect
+rest
+=== compose rest
+Verify a SSL certificate. This method should not be called from user
+code, and is only exposed for use when subclassing the
+:class: `HTTPAdapter <requests.adapters.HTTPAdapter>`.
+:param conn: The urllib3 connection object associated with the cert.
+:param url: The requested URL.
+:param verify: Either a boolean, in which case it controls whether we verify
+    the server's TLS certificate, or a string, in which case it must be a path
+    to a CA bundle to use
+:param cert: The SSL certificate to verify.

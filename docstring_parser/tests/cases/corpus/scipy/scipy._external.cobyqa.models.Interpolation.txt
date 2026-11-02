@@ -1,0 +1,26 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Interpolation set.
+
+    This class stores a base point around which the models are expanded and the
+    interpolation points. The coordinates of the interpolation points are
+    relative to the base point.
+    
+=== parse numpydoc
+short_description: 'Interpolation set.'
+long_description: |
+  This class stores a base point around which the models are expanded and the
+  interpolation points. The coordinates of the interpolation points are
+  relative to the base point.
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Interpolation set.
+
+This class stores a base point around which the models are expanded and the
+interpolation points. The coordinates of the interpolation points are
+relative to the base point.

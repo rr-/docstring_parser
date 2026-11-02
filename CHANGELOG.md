@@ -11,6 +11,7 @@
 - Google, Numpydoc: Reuse the default parser between `parse()` calls instead of building a new one each time, making parsing about 30–50% faster
 - General: Parse docstrings with `\r\n` or `\r` line endings the same as with `\n`, on every Python version
 - General: Auto-detection parses a docstring with no fields or sections once instead of four times, making it about 47% faster
+- General: Snapshot-test the parsers on 1100 docstrings from real projects, kept as text case files
 - General: Replace pylint, black and isort with ruff, and pre-commit with prek
 - General: Check commit messages for a `scope: description` subject and the 50/72 rule
 - General: Replace pip, venv and hatchling with uv; development dependencies are now dependency groups instead of extras

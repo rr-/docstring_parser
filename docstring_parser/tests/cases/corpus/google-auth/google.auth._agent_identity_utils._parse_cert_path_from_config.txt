@@ -1,0 +1,66 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Reads the cert config file and returns the cert_path.
+
+    Args:
+        cert_config_path (str): The path to the certificate configuration file.
+
+    Returns:
+        Optional[str]: The path to the certificate file, or None if not found
+            in the config.
+
+    Raises:
+        IOError: If the certificate config file cannot be read.
+        ValueError: If the certificate config file contains invalid JSON.
+        KeyError: If the certificate config file does not contain the
+            expected structure.
+    
+=== parse google
+short_description: 'Reads the cert config file and returns the cert_path.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'cert_config_path (str)']
+  description: 'The path to the certificate configuration file.'
+  arg_name: 'cert_config_path'
+  type_name: 'str'
+  is_optional: False
+- DocstringReturns
+  args: ['returns', 'Optional[str]']
+  description: |
+    The path to the certificate file, or None if not found
+    in the config.
+  type_name: 'Optional[str]'
+  is_generator: False
+- DocstringRaises
+  args: ['raises', 'IOError']
+  description: 'If the certificate config file cannot be read.'
+  type_name: 'IOError'
+- DocstringRaises
+  args: ['raises', 'ValueError']
+  description: 'If the certificate config file contains invalid JSON.'
+  type_name: 'ValueError'
+- DocstringRaises
+  args: ['raises', 'KeyError']
+  description: |
+    If the certificate config file does not contain the
+    expected structure.
+  type_name: 'KeyError'
+=== detect
+google
+=== compose google
+Reads the cert config file and returns the cert_path.
+
+Args:
+    cert_config_path (str): The path to the certificate configuration file.
+
+Returns:
+    Optional[str]: The path to the certificate file, or None if not found
+        in the config.
+
+Raises:
+    IOError: If the certificate config file cannot be read.
+    ValueError: If the certificate config file contains invalid JSON.
+    KeyError: If the certificate config file does not contain the
+        expected structure.

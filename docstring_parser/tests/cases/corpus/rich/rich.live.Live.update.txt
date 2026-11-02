@@ -1,0 +1,34 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Update the renderable that is being displayed
+
+        Args:
+            renderable (RenderableType): New renderable to use.
+            refresh (bool, optional): Refresh the display. Defaults to False.
+        
+=== parse google
+short_description: 'Update the renderable that is being displayed'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'renderable (RenderableType)']
+  description: 'New renderable to use.'
+  arg_name: 'renderable'
+  type_name: 'RenderableType'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'refresh (bool, optional)']
+  description: 'Refresh the display. Defaults to False.'
+  arg_name: 'refresh'
+  type_name: 'bool'
+  is_optional: True
+  default: 'False'
+=== detect
+google
+=== compose google
+Update the renderable that is being displayed
+
+Args:
+    renderable (RenderableType): New renderable to use.
+    refresh (bool?): Refresh the display. Defaults to False.

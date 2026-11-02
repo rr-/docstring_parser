@@ -1,0 +1,20 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Defines an access boundary rule which contains information on the resource that
+    the rule applies to, the upper bound of the permissions that are available on that
+    resource and an optional condition to further restrict permissions.
+    
+=== parse google
+short_description: 'Defines an access boundary rule which contains information on the resource that'
+long_description: |
+  the rule applies to, the upper bound of the permissions that are available on that
+  resource and an optional condition to further restrict permissions.
+blank_after_short_description: False
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Defines an access boundary rule which contains information on the resource that
+the rule applies to, the upper bound of the permissions that are available on that
+resource and an optional condition to further restrict permissions.

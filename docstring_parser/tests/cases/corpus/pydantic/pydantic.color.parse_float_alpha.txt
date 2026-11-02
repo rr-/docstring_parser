@@ -1,0 +1,43 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Parse an alpha value checking it's a valid float in the range 0 to 1.
+
+    Args:
+        value: The input value to parse.
+
+    Returns:
+        The parsed value as a float, or `None` if the value was None or equal 1.
+
+    Raises:
+        PydanticCustomError: If the input value cannot be successfully parsed as a float in the expected range.
+    
+=== parse google
+short_description: "Parse an alpha value checking it's a valid float in the range 0 to 1."
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'value']
+  description: 'The input value to parse.'
+  arg_name: 'value'
+- DocstringReturns
+  args: ['returns']
+  description: 'The parsed value as a float, or `None` if the value was None or equal 1.'
+  is_generator: False
+- DocstringRaises
+  args: ['raises', 'PydanticCustomError']
+  description: 'If the input value cannot be successfully parsed as a float in the expected range.'
+  type_name: 'PydanticCustomError'
+=== detect
+google
+=== compose google
+Parse an alpha value checking it's a valid float in the range 0 to 1.
+
+Args:
+    value: The input value to parse.
+
+Returns:
+    The parsed value as a float, or `None` if the value was None or equal 1.
+
+Raises:
+    PydanticCustomError: If the input value cannot be successfully parsed as a float in the expected range.

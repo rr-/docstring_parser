@@ -1,0 +1,17 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+Resource traversal integration with L{twisted.cred} to allow for
+authentication and authorization of HTTP requests.
+
+=== parse epydoc
+short_description: 'Resource traversal integration with L{twisted.cred} to allow for'
+long_description: 'authentication and authorization of HTTP requests.'
+blank_after_short_description: False
+blank_after_long_description: False
+style: epydoc
+=== detect
+rest
+=== compose epydoc
+Resource traversal integration with L{twisted.cred} to allow for
+authentication and authorization of HTTP requests.

@@ -1,0 +1,21 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Returns encodings from given content string.
+
+    :param content: bytestring to extract encodings from.
+    
+=== parse rest
+short_description: 'Returns encodings from given content string.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringParam
+  args: ['param', 'content']
+  description: 'bytestring to extract encodings from.'
+  arg_name: 'content'
+=== detect
+rest
+=== compose rest
+Returns encodings from given content string.
+
+:param content: bytestring to extract encodings from.

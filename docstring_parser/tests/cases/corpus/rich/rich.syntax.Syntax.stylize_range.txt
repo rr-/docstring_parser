@@ -1,0 +1,53 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Adds a custom style on a part of the code, that will be applied to the syntax display when it's rendered.
+        Line numbers are 1-based, while column indexes are 0-based.
+
+        Args:
+            style (StyleType): The style to apply.
+            start (Tuple[int, int]): The start of the range, in the form `[line number, column index]`.
+            end (Tuple[int, int]): The end of the range, in the form `[line number, column index]`.
+            style_before (bool): Apply the style before any existing styles.
+        
+=== parse google
+short_description: "Adds a custom style on a part of the code, that will be applied to the syntax display when it's rendered."
+long_description: 'Line numbers are 1-based, while column indexes are 0-based.'
+blank_after_short_description: False
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'style (StyleType)']
+  description: 'The style to apply.'
+  arg_name: 'style'
+  type_name: 'StyleType'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'start (Tuple[int, int])']
+  description: 'The start of the range, in the form `[line number, column index]`.'
+  arg_name: 'start'
+  type_name: 'Tuple[int, int]'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'end (Tuple[int, int])']
+  description: 'The end of the range, in the form `[line number, column index]`.'
+  arg_name: 'end'
+  type_name: 'Tuple[int, int]'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'style_before (bool)']
+  description: 'Apply the style before any existing styles.'
+  arg_name: 'style_before'
+  type_name: 'bool'
+  is_optional: False
+=== detect
+google
+=== compose google
+Adds a custom style on a part of the code, that will be applied to the syntax display when it's rendered.
+Line numbers are 1-based, while column indexes are 0-based.
+
+Args:
+    style (StyleType): The style to apply.
+    start (Tuple[int, int]): The start of the range, in the form `[line number, column index]`.
+    end (Tuple[int, int]): The end of the range, in the form `[line number, column index]`.
+    style_before (bool): Apply the style before any existing styles.

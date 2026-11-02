@@ -1,0 +1,55 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+When used in combination with a ``with`` statement this opens a
+        session transaction.  This can be used to modify the session that
+        the test client uses.  Once the ``with`` block is left the session is
+        stored back.
+
+        ::
+
+            with client.session_transaction() as session:
+                session['value'] = 42
+
+        Internally this is implemented by going through a temporary test
+        request context and since session handling could depend on
+        request variables this function accepts the same arguments as
+        :meth:`~flask.Flask.test_request_context` which are directly
+        passed through.
+        
+=== parse rest
+short_description: 'When used in combination with a ``with`` statement this opens a'
+long_description: |
+  session transaction.  This can be used to modify the session that
+  the test client uses.  Once the ``with`` block is left the session is
+  stored back.
+  
+  Internally this is implemented by going through a temporary test
+  request context and since session handling could depend on
+  request variables this function accepts the same arguments as
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringMeta
+  args: ['with', 'client.session_transaction()', 'as', 'session']
+  description: "session['value'] = 42"
+- DocstringMeta
+  args: ['meth']
+  description: |
+    `~flask.Flask.test_request_context` which are directly
+    passed through.
+=== detect
+rest
+=== compose rest
+When used in combination with a ``with`` statement this opens a
+
+session transaction.  This can be used to modify the session that
+the test client uses.  Once the ``with`` block is left the session is
+stored back.
+
+Internally this is implemented by going through a temporary test
+request context and since session handling could depend on
+request variables this function accepts the same arguments as
+
+:with client.session_transaction() as session: session['value'] = 42
+:meth: `~flask.Flask.test_request_context` which are directly
+    passed through.

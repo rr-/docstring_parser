@@ -1,0 +1,16 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Domain for all objects that don't fit into another domain or are added
+    via the application interface.
+    
+=== parse rest
+short_description: "Domain for all objects that don't fit into another domain or are added"
+long_description: 'via the application interface.'
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Domain for all objects that don't fit into another domain or are added
+via the application interface.

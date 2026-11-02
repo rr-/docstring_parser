@@ -1,0 +1,26 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Retrieves the option metadata if `key` is a registered option.
+
+    Returns
+    -------
+    RegisteredOption (namedtuple) if key is deprecated, None otherwise
+    
+=== parse numpydoc
+short_description: 'Retrieves the option metadata if `key` is a registered option.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringReturns
+  args: ['returns']
+  type_name: 'RegisteredOption (namedtuple) if key is deprecated, None otherwise'
+  is_generator: False
+=== detect
+numpydoc
+=== compose numpydoc
+Retrieves the option metadata if `key` is a registered option.
+
+Returns
+-------
+RegisteredOption (namedtuple) if key is deprecated, None otherwise

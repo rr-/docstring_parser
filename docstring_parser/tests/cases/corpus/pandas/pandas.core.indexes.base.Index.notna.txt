@@ -1,0 +1,136 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Detect existing (non-missing) values.
+
+        Return a boolean same-sized object indicating if the values are not NA.
+        Non-missing values get mapped to ``True``. Characters such as empty
+        strings ``''`` or :attr:`numpy.inf` are not considered NA values.
+        NA values, such as None or :attr:`numpy.NaN`, get mapped to ``False``
+        values.
+
+        Returns
+        -------
+        numpy.ndarray[bool]
+            Boolean array to indicate which entries are not NA.
+
+        See Also
+        --------
+        Index.notnull : Alias of notna.
+        Index.isna: Inverse of notna.
+        notna : Top-level notna.
+
+        Examples
+        --------
+        Show which entries in an Index are not NA. The result is an
+        array.
+
+        >>> idx = pd.Index([5.2, 6.0, np.nan])
+        >>> idx
+        Index([5.2, 6.0, nan], dtype='float64')
+        >>> idx.notna()
+        array([ True,  True, False])
+
+        Empty strings are not considered NA values. None is considered a NA
+        value.
+
+        >>> idx = pd.Index(["black", "", "red", None])
+        >>> idx
+        Index(['black', '', 'red', nan], dtype='str')
+        >>> idx.notna()
+        array([ True,  True,  True, False])
+        
+=== parse numpydoc
+short_description: 'Detect existing (non-missing) values.'
+long_description: |
+  Return a boolean same-sized object indicating if the values are not NA.
+  Non-missing values get mapped to ``True``. Characters such as empty
+  strings ``''`` or :attr:`numpy.inf` are not considered NA values.
+  NA values, such as None or :attr:`numpy.NaN`, get mapped to ``False``
+  values.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringReturns
+  args: ['returns']
+  description: 'Boolean array to indicate which entries are not NA.'
+  type_name: 'numpy.ndarray[bool]'
+  is_generator: False
+- DocstringMeta
+  args: ['see_also']
+  description: |
+    Index.notnull : Alias of notna.
+    Index.isna: Inverse of notna.
+    notna : Top-level notna.
+- DocstringExample
+  args: ['examples']
+  description: |
+    Show which entries in an Index are not NA. The result is an
+    array.
+    
+- DocstringExample
+  args: ['examples']
+  description: "Index([5.2, 6.0, nan], dtype='float64')"
+  snippet: |
+    >>> idx = pd.Index([5.2, 6.0, np.nan])
+    >>> idx
+- DocstringExample
+  args: ['examples']
+  description: |
+    array([ True,  True, False])
+    
+    Empty strings are not considered NA values. None is considered a NA
+    value.
+    
+  snippet: '>>> idx.notna()'
+- DocstringExample
+  args: ['examples']
+  description: "Index(['black', '', 'red', nan], dtype='str')"
+  snippet: |
+    >>> idx = pd.Index(["black", "", "red", None])
+    >>> idx
+- DocstringExample
+  args: ['examples']
+  description: 'array([ True,  True,  True, False])'
+  snippet: '>>> idx.notna()'
+=== detect
+numpydoc
+=== compose numpydoc
+Detect existing (non-missing) values.
+
+Return a boolean same-sized object indicating if the values are not NA.
+Non-missing values get mapped to ``True``. Characters such as empty
+strings ``''`` or :attr:`numpy.inf` are not considered NA values.
+NA values, such as None or :attr:`numpy.NaN`, get mapped to ``False``
+values.
+
+Returns
+-------
+numpy.ndarray[bool]
+    Boolean array to indicate which entries are not NA.
+
+Examples
+--------
+Show which entries in an Index are not NA. The result is an
+array.
+
+>>> idx = pd.Index([5.2, 6.0, np.nan])
+>>> idx
+Index([5.2, 6.0, nan], dtype='float64')
+>>> idx.notna()
+array([ True,  True, False])
+
+Empty strings are not considered NA values. None is considered a NA
+value.
+
+>>> idx = pd.Index(["black", "", "red", None])
+>>> idx
+Index(['black', '', 'red', nan], dtype='str')
+>>> idx.notna()
+array([ True,  True,  True, False])
+
+See Also
+--------
+Index.notnull : Alias of notna.
+Index.isna: Inverse of notna.
+notna : Top-level notna.

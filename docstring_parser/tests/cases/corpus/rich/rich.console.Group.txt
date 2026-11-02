@@ -1,0 +1,34 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Takes a group of renderables and returns a renderable object that renders the group.
+
+    Args:
+        renderables (Iterable[RenderableType]): An iterable of renderable objects.
+        fit (bool, optional): Fit dimension of group to contents, or fill available space. Defaults to True.
+    
+=== parse google
+short_description: 'Takes a group of renderables and returns a renderable object that renders the group.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'renderables (Iterable[RenderableType])']
+  description: 'An iterable of renderable objects.'
+  arg_name: 'renderables'
+  type_name: 'Iterable[RenderableType]'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'fit (bool, optional)']
+  description: 'Fit dimension of group to contents, or fill available space. Defaults to True.'
+  arg_name: 'fit'
+  type_name: 'bool'
+  is_optional: True
+  default: 'True'
+=== detect
+google
+=== compose google
+Takes a group of renderables and returns a renderable object that renders the group.
+
+Args:
+    renderables (Iterable[RenderableType]): An iterable of renderable objects.
+    fit (bool?): Fit dimension of group to contents, or fill available space. Defaults to True.

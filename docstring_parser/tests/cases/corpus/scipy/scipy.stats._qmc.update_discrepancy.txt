@@ -1,0 +1,122 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Update the centered discrepancy with a new sample.
+
+    Parameters
+    ----------
+    x_new : array_like (1, d)
+        The new sample to add in `sample`.
+    sample : array_like (n, d)
+        The initial sample.
+    initial_disc : float
+        Centered discrepancy of the `sample`.
+
+    Returns
+    -------
+    discrepancy : float
+        Centered discrepancy of the sample composed of `x_new` and `sample`.
+
+    Examples
+    --------
+    We can also compute iteratively the discrepancy by using
+    ``iterative=True``.
+
+    >>> import numpy as np
+    >>> from scipy.stats import qmc
+    >>> space = np.array([[1, 3], [2, 6], [3, 2], [4, 5], [5, 1], [6, 4]])
+    >>> l_bounds = [0.5, 0.5]
+    >>> u_bounds = [6.5, 6.5]
+    >>> space = qmc.scale(space, l_bounds, u_bounds, reverse=True)
+    >>> disc_init = qmc.discrepancy(space[:-1], iterative=True)
+    >>> disc_init
+    0.04769081147119336
+    >>> qmc.update_discrepancy(space[-1], space[:-1], disc_init)
+    0.008142039609053513
+
+    
+=== parse numpydoc
+short_description: 'Update the centered discrepancy with a new sample.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'x_new']
+  description: 'The new sample to add in `sample`.'
+  arg_name: 'x_new'
+  type_name: 'array_like (1, d)'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'sample']
+  description: 'The initial sample.'
+  arg_name: 'sample'
+  type_name: 'array_like (n, d)'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'initial_disc']
+  description: 'Centered discrepancy of the `sample`.'
+  arg_name: 'initial_disc'
+  type_name: 'float'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: 'Centered discrepancy of the sample composed of `x_new` and `sample`.'
+  type_name: 'float'
+  is_generator: False
+  return_name: 'discrepancy'
+- DocstringExample
+  args: ['examples']
+  description: |
+    We can also compute iteratively the discrepancy by using
+    ``iterative=True``.
+    
+- DocstringExample
+  args: ['examples']
+  description: '0.04769081147119336'
+  snippet: |
+    >>> import numpy as np
+    >>> from scipy.stats import qmc
+    >>> space = np.array([[1, 3], [2, 6], [3, 2], [4, 5], [5, 1], [6, 4]])
+    >>> l_bounds = [0.5, 0.5]
+    >>> u_bounds = [6.5, 6.5]
+    >>> space = qmc.scale(space, l_bounds, u_bounds, reverse=True)
+    >>> disc_init = qmc.discrepancy(space[:-1], iterative=True)
+    >>> disc_init
+- DocstringExample
+  args: ['examples']
+  description: '0.008142039609053513'
+  snippet: '>>> qmc.update_discrepancy(space[-1], space[:-1], disc_init)'
+=== detect
+numpydoc
+=== compose numpydoc
+Update the centered discrepancy with a new sample.
+
+Parameters
+----------
+x_new : array_like (1, d)
+    The new sample to add in `sample`.
+sample : array_like (n, d)
+    The initial sample.
+initial_disc : float
+    Centered discrepancy of the `sample`.
+
+Returns
+-------
+discrepancy : float
+    Centered discrepancy of the sample composed of `x_new` and `sample`.
+
+Examples
+--------
+We can also compute iteratively the discrepancy by using
+``iterative=True``.
+
+>>> import numpy as np
+>>> from scipy.stats import qmc
+>>> space = np.array([[1, 3], [2, 6], [3, 2], [4, 5], [5, 1], [6, 4]])
+>>> l_bounds = [0.5, 0.5]
+>>> u_bounds = [6.5, 6.5]
+>>> space = qmc.scale(space, l_bounds, u_bounds, reverse=True)
+>>> disc_init = qmc.discrepancy(space[:-1], iterative=True)
+>>> disc_init
+0.04769081147119336
+>>> qmc.update_discrepancy(space[-1], space[:-1], disc_init)
+0.008142039609053513

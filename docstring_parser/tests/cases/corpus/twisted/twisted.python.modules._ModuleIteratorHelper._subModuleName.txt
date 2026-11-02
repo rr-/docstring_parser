@@ -1,0 +1,17 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        This is a hook to provide packages with the ability to specify their names
+        as a prefix to submodules here.
+        
+=== parse epydoc
+short_description: 'This is a hook to provide packages with the ability to specify their names'
+long_description: 'as a prefix to submodules here.'
+blank_after_short_description: False
+blank_after_long_description: False
+style: epydoc
+=== detect
+rest
+=== compose epydoc
+This is a hook to provide packages with the ability to specify their names
+as a prefix to submodules here.

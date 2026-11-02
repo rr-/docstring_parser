@@ -1,0 +1,47 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Get a Style instance by its theme name or parse a definition.
+
+        Args:
+            name (str): The name of a style or a style definition.
+
+        Returns:
+            Style: A Style object.
+
+        Raises:
+            MissingStyle: If no style could be parsed from name.
+
+        
+=== parse google
+short_description: 'Get a Style instance by its theme name or parse a definition.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'name (str)']
+  description: 'The name of a style or a style definition.'
+  arg_name: 'name'
+  type_name: 'str'
+  is_optional: False
+- DocstringReturns
+  args: ['returns', 'Style']
+  description: 'A Style object.'
+  type_name: 'Style'
+  is_generator: False
+- DocstringRaises
+  args: ['raises', 'MissingStyle']
+  description: 'If no style could be parsed from name.'
+  type_name: 'MissingStyle'
+=== detect
+google
+=== compose google
+Get a Style instance by its theme name or parse a definition.
+
+Args:
+    name (str): The name of a style or a style definition.
+
+Returns:
+    Style: A Style object.
+
+Raises:
+    MissingStyle: If no style could be parsed from name.

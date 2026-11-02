@@ -1,0 +1,22 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Decode and return lines of the docstring(s) for the object.
+
+        When it returns None, autodoc-process-docstring will not be called for this
+        object.
+        
+=== parse rest
+short_description: 'Decode and return lines of the docstring(s) for the object.'
+long_description: |
+  When it returns None, autodoc-process-docstring will not be called for this
+  object.
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Decode and return lines of the docstring(s) for the object.
+
+When it returns None, autodoc-process-docstring will not be called for this
+object.

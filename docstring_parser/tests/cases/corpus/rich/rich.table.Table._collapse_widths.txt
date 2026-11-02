@@ -1,0 +1,52 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Reduce widths so that the total is under max_width.
+
+        Args:
+            widths (List[int]): List of widths.
+            wrapable (List[bool]): List of booleans that indicate if a column may shrink.
+            max_width (int): Maximum width to reduce to.
+
+        Returns:
+            List[int]: A new list of widths.
+        
+=== parse google
+short_description: 'Reduce widths so that the total is under max_width.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'widths (List[int])']
+  description: 'List of widths.'
+  arg_name: 'widths'
+  type_name: 'List[int]'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'wrapable (List[bool])']
+  description: 'List of booleans that indicate if a column may shrink.'
+  arg_name: 'wrapable'
+  type_name: 'List[bool]'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'max_width (int)']
+  description: 'Maximum width to reduce to.'
+  arg_name: 'max_width'
+  type_name: 'int'
+  is_optional: False
+- DocstringReturns
+  args: ['returns', 'List[int]']
+  description: 'A new list of widths.'
+  type_name: 'List[int]'
+  is_generator: False
+=== detect
+google
+=== compose google
+Reduce widths so that the total is under max_width.
+
+Args:
+    widths (List[int]): List of widths.
+    wrapable (List[bool]): List of booleans that indicate if a column may shrink.
+    max_width (int): Maximum width to reduce to.
+
+Returns:
+    List[int]: A new list of widths.

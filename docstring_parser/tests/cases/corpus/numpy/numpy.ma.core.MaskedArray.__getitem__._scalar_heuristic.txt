@@ -1,0 +1,17 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+            Return whether `elem` is a scalar result of indexing `arr`, or None
+            if undecidable without promoting nomask to a full mask
+            
+=== parse numpydoc
+short_description: 'Return whether `elem` is a scalar result of indexing `arr`, or None'
+long_description: 'if undecidable without promoting nomask to a full mask'
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Return whether `elem` is a scalar result of indexing `arr`, or None
+if undecidable without promoting nomask to a full mask

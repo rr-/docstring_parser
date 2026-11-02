@@ -1,0 +1,23 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Dict-like values() that returns a list of values of cookies from the
+        jar.
+
+        .. seealso:: keys() and items().
+        
+=== parse rest
+short_description: 'Dict-like values() that returns a list of values of cookies from the'
+long_description: |
+  jar.
+  
+  .. seealso:: keys() and items().
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Dict-like values() that returns a list of values of cookies from the
+jar.
+
+.. seealso:: keys() and items().

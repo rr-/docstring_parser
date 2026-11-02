@@ -1,0 +1,279 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Return the indices for the lower-triangle of an (n, m) array.
+
+    Parameters
+    ----------
+    n : int
+        The row dimension of the arrays for which the returned
+        indices will be valid.
+    k : int, optional
+        Diagonal offset (see `tril` for details).
+    m : int, optional
+        The column dimension of the arrays for which the returned
+        arrays will be valid.
+        By default `m` is taken equal to `n`.
+
+
+    Returns
+    -------
+    inds : tuple of arrays
+        The row and column indices, respectively. The row indices are sorted
+        in non-decreasing order, and the corresponding column indices are
+        strictly increasing for each row.
+
+    See also
+    --------
+    triu_indices : similar function, for upper-triangular.
+    mask_indices : generic function accepting an arbitrary mask function.
+    tril, triu
+
+    Examples
+    --------
+    >>> import numpy as np
+
+    Compute two different sets of indices to access 4x4 arrays, one for the
+    lower triangular part starting at the main diagonal, and one starting two
+    diagonals further right:
+
+    >>> il1 = np.tril_indices(4)
+    >>> il1
+    (array([0, 1, 1, 2, 2, 2, 3, 3, 3, 3]), array([0, 0, 1, 0, 1, 2, 0, 1, 2, 3]))
+
+    Note that row indices (first array) are non-decreasing, and the corresponding
+    column indices (second array) are strictly increasing for each row.
+    Here is how they can be used with a sample array:
+
+    >>> a = np.arange(16).reshape(4, 4)
+    >>> a
+    array([[ 0,  1,  2,  3],
+           [ 4,  5,  6,  7],
+           [ 8,  9, 10, 11],
+           [12, 13, 14, 15]])
+
+    Both for indexing:
+
+    >>> a[il1]
+    array([ 0,  4,  5, ..., 13, 14, 15])
+
+    And for assigning values:
+
+    >>> a[il1] = -1
+    >>> a
+    array([[-1,  1,  2,  3],
+           [-1, -1,  6,  7],
+           [-1, -1, -1, 11],
+           [-1, -1, -1, -1]])
+
+    These cover almost the whole array (two diagonals right of the main one):
+
+    >>> il2 = np.tril_indices(4, 2)
+    >>> a[il2] = -10
+    >>> a
+    array([[-10, -10, -10,   3],
+           [-10, -10, -10, -10],
+           [-10, -10, -10, -10],
+           [-10, -10, -10, -10]])
+
+    
+=== parse numpydoc
+short_description: 'Return the indices for the lower-triangle of an (n, m) array.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'n']
+  description: |
+    The row dimension of the arrays for which the returned
+    indices will be valid.
+  arg_name: 'n'
+  type_name: 'int'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'k']
+  description: 'Diagonal offset (see `tril` for details).'
+  arg_name: 'k'
+  type_name: 'int'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'm']
+  description: |
+    The column dimension of the arrays for which the returned
+    arrays will be valid.
+    By default `m` is taken equal to `n`.
+  arg_name: 'm'
+  type_name: 'int'
+  is_optional: True
+- DocstringReturns
+  args: ['returns']
+  description: |
+    The row and column indices, respectively. The row indices are sorted
+    in non-decreasing order, and the corresponding column indices are
+    strictly increasing for each row.
+  type_name: 'tuple of arrays'
+  is_generator: False
+  return_name: 'inds'
+- DocstringReturns
+  args: ['returns']
+  type_name: 'See also'
+  is_generator: False
+- DocstringReturns
+  args: ['returns']
+  type_name: '--------'
+  is_generator: False
+- DocstringReturns
+  args: ['returns']
+  type_name: 'similar function, for upper-triangular.'
+  is_generator: False
+  return_name: 'triu_indices'
+- DocstringReturns
+  args: ['returns']
+  type_name: 'generic function accepting an arbitrary mask function.'
+  is_generator: False
+  return_name: 'mask_indices'
+- DocstringReturns
+  args: ['returns']
+  type_name: 'tril, triu'
+  is_generator: False
+- DocstringExample
+  args: ['examples']
+  description: |
+    
+    Compute two different sets of indices to access 4x4 arrays, one for the
+    lower triangular part starting at the main diagonal, and one starting two
+    diagonals further right:
+    
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  args: ['examples']
+  description: |
+    (array([0, 1, 1, 2, 2, 2, 3, 3, 3, 3]), array([0, 0, 1, 0, 1, 2, 0, 1, 2, 3]))
+    
+    Note that row indices (first array) are non-decreasing, and the corresponding
+    column indices (second array) are strictly increasing for each row.
+    Here is how they can be used with a sample array:
+    
+  snippet: |
+    >>> il1 = np.tril_indices(4)
+    >>> il1
+- DocstringExample
+  args: ['examples']
+  description: |
+    array([[ 0,  1,  2,  3],
+           [ 4,  5,  6,  7],
+           [ 8,  9, 10, 11],
+           [12, 13, 14, 15]])
+    
+    Both for indexing:
+    
+  snippet: |
+    >>> a = np.arange(16).reshape(4, 4)
+    >>> a
+- DocstringExample
+  args: ['examples']
+  description: |
+    array([ 0,  4,  5, ..., 13, 14, 15])
+    
+    And for assigning values:
+    
+  snippet: '>>> a[il1]'
+- DocstringExample
+  args: ['examples']
+  description: |
+    array([[-1,  1,  2,  3],
+           [-1, -1,  6,  7],
+           [-1, -1, -1, 11],
+           [-1, -1, -1, -1]])
+    
+    These cover almost the whole array (two diagonals right of the main one):
+    
+  snippet: |
+    >>> a[il1] = -1
+    >>> a
+- DocstringExample
+  args: ['examples']
+  description: |
+    array([[-10, -10, -10,   3],
+           [-10, -10, -10, -10],
+           [-10, -10, -10, -10],
+           [-10, -10, -10, -10]])
+  snippet: |
+    >>> il2 = np.tril_indices(4, 2)
+    >>> a[il2] = -10
+    >>> a
+=== detect
+numpydoc
+=== compose numpydoc
+Return the indices for the lower-triangle of an (n, m) array.
+
+Parameters
+----------
+n : int
+    The row dimension of the arrays for which the returned
+    indices will be valid.
+k : int, optional
+    Diagonal offset (see `tril` for details).
+m : int, optional
+    The column dimension of the arrays for which the returned
+    arrays will be valid.
+    By default `m` is taken equal to `n`.
+
+Returns
+-------
+inds : tuple of arrays
+    The row and column indices, respectively. The row indices are sorted
+    in non-decreasing order, and the corresponding column indices are
+    strictly increasing for each row.
+See also
+--------
+triu_indices : similar function, for upper-triangular.
+mask_indices : generic function accepting an arbitrary mask function.
+tril, triu
+
+Examples
+--------
+>>> import numpy as np
+
+Compute two different sets of indices to access 4x4 arrays, one for the
+lower triangular part starting at the main diagonal, and one starting two
+diagonals further right:
+
+>>> il1 = np.tril_indices(4)
+>>> il1
+(array([0, 1, 1, 2, 2, 2, 3, 3, 3, 3]), array([0, 0, 1, 0, 1, 2, 0, 1, 2, 3]))
+
+Note that row indices (first array) are non-decreasing, and the corresponding
+column indices (second array) are strictly increasing for each row.
+Here is how they can be used with a sample array:
+
+>>> a = np.arange(16).reshape(4, 4)
+>>> a
+array([[ 0,  1,  2,  3],
+       [ 4,  5,  6,  7],
+       [ 8,  9, 10, 11],
+       [12, 13, 14, 15]])
+
+Both for indexing:
+
+>>> a[il1]
+array([ 0,  4,  5, ..., 13, 14, 15])
+
+And for assigning values:
+
+>>> a[il1] = -1
+>>> a
+array([[-1,  1,  2,  3],
+       [-1, -1,  6,  7],
+       [-1, -1, -1, 11],
+       [-1, -1, -1, -1]])
+
+These cover almost the whole array (two diagonals right of the main one):
+
+>>> il2 = np.tril_indices(4, 2)
+>>> a[il2] = -10
+>>> a
+array([[-10, -10, -10,   3],
+       [-10, -10, -10, -10],
+       [-10, -10, -10, -10],
+       [-10, -10, -10, -10]])

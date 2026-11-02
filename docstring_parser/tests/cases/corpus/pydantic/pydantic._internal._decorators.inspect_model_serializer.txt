@@ -1,0 +1,44 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Look at a model serializer function and determine whether it takes an info argument.
+
+    An error is raised if the function has an invalid signature.
+
+    Args:
+        serializer: The serializer function to check.
+        mode: The serializer mode, either 'plain' or 'wrap'.
+
+    Returns:
+        `info_arg` - whether the function expects an info argument.
+    
+=== parse google
+short_description: 'Look at a model serializer function and determine whether it takes an info argument.'
+long_description: 'An error is raised if the function has an invalid signature.'
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'serializer']
+  description: 'The serializer function to check.'
+  arg_name: 'serializer'
+- DocstringParam
+  args: ['param', 'mode']
+  description: "The serializer mode, either 'plain' or 'wrap'."
+  arg_name: 'mode'
+- DocstringReturns
+  args: ['returns']
+  description: '`info_arg` - whether the function expects an info argument.'
+  is_generator: False
+=== detect
+google
+=== compose google
+Look at a model serializer function and determine whether it takes an info argument.
+
+An error is raised if the function has an invalid signature.
+
+Args:
+    serializer: The serializer function to check.
+    mode: The serializer mode, either 'plain' or 'wrap'.
+
+Returns:
+    `info_arg` - whether the function expects an info argument.

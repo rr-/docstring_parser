@@ -1,0 +1,18 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+The URL's encoded string representation via __str__().
+
+        This returns the punycode-encoded host version of the URL as a string.
+        
+=== parse google
+short_description: "The URL's encoded string representation via __str__()."
+long_description: 'This returns the punycode-encoded host version of the URL as a string.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+The URL's encoded string representation via __str__().
+
+This returns the punycode-encoded host version of the URL as a string.

@@ -1,0 +1,18 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Add cross-reference IDs and entries to self.indexnode, if applicable.
+
+        *name* is whatever :meth:`handle_signature()` returned.
+        
+=== parse rest
+short_description: 'Add cross-reference IDs and entries to self.indexnode, if applicable.'
+long_description: '*name* is whatever :meth:`handle_signature()` returned.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Add cross-reference IDs and entries to self.indexnode, if applicable.
+
+*name* is whatever :meth:`handle_signature()` returned.

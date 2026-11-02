@@ -1,0 +1,28 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Raises a ValueError for `MultiIndex` because there's no single
+        array backing a MultiIndex.
+
+        Raises
+        ------
+        ValueError
+        
+=== parse numpydoc
+short_description: "Raises a ValueError for `MultiIndex` because there's no single"
+long_description: 'array backing a MultiIndex.'
+blank_after_short_description: False
+blank_after_long_description: True
+style: numpydoc
+- DocstringRaises
+  args: ['raises', 'ValueError']
+  type_name: 'ValueError'
+=== detect
+numpydoc
+=== compose numpydoc
+Raises a ValueError for `MultiIndex` because there's no single
+array backing a MultiIndex.
+
+Raises
+------
+ValueError

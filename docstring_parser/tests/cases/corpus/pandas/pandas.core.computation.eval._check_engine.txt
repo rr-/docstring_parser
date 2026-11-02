@@ -1,0 +1,67 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Make sure a valid engine is passed.
+
+    Parameters
+    ----------
+    engine : str
+        String to validate.
+
+    Raises
+    ------
+    KeyError
+      * If an invalid engine is passed.
+    ImportError
+      * If numexpr was requested but doesn't exist.
+
+    Returns
+    -------
+    str
+        Engine name.
+    
+=== parse numpydoc
+short_description: 'Make sure a valid engine is passed.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'engine']
+  description: 'String to validate.'
+  arg_name: 'engine'
+  type_name: 'str'
+  is_optional: False
+- DocstringRaises
+  args: ['raises', 'KeyError']
+  description: '* If an invalid engine is passed.'
+  type_name: 'KeyError'
+- DocstringRaises
+  args: ['raises', 'ImportError']
+  description: "* If numexpr was requested but doesn't exist."
+  type_name: 'ImportError'
+- DocstringReturns
+  args: ['returns']
+  description: 'Engine name.'
+  type_name: 'str'
+  is_generator: False
+=== detect
+numpydoc
+=== compose numpydoc
+Make sure a valid engine is passed.
+
+Parameters
+----------
+engine : str
+    String to validate.
+
+Returns
+-------
+str
+    Engine name.
+
+Raises
+------
+KeyError
+    * If an invalid engine is passed.
+ImportError
+    * If numexpr was requested but doesn't exist.

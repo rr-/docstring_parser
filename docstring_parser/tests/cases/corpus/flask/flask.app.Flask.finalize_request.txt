@@ -1,0 +1,45 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Given the return value from a view function this finalizes
+        the request by converting it into a response and invoking the
+        postprocessing functions.  This is invoked for both normal
+        request dispatching as well as error handlers.
+
+        Because this means that it might be called as a result of a
+        failure a special safe mode is available which can be enabled
+        with the `from_error_handler` flag.  If enabled, failures in
+        response processing will be logged and otherwise ignored.
+
+        :internal:
+        
+=== parse rest
+short_description: 'Given the return value from a view function this finalizes'
+long_description: |
+  the request by converting it into a response and invoking the
+  postprocessing functions.  This is invoked for both normal
+  request dispatching as well as error handlers.
+  
+  Because this means that it might be called as a result of a
+  failure a special safe mode is available which can be enabled
+  with the `from_error_handler` flag.  If enabled, failures in
+  response processing will be logged and otherwise ignored.
+blank_after_short_description: False
+blank_after_long_description: True
+style: rest
+- DocstringMeta
+  args: ['internal']
+  description: ''
+=== detect
+rest
+=== compose rest
+Given the return value from a view function this finalizes
+the request by converting it into a response and invoking the
+postprocessing functions.  This is invoked for both normal
+request dispatching as well as error handlers.
+
+Because this means that it might be called as a result of a
+failure a special safe mode is available which can be enabled
+with the `from_error_handler` flag.  If enabled, failures in
+response processing will be logged and otherwise ignored.
+
+:internal:

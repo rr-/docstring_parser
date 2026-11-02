@@ -1,0 +1,23 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Main build method, usually called by a specific ``build_*`` method.
+
+        First updates the environment, and then calls
+        :meth:`!write`.
+        
+=== parse rest
+short_description: 'Main build method, usually called by a specific ``build_*`` method.'
+long_description: 'First updates the environment, and then calls'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringMeta
+  args: ['meth']
+  description: '`!write`.'
+=== detect
+rest
+=== compose rest
+Main build method, usually called by a specific ``build_*`` method.
+
+First updates the environment, and then calls
+:meth: `!write`.

@@ -1,0 +1,17 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Try to find the most capable encoding supported by the console.
+    slightly modified from the way IPython handles the same issue.
+    
+=== parse numpydoc
+short_description: 'Try to find the most capable encoding supported by the console.'
+long_description: 'slightly modified from the way IPython handles the same issue.'
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Try to find the most capable encoding supported by the console.
+slightly modified from the way IPython handles the same issue.

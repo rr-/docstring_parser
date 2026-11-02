@@ -1,0 +1,45 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+A wrapper around `typing.Set` that allows for additional constraints.
+
+    Args:
+        item_type: The type of the items in the set.
+        min_length: The minimum length of the set.
+        max_length: The maximum length of the set.
+
+    Returns:
+        The wrapped set type.
+    
+=== parse google
+short_description: 'A wrapper around `typing.Set` that allows for additional constraints.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'item_type']
+  description: 'The type of the items in the set.'
+  arg_name: 'item_type'
+- DocstringParam
+  args: ['param', 'min_length']
+  description: 'The minimum length of the set.'
+  arg_name: 'min_length'
+- DocstringParam
+  args: ['param', 'max_length']
+  description: 'The maximum length of the set.'
+  arg_name: 'max_length'
+- DocstringReturns
+  args: ['returns']
+  description: 'The wrapped set type.'
+  is_generator: False
+=== detect
+google
+=== compose google
+A wrapper around `typing.Set` that allows for additional constraints.
+
+Args:
+    item_type: The type of the items in the set.
+    min_length: The minimum length of the set.
+    max_length: The maximum length of the set.
+
+Returns:
+    The wrapped set type.

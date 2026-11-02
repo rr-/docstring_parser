@@ -1,0 +1,22 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Type hint that stands in for a parameter that has no type annotation, accepting any value.
+
+    Only instantiated once, see the Untyped singleton. There is no type in the
+    source code to keep, thus the help shows it as Untyped.
+    
+=== parse google
+short_description: 'Type hint that stands in for a parameter that has no type annotation, accepting any value.'
+long_description: |
+  Only instantiated once, see the Untyped singleton. There is no type in the
+  source code to keep, thus the help shows it as Untyped.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Type hint that stands in for a parameter that has no type annotation, accepting any value.
+
+Only instantiated once, see the Untyped singleton. There is no type in the
+source code to keep, thus the help shows it as Untyped.

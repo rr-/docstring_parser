@@ -1,0 +1,45 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Creates or returns an already registered restricted string type class.
+
+    Args:
+        name: Name for the type or ``None`` for an automatic name.
+        regex: Regular expression that the string must match.
+        docstring: Docstring for the type class.
+
+    Returns:
+        The created or retrieved type class.
+    
+=== parse google
+short_description: 'Creates or returns an already registered restricted string type class.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'name']
+  description: 'Name for the type or ``None`` for an automatic name.'
+  arg_name: 'name'
+- DocstringParam
+  args: ['param', 'regex']
+  description: 'Regular expression that the string must match.'
+  arg_name: 'regex'
+- DocstringParam
+  args: ['param', 'docstring']
+  description: 'Docstring for the type class.'
+  arg_name: 'docstring'
+- DocstringReturns
+  args: ['returns']
+  description: 'The created or retrieved type class.'
+  is_generator: False
+=== detect
+google
+=== compose google
+Creates or returns an already registered restricted string type class.
+
+Args:
+    name: Name for the type or ``None`` for an automatic name.
+    regex: Regular expression that the string must match.
+    docstring: Docstring for the type class.
+
+Returns:
+    The created or retrieved type class.

@@ -1,0 +1,392 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Append to Table in file.
+
+        Node must already exist and be Table format.
+
+        Parameters
+        ----------
+        key : str
+            Key of object to append.
+        value : {Series, DataFrame}
+            Value of object to append.
+        format : 'table' is the default
+            Format to use when storing object in HDFStore.  Value can be one of:
+
+            ``'table'``
+                Table format. Write as a PyTables Table structure which may perform
+                worse but allow more flexible operations like searching / selecting
+                subsets of the data.
+        axes : list, default None
+            Single-element list selecting the axis to store as the table's
+            indexed (appendable) axis: ``[0]`` for the index (the default) or
+            ``[1]`` for the columns. Ignored when appending to an existing
+            table, which keeps the axes it was created with.
+        index : bool, default True
+            Write DataFrame index as a column.
+        append : bool, default True
+            Append the input data to the existing.
+        complib : {'zlib', 'lzo', 'bzip2', 'blosc'}, default None
+            Compression library to use; None disables compression. See the
+            ``complib`` parameter of :class:`HDFStore` for the full list of
+            supported compressors.
+        complevel : int, 0-9, default None
+            Specifies a compression level for data.
+            A value of 0 or None disables compression.
+        columns : default None
+            This parameter is currently not accepted, try data_columns.
+        min_itemsize : int, dict, or None
+            Minimum number of bytes reserved for object columns.
+            If int, all columns reserve 'min_itemsize' bytes per stored value.
+            If dict, specific columns reserve 'min_itemsize' bytes per stored value.
+            Strings are stored as encoded bytes. Since some characters require multiple
+            bytes, required size may be larger than string length.
+        nan_rep : str, optional
+            String used on disk to represent missing values in string columns.
+            By default a sentinel that collides with no value in the column is
+            used, so a literal ``"nan"`` round-trips unchanged; when this is
+            passed, a value equal to it is read back as a missing value.
+            Only used when the table is created; ignored on later appends,
+            which reuse whatever the table already stores.
+        chunksize : int, default 100000
+            Number of rows to write in each chunk.
+        expectedrows : int
+            Expected TOTAL row size of this table.
+        dropna : bool, default False, optional
+            Do not write an ALL nan row to the store settable
+            by the option 'io.hdf.dropna_table'.
+
+            .. deprecated:: 3.1.0
+                The ``dropna`` keyword is deprecated and will be removed in a
+                future version. Use :meth:`DataFrame.dropna` before writing
+                instead.
+
+        data_columns : list of columns, or True, default None
+            List of columns to create as indexed data columns for on-disk
+            queries, or True to use all columns. By default only the axes
+            of the object are indexed. See `here
+            <https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#query-via-data-columns>`__.
+        encoding : default None
+            Provide an encoding for str.
+        errors : str, default 'strict'
+            The error handling scheme to use for encoding errors.
+            The default is 'strict' meaning that encoding errors raise a
+            UnicodeEncodeError.  Other possible values are 'ignore', 'replace' and
+            'xmlcharrefreplace' as well as any other name registered with
+            codecs.register_error that can handle UnicodeEncodeErrors.
+
+        See Also
+        --------
+        HDFStore.append_to_multiple : Append to multiple tables.
+
+        Notes
+        -----
+        Does *not* check if data being appended overlaps with existing
+        data in the table, so be careful
+
+        Appending an empty ``DataFrame`` or ``Series`` is a no-op: the store
+        is not modified and a ``UserWarning`` is emitted.
+
+        Examples
+        --------
+        >>> df1 = pd.DataFrame([[1, 2], [3, 4]], columns=["A", "B"])
+        >>> store = pd.HDFStore("store.h5", "w")  # doctest: +SKIP
+        >>> store.put("data", df1, format="table")  # doctest: +SKIP
+        >>> df2 = pd.DataFrame([[5, 6], [7, 8]], columns=["A", "B"])
+        >>> store.append("data", df2)  # doctest: +SKIP
+        >>> store.close()  # doctest: +SKIP
+           A  B
+        0  1  2
+        1  3  4
+        0  5  6
+        1  7  8
+        
+=== parse numpydoc
+short_description: 'Append to Table in file.'
+long_description: 'Node must already exist and be Table format.'
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'key']
+  description: 'Key of object to append.'
+  arg_name: 'key'
+  type_name: 'str'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'value']
+  description: 'Value of object to append.'
+  arg_name: 'value'
+  type_name: '{Series, DataFrame}'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'format']
+  description: |
+    Format to use when storing object in HDFStore.  Value can be one of:
+    
+    ``'table'``
+        Table format. Write as a PyTables Table structure which may perform
+        worse but allow more flexible operations like searching / selecting
+        subsets of the data.
+  arg_name: 'format'
+  type_name: "'table' is the default"
+  is_optional: False
+- DocstringParam
+  args: ['param', 'axes']
+  description: |
+    Single-element list selecting the axis to store as the table's
+    indexed (appendable) axis: ``[0]`` for the index (the default) or
+    ``[1]`` for the columns. Ignored when appending to an existing
+    table, which keeps the axes it was created with.
+  arg_name: 'axes'
+  type_name: 'list'
+  is_optional: True
+  default: 'None'
+- DocstringParam
+  args: ['param', 'index']
+  description: 'Write DataFrame index as a column.'
+  arg_name: 'index'
+  type_name: 'bool'
+  is_optional: True
+  default: 'True'
+- DocstringParam
+  args: ['param', 'append']
+  description: 'Append the input data to the existing.'
+  arg_name: 'append'
+  type_name: 'bool'
+  is_optional: True
+  default: 'True'
+- DocstringParam
+  args: ['param', 'complib']
+  description: |
+    Compression library to use; None disables compression. See the
+    ``complib`` parameter of :class:`HDFStore` for the full list of
+    supported compressors.
+  arg_name: 'complib'
+  type_name: "{'zlib', 'lzo', 'bzip2', 'blosc'}"
+  is_optional: True
+  default: 'None'
+- DocstringParam
+  args: ['param', 'complevel']
+  description: |
+    Specifies a compression level for data.
+    A value of 0 or None disables compression.
+  arg_name: 'complevel'
+  type_name: 'int, 0-9'
+  is_optional: True
+  default: 'None'
+- DocstringParam
+  args: ['param', 'columns']
+  description: 'This parameter is currently not accepted, try data_columns.'
+  arg_name: 'columns'
+  type_name: 'default None'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'min_itemsize']
+  description: |
+    Minimum number of bytes reserved for object columns.
+    If int, all columns reserve 'min_itemsize' bytes per stored value.
+    If dict, specific columns reserve 'min_itemsize' bytes per stored value.
+    Strings are stored as encoded bytes. Since some characters require multiple
+    bytes, required size may be larger than string length.
+  arg_name: 'min_itemsize'
+  type_name: 'int, dict, or None'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'nan_rep']
+  description: |
+    String used on disk to represent missing values in string columns.
+    By default a sentinel that collides with no value in the column is
+    used, so a literal ``"nan"`` round-trips unchanged; when this is
+    passed, a value equal to it is read back as a missing value.
+    Only used when the table is created; ignored on later appends,
+    which reuse whatever the table already stores.
+  arg_name: 'nan_rep'
+  type_name: 'str'
+  is_optional: True
+  default: 'a'
+- DocstringParam
+  args: ['param', 'chunksize']
+  description: 'Number of rows to write in each chunk.'
+  arg_name: 'chunksize'
+  type_name: 'int'
+  is_optional: True
+  default: '100000'
+- DocstringParam
+  args: ['param', 'expectedrows']
+  description: 'Expected TOTAL row size of this table.'
+  arg_name: 'expectedrows'
+  type_name: 'int'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'dropna']
+  description: |
+    Do not write an ALL nan row to the store settable
+    by the option 'io.hdf.dropna_table'.
+    
+    .. deprecated:: 3.1.0
+        The ``dropna`` keyword is deprecated and will be removed in a
+        future version. Use :meth:`DataFrame.dropna` before writing
+        instead.
+  arg_name: 'dropna'
+  type_name: 'bool'
+  is_optional: True
+  default: 'False'
+- DocstringParam
+  args: ['param', 'data_columns']
+  description: |
+    List of columns to create as indexed data columns for on-disk
+    queries, or True to use all columns. By default only the axes
+    of the object are indexed. See `here
+    <https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#query-via-data-columns>`__.
+  arg_name: 'data_columns'
+  type_name: 'list of columns, or True'
+  is_optional: True
+  default: 'None'
+- DocstringParam
+  args: ['param', 'encoding']
+  description: 'Provide an encoding for str.'
+  arg_name: 'encoding'
+  type_name: 'default None'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'errors']
+  description: |
+    The error handling scheme to use for encoding errors.
+    The default is 'strict' meaning that encoding errors raise a
+    UnicodeEncodeError.  Other possible values are 'ignore', 'replace' and
+    'xmlcharrefreplace' as well as any other name registered with
+    codecs.register_error that can handle UnicodeEncodeErrors.
+  arg_name: 'errors'
+  type_name: 'str'
+  is_optional: True
+  default: "'strict'"
+- DocstringMeta
+  args: ['see_also']
+  description: 'HDFStore.append_to_multiple : Append to multiple tables.'
+- DocstringMeta
+  args: ['notes']
+  description: |
+    Does *not* check if data being appended overlaps with existing
+    data in the table, so be careful
+    
+    Appending an empty ``DataFrame`` or ``Series`` is a no-op: the store
+    is not modified and a ``UserWarning`` is emitted.
+- DocstringExample
+  args: ['examples']
+  description: |
+       A  B
+    0  1  2
+    1  3  4
+    0  5  6
+    1  7  8
+  snippet: |
+    >>> df1 = pd.DataFrame([[1, 2], [3, 4]], columns=["A", "B"])
+    >>> store = pd.HDFStore("store.h5", "w")  # doctest: +SKIP
+    >>> store.put("data", df1, format="table")  # doctest: +SKIP
+    >>> df2 = pd.DataFrame([[5, 6], [7, 8]], columns=["A", "B"])
+    >>> store.append("data", df2)  # doctest: +SKIP
+    >>> store.close()  # doctest: +SKIP
+=== detect
+numpydoc
+=== compose numpydoc
+Append to Table in file.
+
+Node must already exist and be Table format.
+
+Parameters
+----------
+key : str
+    Key of object to append.
+value : {Series, DataFrame}
+    Value of object to append.
+format : 'table' is the default
+    Format to use when storing object in HDFStore.  Value can be one of:
+    
+    ``'table'``
+        Table format. Write as a PyTables Table structure which may perform
+        worse but allow more flexible operations like searching / selecting
+        subsets of the data.
+axes : list, optional
+    Single-element list selecting the axis to store as the table's
+    indexed (appendable) axis: ``[0]`` for the index (the default) or
+    ``[1]`` for the columns. Ignored when appending to an existing
+    table, which keeps the axes it was created with.
+index : bool, default=True
+    Write DataFrame index as a column.
+append : bool, default=True
+    Append the input data to the existing.
+complib : {'zlib', 'lzo', 'bzip2', 'blosc'}, optional
+    Compression library to use; None disables compression. See the
+    ``complib`` parameter of :class:`HDFStore` for the full list of
+    supported compressors.
+complevel : int, 0-9, optional
+    Specifies a compression level for data.
+    A value of 0 or None disables compression.
+columns : default None
+    This parameter is currently not accepted, try data_columns.
+min_itemsize : int, dict, or None
+    Minimum number of bytes reserved for object columns.
+    If int, all columns reserve 'min_itemsize' bytes per stored value.
+    If dict, specific columns reserve 'min_itemsize' bytes per stored value.
+    Strings are stored as encoded bytes. Since some characters require multiple
+    bytes, required size may be larger than string length.
+nan_rep : str, default=a
+    String used on disk to represent missing values in string columns.
+    By default a sentinel that collides with no value in the column is
+    used, so a literal ``"nan"`` round-trips unchanged; when this is
+    passed, a value equal to it is read back as a missing value.
+    Only used when the table is created; ignored on later appends,
+    which reuse whatever the table already stores.
+chunksize : int, default=100000
+    Number of rows to write in each chunk.
+expectedrows : int
+    Expected TOTAL row size of this table.
+dropna : bool, default=False
+    Do not write an ALL nan row to the store settable
+    by the option 'io.hdf.dropna_table'.
+    
+    .. deprecated:: 3.1.0
+        The ``dropna`` keyword is deprecated and will be removed in a
+        future version. Use :meth:`DataFrame.dropna` before writing
+        instead.
+data_columns : list of columns, or True, optional
+    List of columns to create as indexed data columns for on-disk
+    queries, or True to use all columns. By default only the axes
+    of the object are indexed. See `here
+    <https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#query-via-data-columns>`__.
+encoding : default None
+    Provide an encoding for str.
+errors : str, default='strict'
+    The error handling scheme to use for encoding errors.
+    The default is 'strict' meaning that encoding errors raise a
+    UnicodeEncodeError.  Other possible values are 'ignore', 'replace' and
+    'xmlcharrefreplace' as well as any other name registered with
+    codecs.register_error that can handle UnicodeEncodeErrors.
+
+Examples
+--------
+>>> df1 = pd.DataFrame([[1, 2], [3, 4]], columns=["A", "B"])
+>>> store = pd.HDFStore("store.h5", "w")  # doctest: +SKIP
+>>> store.put("data", df1, format="table")  # doctest: +SKIP
+>>> df2 = pd.DataFrame([[5, 6], [7, 8]], columns=["A", "B"])
+>>> store.append("data", df2)  # doctest: +SKIP
+>>> store.close()  # doctest: +SKIP
+   A  B
+0  1  2
+1  3  4
+0  5  6
+1  7  8
+
+See Also
+--------
+HDFStore.append_to_multiple : Append to multiple tables.
+
+Notes
+-----
+Does *not* check if data being appended overlaps with existing
+data in the table, so be careful
+
+Appending an empty ``DataFrame`` or ``Series`` is a no-op: the store
+is not modified and a ``UserWarning`` is emitted.

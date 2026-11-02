@@ -1,0 +1,32 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Default request handler.
+
+        Default behaviour for OPTIONS and unknown methods for proxies
+        is to forward message on to the client.
+
+        Since at the moment we are stateless proxy, that's basically
+        everything.
+        
+=== parse epydoc
+short_description: 'Default request handler.'
+long_description: |
+  Default behaviour for OPTIONS and unknown methods for proxies
+  is to forward message on to the client.
+  
+  Since at the moment we are stateless proxy, that's basically
+  everything.
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+=== detect
+rest
+=== compose epydoc
+Default request handler.
+
+Default behaviour for OPTIONS and unknown methods for proxies
+is to forward message on to the client.
+
+Since at the moment we are stateless proxy, that's basically
+everything.

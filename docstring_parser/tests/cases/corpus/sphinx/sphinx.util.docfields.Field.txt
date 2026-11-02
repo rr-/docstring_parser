@@ -1,0 +1,44 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+A doc field that is never grouped.  It can have an argument or not, the
+    argument can be linked using a specified *rolename*.  Field should be used
+    for doc fields that usually don't occur more than once.
+
+    The body can be linked using a specified *bodyrolename* if the content is
+    just a single inline or text node.
+
+    Example::
+
+       :returns: description of the return value
+       :rtype: description of the return type
+    
+=== parse rest
+short_description: 'A doc field that is never grouped.  It can have an argument or not, the'
+long_description: |
+  argument can be linked using a specified *rolename*.  Field should be used
+  for doc fields that usually don't occur more than once.
+  
+  The body can be linked using a specified *bodyrolename* if the content is
+  just a single inline or text node.
+  
+  Example::
+  
+     :returns: description of the return value
+     :rtype: description of the return type
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+A doc field that is never grouped.  It can have an argument or not, the
+argument can be linked using a specified *rolename*.  Field should be used
+for doc fields that usually don't occur more than once.
+
+The body can be linked using a specified *bodyrolename* if the content is
+just a single inline or text node.
+
+Example::
+
+   :returns: description of the return value
+   :rtype: description of the return type

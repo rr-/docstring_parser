@@ -1,0 +1,138 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Gauss-Hermite (physicist's) quadrature for large n.
+
+    Computes the sample points and weights for Gauss-Hermite quadrature.
+    The sample points are the roots of the nth degree Hermite polynomial,
+    :math:`H_n(x)`. These sample points and weights correctly integrate
+    polynomials of degree :math:`2n - 1` or less over the interval
+    :math:`[-\infty, \infty]` with weight function :math:`f(x) = e^{-x^2}`.
+
+    This method relies on asymptotic expansions which work best for n > 150.
+    The algorithm has linear runtime making computation for very large n
+    feasible.
+
+    Parameters
+    ----------
+    n : int
+        quadrature order
+
+    Returns
+    -------
+    nodes : ndarray
+        Quadrature nodes
+    weights : ndarray
+        Quadrature weights
+
+    See Also
+    --------
+    roots_hermite
+
+    References
+    ----------
+    .. [townsend.trogdon.olver-2014]
+       Townsend, A. and Trogdon, T. and Olver, S. (2014)
+       *Fast computation of Gauss quadrature nodes and
+       weights on the whole real line*. :arXiv:`1410.5286`.
+
+    .. [townsend.trogdon.olver-2015]
+       Townsend, A. and Trogdon, T. and Olver, S. (2015)
+       *Fast computation of Gauss quadrature nodes and
+       weights on the whole real line*.
+       IMA Journal of Numerical Analysis
+       :doi:`10.1093/imanum/drv002`.
+    
+=== parse numpydoc
+short_description: "Gauss-Hermite (physicist's) quadrature for large n."
+long_description: |
+  Computes the sample points and weights for Gauss-Hermite quadrature.
+  The sample points are the roots of the nth degree Hermite polynomial,
+  :math:`H_n(x)`. These sample points and weights correctly integrate
+  polynomials of degree :math:`2n - 1` or less over the interval
+  :math:`[-\infty, \infty]` with weight function :math:`f(x) = e^{-x^2}`.
+  
+  This method relies on asymptotic expansions which work best for n > 150.
+  The algorithm has linear runtime making computation for very large n
+  feasible.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'n']
+  description: 'quadrature order'
+  arg_name: 'n'
+  type_name: 'int'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: 'Quadrature nodes'
+  type_name: 'ndarray'
+  is_generator: False
+  return_name: 'nodes'
+- DocstringReturns
+  args: ['returns']
+  description: 'Quadrature weights'
+  type_name: 'ndarray'
+  is_generator: False
+  return_name: 'weights'
+- DocstringMeta
+  args: ['see_also']
+  description: 'roots_hermite'
+- DocstringMeta
+  args: ['references']
+  description: |
+    .. [townsend.trogdon.olver-2014]
+       Townsend, A. and Trogdon, T. and Olver, S. (2014)
+       *Fast computation of Gauss quadrature nodes and
+       weights on the whole real line*. :arXiv:`1410.5286`.
+    
+    .. [townsend.trogdon.olver-2015]
+       Townsend, A. and Trogdon, T. and Olver, S. (2015)
+       *Fast computation of Gauss quadrature nodes and
+       weights on the whole real line*.
+       IMA Journal of Numerical Analysis
+       :doi:`10.1093/imanum/drv002`.
+=== detect
+numpydoc
+=== compose numpydoc
+Gauss-Hermite (physicist's) quadrature for large n.
+
+Computes the sample points and weights for Gauss-Hermite quadrature.
+The sample points are the roots of the nth degree Hermite polynomial,
+:math:`H_n(x)`. These sample points and weights correctly integrate
+polynomials of degree :math:`2n - 1` or less over the interval
+:math:`[-\infty, \infty]` with weight function :math:`f(x) = e^{-x^2}`.
+
+This method relies on asymptotic expansions which work best for n > 150.
+The algorithm has linear runtime making computation for very large n
+feasible.
+
+Parameters
+----------
+n : int
+    quadrature order
+
+Returns
+-------
+nodes : ndarray
+    Quadrature nodes
+weights : ndarray
+    Quadrature weights
+
+See Also
+--------
+roots_hermite
+
+References
+----------
+.. [townsend.trogdon.olver-2014]
+   Townsend, A. and Trogdon, T. and Olver, S. (2014)
+   *Fast computation of Gauss quadrature nodes and
+   weights on the whole real line*. :arXiv:`1410.5286`.
+
+.. [townsend.trogdon.olver-2015]
+   Townsend, A. and Trogdon, T. and Olver, S. (2015)
+   *Fast computation of Gauss quadrature nodes and
+   weights on the whole real line*.
+   IMA Journal of Numerical Analysis
+   :doi:`10.1093/imanum/drv002`.

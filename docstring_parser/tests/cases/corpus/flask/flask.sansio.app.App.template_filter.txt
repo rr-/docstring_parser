@@ -1,0 +1,44 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+A decorator that is used to register custom template filter.
+        You can specify a name for the filter, otherwise the function
+        name will be used. Example::
+
+          @app.template_filter()
+          def reverse(s):
+              return s[::-1]
+
+        :param name: the optional name of the filter, otherwise the
+                     function name will be used.
+        
+=== parse rest
+short_description: 'A decorator that is used to register custom template filter.'
+long_description: |
+  You can specify a name for the filter, otherwise the function
+  name will be used. Example::
+  
+    @app.template_filter()
+    def reverse(s):
+        return s[::-1]
+blank_after_short_description: False
+blank_after_long_description: True
+style: rest
+- DocstringParam
+  args: ['param', 'name']
+  description: |
+    the optional name of the filter, otherwise the
+    function name will be used.
+  arg_name: 'name'
+=== detect
+rest
+=== compose rest
+A decorator that is used to register custom template filter.
+You can specify a name for the filter, otherwise the function
+name will be used. Example::
+
+  @app.template_filter()
+  def reverse(s):
+      return s[::-1]
+
+:param name: the optional name of the filter, otherwise the
+    function name will be used.

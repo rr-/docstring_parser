@@ -1,0 +1,18 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Registers a connection adapter to a prefix.
+
+        Adapters are sorted in descending order by prefix length.
+        
+=== parse rest
+short_description: 'Registers a connection adapter to a prefix.'
+long_description: 'Adapters are sorted in descending order by prefix length.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Registers a connection adapter to a prefix.
+
+Adapters are sorted in descending order by prefix length.

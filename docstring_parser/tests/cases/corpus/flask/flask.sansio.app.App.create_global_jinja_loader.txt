@@ -1,0 +1,38 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Creates the loader for the Jinja environment.  Can be used to
+        override just the loader and keeping the rest unchanged.  It's
+        discouraged to override this function.  Instead one should override
+        the :meth:`jinja_loader` function instead.
+
+        The global loader dispatches between the loaders of the application
+        and the individual blueprints.
+
+        .. versionadded:: 0.7
+        
+=== parse rest
+short_description: 'Creates the loader for the Jinja environment.  Can be used to'
+long_description: |
+  override just the loader and keeping the rest unchanged.  It's
+  discouraged to override this function.  Instead one should override
+  the :meth:`jinja_loader` function instead.
+  
+  The global loader dispatches between the loaders of the application
+  and the individual blueprints.
+  
+  .. versionadded:: 0.7
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Creates the loader for the Jinja environment.  Can be used to
+override just the loader and keeping the rest unchanged.  It's
+discouraged to override this function.  Instead one should override
+the :meth:`jinja_loader` function instead.
+
+The global loader dispatches between the loaders of the application
+and the individual blueprints.
+
+.. versionadded:: 0.7

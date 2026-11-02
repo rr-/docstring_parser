@@ -1,0 +1,23 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+A prompt that returns an integer.
+
+    Example:
+        >>> burrito_count = IntPrompt.ask("How many burritos do you want to order")
+
+    
+=== parse google
+short_description: 'A prompt that returns an integer.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringExample
+  args: ['examples']
+  description: '>>> burrito_count = IntPrompt.ask("How many burritos do you want to order")'
+=== detect
+google
+=== compose google
+A prompt that returns an integer.
+
+Examples:
+    >>> burrito_count = IntPrompt.ask("How many burritos do you want to order")

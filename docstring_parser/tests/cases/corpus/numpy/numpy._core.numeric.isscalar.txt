@@ -1,0 +1,263 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Returns True if the type of `element` is a scalar type.
+
+    Parameters
+    ----------
+    element : any
+        Input argument, can be of any type and shape.
+
+    Returns
+    -------
+    val : bool
+        True if `element` is a scalar type, False if it is not.
+
+    See Also
+    --------
+    ndim : Get the number of dimensions of an array
+
+    Notes
+    -----
+    If you need a stricter way to identify a *numerical* scalar, use
+    ``isinstance(x, numbers.Number)``, as that returns ``False`` for most
+    non-numerical elements such as strings.
+
+    In most cases ``np.ndim(x) == 0`` should be used instead of this function,
+    as that will also return true for 0d arrays. This is how numpy overloads
+    functions in the style of the ``dx`` arguments to `gradient` and
+    the ``bins`` argument to `histogram`. Some key differences:
+
+    +------------------------------------+---------------+-------------------+
+    | x                                  |``isscalar(x)``|``np.ndim(x) == 0``|
+    +====================================+===============+===================+
+    | PEP 3141 numeric objects           | ``True``      | ``True``          |
+    | (including builtins)               |               |                   |
+    +------------------------------------+---------------+-------------------+
+    | builtin string and buffer objects  | ``True``      | ``True``          |
+    +------------------------------------+---------------+-------------------+
+    | other builtin objects, like        | ``False``     | ``True``          |
+    | `pathlib.Path`, `Exception`,       |               |                   |
+    | the result of `re.compile`         |               |                   |
+    +------------------------------------+---------------+-------------------+
+    | third-party objects like           | ``False``     | ``True``          |
+    | `matplotlib.figure.Figure`         |               |                   |
+    +------------------------------------+---------------+-------------------+
+    | zero-dimensional numpy arrays      | ``False``     | ``True``          |
+    +------------------------------------+---------------+-------------------+
+    | other numpy arrays                 | ``False``     | ``False``         |
+    +------------------------------------+---------------+-------------------+
+    | `list`, `tuple`, and other         | ``False``     | ``False``         |
+    | sequence objects                   |               |                   |
+    +------------------------------------+---------------+-------------------+
+
+    Examples
+    --------
+    >>> import numpy as np
+
+    >>> np.isscalar(3.1)
+    True
+
+    >>> np.isscalar(np.array(3.1))
+    False
+
+    >>> np.isscalar([3.1])
+    False
+
+    >>> np.isscalar(False)
+    True
+
+    >>> np.isscalar('numpy')
+    True
+
+    NumPy supports PEP 3141 numbers:
+
+    >>> from fractions import Fraction
+    >>> np.isscalar(Fraction(5, 17))
+    True
+    >>> from numbers import Number
+    >>> np.isscalar(Number())
+    True
+
+    
+=== parse numpydoc
+short_description: 'Returns True if the type of `element` is a scalar type.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'element']
+  description: 'Input argument, can be of any type and shape.'
+  arg_name: 'element'
+  type_name: 'any'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: 'True if `element` is a scalar type, False if it is not.'
+  type_name: 'bool'
+  is_generator: False
+  return_name: 'val'
+- DocstringMeta
+  args: ['see_also']
+  description: 'ndim : Get the number of dimensions of an array'
+- DocstringMeta
+  args: ['notes']
+  description: |
+    If you need a stricter way to identify a *numerical* scalar, use
+    ``isinstance(x, numbers.Number)``, as that returns ``False`` for most
+    non-numerical elements such as strings.
+    
+    In most cases ``np.ndim(x) == 0`` should be used instead of this function,
+    as that will also return true for 0d arrays. This is how numpy overloads
+    functions in the style of the ``dx`` arguments to `gradient` and
+    the ``bins`` argument to `histogram`. Some key differences:
+    
+    +------------------------------------+---------------+-------------------+
+    | x                                  |``isscalar(x)``|``np.ndim(x) == 0``|
+    +====================================+===============+===================+
+    | PEP 3141 numeric objects           | ``True``      | ``True``          |
+    | (including builtins)               |               |                   |
+    +------------------------------------+---------------+-------------------+
+    | builtin string and buffer objects  | ``True``      | ``True``          |
+    +------------------------------------+---------------+-------------------+
+    | other builtin objects, like        | ``False``     | ``True``          |
+    | `pathlib.Path`, `Exception`,       |               |                   |
+    | the result of `re.compile`         |               |                   |
+    +------------------------------------+---------------+-------------------+
+    | third-party objects like           | ``False``     | ``True``          |
+    | `matplotlib.figure.Figure`         |               |                   |
+    +------------------------------------+---------------+-------------------+
+    | zero-dimensional numpy arrays      | ``False``     | ``True``          |
+    +------------------------------------+---------------+-------------------+
+    | other numpy arrays                 | ``False``     | ``False``         |
+    +------------------------------------+---------------+-------------------+
+    | `list`, `tuple`, and other         | ``False``     | ``False``         |
+    | sequence objects                   |               |                   |
+    +------------------------------------+---------------+-------------------+
+- DocstringExample
+  args: ['examples']
+  description: ''
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  args: ['examples']
+  description: |
+    True
+    
+  snippet: '>>> np.isscalar(3.1)'
+- DocstringExample
+  args: ['examples']
+  description: |
+    False
+    
+  snippet: '>>> np.isscalar(np.array(3.1))'
+- DocstringExample
+  args: ['examples']
+  description: |
+    False
+    
+  snippet: '>>> np.isscalar([3.1])'
+- DocstringExample
+  args: ['examples']
+  description: |
+    True
+    
+  snippet: '>>> np.isscalar(False)'
+- DocstringExample
+  args: ['examples']
+  description: |
+    True
+    
+    NumPy supports PEP 3141 numbers:
+    
+  snippet: ">>> np.isscalar('numpy')"
+- DocstringExample
+  args: ['examples']
+  description: 'True'
+  snippet: |
+    >>> from fractions import Fraction
+    >>> np.isscalar(Fraction(5, 17))
+- DocstringExample
+  args: ['examples']
+  description: 'True'
+  snippet: |
+    >>> from numbers import Number
+    >>> np.isscalar(Number())
+=== detect
+numpydoc
+=== compose numpydoc
+Returns True if the type of `element` is a scalar type.
+
+Parameters
+----------
+element : any
+    Input argument, can be of any type and shape.
+
+Returns
+-------
+val : bool
+    True if `element` is a scalar type, False if it is not.
+
+Examples
+--------
+>>> import numpy as np
+>>> np.isscalar(3.1)
+True
+
+>>> np.isscalar(np.array(3.1))
+False
+
+>>> np.isscalar([3.1])
+False
+
+>>> np.isscalar(False)
+True
+
+>>> np.isscalar('numpy')
+True
+
+NumPy supports PEP 3141 numbers:
+
+>>> from fractions import Fraction
+>>> np.isscalar(Fraction(5, 17))
+True
+>>> from numbers import Number
+>>> np.isscalar(Number())
+True
+
+See Also
+--------
+ndim : Get the number of dimensions of an array
+
+Notes
+-----
+If you need a stricter way to identify a *numerical* scalar, use
+``isinstance(x, numbers.Number)``, as that returns ``False`` for most
+non-numerical elements such as strings.
+
+In most cases ``np.ndim(x) == 0`` should be used instead of this function,
+as that will also return true for 0d arrays. This is how numpy overloads
+functions in the style of the ``dx`` arguments to `gradient` and
+the ``bins`` argument to `histogram`. Some key differences:
+
++------------------------------------+---------------+-------------------+
+| x                                  |``isscalar(x)``|``np.ndim(x) == 0``|
++====================================+===============+===================+
+| PEP 3141 numeric objects           | ``True``      | ``True``          |
+| (including builtins)               |               |                   |
++------------------------------------+---------------+-------------------+
+| builtin string and buffer objects  | ``True``      | ``True``          |
++------------------------------------+---------------+-------------------+
+| other builtin objects, like        | ``False``     | ``True``          |
+| `pathlib.Path`, `Exception`,       |               |                   |
+| the result of `re.compile`         |               |                   |
++------------------------------------+---------------+-------------------+
+| third-party objects like           | ``False``     | ``True``          |
+| `matplotlib.figure.Figure`         |               |                   |
++------------------------------------+---------------+-------------------+
+| zero-dimensional numpy arrays      | ``False``     | ``True``          |
++------------------------------------+---------------+-------------------+
+| other numpy arrays                 | ``False``     | ``False``         |
++------------------------------------+---------------+-------------------+
+| `list`, `tuple`, and other         | ``False``     | ``False``         |
+| sequence objects                   |               |                   |
++------------------------------------+---------------+-------------------+

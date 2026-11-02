@@ -1,0 +1,59 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Differentiate.
+
+        Return a series instance of that is the derivative of the current
+        series.
+
+        Parameters
+        ----------
+        m : non-negative int
+            Find the derivative of order `m`.
+
+        Returns
+        -------
+        new_series : series
+            A new series representing the derivative. The domain is the same
+            as the domain of the differentiated series.
+
+        
+=== parse numpydoc
+short_description: 'Differentiate.'
+long_description: |
+  Return a series instance of that is the derivative of the current
+  series.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'm']
+  description: 'Find the derivative of order `m`.'
+  arg_name: 'm'
+  type_name: 'non-negative int'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: |
+    A new series representing the derivative. The domain is the same
+    as the domain of the differentiated series.
+  type_name: 'series'
+  is_generator: False
+  return_name: 'new_series'
+=== detect
+numpydoc
+=== compose numpydoc
+Differentiate.
+
+Return a series instance of that is the derivative of the current
+series.
+
+Parameters
+----------
+m : non-negative int
+    Find the derivative of order `m`.
+
+Returns
+-------
+new_series : series
+    A new series representing the derivative. The domain is the same
+    as the domain of the differentiated series.

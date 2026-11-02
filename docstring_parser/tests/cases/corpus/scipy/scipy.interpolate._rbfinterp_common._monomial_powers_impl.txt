@@ -1,0 +1,59 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Return the powers for each monomial in a polynomial.
+
+    Parameters
+    ----------
+    ndim : int
+        Number of variables in the polynomial.
+    degree : int
+        Degree of the polynomial.
+
+    Returns
+    -------
+    (nmonos, ndim) int ndarray
+        Array where each row contains the powers for each variable in a
+        monomial.
+
+    
+=== parse numpydoc
+short_description: 'Return the powers for each monomial in a polynomial.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'ndim']
+  description: 'Number of variables in the polynomial.'
+  arg_name: 'ndim'
+  type_name: 'int'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'degree']
+  description: 'Degree of the polynomial.'
+  arg_name: 'degree'
+  type_name: 'int'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: |
+    Array where each row contains the powers for each variable in a
+    monomial.
+  type_name: '(nmonos, ndim) int ndarray'
+  is_generator: False
+=== detect
+numpydoc
+=== compose numpydoc
+Return the powers for each monomial in a polynomial.
+
+Parameters
+----------
+ndim : int
+    Number of variables in the polynomial.
+degree : int
+    Degree of the polynomial.
+
+Returns
+-------
+(nmonos, ndim) int ndarray
+    Array where each row contains the powers for each variable in a
+    monomial.

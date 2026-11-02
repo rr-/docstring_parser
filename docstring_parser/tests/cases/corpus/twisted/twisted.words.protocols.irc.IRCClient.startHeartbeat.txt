@@ -1,0 +1,28 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Start sending I{PING} messages every L{IRCClient.heartbeatInterval}
+        seconds to keep the connection to the server alive during periods of no
+        activity.
+
+        @since: 11.1
+        
+=== parse epydoc
+short_description: 'Start sending I{PING} messages every L{IRCClient.heartbeatInterval}'
+long_description: |
+  seconds to keep the connection to the server alive during periods of no
+  activity.
+blank_after_short_description: False
+blank_after_long_description: True
+style: epydoc
+- DocstringMeta
+  args: ['since']
+  description: '11.1'
+=== detect
+epydoc
+=== compose epydoc
+Start sending I{PING} messages every L{IRCClient.heartbeatInterval}
+seconds to keep the connection to the server alive during periods of no
+activity.
+
+@since: 11.1

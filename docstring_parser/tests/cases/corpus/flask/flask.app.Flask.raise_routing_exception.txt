@@ -1,0 +1,55 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Intercept routing exceptions and possibly do something else.
+
+        In debug mode, intercept a routing redirect and replace it with
+        an error if the body will be discarded.
+
+        With modern Werkzeug this shouldn't occur, since it now uses a
+        308 status which tells the browser to resend the method and
+        body.
+
+        .. versionchanged:: 2.1
+            Don't intercept 307 and 308 redirects.
+
+        :meta private:
+        :internal:
+        
+=== parse rest
+short_description: 'Intercept routing exceptions and possibly do something else.'
+long_description: |
+  In debug mode, intercept a routing redirect and replace it with
+  an error if the body will be discarded.
+  
+  With modern Werkzeug this shouldn't occur, since it now uses a
+  308 status which tells the browser to resend the method and
+  body.
+  
+  .. versionchanged:: 2.1
+      Don't intercept 307 and 308 redirects.
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringMeta
+  args: ['meta', 'private']
+  description: ''
+- DocstringMeta
+  args: ['internal']
+  description: ''
+=== detect
+rest
+=== compose rest
+Intercept routing exceptions and possibly do something else.
+
+In debug mode, intercept a routing redirect and replace it with
+an error if the body will be discarded.
+
+With modern Werkzeug this shouldn't occur, since it now uses a
+308 status which tells the browser to resend the method and
+body.
+
+.. versionchanged:: 2.1
+    Don't intercept 307 and 308 redirects.
+
+:meta private:
+:internal:

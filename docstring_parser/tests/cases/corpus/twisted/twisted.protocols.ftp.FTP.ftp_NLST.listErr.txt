@@ -1,0 +1,52 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+            RFC 959 specifies that an NLST request may only return directory
+            listings. Thus, send nothing and just close the connection.
+
+            @type results: L{Failure}
+            @param results: The L{Failure} wrapping a L{FileNotFoundError} that
+                occurred while trying to list the contents of a nonexistent
+                directory.
+
+            @returns: A C{tuple} containing the status code for a successful
+                transfer.
+            @rtype: C{tuple}
+            
+=== parse epydoc
+short_description: 'RFC 959 specifies that an NLST request may only return directory'
+long_description: 'listings. Thus, send nothing and just close the connection.'
+blank_after_short_description: False
+blank_after_long_description: True
+style: epydoc
+- DocstringParam
+  args: ['type', 'results']
+  description: |
+    The L{Failure} wrapping a L{FileNotFoundError} that
+    occurred while trying to list the contents of a nonexistent
+    directory.
+  arg_name: 'results'
+  type_name: 'L{Failure}'
+  is_optional: False
+- DocstringMeta
+  args: ['returns']
+  description: |
+    A C{tuple} containing the status code for a successful
+    transfer.
+- DocstringReturns
+  args: ['rtype']
+  type_name: 'C{tuple}'
+  is_generator: False
+=== detect
+epydoc
+=== compose epydoc
+RFC 959 specifies that an NLST request may only return directory
+listings. Thus, send nothing and just close the connection.
+
+@type results: L{Failure}
+@param results: The L{Failure} wrapping a L{FileNotFoundError} that
+    occurred while trying to list the contents of a nonexistent
+    directory.
+@returns: A C{tuple} containing the status code for a successful
+    transfer.
+@rtype: C{tuple}

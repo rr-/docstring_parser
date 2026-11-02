@@ -1,0 +1,32 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Updates the config like :meth:`update` ignoring items with
+        non-upper keys.
+
+        :return: Always returns ``True``.
+
+        .. versionadded:: 0.11
+        
+=== parse rest
+short_description: 'Updates the config like :meth:`update` ignoring items with'
+long_description: |
+  non-upper keys.
+  
+  .. versionadded:: 0.11
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringReturns
+  args: ['return']
+  description: 'Always returns ``True``.'
+  is_generator: False
+=== detect
+rest
+=== compose rest
+Updates the config like :meth:`update` ignoring items with
+
+non-upper keys.
+
+.. versionadded:: 0.11
+
+:returns: Always returns ``True``.

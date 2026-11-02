@@ -1,0 +1,53 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+A column with a 'spinner' animation.
+
+    Args:
+        spinner_name (str, optional): Name of spinner animation. Defaults to "dots".
+        style (StyleType, optional): Style of spinner. Defaults to "progress.spinner".
+        speed (float, optional): Speed factor of spinner. Defaults to 1.0.
+        finished_text (TextType, optional): Text used when task is finished. Defaults to " ".
+    
+=== parse google
+short_description: "A column with a 'spinner' animation."
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'spinner_name (str, optional)']
+  description: 'Name of spinner animation. Defaults to "dots".'
+  arg_name: 'spinner_name'
+  type_name: 'str'
+  is_optional: True
+  default: '"dots"'
+- DocstringParam
+  args: ['param', 'style (StyleType, optional)']
+  description: 'Style of spinner. Defaults to "progress.spinner".'
+  arg_name: 'style'
+  type_name: 'StyleType'
+  is_optional: True
+  default: '"progress.spinner"'
+- DocstringParam
+  args: ['param', 'speed (float, optional)']
+  description: 'Speed factor of spinner. Defaults to 1.0.'
+  arg_name: 'speed'
+  type_name: 'float'
+  is_optional: True
+  default: '1.0'
+- DocstringParam
+  args: ['param', 'finished_text (TextType, optional)']
+  description: 'Text used when task is finished. Defaults to " ".'
+  arg_name: 'finished_text'
+  type_name: 'TextType'
+  is_optional: True
+  default: '" "'
+=== detect
+google
+=== compose google
+A column with a 'spinner' animation.
+
+Args:
+    spinner_name (str?): Name of spinner animation. Defaults to "dots".
+    style (StyleType?): Style of spinner. Defaults to "progress.spinner".
+    speed (float?): Speed factor of spinner. Defaults to 1.0.
+    finished_text (TextType?): Text used when task is finished. Defaults to " ".

@@ -1,0 +1,41 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Remove a directory (non-recursively)
+
+        It is an error to remove a directory that has files or directories in
+        it.
+
+        This method returns a Deferred that is called back when it is removed.
+
+        @type path: L{bytes}
+        @param path: the directory to remove.
+        
+=== parse epydoc
+short_description: 'Remove a directory (non-recursively)'
+long_description: |
+  It is an error to remove a directory that has files or directories in
+  it.
+  
+  This method returns a Deferred that is called back when it is removed.
+blank_after_short_description: True
+blank_after_long_description: True
+style: epydoc
+- DocstringParam
+  args: ['type', 'path']
+  description: 'the directory to remove.'
+  arg_name: 'path'
+  type_name: 'L{bytes}'
+  is_optional: False
+=== detect
+epydoc
+=== compose epydoc
+Remove a directory (non-recursively)
+
+It is an error to remove a directory that has files or directories in
+it.
+
+This method returns a Deferred that is called back when it is removed.
+
+@type path: L{bytes}
+@param path: the directory to remove.

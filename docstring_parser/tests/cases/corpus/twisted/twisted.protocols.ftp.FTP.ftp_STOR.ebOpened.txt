@@ -1,0 +1,23 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+            Called when failed to open the file for reading.
+
+            For known errors, return the FTP error code.
+            For all other, return a file not found error.
+            
+=== parse epydoc
+short_description: 'Called when failed to open the file for reading.'
+long_description: |
+  For known errors, return the FTP error code.
+  For all other, return a file not found error.
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+=== detect
+rest
+=== compose epydoc
+Called when failed to open the file for reading.
+
+For known errors, return the FTP error code.
+For all other, return a file not found error.

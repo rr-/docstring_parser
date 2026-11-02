@@ -1,0 +1,53 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Parses a key for the nested namespace.
+
+        Args:
+            key: The key that is being parsed.
+
+        Returns:
+            Tuple with three elements corresponding to:
+            - The leaf key.
+            - The parent namespace object.
+            - The parent namespace key.
+
+        Raises:
+            KeyError: When given invalid key.
+        
+=== parse google
+short_description: 'Parses a key for the nested namespace.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'key']
+  description: 'The key that is being parsed.'
+  arg_name: 'key'
+- DocstringReturns
+  args: ['returns']
+  description: |
+    Tuple with three elements corresponding to:
+    - The leaf key.
+    - The parent namespace object.
+    - The parent namespace key.
+  is_generator: False
+- DocstringRaises
+  args: ['raises', 'KeyError']
+  description: 'When given invalid key.'
+  type_name: 'KeyError'
+=== detect
+google
+=== compose google
+Parses a key for the nested namespace.
+
+Args:
+    key: The key that is being parsed.
+
+Returns:
+    Tuple with three elements corresponding to:
+    - The leaf key.
+    - The parent namespace object.
+    - The parent namespace key.
+
+Raises:
+    KeyError: When given invalid key.

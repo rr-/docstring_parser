@@ -1,0 +1,26 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Get the location of the first fill value.
+
+        Returns
+        -------
+        int
+        
+=== parse numpydoc
+short_description: 'Get the location of the first fill value.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringReturns
+  args: ['returns']
+  type_name: 'int'
+  is_generator: False
+=== detect
+numpydoc
+=== compose numpydoc
+Get the location of the first fill value.
+
+Returns
+-------
+int

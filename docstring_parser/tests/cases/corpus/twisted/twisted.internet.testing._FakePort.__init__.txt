@@ -1,0 +1,22 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        @param hostAddress: An L{IAddress} this L{IListeningPort} should
+            pretend to be listening on.
+        
+=== parse epydoc
+blank_after_short_description: False
+blank_after_long_description: False
+style: epydoc
+- DocstringParam
+  args: ['param', 'hostAddress']
+  description: |
+    An L{IAddress} this L{IListeningPort} should
+    pretend to be listening on.
+  arg_name: 'hostAddress'
+  is_optional: False
+=== detect
+epydoc
+=== compose epydoc
+@param hostAddress: An L{IAddress} this L{IListeningPort} should
+    pretend to be listening on.

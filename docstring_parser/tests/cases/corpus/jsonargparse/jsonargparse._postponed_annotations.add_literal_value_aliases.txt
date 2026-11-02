@@ -1,0 +1,28 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Adds to the aliases the class attributes used as arguments of a Literal.
+
+    Strictly a Literal is invalid when its arguments are variables. Still, it is written, e.g.
+    ``Literal[TRAIN_SET, VALIDATION_SET]`` referencing attributes of the class in whose body the
+    method is defined. Since these are values and not types, they are only added for the names in
+    the subscript of a Literal, so that a class attribute never shadows a global in a type position.
+    
+=== parse google
+short_description: 'Adds to the aliases the class attributes used as arguments of a Literal.'
+long_description: |
+  Strictly a Literal is invalid when its arguments are variables. Still, it is written, e.g.
+  ``Literal[TRAIN_SET, VALIDATION_SET]`` referencing attributes of the class in whose body the
+  method is defined. Since these are values and not types, they are only added for the names in
+  the subscript of a Literal, so that a class attribute never shadows a global in a type position.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Adds to the aliases the class attributes used as arguments of a Literal.
+
+Strictly a Literal is invalid when its arguments are variables. Still, it is written, e.g.
+``Literal[TRAIN_SET, VALIDATION_SET]`` referencing attributes of the class in whose body the
+method is defined. Since these are values and not types, they are only added for the names in
+the subscript of a Literal, so that a class attribute never shadows a global in a type position.

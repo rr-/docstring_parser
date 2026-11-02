@@ -1,0 +1,28 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Differentiate polynomials represented with coefficients.
+
+    p must be a 1-D or 2-D array.  In the 2-D case, each column gives
+    the coefficients of a polynomial; the first row holds the coefficients
+    associated with the highest power. m must be a nonnegative integer.
+    (numpy.polyder doesn't handle the 2-D case.)
+    
+=== parse numpydoc
+short_description: 'Differentiate polynomials represented with coefficients.'
+long_description: |
+  p must be a 1-D or 2-D array.  In the 2-D case, each column gives
+  the coefficients of a polynomial; the first row holds the coefficients
+  associated with the highest power. m must be a nonnegative integer.
+  (numpy.polyder doesn't handle the 2-D case.)
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Differentiate polynomials represented with coefficients.
+
+p must be a 1-D or 2-D array.  In the 2-D case, each column gives
+the coefficients of a polynomial; the first row holds the coefficients
+associated with the highest power. m must be a nonnegative integer.
+(numpy.polyder doesn't handle the 2-D case.)

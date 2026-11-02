@@ -1,0 +1,23 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Releases the connection back to the pool. Once this method has been
+        called the underlying ``raw`` object must not be accessed again.
+
+        *Note: Should not normally need to be called explicitly.*
+        
+=== parse rest
+short_description: 'Releases the connection back to the pool. Once this method has been'
+long_description: |
+  called the underlying ``raw`` object must not be accessed again.
+  
+  *Note: Should not normally need to be called explicitly.*
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Releases the connection back to the pool. Once this method has been
+called the underlying ``raw`` object must not be accessed again.
+
+*Note: Should not normally need to be called explicitly.*

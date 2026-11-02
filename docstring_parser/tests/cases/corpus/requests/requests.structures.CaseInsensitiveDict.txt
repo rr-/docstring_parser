@@ -1,0 +1,82 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+A case-insensitive ``dict``-like object.
+
+    Implements all methods and operations of
+    ``MutableMapping`` as well as dict's ``copy``. Also
+    provides ``lower_items``.
+
+    All keys are expected to be strings. The structure remembers the
+    case of the last key to be set, and ``iter(instance)``,
+    ``keys()``, ``items()``, ``iterkeys()``, and ``iteritems()``
+    will contain case-sensitive keys. However, querying and contains
+    testing is case insensitive::
+
+        cid = CaseInsensitiveDict()
+        cid['Accept'] = 'application/json'
+        cid['aCCEPT'] == 'application/json'  # True
+        list(cid) == ['Accept']  # True
+
+    For example, ``headers['content-encoding']`` will return the
+    value of a ``'Content-Encoding'`` response header, regardless
+    of how the header name was originally stored.
+
+    If the constructor, ``.update``, or equality comparison
+    operations are given keys that have equal ``.lower()``s, the
+    behavior is undefined.
+    
+=== parse rest
+short_description: 'A case-insensitive ``dict``-like object.'
+long_description: |
+  Implements all methods and operations of
+  ``MutableMapping`` as well as dict's ``copy``. Also
+  provides ``lower_items``.
+  
+  All keys are expected to be strings. The structure remembers the
+  case of the last key to be set, and ``iter(instance)``,
+  ``keys()``, ``items()``, ``iterkeys()``, and ``iteritems()``
+  will contain case-sensitive keys. However, querying and contains
+  testing is case insensitive::
+  
+      cid = CaseInsensitiveDict()
+      cid['Accept'] = 'application/json'
+      cid['aCCEPT'] == 'application/json'  # True
+      list(cid) == ['Accept']  # True
+  
+  For example, ``headers['content-encoding']`` will return the
+  value of a ``'Content-Encoding'`` response header, regardless
+  of how the header name was originally stored.
+  
+  If the constructor, ``.update``, or equality comparison
+  operations are given keys that have equal ``.lower()``s, the
+  behavior is undefined.
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+A case-insensitive ``dict``-like object.
+
+Implements all methods and operations of
+``MutableMapping`` as well as dict's ``copy``. Also
+provides ``lower_items``.
+
+All keys are expected to be strings. The structure remembers the
+case of the last key to be set, and ``iter(instance)``,
+``keys()``, ``items()``, ``iterkeys()``, and ``iteritems()``
+will contain case-sensitive keys. However, querying and contains
+testing is case insensitive::
+
+    cid = CaseInsensitiveDict()
+    cid['Accept'] = 'application/json'
+    cid['aCCEPT'] == 'application/json'  # True
+    list(cid) == ['Accept']  # True
+
+For example, ``headers['content-encoding']`` will return the
+value of a ``'Content-Encoding'`` response header, regardless
+of how the header name was originally stored.
+
+If the constructor, ``.update``, or equality comparison
+operations are given keys that have equal ``.lower()``s, the
+behavior is undefined.

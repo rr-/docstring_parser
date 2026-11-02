@@ -1,0 +1,22 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Whether a type hint is a TypeAliasType, including a subscripted generic one.
+
+    A subscripted generic alias, e.g. ``Alias[int]`` for ``type Alias[T] = list[T]``,
+    is a generic alias whose origin is the TypeAliasType.
+    
+=== parse google
+short_description: 'Whether a type hint is a TypeAliasType, including a subscripted generic one.'
+long_description: |
+  A subscripted generic alias, e.g. ``Alias[int]`` for ``type Alias[T] = list[T]``,
+  is a generic alias whose origin is the TypeAliasType.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Whether a type hint is a TypeAliasType, including a subscripted generic one.
+
+A subscripted generic alias, e.g. ``Alias[int]`` for ``type Alias[T] = list[T]``,
+is a generic alias whose origin is the TypeAliasType.

@@ -1,0 +1,22 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+
+    Returns whether we should bypass proxies or not.
+
+    :rtype: bool
+    
+=== parse rest
+short_description: 'Returns whether we should bypass proxies or not.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringReturns
+  args: []
+  type_name: 'bool'
+  is_generator: False
+=== detect
+rest
+=== compose rest
+Returns whether we should bypass proxies or not.
+
+:returns bool:

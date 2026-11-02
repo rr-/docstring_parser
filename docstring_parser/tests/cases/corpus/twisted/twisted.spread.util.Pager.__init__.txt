@@ -1,0 +1,17 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Create a pager with a Reference to a remote collector and
+        an optional callable to invoke upon completion.
+        
+=== parse epydoc
+short_description: 'Create a pager with a Reference to a remote collector and'
+long_description: 'an optional callable to invoke upon completion.'
+blank_after_short_description: False
+blank_after_long_description: False
+style: epydoc
+=== detect
+rest
+=== compose epydoc
+Create a pager with a Reference to a remote collector and
+an optional callable to invoke upon completion.

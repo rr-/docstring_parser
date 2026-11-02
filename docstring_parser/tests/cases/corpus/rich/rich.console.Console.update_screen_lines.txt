@@ -1,0 +1,53 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Update lines of the screen at a given offset.
+
+        Args:
+            lines (List[List[Segment]]): Rendered lines (as produced by :meth:`~rich.Console.render_lines`).
+            x (int, optional): x offset (column no). Defaults to 0.
+            y (int, optional): y offset (column no). Defaults to 0.
+
+        Raises:
+            errors.NoAltScreen: If the Console isn't in alt screen mode.
+        
+=== parse google
+short_description: 'Update lines of the screen at a given offset.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'lines (List[List[Segment]])']
+  description: 'Rendered lines (as produced by :meth:`~rich.Console.render_lines`).'
+  arg_name: 'lines'
+  type_name: 'List[List[Segment]]'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'x (int, optional)']
+  description: 'x offset (column no). Defaults to 0.'
+  arg_name: 'x'
+  type_name: 'int'
+  is_optional: True
+  default: '0'
+- DocstringParam
+  args: ['param', 'y (int, optional)']
+  description: 'y offset (column no). Defaults to 0.'
+  arg_name: 'y'
+  type_name: 'int'
+  is_optional: True
+  default: '0'
+- DocstringRaises
+  args: ['raises', 'errors.NoAltScreen']
+  description: "If the Console isn't in alt screen mode."
+  type_name: 'errors.NoAltScreen'
+=== detect
+google
+=== compose google
+Update lines of the screen at a given offset.
+
+Args:
+    lines (List[List[Segment]]): Rendered lines (as produced by :meth:`~rich.Console.render_lines`).
+    x (int?): x offset (column no). Defaults to 0.
+    y (int?): y offset (column no). Defaults to 0.
+
+Raises:
+    errors.NoAltScreen: If the Console isn't in alt screen mode.

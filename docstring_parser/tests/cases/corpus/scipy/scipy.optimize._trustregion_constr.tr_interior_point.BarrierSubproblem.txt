@@ -1,0 +1,24 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Barrier optimization problem:
+        minimize fun(x) - barrier_parameter*sum(log(s))
+        subject to: constr_eq(x)     = 0
+                  constr_ineq(x) + s = 0
+    
+=== parse numpydoc
+short_description: 'Barrier optimization problem:'
+long_description: |
+  minimize fun(x) - barrier_parameter*sum(log(s))
+      subject to: constr_eq(x)     = 0
+                constr_ineq(x) + s = 0
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Barrier optimization problem:
+minimize fun(x) - barrier_parameter*sum(log(s))
+    subject to: constr_eq(x)     = 0
+              constr_ineq(x) + s = 0

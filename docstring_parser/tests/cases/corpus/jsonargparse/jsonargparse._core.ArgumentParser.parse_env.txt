@@ -1,0 +1,49 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Parses environment variables.
+
+        Args:
+            env: The environment object to use, if ``None`` then ``os.environ`` is used.
+            defaults: Whether to merge with the parser's defaults.
+
+        Returns:
+            A config object with all parsed values.
+
+        Raises:
+            ArgumentError: If the parsing fails and ``exit_on_error=False``.
+        
+=== parse google
+short_description: 'Parses environment variables.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'env']
+  description: 'The environment object to use, if ``None`` then ``os.environ`` is used.'
+  arg_name: 'env'
+- DocstringParam
+  args: ['param', 'defaults']
+  description: "Whether to merge with the parser's defaults."
+  arg_name: 'defaults'
+- DocstringReturns
+  args: ['returns']
+  description: 'A config object with all parsed values.'
+  is_generator: False
+- DocstringRaises
+  args: ['raises', 'ArgumentError']
+  description: 'If the parsing fails and ``exit_on_error=False``.'
+  type_name: 'ArgumentError'
+=== detect
+google
+=== compose google
+Parses environment variables.
+
+Args:
+    env: The environment object to use, if ``None`` then ``os.environ`` is used.
+    defaults: Whether to merge with the parser's defaults.
+
+Returns:
+    A config object with all parsed values.
+
+Raises:
+    ArgumentError: If the parsing fails and ``exit_on_error=False``.

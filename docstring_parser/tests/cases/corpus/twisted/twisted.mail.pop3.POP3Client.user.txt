@@ -1,0 +1,26 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Send a USER command to perform the first half of a plaintext login.
+
+        @type name: L{bytes}
+        @param name: The username with which to log in.
+        
+=== parse epydoc
+short_description: 'Send a USER command to perform the first half of a plaintext login.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringParam
+  args: ['type', 'name']
+  description: 'The username with which to log in.'
+  arg_name: 'name'
+  type_name: 'L{bytes}'
+  is_optional: False
+=== detect
+epydoc
+=== compose epydoc
+Send a USER command to perform the first half of a plaintext login.
+
+@type name: L{bytes}
+@param name: The username with which to log in.

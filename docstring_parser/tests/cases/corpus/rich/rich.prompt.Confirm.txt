@@ -1,0 +1,27 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+A yes / no confirmation prompt.
+
+    Example:
+        >>> if Confirm.ask("Continue"):
+                run_job()
+
+    
+=== parse google
+short_description: 'A yes / no confirmation prompt.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringExample
+  args: ['examples']
+  description: |
+    >>> if Confirm.ask("Continue"):
+    run_job()
+=== detect
+google
+=== compose google
+A yes / no confirmation prompt.
+
+Examples:
+    >>> if Confirm.ask("Continue"):
+    run_job()

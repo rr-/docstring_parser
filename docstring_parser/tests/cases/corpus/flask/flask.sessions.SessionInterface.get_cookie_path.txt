@@ -1,0 +1,23 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Returns the path for which the cookie should be valid.  The
+        default implementation uses the value from the ``SESSION_COOKIE_PATH``
+        config var if it's set, and falls back to ``APPLICATION_ROOT`` or
+        uses ``/`` if it's ``None``.
+        
+=== parse rest
+short_description: 'Returns the path for which the cookie should be valid.  The'
+long_description: |
+  default implementation uses the value from the ``SESSION_COOKIE_PATH``
+  config var if it's set, and falls back to ``APPLICATION_ROOT`` or
+  uses ``/`` if it's ``None``.
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Returns the path for which the cookie should be valid.  The
+default implementation uses the value from the ``SESSION_COOKIE_PATH``
+config var if it's set, and falls back to ``APPLICATION_ROOT`` or
+uses ``/`` if it's ``None``.

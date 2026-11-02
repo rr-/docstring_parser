@@ -1,0 +1,133 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+!!! abstract "Usage Documentation"
+        [field *after* validators](../concepts/validators.md#field-after-validator)
+
+    A metadata class that indicates that a validation should be applied **after** the inner validation logic.
+
+    Attributes:
+        func: The validator function.
+
+    Example:
+        ```python
+        from typing import Annotated
+
+        from pydantic import AfterValidator, BaseModel, ValidationError
+
+        MyInt = Annotated[int, AfterValidator(lambda v: v + 1)]
+
+        class Model(BaseModel):
+            a: MyInt
+
+        print(Model(a=1).a)
+        #> 2
+
+        try:
+            Model(a='a')
+        except ValidationError as e:
+            print(e.json(indent=2))
+            '''
+            [
+              {
+                "type": "int_parsing",
+                "loc": [
+                  "a"
+                ],
+                "msg": "Input should be a valid integer, unable to parse string as an integer",
+                "input": "a",
+                "url": "https://errors.pydantic.dev/2/v/int_parsing"
+              }
+            ]
+            '''
+        ```
+    
+=== parse google
+short_description: '!!! abstract "Usage Documentation"'
+long_description: |
+  [field *after* validators](../concepts/validators.md#field-after-validator)
+  
+  A metadata class that indicates that a validation should be applied **after** the inner validation logic.
+blank_after_short_description: False
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['attribute', 'func']
+  description: 'The validator function.'
+  arg_name: 'func'
+- DocstringExample
+  args: ['examples']
+  description: |
+    ```python
+    from typing import Annotated
+    
+    from pydantic import AfterValidator, BaseModel, ValidationError
+    
+    MyInt = Annotated[int, AfterValidator(lambda v: v + 1)]
+    
+    class Model(BaseModel):
+        a: MyInt
+    
+    print(Model(a=1).a)
+    #> 2
+    
+    try:
+        Model(a='a')
+    except ValidationError as e:
+        print(e.json(indent=2))
+        '''
+        [
+          {
+            "type": "int_parsing",
+            "loc": [
+              "a"
+            ],
+            "msg": "Input should be a valid integer, unable to parse string as an integer",
+            "input": "a",
+            "url": "https://errors.pydantic.dev/2/v/int_parsing"
+          }
+        ]
+        '''
+    ```
+=== detect
+google
+=== compose google
+!!! abstract "Usage Documentation"
+[field *after* validators](../concepts/validators.md#field-after-validator)
+
+A metadata class that indicates that a validation should be applied **after** the inner validation logic.
+
+Attributes:
+    func: The validator function.
+
+Examples:
+    ```python
+    from typing import Annotated
+    
+    from pydantic import AfterValidator, BaseModel, ValidationError
+    
+    MyInt = Annotated[int, AfterValidator(lambda v: v + 1)]
+    
+    class Model(BaseModel):
+        a: MyInt
+    
+    print(Model(a=1).a)
+    #> 2
+    
+    try:
+        Model(a='a')
+    except ValidationError as e:
+        print(e.json(indent=2))
+        '''
+        [
+          {
+            "type": "int_parsing",
+            "loc": [
+              "a"
+            ],
+            "msg": "Input should be a valid integer, unable to parse string as an integer",
+            "input": "a",
+            "url": "https://errors.pydantic.dev/2/v/int_parsing"
+          }
+        ]
+        '''
+    ```

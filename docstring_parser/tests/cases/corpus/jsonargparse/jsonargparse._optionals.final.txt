@@ -1,0 +1,25 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Decorator to make a class ``final``, i.e., it shouldn't be subclassed.
+
+    It is the same as ``typing.final`` or an equivalent implementation
+    depending on the python version and whether typing-extensions is
+    installed.
+    
+=== parse google
+short_description: "Decorator to make a class ``final``, i.e., it shouldn't be subclassed."
+long_description: |
+  It is the same as ``typing.final`` or an equivalent implementation
+  depending on the python version and whether typing-extensions is
+  installed.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Decorator to make a class ``final``, i.e., it shouldn't be subclassed.
+
+It is the same as ``typing.final`` or an equivalent implementation
+depending on the python version and whether typing-extensions is
+installed.

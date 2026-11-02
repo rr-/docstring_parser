@@ -1,0 +1,48 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Report that the given test succeeded against expectations.
+
+        In Trial, tests can be marked 'todo'. That is, they are expected to
+        fail.  When a test that is expected to fail instead succeeds, it should
+        call this method to report the unexpected success.
+
+        @type test: L{pyunit.TestCase}
+        @type todo: L{unittest.Todo}, or L{None}, in which case a default todo
+            message is provided.
+        
+=== parse epydoc
+short_description: 'Report that the given test succeeded against expectations.'
+long_description: |
+  In Trial, tests can be marked 'todo'. That is, they are expected to
+  fail.  When a test that is expected to fail instead succeeds, it should
+  call this method to report the unexpected success.
+blank_after_short_description: True
+blank_after_long_description: True
+style: epydoc
+- DocstringParam
+  args: ['type', 'test']
+  arg_name: 'test'
+  type_name: 'L{pyunit.TestCase}'
+  is_optional: False
+- DocstringParam
+  args: ['type', 'todo']
+  arg_name: 'todo'
+  type_name: |
+    L{unittest.Todo}, or L{None}, in which case a default todo
+    message is provided.
+  is_optional: False
+=== detect
+epydoc
+=== compose epydoc
+Report that the given test succeeded against expectations.
+
+In Trial, tests can be marked 'todo'. That is, they are expected to
+fail.  When a test that is expected to fail instead succeeds, it should
+call this method to report the unexpected success.
+
+@type test: L{pyunit.TestCase}
+@param test:
+@type todo: L{unittest.Todo}, or L{None}, in which case a default todo
+    message is provided.
+@param todo:

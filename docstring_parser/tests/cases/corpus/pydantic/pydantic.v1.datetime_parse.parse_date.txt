@@ -1,0 +1,23 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+    Parse a date/int/float/string and return a datetime.date.
+
+    Raise ValueError if the input is well formatted but not a valid date.
+    Raise ValueError if the input isn't well formatted.
+    
+=== parse google
+short_description: 'Parse a date/int/float/string and return a datetime.date.'
+long_description: |
+  Raise ValueError if the input is well formatted but not a valid date.
+  Raise ValueError if the input isn't well formatted.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Parse a date/int/float/string and return a datetime.date.
+
+Raise ValueError if the input is well formatted but not a valid date.
+Raise ValueError if the input isn't well formatted.

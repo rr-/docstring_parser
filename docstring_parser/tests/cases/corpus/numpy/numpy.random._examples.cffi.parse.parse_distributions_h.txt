@@ -1,0 +1,23 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Parse distributions.h located in inc_dir for CFFI, filling in the ffi.cdef
+
+    Read the function declarations without the "#define ..." macros that will
+    be filled in when loading the library.
+    
+=== parse numpydoc
+short_description: 'Parse distributions.h located in inc_dir for CFFI, filling in the ffi.cdef'
+long_description: |
+  Read the function declarations without the "#define ..." macros that will
+  be filled in when loading the library.
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Parse distributions.h located in inc_dir for CFFI, filling in the ffi.cdef
+
+Read the function declarations without the "#define ..." macros that will
+be filled in when loading the library.

@@ -1,0 +1,86 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Get the NaN values for a given column.
+
+    Parameters
+    ----------
+    col : str
+        The name of the column.
+    na_values : array-like, dict
+        The object listing the NaN values as strings.
+    na_fvalues : array-like, dict
+        The object listing the NaN values as floats.
+    keep_default_na : bool
+        If `na_values` is a dict, and the column is not mapped in the
+        dictionary, whether to return the default NaN values or the empty set.
+
+    Returns
+    -------
+    nan_tuple : A length-two tuple composed of
+
+        1) na_values : the string NaN values for that column.
+        2) na_fvalues : the float NaN values for that column.
+    
+=== parse numpydoc
+short_description: 'Get the NaN values for a given column.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'col']
+  description: 'The name of the column.'
+  arg_name: 'col'
+  type_name: 'str'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'na_values']
+  description: 'The object listing the NaN values as strings.'
+  arg_name: 'na_values'
+  type_name: 'array-like, dict'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'na_fvalues']
+  description: 'The object listing the NaN values as floats.'
+  arg_name: 'na_fvalues'
+  type_name: 'array-like, dict'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'keep_default_na']
+  description: |
+    If `na_values` is a dict, and the column is not mapped in the
+    dictionary, whether to return the default NaN values or the empty set.
+  arg_name: 'keep_default_na'
+  type_name: 'bool'
+  is_optional: False
+  default: 'NaN'
+- DocstringReturns
+  args: ['returns']
+  description: |
+    1) na_values : the string NaN values for that column.
+    2) na_fvalues : the float NaN values for that column.
+  type_name: 'A length-two tuple composed of'
+  is_generator: False
+  return_name: 'nan_tuple'
+=== detect
+numpydoc
+=== compose numpydoc
+Get the NaN values for a given column.
+
+Parameters
+----------
+col : str
+    The name of the column.
+na_values : array-like, dict
+    The object listing the NaN values as strings.
+na_fvalues : array-like, dict
+    The object listing the NaN values as floats.
+keep_default_na : bool, default=NaN
+    If `na_values` is a dict, and the column is not mapped in the
+    dictionary, whether to return the default NaN values or the empty set.
+
+Returns
+-------
+nan_tuple : A length-two tuple composed of
+    1) na_values : the string NaN values for that column.
+    2) na_fvalues : the float NaN values for that column.

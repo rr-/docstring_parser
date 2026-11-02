@@ -1,0 +1,32 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Add series to DataFrame in specified column.
+
+        If series is a numpy-array (not a Series/TimeSeries), it must be the
+        same length as the DataFrames index or an error will be thrown.
+
+        Series/TimeSeries will be conformed to the DataFrames index to
+        ensure homogeneity.
+        
+=== parse numpydoc
+short_description: 'Add series to DataFrame in specified column.'
+long_description: |
+  If series is a numpy-array (not a Series/TimeSeries), it must be the
+  same length as the DataFrames index or an error will be thrown.
+  
+  Series/TimeSeries will be conformed to the DataFrames index to
+  ensure homogeneity.
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Add series to DataFrame in specified column.
+
+If series is a numpy-array (not a Series/TimeSeries), it must be the
+same length as the DataFrames index or an error will be thrown.
+
+Series/TimeSeries will be conformed to the DataFrames index to
+ensure homogeneity.

@@ -1,0 +1,68 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Return type with all occurrences of `type_map` keys recursively replaced with their values.
+
+    Args:
+        type_: The class or generic alias.
+        type_map: Mapping from `TypeVar` instance to concrete types.
+
+    Returns:
+        A new type representing the basic structure of `type_` with all
+        `typevar_map` keys recursively replaced.
+
+    Example:
+        ```python
+        from pydantic._internal._generics import replace_types
+
+        replace_types(tuple[str, list[str] | float], {str: int})
+        #> tuple[int, list[int] | float]
+        ```
+    
+=== parse google
+short_description: 'Return type with all occurrences of `type_map` keys recursively replaced with their values.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'type_']
+  description: 'The class or generic alias.'
+  arg_name: 'type_'
+- DocstringParam
+  args: ['param', 'type_map']
+  description: 'Mapping from `TypeVar` instance to concrete types.'
+  arg_name: 'type_map'
+- DocstringReturns
+  args: ['returns']
+  description: |
+    A new type representing the basic structure of `type_` with all
+    `typevar_map` keys recursively replaced.
+  is_generator: False
+- DocstringExample
+  args: ['examples']
+  description: |
+    ```python
+    from pydantic._internal._generics import replace_types
+    
+    replace_types(tuple[str, list[str] | float], {str: int})
+    #> tuple[int, list[int] | float]
+    ```
+=== detect
+google
+=== compose google
+Return type with all occurrences of `type_map` keys recursively replaced with their values.
+
+Args:
+    type_: The class or generic alias.
+    type_map: Mapping from `TypeVar` instance to concrete types.
+
+Returns:
+    A new type representing the basic structure of `type_` with all
+    `typevar_map` keys recursively replaced.
+
+Examples:
+    ```python
+    from pydantic._internal._generics import replace_types
+    
+    replace_types(tuple[str, list[str] | float], {str: int})
+    #> tuple[int, list[int] | float]
+    ```

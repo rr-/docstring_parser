@@ -1,0 +1,97 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Broadcast `x` to an array with the shape (`ndim`, 2).
+
+    A helper function for `pad` that prepares and validates arguments like
+    `pad_width` for iteration in pairs.
+
+    Parameters
+    ----------
+    x : {None, scalar, array-like}
+        The object to broadcast to the shape (`ndim`, 2).
+    ndim : int
+        Number of pairs the broadcasted `x` will have.
+    as_index : bool, optional
+        If `x` is not None, try to round each element of `x` to an integer
+        (dtype `np.intp`) and ensure every element is positive.
+
+    Returns
+    -------
+    pairs : nested iterables, shape (`ndim`, 2)
+        The broadcasted version of `x`.
+
+    Raises
+    ------
+    ValueError
+        If `as_index` is True and `x` contains negative elements.
+        Or if `x` is not broadcastable to the shape (`ndim`, 2).
+    
+=== parse numpydoc
+short_description: 'Broadcast `x` to an array with the shape (`ndim`, 2).'
+long_description: |
+  A helper function for `pad` that prepares and validates arguments like
+  `pad_width` for iteration in pairs.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'x']
+  description: 'The object to broadcast to the shape (`ndim`, 2).'
+  arg_name: 'x'
+  type_name: '{None, scalar, array-like}'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'ndim']
+  description: 'Number of pairs the broadcasted `x` will have.'
+  arg_name: 'ndim'
+  type_name: 'int'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'as_index']
+  description: |
+    If `x` is not None, try to round each element of `x` to an integer
+    (dtype `np.intp`) and ensure every element is positive.
+  arg_name: 'as_index'
+  type_name: 'bool'
+  is_optional: True
+- DocstringReturns
+  args: ['returns']
+  description: 'The broadcasted version of `x`.'
+  type_name: 'nested iterables, shape (`ndim`, 2)'
+  is_generator: False
+  return_name: 'pairs'
+- DocstringRaises
+  args: ['raises', 'ValueError']
+  description: |
+    If `as_index` is True and `x` contains negative elements.
+    Or if `x` is not broadcastable to the shape (`ndim`, 2).
+  type_name: 'ValueError'
+=== detect
+numpydoc
+=== compose numpydoc
+Broadcast `x` to an array with the shape (`ndim`, 2).
+
+A helper function for `pad` that prepares and validates arguments like
+`pad_width` for iteration in pairs.
+
+Parameters
+----------
+x : {None, scalar, array-like}
+    The object to broadcast to the shape (`ndim`, 2).
+ndim : int
+    Number of pairs the broadcasted `x` will have.
+as_index : bool, optional
+    If `x` is not None, try to round each element of `x` to an integer
+    (dtype `np.intp`) and ensure every element is positive.
+
+Returns
+-------
+pairs : nested iterables, shape (`ndim`, 2)
+    The broadcasted version of `x`.
+
+Raises
+------
+ValueError
+    If `as_index` is True and `x` contains negative elements.
+    Or if `x` is not broadcastable to the shape (`ndim`, 2).

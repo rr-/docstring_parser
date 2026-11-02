@@ -1,0 +1,21 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Called when the auxiliary problem terminates with artificial columns in
+    the basis, which must be removed and replaced with non-artificial
+    columns. Finds additional columns that do not make the matrix singular.
+    
+=== parse numpydoc
+short_description: 'Called when the auxiliary problem terminates with artificial columns in'
+long_description: |
+  the basis, which must be removed and replaced with non-artificial
+  columns. Finds additional columns that do not make the matrix singular.
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Called when the auxiliary problem terminates with artificial columns in
+the basis, which must be removed and replaced with non-artificial
+columns. Finds additional columns that do not make the matrix singular.

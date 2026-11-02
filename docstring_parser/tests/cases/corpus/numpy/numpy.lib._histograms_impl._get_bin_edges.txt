@@ -1,0 +1,65 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Computes the bins used internally by `histogram`.
+
+    Parameters
+    ==========
+    a : ndarray
+        Ravelled data array
+    bins, range
+        Forwarded arguments from `histogram`.
+    weights : ndarray, optional
+        Ravelled weights array, or None
+
+    Returns
+    =======
+    bin_edges : ndarray
+        Array of bin edges
+    uniform_bins : (Number, Number, int):
+        The upper bound, lowerbound, and number of bins, used in the optimized
+        implementation of `histogram` that works on uniform bins.
+    
+=== parse numpydoc
+short_description: 'Computes the bins used internally by `histogram`.'
+long_description: |
+  Parameters
+  ==========
+  a : ndarray
+      Ravelled data array
+  bins, range
+      Forwarded arguments from `histogram`.
+  weights : ndarray, optional
+      Ravelled weights array, or None
+  
+  Returns
+  =======
+  bin_edges : ndarray
+      Array of bin edges
+  uniform_bins : (Number, Number, int):
+      The upper bound, lowerbound, and number of bins, used in the optimized
+      implementation of `histogram` that works on uniform bins.
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Computes the bins used internally by `histogram`.
+
+Parameters
+==========
+a : ndarray
+    Ravelled data array
+bins, range
+    Forwarded arguments from `histogram`.
+weights : ndarray, optional
+    Ravelled weights array, or None
+
+Returns
+=======
+bin_edges : ndarray
+    Array of bin edges
+uniform_bins : (Number, Number, int):
+    The upper bound, lowerbound, and number of bins, used in the optimized
+    implementation of `histogram` that works on uniform bins.

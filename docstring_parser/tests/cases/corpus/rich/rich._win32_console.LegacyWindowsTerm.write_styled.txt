@@ -1,0 +1,33 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Write styled text to the terminal.
+
+        Args:
+            text (str): The text to write
+            style (Style): The style of the text
+        
+=== parse google
+short_description: 'Write styled text to the terminal.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'text (str)']
+  description: 'The text to write'
+  arg_name: 'text'
+  type_name: 'str'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'style (Style)']
+  description: 'The style of the text'
+  arg_name: 'style'
+  type_name: 'Style'
+  is_optional: False
+=== detect
+google
+=== compose google
+Write styled text to the terminal.
+
+Args:
+    text (str): The text to write
+    style (Style): The style of the text

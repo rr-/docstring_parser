@@ -1,0 +1,58 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    For each index in each level the function returns lengths of indexes.
+
+    Parameters
+    ----------
+    levels : list of lists
+        List of values on for level.
+    sentinel : string, optional
+        Value which states that no new index starts on there.
+
+    Returns
+    -------
+    Returns list of maps. For each level returns map of indexes (key is index
+    in row and value is length of index).
+    
+=== parse numpydoc
+short_description: 'For each index in each level the function returns lengths of indexes.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'levels']
+  description: 'List of values on for level.'
+  arg_name: 'levels'
+  type_name: 'list of lists'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'sentinel']
+  description: 'Value which states that no new index starts on there.'
+  arg_name: 'sentinel'
+  type_name: 'string'
+  is_optional: True
+- DocstringReturns
+  args: ['returns']
+  type_name: 'Returns list of maps. For each level returns map of indexes (key is index'
+  is_generator: False
+- DocstringReturns
+  args: ['returns']
+  type_name: 'in row and value is length of index).'
+  is_generator: False
+=== detect
+numpydoc
+=== compose numpydoc
+For each index in each level the function returns lengths of indexes.
+
+Parameters
+----------
+levels : list of lists
+    List of values on for level.
+sentinel : string, optional
+    Value which states that no new index starts on there.
+
+Returns
+-------
+Returns list of maps. For each level returns map of indexes (key is index
+in row and value is length of index).

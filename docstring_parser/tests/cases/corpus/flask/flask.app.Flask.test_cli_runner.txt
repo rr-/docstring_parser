@@ -1,0 +1,40 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Create a CLI runner for testing CLI commands.
+        See :ref:`testing-cli`.
+
+        Returns an instance of :attr:`test_cli_runner_class`, by default
+        :class:`~flask.testing.FlaskCliRunner`. The Flask app object is
+        passed as the first argument.
+
+        .. versionadded:: 1.0
+        
+=== parse rest
+short_description: 'Create a CLI runner for testing CLI commands.'
+long_description: |
+  See :ref:`testing-cli`.
+  
+  Returns an instance of :attr:`test_cli_runner_class`, by default
+  
+  .. versionadded:: 1.0
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringMeta
+  args: ['class']
+  description: |
+    `~flask.testing.FlaskCliRunner`. The Flask app object is
+    passed as the first argument.
+=== detect
+rest
+=== compose rest
+Create a CLI runner for testing CLI commands.
+
+See :ref:`testing-cli`.
+
+Returns an instance of :attr:`test_cli_runner_class`, by default
+
+.. versionadded:: 1.0
+
+:class: `~flask.testing.FlaskCliRunner`. The Flask app object is
+    passed as the first argument.

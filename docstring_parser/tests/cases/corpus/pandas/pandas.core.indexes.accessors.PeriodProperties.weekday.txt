@@ -1,0 +1,24 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        The day of the week with Monday=0, Sunday=6.
+
+        .. deprecated:: 3.1.0
+            Use :attr:`Series.dt.day_of_week` instead.
+        
+=== parse numpydoc
+short_description: 'The day of the week with Monday=0, Sunday=6.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringDeprecated
+  args: ['deprecation']
+  description: 'Use :attr:`Series.dt.day_of_week` instead.'
+  version: '3.1.0'
+=== detect
+numpydoc
+=== compose numpydoc
+The day of the week with Monday=0, Sunday=6.
+
+.. deprecated:: 3.1.0
+    Use :attr:`Series.dt.day_of_week` instead.

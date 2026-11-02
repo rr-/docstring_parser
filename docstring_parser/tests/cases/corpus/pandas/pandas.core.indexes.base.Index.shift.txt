@@ -1,0 +1,187 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Shift index by desired number of time frequency increments.
+
+        This method is for shifting the values of datetime-like indexes
+        by a specified time increment a given number of times.
+
+        Parameters
+        ----------
+        periods : int, default 1
+            Number of periods (or increments) to shift by,
+            can be positive or negative.
+        freq : pandas.DateOffset, pandas.Timedelta or str, optional
+            Frequency increment to shift by.
+            If None, the index is shifted by its own `freq` attribute.
+            Offset aliases are valid strings, e.g., 'D', 'W', 'M' etc.
+
+        Returns
+        -------
+        pandas.Index
+            Shifted index.
+
+        See Also
+        --------
+        Series.shift : Shift values of Series.
+
+        Notes
+        -----
+        This method is only implemented for datetime-like index classes,
+        i.e., DatetimeIndex, PeriodIndex and TimedeltaIndex.
+
+        Examples
+        --------
+        Put the first 5 month starts of 2011 into an index.
+
+        >>> month_starts = pd.date_range("1/1/2011", periods=5, freq="MS")
+        >>> month_starts
+        DatetimeIndex(['2011-01-01', '2011-02-01', '2011-03-01', '2011-04-01',
+                       '2011-05-01'],
+                      dtype='datetime64[us]', freq='MS')
+
+        Shift the index by 10 days.
+
+        >>> month_starts.shift(10, freq="D")
+        DatetimeIndex(['2011-01-11', '2011-02-11', '2011-03-11', '2011-04-11',
+                       '2011-05-11'],
+                      dtype='datetime64[us]', freq=None)
+
+        The default value of `freq` is the `freq` attribute of the index,
+        which is 'MS' (month start) in this example.
+
+        >>> month_starts.shift(10)
+        DatetimeIndex(['2011-11-01', '2011-12-01', '2012-01-01', '2012-02-01',
+                       '2012-03-01'],
+                      dtype='datetime64[us]', freq='MS')
+        
+=== parse numpydoc
+short_description: 'Shift index by desired number of time frequency increments.'
+long_description: |
+  This method is for shifting the values of datetime-like indexes
+  by a specified time increment a given number of times.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'periods']
+  description: |
+    Number of periods (or increments) to shift by,
+    can be positive or negative.
+  arg_name: 'periods'
+  type_name: 'int'
+  is_optional: True
+  default: '1'
+- DocstringParam
+  args: ['param', 'freq']
+  description: |
+    Frequency increment to shift by.
+    If None, the index is shifted by its own `freq` attribute.
+    Offset aliases are valid strings, e.g., 'D', 'W', 'M' etc.
+  arg_name: 'freq'
+  type_name: 'pandas.DateOffset, pandas.Timedelta or str'
+  is_optional: True
+- DocstringReturns
+  args: ['returns']
+  description: 'Shifted index.'
+  type_name: 'pandas.Index'
+  is_generator: False
+- DocstringMeta
+  args: ['see_also']
+  description: 'Series.shift : Shift values of Series.'
+- DocstringMeta
+  args: ['notes']
+  description: |
+    This method is only implemented for datetime-like index classes,
+    i.e., DatetimeIndex, PeriodIndex and TimedeltaIndex.
+- DocstringExample
+  args: ['examples']
+  description: |
+    Put the first 5 month starts of 2011 into an index.
+    
+- DocstringExample
+  args: ['examples']
+  description: |
+    DatetimeIndex(['2011-01-01', '2011-02-01', '2011-03-01', '2011-04-01',
+                   '2011-05-01'],
+                  dtype='datetime64[us]', freq='MS')
+    
+    Shift the index by 10 days.
+    
+  snippet: |
+    >>> month_starts = pd.date_range("1/1/2011", periods=5, freq="MS")
+    >>> month_starts
+- DocstringExample
+  args: ['examples']
+  description: |
+    DatetimeIndex(['2011-01-11', '2011-02-11', '2011-03-11', '2011-04-11',
+                   '2011-05-11'],
+                  dtype='datetime64[us]', freq=None)
+    
+    The default value of `freq` is the `freq` attribute of the index,
+    which is 'MS' (month start) in this example.
+    
+  snippet: '>>> month_starts.shift(10, freq="D")'
+- DocstringExample
+  args: ['examples']
+  description: |
+    DatetimeIndex(['2011-11-01', '2011-12-01', '2012-01-01', '2012-02-01',
+                   '2012-03-01'],
+                  dtype='datetime64[us]', freq='MS')
+  snippet: '>>> month_starts.shift(10)'
+=== detect
+numpydoc
+=== compose numpydoc
+Shift index by desired number of time frequency increments.
+
+This method is for shifting the values of datetime-like indexes
+by a specified time increment a given number of times.
+
+Parameters
+----------
+periods : int, default=1
+    Number of periods (or increments) to shift by,
+    can be positive or negative.
+freq : pandas.DateOffset, pandas.Timedelta or str, optional
+    Frequency increment to shift by.
+    If None, the index is shifted by its own `freq` attribute.
+    Offset aliases are valid strings, e.g., 'D', 'W', 'M' etc.
+
+Returns
+-------
+pandas.Index
+    Shifted index.
+
+Examples
+--------
+Put the first 5 month starts of 2011 into an index.
+
+>>> month_starts = pd.date_range("1/1/2011", periods=5, freq="MS")
+>>> month_starts
+DatetimeIndex(['2011-01-01', '2011-02-01', '2011-03-01', '2011-04-01',
+               '2011-05-01'],
+              dtype='datetime64[us]', freq='MS')
+
+Shift the index by 10 days.
+
+>>> month_starts.shift(10, freq="D")
+DatetimeIndex(['2011-01-11', '2011-02-11', '2011-03-11', '2011-04-11',
+               '2011-05-11'],
+              dtype='datetime64[us]', freq=None)
+
+The default value of `freq` is the `freq` attribute of the index,
+which is 'MS' (month start) in this example.
+
+>>> month_starts.shift(10)
+DatetimeIndex(['2011-11-01', '2011-12-01', '2012-01-01', '2012-02-01',
+               '2012-03-01'],
+              dtype='datetime64[us]', freq='MS')
+
+See Also
+--------
+Series.shift : Shift values of Series.
+
+Notes
+-----
+This method is only implemented for datetime-like index classes,
+i.e., DatetimeIndex, PeriodIndex and TimedeltaIndex.

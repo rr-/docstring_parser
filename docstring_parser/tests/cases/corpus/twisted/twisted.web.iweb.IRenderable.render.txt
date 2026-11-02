@@ -1,0 +1,34 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Get the document for this L{IRenderable}.
+
+        @param request: The request in response to which this method is being
+            invoked.
+
+        @return: An object which can be flattened.
+        
+=== parse epydoc
+short_description: 'Get the document for this L{IRenderable}.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringParam
+  args: ['param', 'request']
+  description: |
+    The request in response to which this method is being
+    invoked.
+  arg_name: 'request'
+  is_optional: False
+- DocstringReturns
+  args: ['return']
+  description: 'An object which can be flattened.'
+  is_generator: False
+=== detect
+epydoc
+=== compose epydoc
+Get the document for this L{IRenderable}.
+
+@param request: The request in response to which this method is being
+    invoked.
+@return: An object which can be flattened.

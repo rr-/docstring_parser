@@ -1,0 +1,79 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Cryptography helpers for verifying and signing messages.
+
+The simplest way to verify signatures is using :func:`verify_signature`::
+
+    cert = open('certs.pem').read()
+    valid = crypt.verify_signature(message, signature, cert)
+
+If you're going to verify many messages with the same certificate, you can use
+:class:`RSAVerifier`::
+
+    cert = open('certs.pem').read()
+    verifier = crypt.RSAVerifier.from_string(cert)
+    valid = verifier.verify(message, signature)
+
+To sign messages use :class:`RSASigner` with a private key::
+
+    private_key = open('private_key.pem').read()
+    signer = crypt.RSASigner.from_string(private_key)
+    signature = signer.sign(message)
+
+The code above also works for :class:`ES256Signer` and :class:`ES256Verifier`.
+Note that these two classes are only available if your `cryptography` dependency
+version is at least 1.4.0.
+
+=== parse google
+short_description: 'Cryptography helpers for verifying and signing messages.'
+long_description: |
+  The simplest way to verify signatures is using :func:`verify_signature`::
+  
+      cert = open('certs.pem').read()
+      valid = crypt.verify_signature(message, signature, cert)
+  
+  If you're going to verify many messages with the same certificate, you can use
+  :class:`RSAVerifier`::
+  
+      cert = open('certs.pem').read()
+      verifier = crypt.RSAVerifier.from_string(cert)
+      valid = verifier.verify(message, signature)
+  
+  To sign messages use :class:`RSASigner` with a private key::
+  
+      private_key = open('private_key.pem').read()
+      signer = crypt.RSASigner.from_string(private_key)
+      signature = signer.sign(message)
+  
+  The code above also works for :class:`ES256Signer` and :class:`ES256Verifier`.
+  Note that these two classes are only available if your `cryptography` dependency
+  version is at least 1.4.0.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Cryptography helpers for verifying and signing messages.
+
+The simplest way to verify signatures is using :func:`verify_signature`::
+
+    cert = open('certs.pem').read()
+    valid = crypt.verify_signature(message, signature, cert)
+
+If you're going to verify many messages with the same certificate, you can use
+:class:`RSAVerifier`::
+
+    cert = open('certs.pem').read()
+    verifier = crypt.RSAVerifier.from_string(cert)
+    valid = verifier.verify(message, signature)
+
+To sign messages use :class:`RSASigner` with a private key::
+
+    private_key = open('private_key.pem').read()
+    signer = crypt.RSASigner.from_string(private_key)
+    signature = signer.sign(message)
+
+The code above also works for :class:`ES256Signer` and :class:`ES256Verifier`.
+Note that these two classes are only available if your `cryptography` dependency
+version is at least 1.4.0.

@@ -1,0 +1,33 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Generates a JSON schema that matches a schema that defines a dataclass field.
+
+        Args:
+            schema: The core schema.
+
+        Returns:
+            The generated JSON schema.
+        
+=== parse google
+short_description: 'Generates a JSON schema that matches a schema that defines a dataclass field.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'schema']
+  description: 'The core schema.'
+  arg_name: 'schema'
+- DocstringReturns
+  args: ['returns']
+  description: 'The generated JSON schema.'
+  is_generator: False
+=== detect
+google
+=== compose google
+Generates a JSON schema that matches a schema that defines a dataclass field.
+
+Args:
+    schema: The core schema.
+
+Returns:
+    The generated JSON schema.

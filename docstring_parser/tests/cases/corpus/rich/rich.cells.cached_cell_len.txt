@@ -1,0 +1,51 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Get the number of cells required to display text.
+
+    This method always caches, which may use up a lot of memory. It is recommended to use
+    `cell_len` over this method.
+
+    Args:
+        text (str): Text to display.
+        unicode_version: Unicode version, `"auto"` to auto detect, `"latest"` for the latest unicode version.
+
+    Returns:
+        int: Get the number of cells required to display text.
+    
+=== parse google
+short_description: 'Get the number of cells required to display text.'
+long_description: |
+  This method always caches, which may use up a lot of memory. It is recommended to use
+  `cell_len` over this method.
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'text (str)']
+  description: 'Text to display.'
+  arg_name: 'text'
+  type_name: 'str'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'unicode_version']
+  description: 'Unicode version, `"auto"` to auto detect, `"latest"` for the latest unicode version.'
+  arg_name: 'unicode_version'
+- DocstringReturns
+  args: ['returns', 'int']
+  description: 'Get the number of cells required to display text.'
+  type_name: 'int'
+  is_generator: False
+=== detect
+google
+=== compose google
+Get the number of cells required to display text.
+
+This method always caches, which may use up a lot of memory. It is recommended to use
+`cell_len` over this method.
+
+Args:
+    text (str): Text to display.
+    unicode_version: Unicode version, `"auto"` to auto detect, `"latest"` for the latest unicode version.
+
+Returns:
+    int: Get the number of cells required to display text.

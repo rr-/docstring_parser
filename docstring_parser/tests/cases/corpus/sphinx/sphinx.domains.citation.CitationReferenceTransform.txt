@@ -1,0 +1,16 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Replace citation references by pending_xref nodes before the default
+    docutils transform tries to resolve them.
+    
+=== parse rest
+short_description: 'Replace citation references by pending_xref nodes before the default'
+long_description: 'docutils transform tries to resolve them.'
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Replace citation references by pending_xref nodes before the default
+docutils transform tries to resolve them.

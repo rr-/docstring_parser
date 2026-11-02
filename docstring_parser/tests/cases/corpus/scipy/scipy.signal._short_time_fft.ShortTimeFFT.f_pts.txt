@@ -1,0 +1,34 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Number of points along the frequency axis.
+
+        See Also
+        --------
+        delta_f: Width of the frequency bins of the STFT.
+        f: Frequencies values of the STFT.
+        mfft: Length of the input for FFT used.
+        ShortTimeFFT: Class this property belongs to.
+        
+=== parse numpydoc
+short_description: 'Number of points along the frequency axis.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringMeta
+  args: ['see_also']
+  description: |
+    delta_f: Width of the frequency bins of the STFT.
+    f: Frequencies values of the STFT.
+    mfft: Length of the input for FFT used.
+    ShortTimeFFT: Class this property belongs to.
+=== detect
+numpydoc
+=== compose numpydoc
+Number of points along the frequency axis.
+
+See Also
+--------
+delta_f: Width of the frequency bins of the STFT.
+f: Frequencies values of the STFT.
+mfft: Length of the input for FFT used.
+ShortTimeFFT: Class this property belongs to.

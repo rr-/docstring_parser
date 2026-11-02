@@ -1,0 +1,41 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Updates the current available permissions.
+
+        Args:
+            value (Sequence[str]): The updated value of the available permissions.
+
+        Raises:
+            InvalidType: If the value is not a list of strings.
+            InvalidValue: If the value is not valid.
+        
+=== parse google
+short_description: 'Updates the current available permissions.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'value (Sequence[str])']
+  description: 'The updated value of the available permissions.'
+  arg_name: 'value'
+  type_name: 'Sequence[str]'
+  is_optional: False
+- DocstringRaises
+  args: ['raises', 'InvalidType']
+  description: 'If the value is not a list of strings.'
+  type_name: 'InvalidType'
+- DocstringRaises
+  args: ['raises', 'InvalidValue']
+  description: 'If the value is not valid.'
+  type_name: 'InvalidValue'
+=== detect
+google
+=== compose google
+Updates the current available permissions.
+
+Args:
+    value (Sequence[str]): The updated value of the available permissions.
+
+Raises:
+    InvalidType: If the value is not a list of strings.
+    InvalidValue: If the value is not valid.

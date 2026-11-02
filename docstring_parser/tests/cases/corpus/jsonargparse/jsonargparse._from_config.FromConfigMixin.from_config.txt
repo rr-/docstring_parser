@@ -1,0 +1,29 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Instantiate current class based on a config file or dict.
+
+        Args:
+            config: Path to a config file or a dict with config values.
+            instantiators: Custom instantiators, see :meth:`.ArgumentParser.instantiate`.
+        
+=== parse google
+short_description: 'Instantiate current class based on a config file or dict.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'config']
+  description: 'Path to a config file or a dict with config values.'
+  arg_name: 'config'
+- DocstringParam
+  args: ['param', 'instantiators']
+  description: 'Custom instantiators, see :meth:`.ArgumentParser.instantiate`.'
+  arg_name: 'instantiators'
+=== detect
+google
+=== compose google
+Instantiate current class based on a config file or dict.
+
+Args:
+    config: Path to a config file or a dict with config values.
+    instantiators: Custom instantiators, see :meth:`.ArgumentParser.instantiate`.

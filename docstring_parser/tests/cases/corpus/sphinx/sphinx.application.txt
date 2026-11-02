@@ -1,0 +1,18 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Sphinx application class and extensibility interface.
+
+Gracefully adapted from the TextPress system by Armin.
+
+=== parse rest
+short_description: 'Sphinx application class and extensibility interface.'
+long_description: 'Gracefully adapted from the TextPress system by Armin.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Sphinx application class and extensibility interface.
+
+Gracefully adapted from the TextPress system by Armin.

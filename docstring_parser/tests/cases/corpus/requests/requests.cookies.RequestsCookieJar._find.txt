@@ -1,0 +1,51 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Requests uses this method internally to get cookie values.
+
+        If there are conflicting cookies, _find arbitrarily chooses one.
+        See _find_no_duplicates if you want an exception thrown if there are
+        conflicting cookies.
+
+        :param name: a string containing name of cookie
+        :param domain: (optional) string containing domain of cookie
+        :param path: (optional) string containing path of cookie
+        :return: cookie.value
+        
+=== parse rest
+short_description: 'Requests uses this method internally to get cookie values.'
+long_description: |
+  If there are conflicting cookies, _find arbitrarily chooses one.
+  See _find_no_duplicates if you want an exception thrown if there are
+  conflicting cookies.
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringParam
+  args: ['param', 'name']
+  description: 'a string containing name of cookie'
+  arg_name: 'name'
+- DocstringParam
+  args: ['param', 'domain']
+  description: '(optional) string containing domain of cookie'
+  arg_name: 'domain'
+- DocstringParam
+  args: ['param', 'path']
+  description: '(optional) string containing path of cookie'
+  arg_name: 'path'
+- DocstringReturns
+  args: ['return']
+  description: 'cookie.value'
+  is_generator: False
+=== detect
+rest
+=== compose rest
+Requests uses this method internally to get cookie values.
+
+If there are conflicting cookies, _find arbitrarily chooses one.
+See _find_no_duplicates if you want an exception thrown if there are
+conflicting cookies.
+
+:param name: a string containing name of cookie
+:param domain: (optional) string containing domain of cookie
+:param path: (optional) string containing path of cookie
+:returns: cookie.value

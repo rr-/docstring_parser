@@ -1,0 +1,141 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Infer the most likely frequency given the input index.
+
+    .. deprecated:: 3.1.0
+        A future version of pandas will return a :class:`BaseOffset` instead of
+        a string. Use
+        ``pd.set_option('future.infer_freq_returns_offset', True)`` to opt in
+        to the future behavior.
+
+    This method attempts to deduce the most probable frequency (e.g., 'D' for daily,
+    'H' for hourly) from a sequence of datetime-like objects. It is particularly useful
+    when the frequency of a time series is not explicitly set or known but can be
+    inferred from its values.
+
+    Parameters
+    ----------
+    index : DatetimeIndex, TimedeltaIndex, Series or array-like
+      If passed a Series will use the values of the series (NOT THE INDEX).
+
+    Returns
+    -------
+    str or None
+        None if no discernible frequency.
+
+    Raises
+    ------
+    TypeError
+        If the index is not datetime-like.
+    ValueError
+        If there are fewer than three values.
+
+    See Also
+    --------
+    date_range : Return a fixed frequency DatetimeIndex.
+    timedelta_range : Return a fixed frequency TimedeltaIndex with day as the default.
+    period_range : Return a fixed frequency PeriodIndex.
+    DatetimeIndex.freq : Return the frequency object if it is set, otherwise None.
+
+    Examples
+    --------
+    >>> idx = pd.date_range(start="2020/12/01", end="2020/12/30", periods=30)
+    >>> pd.infer_freq(idx)  # doctest: +SKIP
+    'D'
+    
+=== parse numpydoc
+short_description: 'Infer the most likely frequency given the input index.'
+long_description: |
+  This method attempts to deduce the most probable frequency (e.g., 'D' for daily,
+  'H' for hourly) from a sequence of datetime-like objects. It is particularly useful
+  when the frequency of a time series is not explicitly set or known but can be
+  inferred from its values.
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringDeprecated
+  args: ['deprecation']
+  description: |
+    A future version of pandas will return a :class:`BaseOffset` instead of
+    a string. Use
+    ``pd.set_option('future.infer_freq_returns_offset', True)`` to opt in
+    to the future behavior.
+  version: '3.1.0'
+- DocstringParam
+  args: ['param', 'index']
+  description: 'If passed a Series will use the values of the series (NOT THE INDEX).'
+  arg_name: 'index'
+  type_name: 'DatetimeIndex, TimedeltaIndex, Series or array-like'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: 'None if no discernible frequency.'
+  type_name: 'str or None'
+  is_generator: False
+- DocstringRaises
+  args: ['raises', 'TypeError']
+  description: 'If the index is not datetime-like.'
+  type_name: 'TypeError'
+- DocstringRaises
+  args: ['raises', 'ValueError']
+  description: 'If there are fewer than three values.'
+  type_name: 'ValueError'
+- DocstringMeta
+  args: ['see_also']
+  description: |
+    date_range : Return a fixed frequency DatetimeIndex.
+    timedelta_range : Return a fixed frequency TimedeltaIndex with day as the default.
+    period_range : Return a fixed frequency PeriodIndex.
+    DatetimeIndex.freq : Return the frequency object if it is set, otherwise None.
+- DocstringExample
+  args: ['examples']
+  description: "'D'"
+  snippet: |
+    >>> idx = pd.date_range(start="2020/12/01", end="2020/12/30", periods=30)
+    >>> pd.infer_freq(idx)  # doctest: +SKIP
+=== detect
+numpydoc
+=== compose numpydoc
+Infer the most likely frequency given the input index.
+
+.. deprecated:: 3.1.0
+    A future version of pandas will return a :class:`BaseOffset` instead of
+    a string. Use
+    ``pd.set_option('future.infer_freq_returns_offset', True)`` to opt in
+    to the future behavior.
+
+This method attempts to deduce the most probable frequency (e.g., 'D' for daily,
+'H' for hourly) from a sequence of datetime-like objects. It is particularly useful
+when the frequency of a time series is not explicitly set or known but can be
+inferred from its values.
+
+Parameters
+----------
+index : DatetimeIndex, TimedeltaIndex, Series or array-like
+    If passed a Series will use the values of the series (NOT THE INDEX).
+
+Returns
+-------
+str or None
+    None if no discernible frequency.
+
+Raises
+------
+TypeError
+    If the index is not datetime-like.
+ValueError
+    If there are fewer than three values.
+
+Examples
+--------
+>>> idx = pd.date_range(start="2020/12/01", end="2020/12/30", periods=30)
+>>> pd.infer_freq(idx)  # doctest: +SKIP
+'D'
+
+See Also
+--------
+date_range : Return a fixed frequency DatetimeIndex.
+timedelta_range : Return a fixed frequency TimedeltaIndex with day as the default.
+period_range : Return a fixed frequency PeriodIndex.
+DatetimeIndex.freq : Return the frequency object if it is set, otherwise None.

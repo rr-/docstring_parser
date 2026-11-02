@@ -1,0 +1,89 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Determine a response to a particular DNS query.
+
+        @param name: The name which is being queried and for which to lookup a
+            response.
+        @type name: L{bytes}
+
+        @param cls: The class which is being queried.  Only I{IN} is
+            implemented here and this value is presently disregarded.
+        @type cls: L{int}
+
+        @param type: The type of records being queried.  See the types defined
+            in L{twisted.names.dns}.
+        @type type: L{int}
+
+        @param timeout: All processing is done locally and a result is
+            available immediately, so the timeout value is ignored.
+
+        @return: A L{Deferred} that fires with a L{tuple} of three sets of
+            response records (to comprise the I{answer}, I{authority}, and
+            I{additional} sections of a DNS response) or with a L{Failure} if
+            there is a problem processing the query.
+        
+=== parse epydoc
+short_description: 'Determine a response to a particular DNS query.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringParam
+  args: ['param', 'name']
+  description: |
+    The name which is being queried and for which to lookup a
+    response.
+  arg_name: 'name'
+  type_name: 'L{bytes}'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'cls']
+  description: |
+    The class which is being queried.  Only I{IN} is
+    implemented here and this value is presently disregarded.
+  arg_name: 'cls'
+  type_name: 'L{int}'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'type']
+  description: |
+    The type of records being queried.  See the types defined
+    in L{twisted.names.dns}.
+  arg_name: 'type'
+  type_name: 'L{int}'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'timeout']
+  description: |
+    All processing is done locally and a result is
+    available immediately, so the timeout value is ignored.
+  arg_name: 'timeout'
+  is_optional: False
+- DocstringReturns
+  args: ['return']
+  description: |
+    A L{Deferred} that fires with a L{tuple} of three sets of
+    response records (to comprise the I{answer}, I{authority}, and
+    I{additional} sections of a DNS response) or with a L{Failure} if
+    there is a problem processing the query.
+  is_generator: False
+=== detect
+epydoc
+=== compose epydoc
+Determine a response to a particular DNS query.
+
+@type name: L{bytes}
+@param name: The name which is being queried and for which to lookup a
+    response.
+@type cls: L{int}
+@param cls: The class which is being queried.  Only I{IN} is
+    implemented here and this value is presently disregarded.
+@type type: L{int}
+@param type: The type of records being queried.  See the types defined
+    in L{twisted.names.dns}.
+@param timeout: All processing is done locally and a result is
+    available immediately, so the timeout value is ignored.
+@return: A L{Deferred} that fires with a L{tuple} of three sets of
+    response records (to comprise the I{answer}, I{authority}, and
+    I{additional} sections of a DNS response) or with a L{Failure} if
+    there is a problem processing the query.

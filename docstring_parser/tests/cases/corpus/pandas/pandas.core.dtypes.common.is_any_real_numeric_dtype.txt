@@ -1,0 +1,133 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Check whether the provided array or dtype is of a real number dtype.
+
+    Real number dtypes include integer and float types but exclude complex
+    and boolean dtypes. This is useful when operations require real-valued
+    numeric input only.
+
+    Parameters
+    ----------
+    arr_or_dtype : array-like or dtype
+        The array or dtype to check.
+
+    Returns
+    -------
+    boolean
+        Whether or not the array or dtype is of a real number dtype.
+
+    See Also
+    --------
+    is_numeric_dtype : Check if a dtype is numeric.
+    is_complex_dtype : Check if a dtype is complex.
+    is_bool_dtype : Check if a dtype is boolean.
+
+    Examples
+    --------
+    >>> from pandas.api.types import is_any_real_numeric_dtype
+    >>> is_any_real_numeric_dtype(int)
+    True
+    >>> is_any_real_numeric_dtype(float)
+    True
+    >>> is_any_real_numeric_dtype(object)
+    False
+    >>> is_any_real_numeric_dtype(str)
+    False
+    >>> is_any_real_numeric_dtype(complex(1, 2))
+    False
+    >>> is_any_real_numeric_dtype(bool)
+    False
+    
+=== parse numpydoc
+short_description: 'Check whether the provided array or dtype is of a real number dtype.'
+long_description: |
+  Real number dtypes include integer and float types but exclude complex
+  and boolean dtypes. This is useful when operations require real-valued
+  numeric input only.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'arr_or_dtype']
+  description: 'The array or dtype to check.'
+  arg_name: 'arr_or_dtype'
+  type_name: 'array-like or dtype'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: 'Whether or not the array or dtype is of a real number dtype.'
+  type_name: 'boolean'
+  is_generator: False
+- DocstringMeta
+  args: ['see_also']
+  description: |
+    is_numeric_dtype : Check if a dtype is numeric.
+    is_complex_dtype : Check if a dtype is complex.
+    is_bool_dtype : Check if a dtype is boolean.
+- DocstringExample
+  args: ['examples']
+  description: 'True'
+  snippet: |
+    >>> from pandas.api.types import is_any_real_numeric_dtype
+    >>> is_any_real_numeric_dtype(int)
+- DocstringExample
+  args: ['examples']
+  description: 'True'
+  snippet: '>>> is_any_real_numeric_dtype(float)'
+- DocstringExample
+  args: ['examples']
+  description: 'False'
+  snippet: '>>> is_any_real_numeric_dtype(object)'
+- DocstringExample
+  args: ['examples']
+  description: 'False'
+  snippet: '>>> is_any_real_numeric_dtype(str)'
+- DocstringExample
+  args: ['examples']
+  description: 'False'
+  snippet: '>>> is_any_real_numeric_dtype(complex(1, 2))'
+- DocstringExample
+  args: ['examples']
+  description: 'False'
+  snippet: '>>> is_any_real_numeric_dtype(bool)'
+=== detect
+numpydoc
+=== compose numpydoc
+Check whether the provided array or dtype is of a real number dtype.
+
+Real number dtypes include integer and float types but exclude complex
+and boolean dtypes. This is useful when operations require real-valued
+numeric input only.
+
+Parameters
+----------
+arr_or_dtype : array-like or dtype
+    The array or dtype to check.
+
+Returns
+-------
+boolean
+    Whether or not the array or dtype is of a real number dtype.
+
+Examples
+--------
+>>> from pandas.api.types import is_any_real_numeric_dtype
+>>> is_any_real_numeric_dtype(int)
+True
+>>> is_any_real_numeric_dtype(float)
+True
+>>> is_any_real_numeric_dtype(object)
+False
+>>> is_any_real_numeric_dtype(str)
+False
+>>> is_any_real_numeric_dtype(complex(1, 2))
+False
+>>> is_any_real_numeric_dtype(bool)
+False
+
+See Also
+--------
+is_numeric_dtype : Check if a dtype is numeric.
+is_complex_dtype : Check if a dtype is complex.
+is_bool_dtype : Check if a dtype is boolean.

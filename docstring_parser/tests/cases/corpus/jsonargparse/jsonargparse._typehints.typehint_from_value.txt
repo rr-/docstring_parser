@@ -1,0 +1,25 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Derives a type hint from a value, so that adapt_typehints is able to serialize it.
+
+    Containers are derived as a type hint of ``Any`` items, so that the items are
+    serialized the same as the value itself. ``None`` is returned for the values
+    that no supported or registered type represents.
+    
+=== parse google
+short_description: 'Derives a type hint from a value, so that adapt_typehints is able to serialize it.'
+long_description: |
+  Containers are derived as a type hint of ``Any`` items, so that the items are
+  serialized the same as the value itself. ``None`` is returned for the values
+  that no supported or registered type represents.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Derives a type hint from a value, so that adapt_typehints is able to serialize it.
+
+Containers are derived as a type hint of ``Any`` items, so that the items are
+serialized the same as the value itself. ``None`` is returned for the values
+that no supported or registered type represents.

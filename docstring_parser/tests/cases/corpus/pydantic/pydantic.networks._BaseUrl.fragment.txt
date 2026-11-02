@@ -1,0 +1,18 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+The fragment part of the URL, or `None`.
+
+        e.g. `fragment` in `https://user:pass@host:port/path?query#fragment`
+        
+=== parse google
+short_description: 'The fragment part of the URL, or `None`.'
+long_description: 'e.g. `fragment` in `https://user:pass@host:port/path?query#fragment`'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+The fragment part of the URL, or `None`.
+
+e.g. `fragment` in `https://user:pass@host:port/path?query#fragment`

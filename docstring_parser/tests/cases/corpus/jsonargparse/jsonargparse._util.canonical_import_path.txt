@@ -1,0 +1,28 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Returns where an object is defined, which can differ from the path used to import it.
+
+    Modules commonly import others, e.g. ``import os``, so ``some.module.os.system``
+    imports and gives the same object as ``os.system``. Not ``get_import_path``
+    because that gives the shortest path, which can be a re-export that hides where
+    the object is defined, and it fails for objects that have no import path.
+    
+=== parse google
+short_description: 'Returns where an object is defined, which can differ from the path used to import it.'
+long_description: |
+  Modules commonly import others, e.g. ``import os``, so ``some.module.os.system``
+  imports and gives the same object as ``os.system``. Not ``get_import_path``
+  because that gives the shortest path, which can be a re-export that hides where
+  the object is defined, and it fails for objects that have no import path.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Returns where an object is defined, which can differ from the path used to import it.
+
+Modules commonly import others, e.g. ``import os``, so ``some.module.os.system``
+imports and gives the same object as ``os.system``. Not ``get_import_path``
+because that gives the shortest path, which can be a re-export that hides where
+the object is defined, and it fails for objects that have no import path.

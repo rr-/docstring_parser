@@ -1,0 +1,111 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Validate a Python object against the model.
+
+        A [`ValidationError`][pydantic_core.ValidationError] reports the rejected locations and values.
+        If you record validations with [Logfire](../integrations/logfire.md), the complete object and trace
+        context are retained alongside the error — `TypeAdapter` validations are captured the same way as
+        model validations (see [Troubleshooting validation errors](../errors/troubleshooting.md)).
+
+        Args:
+            object: The Python object to validate against the model.
+            strict: Whether to strictly check types.
+            extra: Whether to ignore, allow, or forbid extra data during model validation.
+                See the [`extra` configuration value][pydantic.ConfigDict.extra] for details.
+            from_attributes: Whether to extract data from object attributes.
+            context: Additional context to pass to the validator.
+            experimental_allow_partial: **Experimental** whether to enable
+                [partial validation](../concepts/experimental.md#partial-validation), e.g. to process streams.
+                * False / 'off': Default behavior, no partial validation.
+                * True / 'on': Enable partial validation.
+                * 'trailing-strings': Enable partial validation and allow trailing strings in the input.
+            by_alias: Whether to use the field's alias when validating against the provided input data.
+            by_name: Whether to use the field's name when validating against the provided input data.
+
+        !!! note
+            When using `TypeAdapter` with a Pydantic `dataclass`, the use of the `from_attributes`
+            argument is not supported.
+
+        Returns:
+            The validated object.
+        
+=== parse google
+short_description: 'Validate a Python object against the model.'
+long_description: |
+  A [`ValidationError`][pydantic_core.ValidationError] reports the rejected locations and values.
+  If you record validations with [Logfire](../integrations/logfire.md), the complete object and trace
+  context are retained alongside the error — `TypeAdapter` validations are captured the same way as
+  model validations (see [Troubleshooting validation errors](../errors/troubleshooting.md)).
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'object']
+  description: 'The Python object to validate against the model.'
+  arg_name: 'object'
+- DocstringParam
+  args: ['param', 'strict']
+  description: 'Whether to strictly check types.'
+  arg_name: 'strict'
+- DocstringParam
+  args: ['param', 'extra']
+  description: |
+    Whether to ignore, allow, or forbid extra data during model validation.
+    See the [`extra` configuration value][pydantic.ConfigDict.extra] for details.
+  arg_name: 'extra'
+- DocstringParam
+  args: ['param', 'from_attributes']
+  description: 'Whether to extract data from object attributes.'
+  arg_name: 'from_attributes'
+- DocstringParam
+  args: ['param', 'context']
+  description: 'Additional context to pass to the validator.'
+  arg_name: 'context'
+- DocstringParam
+  args: ['param', 'experimental_allow_partial']
+  description: |
+    **Experimental** whether to enable
+    [partial validation](../concepts/experimental.md#partial-validation), e.g. to process streams.
+    * False / 'off': Default behavior, no partial validation.
+    * True / 'on': Enable partial validation.
+    * 'trailing-strings': Enable partial validation and allow trailing strings in the input.
+  arg_name: 'experimental_allow_partial'
+- DocstringParam
+  args: ['param', 'by_alias']
+  description: "Whether to use the field's alias when validating against the provided input data."
+  arg_name: 'by_alias'
+- DocstringParam
+  args: ['param', 'by_name']
+  description: "Whether to use the field's name when validating against the provided input data."
+  arg_name: 'by_name'
+- DocstringReturns
+  args: ['returns']
+  description: 'The validated object.'
+  is_generator: False
+=== detect
+google
+=== compose google
+Validate a Python object against the model.
+
+A [`ValidationError`][pydantic_core.ValidationError] reports the rejected locations and values.
+If you record validations with [Logfire](../integrations/logfire.md), the complete object and trace
+context are retained alongside the error — `TypeAdapter` validations are captured the same way as
+model validations (see [Troubleshooting validation errors](../errors/troubleshooting.md)).
+
+Args:
+    object: The Python object to validate against the model.
+    strict: Whether to strictly check types.
+    extra: Whether to ignore, allow, or forbid extra data during model validation.
+        See the [`extra` configuration value][pydantic.ConfigDict.extra] for details.
+    from_attributes: Whether to extract data from object attributes.
+    context: Additional context to pass to the validator.
+    experimental_allow_partial: **Experimental** whether to enable
+        [partial validation](../concepts/experimental.md#partial-validation), e.g. to process streams.
+        * False / 'off': Default behavior, no partial validation.
+        * True / 'on': Enable partial validation.
+        * 'trailing-strings': Enable partial validation and allow trailing strings in the input.
+    by_alias: Whether to use the field's alias when validating against the provided input data.
+    by_name: Whether to use the field's name when validating against the provided input data.
+
+Returns:
+    The validated object.

@@ -1,0 +1,43 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Register a new language for the HTML search index.
+
+        Add *cls*, which must be a subclass of
+        :class:`sphinx.search.SearchLanguage`, as a support language for
+        building the HTML full-text search index.  The class must have a *lang*
+        attribute that indicates the language it should be used for.  See
+        :confval:`html_search_language`.
+
+        .. versionadded:: 1.1
+        
+=== parse rest
+short_description: 'Register a new language for the HTML search index.'
+long_description: |
+  Add *cls*, which must be a subclass of
+  
+  .. versionadded:: 1.1
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringMeta
+  args: ['class']
+  description: |
+    `sphinx.search.SearchLanguage`, as a support language for
+    building the HTML full-text search index.  The class must have a *lang*
+    attribute that indicates the language it should be used for.  See
+- DocstringMeta
+  args: ['confval']
+  description: '`html_search_language`.'
+=== detect
+rest
+=== compose rest
+Register a new language for the HTML search index.
+
+Add *cls*, which must be a subclass of
+
+.. versionadded:: 1.1
+
+:class: `sphinx.search.SearchLanguage`, as a support language for
+    building the HTML full-text search index.  The class must have a *lang*
+    attribute that indicates the language it should be used for.  See
+:confval: `html_search_language`.

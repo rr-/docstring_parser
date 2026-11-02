@@ -1,0 +1,24 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        The number of days in the month.
+
+        .. deprecated:: 3.1.0
+            Use :attr:`PeriodArray.days_in_month` instead.
+        
+=== parse numpydoc
+short_description: 'The number of days in the month.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringDeprecated
+  args: ['deprecation']
+  description: 'Use :attr:`PeriodArray.days_in_month` instead.'
+  version: '3.1.0'
+=== detect
+numpydoc
+=== compose numpydoc
+The number of days in the month.
+
+.. deprecated:: 3.1.0
+    Use :attr:`PeriodArray.days_in_month` instead.

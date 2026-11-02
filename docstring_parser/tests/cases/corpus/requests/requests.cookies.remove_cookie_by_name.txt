@@ -1,0 +1,18 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Unsets a cookie by name, by default over all domains and paths.
+
+    Wraps CookieJar.clear(), is O(n).
+    
+=== parse rest
+short_description: 'Unsets a cookie by name, by default over all domains and paths.'
+long_description: 'Wraps CookieJar.clear(), is O(n).'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Unsets a cookie by name, by default over all domains and paths.
+
+Wraps CookieJar.clear(), is O(n).

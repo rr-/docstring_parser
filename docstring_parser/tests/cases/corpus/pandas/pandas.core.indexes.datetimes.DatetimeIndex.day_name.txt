@@ -1,0 +1,133 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Return the day names with specified locale.
+
+        This method returns the full name of the day of the week (e.g., "Monday",
+        "Tuesday") for each datetime value in the Series/Index. The names can be
+        localized to different languages using the locale parameter.
+
+        Parameters
+        ----------
+        locale : str, optional
+            Locale determining the language in which to return the day name.
+            Default is English locale (``'en_US.utf8'``). Use the command
+            ``locale -a`` on your terminal on Unix systems to find your locale
+            language code.
+
+        Returns
+        -------
+        Index
+            Index of day names.
+
+        See Also
+        --------
+        DatetimeIndex.month_name : Return the month names with specified locale.
+
+        Examples
+        --------
+        >>> idx = pd.date_range(start="2018-01-01", freq="D", periods=3)
+        >>> idx
+        DatetimeIndex(['2018-01-01', '2018-01-02', '2018-01-03'],
+                      dtype='datetime64[us]', freq='D')
+        >>> idx.day_name()
+        Index(['Monday', 'Tuesday', 'Wednesday'], dtype='str')
+
+        Using the ``locale`` parameter you can set a different locale language,
+        for example: ``idx.day_name(locale='pt_BR.utf8')`` will return day
+        names in Brazilian Portuguese language.
+
+        >>> idx.day_name(locale="pt_BR.utf8")  # doctest: +SKIP
+        Index(['Segunda', 'Terça', 'Quarta'], dtype='str')
+        
+=== parse numpydoc
+short_description: 'Return the day names with specified locale.'
+long_description: |
+  This method returns the full name of the day of the week (e.g., "Monday",
+  "Tuesday") for each datetime value in the Series/Index. The names can be
+  localized to different languages using the locale parameter.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'locale']
+  description: |
+    Locale determining the language in which to return the day name.
+    Default is English locale (``'en_US.utf8'``). Use the command
+    ``locale -a`` on your terminal on Unix systems to find your locale
+    language code.
+  arg_name: 'locale'
+  type_name: 'str'
+  is_optional: True
+  default: 'English'
+- DocstringReturns
+  args: ['returns']
+  description: 'Index of day names.'
+  type_name: 'Index'
+  is_generator: False
+- DocstringMeta
+  args: ['see_also']
+  description: 'DatetimeIndex.month_name : Return the month names with specified locale.'
+- DocstringExample
+  args: ['examples']
+  description: |
+    DatetimeIndex(['2018-01-01', '2018-01-02', '2018-01-03'],
+                  dtype='datetime64[us]', freq='D')
+  snippet: |
+    >>> idx = pd.date_range(start="2018-01-01", freq="D", periods=3)
+    >>> idx
+- DocstringExample
+  args: ['examples']
+  description: |
+    Index(['Monday', 'Tuesday', 'Wednesday'], dtype='str')
+    
+    Using the ``locale`` parameter you can set a different locale language,
+    for example: ``idx.day_name(locale='pt_BR.utf8')`` will return day
+    names in Brazilian Portuguese language.
+    
+  snippet: '>>> idx.day_name()'
+- DocstringExample
+  args: ['examples']
+  description: "Index(['Segunda', 'Terça', 'Quarta'], dtype='str')"
+  snippet: '>>> idx.day_name(locale="pt_BR.utf8")  # doctest: +SKIP'
+=== detect
+numpydoc
+=== compose numpydoc
+Return the day names with specified locale.
+
+This method returns the full name of the day of the week (e.g., "Monday",
+"Tuesday") for each datetime value in the Series/Index. The names can be
+localized to different languages using the locale parameter.
+
+Parameters
+----------
+locale : str, default=English
+    Locale determining the language in which to return the day name.
+    Default is English locale (``'en_US.utf8'``). Use the command
+    ``locale -a`` on your terminal on Unix systems to find your locale
+    language code.
+
+Returns
+-------
+Index
+    Index of day names.
+
+Examples
+--------
+>>> idx = pd.date_range(start="2018-01-01", freq="D", periods=3)
+>>> idx
+DatetimeIndex(['2018-01-01', '2018-01-02', '2018-01-03'],
+              dtype='datetime64[us]', freq='D')
+>>> idx.day_name()
+Index(['Monday', 'Tuesday', 'Wednesday'], dtype='str')
+
+Using the ``locale`` parameter you can set a different locale language,
+for example: ``idx.day_name(locale='pt_BR.utf8')`` will return day
+names in Brazilian Portuguese language.
+
+>>> idx.day_name(locale="pt_BR.utf8")  # doctest: +SKIP
+Index(['Segunda', 'Terça', 'Quarta'], dtype='str')
+
+See Also
+--------
+DatetimeIndex.month_name : Return the month names with specified locale.

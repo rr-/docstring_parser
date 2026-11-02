@@ -1,0 +1,22 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Type hint as a string, recreating it with subtypes replaced by their string form.
+
+    Only the outermost level goes through ``strip_module_names``, such that literal
+    values and metadata, e.g. floats and dotted strings, are never mangled by it.
+    
+=== parse google
+short_description: 'Type hint as a string, recreating it with subtypes replaced by their string form.'
+long_description: |
+  Only the outermost level goes through ``strip_module_names``, such that literal
+  values and metadata, e.g. floats and dotted strings, are never mangled by it.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Type hint as a string, recreating it with subtypes replaced by their string form.
+
+Only the outermost level goes through ``strip_module_names``, such that literal
+values and metadata, e.g. floats and dotted strings, are never mangled by it.

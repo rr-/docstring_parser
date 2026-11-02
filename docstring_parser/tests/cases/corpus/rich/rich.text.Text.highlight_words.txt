@@ -1,0 +1,53 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Highlight words with a style.
+
+        Args:
+            words (Iterable[str]): Words to highlight.
+            style (Union[str, Style]): Style to apply.
+            case_sensitive (bool, optional): Enable case sensitive matching. Defaults to True.
+
+        Returns:
+            int: Number of words highlighted.
+        
+=== parse google
+short_description: 'Highlight words with a style.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'words (Iterable[str])']
+  description: 'Words to highlight.'
+  arg_name: 'words'
+  type_name: 'Iterable[str]'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'style (Union[str, Style])']
+  description: 'Style to apply.'
+  arg_name: 'style'
+  type_name: 'Union[str, Style]'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'case_sensitive (bool, optional)']
+  description: 'Enable case sensitive matching. Defaults to True.'
+  arg_name: 'case_sensitive'
+  type_name: 'bool'
+  is_optional: True
+  default: 'True'
+- DocstringReturns
+  args: ['returns', 'int']
+  description: 'Number of words highlighted.'
+  type_name: 'int'
+  is_generator: False
+=== detect
+google
+=== compose google
+Highlight words with a style.
+
+Args:
+    words (Iterable[str]): Words to highlight.
+    style (Union[str, Style]): Style to apply.
+    case_sensitive (bool?): Enable case sensitive matching. Defaults to True.
+
+Returns:
+    int: Number of words highlighted.

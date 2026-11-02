@@ -1,0 +1,172 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Computes Kendall's rank correlation tau on two variables *x* and *y*.
+
+    Parameters
+    ----------
+    x : sequence
+        First data list (for example, time).
+    y : sequence
+        Second data list.
+    use_ties : {True, False}, optional
+        Whether ties correction should be performed.
+    use_missing : {False, True}, optional
+        Whether missing data should be allocated a rank of 0 (False) or the
+        average rank (True)
+    method : {'auto', 'asymptotic', 'exact'}, optional
+        Defines which method is used to calculate the p-value [1]_.
+        'asymptotic' uses a normal approximation valid for large samples.
+        'exact' computes the exact p-value, but can only be used if no ties
+        are present. As the sample size increases, the 'exact' computation
+        time may grow and the result may lose some precision.
+        'auto' is the default and selects the appropriate
+        method based on a trade-off between speed and accuracy.
+    alternative : {'two-sided', 'less', 'greater'}, optional
+        Defines the alternative hypothesis. Default is 'two-sided'.
+        The following options are available:
+
+        * 'two-sided': the rank correlation is nonzero
+        * 'less': the rank correlation is negative (less than zero)
+        * 'greater':  the rank correlation is positive (greater than zero)
+
+    Returns
+    -------
+    res : SignificanceResult
+        An object containing attributes:
+
+        statistic : float
+           The tau statistic.
+        pvalue : float
+           The p-value for a hypothesis test whose null hypothesis is
+           an absence of association, tau = 0.
+
+    References
+    ----------
+    .. [1] Maurice G. Kendall, "Rank Correlation Methods" (4th Edition),
+           Charles Griffin & Co., 1970.
+
+    
+=== parse numpydoc
+short_description: "Computes Kendall's rank correlation tau on two variables *x* and *y*."
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'x']
+  description: 'First data list (for example, time).'
+  arg_name: 'x'
+  type_name: 'sequence'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'y']
+  description: 'Second data list.'
+  arg_name: 'y'
+  type_name: 'sequence'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'use_ties']
+  description: 'Whether ties correction should be performed.'
+  arg_name: 'use_ties'
+  type_name: '{True, False}'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'use_missing']
+  description: |
+    Whether missing data should be allocated a rank of 0 (False) or the
+    average rank (True)
+  arg_name: 'use_missing'
+  type_name: '{False, True}'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'method']
+  description: |
+    Defines which method is used to calculate the p-value [1]_.
+    'asymptotic' uses a normal approximation valid for large samples.
+    'exact' computes the exact p-value, but can only be used if no ties
+    are present. As the sample size increases, the 'exact' computation
+    time may grow and the result may lose some precision.
+    'auto' is the default and selects the appropriate
+    method based on a trade-off between speed and accuracy.
+  arg_name: 'method'
+  type_name: "{'auto', 'asymptotic', 'exact'}"
+  is_optional: True
+  default: 'and'
+- DocstringParam
+  args: ['param', 'alternative']
+  description: |
+    Defines the alternative hypothesis. Default is 'two-sided'.
+    The following options are available:
+    
+    * 'two-sided': the rank correlation is nonzero
+    * 'less': the rank correlation is negative (less than zero)
+    * 'greater':  the rank correlation is positive (greater than zero)
+  arg_name: 'alternative'
+  type_name: "{'two-sided', 'less', 'greater'}"
+  is_optional: True
+  default: "'two-sided'"
+- DocstringReturns
+  args: ['returns']
+  description: |
+    An object containing attributes:
+    
+    statistic : float
+       The tau statistic.
+    pvalue : float
+       The p-value for a hypothesis test whose null hypothesis is
+       an absence of association, tau = 0.
+  type_name: 'SignificanceResult'
+  is_generator: False
+  return_name: 'res'
+- DocstringMeta
+  args: ['references']
+  description: |
+    .. [1] Maurice G. Kendall, "Rank Correlation Methods" (4th Edition),
+           Charles Griffin & Co., 1970.
+=== detect
+numpydoc
+=== compose numpydoc
+Computes Kendall's rank correlation tau on two variables *x* and *y*.
+
+Parameters
+----------
+x : sequence
+    First data list (for example, time).
+y : sequence
+    Second data list.
+use_ties : {True, False}, optional
+    Whether ties correction should be performed.
+use_missing : {False, True}, optional
+    Whether missing data should be allocated a rank of 0 (False) or the
+    average rank (True)
+method : {'auto', 'asymptotic', 'exact'}, default=and
+    Defines which method is used to calculate the p-value [1]_.
+    'asymptotic' uses a normal approximation valid for large samples.
+    'exact' computes the exact p-value, but can only be used if no ties
+    are present. As the sample size increases, the 'exact' computation
+    time may grow and the result may lose some precision.
+    'auto' is the default and selects the appropriate
+    method based on a trade-off between speed and accuracy.
+alternative : {'two-sided', 'less', 'greater'}, default='two-sided'
+    Defines the alternative hypothesis. Default is 'two-sided'.
+    The following options are available:
+    
+    * 'two-sided': the rank correlation is nonzero
+    * 'less': the rank correlation is negative (less than zero)
+    * 'greater':  the rank correlation is positive (greater than zero)
+
+Returns
+-------
+res : SignificanceResult
+    An object containing attributes:
+    
+    statistic : float
+       The tau statistic.
+    pvalue : float
+       The p-value for a hypothesis test whose null hypothesis is
+       an absence of association, tau = 0.
+
+References
+----------
+.. [1] Maurice G. Kendall, "Rank Correlation Methods" (4th Edition),
+       Charles Griffin & Co., 1970.

@@ -1,0 +1,83 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Initializer for ArgumentParser instance.
+
+        All the arguments from the initializer of `argparse.ArgumentParser
+        <https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser>`_
+        are supported. Additionally it accepts:
+
+        Args:
+            env_prefix: Prefix for environment variables. ``True`` to derive from ``prog``.
+            formatter_class: Class for printing help messages.
+            logger: Logger to use or configuration for logger.
+            version: Program version which will be printed by the ``--version`` argument.
+            print_config: Name for print config argument, ``%s`` is replaced by config dest, set ``None`` to disable.
+            parser_mode: Mode for parsing values: ``yaml``, ``json``, ``jsonnet`` or added via :func:`.set_loader`.
+            dump_header: Header to include as comment when dumping a config object.
+            default_config_files: Default config file locations, e.g. ``['~/.config/myapp/*.yaml']``.
+            default_env: Set the default value on whether to parse environment variables.
+        
+=== parse google
+short_description: 'Initializer for ArgumentParser instance.'
+long_description: |
+  All the arguments from the initializer of `argparse.ArgumentParser
+  <https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser>`_
+  are supported. Additionally it accepts:
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'env_prefix']
+  description: 'Prefix for environment variables. ``True`` to derive from ``prog``.'
+  arg_name: 'env_prefix'
+- DocstringParam
+  args: ['param', 'formatter_class']
+  description: 'Class for printing help messages.'
+  arg_name: 'formatter_class'
+- DocstringParam
+  args: ['param', 'logger']
+  description: 'Logger to use or configuration for logger.'
+  arg_name: 'logger'
+- DocstringParam
+  args: ['param', 'version']
+  description: 'Program version which will be printed by the ``--version`` argument.'
+  arg_name: 'version'
+- DocstringParam
+  args: ['param', 'print_config']
+  description: 'Name for print config argument, ``%s`` is replaced by config dest, set ``None`` to disable.'
+  arg_name: 'print_config'
+- DocstringParam
+  args: ['param', 'parser_mode']
+  description: 'Mode for parsing values: ``yaml``, ``json``, ``jsonnet`` or added via :func:`.set_loader`.'
+  arg_name: 'parser_mode'
+- DocstringParam
+  args: ['param', 'dump_header']
+  description: 'Header to include as comment when dumping a config object.'
+  arg_name: 'dump_header'
+- DocstringParam
+  args: ['param', 'default_config_files']
+  description: "Default config file locations, e.g. ``['~/.config/myapp/*.yaml']``."
+  arg_name: 'default_config_files'
+- DocstringParam
+  args: ['param', 'default_env']
+  description: 'Set the default value on whether to parse environment variables.'
+  arg_name: 'default_env'
+=== detect
+google
+=== compose google
+Initializer for ArgumentParser instance.
+
+All the arguments from the initializer of `argparse.ArgumentParser
+<https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser>`_
+are supported. Additionally it accepts:
+
+Args:
+    env_prefix: Prefix for environment variables. ``True`` to derive from ``prog``.
+    formatter_class: Class for printing help messages.
+    logger: Logger to use or configuration for logger.
+    version: Program version which will be printed by the ``--version`` argument.
+    print_config: Name for print config argument, ``%s`` is replaced by config dest, set ``None`` to disable.
+    parser_mode: Mode for parsing values: ``yaml``, ``json``, ``jsonnet`` or added via :func:`.set_loader`.
+    dump_header: Header to include as comment when dumping a config object.
+    default_config_files: Default config file locations, e.g. ``['~/.config/myapp/*.yaml']``.
+    default_env: Set the default value on whether to parse environment variables.

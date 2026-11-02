@@ -1,0 +1,36 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Get the level name from the record.
+
+        Args:
+            record (LogRecord): LogRecord instance.
+
+        Returns:
+            Text: A tuple of the style and level name.
+        
+=== parse google
+short_description: 'Get the level name from the record.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'record (LogRecord)']
+  description: 'LogRecord instance.'
+  arg_name: 'record'
+  type_name: 'LogRecord'
+  is_optional: False
+- DocstringReturns
+  args: ['returns', 'Text']
+  description: 'A tuple of the style and level name.'
+  type_name: 'Text'
+  is_generator: False
+=== detect
+google
+=== compose google
+Get the level name from the record.
+
+Args:
+    record (LogRecord): LogRecord instance.
+
+Returns:
+    Text: A tuple of the style and level name.

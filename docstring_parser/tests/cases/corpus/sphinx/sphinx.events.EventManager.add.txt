@@ -1,0 +1,26 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Register a custom Sphinx event called *name*.
+
+        This is needed to be able to emit the event.
+
+        :param name: The name of the event.
+        
+=== parse rest
+short_description: 'Register a custom Sphinx event called *name*.'
+long_description: 'This is needed to be able to emit the event.'
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringParam
+  args: ['param', 'name']
+  description: 'The name of the event.'
+  arg_name: 'name'
+=== detect
+rest
+=== compose rest
+Register a custom Sphinx event called *name*.
+
+This is needed to be able to emit the event.
+
+:param name: The name of the event.

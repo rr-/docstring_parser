@@ -1,0 +1,19 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+    Take a single `enum` and generate its schema.
+
+    This is similar to the `model_process_schema` function, but applies to ``Enum`` objects.
+    
+=== parse google
+short_description: 'Take a single `enum` and generate its schema.'
+long_description: 'This is similar to the `model_process_schema` function, but applies to ``Enum`` objects.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Take a single `enum` and generate its schema.
+
+This is similar to the `model_process_schema` function, but applies to ``Enum`` objects.

@@ -1,0 +1,40 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+C++ language domain.
+
+    There are two 'object type' attributes being used::
+
+    - Each object created from directives gets an assigned .objtype from ObjectDescription.run.
+      This is simply the directive name.
+    - Each declaration (see the distinction in the directives dict below) has a nested .ast of
+      type ASTDeclaration. That object has .objectType which corresponds to the keys in the
+      object_types dict below. They are the core different types of declarations in C++ that
+      one can document.
+    
+=== parse rest
+short_description: 'C++ language domain.'
+long_description: |
+  There are two 'object type' attributes being used::
+  
+  - Each object created from directives gets an assigned .objtype from ObjectDescription.run.
+    This is simply the directive name.
+  - Each declaration (see the distinction in the directives dict below) has a nested .ast of
+    type ASTDeclaration. That object has .objectType which corresponds to the keys in the
+    object_types dict below. They are the core different types of declarations in C++ that
+    one can document.
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+C++ language domain.
+
+There are two 'object type' attributes being used::
+
+- Each object created from directives gets an assigned .objtype from ObjectDescription.run.
+  This is simply the directive name.
+- Each declaration (see the distinction in the directives dict below) has a nested .ast of
+  type ASTDeclaration. That object has .objectType which corresponds to the keys in the
+  object_types dict below. They are the core different types of declarations in C++ that
+  one can document.

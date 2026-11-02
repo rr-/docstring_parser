@@ -1,0 +1,29 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Prints the usage and exits with error code 2 (same behavior as argparse).
+
+    Args:
+        parser: The parser object.
+        message: The message describing the error being handled.
+    
+=== parse google
+short_description: 'Prints the usage and exits with error code 2 (same behavior as argparse).'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'parser']
+  description: 'The parser object.'
+  arg_name: 'parser'
+- DocstringParam
+  args: ['param', 'message']
+  description: 'The message describing the error being handled.'
+  arg_name: 'message'
+=== detect
+google
+=== compose google
+Prints the usage and exits with error code 2 (same behavior as argparse).
+
+Args:
+    parser: The parser object.
+    message: The message describing the error being handled.

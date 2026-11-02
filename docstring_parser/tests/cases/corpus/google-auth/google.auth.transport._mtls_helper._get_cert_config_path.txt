@@ -1,0 +1,25 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Get the certificate configuration path based on the following order:
+
+    1: Explicit override, if set
+    2: Environment variable, if set
+    3: Well-known location
+
+    Returns "None" if the selected config file does not exist.
+
+    Args:
+        certificate_config_path (string): The certificate config path. If provided, the well known
+        location and environment variable will be ignored.
+        include_context_aware (bool): If context aware metadata path should be checked for the
+        SecureConnect mTLS configuration.
+
+    Returns:
+        The absolute path of the certificate config file, and None if the file does not exist.
+    
+=== parse google
+ParseError: Expected a colon in 'location and environment variable will be ignored.'.
+=== detect
+rest
+=== compose google
+ParseError: Expected a colon in 'location and environment variable will be ignored.'.

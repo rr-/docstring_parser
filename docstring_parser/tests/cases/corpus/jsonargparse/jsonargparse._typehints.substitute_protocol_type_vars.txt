@@ -1,0 +1,22 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Substitutes in place the TypeVars in the parameters and returns the substituted return type.
+
+    A subscripted generic protocol is implemented by what its type arguments say,
+    e.g. Proto[int] by a run(self, x: int), the same as static type checkers do.
+    
+=== parse google
+short_description: 'Substitutes in place the TypeVars in the parameters and returns the substituted return type.'
+long_description: |
+  A subscripted generic protocol is implemented by what its type arguments say,
+  e.g. Proto[int] by a run(self, x: int), the same as static type checkers do.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Substitutes in place the TypeVars in the parameters and returns the substituted return type.
+
+A subscripted generic protocol is implemented by what its type arguments say,
+e.g. Proto[int] by a run(self, x: int), the same as static type checkers do.

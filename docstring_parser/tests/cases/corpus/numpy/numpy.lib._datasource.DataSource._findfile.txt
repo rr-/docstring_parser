@@ -1,0 +1,35 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Searches for ``path`` and returns full path if found.
+
+        If path is a URL, _findfile will cache a local copy and return the
+        path to the cached file.  If path is a local file, _findfile will
+        return a path to that local file.
+
+        The search will include possible compressed versions of the file
+        and return the first occurrence found.
+
+        
+=== parse numpydoc
+short_description: 'Searches for ``path`` and returns full path if found.'
+long_description: |
+  If path is a URL, _findfile will cache a local copy and return the
+  path to the cached file.  If path is a local file, _findfile will
+  return a path to that local file.
+  
+  The search will include possible compressed versions of the file
+  and return the first occurrence found.
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Searches for ``path`` and returns full path if found.
+
+If path is a URL, _findfile will cache a local copy and return the
+path to the cached file.  If path is a local file, _findfile will
+return a path to that local file.
+
+The search will include possible compressed versions of the file
+and return the first occurrence found.

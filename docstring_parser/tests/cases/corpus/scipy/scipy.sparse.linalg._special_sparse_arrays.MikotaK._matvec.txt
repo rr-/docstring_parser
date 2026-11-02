@@ -1,0 +1,21 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Construct matrix-free callable banded-matrix-vector multiplication by
+        the Mikota stiffness matrix without constructing or storing the matrix
+        itself using the knowledge of its entries and the 3-diagonal format.
+        
+=== parse numpydoc
+short_description: 'Construct matrix-free callable banded-matrix-vector multiplication by'
+long_description: |
+  the Mikota stiffness matrix without constructing or storing the matrix
+  itself using the knowledge of its entries and the 3-diagonal format.
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Construct matrix-free callable banded-matrix-vector multiplication by
+the Mikota stiffness matrix without constructing or storing the matrix
+itself using the knowledge of its entries and the 3-diagonal format.

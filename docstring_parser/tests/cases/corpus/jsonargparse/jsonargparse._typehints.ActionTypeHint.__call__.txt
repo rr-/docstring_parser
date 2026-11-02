@@ -1,0 +1,23 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Parses an argument validating against the corresponding type hint.
+
+        Raises:
+            TypeError: If the argument is not valid.
+        
+=== parse google
+short_description: 'Parses an argument validating against the corresponding type hint.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringRaises
+  args: ['raises', 'TypeError']
+  description: 'If the argument is not valid.'
+  type_name: 'TypeError'
+=== detect
+google
+=== compose google
+Parses an argument validating against the corresponding type hint.
+
+Raises:
+    TypeError: If the argument is not valid.

@@ -1,0 +1,86 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+JSON Web Tokens
+
+Provides support for creating (encoding) and verifying (decoding) JWTs,
+especially JWTs generated and consumed by Google infrastructure.
+
+See `rfc7519`_ for more details on JWTs.
+
+To encode a JWT use :func:`encode`::
+
+    from google.auth import crypt
+    from google.auth import jwt
+
+    signer = crypt.Signer(private_key)
+    payload = {'some': 'payload'}
+    encoded = jwt.encode(signer, payload)
+
+To decode a JWT and verify claims use :func:`decode`::
+
+    claims = jwt.decode(encoded, certs=public_certs)
+
+You can also skip verification::
+
+    claims = jwt.decode(encoded, verify=False)
+
+.. _rfc7519: https://tools.ietf.org/html/rfc7519
+
+
+=== parse google
+short_description: 'JSON Web Tokens'
+long_description: |
+  Provides support for creating (encoding) and verifying (decoding) JWTs,
+  especially JWTs generated and consumed by Google infrastructure.
+  
+  See `rfc7519`_ for more details on JWTs.
+  
+  To encode a JWT use :func:`encode`::
+  
+      from google.auth import crypt
+      from google.auth import jwt
+  
+      signer = crypt.Signer(private_key)
+      payload = {'some': 'payload'}
+      encoded = jwt.encode(signer, payload)
+  
+  To decode a JWT and verify claims use :func:`decode`::
+  
+      claims = jwt.decode(encoded, certs=public_certs)
+  
+  You can also skip verification::
+  
+      claims = jwt.decode(encoded, verify=False)
+  
+  .. _rfc7519: https://tools.ietf.org/html/rfc7519
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+JSON Web Tokens
+
+Provides support for creating (encoding) and verifying (decoding) JWTs,
+especially JWTs generated and consumed by Google infrastructure.
+
+See `rfc7519`_ for more details on JWTs.
+
+To encode a JWT use :func:`encode`::
+
+    from google.auth import crypt
+    from google.auth import jwt
+
+    signer = crypt.Signer(private_key)
+    payload = {'some': 'payload'}
+    encoded = jwt.encode(signer, payload)
+
+To decode a JWT and verify claims use :func:`decode`::
+
+    claims = jwt.decode(encoded, certs=public_certs)
+
+You can also skip verification::
+
+    claims = jwt.decode(encoded, verify=False)
+
+.. _rfc7519: https://tools.ietf.org/html/rfc7519

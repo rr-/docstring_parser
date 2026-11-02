@@ -1,0 +1,52 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+The maximum size in bytes any non-file form field may be in a
+        ``multipart/form-data`` body. If this limit is exceeded, a 413
+        :exc:`~werkzeug.exceptions.RequestEntityTooLarge` error is raised. If it
+        is set to ``None``, no limit is enforced at the Flask application level.
+
+        Each request defaults to the :data:`MAX_FORM_MEMORY_SIZE` config, which
+        defaults to ``500_000``. It can be set on a specific ``request`` to
+        apply the limit to that specific view. This should be set appropriately
+        based on an application's or view's specific needs.
+
+        .. versionchanged:: 3.1
+            This is configurable through Flask config.
+        
+=== parse rest
+short_description: 'The maximum size in bytes any non-file form field may be in a'
+long_description: |
+  ``multipart/form-data`` body. If this limit is exceeded, a 413
+  
+  Each request defaults to the :data:`MAX_FORM_MEMORY_SIZE` config, which
+  defaults to ``500_000``. It can be set on a specific ``request`` to
+  apply the limit to that specific view. This should be set appropriately
+  based on an application's or view's specific needs.
+  
+  .. versionchanged:: 3.1
+      This is configurable through Flask config.
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringMeta
+  args: ['exc']
+  description: |
+    `~werkzeug.exceptions.RequestEntityTooLarge` error is raised. If it
+    is set to ``None``, no limit is enforced at the Flask application level.
+=== detect
+rest
+=== compose rest
+The maximum size in bytes any non-file form field may be in a
+
+``multipart/form-data`` body. If this limit is exceeded, a 413
+
+Each request defaults to the :data:`MAX_FORM_MEMORY_SIZE` config, which
+defaults to ``500_000``. It can be set on a specific ``request`` to
+apply the limit to that specific view. This should be set appropriately
+based on an application's or view's specific needs.
+
+.. versionchanged:: 3.1
+    This is configurable through Flask config.
+
+:exc: `~werkzeug.exceptions.RequestEntityTooLarge` error is raised. If it
+    is set to ``None``, no limit is enforced at the Flask application level.

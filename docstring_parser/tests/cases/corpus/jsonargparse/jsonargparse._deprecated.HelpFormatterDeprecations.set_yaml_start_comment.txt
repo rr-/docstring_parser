@@ -1,0 +1,29 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Sets the start comment to a ruamel.yaml object.
+
+        Args:
+            text: The content to use for the comment.
+            cfg: The ruamel.yaml object.
+        
+=== parse google
+short_description: 'Sets the start comment to a ruamel.yaml object.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'text']
+  description: 'The content to use for the comment.'
+  arg_name: 'text'
+- DocstringParam
+  args: ['param', 'cfg']
+  description: 'The ruamel.yaml object.'
+  arg_name: 'cfg'
+=== detect
+google
+=== compose google
+Sets the start comment to a ruamel.yaml object.
+
+Args:
+    text: The content to use for the comment.
+    cfg: The ruamel.yaml object.

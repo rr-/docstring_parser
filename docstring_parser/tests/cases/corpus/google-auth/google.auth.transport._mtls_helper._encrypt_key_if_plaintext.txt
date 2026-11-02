@@ -1,0 +1,25 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Encrypts a plaintext PEM key if necessary, returning the bytes and passphrase.
+
+    If the key is already encrypted, or if parsing/encryption fails, the key is
+    returned as-is (plaintext) as a fallback. This allows the caller (underlying SSL
+    context) to attempt loading the key directly and handle any failures.
+    
+=== parse google
+short_description: 'Encrypts a plaintext PEM key if necessary, returning the bytes and passphrase.'
+long_description: |
+  If the key is already encrypted, or if parsing/encryption fails, the key is
+  returned as-is (plaintext) as a fallback. This allows the caller (underlying SSL
+  context) to attempt loading the key directly and handle any failures.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Encrypts a plaintext PEM key if necessary, returning the bytes and passphrase.
+
+If the key is already encrypted, or if parsing/encryption fails, the key is
+returned as-is (plaintext) as a fallback. This allows the caller (underlying SSL
+context) to attempt loading the key directly and handle any failures.

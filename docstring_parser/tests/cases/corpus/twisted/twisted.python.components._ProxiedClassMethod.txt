@@ -1,0 +1,60 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+    A proxied class method.
+
+    @ivar methodName: the name of the method which this should invoke when
+        called.
+    @type methodName: L{str}
+
+    @ivar __name__: The name of the method being proxied (the same as
+        C{methodName}).
+    @type __name__: L{str}
+
+    @ivar originalAttribute: name of the attribute of the proxy where the
+        original object is stored.
+    @type originalAttribute: L{str}
+    
+=== parse epydoc
+short_description: 'A proxied class method.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringParam
+  args: ['ivar', 'methodName']
+  description: |
+    the name of the method which this should invoke when
+    called.
+  arg_name: 'methodName'
+  type_name: 'L{str}'
+  is_optional: False
+- DocstringParam
+  args: ['ivar', '__name__']
+  description: |
+    The name of the method being proxied (the same as
+    C{methodName}).
+  arg_name: '__name__'
+  type_name: 'L{str}'
+  is_optional: False
+- DocstringParam
+  args: ['ivar', 'originalAttribute']
+  description: |
+    name of the attribute of the proxy where the
+    original object is stored.
+  arg_name: 'originalAttribute'
+  type_name: 'L{str}'
+  is_optional: False
+=== detect
+epydoc
+=== compose epydoc
+A proxied class method.
+
+@type methodName: L{str}
+@param methodName: the name of the method which this should invoke when
+    called.
+@type __name__: L{str}
+@param __name__: The name of the method being proxied (the same as
+    C{methodName}).
+@type originalAttribute: L{str}
+@param originalAttribute: name of the attribute of the proxy where the
+    original object is stored.

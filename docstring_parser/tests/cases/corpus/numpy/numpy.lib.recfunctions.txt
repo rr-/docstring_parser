@@ -1,0 +1,24 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+Collection of utilities to manipulate structured arrays.
+
+Most of these functions were initially implemented by John Hunter for
+matplotlib.  They have been rewritten and extended for convenience.
+
+
+=== parse numpydoc
+short_description: 'Collection of utilities to manipulate structured arrays.'
+long_description: |
+  Most of these functions were initially implemented by John Hunter for
+  matplotlib.  They have been rewritten and extended for convenience.
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Collection of utilities to manipulate structured arrays.
+
+Most of these functions were initially implemented by John Hunter for
+matplotlib.  They have been rewritten and extended for convenience.

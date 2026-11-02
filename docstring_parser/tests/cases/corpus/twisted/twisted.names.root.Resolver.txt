@@ -1,0 +1,47 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+    L{Resolver} implements recursive lookup starting from a specified list of
+    root servers.
+
+    @ivar hints: See C{hints} parameter of L{__init__}
+    @ivar _maximumQueries: See C{maximumQueries} parameter of L{__init__}
+    @ivar _reactor: See C{reactor} parameter of L{__init__}
+    @ivar _resolverFactory: See C{resolverFactory} parameter of L{__init__}
+    
+=== parse epydoc
+short_description: 'L{Resolver} implements recursive lookup starting from a specified list of'
+long_description: 'root servers.'
+blank_after_short_description: False
+blank_after_long_description: True
+style: epydoc
+- DocstringParam
+  args: ['ivar', 'hints']
+  description: 'See C{hints} parameter of L{__init__}'
+  arg_name: 'hints'
+  is_optional: False
+- DocstringParam
+  args: ['ivar', '_maximumQueries']
+  description: 'See C{maximumQueries} parameter of L{__init__}'
+  arg_name: '_maximumQueries'
+  is_optional: False
+- DocstringParam
+  args: ['ivar', '_reactor']
+  description: 'See C{reactor} parameter of L{__init__}'
+  arg_name: '_reactor'
+  is_optional: False
+- DocstringParam
+  args: ['ivar', '_resolverFactory']
+  description: 'See C{resolverFactory} parameter of L{__init__}'
+  arg_name: '_resolverFactory'
+  is_optional: False
+=== detect
+epydoc
+=== compose epydoc
+L{Resolver} implements recursive lookup starting from a specified list of
+root servers.
+
+@param hints: See C{hints} parameter of L{__init__}
+@param _maximumQueries: See C{maximumQueries} parameter of L{__init__}
+@param _reactor: See C{reactor} parameter of L{__init__}
+@param _resolverFactory: See C{resolverFactory} parameter of L{__init__}
