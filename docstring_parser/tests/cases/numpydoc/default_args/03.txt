@@ -1,0 +1,19 @@
+# Test parsing default arguments.
+=== input
+
+                Parameters
+                ----------
+                arg3 : float, optional
+                    The third arg. Default is 1.0.
+                
+=== parse numpydoc
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'arg3']
+  description: 'The third arg. Default is 1.0.'
+  arg_name: 'arg3'
+  type_name: 'float'
+  is_optional: True
+  default: '1.0'

@@ -1,0 +1,15 @@
+# Test autodection for the case where one of the parsers throws an error
+=== input
+
+    Does something useless
+
+    :param 3 + 3 a: a param
+    
+=== parse rest
+ParseError: Expected one or two arguments for a param keyword.
+=== parse auto
+short_description: 'Does something useless'
+long_description: ':param 3 + 3 a: a param'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google

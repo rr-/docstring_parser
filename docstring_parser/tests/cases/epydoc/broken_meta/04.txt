@@ -1,0 +1,5 @@
+# Test parsing broken meta.
+=== input
+@param with too many args: desc
+=== parse epydoc
+ParseError: Error parsing meta information near "@param with too many args: desc".

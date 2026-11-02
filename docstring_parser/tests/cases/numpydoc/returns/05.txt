@@ -1,0 +1,26 @@
+# Test parsing returns.
+=== input
+
+        Short description
+        Returns
+        -------
+        int
+            description
+            with much text
+
+            even some spacing
+        
+=== parse numpydoc
+short_description: 'Short description'
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+- DocstringReturns
+  args: ['returns']
+  description: |
+    description
+    with much text
+    
+    even some spacing
+  type_name: 'int'
+  is_generator: False

@@ -1,0 +1,15 @@
+# Test parsing returns.
+=== input
+
+        Returns:
+            int | str: multi-type return
+        
+=== parse google
+blank_after_short_description: False
+blank_after_long_description: False
+style: google
+- DocstringReturns
+  args: ['returns', 'int | str']
+  description: 'multi-type return'
+  type_name: 'int | str'
+  is_generator: False

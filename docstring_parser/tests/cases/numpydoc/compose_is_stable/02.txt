@@ -1,0 +1,37 @@
+# Test that composing a composed docstring changes nothing.
+=== input
+Short.
+
+Long.
+
+See Also
+--------
+other
+
+Notes
+-----
+A note.
+=== parse numpydoc
+short_description: 'Short.'
+long_description: 'Long.'
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringMeta
+  args: ['see_also']
+  description: 'other'
+- DocstringMeta
+  args: ['notes']
+  description: 'A note.'
+=== compose numpydoc
+Short.
+
+Long.
+
+See Also
+--------
+other
+
+Notes
+-----
+A note.

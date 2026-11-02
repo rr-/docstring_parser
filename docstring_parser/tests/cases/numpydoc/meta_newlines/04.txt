@@ -1,0 +1,22 @@
+# Test parsing newlines around description sections.
+=== input
+
+            Short description
+
+            First line
+                Second line
+            Parameters
+            ----------
+            asd
+            
+=== parse numpydoc
+short_description: 'Short description'
+long_description: |
+  First line
+      Second line
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'asd']
+  arg_name: 'asd'

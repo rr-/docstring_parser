@@ -1,0 +1,24 @@
+# Test that composing a composed docstring changes nothing.
+=== input
+Short.
+
+Parameters
+----------
+a
+    x
+=== parse numpydoc
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'a']
+  description: 'x'
+  arg_name: 'a'
+=== compose numpydoc
+Short.
+
+Parameters
+----------
+a
+    x

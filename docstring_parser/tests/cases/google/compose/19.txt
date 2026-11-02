@@ -1,0 +1,42 @@
+# Test compose in default mode.
+=== input
+
+            Short description
+
+            Meta1:
+                asd
+                1
+                    2
+                3
+            Meta2:
+                herp
+            Meta3:
+                derp
+            
+=== parse google
+short_description: 'Short description'
+long_description: |
+  Meta1:
+      asd
+      1
+          2
+      3
+  Meta2:
+      herp
+  Meta3:
+      derp
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== compose google
+Short description
+
+Meta1:
+    asd
+    1
+        2
+    3
+Meta2:
+    herp
+Meta3:
+    derp

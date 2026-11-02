@@ -1,0 +1,54 @@
+# Test parsing attributes.
+=== input
+
+        Short description
+
+        @ivar name: description 1
+        @ivar priority: description 2
+        @type priority: int
+        @cvar sender: description 3
+        @type sender: str?
+        @var message: description 4, defaults to 'hello'
+        @type message: str?
+        @var multiline: long description 5,
+        defaults to 'bye'
+        @type multiline: str?
+        
+=== parse epydoc
+short_description: 'Short description'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringParam
+  args: ['ivar', 'name']
+  description: 'description 1'
+  arg_name: 'name'
+  is_optional: False
+- DocstringParam
+  args: ['ivar', 'priority']
+  description: 'description 2'
+  arg_name: 'priority'
+  type_name: 'int'
+  is_optional: False
+- DocstringParam
+  args: ['cvar', 'sender']
+  description: 'description 3'
+  arg_name: 'sender'
+  type_name: 'str'
+  is_optional: True
+- DocstringParam
+  args: ['var', 'message']
+  description: "description 4, defaults to 'hello'"
+  arg_name: 'message'
+  type_name: 'str'
+  is_optional: True
+  default: "'hello'"
+- DocstringParam
+  args: ['var', 'multiline']
+  description: |
+    long description 5,
+    defaults to 'bye'
+  arg_name: 'multiline'
+  type_name: 'str'
+  is_optional: True
+  default: "'bye'"

@@ -1,0 +1,15 @@
+# Test parsing raises.
+=== input
+
+        Short description
+        :raises ValueError: description
+        
+=== parse rest
+short_description: 'Short description'
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+- DocstringRaises
+  args: ['raises', 'ValueError']
+  description: 'description'
+  type_name: 'ValueError'

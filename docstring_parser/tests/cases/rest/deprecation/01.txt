@@ -1,0 +1,11 @@
+# Test parsing deprecation notes.
+=== input
+:deprecation: 1.1.0 this function will be removed
+=== parse rest
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+- DocstringDeprecated
+  args: ['deprecation']
+  description: 'this function will be removed'
+  version: '1.1.0'

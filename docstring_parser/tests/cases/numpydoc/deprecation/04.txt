@@ -1,0 +1,14 @@
+# Test parsing deprecation notes.
+=== input
+Short description
+
+.. deprecated::
+    No version!
+=== parse numpydoc
+short_description: 'Short description'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringDeprecated
+  args: ['deprecation']
+  description: 'No version!'

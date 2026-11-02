@@ -1,0 +1,12 @@
+# Test parsing newlines around description sections.
+=== input
+
+            :meta: asd
+            
+=== parse rest
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+- DocstringMeta
+  args: ['meta']
+  description: 'asd'

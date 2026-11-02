@@ -1,0 +1,30 @@
+# Test parsing multiple meta.
+=== input
+
+        Short description
+
+        @meta1: asd
+            1
+                2
+            3
+        @meta2: herp
+        @meta3: derp
+        
+=== parse epydoc
+short_description: 'Short description'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringMeta
+  args: ['meta1']
+  description: |
+    asd
+    1
+        2
+    3
+- DocstringMeta
+  args: ['meta2']
+  description: 'herp'
+- DocstringMeta
+  args: ['meta3']
+  description: 'derp'

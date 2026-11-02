@@ -1,0 +1,19 @@
+# Test parsing default arguments.
+=== input
+
+                Parameters
+                ----------
+                arg7 : str, optional
+                    The fifth arg. Default: DEFAULT_ARGS
+                
+=== parse numpydoc
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'arg7']
+  description: 'The fifth arg. Default: DEFAULT_ARGS'
+  arg_name: 'arg7'
+  type_name: 'str'
+  is_optional: True
+  default: 'DEFAULT_ARGS'

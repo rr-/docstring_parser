@@ -1,0 +1,20 @@
+# Test parsing params when the docstring opens with the section title.
+=== input
+Args:
+            name: description 1.
+            priority (int): description 2.
+        
+=== parse google
+blank_after_short_description: False
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'name']
+  description: 'description 1.'
+  arg_name: 'name'
+- DocstringParam
+  args: ['param', 'priority (int)']
+  description: 'description 2.'
+  arg_name: 'priority'
+  type_name: 'int'
+  is_optional: False

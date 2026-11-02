@@ -1,0 +1,9 @@
+# Test parsing broken arguments.
+=== input
+This is a test
+
+            Args:
+                param - poorly formatted
+            
+=== parse google
+ParseError: Expected a colon in 'param - poorly formatted'.

@@ -1,0 +1,19 @@
+# Test parsing yields.
+=== input
+
+        Short description
+        Yields
+        ------
+        int
+            description
+        
+=== parse numpydoc
+short_description: 'Short description'
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+- DocstringReturns
+  args: ['yields']
+  description: 'description'
+  type_name: 'int'
+  is_generator: True

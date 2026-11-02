@@ -1,0 +1,29 @@
+# Test compose in default mode.
+=== input
+
+            Short description
+
+            @meta: asd
+                1
+                    2
+                3
+            
+=== parse epydoc
+short_description: 'Short description'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringMeta
+  args: ['meta']
+  description: |
+    asd
+    1
+        2
+    3
+=== compose epydoc
+Short description
+
+@meta: asd
+    1
+        2
+    3

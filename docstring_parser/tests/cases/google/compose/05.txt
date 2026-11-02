@@ -1,0 +1,12 @@
+# Test compose in default mode.
+=== input
+
+   Short description
+
+=== parse google
+short_description: 'Short description'
+blank_after_short_description: False
+blank_after_long_description: False
+style: google
+=== compose google
+Short description

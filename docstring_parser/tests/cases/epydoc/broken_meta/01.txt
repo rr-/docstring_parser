@@ -1,0 +1,5 @@
+# Test parsing broken meta.
+=== input
+@
+=== parse epydoc
+ParseError: Error parsing meta information near "@".

@@ -1,0 +1,53 @@
+# Test ReST-style parser autodetection.
+=== input
+
+        Short description
+
+        Long description
+
+        Causing people to indent:
+
+            A lot sometimes
+
+        :param spam: spam desc
+        :param int bla: bla desc
+        :param str yay:
+        :raises ValueError: exc desc
+        :returns tuple: ret desc
+        
+=== parse auto
+short_description: 'Short description'
+long_description: |
+  Long description
+  
+  Causing people to indent:
+  
+      A lot sometimes
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringParam
+  args: ['param', 'spam']
+  description: 'spam desc'
+  arg_name: 'spam'
+- DocstringParam
+  args: ['param', 'int', 'bla']
+  description: 'bla desc'
+  arg_name: 'bla'
+  type_name: 'int'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'str', 'yay']
+  description: ''
+  arg_name: 'yay'
+  type_name: 'str'
+  is_optional: False
+- DocstringRaises
+  args: ['raises', 'ValueError']
+  description: 'exc desc'
+  type_name: 'ValueError'
+- DocstringReturns
+  args: ['returns', 'tuple']
+  description: 'ret desc'
+  type_name: 'tuple'
+  is_generator: False

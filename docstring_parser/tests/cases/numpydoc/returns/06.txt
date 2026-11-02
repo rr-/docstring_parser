@@ -1,0 +1,28 @@
+# Test parsing returns.
+=== input
+
+        Short description
+        Returns
+        -------
+        a : int
+            description for a
+        b : str
+            description for b
+        
+=== parse numpydoc
+short_description: 'Short description'
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+- DocstringReturns
+  args: ['returns']
+  description: 'description for a'
+  type_name: 'int'
+  is_generator: False
+  return_name: 'a'
+- DocstringReturns
+  args: ['returns']
+  description: 'description for b'
+  type_name: 'str'
+  is_generator: False
+  return_name: 'b'

@@ -1,0 +1,23 @@
+# Test that continuation lines stay part of their field.
+=== input
+Short.
+
+:param a: first paragraph
+
+    second paragraph
+=== parse rest
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringParam
+  args: ['param', 'a']
+  description: |
+    first paragraph
+    second paragraph
+  arg_name: 'a'
+=== compose rest
+Short.
+
+:param a: first paragraph
+    second paragraph

@@ -1,0 +1,74 @@
+# Test compose in expanded mode.
+=== input
+
+            Short description
+
+            @param name: description 1
+            @param priority: description 2
+            @type priority: int
+            @param sender: description 3
+            @type sender: str?
+            @type message: str?
+            @param message: description 4, defaults to 'hello'
+            @type multiline: str?
+            @param multiline: long description 5,
+                defaults to 'bye'
+            
+=== parse epydoc
+short_description: 'Short description'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringParam
+  args: ['param', 'name']
+  description: 'description 1'
+  arg_name: 'name'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'priority']
+  description: 'description 2'
+  arg_name: 'priority'
+  type_name: 'int'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'sender']
+  description: 'description 3'
+  arg_name: 'sender'
+  type_name: 'str'
+  is_optional: True
+- DocstringParam
+  args: ['type', 'message']
+  description: "description 4, defaults to 'hello'"
+  arg_name: 'message'
+  type_name: 'str'
+  is_optional: True
+- DocstringParam
+  args: ['type', 'multiline']
+  description: |
+    long description 5,
+    defaults to 'bye'
+  arg_name: 'multiline'
+  type_name: 'str'
+  is_optional: True
+=== compose epydoc expanded
+Short description
+
+@param name:
+    description 1
+@type priority:
+    int
+@param priority:
+    description 2
+@type sender:
+    str?
+@param sender:
+    description 3
+@type message:
+    str?
+@param message:
+    description 4, defaults to 'hello'
+@type multiline:
+    str?
+@param multiline:
+    long description 5,
+    defaults to 'bye'

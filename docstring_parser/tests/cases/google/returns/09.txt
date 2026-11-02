@@ -1,0 +1,24 @@
+# Test parsing returns.
+=== input
+
+        Short description
+        Returns:
+            int: description
+            with much text
+
+            even some spacing
+        
+=== parse google
+short_description: 'Short description'
+blank_after_short_description: False
+blank_after_long_description: False
+style: google
+- DocstringReturns
+  args: ['returns', 'int']
+  description: |
+    description
+    with much text
+    
+    even some spacing
+  type_name: 'int'
+  is_generator: False

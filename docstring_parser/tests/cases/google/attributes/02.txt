@@ -1,0 +1,38 @@
+# Test parsing attributes.
+=== input
+
+        Short description
+
+        Attributes:
+            name: description 1
+            priority (int): description 2
+            sender (str?): description 3
+            ratio (Optional[float], optional): description 4
+        
+=== parse google
+short_description: 'Short description'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['attribute', 'name']
+  description: 'description 1'
+  arg_name: 'name'
+- DocstringParam
+  args: ['attribute', 'priority (int)']
+  description: 'description 2'
+  arg_name: 'priority'
+  type_name: 'int'
+  is_optional: False
+- DocstringParam
+  args: ['attribute', 'sender (str?)']
+  description: 'description 3'
+  arg_name: 'sender'
+  type_name: 'str'
+  is_optional: True
+- DocstringParam
+  args: ['attribute', 'ratio (Optional[float], optional)']
+  description: 'description 4'
+  arg_name: 'ratio'
+  type_name: 'Optional[float]'
+  is_optional: True

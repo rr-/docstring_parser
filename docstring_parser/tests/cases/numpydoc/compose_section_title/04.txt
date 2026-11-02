@@ -1,0 +1,21 @@
+# Test that a section composes with its own title and underline.
+=== input
+Short.
+
+References
+----------
+Some text.
+=== parse numpydoc
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringMeta
+  args: ['references']
+  description: 'Some text.'
+=== compose numpydoc
+Short.
+
+References
+----------
+Some text.

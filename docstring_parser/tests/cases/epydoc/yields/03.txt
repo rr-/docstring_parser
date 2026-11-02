@@ -1,0 +1,17 @@
+# Test parsing yields.
+=== input
+
+        Short description
+        @yield: description
+        @ytype: int
+        
+=== parse epydoc
+short_description: 'Short description'
+blank_after_short_description: False
+blank_after_long_description: False
+style: epydoc
+- DocstringReturns
+  args: ['yield']
+  description: 'description'
+  type_name: 'int'
+  is_generator: True

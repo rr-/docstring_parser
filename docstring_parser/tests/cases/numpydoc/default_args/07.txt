@@ -1,0 +1,19 @@
+# Test parsing default arguments.
+=== input
+
+                Parameters
+                ----------
+                arg6 : Optional[Dict[str, Any]], optional
+                    The fourth arg. Defaults to None
+                
+=== parse numpydoc
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'arg6']
+  description: 'The fourth arg. Defaults to None'
+  arg_name: 'arg6'
+  type_name: 'Optional[Dict[str, Any]]'
+  is_optional: True
+  default: 'None'

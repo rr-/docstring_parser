@@ -1,0 +1,10 @@
+# Test compose in default mode.
+=== input
+
+
+=== parse epydoc
+blank_after_short_description: False
+blank_after_long_description: False
+style: epydoc
+=== compose epydoc
+

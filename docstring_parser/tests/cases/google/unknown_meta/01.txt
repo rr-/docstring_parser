@@ -1,0 +1,33 @@
+# Test parsing unknown meta.
+=== input
+Short desc
+
+        Unknown 0:
+            title0: content0
+
+        Args:
+            arg0: desc0
+            arg1: desc1
+
+        Unknown1:
+            title1: content1
+
+        Unknown2:
+            title2: content2
+        
+=== parse google
+short_description: 'Short desc'
+long_description: |
+  Unknown 0:
+      title0: content0
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'arg0']
+  description: 'desc0'
+  arg_name: 'arg0'
+- DocstringParam
+  args: ['param', 'arg1']
+  description: 'desc1'
+  arg_name: 'arg1'

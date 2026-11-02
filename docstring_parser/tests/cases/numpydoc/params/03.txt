@@ -1,0 +1,30 @@
+# Test parsing params.
+=== input
+
+        Short description
+
+        Parameters
+        ----------
+        name
+            description 1
+            with multi-line text
+        priority : int
+            description 2
+        
+=== parse numpydoc
+short_description: 'Short description'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'name']
+  description: |
+    description 1
+    with multi-line text
+  arg_name: 'name'
+- DocstringParam
+  args: ['param', 'priority']
+  description: 'description 2'
+  arg_name: 'priority'
+  type_name: 'int'
+  is_optional: False

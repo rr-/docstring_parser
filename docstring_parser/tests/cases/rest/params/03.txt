@@ -1,0 +1,25 @@
+# Test parsing params.
+=== input
+
+        Short description
+
+        :param a: description a
+        :type a: int
+        :param int b: description b
+        
+=== parse rest
+short_description: 'Short description'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringParam
+  args: ['param', 'a']
+  description: 'description a'
+  arg_name: 'a'
+  type_name: 'int'
+- DocstringParam
+  args: ['param', 'int', 'b']
+  description: 'description b'
+  arg_name: 'b'
+  type_name: 'int'
+  is_optional: False

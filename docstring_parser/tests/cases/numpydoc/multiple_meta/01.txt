@@ -1,0 +1,41 @@
+# Test parsing multiple meta.
+=== input
+
+        Short description
+
+        Parameters
+        ----------
+        spam
+            asd
+            1
+                2
+            3
+
+        Raises
+        ------
+        bla
+            herp
+        yay
+            derp
+        
+=== parse numpydoc
+short_description: 'Short description'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'spam']
+  description: |
+    asd
+    1
+        2
+    3
+  arg_name: 'spam'
+- DocstringRaises
+  args: ['raises', 'bla']
+  description: 'herp'
+  type_name: 'bla'
+- DocstringRaises
+  args: ['raises', 'yay']
+  description: 'derp'
+  type_name: 'yay'

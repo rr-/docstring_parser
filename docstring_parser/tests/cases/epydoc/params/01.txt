@@ -1,0 +1,8 @@
+# Test parsing params.
+=== input
+Short description
+=== parse epydoc
+short_description: 'Short description'
+blank_after_short_description: False
+blank_after_long_description: False
+style: epydoc

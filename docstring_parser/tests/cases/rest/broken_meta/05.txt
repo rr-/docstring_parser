@@ -1,0 +1,5 @@
+# Test parsing broken meta.
+=== input
+:  : field with no name
+=== parse rest
+ParseError: Error parsing meta information near ":  : field with no name".

@@ -1,0 +1,18 @@
+# Test abbreviated docstring with only return type information.
+=== input
+Short description.
+
+:rtype: float
+=== parse rest
+short_description: 'Short description.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringReturns
+  args: []
+  type_name: 'float'
+  is_generator: False
+=== compose rest expanded
+Short description.
+
+:rtype: float

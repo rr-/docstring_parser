@@ -1,0 +1,7 @@
+# A field name must immediately follow its opening marker.
+=== input
+Summary.
+
+@!param value: detail
+=== parse epydoc
+ParseError: Error parsing meta information near "@!param value: detail".

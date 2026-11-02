@@ -1,0 +1,18 @@
+# Test parsing default arguments.
+=== input
+
+                Parameters
+                ----------
+                parameter_without_default : int
+                    The parameter_without_default is required.
+                
+=== parse numpydoc
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'parameter_without_default']
+  description: 'The parameter_without_default is required.'
+  arg_name: 'parameter_without_default'
+  type_name: 'int'
+  is_optional: False

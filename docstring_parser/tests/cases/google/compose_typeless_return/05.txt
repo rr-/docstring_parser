@@ -1,0 +1,20 @@
+# Test that a return with no type composes as its description.
+=== input
+Short.
+
+Returns:
+    The value.
+=== parse google
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringReturns
+  args: ['returns']
+  description: 'The value.'
+  is_generator: False
+=== compose google clean
+Short.
+
+Returns:
+    The value.
