@@ -1,0 +1,31 @@
+# Test that a line indented less than the summary doesn't leave it indented.
+=== input
+
+    Short.
+
+   Long.
+    
+=== parse rest
+short_description: 'Short.'
+long_description: 'Long.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== parse google
+short_description: 'Short.'
+long_description: 'Long.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== parse numpydoc
+short_description: 'Short.'
+long_description: 'Long.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== parse epydoc
+short_description: 'Short.'
+long_description: 'Long.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc

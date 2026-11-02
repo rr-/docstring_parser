@@ -11,7 +11,7 @@
 
     
 === parse numpydoc
-short_description: ' Compute the frequency response of a digital filter in SOS format (legacy).'
+short_description: 'Compute the frequency response of a digital filter in SOS format (legacy).'
 long_description: |
   .. legacy:: function
   
@@ -24,7 +24,7 @@ style: numpydoc
 === detect
 rest
 === compose numpydoc
- Compute the frequency response of a digital filter in SOS format (legacy).
+Compute the frequency response of a digital filter in SOS format (legacy).
 
 .. legacy:: function
 

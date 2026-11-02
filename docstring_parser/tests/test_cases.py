@@ -22,9 +22,6 @@ UNSTABLE_COMPOSE = {
     "corpus/pydantic/pydantic.fields.Field.txt": (
         "google: an indented block in a description loses its indent"
     ),
-    "corpus/scipy/scipy.signal._filter_design.sosfreqz.txt": (
-        "numpydoc: a leading space in the short description is kept once"
-    ),
     "google/examples/01.txt": (
         "google: an example titled like a section is composed as one"
     ),

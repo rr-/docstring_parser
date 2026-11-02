@@ -262,7 +262,7 @@ class GoogleParser:
 
         # Break description into short and long parts
         parts = desc_chunk.split("\n", 1)
-        ret.short_description = parts[0] or None
+        ret.short_description = parts[0].strip() or None
         if len(parts) > 1:
             long_desc_chunk = parts[1] or ""
             ret.blank_after_short_description = long_desc_chunk.startswith(
