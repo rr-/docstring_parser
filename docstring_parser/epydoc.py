@@ -3,7 +3,6 @@
 .. seealso:: http://epydoc.sourceforge.net/manual-fields.html
 """
 
-import inspect
 import re
 import typing as T
 
@@ -16,6 +15,7 @@ from .common import (
     DocstringStyle,
     ParseError,
     RenderingStyle,
+    cleandoc,
     excerpt,
     normalize_line_endings,
 )
@@ -37,7 +37,7 @@ def parse(text: T.Optional[str]) -> Docstring:
     if not text:
         return ret
 
-    text = inspect.cleandoc(normalize_line_endings(text))
+    text = cleandoc(normalize_line_endings(text))
     match = re.search("^@", text, flags=re.M)
     if match:
         desc_chunk = text[: match.start()]
@@ -136,7 +136,7 @@ def parse(text: T.Optional[str]) -> Docstring:
         desc = desc_chunk.strip()
         if "\n" in desc:
             first_line, rest = desc.split("\n", 1)
-            desc = first_line + "\n" + inspect.cleandoc(rest)
+            desc = first_line + "\n" + cleandoc(rest)
         stream.append((base, key, args, desc))
 
     # Combine type_name, arg_name, and description information

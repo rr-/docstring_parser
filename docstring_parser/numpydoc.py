@@ -3,7 +3,6 @@
 :see: https://numpydoc.readthedocs.io/en/latest/format.html
 """
 
-import inspect
 import itertools
 import re
 import typing as T
@@ -19,6 +18,7 @@ from .common import (
     DocstringReturns,
     DocstringStyle,
     RenderingStyle,
+    cleandoc,
     meta_as_attribute,
     normalize_line_endings,
 )
@@ -116,9 +116,7 @@ class _KVSection(Section):
             start = match.end()
             end = next_match.start() if next_match is not None else None
             value = text[start:end]
-            yield self._parse_item(
-                key=match.group(), value=inspect.cleandoc(value)
-            )
+            yield self._parse_item(key=match.group(), value=cleandoc(value))
 
 
 class _SphinxSection(Section):
@@ -258,7 +256,7 @@ class DeprecationSection(_SphinxSection):
 
         yield DocstringDeprecated(
             args=[self.key],
-            description=_clean_str(inspect.cleandoc(desc)),
+            description=_clean_str(cleandoc(desc)),
             version=_clean_str(version),
         )
 
@@ -374,7 +372,7 @@ class NumpydocParser:
             return ret
 
         # Clean according to PEP-0257
-        text = inspect.cleandoc(normalize_line_endings(text))
+        text = cleandoc(normalize_line_endings(text))
 
         # Find first title and split on its position
         match = self.titles_re.search(text)

@@ -1,6 +1,5 @@
 """ReST-style docstring parsing."""
 
-import inspect
 import re
 import textwrap
 import typing as T
@@ -21,6 +20,7 @@ from .common import (
     DocstringStyle,
     ParseError,
     RenderingStyle,
+    cleandoc,
     continuation_indented,
     excerpt,
     normalize_line_endings,
@@ -113,7 +113,7 @@ def parse(text: T.Optional[str]) -> Docstring:
     if not text:
         return ret
 
-    text = inspect.cleandoc(normalize_line_endings(text))
+    text = cleandoc(normalize_line_endings(text))
     match = re.search("^:", text, flags=re.M)
     if match:
         desc_chunk = text[: match.start()]
