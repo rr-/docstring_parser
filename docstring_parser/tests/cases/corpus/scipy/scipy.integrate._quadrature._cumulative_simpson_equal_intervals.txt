@@ -1,0 +1,20 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Calculate the Simpson integrals for all h1 intervals assuming equal interval
+    widths. The function can also be used to calculate the integral for all
+    h2 intervals by reversing the inputs, `y` and `dx`.
+    
+=== parse numpydoc
+short_description: 'Calculate the Simpson integrals for all h1 intervals assuming equal interval'
+long_description: |
+  widths. The function can also be used to calculate the integral for all
+  h2 intervals by reversing the inputs, `y` and `dx`.
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Calculate the Simpson integrals for all h1 intervals assuming equal interval
+widths. The function can also be used to calculate the integral for all
+h2 intervals by reversing the inputs, `y` and `dx`.

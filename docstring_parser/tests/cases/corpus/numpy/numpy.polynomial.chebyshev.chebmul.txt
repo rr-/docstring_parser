@@ -1,0 +1,122 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Multiply one Chebyshev series by another.
+
+    Returns the product of two Chebyshev series `c1` * `c2`.  The arguments
+    are sequences of coefficients, from lowest order "term" to highest,
+    e.g., [1,2,3] represents the series ``T_0 + 2*T_1 + 3*T_2``.
+
+    Parameters
+    ----------
+    c1, c2 : array_like
+        1-D arrays of Chebyshev series coefficients ordered from low to
+        high.
+
+    Returns
+    -------
+    out : ndarray
+        Of Chebyshev series coefficients representing their product.
+
+    See Also
+    --------
+    chebadd, chebsub, chebmulx, chebdiv, chebpow
+
+    Notes
+    -----
+    In general, the (polynomial) product of two C-series results in terms
+    that are not in the Chebyshev polynomial basis set.  Thus, to express
+    the product as a C-series, it is typically necessary to "reproject"
+    the product onto said basis set, which typically produces
+    "unintuitive live" (but correct) results; see Examples section below.
+
+    Examples
+    --------
+    >>> from numpy.polynomial import chebyshev as C
+    >>> c1 = (1,2,3)
+    >>> c2 = (3,2,1)
+    >>> C.chebmul(c1,c2) # multiplication requires "reprojection"
+    array([  6.5,  12. ,  12. ,   4. ,   1.5])
+
+    
+=== parse numpydoc
+short_description: 'Multiply one Chebyshev series by another.'
+long_description: |
+  Returns the product of two Chebyshev series `c1` * `c2`.  The arguments
+  are sequences of coefficients, from lowest order "term" to highest,
+  e.g., [1,2,3] represents the series ``T_0 + 2*T_1 + 3*T_2``.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'c1, c2']
+  description: |
+    1-D arrays of Chebyshev series coefficients ordered from low to
+    high.
+  arg_name: 'c1, c2'
+  type_name: 'array_like'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: 'Of Chebyshev series coefficients representing their product.'
+  type_name: 'ndarray'
+  is_generator: False
+  return_name: 'out'
+- DocstringMeta
+  args: ['see_also']
+  description: 'chebadd, chebsub, chebmulx, chebdiv, chebpow'
+- DocstringMeta
+  args: ['notes']
+  description: |
+    In general, the (polynomial) product of two C-series results in terms
+    that are not in the Chebyshev polynomial basis set.  Thus, to express
+    the product as a C-series, it is typically necessary to "reproject"
+    the product onto said basis set, which typically produces
+    "unintuitive live" (but correct) results; see Examples section below.
+- DocstringExample
+  args: ['examples']
+  description: 'array([  6.5,  12. ,  12. ,   4. ,   1.5])'
+  snippet: |
+    >>> from numpy.polynomial import chebyshev as C
+    >>> c1 = (1,2,3)
+    >>> c2 = (3,2,1)
+    >>> C.chebmul(c1,c2) # multiplication requires "reprojection"
+=== detect
+numpydoc
+=== compose numpydoc
+Multiply one Chebyshev series by another.
+
+Returns the product of two Chebyshev series `c1` * `c2`.  The arguments
+are sequences of coefficients, from lowest order "term" to highest,
+e.g., [1,2,3] represents the series ``T_0 + 2*T_1 + 3*T_2``.
+
+Parameters
+----------
+c1, c2 : array_like
+    1-D arrays of Chebyshev series coefficients ordered from low to
+    high.
+
+Returns
+-------
+out : ndarray
+    Of Chebyshev series coefficients representing their product.
+
+Examples
+--------
+>>> from numpy.polynomial import chebyshev as C
+>>> c1 = (1,2,3)
+>>> c2 = (3,2,1)
+>>> C.chebmul(c1,c2) # multiplication requires "reprojection"
+array([  6.5,  12. ,  12. ,   4. ,   1.5])
+
+See Also
+--------
+chebadd, chebsub, chebmulx, chebdiv, chebpow
+
+Notes
+-----
+In general, the (polynomial) product of two C-series results in terms
+that are not in the Chebyshev polynomial basis set.  Thus, to express
+the product as a C-series, it is typically necessary to "reproject"
+the product onto said basis set, which typically produces
+"unintuitive live" (but correct) results; see Examples section below.

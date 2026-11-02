@@ -1,0 +1,16 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Returns `x` transformed by the Yeo-Johnson power transform with given
+    parameter `lmbda`.
+    
+=== parse numpydoc
+short_description: 'Returns `x` transformed by the Yeo-Johnson power transform with given'
+long_description: 'parameter `lmbda`.'
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Returns `x` transformed by the Yeo-Johnson power transform with given
+parameter `lmbda`.

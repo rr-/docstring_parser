@@ -1,0 +1,27 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Interpret the dtype from a scalar or array.
+
+    Parameters
+    ----------
+    val : object
+    
+=== parse numpydoc
+short_description: 'Interpret the dtype from a scalar or array.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'val']
+  arg_name: 'val'
+  type_name: 'object'
+  is_optional: False
+=== detect
+numpydoc
+=== compose numpydoc
+Interpret the dtype from a scalar or array.
+
+Parameters
+----------
+val : object

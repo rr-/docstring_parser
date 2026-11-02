@@ -1,0 +1,38 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+!!! abstract "Usage Documentation"
+    [JSON Schema](../concepts/json_schema.md)
+
+The `json_schema` module contains classes and functions to allow the way [JSON Schema](https://json-schema.org/)
+is generated to be customized.
+
+In general you shouldn't need to use this module directly; instead, you can use
+[`BaseModel.model_json_schema`][pydantic.BaseModel.model_json_schema] and
+[`TypeAdapter.json_schema`][pydantic.TypeAdapter.json_schema].
+
+=== parse google
+short_description: '!!! abstract "Usage Documentation"'
+long_description: |
+  [JSON Schema](../concepts/json_schema.md)
+  
+  The `json_schema` module contains classes and functions to allow the way [JSON Schema](https://json-schema.org/)
+  is generated to be customized.
+  
+  In general you shouldn't need to use this module directly; instead, you can use
+  [`BaseModel.model_json_schema`][pydantic.BaseModel.model_json_schema] and
+  [`TypeAdapter.json_schema`][pydantic.TypeAdapter.json_schema].
+blank_after_short_description: False
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+!!! abstract "Usage Documentation"
+[JSON Schema](../concepts/json_schema.md)
+
+The `json_schema` module contains classes and functions to allow the way [JSON Schema](https://json-schema.org/)
+is generated to be customized.
+
+In general you shouldn't need to use this module directly; instead, you can use
+[`BaseModel.model_json_schema`][pydantic.BaseModel.model_json_schema] and
+[`TypeAdapter.json_schema`][pydantic.TypeAdapter.json_schema].

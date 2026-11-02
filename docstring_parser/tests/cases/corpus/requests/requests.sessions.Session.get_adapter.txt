@@ -1,0 +1,22 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+
+        Returns the appropriate connection adapter for the given URL.
+
+        :rtype: requests.adapters.BaseAdapter
+        
+=== parse rest
+short_description: 'Returns the appropriate connection adapter for the given URL.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringReturns
+  args: []
+  type_name: 'requests.adapters.BaseAdapter'
+  is_generator: False
+=== detect
+rest
+=== compose rest
+Returns the appropriate connection adapter for the given URL.
+
+:returns requests.adapters.BaseAdapter:

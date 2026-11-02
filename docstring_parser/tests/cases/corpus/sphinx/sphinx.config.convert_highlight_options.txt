@@ -1,0 +1,22 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Convert old styled highlight_options to new styled one.
+
+    * old style: options
+    * new style: a dict which maps from language name to options
+    
+=== parse rest
+short_description: 'Convert old styled highlight_options to new styled one.'
+long_description: |
+  * old style: options
+  * new style: a dict which maps from language name to options
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Convert old styled highlight_options to new styled one.
+
+* old style: options
+* new style: a dict which maps from language name to options

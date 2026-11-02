@@ -1,0 +1,123 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Render a DataFrame to an html table.
+
+        Parameters
+        ----------
+        buf : str, path object, file-like object, or None, default None
+            String, path object (implementing ``os.PathLike[str]``), or file-like
+            object implementing a string ``write()`` function. If None, the result is
+            returned as a string.
+        encoding : str, default “utf-8”
+            Set character encoding.
+        classes : str or list-like
+            classes to include in the `class` attribute of the opening
+            ``<table>`` tag, in addition to the default "dataframe".
+        notebook : {True, False}, optional, default False
+            Whether the generated HTML is for IPython Notebook.
+        border : int or bool
+            When an integer value is provided, it sets the border attribute in
+            the opening tag, specifying the thickness of the border.
+            If ``False`` or ``0`` is passed, the border attribute will not
+            be present in the ``<table>`` tag.
+            The default value for this parameter is governed by
+            ``pd.options.display.html.border``.
+        table_id : str, optional
+            A css id is included in the opening `<table>` tag if specified.
+        render_links : bool, default False
+            Convert URLs to HTML links.
+        
+=== parse numpydoc
+short_description: 'Render a DataFrame to an html table.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'buf']
+  description: |
+    String, path object (implementing ``os.PathLike[str]``), or file-like
+    object implementing a string ``write()`` function. If None, the result is
+    returned as a string.
+  arg_name: 'buf'
+  type_name: 'str, path object, file-like object, or None'
+  is_optional: True
+  default: 'None'
+- DocstringParam
+  args: ['param', 'encoding']
+  description: 'Set character encoding.'
+  arg_name: 'encoding'
+  type_name: 'str'
+  is_optional: True
+  default: '“utf-8”'
+- DocstringParam
+  args: ['param', 'classes']
+  description: |
+    classes to include in the `class` attribute of the opening
+    ``<table>`` tag, in addition to the default "dataframe".
+  arg_name: 'classes'
+  type_name: 'str or list-like'
+  is_optional: False
+  default: '"dataframe"'
+- DocstringParam
+  args: ['param', 'notebook']
+  description: 'Whether the generated HTML is for IPython Notebook.'
+  arg_name: 'notebook'
+  type_name: '{True, False}, optional'
+  is_optional: True
+  default: 'False'
+- DocstringParam
+  args: ['param', 'border']
+  description: |
+    When an integer value is provided, it sets the border attribute in
+    the opening tag, specifying the thickness of the border.
+    If ``False`` or ``0`` is passed, the border attribute will not
+    be present in the ``<table>`` tag.
+    The default value for this parameter is governed by
+    ``pd.options.display.html.border``.
+  arg_name: 'border'
+  type_name: 'int or bool'
+  is_optional: False
+  default: 'value'
+- DocstringParam
+  args: ['param', 'table_id']
+  description: 'A css id is included in the opening `<table>` tag if specified.'
+  arg_name: 'table_id'
+  type_name: 'str'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'render_links']
+  description: 'Convert URLs to HTML links.'
+  arg_name: 'render_links'
+  type_name: 'bool'
+  is_optional: True
+  default: 'False'
+=== detect
+numpydoc
+=== compose numpydoc
+Render a DataFrame to an html table.
+
+Parameters
+----------
+buf : str, path object, file-like object, or None, optional
+    String, path object (implementing ``os.PathLike[str]``), or file-like
+    object implementing a string ``write()`` function. If None, the result is
+    returned as a string.
+encoding : str, default=“utf-8”
+    Set character encoding.
+classes : str or list-like, default="dataframe"
+    classes to include in the `class` attribute of the opening
+    ``<table>`` tag, in addition to the default "dataframe".
+notebook : {True, False}, optional, default=False
+    Whether the generated HTML is for IPython Notebook.
+border : int or bool, default=value
+    When an integer value is provided, it sets the border attribute in
+    the opening tag, specifying the thickness of the border.
+    If ``False`` or ``0`` is passed, the border attribute will not
+    be present in the ``<table>`` tag.
+    The default value for this parameter is governed by
+    ``pd.options.display.html.border``.
+table_id : str, optional
+    A css id is included in the opening `<table>` tag if specified.
+render_links : bool, default=False
+    Convert URLs to HTML links.

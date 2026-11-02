@@ -1,0 +1,25 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Returns the protocol that a subscripted generic protocol stands for.
+
+    A subscripted generic protocol, e.g. ``Proto[int]``, is a generic alias
+    through which the members can't be looked up. What it is subscripted with
+    is given by get_type_var_map, see implements_protocol.
+    
+=== parse google
+short_description: 'Returns the protocol that a subscripted generic protocol stands for.'
+long_description: |
+  A subscripted generic protocol, e.g. ``Proto[int]``, is a generic alias
+  through which the members can't be looked up. What it is subscripted with
+  is given by get_type_var_map, see implements_protocol.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Returns the protocol that a subscripted generic protocol stands for.
+
+A subscripted generic protocol, e.g. ``Proto[int]``, is a generic alias
+through which the members can't be looked up. What it is subscripted with
+is given by get_type_var_map, see implements_protocol.

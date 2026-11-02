@@ -1,0 +1,28 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Rank of a union subtype, sorted by which is attempted first when parsing.
+
+    The subtypes that accept the most values get a higher rank, so that sorting
+    moves them to the end and the ones that validate more strictly get a chance
+    of being used. Sorting is stable, thus subtypes with the same rank keep the
+    relative order in which they are given.
+    
+=== parse google
+short_description: 'Rank of a union subtype, sorted by which is attempted first when parsing.'
+long_description: |
+  The subtypes that accept the most values get a higher rank, so that sorting
+  moves them to the end and the ones that validate more strictly get a chance
+  of being used. Sorting is stable, thus subtypes with the same rank keep the
+  relative order in which they are given.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Rank of a union subtype, sorted by which is attempted first when parsing.
+
+The subtypes that accept the most values get a higher rank, so that sorting
+moves them to the end and the ones that validate more strictly get a chance
+of being used. Sorting is stable, thus subtypes with the same rank keep the
+relative order in which they are given.

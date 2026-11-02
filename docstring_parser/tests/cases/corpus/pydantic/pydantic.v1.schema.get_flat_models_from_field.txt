@@ -1,0 +1,39 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+    Take a single Pydantic ``ModelField`` (from a model) that could have been declared as a subclass of BaseModel
+    (so, it could be a submodel), and generate a set with its model and all the sub-models in the tree.
+    I.e. if you pass a field that was declared to be of type ``Foo`` (subclass of BaseModel) as ``field``, and that
+    model ``Foo`` has a field of type ``Bar`` (also subclass of ``BaseModel``) and that model ``Bar`` has a field of
+    type ``Baz`` (also subclass of ``BaseModel``), the return value will be ``set([Foo, Bar, Baz])``.
+
+    :param field: a Pydantic ``ModelField``
+    :param known_models: used to solve circular references
+    :return: a set with the model used in the declaration for this field, if any, and all its sub-models
+    
+=== parse google
+short_description: 'Take a single Pydantic ``ModelField`` (from a model) that could have been declared as a subclass of BaseModel'
+long_description: |
+  (so, it could be a submodel), and generate a set with its model and all the sub-models in the tree.
+  I.e. if you pass a field that was declared to be of type ``Foo`` (subclass of BaseModel) as ``field``, and that
+  model ``Foo`` has a field of type ``Bar`` (also subclass of ``BaseModel``) and that model ``Bar`` has a field of
+  type ``Baz`` (also subclass of ``BaseModel``), the return value will be ``set([Foo, Bar, Baz])``.
+  
+  :param field: a Pydantic ``ModelField``
+  :param known_models: used to solve circular references
+  :return: a set with the model used in the declaration for this field, if any, and all its sub-models
+blank_after_short_description: False
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Take a single Pydantic ``ModelField`` (from a model) that could have been declared as a subclass of BaseModel
+(so, it could be a submodel), and generate a set with its model and all the sub-models in the tree.
+I.e. if you pass a field that was declared to be of type ``Foo`` (subclass of BaseModel) as ``field``, and that
+model ``Foo`` has a field of type ``Bar`` (also subclass of ``BaseModel``) and that model ``Bar`` has a field of
+type ``Baz`` (also subclass of ``BaseModel``), the return value will be ``set([Foo, Bar, Baz])``.
+
+:param field: a Pydantic ``ModelField``
+:param known_models: used to solve circular references
+:return: a set with the model used in the declaration for this field, if any, and all its sub-models

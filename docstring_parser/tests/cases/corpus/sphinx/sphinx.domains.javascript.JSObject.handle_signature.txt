@@ -1,0 +1,25 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Breaks down construct signatures
+
+        Parses out prefix and argument list from construct definition. The
+        namespace and class will be determined by the nesting of domain
+        directives.
+        
+=== parse rest
+short_description: 'Breaks down construct signatures'
+long_description: |
+  Parses out prefix and argument list from construct definition. The
+  namespace and class will be determined by the nesting of domain
+  directives.
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Breaks down construct signatures
+
+Parses out prefix and argument list from construct definition. The
+namespace and class will be determined by the nesting of domain
+directives.

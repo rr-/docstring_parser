@@ -1,0 +1,92 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+This class is the base class for search natural language preprocessors.  If
+    you want to add support for a new language, you should override the methods
+    of this class.
+
+    You should override `lang` class property too (e.g. 'en', 'fr' and so on).
+
+    .. attribute:: stopwords
+
+       This is a set of stop words of the target language.  Default `stopwords`
+       is empty.  This word is used for building index and embedded in JS.
+
+    .. attribute:: js_splitter_code
+
+       Return splitter function of JavaScript version.  The function should be
+       named as ``splitQuery``.  And it should take a string and return list of
+       strings.
+
+       .. versionadded:: 3.0
+
+    .. attribute:: js_stemmer_code
+
+       Return stemmer class of JavaScript version.  This class' name should be
+       ``Stemmer`` and this class must have ``stemWord`` method.  This string is
+       embedded as-is in searchtools.js.
+
+       This class is used to preprocess search word which Sphinx HTML readers
+       type, before searching index. Default implementation does nothing.
+    
+=== parse rest
+short_description: 'This class is the base class for search natural language preprocessors.  If'
+long_description: |
+  you want to add support for a new language, you should override the methods
+  of this class.
+  
+  You should override `lang` class property too (e.g. 'en', 'fr' and so on).
+  
+  .. attribute:: stopwords
+  
+     This is a set of stop words of the target language.  Default `stopwords`
+     is empty.  This word is used for building index and embedded in JS.
+  
+  .. attribute:: js_splitter_code
+  
+     Return splitter function of JavaScript version.  The function should be
+     named as ``splitQuery``.  And it should take a string and return list of
+     strings.
+  
+     .. versionadded:: 3.0
+  
+  .. attribute:: js_stemmer_code
+  
+     Return stemmer class of JavaScript version.  This class' name should be
+     ``Stemmer`` and this class must have ``stemWord`` method.  This string is
+     embedded as-is in searchtools.js.
+  
+     This class is used to preprocess search word which Sphinx HTML readers
+     type, before searching index. Default implementation does nothing.
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+This class is the base class for search natural language preprocessors.  If
+you want to add support for a new language, you should override the methods
+of this class.
+
+You should override `lang` class property too (e.g. 'en', 'fr' and so on).
+
+.. attribute:: stopwords
+
+   This is a set of stop words of the target language.  Default `stopwords`
+   is empty.  This word is used for building index and embedded in JS.
+
+.. attribute:: js_splitter_code
+
+   Return splitter function of JavaScript version.  The function should be
+   named as ``splitQuery``.  And it should take a string and return list of
+   strings.
+
+   .. versionadded:: 3.0
+
+.. attribute:: js_stemmer_code
+
+   Return stemmer class of JavaScript version.  This class' name should be
+   ``Stemmer`` and this class must have ``stemWord`` method.  This string is
+   embedded as-is in searchtools.js.
+
+   This class is used to preprocess search word which Sphinx HTML readers
+   type, before searching index. Default implementation does nothing.

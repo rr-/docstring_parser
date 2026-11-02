@@ -1,0 +1,45 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Adjust a string by cropping or padding with spaces such that it fits within the given number of cells.
+
+    Args:
+        text: String to adjust.
+        total: Desired size in cells.
+        unicode_version: Unicode version.
+
+    Returns:
+        A string with cell size equal to total.
+    
+=== parse google
+short_description: 'Adjust a string by cropping or padding with spaces such that it fits within the given number of cells.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'text']
+  description: 'String to adjust.'
+  arg_name: 'text'
+- DocstringParam
+  args: ['param', 'total']
+  description: 'Desired size in cells.'
+  arg_name: 'total'
+- DocstringParam
+  args: ['param', 'unicode_version']
+  description: 'Unicode version.'
+  arg_name: 'unicode_version'
+- DocstringReturns
+  args: ['returns']
+  description: 'A string with cell size equal to total.'
+  is_generator: False
+=== detect
+google
+=== compose google
+Adjust a string by cropping or padding with spaces such that it fits within the given number of cells.
+
+Args:
+    text: String to adjust.
+    total: Desired size in cells.
+    unicode_version: Unicode version.
+
+Returns:
+    A string with cell size equal to total.

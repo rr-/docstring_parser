@@ -1,0 +1,24 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Un-escape any percent-escape sequences in a URI that are unreserved
+    characters. This leaves all reserved, illegal and non-ASCII bytes encoded.
+
+    :rtype: str
+    
+=== parse rest
+short_description: 'Un-escape any percent-escape sequences in a URI that are unreserved'
+long_description: 'characters. This leaves all reserved, illegal and non-ASCII bytes encoded.'
+blank_after_short_description: False
+blank_after_long_description: True
+style: rest
+- DocstringReturns
+  args: []
+  type_name: 'str'
+  is_generator: False
+=== detect
+rest
+=== compose rest
+Un-escape any percent-escape sequences in a URI that are unreserved
+characters. This leaves all reserved, illegal and non-ASCII bytes encoded.
+
+:returns str:

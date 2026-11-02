@@ -1,0 +1,46 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Analogue to np.where(mask, self, value)
+
+        Parameters
+        ----------
+        mask : np.ndarray[bool]
+        value : scalar or listlike
+
+        Returns
+        -------
+        same type as self
+        
+=== parse numpydoc
+short_description: 'Analogue to np.where(mask, self, value)'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'mask']
+  arg_name: 'mask'
+  type_name: 'np.ndarray[bool]'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'value']
+  arg_name: 'value'
+  type_name: 'scalar or listlike'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  type_name: 'same type as self'
+  is_generator: False
+=== detect
+numpydoc
+=== compose numpydoc
+Analogue to np.where(mask, self, value)
+
+Parameters
+----------
+mask : np.ndarray[bool]
+value : scalar or listlike
+
+Returns
+-------
+same type as self

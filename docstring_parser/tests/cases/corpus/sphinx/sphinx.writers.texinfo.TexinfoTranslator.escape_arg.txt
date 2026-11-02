@@ -1,0 +1,16 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Return an escaped string suitable for use as an argument
+        to a Texinfo command.
+        
+=== parse rest
+short_description: 'Return an escaped string suitable for use as an argument'
+long_description: 'to a Texinfo command.'
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Return an escaped string suitable for use as an argument
+to a Texinfo command.

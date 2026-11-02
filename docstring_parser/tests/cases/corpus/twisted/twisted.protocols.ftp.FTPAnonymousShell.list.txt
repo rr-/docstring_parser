@@ -1,0 +1,40 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Return the list of files at given C{path}, adding C{keys} stat
+        informations if specified.
+
+        @param path: the directory or file to check.
+        @type path: C{str}
+
+        @param keys: the list of desired metadata
+        @type keys: C{list} of C{str}
+        
+=== parse epydoc
+short_description: 'Return the list of files at given C{path}, adding C{keys} stat'
+long_description: 'informations if specified.'
+blank_after_short_description: False
+blank_after_long_description: True
+style: epydoc
+- DocstringParam
+  args: ['param', 'path']
+  description: 'the directory or file to check.'
+  arg_name: 'path'
+  type_name: 'C{str}'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'keys']
+  description: 'the list of desired metadata'
+  arg_name: 'keys'
+  type_name: 'C{list} of C{str}'
+  is_optional: False
+=== detect
+epydoc
+=== compose epydoc
+Return the list of files at given C{path}, adding C{keys} stat
+informations if specified.
+
+@type path: C{str}
+@param path: the directory or file to check.
+@type keys: C{list} of C{str}
+@param keys: the list of desired metadata

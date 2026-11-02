@@ -1,0 +1,20 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Asserts that comparison between two masked arrays is satisfied.
+
+    The comparison is elementwise.
+
+    
+=== parse numpydoc
+short_description: 'Asserts that comparison between two masked arrays is satisfied.'
+long_description: 'The comparison is elementwise.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Asserts that comparison between two masked arrays is satisfied.
+
+The comparison is elementwise.

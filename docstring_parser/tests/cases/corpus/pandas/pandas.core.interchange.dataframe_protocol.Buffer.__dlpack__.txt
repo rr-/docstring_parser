@@ -1,0 +1,38 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Produce DLPack capsule (see array API standard).
+
+        Raises:
+
+            - TypeError : if the buffer contains unsupported dtypes.
+            - NotImplementedError : if DLPack support is not implemented
+
+        Useful to have to connect to array libraries. Support optional because
+        it's not completely trivial to implement for a Python-only library.
+        
+=== parse numpydoc
+short_description: 'Produce DLPack capsule (see array API standard).'
+long_description: |
+  Raises:
+  
+      - TypeError : if the buffer contains unsupported dtypes.
+      - NotImplementedError : if DLPack support is not implemented
+  
+  Useful to have to connect to array libraries. Support optional because
+  it's not completely trivial to implement for a Python-only library.
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== detect
+google
+=== compose numpydoc
+Produce DLPack capsule (see array API standard).
+
+Raises:
+
+    - TypeError : if the buffer contains unsupported dtypes.
+    - NotImplementedError : if DLPack support is not implemented
+
+Useful to have to connect to array libraries. Support optional because
+it's not completely trivial to implement for a Python-only library.

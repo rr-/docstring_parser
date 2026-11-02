@@ -1,0 +1,44 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Attempts to rebuild the original annotation for use in function signatures.
+
+        If metadata is present, it adds it to the original annotation using
+        `Annotated`. Otherwise, it returns the original annotation as-is.
+
+        Note that because the metadata has been flattened, the original annotation
+        may not be reconstructed exactly as originally provided, e.g. if the original
+        type had unrecognized annotations, or was annotated with a call to `pydantic.Field`.
+
+        Returns:
+            The rebuilt annotation.
+        
+=== parse google
+short_description: 'Attempts to rebuild the original annotation for use in function signatures.'
+long_description: |
+  If metadata is present, it adds it to the original annotation using
+  `Annotated`. Otherwise, it returns the original annotation as-is.
+  
+  Note that because the metadata has been flattened, the original annotation
+  may not be reconstructed exactly as originally provided, e.g. if the original
+  type had unrecognized annotations, or was annotated with a call to `pydantic.Field`.
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringReturns
+  args: ['returns']
+  description: 'The rebuilt annotation.'
+  is_generator: False
+=== detect
+google
+=== compose google
+Attempts to rebuild the original annotation for use in function signatures.
+
+If metadata is present, it adds it to the original annotation using
+`Annotated`. Otherwise, it returns the original annotation as-is.
+
+Note that because the metadata has been flattened, the original annotation
+may not be reconstructed exactly as originally provided, e.g. if the original
+type had unrecognized annotations, or was annotated with a call to `pydantic.Field`.
+
+Returns:
+    The rebuilt annotation.

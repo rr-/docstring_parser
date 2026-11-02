@@ -1,0 +1,32 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Returns a short string representing the permission bits.  Looks like
+        what is printed by command line utilities such as 'ls -l'
+        (e.g. 'rwx-wx--x')
+
+        @return: The shorthand string.
+        @rtype: L{str}
+        
+=== parse epydoc
+short_description: 'Returns a short string representing the permission bits.  Looks like'
+long_description: |
+  what is printed by command line utilities such as 'ls -l'
+  (e.g. 'rwx-wx--x')
+blank_after_short_description: False
+blank_after_long_description: True
+style: epydoc
+- DocstringReturns
+  args: ['return']
+  description: 'The shorthand string.'
+  type_name: 'L{str}'
+  is_generator: False
+=== detect
+epydoc
+=== compose epydoc
+Returns a short string representing the permission bits.  Looks like
+what is printed by command line utilities such as 'ls -l'
+(e.g. 'rwx-wx--x')
+
+@rtype: L{str}
+@return: The shorthand string.

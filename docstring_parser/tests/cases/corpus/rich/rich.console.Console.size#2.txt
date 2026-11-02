@@ -1,0 +1,25 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Set a new size for the terminal.
+
+        Args:
+            new_size (Tuple[int, int]): New width and height.
+        
+=== parse google
+short_description: 'Set a new size for the terminal.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'new_size (Tuple[int, int])']
+  description: 'New width and height.'
+  arg_name: 'new_size'
+  type_name: 'Tuple[int, int]'
+  is_optional: False
+=== detect
+google
+=== compose google
+Set a new size for the terminal.
+
+Args:
+    new_size (Tuple[int, int]): New width and height.

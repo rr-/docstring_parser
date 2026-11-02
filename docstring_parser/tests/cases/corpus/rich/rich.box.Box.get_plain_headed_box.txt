@@ -1,0 +1,31 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+If this box uses special characters for the borders of the header, then
+        return the equivalent box that does not.
+
+        Returns:
+            Box: The most similar Box that doesn't use header-specific box characters.
+                If the current Box already satisfies this criterion, then it's returned.
+        
+=== parse google
+short_description: 'If this box uses special characters for the borders of the header, then'
+long_description: 'return the equivalent box that does not.'
+blank_after_short_description: False
+blank_after_long_description: True
+style: google
+- DocstringReturns
+  args: ['returns', 'Box']
+  description: |
+    The most similar Box that doesn't use header-specific box characters.
+    If the current Box already satisfies this criterion, then it's returned.
+  type_name: 'Box'
+  is_generator: False
+=== detect
+google
+=== compose google
+If this box uses special characters for the borders of the header, then
+return the equivalent box that does not.
+
+Returns:
+    Box: The most similar Box that doesn't use header-specific box characters.
+        If the current Box already satisfies this criterion, then it's returned.

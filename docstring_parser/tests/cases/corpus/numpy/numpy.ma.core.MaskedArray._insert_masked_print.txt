@@ -1,0 +1,17 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Replace masked values with masked_print_option, casting all innermost
+        dtypes to object.
+        
+=== parse numpydoc
+short_description: 'Replace masked values with masked_print_option, casting all innermost'
+long_description: 'dtypes to object.'
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Replace masked values with masked_print_option, casting all innermost
+dtypes to object.

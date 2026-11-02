@@ -1,0 +1,34 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Update progress with new values.
+
+        Args:
+            completed (float): Number of steps completed.
+            total (float, optional): Total number of steps, or ``None`` to not change. Defaults to None.
+        
+=== parse google
+short_description: 'Update progress with new values.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'completed (float)']
+  description: 'Number of steps completed.'
+  arg_name: 'completed'
+  type_name: 'float'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'total (float, optional)']
+  description: 'Total number of steps, or ``None`` to not change. Defaults to None.'
+  arg_name: 'total'
+  type_name: 'float'
+  is_optional: True
+  default: 'None'
+=== detect
+google
+=== compose google
+Update progress with new values.
+
+Args:
+    completed (float): Number of steps completed.
+    total (float?): Total number of steps, or ``None`` to not change. Defaults to None.

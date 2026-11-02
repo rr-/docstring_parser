@@ -1,0 +1,25 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Can be used to manipulate the content.
+
+        Called after creating the content through nested parsing,
+        but before the ``object-description-transform`` event is emitted,
+        and before the info-fields are transformed.
+        
+=== parse rest
+short_description: 'Can be used to manipulate the content.'
+long_description: |
+  Called after creating the content through nested parsing,
+  but before the ``object-description-transform`` event is emitted,
+  and before the info-fields are transformed.
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Can be used to manipulate the content.
+
+Called after creating the content through nested parsing,
+but before the ``object-description-transform`` event is emitted,
+and before the info-fields are transformed.

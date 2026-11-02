@@ -1,0 +1,33 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Create a Pydantic dataclass from a regular dataclass.
+
+        Args:
+            cls: The class to create the Pydantic dataclass from.
+
+        Returns:
+            A Pydantic dataclass.
+        
+=== parse google
+short_description: 'Create a Pydantic dataclass from a regular dataclass.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'cls']
+  description: 'The class to create the Pydantic dataclass from.'
+  arg_name: 'cls'
+- DocstringReturns
+  args: ['returns']
+  description: 'A Pydantic dataclass.'
+  is_generator: False
+=== detect
+google
+=== compose google
+Create a Pydantic dataclass from a regular dataclass.
+
+Args:
+    cls: The class to create the Pydantic dataclass from.
+
+Returns:
+    A Pydantic dataclass.

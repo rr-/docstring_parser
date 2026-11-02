@@ -1,0 +1,329 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+!!! abstract "Usage Documentation"
+        [Fields](../concepts/fields.md)
+
+    Create a field for objects that can be configured.
+
+    Used to provide extra information about a field, either for the model schema or complex validation. Some arguments
+    apply only to number fields (`int`, `float`, `Decimal`) and some apply only to `str`.
+
+    Note:
+        - Any `_Unset` objects will be replaced by the corresponding default value of the `FieldInfo` constructor.
+
+    Args:
+        default: Default value if the field is not set.
+        default_factory: A callable to generate the default value. The callable can either take 0 arguments
+            (in which case it is called as is) or a single argument containing the already validated data.
+        alias: The name to use for the attribute when validating or serializing by alias.
+            This is often used for things like converting between snake and camel case.
+        alias_priority: Priority of the alias. This affects whether an alias generator is used.
+        validation_alias: Like `alias`, but only affects validation, not serialization.
+        serialization_alias: Like `alias`, but only affects serialization, not validation.
+        title: Human-readable title.
+        field_title_generator: A callable that takes a field's name and info and returns title for it.
+        description: Human-readable description.
+        examples: Example values for this field.
+        exclude: Whether to exclude the field from the model serialization.
+        exclude_if: A callable that determines whether to exclude a field during serialization based on its value.
+        discriminator: Field name or Discriminator for discriminating the type in a tagged union.
+        deprecated: A deprecation message, an instance of `warnings.deprecated` or the `typing_extensions.deprecated` backport,
+            or a boolean. If `True`, a default deprecation message will be emitted when accessing the field.
+        json_schema_extra: A dict or callable to provide extra JSON schema properties.
+        frozen: Whether the field is frozen. If true, attempts to change the value on an instance will raise an error.
+        validate_default: If `True`, apply validation to the default value every time you create an instance.
+            Otherwise, for performance reasons, the default value of the field is trusted and not validated.
+        repr: A boolean indicating whether to include the field in the `__repr__` output.
+        init: Whether the field should be included in the constructor of the dataclass.
+            (Only applies to dataclasses.)
+        init_var: Whether the field should _only_ be included in the constructor of the dataclass.
+            (Only applies to dataclasses.)
+        kw_only: Whether the field should be a keyword-only argument in the constructor of the dataclass.
+            (Only applies to dataclasses.)
+        coerce_numbers_to_str: Whether to enable coercion of any `Number` type to `str` (not applicable in `strict` mode).
+        strict: If `True`, strict validation is applied to the field.
+            See [Strict Mode](../concepts/strict_mode.md) for details.
+        gt: Greater than. If set, value must be greater than this. Only applicable to numbers.
+        ge: Greater than or equal. If set, value must be greater than or equal to this. Only applicable to numbers.
+        lt: Less than. If set, value must be less than this. Only applicable to numbers.
+        le: Less than or equal. If set, value must be less than or equal to this. Only applicable to numbers.
+        multiple_of: Value must be a multiple of this. Only applicable to numbers.
+        min_length: Minimum length for iterables.
+        max_length: Maximum length for iterables.
+        pattern: Pattern for strings (a regular expression).
+        allow_inf_nan: Allow `inf`, `-inf`, `nan`. Only applicable to float and [`Decimal`][decimal.Decimal] numbers.
+        max_digits: Maximum number of allowed digits for [`Decimal`][decimal.Decimal] numbers.
+        decimal_places: Maximum number of decimal places allowed for numbers.
+        union_mode: The strategy to apply when validating a union. Can be `smart` (the default), or `left_to_right`.
+            See [Union Mode](../concepts/unions.md#union-modes) for details.
+        fail_fast: If `True`, validation will stop on the first error. If `False`, all validation errors will be collected.
+            This option can be applied only to iterable types (list, tuple, set, and frozenset).
+        extra: (Deprecated) Extra fields that will be included in the JSON schema.
+
+            !!! warning Deprecated
+                The `extra` kwargs is deprecated. Use `json_schema_extra` instead.
+
+    Returns:
+        A new [`FieldInfo`][pydantic.fields.FieldInfo]. The return annotation is `Any` so `Field` can be used on
+            type-annotated fields without causing a type error.
+    
+=== parse google
+short_description: '!!! abstract "Usage Documentation"'
+long_description: |
+  [Fields](../concepts/fields.md)
+  
+  Create a field for objects that can be configured.
+  
+  Used to provide extra information about a field, either for the model schema or complex validation. Some arguments
+  apply only to number fields (`int`, `float`, `Decimal`) and some apply only to `str`.
+  
+  Note:
+      - Any `_Unset` objects will be replaced by the corresponding default value of the `FieldInfo` constructor.
+blank_after_short_description: False
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'default']
+  description: 'Default value if the field is not set.'
+  arg_name: 'default'
+- DocstringParam
+  args: ['param', 'default_factory']
+  description: |
+    A callable to generate the default value. The callable can either take 0 arguments
+    (in which case it is called as is) or a single argument containing the already validated data.
+  arg_name: 'default_factory'
+- DocstringParam
+  args: ['param', 'alias']
+  description: |
+    The name to use for the attribute when validating or serializing by alias.
+    This is often used for things like converting between snake and camel case.
+  arg_name: 'alias'
+- DocstringParam
+  args: ['param', 'alias_priority']
+  description: 'Priority of the alias. This affects whether an alias generator is used.'
+  arg_name: 'alias_priority'
+- DocstringParam
+  args: ['param', 'validation_alias']
+  description: 'Like `alias`, but only affects validation, not serialization.'
+  arg_name: 'validation_alias'
+- DocstringParam
+  args: ['param', 'serialization_alias']
+  description: 'Like `alias`, but only affects serialization, not validation.'
+  arg_name: 'serialization_alias'
+- DocstringParam
+  args: ['param', 'title']
+  description: 'Human-readable title.'
+  arg_name: 'title'
+- DocstringParam
+  args: ['param', 'field_title_generator']
+  description: "A callable that takes a field's name and info and returns title for it."
+  arg_name: 'field_title_generator'
+- DocstringParam
+  args: ['param', 'description']
+  description: 'Human-readable description.'
+  arg_name: 'description'
+- DocstringParam
+  args: ['param', 'examples']
+  description: 'Example values for this field.'
+  arg_name: 'examples'
+- DocstringParam
+  args: ['param', 'exclude']
+  description: 'Whether to exclude the field from the model serialization.'
+  arg_name: 'exclude'
+- DocstringParam
+  args: ['param', 'exclude_if']
+  description: 'A callable that determines whether to exclude a field during serialization based on its value.'
+  arg_name: 'exclude_if'
+- DocstringParam
+  args: ['param', 'discriminator']
+  description: 'Field name or Discriminator for discriminating the type in a tagged union.'
+  arg_name: 'discriminator'
+- DocstringParam
+  args: ['param', 'deprecated']
+  description: |
+    A deprecation message, an instance of `warnings.deprecated` or the `typing_extensions.deprecated` backport,
+    or a boolean. If `True`, a default deprecation message will be emitted when accessing the field.
+  arg_name: 'deprecated'
+- DocstringParam
+  args: ['param', 'json_schema_extra']
+  description: 'A dict or callable to provide extra JSON schema properties.'
+  arg_name: 'json_schema_extra'
+- DocstringParam
+  args: ['param', 'frozen']
+  description: 'Whether the field is frozen. If true, attempts to change the value on an instance will raise an error.'
+  arg_name: 'frozen'
+- DocstringParam
+  args: ['param', 'validate_default']
+  description: |
+    If `True`, apply validation to the default value every time you create an instance.
+    Otherwise, for performance reasons, the default value of the field is trusted and not validated.
+  arg_name: 'validate_default'
+- DocstringParam
+  args: ['param', 'repr']
+  description: 'A boolean indicating whether to include the field in the `__repr__` output.'
+  arg_name: 'repr'
+- DocstringParam
+  args: ['param', 'init']
+  description: |
+    Whether the field should be included in the constructor of the dataclass.
+    (Only applies to dataclasses.)
+  arg_name: 'init'
+- DocstringParam
+  args: ['param', 'init_var']
+  description: |
+    Whether the field should _only_ be included in the constructor of the dataclass.
+    (Only applies to dataclasses.)
+  arg_name: 'init_var'
+- DocstringParam
+  args: ['param', 'kw_only']
+  description: |
+    Whether the field should be a keyword-only argument in the constructor of the dataclass.
+    (Only applies to dataclasses.)
+  arg_name: 'kw_only'
+- DocstringParam
+  args: ['param', 'coerce_numbers_to_str']
+  description: 'Whether to enable coercion of any `Number` type to `str` (not applicable in `strict` mode).'
+  arg_name: 'coerce_numbers_to_str'
+- DocstringParam
+  args: ['param', 'strict']
+  description: |
+    If `True`, strict validation is applied to the field.
+    See [Strict Mode](../concepts/strict_mode.md) for details.
+  arg_name: 'strict'
+- DocstringParam
+  args: ['param', 'gt']
+  description: 'Greater than. If set, value must be greater than this. Only applicable to numbers.'
+  arg_name: 'gt'
+- DocstringParam
+  args: ['param', 'ge']
+  description: 'Greater than or equal. If set, value must be greater than or equal to this. Only applicable to numbers.'
+  arg_name: 'ge'
+- DocstringParam
+  args: ['param', 'lt']
+  description: 'Less than. If set, value must be less than this. Only applicable to numbers.'
+  arg_name: 'lt'
+- DocstringParam
+  args: ['param', 'le']
+  description: 'Less than or equal. If set, value must be less than or equal to this. Only applicable to numbers.'
+  arg_name: 'le'
+- DocstringParam
+  args: ['param', 'multiple_of']
+  description: 'Value must be a multiple of this. Only applicable to numbers.'
+  arg_name: 'multiple_of'
+- DocstringParam
+  args: ['param', 'min_length']
+  description: 'Minimum length for iterables.'
+  arg_name: 'min_length'
+- DocstringParam
+  args: ['param', 'max_length']
+  description: 'Maximum length for iterables.'
+  arg_name: 'max_length'
+- DocstringParam
+  args: ['param', 'pattern']
+  description: 'Pattern for strings (a regular expression).'
+  arg_name: 'pattern'
+- DocstringParam
+  args: ['param', 'allow_inf_nan']
+  description: 'Allow `inf`, `-inf`, `nan`. Only applicable to float and [`Decimal`][decimal.Decimal] numbers.'
+  arg_name: 'allow_inf_nan'
+- DocstringParam
+  args: ['param', 'max_digits']
+  description: 'Maximum number of allowed digits for [`Decimal`][decimal.Decimal] numbers.'
+  arg_name: 'max_digits'
+- DocstringParam
+  args: ['param', 'decimal_places']
+  description: 'Maximum number of decimal places allowed for numbers.'
+  arg_name: 'decimal_places'
+- DocstringParam
+  args: ['param', 'union_mode']
+  description: |
+    The strategy to apply when validating a union. Can be `smart` (the default), or `left_to_right`.
+    See [Union Mode](../concepts/unions.md#union-modes) for details.
+  arg_name: 'union_mode'
+- DocstringParam
+  args: ['param', 'fail_fast']
+  description: |
+    If `True`, validation will stop on the first error. If `False`, all validation errors will be collected.
+    This option can be applied only to iterable types (list, tuple, set, and frozenset).
+  arg_name: 'fail_fast'
+- DocstringParam
+  args: ['param', 'extra']
+  description: |
+    (Deprecated) Extra fields that will be included in the JSON schema.
+    !!! warning Deprecated
+        The `extra` kwargs is deprecated. Use `json_schema_extra` instead.
+  arg_name: 'extra'
+- DocstringReturns
+  args: ['returns']
+  description: |
+    A new [`FieldInfo`][pydantic.fields.FieldInfo]. The return annotation is `Any` so `Field` can be used on
+    type-annotated fields without causing a type error.
+  is_generator: False
+=== detect
+google
+=== compose google
+!!! abstract "Usage Documentation"
+[Fields](../concepts/fields.md)
+
+Create a field for objects that can be configured.
+
+Used to provide extra information about a field, either for the model schema or complex validation. Some arguments
+apply only to number fields (`int`, `float`, `Decimal`) and some apply only to `str`.
+
+Note:
+    - Any `_Unset` objects will be replaced by the corresponding default value of the `FieldInfo` constructor.
+
+Args:
+    default: Default value if the field is not set.
+    default_factory: A callable to generate the default value. The callable can either take 0 arguments
+        (in which case it is called as is) or a single argument containing the already validated data.
+    alias: The name to use for the attribute when validating or serializing by alias.
+        This is often used for things like converting between snake and camel case.
+    alias_priority: Priority of the alias. This affects whether an alias generator is used.
+    validation_alias: Like `alias`, but only affects validation, not serialization.
+    serialization_alias: Like `alias`, but only affects serialization, not validation.
+    title: Human-readable title.
+    field_title_generator: A callable that takes a field's name and info and returns title for it.
+    description: Human-readable description.
+    examples: Example values for this field.
+    exclude: Whether to exclude the field from the model serialization.
+    exclude_if: A callable that determines whether to exclude a field during serialization based on its value.
+    discriminator: Field name or Discriminator for discriminating the type in a tagged union.
+    deprecated: A deprecation message, an instance of `warnings.deprecated` or the `typing_extensions.deprecated` backport,
+        or a boolean. If `True`, a default deprecation message will be emitted when accessing the field.
+    json_schema_extra: A dict or callable to provide extra JSON schema properties.
+    frozen: Whether the field is frozen. If true, attempts to change the value on an instance will raise an error.
+    validate_default: If `True`, apply validation to the default value every time you create an instance.
+        Otherwise, for performance reasons, the default value of the field is trusted and not validated.
+    repr: A boolean indicating whether to include the field in the `__repr__` output.
+    init: Whether the field should be included in the constructor of the dataclass.
+        (Only applies to dataclasses.)
+    init_var: Whether the field should _only_ be included in the constructor of the dataclass.
+        (Only applies to dataclasses.)
+    kw_only: Whether the field should be a keyword-only argument in the constructor of the dataclass.
+        (Only applies to dataclasses.)
+    coerce_numbers_to_str: Whether to enable coercion of any `Number` type to `str` (not applicable in `strict` mode).
+    strict: If `True`, strict validation is applied to the field.
+        See [Strict Mode](../concepts/strict_mode.md) for details.
+    gt: Greater than. If set, value must be greater than this. Only applicable to numbers.
+    ge: Greater than or equal. If set, value must be greater than or equal to this. Only applicable to numbers.
+    lt: Less than. If set, value must be less than this. Only applicable to numbers.
+    le: Less than or equal. If set, value must be less than or equal to this. Only applicable to numbers.
+    multiple_of: Value must be a multiple of this. Only applicable to numbers.
+    min_length: Minimum length for iterables.
+    max_length: Maximum length for iterables.
+    pattern: Pattern for strings (a regular expression).
+    allow_inf_nan: Allow `inf`, `-inf`, `nan`. Only applicable to float and [`Decimal`][decimal.Decimal] numbers.
+    max_digits: Maximum number of allowed digits for [`Decimal`][decimal.Decimal] numbers.
+    decimal_places: Maximum number of decimal places allowed for numbers.
+    union_mode: The strategy to apply when validating a union. Can be `smart` (the default), or `left_to_right`.
+        See [Union Mode](../concepts/unions.md#union-modes) for details.
+    fail_fast: If `True`, validation will stop on the first error. If `False`, all validation errors will be collected.
+        This option can be applied only to iterable types (list, tuple, set, and frozenset).
+    extra: (Deprecated) Extra fields that will be included in the JSON schema.
+        !!! warning Deprecated
+            The `extra` kwargs is deprecated. Use `json_schema_extra` instead.
+
+Returns:
+    A new [`FieldInfo`][pydantic.fields.FieldInfo]. The return annotation is `Any` so `Field` can be used on
+    type-annotated fields without causing a type error.

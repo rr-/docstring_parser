@@ -1,0 +1,45 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Send a STAT command to get information about the size of the mailbox.
+
+        @rtype: L{Deferred <defer.Deferred>} which successfully fires with
+            a 2-tuple of (0) L{int}, (1) L{int} or fails with
+            L{ServerErrorResponse}
+        @return: A deferred which fires when the server response is received.
+            On an OK response, the deferred succeeds with the number of
+            messages in the mailbox and the size of the mailbox in octets.
+            On an ERR response, the deferred fails with a server error
+            response failure.
+        
+=== parse epydoc
+short_description: 'Send a STAT command to get information about the size of the mailbox.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringReturns
+  args: ['rtype']
+  description: |
+    A deferred which fires when the server response is received.
+    On an OK response, the deferred succeeds with the number of
+    messages in the mailbox and the size of the mailbox in octets.
+    On an ERR response, the deferred fails with a server error
+    response failure.
+  type_name: |
+    L{Deferred <defer.Deferred>} which successfully fires with
+    a 2-tuple of (0) L{int}, (1) L{int} or fails with
+    L{ServerErrorResponse}
+  is_generator: False
+=== detect
+epydoc
+=== compose epydoc
+Send a STAT command to get information about the size of the mailbox.
+
+@rtype: L{Deferred <defer.Deferred>} which successfully fires with
+    a 2-tuple of (0) L{int}, (1) L{int} or fails with
+    L{ServerErrorResponse}
+@return: A deferred which fires when the server response is received.
+    On an OK response, the deferred succeeds with the number of
+    messages in the mailbox and the size of the mailbox in octets.
+    On an ERR response, the deferred fails with a server error
+    response failure.

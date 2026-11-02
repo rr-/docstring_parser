@@ -1,0 +1,47 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Generate a schema unrelated to the current context.
+        Use this function if e.g. you are handling schema generation for a sequence
+        and want to generate a schema for its items.
+        Otherwise, you may end up doing something like applying a `min_length` constraint
+        that was intended for the sequence itself to its items!
+
+        Args:
+            source_type: The input type.
+
+        Returns:
+            CoreSchema: The `pydantic-core` CoreSchema generated.
+        
+=== parse google
+short_description: 'Generate a schema unrelated to the current context.'
+long_description: |
+  Use this function if e.g. you are handling schema generation for a sequence
+  and want to generate a schema for its items.
+  Otherwise, you may end up doing something like applying a `min_length` constraint
+  that was intended for the sequence itself to its items!
+blank_after_short_description: False
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'source_type']
+  description: 'The input type.'
+  arg_name: 'source_type'
+- DocstringReturns
+  args: ['returns', 'CoreSchema']
+  description: 'The `pydantic-core` CoreSchema generated.'
+  type_name: 'CoreSchema'
+  is_generator: False
+=== detect
+google
+=== compose google
+Generate a schema unrelated to the current context.
+Use this function if e.g. you are handling schema generation for a sequence
+and want to generate a schema for its items.
+Otherwise, you may end up doing something like applying a `min_length` constraint
+that was intended for the sequence itself to its items!
+
+Args:
+    source_type: The input type.
+
+Returns:
+    CoreSchema: The `pydantic-core` CoreSchema generated.

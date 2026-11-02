@@ -1,0 +1,45 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Merges the first configuration into the second configuration.
+
+    Args:
+        parser: The parser object.
+        source: The configuration from which to merge.
+        target: The configuration into which to merge.
+
+    Returns:
+        A new object with the merged configuration.
+    
+=== parse google
+short_description: 'Merges the first configuration into the second configuration.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'parser']
+  description: 'The parser object.'
+  arg_name: 'parser'
+- DocstringParam
+  args: ['param', 'source']
+  description: 'The configuration from which to merge.'
+  arg_name: 'source'
+- DocstringParam
+  args: ['param', 'target']
+  description: 'The configuration into which to merge.'
+  arg_name: 'target'
+- DocstringReturns
+  args: ['returns']
+  description: 'A new object with the merged configuration.'
+  is_generator: False
+=== detect
+google
+=== compose google
+Merges the first configuration into the second configuration.
+
+Args:
+    parser: The parser object.
+    source: The configuration from which to merge.
+    target: The configuration into which to merge.
+
+Returns:
+    A new object with the merged configuration.

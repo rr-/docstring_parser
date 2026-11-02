@@ -1,0 +1,274 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Extract capture groups in the regex `pat` as columns in a DataFrame.
+
+        For each subject string in the Series, extract groups from the
+        first match of regular expression `pat`.
+
+        Parameters
+        ----------
+        pat : str
+            Regular expression pattern with capturing groups.
+        flags : int, default 0 (no flags)
+            Flags from the ``re`` module, e.g. ``re.IGNORECASE``, that
+            modify regular expression matching for things like case,
+            spaces, etc. For more details, see :mod:`re`.
+        expand : bool, default True
+            If True, return DataFrame with one column per capture group.
+            If False, return a Series/Index if there is one capture group
+            or DataFrame if there are multiple capture groups.
+
+        Returns
+        -------
+        DataFrame or Series or Index
+            A DataFrame with one row for each subject string, and one
+            column for each group. Any capture group names in regular
+            expression pat will be used for column names; otherwise
+            capture group numbers will be used. The dtype of each result
+            column is always object, even when no match is found. If
+            ``expand=False`` and pat has only one capture group, then
+            return a Series (if subject is a Series) or Index (if subject
+            is an Index).
+
+        See Also
+        --------
+        extractall : Returns all matches (not just the first match).
+
+        Examples
+        --------
+        A pattern with two groups will return a DataFrame with two columns.
+        Non-matches will be NaN.
+
+        >>> s = pd.Series(["a1", "b2", "c3"])
+        >>> s.str.extract(r"([ab])(\d)")
+            0    1
+        0    a    1
+        1    b    2
+        2  NaN  NaN
+
+        A pattern may contain optional groups.
+
+        >>> s.str.extract(r"([ab])?(\d)")
+            0  1
+        0    a  1
+        1    b  2
+        2  NaN  3
+
+        Named groups will become column names in the result.
+
+        >>> s.str.extract(r"(?P<letter>[ab])(?P<digit>\d)")
+        letter digit
+        0      a     1
+        1      b     2
+        2    NaN   NaN
+
+        A pattern with one group will return a DataFrame with one column
+        if expand=True.
+
+        >>> s.str.extract(r"[ab](\d)", expand=True)
+             0
+        0    1
+        1    2
+        2  NaN
+
+        A pattern with one group will return a Series if expand=False.
+
+        >>> s.str.extract(r"[ab](\d)", expand=False)
+        0      1
+        1      2
+        2    NaN
+        dtype: str
+        
+=== parse numpydoc
+short_description: 'Extract capture groups in the regex `pat` as columns in a DataFrame.'
+long_description: |
+  For each subject string in the Series, extract groups from the
+  first match of regular expression `pat`.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'pat']
+  description: 'Regular expression pattern with capturing groups.'
+  arg_name: 'pat'
+  type_name: 'str'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'flags']
+  description: |
+    Flags from the ``re`` module, e.g. ``re.IGNORECASE``, that
+    modify regular expression matching for things like case,
+    spaces, etc. For more details, see :mod:`re`.
+  arg_name: 'flags'
+  type_name: 'int'
+  is_optional: True
+  default: '0 (no flags)'
+- DocstringParam
+  args: ['param', 'expand']
+  description: |
+    If True, return DataFrame with one column per capture group.
+    If False, return a Series/Index if there is one capture group
+    or DataFrame if there are multiple capture groups.
+  arg_name: 'expand'
+  type_name: 'bool'
+  is_optional: True
+  default: 'True'
+- DocstringReturns
+  args: ['returns']
+  description: |
+    A DataFrame with one row for each subject string, and one
+    column for each group. Any capture group names in regular
+    expression pat will be used for column names; otherwise
+    capture group numbers will be used. The dtype of each result
+    column is always object, even when no match is found. If
+    ``expand=False`` and pat has only one capture group, then
+    return a Series (if subject is a Series) or Index (if subject
+    is an Index).
+  type_name: 'DataFrame or Series or Index'
+  is_generator: False
+- DocstringMeta
+  args: ['see_also']
+  description: 'extractall : Returns all matches (not just the first match).'
+- DocstringExample
+  args: ['examples']
+  description: |
+    A pattern with two groups will return a DataFrame with two columns.
+    Non-matches will be NaN.
+    
+- DocstringExample
+  args: ['examples']
+  description: |
+        0    1
+    0    a    1
+    1    b    2
+    2  NaN  NaN
+    
+    A pattern may contain optional groups.
+    
+  snippet: |
+    >>> s = pd.Series(["a1", "b2", "c3"])
+    >>> s.str.extract(r"([ab])(\d)")
+- DocstringExample
+  args: ['examples']
+  description: |
+        0  1
+    0    a  1
+    1    b  2
+    2  NaN  3
+    
+    Named groups will become column names in the result.
+    
+  snippet: '>>> s.str.extract(r"([ab])?(\\d)")'
+- DocstringExample
+  args: ['examples']
+  description: |
+    letter digit
+    0      a     1
+    1      b     2
+    2    NaN   NaN
+    
+    A pattern with one group will return a DataFrame with one column
+    if expand=True.
+    
+  snippet: '>>> s.str.extract(r"(?P<letter>[ab])(?P<digit>\\d)")'
+- DocstringExample
+  args: ['examples']
+  description: |
+         0
+    0    1
+    1    2
+    2  NaN
+    
+    A pattern with one group will return a Series if expand=False.
+    
+  snippet: '>>> s.str.extract(r"[ab](\\d)", expand=True)'
+- DocstringExample
+  args: ['examples']
+  description: |
+    0      1
+    1      2
+    2    NaN
+    dtype: str
+  snippet: '>>> s.str.extract(r"[ab](\\d)", expand=False)'
+=== detect
+numpydoc
+=== compose numpydoc
+Extract capture groups in the regex `pat` as columns in a DataFrame.
+
+For each subject string in the Series, extract groups from the
+first match of regular expression `pat`.
+
+Parameters
+----------
+pat : str
+    Regular expression pattern with capturing groups.
+flags : int, default=0 (no flags)
+    Flags from the ``re`` module, e.g. ``re.IGNORECASE``, that
+    modify regular expression matching for things like case,
+    spaces, etc. For more details, see :mod:`re`.
+expand : bool, default=True
+    If True, return DataFrame with one column per capture group.
+    If False, return a Series/Index if there is one capture group
+    or DataFrame if there are multiple capture groups.
+
+Returns
+-------
+DataFrame or Series or Index
+    A DataFrame with one row for each subject string, and one
+    column for each group. Any capture group names in regular
+    expression pat will be used for column names; otherwise
+    capture group numbers will be used. The dtype of each result
+    column is always object, even when no match is found. If
+    ``expand=False`` and pat has only one capture group, then
+    return a Series (if subject is a Series) or Index (if subject
+    is an Index).
+
+Examples
+--------
+A pattern with two groups will return a DataFrame with two columns.
+Non-matches will be NaN.
+
+>>> s = pd.Series(["a1", "b2", "c3"])
+>>> s.str.extract(r"([ab])(\d)")
+    0    1
+0    a    1
+1    b    2
+2  NaN  NaN
+
+A pattern may contain optional groups.
+
+>>> s.str.extract(r"([ab])?(\d)")
+    0  1
+0    a  1
+1    b  2
+2  NaN  3
+
+Named groups will become column names in the result.
+
+>>> s.str.extract(r"(?P<letter>[ab])(?P<digit>\d)")
+letter digit
+0      a     1
+1      b     2
+2    NaN   NaN
+
+A pattern with one group will return a DataFrame with one column
+if expand=True.
+
+>>> s.str.extract(r"[ab](\d)", expand=True)
+     0
+0    1
+1    2
+2  NaN
+
+A pattern with one group will return a Series if expand=False.
+
+>>> s.str.extract(r"[ab](\d)", expand=False)
+0      1
+1      2
+2    NaN
+dtype: str
+
+See Also
+--------
+extractall : Returns all matches (not just the first match).

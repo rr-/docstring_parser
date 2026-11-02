@@ -1,0 +1,34 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Parse string within the given context.
+
+        The context may define the result in case of ambiguous
+        expressions. For instance, consider expressions `f(x, y)` and
+        `(x, y) + (a, b)` where `f` is a function and pair `(x, y)`
+        denotes complex number. Specifying context as "args" or
+        "expr", the subexpression `(x, y)` will be parse to an
+        argument list or to a complex number, respectively.
+        
+=== parse numpydoc
+short_description: 'Parse string within the given context.'
+long_description: |
+  The context may define the result in case of ambiguous
+  expressions. For instance, consider expressions `f(x, y)` and
+  `(x, y) + (a, b)` where `f` is a function and pair `(x, y)`
+  denotes complex number. Specifying context as "args" or
+  "expr", the subexpression `(x, y)` will be parse to an
+  argument list or to a complex number, respectively.
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Parse string within the given context.
+
+The context may define the result in case of ambiguous
+expressions. For instance, consider expressions `f(x, y)` and
+`(x, y) + (a, b)` where `f` is a function and pair `(x, y)`
+denotes complex number. Specifying context as "args" or
+"expr", the subexpression `(x, y)` will be parse to an
+argument list or to a complex number, respectively.

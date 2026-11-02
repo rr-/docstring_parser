@@ -1,0 +1,41 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Collect and set `cls.__pydantic_fields__`, `cls.__class_vars__` and `cls.__private_attributes__`.
+
+    Args:
+        cls: BaseModel or dataclass.
+        config_wrapper: The config wrapper instance.
+        ns_resolver: Namespace resolver to use when getting model annotations.
+        namespace_info: The result of inspecting the class namespace before the class was created.
+    
+=== parse google
+short_description: 'Collect and set `cls.__pydantic_fields__`, `cls.__class_vars__` and `cls.__private_attributes__`.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'cls']
+  description: 'BaseModel or dataclass.'
+  arg_name: 'cls'
+- DocstringParam
+  args: ['param', 'config_wrapper']
+  description: 'The config wrapper instance.'
+  arg_name: 'config_wrapper'
+- DocstringParam
+  args: ['param', 'ns_resolver']
+  description: 'Namespace resolver to use when getting model annotations.'
+  arg_name: 'ns_resolver'
+- DocstringParam
+  args: ['param', 'namespace_info']
+  description: 'The result of inspecting the class namespace before the class was created.'
+  arg_name: 'namespace_info'
+=== detect
+google
+=== compose google
+Collect and set `cls.__pydantic_fields__`, `cls.__class_vars__` and `cls.__private_attributes__`.
+
+Args:
+    cls: BaseModel or dataclass.
+    config_wrapper: The config wrapper instance.
+    ns_resolver: Namespace resolver to use when getting model annotations.
+    namespace_info: The result of inspecting the class namespace before the class was created.

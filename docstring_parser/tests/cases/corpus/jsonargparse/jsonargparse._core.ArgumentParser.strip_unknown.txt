@@ -1,0 +1,33 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Removes all unknown keys from a configuration object.
+
+        Args:
+            namespace: The configuration object to strip.
+
+        Returns:
+            The stripped configuration object.
+        
+=== parse google
+short_description: 'Removes all unknown keys from a configuration object.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'namespace']
+  description: 'The configuration object to strip.'
+  arg_name: 'namespace'
+- DocstringReturns
+  args: ['returns']
+  description: 'The stripped configuration object.'
+  is_generator: False
+=== detect
+google
+=== compose google
+Removes all unknown keys from a configuration object.
+
+Args:
+    namespace: The configuration object to strip.
+
+Returns:
+    The stripped configuration object.

@@ -1,0 +1,25 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Determine what type tag to send for me.
+
+        By default, send the string representation of my class
+        (package.module.Class); normally this is adequate, but
+        you may override this to change it.
+        
+=== parse epydoc
+short_description: 'Determine what type tag to send for me.'
+long_description: |
+  By default, send the string representation of my class
+  (package.module.Class); normally this is adequate, but
+  you may override this to change it.
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+=== detect
+rest
+=== compose epydoc
+Determine what type tag to send for me.
+
+By default, send the string representation of my class
+(package.module.Class); normally this is adequate, but
+you may override this to change it.

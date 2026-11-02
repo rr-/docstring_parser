@@ -1,0 +1,53 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Extended request for a passive connection.
+
+        As described by U{RFC 2428 section
+        3<https://tools.ietf.org/html/rfc2428#section-3>}::
+
+            The EPSV command requests that a server listen on a data port
+            and wait for a connection.  The EPSV command takes an optional
+            argument.  The response to this command includes only the TCP
+            port number of the listening connection.  The format of the
+            response, however, is similar to the argument of the EPRT
+            command.  This allows the same parsing routines to be used for
+            both commands.  In addition, the format leaves a place holder
+            for the network protocol and/or network address, which may be
+            needed in the EPSV response in the future.
+        
+=== parse epydoc
+short_description: 'Extended request for a passive connection.'
+long_description: |
+  As described by U{RFC 2428 section
+  3<https://tools.ietf.org/html/rfc2428#section-3>}::
+  
+      The EPSV command requests that a server listen on a data port
+      and wait for a connection.  The EPSV command takes an optional
+      argument.  The response to this command includes only the TCP
+      port number of the listening connection.  The format of the
+      response, however, is similar to the argument of the EPRT
+      command.  This allows the same parsing routines to be used for
+      both commands.  In addition, the format leaves a place holder
+      for the network protocol and/or network address, which may be
+      needed in the EPSV response in the future.
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+=== detect
+rest
+=== compose epydoc
+Extended request for a passive connection.
+
+As described by U{RFC 2428 section
+3<https://tools.ietf.org/html/rfc2428#section-3>}::
+
+    The EPSV command requests that a server listen on a data port
+    and wait for a connection.  The EPSV command takes an optional
+    argument.  The response to this command includes only the TCP
+    port number of the listening connection.  The format of the
+    response, however, is similar to the argument of the EPRT
+    command.  This allows the same parsing routines to be used for
+    both commands.  In addition, the format leaves a place holder
+    for the network protocol and/or network address, which may be
+    needed in the EPSV response in the future.

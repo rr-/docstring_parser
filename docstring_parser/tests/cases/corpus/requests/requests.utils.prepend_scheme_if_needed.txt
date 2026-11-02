@@ -1,0 +1,24 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Given a URL that may or may not have a scheme, prepend the given scheme.
+    Does not replace a present scheme with the one provided as an argument.
+
+    :rtype: str
+    
+=== parse rest
+short_description: 'Given a URL that may or may not have a scheme, prepend the given scheme.'
+long_description: 'Does not replace a present scheme with the one provided as an argument.'
+blank_after_short_description: False
+blank_after_long_description: True
+style: rest
+- DocstringReturns
+  args: []
+  type_name: 'str'
+  is_generator: False
+=== detect
+rest
+=== compose rest
+Given a URL that may or may not have a scheme, prepend the given scheme.
+Does not replace a present scheme with the one provided as an argument.
+
+:returns str:

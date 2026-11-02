@@ -1,0 +1,127 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Partition (split) each element around the right-most separator.
+
+    Calls :meth:`str.rpartition` element-wise.
+
+    For each element in `a`, split the element as the last
+    occurrence of `sep`, and return 3 strings containing the part
+    before the separator, the separator itself, and the part after
+    the separator. If the separator is not found, return 3 strings
+    containing the string itself, followed by two empty strings.
+
+    Parameters
+    ----------
+    a : array-like, with ``StringDType``, ``bytes_``, or ``str_`` dtype
+        Input array
+    sep : str or unicode
+        Right-most separator to split each element in array.
+
+    Returns
+    -------
+    out : ndarray
+        Output array of ``StringDType``, ``bytes_`` or ``str_`` dtype,
+        depending on input types. The output array will have an extra
+        dimension with 3 elements per input element.
+
+    See Also
+    --------
+    str.rpartition
+
+    Examples
+    --------
+    >>> import numpy as np
+    >>> a = np.array(['aAaAaA', '  aA  ', 'abBABba'])
+    >>> np.char.rpartition(a, 'A')
+    array([['aAaAa', 'A', ''],
+       ['  a', 'A', '  '],
+       ['abB', 'A', 'Bba']], dtype='<U5')
+
+    
+=== parse numpydoc
+short_description: 'Partition (split) each element around the right-most separator.'
+long_description: |
+  Calls :meth:`str.rpartition` element-wise.
+  
+  For each element in `a`, split the element as the last
+  occurrence of `sep`, and return 3 strings containing the part
+  before the separator, the separator itself, and the part after
+  the separator. If the separator is not found, return 3 strings
+  containing the string itself, followed by two empty strings.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'a']
+  description: 'Input array'
+  arg_name: 'a'
+  type_name: 'array-like, with ``StringDType``, ``bytes_``, or ``str_`` dtype'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'sep']
+  description: 'Right-most separator to split each element in array.'
+  arg_name: 'sep'
+  type_name: 'str or unicode'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: |
+    Output array of ``StringDType``, ``bytes_`` or ``str_`` dtype,
+    depending on input types. The output array will have an extra
+    dimension with 3 elements per input element.
+  type_name: 'ndarray'
+  is_generator: False
+  return_name: 'out'
+- DocstringMeta
+  args: ['see_also']
+  description: 'str.rpartition'
+- DocstringExample
+  args: ['examples']
+  description: |
+    array([['aAaAa', 'A', ''],
+       ['  a', 'A', '  '],
+       ['abB', 'A', 'Bba']], dtype='<U5')
+  snippet: |
+    >>> import numpy as np
+    >>> a = np.array(['aAaAaA', '  aA  ', 'abBABba'])
+    >>> np.char.rpartition(a, 'A')
+=== detect
+numpydoc
+=== compose numpydoc
+Partition (split) each element around the right-most separator.
+
+Calls :meth:`str.rpartition` element-wise.
+
+For each element in `a`, split the element as the last
+occurrence of `sep`, and return 3 strings containing the part
+before the separator, the separator itself, and the part after
+the separator. If the separator is not found, return 3 strings
+containing the string itself, followed by two empty strings.
+
+Parameters
+----------
+a : array-like, with ``StringDType``, ``bytes_``, or ``str_`` dtype
+    Input array
+sep : str or unicode
+    Right-most separator to split each element in array.
+
+Returns
+-------
+out : ndarray
+    Output array of ``StringDType``, ``bytes_`` or ``str_`` dtype,
+    depending on input types. The output array will have an extra
+    dimension with 3 elements per input element.
+
+Examples
+--------
+>>> import numpy as np
+>>> a = np.array(['aAaAaA', '  aA  ', 'abBABba'])
+>>> np.char.rpartition(a, 'A')
+array([['aAaAa', 'A', ''],
+   ['  a', 'A', '  '],
+   ['abB', 'A', 'Bba']], dtype='<U5')
+
+See Also
+--------
+str.rpartition

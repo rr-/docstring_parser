@@ -1,0 +1,57 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Directive to mark description of a new JavaScript module.
+
+    This directive specifies the module name that will be used by objects that
+    follow this directive.
+
+    Options
+    -------
+
+    no-index
+        If the ``:no-index:`` option is specified, no linkable elements will be
+        created, and the module won't be added to the global module index. This
+        is useful for splitting up the module definition across multiple
+        sections or files.
+
+    :param mod_name: Module name
+    
+=== parse rest
+short_description: 'Directive to mark description of a new JavaScript module.'
+long_description: |
+  This directive specifies the module name that will be used by objects that
+  follow this directive.
+  
+  Options
+  -------
+  
+  no-index
+      If the ``:no-index:`` option is specified, no linkable elements will be
+      created, and the module won't be added to the global module index. This
+      is useful for splitting up the module definition across multiple
+      sections or files.
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringParam
+  args: ['param', 'mod_name']
+  description: 'Module name'
+  arg_name: 'mod_name'
+=== detect
+rest
+=== compose rest
+Directive to mark description of a new JavaScript module.
+
+This directive specifies the module name that will be used by objects that
+follow this directive.
+
+Options
+-------
+
+no-index
+    If the ``:no-index:`` option is specified, no linkable elements will be
+    created, and the module won't be added to the global module index. This
+    is useful for splitting up the module definition across multiple
+    sections or files.
+
+:param mod_name: Module name

@@ -1,0 +1,67 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Revokes the provided token based on the RFC7009 spec.
+
+        Args:
+            request (google.auth.transport.Request): A callable used to make
+                HTTP requests.
+            token (str): The OAuth 2.0 token to revoke.
+            token_type_hint (str): Hint for the type of token being revoked.
+            revoke_url (str): The STS endpoint URL for revoking tokens.
+
+        Raises:
+            google.auth.exceptions.OAuthError: If the token revocation endpoint
+                returned an error.
+        
+=== parse google
+short_description: 'Revokes the provided token based on the RFC7009 spec.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'request (google.auth.transport.Request)']
+  description: |
+    A callable used to make
+    HTTP requests.
+  arg_name: 'request'
+  type_name: 'google.auth.transport.Request'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'token (str)']
+  description: 'The OAuth 2.0 token to revoke.'
+  arg_name: 'token'
+  type_name: 'str'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'token_type_hint (str)']
+  description: 'Hint for the type of token being revoked.'
+  arg_name: 'token_type_hint'
+  type_name: 'str'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'revoke_url (str)']
+  description: 'The STS endpoint URL for revoking tokens.'
+  arg_name: 'revoke_url'
+  type_name: 'str'
+  is_optional: False
+- DocstringRaises
+  args: ['raises', 'google.auth.exceptions.OAuthError']
+  description: |
+    If the token revocation endpoint
+    returned an error.
+  type_name: 'google.auth.exceptions.OAuthError'
+=== detect
+google
+=== compose google
+Revokes the provided token based on the RFC7009 spec.
+
+Args:
+    request (google.auth.transport.Request): A callable used to make
+        HTTP requests.
+    token (str): The OAuth 2.0 token to revoke.
+    token_type_hint (str): Hint for the type of token being revoked.
+    revoke_url (str): The STS endpoint URL for revoking tokens.
+
+Raises:
+    google.auth.exceptions.OAuthError: If the token revocation endpoint
+        returned an error.

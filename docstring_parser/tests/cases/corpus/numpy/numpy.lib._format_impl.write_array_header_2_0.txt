@@ -1,0 +1,43 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+ Write the header for an array using the 2.0 format.
+        The 2.0 format allows storing very large structured arrays.
+
+    Parameters
+    ----------
+    fp : filelike object
+    d : dict
+        This has the appropriate entries for writing its string
+        representation to the header of the file.
+    
+=== parse numpydoc
+short_description: 'Write the header for an array using the 2.0 format.'
+long_description: 'The 2.0 format allows storing very large structured arrays.'
+blank_after_short_description: False
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'fp']
+  arg_name: 'fp'
+  type_name: 'filelike object'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'd']
+  description: |
+    This has the appropriate entries for writing its string
+    representation to the header of the file.
+  arg_name: 'd'
+  type_name: 'dict'
+  is_optional: False
+=== detect
+numpydoc
+=== compose numpydoc
+Write the header for an array using the 2.0 format.
+The 2.0 format allows storing very large structured arrays.
+
+Parameters
+----------
+fp : filelike object
+d : dict
+    This has the appropriate entries for writing its string
+    representation to the header of the file.

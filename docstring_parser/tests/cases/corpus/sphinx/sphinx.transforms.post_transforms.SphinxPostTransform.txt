@@ -1,0 +1,25 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+A base class of post-transforms.
+
+    Post transforms are invoked to modify the document to restructure it for outputting.
+    They resolve references, convert images, do special transformation for each output
+    formats and so on.  This class helps to implement these post transforms.
+    
+=== parse rest
+short_description: 'A base class of post-transforms.'
+long_description: |
+  Post transforms are invoked to modify the document to restructure it for outputting.
+  They resolve references, convert images, do special transformation for each output
+  formats and so on.  This class helps to implement these post transforms.
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+A base class of post-transforms.
+
+Post transforms are invoked to modify the document to restructure it for outputting.
+They resolve references, convert images, do special transformation for each output
+formats and so on.  This class helps to implement these post transforms.

@@ -1,0 +1,25 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+A type that will accept any Kafka DSN.
+
+    * User info required
+    * TLD not required
+    * Host not required
+    
+=== parse google
+short_description: 'A type that will accept any Kafka DSN.'
+long_description: |
+  * User info required
+  * TLD not required
+  * Host not required
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+A type that will accept any Kafka DSN.
+
+* User info required
+* TLD not required
+* Host not required

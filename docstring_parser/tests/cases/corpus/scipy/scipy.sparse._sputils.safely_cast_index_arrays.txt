@@ -1,0 +1,211 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Safely cast sparse array indices to `idx_dtype`.
+
+    Check the shape of `A` to determine if it is safe to cast its index
+    arrays to dtype `idx_dtype`. If any dimension in shape is larger than
+    fits in the dtype, casting is unsafe so raise ``ValueError``.
+    If safe, cast the index arrays to `idx_dtype` and return the result
+    without changing the input `A`. The caller can assign results to `A`
+    attributes if desired or use the recast index arrays directly.
+
+    Unless downcasting is needed, the original index arrays are returned.
+    You can test e.g. ``A.indptr is new_indptr`` to see if downcasting occurred.
+
+    .. versionadded:: 1.15.0
+
+    Parameters
+    ----------
+    A : sparse array or matrix
+        The array for which index arrays should be downcast.
+    idx_dtype : dtype
+        Desired dtype. Should be an integer dtype (default: ``np.int32``).
+        Most of scipy.sparse uses either int64 or int32.
+    msg : str, optional
+        A string to be added to the end of the ValueError message
+        if the array shape is too big to fit in `idx_dtype`.
+        The error message is ``f"<index> values too large for {msg}"``
+        It should indicate why the downcasting is needed, e.g. "SuperLU",
+        and defaults to f"dtype {idx_dtype}".
+
+    Returns
+    -------
+    idx_arrays : ndarray or tuple of ndarrays
+        Based on ``A.format``, index arrays are returned after casting to `idx_dtype`.
+        For CSC/CSR, returns ``(indices, indptr)``.
+        For COO, returns ``coords``.
+        For DIA, returns ``offsets``.
+        For BSR, returns ``(indices, indptr)``.
+
+    Raises
+    ------
+    ValueError
+        If the array has shape that would not fit in the new dtype, or if
+        the sparse format does not use index arrays.
+
+    Examples
+    --------
+    >>> import numpy as np
+    >>> from scipy import sparse
+    >>> data = [3]
+    >>> coords = (np.array([3]), np.array([1]))  # Note: int64 arrays
+    >>> A = sparse.coo_array((data, coords))
+    >>> A.coords[0].dtype
+    dtype('int64')
+
+    >>> # rescast after construction, raising exception if shape too big
+    >>> coords = sparse.safely_cast_index_arrays(A, np.int32)
+    >>> A.coords[0] is coords[0]  # False if casting is needed
+    False
+    >>> A.coords = coords  # set the index dtype of A
+    >>> A.coords[0].dtype
+    dtype('int32')
+    
+=== parse numpydoc
+short_description: 'Safely cast sparse array indices to `idx_dtype`.'
+long_description: |
+  Check the shape of `A` to determine if it is safe to cast its index
+  arrays to dtype `idx_dtype`. If any dimension in shape is larger than
+  fits in the dtype, casting is unsafe so raise ``ValueError``.
+  If safe, cast the index arrays to `idx_dtype` and return the result
+  without changing the input `A`. The caller can assign results to `A`
+  attributes if desired or use the recast index arrays directly.
+  
+  Unless downcasting is needed, the original index arrays are returned.
+  You can test e.g. ``A.indptr is new_indptr`` to see if downcasting occurred.
+  
+  .. versionadded:: 1.15.0
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'A']
+  description: 'The array for which index arrays should be downcast.'
+  arg_name: 'A'
+  type_name: 'sparse array or matrix'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'idx_dtype']
+  description: |
+    Desired dtype. Should be an integer dtype (default: ``np.int32``).
+    Most of scipy.sparse uses either int64 or int32.
+  arg_name: 'idx_dtype'
+  type_name: 'dtype'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'msg']
+  description: |
+    A string to be added to the end of the ValueError message
+    if the array shape is too big to fit in `idx_dtype`.
+    The error message is ``f"<index> values too large for {msg}"``
+    It should indicate why the downcasting is needed, e.g. "SuperLU",
+    and defaults to f"dtype {idx_dtype}".
+  arg_name: 'msg'
+  type_name: 'str'
+  is_optional: True
+  default: 'f'
+- DocstringReturns
+  args: ['returns']
+  description: |
+    Based on ``A.format``, index arrays are returned after casting to `idx_dtype`.
+    For CSC/CSR, returns ``(indices, indptr)``.
+    For COO, returns ``coords``.
+    For DIA, returns ``offsets``.
+    For BSR, returns ``(indices, indptr)``.
+  type_name: 'ndarray or tuple of ndarrays'
+  is_generator: False
+  return_name: 'idx_arrays'
+- DocstringRaises
+  args: ['raises', 'ValueError']
+  description: |
+    If the array has shape that would not fit in the new dtype, or if
+    the sparse format does not use index arrays.
+  type_name: 'ValueError'
+- DocstringExample
+  args: ['examples']
+  description: |
+    dtype('int64')
+    
+  snippet: |
+    >>> import numpy as np
+    >>> from scipy import sparse
+    >>> data = [3]
+    >>> coords = (np.array([3]), np.array([1]))  # Note: int64 arrays
+    >>> A = sparse.coo_array((data, coords))
+    >>> A.coords[0].dtype
+- DocstringExample
+  args: ['examples']
+  description: 'False'
+  snippet: |
+    >>> # rescast after construction, raising exception if shape too big
+    >>> coords = sparse.safely_cast_index_arrays(A, np.int32)
+    >>> A.coords[0] is coords[0]  # False if casting is needed
+- DocstringExample
+  args: ['examples']
+  description: "dtype('int32')"
+  snippet: |
+    >>> A.coords = coords  # set the index dtype of A
+    >>> A.coords[0].dtype
+=== detect
+numpydoc
+=== compose numpydoc
+Safely cast sparse array indices to `idx_dtype`.
+
+Check the shape of `A` to determine if it is safe to cast its index
+arrays to dtype `idx_dtype`. If any dimension in shape is larger than
+fits in the dtype, casting is unsafe so raise ``ValueError``.
+If safe, cast the index arrays to `idx_dtype` and return the result
+without changing the input `A`. The caller can assign results to `A`
+attributes if desired or use the recast index arrays directly.
+
+Unless downcasting is needed, the original index arrays are returned.
+You can test e.g. ``A.indptr is new_indptr`` to see if downcasting occurred.
+
+.. versionadded:: 1.15.0
+
+Parameters
+----------
+A : sparse array or matrix
+    The array for which index arrays should be downcast.
+idx_dtype : dtype
+    Desired dtype. Should be an integer dtype (default: ``np.int32``).
+    Most of scipy.sparse uses either int64 or int32.
+msg : str, default=f
+    A string to be added to the end of the ValueError message
+    if the array shape is too big to fit in `idx_dtype`.
+    The error message is ``f"<index> values too large for {msg}"``
+    It should indicate why the downcasting is needed, e.g. "SuperLU",
+    and defaults to f"dtype {idx_dtype}".
+
+Returns
+-------
+idx_arrays : ndarray or tuple of ndarrays
+    Based on ``A.format``, index arrays are returned after casting to `idx_dtype`.
+    For CSC/CSR, returns ``(indices, indptr)``.
+    For COO, returns ``coords``.
+    For DIA, returns ``offsets``.
+    For BSR, returns ``(indices, indptr)``.
+
+Raises
+------
+ValueError
+    If the array has shape that would not fit in the new dtype, or if
+    the sparse format does not use index arrays.
+
+Examples
+--------
+>>> import numpy as np
+>>> from scipy import sparse
+>>> data = [3]
+>>> coords = (np.array([3]), np.array([1]))  # Note: int64 arrays
+>>> A = sparse.coo_array((data, coords))
+>>> A.coords[0].dtype
+dtype('int64')
+
+>>> # rescast after construction, raising exception if shape too big
+>>> coords = sparse.safely_cast_index_arrays(A, np.int32)
+>>> A.coords[0] is coords[0]  # False if casting is needed
+False
+>>> A.coords = coords  # set the index dtype of A
+>>> A.coords[0].dtype
+dtype('int32')

@@ -1,0 +1,46 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+    Get a description of a named key exchange algorithm.
+
+    @param kexAlgorithm: The key exchange algorithm name.
+    @type kexAlgorithm: L{bytes}
+
+    @return: A description of the key exchange algorithm named by
+        C{kexAlgorithm}.
+    @rtype: L{_IKexAlgorithm}
+
+    @raises ConchError: if the key exchange algorithm is not found.
+    
+=== parse epydoc
+short_description: 'Get a description of a named key exchange algorithm.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringParam
+  args: ['param', 'kexAlgorithm']
+  description: 'The key exchange algorithm name.'
+  arg_name: 'kexAlgorithm'
+  type_name: 'L{bytes}'
+  is_optional: False
+- DocstringReturns
+  args: ['return']
+  description: |
+    A description of the key exchange algorithm named by
+    C{kexAlgorithm}.
+  type_name: 'L{_IKexAlgorithm}'
+  is_generator: False
+- DocstringMeta
+  args: ['raises', 'ConchError']
+  description: 'if the key exchange algorithm is not found.'
+=== detect
+epydoc
+=== compose epydoc
+Get a description of a named key exchange algorithm.
+
+@type kexAlgorithm: L{bytes}
+@param kexAlgorithm: The key exchange algorithm name.
+@rtype: L{_IKexAlgorithm}
+@return: A description of the key exchange algorithm named by
+    C{kexAlgorithm}.
+@raises ConchError: if the key exchange algorithm is not found.

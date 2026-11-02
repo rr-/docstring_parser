@@ -1,0 +1,25 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+A mapping of computed field names to their respective [`ComputedFieldInfo`][pydantic.fields.ComputedFieldInfo] instances.
+
+        !!! warning
+            Accessing this attribute from a model instance is deprecated, and will not work in Pydantic V3.
+            Instead, you should access this attribute from the model class.
+        
+=== parse google
+short_description: 'A mapping of computed field names to their respective [`ComputedFieldInfo`][pydantic.fields.ComputedFieldInfo] instances.'
+long_description: |
+  !!! warning
+      Accessing this attribute from a model instance is deprecated, and will not work in Pydantic V3.
+      Instead, you should access this attribute from the model class.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+A mapping of computed field names to their respective [`ComputedFieldInfo`][pydantic.fields.ComputedFieldInfo] instances.
+
+!!! warning
+    Accessing this attribute from a model instance is deprecated, and will not work in Pydantic V3.
+    Instead, you should access this attribute from the model class.

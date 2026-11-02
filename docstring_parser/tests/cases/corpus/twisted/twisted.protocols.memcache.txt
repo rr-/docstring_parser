@@ -1,0 +1,72 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+Memcache client protocol. Memcached is a caching server, storing data in the
+form of pairs key/value, and memcache is the protocol to talk with it.
+
+To connect to a server, create a factory for L{MemCacheProtocol}::
+
+    from twisted.internet import reactor, protocol
+    from twisted.protocols.memcache import MemCacheProtocol, DEFAULT_PORT
+    d = protocol.ClientCreator(reactor, MemCacheProtocol
+        ).connectTCP("localhost", DEFAULT_PORT)
+    def doSomething(proto):
+        # Here you call the memcache operations
+        return proto.set("mykey", "a lot of data")
+    d.addCallback(doSomething)
+    reactor.run()
+
+All the operations of the memcache protocol are present, but
+L{MemCacheProtocol.set} and L{MemCacheProtocol.get} are the more important.
+
+See U{http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt} for
+more information about the protocol.
+
+=== parse epydoc
+short_description: 'Memcache client protocol. Memcached is a caching server, storing data in the'
+long_description: |
+  form of pairs key/value, and memcache is the protocol to talk with it.
+  
+  To connect to a server, create a factory for L{MemCacheProtocol}::
+  
+      from twisted.internet import reactor, protocol
+      from twisted.protocols.memcache import MemCacheProtocol, DEFAULT_PORT
+      d = protocol.ClientCreator(reactor, MemCacheProtocol
+          ).connectTCP("localhost", DEFAULT_PORT)
+      def doSomething(proto):
+          # Here you call the memcache operations
+          return proto.set("mykey", "a lot of data")
+      d.addCallback(doSomething)
+      reactor.run()
+  
+  All the operations of the memcache protocol are present, but
+  L{MemCacheProtocol.set} and L{MemCacheProtocol.get} are the more important.
+  
+  See U{http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt} for
+  more information about the protocol.
+blank_after_short_description: False
+blank_after_long_description: False
+style: epydoc
+=== detect
+rest
+=== compose epydoc
+Memcache client protocol. Memcached is a caching server, storing data in the
+form of pairs key/value, and memcache is the protocol to talk with it.
+
+To connect to a server, create a factory for L{MemCacheProtocol}::
+
+    from twisted.internet import reactor, protocol
+    from twisted.protocols.memcache import MemCacheProtocol, DEFAULT_PORT
+    d = protocol.ClientCreator(reactor, MemCacheProtocol
+        ).connectTCP("localhost", DEFAULT_PORT)
+    def doSomething(proto):
+        # Here you call the memcache operations
+        return proto.set("mykey", "a lot of data")
+    d.addCallback(doSomething)
+    reactor.run()
+
+All the operations of the memcache protocol are present, but
+L{MemCacheProtocol.set} and L{MemCacheProtocol.get} are the more important.
+
+See U{http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt} for
+more information about the protocol.

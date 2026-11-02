@@ -1,0 +1,95 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+Pytest test running.
+
+This module implements the ``test()`` function for NumPy modules. The usual
+boiler plate for doing that is to put the following in the module
+``__init__.py`` file::
+
+    from numpy._pytesttester import PytestTester
+    test = PytestTester(__name__)
+    del PytestTester
+
+
+Warnings filtering and other runtime settings should be dealt with in the
+``pytest.ini`` file in the numpy repo root. The behavior of the test depends on
+whether or not that file is found as follows:
+
+* ``pytest.ini`` is present (develop mode)
+    All warnings except those explicitly filtered out are raised as error.
+* ``pytest.ini`` is absent (release mode)
+    DeprecationWarnings and PendingDeprecationWarnings are ignored, other
+    warnings are passed through.
+
+In practice, tests run from the numpy repo are run in development mode with
+``spin``, through the standard ``spin test`` invocation or from an inplace
+build with ``pytest numpy``.
+
+This module is imported by every numpy subpackage, so lies at the top level to
+simplify circular import issues. For the same reason, it contains no numpy
+imports at module scope, instead importing numpy within function calls.
+
+=== parse numpydoc
+short_description: 'Pytest test running.'
+long_description: |
+  This module implements the ``test()`` function for NumPy modules. The usual
+  boiler plate for doing that is to put the following in the module
+  ``__init__.py`` file::
+  
+      from numpy._pytesttester import PytestTester
+      test = PytestTester(__name__)
+      del PytestTester
+  
+  
+  Warnings filtering and other runtime settings should be dealt with in the
+  ``pytest.ini`` file in the numpy repo root. The behavior of the test depends on
+  whether or not that file is found as follows:
+  
+  * ``pytest.ini`` is present (develop mode)
+      All warnings except those explicitly filtered out are raised as error.
+  * ``pytest.ini`` is absent (release mode)
+      DeprecationWarnings and PendingDeprecationWarnings are ignored, other
+      warnings are passed through.
+  
+  In practice, tests run from the numpy repo are run in development mode with
+  ``spin``, through the standard ``spin test`` invocation or from an inplace
+  build with ``pytest numpy``.
+  
+  This module is imported by every numpy subpackage, so lies at the top level to
+  simplify circular import issues. For the same reason, it contains no numpy
+  imports at module scope, instead importing numpy within function calls.
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Pytest test running.
+
+This module implements the ``test()`` function for NumPy modules. The usual
+boiler plate for doing that is to put the following in the module
+``__init__.py`` file::
+
+    from numpy._pytesttester import PytestTester
+    test = PytestTester(__name__)
+    del PytestTester
+
+
+Warnings filtering and other runtime settings should be dealt with in the
+``pytest.ini`` file in the numpy repo root. The behavior of the test depends on
+whether or not that file is found as follows:
+
+* ``pytest.ini`` is present (develop mode)
+    All warnings except those explicitly filtered out are raised as error.
+* ``pytest.ini`` is absent (release mode)
+    DeprecationWarnings and PendingDeprecationWarnings are ignored, other
+    warnings are passed through.
+
+In practice, tests run from the numpy repo are run in development mode with
+``spin``, through the standard ``spin test`` invocation or from an inplace
+build with ``pytest numpy``.
+
+This module is imported by every numpy subpackage, so lies at the top level to
+simplify circular import issues. For the same reason, it contains no numpy
+imports at module scope, instead importing numpy within function calls.

@@ -1,0 +1,146 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Convert to a dtype with the given unit resolution.
+
+        The limits of timestamp representation depend on the chosen resolution.
+        Different resolutions can be converted to each other through as_unit.
+
+        Parameters
+        ----------
+        unit : {'s', 'ms', 'us', 'ns'}
+        round_ok : bool, default True
+            If False and the conversion requires rounding, raise ValueError.
+
+        Returns
+        -------
+        same type as self
+            Converted to the specified unit.
+
+        See Also
+        --------
+        Timestamp.as_unit : Convert to the given unit.
+
+        Examples
+        --------
+        For :class:`pandas.DatetimeIndex`:
+
+        >>> idx = pd.DatetimeIndex(["2020-01-02 01:02:03.004005006"])
+        >>> idx
+        DatetimeIndex(['2020-01-02 01:02:03.004005006'],
+                      dtype='datetime64[ns]', freq=None)
+        >>> idx.as_unit("s")
+        DatetimeIndex(['2020-01-02 01:02:03'], dtype='datetime64[s]', freq=None)
+
+        For :class:`pandas.TimedeltaIndex`:
+
+        >>> tdelta_idx = pd.to_timedelta(["1 day 3 min 2 us 42 ns"])
+        >>> tdelta_idx
+        TimedeltaIndex(['1 days 00:03:00.000002042'],
+                        dtype='timedelta64[ns]', freq=None)
+        >>> tdelta_idx.as_unit("s")
+        TimedeltaIndex(['1 days 00:03:00'], dtype='timedelta64[s]', freq=None)
+        
+=== parse numpydoc
+short_description: 'Convert to a dtype with the given unit resolution.'
+long_description: |
+  The limits of timestamp representation depend on the chosen resolution.
+  Different resolutions can be converted to each other through as_unit.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'unit']
+  arg_name: 'unit'
+  type_name: "{'s', 'ms', 'us', 'ns'}"
+  is_optional: False
+- DocstringParam
+  args: ['param', 'round_ok']
+  description: 'If False and the conversion requires rounding, raise ValueError.'
+  arg_name: 'round_ok'
+  type_name: 'bool'
+  is_optional: True
+  default: 'True'
+- DocstringReturns
+  args: ['returns']
+  description: 'Converted to the specified unit.'
+  type_name: 'same type as self'
+  is_generator: False
+- DocstringMeta
+  args: ['see_also']
+  description: 'Timestamp.as_unit : Convert to the given unit.'
+- DocstringExample
+  args: ['examples']
+  description: |
+    For :class:`pandas.DatetimeIndex`:
+    
+- DocstringExample
+  args: ['examples']
+  description: |
+    DatetimeIndex(['2020-01-02 01:02:03.004005006'],
+                  dtype='datetime64[ns]', freq=None)
+  snippet: |
+    >>> idx = pd.DatetimeIndex(["2020-01-02 01:02:03.004005006"])
+    >>> idx
+- DocstringExample
+  args: ['examples']
+  description: |
+    DatetimeIndex(['2020-01-02 01:02:03'], dtype='datetime64[s]', freq=None)
+    
+    For :class:`pandas.TimedeltaIndex`:
+    
+  snippet: '>>> idx.as_unit("s")'
+- DocstringExample
+  args: ['examples']
+  description: |
+    TimedeltaIndex(['1 days 00:03:00.000002042'],
+                    dtype='timedelta64[ns]', freq=None)
+  snippet: |
+    >>> tdelta_idx = pd.to_timedelta(["1 day 3 min 2 us 42 ns"])
+    >>> tdelta_idx
+- DocstringExample
+  args: ['examples']
+  description: "TimedeltaIndex(['1 days 00:03:00'], dtype='timedelta64[s]', freq=None)"
+  snippet: '>>> tdelta_idx.as_unit("s")'
+=== detect
+numpydoc
+=== compose numpydoc
+Convert to a dtype with the given unit resolution.
+
+The limits of timestamp representation depend on the chosen resolution.
+Different resolutions can be converted to each other through as_unit.
+
+Parameters
+----------
+unit : {'s', 'ms', 'us', 'ns'}
+round_ok : bool, default=True
+    If False and the conversion requires rounding, raise ValueError.
+
+Returns
+-------
+same type as self
+    Converted to the specified unit.
+
+Examples
+--------
+For :class:`pandas.DatetimeIndex`:
+
+>>> idx = pd.DatetimeIndex(["2020-01-02 01:02:03.004005006"])
+>>> idx
+DatetimeIndex(['2020-01-02 01:02:03.004005006'],
+              dtype='datetime64[ns]', freq=None)
+>>> idx.as_unit("s")
+DatetimeIndex(['2020-01-02 01:02:03'], dtype='datetime64[s]', freq=None)
+
+For :class:`pandas.TimedeltaIndex`:
+
+>>> tdelta_idx = pd.to_timedelta(["1 day 3 min 2 us 42 ns"])
+>>> tdelta_idx
+TimedeltaIndex(['1 days 00:03:00.000002042'],
+                dtype='timedelta64[ns]', freq=None)
+>>> tdelta_idx.as_unit("s")
+TimedeltaIndex(['1 days 00:03:00'], dtype='timedelta64[s]', freq=None)
+
+See Also
+--------
+Timestamp.as_unit : Convert to the given unit.

@@ -1,0 +1,22 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Check if the object is a :class:`~types.ClassMethodDescriptorType`.
+
+    This check is stricter than :func:`is_builtin_classmethod_like` as
+    a classmethod descriptor does not have a ``__func__`` attribute.
+    
+=== parse rest
+short_description: 'Check if the object is a :class:`~types.ClassMethodDescriptorType`.'
+long_description: |
+  This check is stricter than :func:`is_builtin_classmethod_like` as
+  a classmethod descriptor does not have a ``__func__`` attribute.
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Check if the object is a :class:`~types.ClassMethodDescriptorType`.
+
+This check is stricter than :func:`is_builtin_classmethod_like` as
+a classmethod descriptor does not have a ``__func__`` attribute.

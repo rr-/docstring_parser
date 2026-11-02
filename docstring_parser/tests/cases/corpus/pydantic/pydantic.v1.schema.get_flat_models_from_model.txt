@@ -1,0 +1,36 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+    Take a single ``model`` and generate a set with itself and all the sub-models in the tree. I.e. if you pass
+    model ``Foo`` (subclass of Pydantic ``BaseModel``) as ``model``, and it has a field of type ``Bar`` (also
+    subclass of ``BaseModel``) and that model ``Bar`` has a field of type ``Baz`` (also subclass of ``BaseModel``),
+    the return value will be ``set([Foo, Bar, Baz])``.
+
+    :param model: a Pydantic ``BaseModel`` subclass
+    :param known_models: used to solve circular references
+    :return: a set with the initial model and all its sub-models
+    
+=== parse google
+short_description: 'Take a single ``model`` and generate a set with itself and all the sub-models in the tree. I.e. if you pass'
+long_description: |
+  model ``Foo`` (subclass of Pydantic ``BaseModel``) as ``model``, and it has a field of type ``Bar`` (also
+  subclass of ``BaseModel``) and that model ``Bar`` has a field of type ``Baz`` (also subclass of ``BaseModel``),
+  the return value will be ``set([Foo, Bar, Baz])``.
+  
+  :param model: a Pydantic ``BaseModel`` subclass
+  :param known_models: used to solve circular references
+  :return: a set with the initial model and all its sub-models
+blank_after_short_description: False
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Take a single ``model`` and generate a set with itself and all the sub-models in the tree. I.e. if you pass
+model ``Foo`` (subclass of Pydantic ``BaseModel``) as ``model``, and it has a field of type ``Bar`` (also
+subclass of ``BaseModel``) and that model ``Bar`` has a field of type ``Baz`` (also subclass of ``BaseModel``),
+the return value will be ``set([Foo, Bar, Baz])``.
+
+:param model: a Pydantic ``BaseModel`` subclass
+:param known_models: used to solve circular references
+:return: a set with the initial model and all its sub-models

@@ -1,0 +1,117 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Check if the object is a file-like object.
+
+    For objects to be considered file-like, they must have
+    a `read` and/or `write` method as an attribute.
+
+    Parameters
+    ----------
+    obj : object
+        The object to check for file-like properties.
+        This can be any Python object, and the function will
+        check if it has attributes typically associated with
+        file-like objects (e.g., `read`, `write`).
+
+    Returns
+    -------
+    bool
+        Whether `obj` has file-like properties.
+
+    See Also
+    --------
+    api.types.is_dict_like : Check if the object is dict-like.
+    api.types.is_hashable : Return True if hash(obj) will succeed, False otherwise.
+    api.types.is_named_tuple : Check if the object is a named tuple.
+    api.types.is_iterator : Check if the object is an iterator.
+
+    Examples
+    --------
+    >>> import io
+    >>> from pandas.api.types import is_file_like
+    >>> buffer = io.StringIO("data")
+    >>> is_file_like(buffer)
+    True
+    >>> is_file_like([1, 2, 3])
+    False
+    
+=== parse numpydoc
+short_description: 'Check if the object is a file-like object.'
+long_description: |
+  For objects to be considered file-like, they must have
+  a `read` and/or `write` method as an attribute.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'obj']
+  description: |
+    The object to check for file-like properties.
+    This can be any Python object, and the function will
+    check if it has attributes typically associated with
+    file-like objects (e.g., `read`, `write`).
+  arg_name: 'obj'
+  type_name: 'object'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: 'Whether `obj` has file-like properties.'
+  type_name: 'bool'
+  is_generator: False
+- DocstringMeta
+  args: ['see_also']
+  description: |
+    api.types.is_dict_like : Check if the object is dict-like.
+    api.types.is_hashable : Return True if hash(obj) will succeed, False otherwise.
+    api.types.is_named_tuple : Check if the object is a named tuple.
+    api.types.is_iterator : Check if the object is an iterator.
+- DocstringExample
+  args: ['examples']
+  description: 'True'
+  snippet: |
+    >>> import io
+    >>> from pandas.api.types import is_file_like
+    >>> buffer = io.StringIO("data")
+    >>> is_file_like(buffer)
+- DocstringExample
+  args: ['examples']
+  description: 'False'
+  snippet: '>>> is_file_like([1, 2, 3])'
+=== detect
+numpydoc
+=== compose numpydoc
+Check if the object is a file-like object.
+
+For objects to be considered file-like, they must have
+a `read` and/or `write` method as an attribute.
+
+Parameters
+----------
+obj : object
+    The object to check for file-like properties.
+    This can be any Python object, and the function will
+    check if it has attributes typically associated with
+    file-like objects (e.g., `read`, `write`).
+
+Returns
+-------
+bool
+    Whether `obj` has file-like properties.
+
+Examples
+--------
+>>> import io
+>>> from pandas.api.types import is_file_like
+>>> buffer = io.StringIO("data")
+>>> is_file_like(buffer)
+True
+>>> is_file_like([1, 2, 3])
+False
+
+See Also
+--------
+api.types.is_dict_like : Check if the object is dict-like.
+api.types.is_hashable : Return True if hash(obj) will succeed, False otherwise.
+api.types.is_named_tuple : Check if the object is a named tuple.
+api.types.is_iterator : Check if the object is an iterator.

@@ -1,0 +1,27 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Client extensions inputs for WebAuthn extensions.
+
+    Args:
+        appid: app id that can be asserted with in addition to rpid.
+            https://www.w3.org/TR/webauthn-3/#sctn-appid-extension
+    
+=== parse google
+short_description: 'Client extensions inputs for WebAuthn extensions.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'appid']
+  description: |
+    app id that can be asserted with in addition to rpid.
+    https://www.w3.org/TR/webauthn-3/#sctn-appid-extension
+  arg_name: 'appid'
+=== detect
+google
+=== compose google
+Client extensions inputs for WebAuthn extensions.
+
+Args:
+    appid: app id that can be asserted with in addition to rpid.
+        https://www.w3.org/TR/webauthn-3/#sctn-appid-extension

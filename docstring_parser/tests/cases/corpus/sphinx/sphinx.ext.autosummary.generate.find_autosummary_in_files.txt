@@ -1,0 +1,18 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Find out what items are documented in source/*.rst.
+
+    See `find_autosummary_in_lines`.
+    
+=== parse rest
+short_description: 'Find out what items are documented in source/*.rst.'
+long_description: 'See `find_autosummary_in_lines`.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Find out what items are documented in source/*.rst.
+
+See `find_autosummary_in_lines`.

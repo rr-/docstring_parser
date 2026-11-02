@@ -1,0 +1,43 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Serializes the value of a type that is not validated.
+
+    Values of an Any or Unvalidated type don't have a type hint to serialize
+    them with, so one is derived from the value itself and the serialization is
+    delegated to adapt_typehints. Values that no type represents are serialized
+    the same as the instances given for a subclass type, i.e. as an import path
+    when the value can be imported back, otherwise as a message that says that it
+    was not serializable.
+
+    Parsing back has no type hint either, thus a value only round-trips when the
+    config format represents its type. A warning is given when it doesn't.
+    
+=== parse google
+short_description: 'Serializes the value of a type that is not validated.'
+long_description: |
+  Values of an Any or Unvalidated type don't have a type hint to serialize
+  them with, so one is derived from the value itself and the serialization is
+  delegated to adapt_typehints. Values that no type represents are serialized
+  the same as the instances given for a subclass type, i.e. as an import path
+  when the value can be imported back, otherwise as a message that says that it
+  was not serializable.
+  
+  Parsing back has no type hint either, thus a value only round-trips when the
+  config format represents its type. A warning is given when it doesn't.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Serializes the value of a type that is not validated.
+
+Values of an Any or Unvalidated type don't have a type hint to serialize
+them with, so one is derived from the value itself and the serialization is
+delegated to adapt_typehints. Values that no type represents are serialized
+the same as the instances given for a subclass type, i.e. as an import path
+when the value can be imported back, otherwise as a message that says that it
+was not serializable.
+
+Parsing back has no type hint either, thus a value only round-trips when the
+config format represents its type. A warning is given when it doesn't.

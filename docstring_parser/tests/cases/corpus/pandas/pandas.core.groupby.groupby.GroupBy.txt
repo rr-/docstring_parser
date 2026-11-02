@@ -1,0 +1,226 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Class for grouping and aggregating relational data.
+
+    See aggregate, transform, and apply functions on this object.
+
+    It's easiest to use obj.groupby(...) to use GroupBy, but you can also do:
+
+    ::
+
+        grouped = groupby(obj, ...)
+
+    Parameters
+    ----------
+    obj : pandas object
+    level : int, default None
+        Level of MultiIndex
+    groupings : list of Grouping objects
+        Most users should ignore this
+    exclusions : array-like, optional
+        List of columns to exclude
+    name : str
+        Most users should ignore this
+
+    Returns
+    -------
+    **Attributes**
+    groups : dict
+        {group name -> group labels}
+    len(grouped) : int
+        Number of groups
+
+    Notes
+    -----
+    After grouping, see aggregate, apply, and transform functions. Here are
+    some other brief notes about usage. When grouping by multiple groups, the
+    result index will be a MultiIndex (hierarchical) by default.
+
+    Iteration produces (key, group) tuples, i.e. chunking the data by group. So
+    you can write code like:
+
+    ::
+
+        grouped = obj.groupby(keys)
+        for key, group in grouped:
+            # do something with the data
+
+    Function calls on GroupBy, if not specially implemented, "dispatch" to the
+    grouped data. So if you group a DataFrame and wish to invoke the std()
+    method on each group, you can simply do:
+
+    ::
+
+        df.groupby(mapper).std()
+
+    rather than
+
+    ::
+
+        df.groupby(mapper).aggregate(np.std)
+
+    You can pass arguments to these "wrapped" functions, too.
+
+    See the online documentation for full exposition on these topics and much
+    more
+    
+=== parse numpydoc
+short_description: 'Class for grouping and aggregating relational data.'
+long_description: |
+  See aggregate, transform, and apply functions on this object.
+  
+  It's easiest to use obj.groupby(...) to use GroupBy, but you can also do:
+  
+  ::
+  
+      grouped = groupby(obj, ...)
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'obj']
+  arg_name: 'obj'
+  type_name: 'pandas object'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'level']
+  description: 'Level of MultiIndex'
+  arg_name: 'level'
+  type_name: 'int'
+  is_optional: True
+  default: 'None'
+- DocstringParam
+  args: ['param', 'groupings']
+  description: 'Most users should ignore this'
+  arg_name: 'groupings'
+  type_name: 'list of Grouping objects'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'exclusions']
+  description: 'List of columns to exclude'
+  arg_name: 'exclusions'
+  type_name: 'array-like'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'name']
+  description: 'Most users should ignore this'
+  arg_name: 'name'
+  type_name: 'str'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  type_name: '**Attributes**'
+  is_generator: False
+- DocstringReturns
+  args: ['returns']
+  description: '{group name -> group labels}'
+  type_name: 'dict'
+  is_generator: False
+  return_name: 'groups'
+- DocstringReturns
+  args: ['returns']
+  description: 'Number of groups'
+  type_name: 'int'
+  is_generator: False
+  return_name: 'len(grouped)'
+- DocstringMeta
+  args: ['notes']
+  description: |
+    After grouping, see aggregate, apply, and transform functions. Here are
+    some other brief notes about usage. When grouping by multiple groups, the
+    result index will be a MultiIndex (hierarchical) by default.
+    
+    Iteration produces (key, group) tuples, i.e. chunking the data by group. So
+    you can write code like:
+    
+    ::
+    
+        grouped = obj.groupby(keys)
+        for key, group in grouped:
+            # do something with the data
+    
+    Function calls on GroupBy, if not specially implemented, "dispatch" to the
+    grouped data. So if you group a DataFrame and wish to invoke the std()
+    method on each group, you can simply do:
+    
+    ::
+    
+        df.groupby(mapper).std()
+    
+    rather than
+    
+    ::
+    
+        df.groupby(mapper).aggregate(np.std)
+    
+    You can pass arguments to these "wrapped" functions, too.
+    
+    See the online documentation for full exposition on these topics and much
+    more
+=== detect
+numpydoc
+=== compose numpydoc
+Class for grouping and aggregating relational data.
+
+See aggregate, transform, and apply functions on this object.
+
+It's easiest to use obj.groupby(...) to use GroupBy, but you can also do:
+
+::
+
+    grouped = groupby(obj, ...)
+
+Parameters
+----------
+obj : pandas object
+level : int, optional
+    Level of MultiIndex
+groupings : list of Grouping objects
+    Most users should ignore this
+exclusions : array-like, optional
+    List of columns to exclude
+name : str
+    Most users should ignore this
+
+Returns
+-------
+**Attributes**
+groups : dict
+    {group name -> group labels}
+len(grouped) : int
+    Number of groups
+
+Notes
+-----
+After grouping, see aggregate, apply, and transform functions. Here are
+some other brief notes about usage. When grouping by multiple groups, the
+result index will be a MultiIndex (hierarchical) by default.
+
+Iteration produces (key, group) tuples, i.e. chunking the data by group. So
+you can write code like:
+
+::
+
+    grouped = obj.groupby(keys)
+    for key, group in grouped:
+        # do something with the data
+
+Function calls on GroupBy, if not specially implemented, "dispatch" to the
+grouped data. So if you group a DataFrame and wish to invoke the std()
+method on each group, you can simply do:
+
+::
+
+    df.groupby(mapper).std()
+
+rather than
+
+::
+
+    df.groupby(mapper).aggregate(np.std)
+
+You can pass arguments to these "wrapped" functions, too.
+
+See the online documentation for full exposition on these topics and much
+more

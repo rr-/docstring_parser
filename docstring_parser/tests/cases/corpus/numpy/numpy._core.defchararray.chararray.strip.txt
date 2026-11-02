@@ -1,0 +1,29 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        For each element in `self`, return a copy with the leading and
+        trailing characters removed.
+
+        See Also
+        --------
+        char.strip
+
+        
+=== parse numpydoc
+short_description: 'For each element in `self`, return a copy with the leading and'
+long_description: 'trailing characters removed.'
+blank_after_short_description: False
+blank_after_long_description: True
+style: numpydoc
+- DocstringMeta
+  args: ['see_also']
+  description: 'char.strip'
+=== detect
+numpydoc
+=== compose numpydoc
+For each element in `self`, return a copy with the leading and
+trailing characters removed.
+
+See Also
+--------
+char.strip

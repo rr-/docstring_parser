@@ -1,0 +1,33 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Find the root path of a package, or the path that contains a
+    module. If it cannot be found, returns the current working
+    directory.
+
+    Not to be confused with the value returned by :func:`find_package`.
+
+    :meta private:
+    
+=== parse rest
+short_description: 'Find the root path of a package, or the path that contains a'
+long_description: |
+  module. If it cannot be found, returns the current working
+  directory.
+  
+  Not to be confused with the value returned by :func:`find_package`.
+blank_after_short_description: False
+blank_after_long_description: True
+style: rest
+- DocstringMeta
+  args: ['meta', 'private']
+  description: ''
+=== detect
+rest
+=== compose rest
+Find the root path of a package, or the path that contains a
+module. If it cannot be found, returns the current working
+directory.
+
+Not to be confused with the value returned by :func:`find_package`.
+
+:meta private:

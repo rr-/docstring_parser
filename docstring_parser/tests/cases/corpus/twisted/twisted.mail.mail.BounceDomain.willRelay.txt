@@ -1,0 +1,51 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Indicate that this domain will not relay.
+
+        @type user: L{Address}
+        @param user: The destination address.
+
+        @type protocol: L{Protocol <twisted.internet.protocol.Protocol>}
+        @param protocol: The protocol over which the message to be relayed is
+            being received.
+
+        @rtype: L{bool}
+        @return: C{False}.
+        
+=== parse epydoc
+short_description: 'Indicate that this domain will not relay.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringParam
+  args: ['type', 'user']
+  description: 'The destination address.'
+  arg_name: 'user'
+  type_name: 'L{Address}'
+  is_optional: False
+- DocstringParam
+  args: ['type', 'protocol']
+  description: |
+    The protocol over which the message to be relayed is
+    being received.
+  arg_name: 'protocol'
+  type_name: 'L{Protocol <twisted.internet.protocol.Protocol>}'
+  is_optional: False
+- DocstringReturns
+  args: ['rtype']
+  description: 'C{False}.'
+  type_name: 'L{bool}'
+  is_generator: False
+=== detect
+epydoc
+=== compose epydoc
+Indicate that this domain will not relay.
+
+@type user: L{Address}
+@param user: The destination address.
+@type protocol: L{Protocol <twisted.internet.protocol.Protocol>}
+@param protocol: The protocol over which the message to be relayed is
+    being received.
+@rtype: L{bool}
+@return: C{False}.

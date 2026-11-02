@@ -1,0 +1,34 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Unquotes a header value.  (Reversal of :func:`quote_header_value`).
+    This does not use the real unquoting but what browsers are actually
+    using for quoting.
+
+    :param value: the header value to unquote.
+    :rtype: str
+    
+=== parse rest
+short_description: 'Unquotes a header value.  (Reversal of :func:`quote_header_value`).'
+long_description: |
+  This does not use the real unquoting but what browsers are actually
+  using for quoting.
+blank_after_short_description: False
+blank_after_long_description: True
+style: rest
+- DocstringParam
+  args: ['param', 'value']
+  description: 'the header value to unquote.'
+  arg_name: 'value'
+- DocstringReturns
+  args: []
+  type_name: 'str'
+  is_generator: False
+=== detect
+rest
+=== compose rest
+Unquotes a header value.  (Reversal of :func:`quote_header_value`).
+This does not use the real unquoting but what browsers are actually
+using for quoting.
+
+:param value: the header value to unquote.
+:returns str:

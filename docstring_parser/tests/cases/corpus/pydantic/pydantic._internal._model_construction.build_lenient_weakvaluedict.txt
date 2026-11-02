@@ -1,0 +1,28 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Takes an input dictionary, and produces a new value that (invertibly) replaces the values with weakrefs.
+
+    We can't just use a WeakValueDictionary because many types (including int, str, etc.) can't be stored as values
+    in a WeakValueDictionary.
+
+    The `unpack_lenient_weakvaluedict` function can be used to reverse this operation.
+    
+=== parse google
+short_description: 'Takes an input dictionary, and produces a new value that (invertibly) replaces the values with weakrefs.'
+long_description: |
+  We can't just use a WeakValueDictionary because many types (including int, str, etc.) can't be stored as values
+  in a WeakValueDictionary.
+  
+  The `unpack_lenient_weakvaluedict` function can be used to reverse this operation.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Takes an input dictionary, and produces a new value that (invertibly) replaces the values with weakrefs.
+
+We can't just use a WeakValueDictionary because many types (including int, str, etc.) can't be stored as values
+in a WeakValueDictionary.
+
+The `unpack_lenient_weakvaluedict` function can be used to reverse this operation.

@@ -1,0 +1,50 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+
+        Starts a background task to refresh the Regional Access Boundary if one is not already running.
+
+        Args:
+            credentials (CredentialsWithRegionalAccessBoundary): The credentials
+                to refresh.
+            request (google.auth.aio.transport.Request): The object used to make
+                HTTP requests.
+            rab_manager (_RegionalAccessBoundaryManager): The manager container to update.
+        
+=== parse google
+short_description: 'Starts a background task to refresh the Regional Access Boundary if one is not already running.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'credentials (CredentialsWithRegionalAccessBoundary)']
+  description: |
+    The credentials
+    to refresh.
+  arg_name: 'credentials'
+  type_name: 'CredentialsWithRegionalAccessBoundary'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'request (google.auth.aio.transport.Request)']
+  description: |
+    The object used to make
+    HTTP requests.
+  arg_name: 'request'
+  type_name: 'google.auth.aio.transport.Request'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'rab_manager (_RegionalAccessBoundaryManager)']
+  description: 'The manager container to update.'
+  arg_name: 'rab_manager'
+  type_name: '_RegionalAccessBoundaryManager'
+  is_optional: False
+=== detect
+google
+=== compose google
+Starts a background task to refresh the Regional Access Boundary if one is not already running.
+
+Args:
+    credentials (CredentialsWithRegionalAccessBoundary): The credentials
+        to refresh.
+    request (google.auth.aio.transport.Request): The object used to make
+        HTTP requests.
+    rab_manager (_RegionalAccessBoundaryManager): The manager container to update.

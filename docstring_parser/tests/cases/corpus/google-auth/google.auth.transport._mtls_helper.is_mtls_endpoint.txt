@@ -1,0 +1,39 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Checks if the given URL corresponds to an mTLS (Google APIs or Cloud Run)
+    or Private Service Connect (PSC) endpoint.
+
+    Args:
+        url (Optional[Union[str, bytes, object]]): The request URL.
+
+    Returns:
+        bool: True if the URL targets an mTLS or PSC endpoint, False otherwise.
+    
+=== parse google
+short_description: 'Checks if the given URL corresponds to an mTLS (Google APIs or Cloud Run)'
+long_description: 'or Private Service Connect (PSC) endpoint.'
+blank_after_short_description: False
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'url (Optional[Union[str, bytes, object]])']
+  description: 'The request URL.'
+  arg_name: 'url'
+  type_name: 'Optional[Union[str, bytes, object]]'
+  is_optional: False
+- DocstringReturns
+  args: ['returns', 'bool']
+  description: 'True if the URL targets an mTLS or PSC endpoint, False otherwise.'
+  type_name: 'bool'
+  is_generator: False
+=== detect
+google
+=== compose google
+Checks if the given URL corresponds to an mTLS (Google APIs or Cloud Run)
+or Private Service Connect (PSC) endpoint.
+
+Args:
+    url (Optional[Union[str, bytes, object]]): The request URL.
+
+Returns:
+    bool: True if the URL targets an mTLS or PSC endpoint, False otherwise.

@@ -1,0 +1,22 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Wraps a `httplib.HTTPMessage` to mimic a `urllib.addinfourl`.
+
+    ...what? Basically, expose the parsed HTTP headers from the server response
+    the way `http.cookiejar` expects to see them.
+    
+=== parse rest
+short_description: 'Wraps a `httplib.HTTPMessage` to mimic a `urllib.addinfourl`.'
+long_description: |
+  ...what? Basically, expose the parsed HTTP headers from the server response
+  the way `http.cookiejar` expects to see them.
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Wraps a `httplib.HTTPMessage` to mimic a `urllib.addinfourl`.
+
+...what? Basically, expose the parsed HTTP headers from the server response
+the way `http.cookiejar` expects to see them.

@@ -1,0 +1,35 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Sets the comments for the init args of a subclass spec.
+
+        Args:
+            cfg: The ruamel.yaml object that has the class_path key.
+            action: The action that corresponds to the given config object, if any.
+            depth: The nested level of the keys of the config object.
+        
+=== parse google
+short_description: 'Sets the comments for the init args of a subclass spec.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'cfg']
+  description: 'The ruamel.yaml object that has the class_path key.'
+  arg_name: 'cfg'
+- DocstringParam
+  args: ['param', 'action']
+  description: 'The action that corresponds to the given config object, if any.'
+  arg_name: 'action'
+- DocstringParam
+  args: ['param', 'depth']
+  description: 'The nested level of the keys of the config object.'
+  arg_name: 'depth'
+=== detect
+google
+=== compose google
+Sets the comments for the init args of a subclass spec.
+
+Args:
+    cfg: The ruamel.yaml object that has the class_path key.
+    action: The action that corresponds to the given config object, if any.
+    depth: The nested level of the keys of the config object.

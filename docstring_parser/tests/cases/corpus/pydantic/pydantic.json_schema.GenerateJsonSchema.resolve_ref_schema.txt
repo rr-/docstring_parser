@@ -1,0 +1,43 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Resolve a JsonSchemaValue to the non-ref schema if it is a $ref schema.
+
+        Args:
+            json_schema: The schema to resolve.
+
+        Returns:
+            The resolved schema.
+
+        Raises:
+            RuntimeError: If the schema reference can't be found in definitions.
+        
+=== parse google
+short_description: 'Resolve a JsonSchemaValue to the non-ref schema if it is a $ref schema.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'json_schema']
+  description: 'The schema to resolve.'
+  arg_name: 'json_schema'
+- DocstringReturns
+  args: ['returns']
+  description: 'The resolved schema.'
+  is_generator: False
+- DocstringRaises
+  args: ['raises', 'RuntimeError']
+  description: "If the schema reference can't be found in definitions."
+  type_name: 'RuntimeError'
+=== detect
+google
+=== compose google
+Resolve a JsonSchemaValue to the non-ref schema if it is a $ref schema.
+
+Args:
+    json_schema: The schema to resolve.
+
+Returns:
+    The resolved schema.
+
+Raises:
+    RuntimeError: If the schema reference can't be found in definitions.

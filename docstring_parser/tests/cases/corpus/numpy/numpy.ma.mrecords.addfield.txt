@@ -1,0 +1,26 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Adds a new field to the masked record array
+
+    Uses `newfield` as data and `newfieldname` as name. If `newfieldname`
+    is None, the new field name is set to 'fi', where `i` is the number of
+    existing fields.
+
+    
+=== parse numpydoc
+short_description: 'Adds a new field to the masked record array'
+long_description: |
+  Uses `newfield` as data and `newfieldname` as name. If `newfieldname`
+  is None, the new field name is set to 'fi', where `i` is the number of
+  existing fields.
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Adds a new field to the masked record array
+
+Uses `newfield` as data and `newfieldname` as name. If `newfieldname`
+is None, the new field name is set to 'fi', where `i` is the number of
+existing fields.

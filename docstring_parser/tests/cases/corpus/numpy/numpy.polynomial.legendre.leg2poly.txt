@@ -1,0 +1,141 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Convert a Legendre series to a polynomial.
+
+    Convert an array representing the coefficients of a Legendre series,
+    ordered from lowest degree to highest, to an array of the coefficients
+    of the equivalent polynomial (relative to the "standard" basis) ordered
+    from lowest to highest degree.
+
+    Parameters
+    ----------
+    c : array_like
+        1-D array containing the Legendre series coefficients, ordered
+        from lowest order term to highest.
+
+    Returns
+    -------
+    pol : ndarray
+        1-D array containing the coefficients of the equivalent polynomial
+        (relative to the "standard" basis) ordered from lowest order term
+        to highest.
+
+    See Also
+    --------
+    poly2leg
+
+    Notes
+    -----
+    The easy way to do conversions between polynomial basis sets
+    is to use the convert method of a class instance.
+
+    Examples
+    --------
+    >>> from numpy import polynomial as P
+    >>> c = P.Legendre(range(4))
+    >>> c
+    Legendre([0., 1., 2., 3.], domain=[-1.,  1.], window=[-1.,  1.], symbol='x')
+    >>> p = c.convert(kind=P.Polynomial)
+    >>> p
+    Polynomial([-1. , -3.5,  3. ,  7.5], domain=[-1.,  1.], window=[-1., ...
+    >>> P.legendre.leg2poly(range(4))
+    array([-1. , -3.5,  3. ,  7.5])
+
+
+    
+=== parse numpydoc
+short_description: 'Convert a Legendre series to a polynomial.'
+long_description: |
+  Convert an array representing the coefficients of a Legendre series,
+  ordered from lowest degree to highest, to an array of the coefficients
+  of the equivalent polynomial (relative to the "standard" basis) ordered
+  from lowest to highest degree.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'c']
+  description: |
+    1-D array containing the Legendre series coefficients, ordered
+    from lowest order term to highest.
+  arg_name: 'c'
+  type_name: 'array_like'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: |
+    1-D array containing the coefficients of the equivalent polynomial
+    (relative to the "standard" basis) ordered from lowest order term
+    to highest.
+  type_name: 'ndarray'
+  is_generator: False
+  return_name: 'pol'
+- DocstringMeta
+  args: ['see_also']
+  description: 'poly2leg'
+- DocstringMeta
+  args: ['notes']
+  description: |
+    The easy way to do conversions between polynomial basis sets
+    is to use the convert method of a class instance.
+- DocstringExample
+  args: ['examples']
+  description: "Legendre([0., 1., 2., 3.], domain=[-1.,  1.], window=[-1.,  1.], symbol='x')"
+  snippet: |
+    >>> from numpy import polynomial as P
+    >>> c = P.Legendre(range(4))
+    >>> c
+- DocstringExample
+  args: ['examples']
+  description: 'Polynomial([-1. , -3.5,  3. ,  7.5], domain=[-1.,  1.], window=[-1., ...'
+  snippet: |
+    >>> p = c.convert(kind=P.Polynomial)
+    >>> p
+- DocstringExample
+  args: ['examples']
+  description: 'array([-1. , -3.5,  3. ,  7.5])'
+  snippet: '>>> P.legendre.leg2poly(range(4))'
+=== detect
+numpydoc
+=== compose numpydoc
+Convert a Legendre series to a polynomial.
+
+Convert an array representing the coefficients of a Legendre series,
+ordered from lowest degree to highest, to an array of the coefficients
+of the equivalent polynomial (relative to the "standard" basis) ordered
+from lowest to highest degree.
+
+Parameters
+----------
+c : array_like
+    1-D array containing the Legendre series coefficients, ordered
+    from lowest order term to highest.
+
+Returns
+-------
+pol : ndarray
+    1-D array containing the coefficients of the equivalent polynomial
+    (relative to the "standard" basis) ordered from lowest order term
+    to highest.
+
+Examples
+--------
+>>> from numpy import polynomial as P
+>>> c = P.Legendre(range(4))
+>>> c
+Legendre([0., 1., 2., 3.], domain=[-1.,  1.], window=[-1.,  1.], symbol='x')
+>>> p = c.convert(kind=P.Polynomial)
+>>> p
+Polynomial([-1. , -3.5,  3. ,  7.5], domain=[-1.,  1.], window=[-1., ...
+>>> P.legendre.leg2poly(range(4))
+array([-1. , -3.5,  3. ,  7.5])
+
+See Also
+--------
+poly2leg
+
+Notes
+-----
+The easy way to do conversions between polynomial basis sets
+is to use the convert method of a class instance.

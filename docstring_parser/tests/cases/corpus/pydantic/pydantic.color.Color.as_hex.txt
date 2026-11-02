@@ -1,0 +1,32 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Returns the hexadecimal representation of the color.
+
+        Hex string representing the color can be 3, 4, 6, or 8 characters depending on whether the string
+        a "short" representation of the color is possible and whether there's an alpha channel.
+
+        Returns:
+            The hexadecimal representation of the color.
+        
+=== parse google
+short_description: 'Returns the hexadecimal representation of the color.'
+long_description: |
+  Hex string representing the color can be 3, 4, 6, or 8 characters depending on whether the string
+  a "short" representation of the color is possible and whether there's an alpha channel.
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringReturns
+  args: ['returns']
+  description: 'The hexadecimal representation of the color.'
+  is_generator: False
+=== detect
+google
+=== compose google
+Returns the hexadecimal representation of the color.
+
+Hex string representing the color can be 3, 4, 6, or 8 characters depending on whether the string
+a "short" representation of the color is possible and whether there's an alpha channel.
+
+Returns:
+    The hexadecimal representation of the color.

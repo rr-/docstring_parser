@@ -1,0 +1,229 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Take the nth row from each group if n is an int, otherwise a subset of rows.
+
+        .. deprecated:: 3.1.0
+
+            Index notation (``g.nth[n]``) is deprecated in favor of calling
+            ``g.nth(n)`` and will be removed in a future version of pandas.
+
+        If dropna, will take the nth non-null row, dropna is either
+        'all' or 'any'; this is equivalent to calling dropna(how=dropna)
+        before the groupby.
+
+        Returns
+        -------
+        Series or DataFrame
+            N-th value within each group.
+
+        See Also
+        --------
+        Series.nth : Apply function nth to a Series.
+        DataFrame.nth : Apply function nth to each row or column of a DataFrame.
+
+        Examples
+        --------
+
+        >>> df = pd.DataFrame(
+        ...     {"A": [1, 1, 2, 1, 2], "B": [np.nan, 2, 3, 4, 5]}, columns=["A", "B"]
+        ... )
+        >>> g = df.groupby("A")
+        >>> g.nth(0)
+           A   B
+        0  1 NaN
+        2  2 3.0
+        >>> g.nth(1)
+           A   B
+        1  1 2.0
+        4  2 5.0
+        >>> g.nth(-1)
+           A   B
+        3  1 4.0
+        4  2 5.0
+        >>> g.nth([0, 1])
+           A   B
+        0  1 NaN
+        1  1 2.0
+        2  2 3.0
+        4  2 5.0
+        >>> g.nth(slice(None, -1))
+           A   B
+        0  1 NaN
+        1  1 2.0
+        2  2 3.0
+
+        Specifying `dropna` allows ignoring ``NaN`` values
+
+        >>> g.nth(0, dropna="any")
+           A   B
+        1  1 2.0
+        2  2 3.0
+
+        When the specified ``n`` is larger than any of the groups, an
+        empty DataFrame is returned
+
+        >>> g.nth(3, dropna="any")
+        Empty DataFrame
+        Columns: [A, B]
+        Index: []
+        
+=== parse numpydoc
+short_description: 'Take the nth row from each group if n is an int, otherwise a subset of rows.'
+long_description: |
+  If dropna, will take the nth non-null row, dropna is either
+  'all' or 'any'; this is equivalent to calling dropna(how=dropna)
+  before the groupby.
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringDeprecated
+  args: ['deprecation']
+  description: |
+    Index notation (``g.nth[n]``) is deprecated in favor of calling
+    ``g.nth(n)`` and will be removed in a future version of pandas.
+  version: '3.1.0'
+- DocstringReturns
+  args: ['returns']
+  description: 'N-th value within each group.'
+  type_name: 'Series or DataFrame'
+  is_generator: False
+- DocstringMeta
+  args: ['see_also']
+  description: |
+    Series.nth : Apply function nth to a Series.
+    DataFrame.nth : Apply function nth to each row or column of a DataFrame.
+- DocstringExample
+  args: ['examples']
+  description: |
+    ...     {"A": [1, 1, 2, 1, 2], "B": [np.nan, 2, 3, 4, 5]}, columns=["A", "B"]
+    ... )
+  snippet: '>>> df = pd.DataFrame('
+- DocstringExample
+  args: ['examples']
+  description: |
+       A   B
+    0  1 NaN
+    2  2 3.0
+  snippet: |
+    >>> g = df.groupby("A")
+    >>> g.nth(0)
+- DocstringExample
+  args: ['examples']
+  description: |
+       A   B
+    1  1 2.0
+    4  2 5.0
+  snippet: '>>> g.nth(1)'
+- DocstringExample
+  args: ['examples']
+  description: |
+       A   B
+    3  1 4.0
+    4  2 5.0
+  snippet: '>>> g.nth(-1)'
+- DocstringExample
+  args: ['examples']
+  description: |
+       A   B
+    0  1 NaN
+    1  1 2.0
+    2  2 3.0
+    4  2 5.0
+  snippet: '>>> g.nth([0, 1])'
+- DocstringExample
+  args: ['examples']
+  description: |
+       A   B
+    0  1 NaN
+    1  1 2.0
+    2  2 3.0
+    
+    Specifying `dropna` allows ignoring ``NaN`` values
+    
+  snippet: '>>> g.nth(slice(None, -1))'
+- DocstringExample
+  args: ['examples']
+  description: |
+       A   B
+    1  1 2.0
+    2  2 3.0
+    
+    When the specified ``n`` is larger than any of the groups, an
+    empty DataFrame is returned
+    
+  snippet: '>>> g.nth(0, dropna="any")'
+- DocstringExample
+  args: ['examples']
+  description: |
+    Empty DataFrame
+    Columns: [A, B]
+    Index: []
+  snippet: '>>> g.nth(3, dropna="any")'
+=== detect
+numpydoc
+=== compose numpydoc
+Take the nth row from each group if n is an int, otherwise a subset of rows.
+
+.. deprecated:: 3.1.0
+    Index notation (``g.nth[n]``) is deprecated in favor of calling
+    ``g.nth(n)`` and will be removed in a future version of pandas.
+
+If dropna, will take the nth non-null row, dropna is either
+'all' or 'any'; this is equivalent to calling dropna(how=dropna)
+before the groupby.
+
+Returns
+-------
+Series or DataFrame
+    N-th value within each group.
+
+Examples
+--------
+>>> df = pd.DataFrame(
+...     {"A": [1, 1, 2, 1, 2], "B": [np.nan, 2, 3, 4, 5]}, columns=["A", "B"]
+... )
+>>> g = df.groupby("A")
+>>> g.nth(0)
+   A   B
+0  1 NaN
+2  2 3.0
+>>> g.nth(1)
+   A   B
+1  1 2.0
+4  2 5.0
+>>> g.nth(-1)
+   A   B
+3  1 4.0
+4  2 5.0
+>>> g.nth([0, 1])
+   A   B
+0  1 NaN
+1  1 2.0
+2  2 3.0
+4  2 5.0
+>>> g.nth(slice(None, -1))
+   A   B
+0  1 NaN
+1  1 2.0
+2  2 3.0
+
+Specifying `dropna` allows ignoring ``NaN`` values
+
+>>> g.nth(0, dropna="any")
+   A   B
+1  1 2.0
+2  2 3.0
+
+When the specified ``n`` is larger than any of the groups, an
+empty DataFrame is returned
+
+>>> g.nth(3, dropna="any")
+Empty DataFrame
+Columns: [A, B]
+Index: []
+
+See Also
+--------
+Series.nth : Apply function nth to a Series.
+DataFrame.nth : Apply function nth to each row or column of a DataFrame.

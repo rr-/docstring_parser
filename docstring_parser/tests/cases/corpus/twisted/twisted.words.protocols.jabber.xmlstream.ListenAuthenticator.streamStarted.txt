@@ -1,0 +1,23 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Called by the XmlStream when the stream has started.
+
+        This extends L{Authenticator.streamStarted} to extract further
+        information from the stream headers from C{rootElement}.
+        
+=== parse epydoc
+short_description: 'Called by the XmlStream when the stream has started.'
+long_description: |
+  This extends L{Authenticator.streamStarted} to extract further
+  information from the stream headers from C{rootElement}.
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+=== detect
+rest
+=== compose epydoc
+Called by the XmlStream when the stream has started.
+
+This extends L{Authenticator.streamStarted} to extract further
+information from the stream headers from C{rootElement}.

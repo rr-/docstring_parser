@@ -1,0 +1,59 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Sets the comments for the keys of a config object nested in another one.
+
+        Args:
+            cfg: The ruamel.yaml object.
+            action: The action that corresponds to the given config object, if any.
+            depth: The nested level of the keys of the config object.
+            parser: The parser in which the keys are searched when not a class type.
+            group_titles: Map of parser keys to the title of the group they belong to.
+            prefix: The parser key that corresponds to the given config object.
+            typehint: The type of the config object, defaults to the type of the action.
+        
+=== parse google
+short_description: 'Sets the comments for the keys of a config object nested in another one.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'cfg']
+  description: 'The ruamel.yaml object.'
+  arg_name: 'cfg'
+- DocstringParam
+  args: ['param', 'action']
+  description: 'The action that corresponds to the given config object, if any.'
+  arg_name: 'action'
+- DocstringParam
+  args: ['param', 'depth']
+  description: 'The nested level of the keys of the config object.'
+  arg_name: 'depth'
+- DocstringParam
+  args: ['param', 'parser']
+  description: 'The parser in which the keys are searched when not a class type.'
+  arg_name: 'parser'
+- DocstringParam
+  args: ['param', 'group_titles']
+  description: 'Map of parser keys to the title of the group they belong to.'
+  arg_name: 'group_titles'
+- DocstringParam
+  args: ['param', 'prefix']
+  description: 'The parser key that corresponds to the given config object.'
+  arg_name: 'prefix'
+- DocstringParam
+  args: ['param', 'typehint']
+  description: 'The type of the config object, defaults to the type of the action.'
+  arg_name: 'typehint'
+=== detect
+google
+=== compose google
+Sets the comments for the keys of a config object nested in another one.
+
+Args:
+    cfg: The ruamel.yaml object.
+    action: The action that corresponds to the given config object, if any.
+    depth: The nested level of the keys of the config object.
+    parser: The parser in which the keys are searched when not a class type.
+    group_titles: Map of parser keys to the title of the group they belong to.
+    prefix: The parser key that corresponds to the given config object.
+    typehint: The type of the config object, defaults to the type of the action.

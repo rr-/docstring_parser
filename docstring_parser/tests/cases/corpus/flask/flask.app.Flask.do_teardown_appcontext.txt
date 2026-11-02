@@ -1,0 +1,56 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Called right before the application context is popped.
+
+        When handling a request, the application context is popped
+        after the request context. See :meth:`do_teardown_request`.
+
+        This calls all functions decorated with
+        :meth:`teardown_appcontext`. Then the
+        :data:`appcontext_tearing_down` signal is sent.
+
+        This is called by
+        :meth:`AppContext.pop() <flask.ctx.AppContext.pop>`.
+
+        .. versionadded:: 0.9
+        
+=== parse rest
+short_description: 'Called right before the application context is popped.'
+long_description: |
+  When handling a request, the application context is popped
+  after the request context. See :meth:`do_teardown_request`.
+  
+  This calls all functions decorated with
+  
+  This is called by
+  
+  .. versionadded:: 0.9
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringMeta
+  args: ['meth']
+  description: '`teardown_appcontext`. Then the'
+- DocstringMeta
+  args: ['data']
+  description: '`appcontext_tearing_down` signal is sent.'
+- DocstringMeta
+  args: ['meth']
+  description: '`AppContext.pop() <flask.ctx.AppContext.pop>`.'
+=== detect
+rest
+=== compose rest
+Called right before the application context is popped.
+
+When handling a request, the application context is popped
+after the request context. See :meth:`do_teardown_request`.
+
+This calls all functions decorated with
+
+This is called by
+
+.. versionadded:: 0.9
+
+:meth: `teardown_appcontext`. Then the
+:data: `appcontext_tearing_down` signal is sent.
+:meth: `AppContext.pop() <flask.ctx.AppContext.pop>`.

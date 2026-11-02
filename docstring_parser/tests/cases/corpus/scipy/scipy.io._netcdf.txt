@@ -1,0 +1,57 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+NetCDF reader/writer module.
+
+This module is used to read and create NetCDF files. NetCDF files are
+accessed through the `netcdf_file` object. Data written to and from NetCDF
+files are contained in `netcdf_variable` objects. Attributes are given
+as member variables of the `netcdf_file` and `netcdf_variable` objects.
+
+This module implements the Scientific.IO.NetCDF API to read and create
+NetCDF files. The same API is also used in the PyNIO and pynetcdf
+modules, allowing these modules to be used interchangeably when working
+with NetCDF files.
+
+Only NetCDF3 is supported here; for NetCDF4 see
+`netCDF4-python <http://unidata.github.io/netcdf4-python/>`__,
+which has a similar API.
+
+
+=== parse numpydoc
+short_description: 'NetCDF reader/writer module.'
+long_description: |
+  This module is used to read and create NetCDF files. NetCDF files are
+  accessed through the `netcdf_file` object. Data written to and from NetCDF
+  files are contained in `netcdf_variable` objects. Attributes are given
+  as member variables of the `netcdf_file` and `netcdf_variable` objects.
+  
+  This module implements the Scientific.IO.NetCDF API to read and create
+  NetCDF files. The same API is also used in the PyNIO and pynetcdf
+  modules, allowing these modules to be used interchangeably when working
+  with NetCDF files.
+  
+  Only NetCDF3 is supported here; for NetCDF4 see
+  `netCDF4-python <http://unidata.github.io/netcdf4-python/>`__,
+  which has a similar API.
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+NetCDF reader/writer module.
+
+This module is used to read and create NetCDF files. NetCDF files are
+accessed through the `netcdf_file` object. Data written to and from NetCDF
+files are contained in `netcdf_variable` objects. Attributes are given
+as member variables of the `netcdf_file` and `netcdf_variable` objects.
+
+This module implements the Scientific.IO.NetCDF API to read and create
+NetCDF files. The same API is also used in the PyNIO and pynetcdf
+modules, allowing these modules to be used interchangeably when working
+with NetCDF files.
+
+Only NetCDF3 is supported here; for NetCDF4 see
+`netCDF4-python <http://unidata.github.io/netcdf4-python/>`__,
+which has a similar API.

@@ -1,0 +1,91 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Ensure that argument passed in arg_name can be interpreted as boolean.
+
+    Parameters
+    ----------
+    value : bool
+        Value to be validated.
+    arg_name : str
+        Name of the argument. To be reflected in the error message.
+    none_allowed : bool, default True
+        Whether to consider None to be a valid boolean.
+    int_allowed : bool, default False
+        Whether to consider integer value to be a valid boolean.
+
+    Returns
+    -------
+    value
+        The same value as input.
+
+    Raises
+    ------
+    ValueError
+        If the value is not a valid boolean.
+    
+=== parse numpydoc
+short_description: 'Ensure that argument passed in arg_name can be interpreted as boolean.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'value']
+  description: 'Value to be validated.'
+  arg_name: 'value'
+  type_name: 'bool'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'arg_name']
+  description: 'Name of the argument. To be reflected in the error message.'
+  arg_name: 'arg_name'
+  type_name: 'str'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'none_allowed']
+  description: 'Whether to consider None to be a valid boolean.'
+  arg_name: 'none_allowed'
+  type_name: 'bool'
+  is_optional: True
+  default: 'True'
+- DocstringParam
+  args: ['param', 'int_allowed']
+  description: 'Whether to consider integer value to be a valid boolean.'
+  arg_name: 'int_allowed'
+  type_name: 'bool'
+  is_optional: True
+  default: 'False'
+- DocstringReturns
+  args: ['returns']
+  description: 'The same value as input.'
+  type_name: 'value'
+  is_generator: False
+- DocstringRaises
+  args: ['raises', 'ValueError']
+  description: 'If the value is not a valid boolean.'
+  type_name: 'ValueError'
+=== detect
+numpydoc
+=== compose numpydoc
+Ensure that argument passed in arg_name can be interpreted as boolean.
+
+Parameters
+----------
+value : bool
+    Value to be validated.
+arg_name : str
+    Name of the argument. To be reflected in the error message.
+none_allowed : bool, default=True
+    Whether to consider None to be a valid boolean.
+int_allowed : bool, default=False
+    Whether to consider integer value to be a valid boolean.
+
+Returns
+-------
+value
+    The same value as input.
+
+Raises
+------
+ValueError
+    If the value is not a valid boolean.

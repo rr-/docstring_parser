@@ -1,0 +1,31 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Remembers the import path that instances were resolved from.
+
+    The import path of an instance can't be derived from the object itself, so
+    without this a value given as an import path to an instance would not be
+    serializable, even though it came from an import path. Entries are keyed by
+    id, weak references being used to discard an entry when its instance is
+    garbage collected, thus avoiding that an id is reused for another object.
+    
+=== parse google
+short_description: 'Remembers the import path that instances were resolved from.'
+long_description: |
+  The import path of an instance can't be derived from the object itself, so
+  without this a value given as an import path to an instance would not be
+  serializable, even though it came from an import path. Entries are keyed by
+  id, weak references being used to discard an entry when its instance is
+  garbage collected, thus avoiding that an id is reused for another object.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Remembers the import path that instances were resolved from.
+
+The import path of an instance can't be derived from the object itself, so
+without this a value given as an import path to an instance would not be
+serializable, even though it came from an import path. Entries are keyed by
+id, weak references being used to discard an entry when its instance is
+garbage collected, thus avoiding that an id is reused for another object.

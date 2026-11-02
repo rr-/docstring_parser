@@ -1,0 +1,36 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Get and remove an attribute by name. Like :meth:`dict.pop`.
+
+        :param name: Name of attribute to pop.
+        :param default: Value to return if the attribute is not present,
+            instead of raising a ``KeyError``.
+
+        .. versionadded:: 0.11
+        
+=== parse rest
+short_description: 'Get and remove an attribute by name. Like :meth:`dict.pop`.'
+long_description: '.. versionadded:: 0.11'
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringParam
+  args: ['param', 'name']
+  description: 'Name of attribute to pop.'
+  arg_name: 'name'
+- DocstringParam
+  args: ['param', 'default']
+  description: |
+    Value to return if the attribute is not present,
+    instead of raising a ``KeyError``.
+  arg_name: 'default'
+=== detect
+rest
+=== compose rest
+Get and remove an attribute by name. Like :meth:`dict.pop`.
+
+.. versionadded:: 0.11
+
+:param name: Name of attribute to pop.
+:param default: Value to return if the attribute is not present,
+    instead of raising a ``KeyError``.

@@ -1,0 +1,36 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Decode a line containing ansi codes.
+
+        Args:
+            line (str): A line of terminal output.
+
+        Returns:
+            Text: A Text instance marked up according to ansi codes.
+        
+=== parse google
+short_description: 'Decode a line containing ansi codes.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'line (str)']
+  description: 'A line of terminal output.'
+  arg_name: 'line'
+  type_name: 'str'
+  is_optional: False
+- DocstringReturns
+  args: ['returns', 'Text']
+  description: 'A Text instance marked up according to ansi codes.'
+  type_name: 'Text'
+  is_generator: False
+=== detect
+google
+=== compose google
+Decode a line containing ansi codes.
+
+Args:
+    line (str): A line of terminal output.
+
+Returns:
+    Text: A Text instance marked up according to ansi codes.

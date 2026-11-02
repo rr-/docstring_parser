@@ -1,0 +1,41 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Clean up when the connection has been lost.
+
+        When the loss of connection was initiated by the client due to a
+        timeout, the L{_timedOut} flag will be set.  When it was initiated by
+        the client due to an error in the server greeting, L{_greetingError}
+        will be set to the server response minus the status indicator.
+
+        @type reason: L{Failure <twisted.python.failure.Failure>}
+        @param reason: The reason the connection was terminated.
+        
+=== parse epydoc
+short_description: 'Clean up when the connection has been lost.'
+long_description: |
+  When the loss of connection was initiated by the client due to a
+  timeout, the L{_timedOut} flag will be set.  When it was initiated by
+  the client due to an error in the server greeting, L{_greetingError}
+  will be set to the server response minus the status indicator.
+blank_after_short_description: True
+blank_after_long_description: True
+style: epydoc
+- DocstringParam
+  args: ['type', 'reason']
+  description: 'The reason the connection was terminated.'
+  arg_name: 'reason'
+  type_name: 'L{Failure <twisted.python.failure.Failure>}'
+  is_optional: False
+=== detect
+epydoc
+=== compose epydoc
+Clean up when the connection has been lost.
+
+When the loss of connection was initiated by the client due to a
+timeout, the L{_timedOut} flag will be set.  When it was initiated by
+the client due to an error in the server greeting, L{_greetingError}
+will be set to the server response minus the status indicator.
+
+@type reason: L{Failure <twisted.python.failure.Failure>}
+@param reason: The reason the connection was terminated.

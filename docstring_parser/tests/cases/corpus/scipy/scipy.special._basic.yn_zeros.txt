@@ -1,0 +1,185 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Compute zeros of integer-order Bessel function Yn(x).
+
+    Compute `nt` zeros of the functions :math:`Y_n(x)` on the interval
+    :math:`(0, \infty)`. The zeros are returned in ascending order.
+
+    Parameters
+    ----------
+    n : int
+        Order of Bessel function
+    nt : int
+        Number of zeros to return
+
+    Returns
+    -------
+    ndarray
+        First `nt` zeros of the Bessel function.
+
+    See Also
+    --------
+    yn: Bessel function of the second kind for integer order
+    yv: Bessel function of the second kind for real order
+
+    References
+    ----------
+    .. [1] Zhang, Shanjie and Jin, Jianming. "Computation of Special
+           Functions", John Wiley and Sons, 1996, chapter 5.
+           https://people.sc.fsu.edu/~jburkardt/f77_src/special_functions/special_functions.html
+
+    Examples
+    --------
+    Compute the first four roots of :math:`Y_2`.
+
+    >>> from scipy.special import yn_zeros
+    >>> yn_zeros(2, 4)
+    array([ 3.38424177,  6.79380751, 10.02347798, 13.20998671])
+
+    Plot :math:`Y_2` and its first four roots.
+
+    >>> import numpy as np
+    >>> import matplotlib.pyplot as plt
+    >>> from scipy.special import yn, yn_zeros
+    >>> xmin = 2
+    >>> xmax = 15
+    >>> x = np.linspace(xmin, xmax, 500)
+    >>> fig, ax = plt.subplots()
+    >>> ax.hlines(0, xmin, xmax, color='k')
+    >>> ax.plot(x, yn(2, x), label=r'$Y_2$')
+    >>> ax.scatter(yn_zeros(2, 4), np.zeros((4, )), s=30, c='r',
+    ...            label='Roots', zorder=5)
+    >>> ax.set_ylim(-0.4, 0.4)
+    >>> ax.set_xlim(xmin, xmax)
+    >>> plt.legend()
+    >>> plt.show()
+    
+=== parse numpydoc
+short_description: 'Compute zeros of integer-order Bessel function Yn(x).'
+long_description: |
+  Compute `nt` zeros of the functions :math:`Y_n(x)` on the interval
+  :math:`(0, \infty)`. The zeros are returned in ascending order.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'n']
+  description: 'Order of Bessel function'
+  arg_name: 'n'
+  type_name: 'int'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'nt']
+  description: 'Number of zeros to return'
+  arg_name: 'nt'
+  type_name: 'int'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: 'First `nt` zeros of the Bessel function.'
+  type_name: 'ndarray'
+  is_generator: False
+- DocstringMeta
+  args: ['see_also']
+  description: |
+    yn: Bessel function of the second kind for integer order
+    yv: Bessel function of the second kind for real order
+- DocstringMeta
+  args: ['references']
+  description: |
+    .. [1] Zhang, Shanjie and Jin, Jianming. "Computation of Special
+           Functions", John Wiley and Sons, 1996, chapter 5.
+           https://people.sc.fsu.edu/~jburkardt/f77_src/special_functions/special_functions.html
+- DocstringExample
+  args: ['examples']
+  description: |
+    Compute the first four roots of :math:`Y_2`.
+    
+- DocstringExample
+  args: ['examples']
+  description: |
+    array([ 3.38424177,  6.79380751, 10.02347798, 13.20998671])
+    
+    Plot :math:`Y_2` and its first four roots.
+    
+  snippet: |
+    >>> from scipy.special import yn_zeros
+    >>> yn_zeros(2, 4)
+- DocstringExample
+  args: ['examples']
+  description: "...            label='Roots', zorder=5)"
+  snippet: |
+    >>> import numpy as np
+    >>> import matplotlib.pyplot as plt
+    >>> from scipy.special import yn, yn_zeros
+    >>> xmin = 2
+    >>> xmax = 15
+    >>> x = np.linspace(xmin, xmax, 500)
+    >>> fig, ax = plt.subplots()
+    >>> ax.hlines(0, xmin, xmax, color='k')
+    >>> ax.plot(x, yn(2, x), label=r'$Y_2$')
+    >>> ax.scatter(yn_zeros(2, 4), np.zeros((4, )), s=30, c='r',
+- DocstringExample
+  args: ['examples']
+  description: ''
+  snippet: |
+    >>> ax.set_ylim(-0.4, 0.4)
+    >>> ax.set_xlim(xmin, xmax)
+    >>> plt.legend()
+    >>> plt.show()
+=== detect
+numpydoc
+=== compose numpydoc
+Compute zeros of integer-order Bessel function Yn(x).
+
+Compute `nt` zeros of the functions :math:`Y_n(x)` on the interval
+:math:`(0, \infty)`. The zeros are returned in ascending order.
+
+Parameters
+----------
+n : int
+    Order of Bessel function
+nt : int
+    Number of zeros to return
+
+Returns
+-------
+ndarray
+    First `nt` zeros of the Bessel function.
+
+Examples
+--------
+Compute the first four roots of :math:`Y_2`.
+
+>>> from scipy.special import yn_zeros
+>>> yn_zeros(2, 4)
+array([ 3.38424177,  6.79380751, 10.02347798, 13.20998671])
+
+Plot :math:`Y_2` and its first four roots.
+
+>>> import numpy as np
+>>> import matplotlib.pyplot as plt
+>>> from scipy.special import yn, yn_zeros
+>>> xmin = 2
+>>> xmax = 15
+>>> x = np.linspace(xmin, xmax, 500)
+>>> fig, ax = plt.subplots()
+>>> ax.hlines(0, xmin, xmax, color='k')
+>>> ax.plot(x, yn(2, x), label=r'$Y_2$')
+>>> ax.scatter(yn_zeros(2, 4), np.zeros((4, )), s=30, c='r',
+...            label='Roots', zorder=5)
+>>> ax.set_ylim(-0.4, 0.4)
+>>> ax.set_xlim(xmin, xmax)
+>>> plt.legend()
+>>> plt.show()
+
+See Also
+--------
+yn: Bessel function of the second kind for integer order
+yv: Bessel function of the second kind for real order
+
+References
+----------
+.. [1] Zhang, Shanjie and Jin, Jianming. "Computation of Special
+       Functions", John Wiley and Sons, 1996, chapter 5.
+       https://people.sc.fsu.edu/~jburkardt/f77_src/special_functions/special_functions.html

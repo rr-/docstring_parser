@@ -1,0 +1,35 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+    Like a string split, but don't break substrings inside quotes.
+
+    >>> splitQuoted('the "hairy monkey" likes pie')
+    ['the', 'hairy monkey', 'likes', 'pie']
+
+    Another one of those "someone must have a better solution for
+    this" things.  This implementation is a VERY DUMB hack done too
+    quickly.
+    
+=== parse epydoc
+short_description: "Like a string split, but don't break substrings inside quotes."
+long_description: |
+  >>> splitQuoted('the "hairy monkey" likes pie')
+  ['the', 'hairy monkey', 'likes', 'pie']
+  
+  Another one of those "someone must have a better solution for
+  this" things.  This implementation is a VERY DUMB hack done too
+  quickly.
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+=== detect
+rest
+=== compose epydoc
+Like a string split, but don't break substrings inside quotes.
+
+>>> splitQuoted('the "hairy monkey" likes pie')
+['the', 'hairy monkey', 'likes', 'pie']
+
+Another one of those "someone must have a better solution for
+this" things.  This implementation is a VERY DUMB hack done too
+quickly.

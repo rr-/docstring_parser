@@ -1,0 +1,87 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Applies the discriminator and returns a new core schema.
+
+    Args:
+        schema: The input schema.
+        discriminator: The name of the field which will serve as the discriminator.
+        definitions: A mapping of schema ref to schema.
+
+    Returns:
+        The new core schema.
+
+    Raises:
+        TypeError:
+            - If `discriminator` is used with invalid union variant.
+            - If `discriminator` is used with union type with one variant.
+            - If `discriminator` value mapped to multiple choices.
+        MissingDefinitionForUnionRef:
+            If the definition for ref is missing.
+        PydanticUserError:
+            - If a model in union doesn't have a discriminator field.
+            - If discriminator field has a non-string alias.
+            - If discriminator fields have different aliases.
+            - If discriminator field not of type `Literal`.
+    
+=== parse google
+short_description: 'Applies the discriminator and returns a new core schema.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'schema']
+  description: 'The input schema.'
+  arg_name: 'schema'
+- DocstringParam
+  args: ['param', 'discriminator']
+  description: 'The name of the field which will serve as the discriminator.'
+  arg_name: 'discriminator'
+- DocstringParam
+  args: ['param', 'definitions']
+  description: 'A mapping of schema ref to schema.'
+  arg_name: 'definitions'
+- DocstringReturns
+  args: ['returns']
+  description: 'The new core schema.'
+  is_generator: False
+- DocstringRaises
+  args: ['raises', 'TypeError']
+  description: |
+    - If `discriminator` is used with invalid union variant.
+    - If `discriminator` is used with union type with one variant.
+    - If `discriminator` value mapped to multiple choices.
+  type_name: 'TypeError'
+- DocstringRaises
+  args: ['raises', 'MissingDefinitionForUnionRef']
+  description: 'If the definition for ref is missing.'
+  type_name: 'MissingDefinitionForUnionRef'
+- DocstringRaises
+  args: ['raises', 'PydanticUserError']
+  description: |
+    - If a model in union doesn't have a discriminator field.
+    - If discriminator field has a non-string alias.
+    - If discriminator fields have different aliases.
+    - If discriminator field not of type `Literal`.
+  type_name: 'PydanticUserError'
+=== detect
+google
+=== compose google
+Applies the discriminator and returns a new core schema.
+
+Args:
+    schema: The input schema.
+    discriminator: The name of the field which will serve as the discriminator.
+    definitions: A mapping of schema ref to schema.
+
+Returns:
+    The new core schema.
+
+Raises:
+    TypeError: - If `discriminator` is used with invalid union variant.
+        - If `discriminator` is used with union type with one variant.
+        - If `discriminator` value mapped to multiple choices.
+    MissingDefinitionForUnionRef: If the definition for ref is missing.
+    PydanticUserError: - If a model in union doesn't have a discriminator field.
+        - If discriminator field has a non-string alias.
+        - If discriminator fields have different aliases.
+        - If discriminator field not of type `Literal`.

@@ -1,0 +1,44 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Check the length fits within a limit.
+
+        Args:
+            start_length (int): Starting length of the line (indent, prefix, suffix).
+            max_length (int): Maximum length.
+
+        Returns:
+            bool: True if the node can be rendered within max length, otherwise False.
+        
+=== parse google
+short_description: 'Check the length fits within a limit.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'start_length (int)']
+  description: 'Starting length of the line (indent, prefix, suffix).'
+  arg_name: 'start_length'
+  type_name: 'int'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'max_length (int)']
+  description: 'Maximum length.'
+  arg_name: 'max_length'
+  type_name: 'int'
+  is_optional: False
+- DocstringReturns
+  args: ['returns', 'bool']
+  description: 'True if the node can be rendered within max length, otherwise False.'
+  type_name: 'bool'
+  is_generator: False
+=== detect
+google
+=== compose google
+Check the length fits within a limit.
+
+Args:
+    start_length (int): Starting length of the line (indent, prefix, suffix).
+    max_length (int): Maximum length.
+
+Returns:
+    bool: True if the node can be rendered within max length, otherwise False.

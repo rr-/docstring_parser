@@ -1,0 +1,16 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Get the ref from the schema if it has one.
+    This exists just for type checking to work correctly.
+    
+=== parse google
+short_description: 'Get the ref from the schema if it has one.'
+long_description: 'This exists just for type checking to work correctly.'
+blank_after_short_description: False
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Get the ref from the schema if it has one.
+This exists just for type checking to work correctly.

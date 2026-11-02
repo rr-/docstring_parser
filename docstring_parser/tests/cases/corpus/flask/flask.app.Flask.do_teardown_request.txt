@@ -1,0 +1,80 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Called after the request is dispatched and the response is
+        returned, right before the request context is popped.
+
+        This calls all functions decorated with
+        :meth:`teardown_request`, and :meth:`Blueprint.teardown_request`
+        if a blueprint handled the request. Finally, the
+        :data:`request_tearing_down` signal is sent.
+
+        This is called by
+        :meth:`RequestContext.pop() <flask.ctx.RequestContext.pop>`,
+        which may be delayed during testing to maintain access to
+        resources.
+
+        :param exc: An unhandled exception raised while dispatching the
+            request. Detected from the current exception information if
+            not passed. Passed to each teardown function.
+
+        .. versionchanged:: 0.9
+            Added the ``exc`` argument.
+        
+=== parse rest
+short_description: 'Called after the request is dispatched and the response is'
+long_description: |
+  returned, right before the request context is popped.
+  
+  This calls all functions decorated with
+  
+  This is called by
+  
+  .. versionchanged:: 0.9
+      Added the ``exc`` argument.
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringMeta
+  args: ['meth']
+  description: |
+    `teardown_request`, and :meth:`Blueprint.teardown_request`
+    if a blueprint handled the request. Finally, the
+- DocstringMeta
+  args: ['data']
+  description: '`request_tearing_down` signal is sent.'
+- DocstringMeta
+  args: ['meth']
+  description: |
+    `RequestContext.pop() <flask.ctx.RequestContext.pop>`,
+    which may be delayed during testing to maintain access to
+    resources.
+- DocstringParam
+  args: ['param', 'exc']
+  description: |
+    An unhandled exception raised while dispatching the
+    request. Detected from the current exception information if
+    not passed. Passed to each teardown function.
+  arg_name: 'exc'
+=== detect
+rest
+=== compose rest
+Called after the request is dispatched and the response is
+
+returned, right before the request context is popped.
+
+This calls all functions decorated with
+
+This is called by
+
+.. versionchanged:: 0.9
+    Added the ``exc`` argument.
+
+:meth: `teardown_request`, and :meth:`Blueprint.teardown_request`
+    if a blueprint handled the request. Finally, the
+:data: `request_tearing_down` signal is sent.
+:meth: `RequestContext.pop() <flask.ctx.RequestContext.pop>`,
+    which may be delayed during testing to maintain access to
+    resources.
+:param exc: An unhandled exception raised while dispatching the
+    request. Detected from the current exception information if
+    not passed. Passed to each teardown function.

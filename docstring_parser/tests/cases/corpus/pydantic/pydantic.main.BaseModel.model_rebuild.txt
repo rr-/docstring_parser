@@ -1,0 +1,64 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Try to rebuild the pydantic-core schema for the model.
+
+        This may be necessary when one of the annotations is a ForwardRef which could not be resolved during
+        the initial attempt to build the schema, and automatic rebuilding fails.
+
+        Args:
+            force: Whether to force the rebuilding of the model schema, defaults to `False`.
+            raise_errors: Whether to raise errors, defaults to `True`.
+            _parent_namespace_depth: The depth level of the parent namespace, defaults to 2.
+            _types_namespace: The types namespace, defaults to `None`.
+
+        Returns:
+            Returns `None` if the schema is already "complete" and rebuilding was not required.
+            If rebuilding _was_ required, returns `True` if rebuilding was successful, otherwise `False`.
+        
+=== parse google
+short_description: 'Try to rebuild the pydantic-core schema for the model.'
+long_description: |
+  This may be necessary when one of the annotations is a ForwardRef which could not be resolved during
+  the initial attempt to build the schema, and automatic rebuilding fails.
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'force']
+  description: 'Whether to force the rebuilding of the model schema, defaults to `False`.'
+  arg_name: 'force'
+- DocstringParam
+  args: ['param', 'raise_errors']
+  description: 'Whether to raise errors, defaults to `True`.'
+  arg_name: 'raise_errors'
+- DocstringParam
+  args: ['param', '_parent_namespace_depth']
+  description: 'The depth level of the parent namespace, defaults to 2.'
+  arg_name: '_parent_namespace_depth'
+- DocstringParam
+  args: ['param', '_types_namespace']
+  description: 'The types namespace, defaults to `None`.'
+  arg_name: '_types_namespace'
+- DocstringReturns
+  args: ['returns']
+  description: |
+    Returns `None` if the schema is already "complete" and rebuilding was not required.
+    If rebuilding _was_ required, returns `True` if rebuilding was successful, otherwise `False`.
+  is_generator: False
+=== detect
+google
+=== compose google
+Try to rebuild the pydantic-core schema for the model.
+
+This may be necessary when one of the annotations is a ForwardRef which could not be resolved during
+the initial attempt to build the schema, and automatic rebuilding fails.
+
+Args:
+    force: Whether to force the rebuilding of the model schema, defaults to `False`.
+    raise_errors: Whether to raise errors, defaults to `True`.
+    _parent_namespace_depth: The depth level of the parent namespace, defaults to 2.
+    _types_namespace: The types namespace, defaults to `None`.
+
+Returns:
+    Returns `None` if the schema is already "complete" and rebuilding was not required.
+    If rebuilding _was_ required, returns `True` if rebuilding was successful, otherwise `False`.

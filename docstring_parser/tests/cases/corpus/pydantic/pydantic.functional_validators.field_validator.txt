@@ -1,0 +1,202 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+!!! abstract "Usage Documentation"
+        [field validators](../concepts/validators.md#field-validators)
+
+    Decorate methods on the class indicating that they should be used to validate fields.
+
+    Example usage:
+    ```python
+    from typing import Any
+
+    from pydantic import (
+        BaseModel,
+        ValidationError,
+        field_validator,
+    )
+
+    class Model(BaseModel):
+        a: str
+
+        @field_validator('a')
+        @classmethod
+        def ensure_foobar(cls, v: Any):
+            if 'foobar' not in v:
+                raise ValueError('"foobar" not found in a')
+            return v
+
+    print(repr(Model(a='this is foobar good')))
+    #> Model(a='this is foobar good')
+
+    try:
+        Model(a='snap')
+    except ValidationError as exc_info:
+        print(exc_info)
+        '''
+        1 validation error for Model
+        a
+          Value error, "foobar" not found in a [type=value_error, input_value='snap', input_type=str]
+        '''
+    ```
+
+    For more in depth examples, see [Field Validators](../concepts/validators.md#field-validators).
+
+    Errors raised in a field validator become part of the model's
+    [`ValidationError`][pydantic_core.ValidationError]. In a running application,
+    [Logfire](../integrations/logfire.md) can record the input each failed validation rejected — see
+    [Troubleshooting validation errors](../errors/troubleshooting.md).
+
+    Args:
+        *fields: The field names the validator should apply to.
+        mode: Specifies whether to validate the fields before or after validation.
+        check_fields: Whether to check that the fields actually exist on the model.
+        json_schema_input_type: The input type of the function. This is only used to generate
+            the appropriate JSON Schema (in validation mode) and can only specified
+            when `mode` is either `'before'`, `'plain'` or `'wrap'`.
+
+    Raises:
+        PydanticUserError:
+            - If the decorator is used without any arguments (at least one field name must be provided).
+            - If the provided field names are not strings.
+            - If `json_schema_input_type` is provided with an unsupported `mode`.
+            - If the decorator is applied to an instance method.
+    
+=== parse google
+short_description: '!!! abstract "Usage Documentation"'
+long_description: |
+  [field validators](../concepts/validators.md#field-validators)
+  
+  Decorate methods on the class indicating that they should be used to validate fields.
+  
+  Example usage:
+  ```python
+  from typing import Any
+  
+  from pydantic import (
+      BaseModel,
+      ValidationError,
+      field_validator,
+  )
+  
+  class Model(BaseModel):
+      a: str
+  
+      @field_validator('a')
+      @classmethod
+      def ensure_foobar(cls, v: Any):
+          if 'foobar' not in v:
+              raise ValueError('"foobar" not found in a')
+          return v
+  
+  print(repr(Model(a='this is foobar good')))
+  #> Model(a='this is foobar good')
+  
+  try:
+      Model(a='snap')
+  except ValidationError as exc_info:
+      print(exc_info)
+      '''
+      1 validation error for Model
+      a
+        Value error, "foobar" not found in a [type=value_error, input_value='snap', input_type=str]
+      '''
+  ```
+  
+  For more in depth examples, see [Field Validators](../concepts/validators.md#field-validators).
+  
+  Errors raised in a field validator become part of the model's
+  [`ValidationError`][pydantic_core.ValidationError]. In a running application,
+  [Logfire](../integrations/logfire.md) can record the input each failed validation rejected — see
+  [Troubleshooting validation errors](../errors/troubleshooting.md).
+blank_after_short_description: False
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', '*fields']
+  description: 'The field names the validator should apply to.'
+  arg_name: '*fields'
+- DocstringParam
+  args: ['param', 'mode']
+  description: 'Specifies whether to validate the fields before or after validation.'
+  arg_name: 'mode'
+- DocstringParam
+  args: ['param', 'check_fields']
+  description: 'Whether to check that the fields actually exist on the model.'
+  arg_name: 'check_fields'
+- DocstringParam
+  args: ['param', 'json_schema_input_type']
+  description: |
+    The input type of the function. This is only used to generate
+    the appropriate JSON Schema (in validation mode) and can only specified
+    when `mode` is either `'before'`, `'plain'` or `'wrap'`.
+  arg_name: 'json_schema_input_type'
+- DocstringRaises
+  args: ['raises', 'PydanticUserError']
+  description: |
+    - If the decorator is used without any arguments (at least one field name must be provided).
+    - If the provided field names are not strings.
+    - If `json_schema_input_type` is provided with an unsupported `mode`.
+    - If the decorator is applied to an instance method.
+  type_name: 'PydanticUserError'
+=== detect
+google
+=== compose google
+!!! abstract "Usage Documentation"
+[field validators](../concepts/validators.md#field-validators)
+
+Decorate methods on the class indicating that they should be used to validate fields.
+
+Example usage:
+```python
+from typing import Any
+
+from pydantic import (
+    BaseModel,
+    ValidationError,
+    field_validator,
+)
+
+class Model(BaseModel):
+    a: str
+
+    @field_validator('a')
+    @classmethod
+    def ensure_foobar(cls, v: Any):
+        if 'foobar' not in v:
+            raise ValueError('"foobar" not found in a')
+        return v
+
+print(repr(Model(a='this is foobar good')))
+#> Model(a='this is foobar good')
+
+try:
+    Model(a='snap')
+except ValidationError as exc_info:
+    print(exc_info)
+    '''
+    1 validation error for Model
+    a
+      Value error, "foobar" not found in a [type=value_error, input_value='snap', input_type=str]
+    '''
+```
+
+For more in depth examples, see [Field Validators](../concepts/validators.md#field-validators).
+
+Errors raised in a field validator become part of the model's
+[`ValidationError`][pydantic_core.ValidationError]. In a running application,
+[Logfire](../integrations/logfire.md) can record the input each failed validation rejected — see
+[Troubleshooting validation errors](../errors/troubleshooting.md).
+
+Args:
+    *fields: The field names the validator should apply to.
+    mode: Specifies whether to validate the fields before or after validation.
+    check_fields: Whether to check that the fields actually exist on the model.
+    json_schema_input_type: The input type of the function. This is only used to generate
+        the appropriate JSON Schema (in validation mode) and can only specified
+        when `mode` is either `'before'`, `'plain'` or `'wrap'`.
+
+Raises:
+    PydanticUserError: - If the decorator is used without any arguments (at least one field name must be provided).
+        - If the provided field names are not strings.
+        - If `json_schema_input_type` is provided with an unsupported `mode`.
+        - If the decorator is applied to an instance method.

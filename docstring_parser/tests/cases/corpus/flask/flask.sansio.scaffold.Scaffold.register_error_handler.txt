@@ -1,0 +1,26 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Alternative error attach function to the :meth:`errorhandler`
+        decorator that is more straightforward to use for non decorator
+        usage.
+
+        .. versionadded:: 0.7
+        
+=== parse rest
+short_description: 'Alternative error attach function to the :meth:`errorhandler`'
+long_description: |
+  decorator that is more straightforward to use for non decorator
+  usage.
+  
+  .. versionadded:: 0.7
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Alternative error attach function to the :meth:`errorhandler`
+decorator that is more straightforward to use for non decorator
+usage.
+
+.. versionadded:: 0.7

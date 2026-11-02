@@ -1,0 +1,33 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Creates a nested namespace object.
+
+        Args:
+            key: The key where the nested namespace is created.
+
+        Returns:
+            The created nested namespace.
+        
+=== parse google
+short_description: 'Creates a nested namespace object.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'key']
+  description: 'The key where the nested namespace is created.'
+  arg_name: 'key'
+- DocstringReturns
+  args: ['returns']
+  description: 'The created nested namespace.'
+  is_generator: False
+=== detect
+google
+=== compose google
+Creates a nested namespace object.
+
+Args:
+    key: The key where the nested namespace is created.
+
+Returns:
+    The created nested namespace.

@@ -1,0 +1,35 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Uniform distribution.
+
+    The probability density function of the uniform distribution is:
+
+    .. math::
+
+        f(x; a, b) = \frac{1}
+                          {b - a}
+
+    
+=== parse numpydoc
+short_description: 'Uniform distribution.'
+long_description: |
+  The probability density function of the uniform distribution is:
+  
+  .. math::
+  
+      f(x; a, b) = \frac{1}
+                        {b - a}
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Uniform distribution.
+
+The probability density function of the uniform distribution is:
+
+.. math::
+
+    f(x; a, b) = \frac{1}
+                      {b - a}

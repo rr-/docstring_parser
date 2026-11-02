@@ -1,0 +1,22 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Change refonly bullet lists to use compact_paragraphs.
+
+    Specifically implemented for 'Indices and Tables' section, which looks
+    odd when html_compact_lists is false.
+    
+=== parse rest
+short_description: 'Change refonly bullet lists to use compact_paragraphs.'
+long_description: |
+  Specifically implemented for 'Indices and Tables' section, which looks
+  odd when html_compact_lists is false.
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Change refonly bullet lists to use compact_paragraphs.
+
+Specifically implemented for 'Indices and Tables' section, which looks
+odd when html_compact_lists is false.

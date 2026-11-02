@@ -1,0 +1,71 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Evaluate an arithmetic operation `+`, `-`, `*`, `/`, `//`, `%`, `**`, ...
+
+    Note: the caller is responsible for ensuring that numpy warnings are
+    suppressed (with np.errstate(all="ignore")) if needed.
+
+    Parameters
+    ----------
+    left : np.ndarray or ExtensionArray
+    right : object
+        Cannot be a DataFrame or Index.  Series is *not* excluded.
+    op : {operator.add, operator.sub, ...}
+        Or one of the reversed variants from roperator.
+
+    Returns
+    -------
+    ndarray or ExtensionArray
+        Or a 2-tuple of these in the case of divmod or rdivmod.
+    
+=== parse numpydoc
+short_description: 'Evaluate an arithmetic operation `+`, `-`, `*`, `/`, `//`, `%`, `**`, ...'
+long_description: |
+  Note: the caller is responsible for ensuring that numpy warnings are
+  suppressed (with np.errstate(all="ignore")) if needed.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'left']
+  arg_name: 'left'
+  type_name: 'np.ndarray or ExtensionArray'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'right']
+  description: 'Cannot be a DataFrame or Index.  Series is *not* excluded.'
+  arg_name: 'right'
+  type_name: 'object'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'op']
+  description: 'Or one of the reversed variants from roperator.'
+  arg_name: 'op'
+  type_name: '{operator.add, operator.sub, ...}'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: 'Or a 2-tuple of these in the case of divmod or rdivmod.'
+  type_name: 'ndarray or ExtensionArray'
+  is_generator: False
+=== detect
+numpydoc
+=== compose numpydoc
+Evaluate an arithmetic operation `+`, `-`, `*`, `/`, `//`, `%`, `**`, ...
+
+Note: the caller is responsible for ensuring that numpy warnings are
+suppressed (with np.errstate(all="ignore")) if needed.
+
+Parameters
+----------
+left : np.ndarray or ExtensionArray
+right : object
+    Cannot be a DataFrame or Index.  Series is *not* excluded.
+op : {operator.add, operator.sub, ...}
+    Or one of the reversed variants from roperator.
+
+Returns
+-------
+ndarray or ExtensionArray
+    Or a 2-tuple of these in the case of divmod or rdivmod.

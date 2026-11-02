@@ -1,0 +1,60 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Look for error keyword arguments and return the actual errorbar data
+        or return the error DataFrame/dict
+
+        Error bars can be specified in several ways:
+            Series: the user provides a pandas.Series object of the same
+                    length as the data
+            ndarray: provides an np.ndarray of the same length as the data
+            DataFrame/dict: error values are paired with keys matching the
+                    key in the plotted DataFrame
+            str: the name of the column within the plotted DataFrame
+
+        Asymmetrical error bars are also supported, however raw error values
+        must be provided in this case. For an ``N`` length :class:`Series`, a
+        ``2xN`` array should be provided indicating lower and upper (or left
+        and right) errors. For an ``MxN`` :class:`DataFrame`, asymmetrical errors
+        should be in an ``Mx2xN`` array.
+        
+=== parse numpydoc
+short_description: 'Look for error keyword arguments and return the actual errorbar data'
+long_description: |
+  or return the error DataFrame/dict
+  
+  Error bars can be specified in several ways:
+      Series: the user provides a pandas.Series object of the same
+              length as the data
+      ndarray: provides an np.ndarray of the same length as the data
+      DataFrame/dict: error values are paired with keys matching the
+              key in the plotted DataFrame
+      str: the name of the column within the plotted DataFrame
+  
+  Asymmetrical error bars are also supported, however raw error values
+  must be provided in this case. For an ``N`` length :class:`Series`, a
+  ``2xN`` array should be provided indicating lower and upper (or left
+  and right) errors. For an ``MxN`` :class:`DataFrame`, asymmetrical errors
+  should be in an ``Mx2xN`` array.
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Look for error keyword arguments and return the actual errorbar data
+or return the error DataFrame/dict
+
+Error bars can be specified in several ways:
+    Series: the user provides a pandas.Series object of the same
+            length as the data
+    ndarray: provides an np.ndarray of the same length as the data
+    DataFrame/dict: error values are paired with keys matching the
+            key in the plotted DataFrame
+    str: the name of the column within the plotted DataFrame
+
+Asymmetrical error bars are also supported, however raw error values
+must be provided in this case. For an ``N`` length :class:`Series`, a
+``2xN`` array should be provided indicating lower and upper (or left
+and right) errors. For an ``MxN`` :class:`DataFrame`, asymmetrical errors
+should be in an ``Mx2xN`` array.

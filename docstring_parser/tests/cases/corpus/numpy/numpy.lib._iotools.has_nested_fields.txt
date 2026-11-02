@@ -1,0 +1,66 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Returns whether one or several fields of a dtype are nested.
+
+    Parameters
+    ----------
+    ndtype : dtype
+        Data-type of a structured array.
+
+    Raises
+    ------
+    AttributeError
+        If `ndtype` does not have a `names` attribute.
+
+    Examples
+    --------
+    >>> import numpy as np
+    >>> dt = np.dtype([('name', 'S4'), ('x', float), ('y', float)])
+    >>> np.lib._iotools.has_nested_fields(dt)
+    False
+
+    
+=== parse numpydoc
+short_description: 'Returns whether one or several fields of a dtype are nested.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'ndtype']
+  description: 'Data-type of a structured array.'
+  arg_name: 'ndtype'
+  type_name: 'dtype'
+  is_optional: False
+- DocstringRaises
+  args: ['raises', 'AttributeError']
+  description: 'If `ndtype` does not have a `names` attribute.'
+  type_name: 'AttributeError'
+- DocstringExample
+  args: ['examples']
+  description: 'False'
+  snippet: |
+    >>> import numpy as np
+    >>> dt = np.dtype([('name', 'S4'), ('x', float), ('y', float)])
+    >>> np.lib._iotools.has_nested_fields(dt)
+=== detect
+numpydoc
+=== compose numpydoc
+Returns whether one or several fields of a dtype are nested.
+
+Parameters
+----------
+ndtype : dtype
+    Data-type of a structured array.
+
+Raises
+------
+AttributeError
+    If `ndtype` does not have a `names` attribute.
+
+Examples
+--------
+>>> import numpy as np
+>>> dt = np.dtype([('name', 'S4'), ('x', float), ('y', float)])
+>>> np.lib._iotools.has_nested_fields(dt)
+False

@@ -1,0 +1,39 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    An object with an ``__arrow_c_stream__`` method.
+
+    This method indicates the object is an Arrow-compatible object implementing
+    the `Arrow PyCapsule Protocol`_ (exposing the `Arrow C Data Interface`_
+    for streams in Python), enabling zero-copy Arrow data interchange across
+    libraries.
+
+    .. _Arrow PyCapsule Protocol: https://arrow.apache.org/docs/format/CDataInterface/PyCapsuleInterface.html
+    .. _Arrow C Stream Interface: https://arrow.apache.org/docs/format/CStreamInterface.html
+
+    
+=== parse numpydoc
+short_description: 'An object with an ``__arrow_c_stream__`` method.'
+long_description: |
+  This method indicates the object is an Arrow-compatible object implementing
+  the `Arrow PyCapsule Protocol`_ (exposing the `Arrow C Data Interface`_
+  for streams in Python), enabling zero-copy Arrow data interchange across
+  libraries.
+  
+  .. _Arrow PyCapsule Protocol: https://arrow.apache.org/docs/format/CDataInterface/PyCapsuleInterface.html
+  .. _Arrow C Stream Interface: https://arrow.apache.org/docs/format/CStreamInterface.html
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+An object with an ``__arrow_c_stream__`` method.
+
+This method indicates the object is an Arrow-compatible object implementing
+the `Arrow PyCapsule Protocol`_ (exposing the `Arrow C Data Interface`_
+for streams in Python), enabling zero-copy Arrow data interchange across
+libraries.
+
+.. _Arrow PyCapsule Protocol: https://arrow.apache.org/docs/format/CDataInterface/PyCapsuleInterface.html
+.. _Arrow C Stream Interface: https://arrow.apache.org/docs/format/CStreamInterface.html

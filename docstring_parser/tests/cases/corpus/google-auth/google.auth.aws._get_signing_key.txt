@@ -1,0 +1,67 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Calculates the signing key used to calculate the signature for
+    AWS Signature Version 4 based on:
+    https://docs.aws.amazon.com/general/latest/gr/sigv4-calculate-signature.html
+
+    Args:
+        key (str): The AWS secret access key.
+        date_stamp (str): The '%Y%m%d' date format.
+        region_name (str): The AWS region.
+        service_name (str): The AWS service name, eg. sts.
+
+    Returns:
+        str: The signing key bytes.
+    
+=== parse google
+short_description: 'Calculates the signing key used to calculate the signature for'
+long_description: |
+  AWS Signature Version 4 based on:
+  https://docs.aws.amazon.com/general/latest/gr/sigv4-calculate-signature.html
+blank_after_short_description: False
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'key (str)']
+  description: 'The AWS secret access key.'
+  arg_name: 'key'
+  type_name: 'str'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'date_stamp (str)']
+  description: "The '%Y%m%d' date format."
+  arg_name: 'date_stamp'
+  type_name: 'str'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'region_name (str)']
+  description: 'The AWS region.'
+  arg_name: 'region_name'
+  type_name: 'str'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'service_name (str)']
+  description: 'The AWS service name, eg. sts.'
+  arg_name: 'service_name'
+  type_name: 'str'
+  is_optional: False
+- DocstringReturns
+  args: ['returns', 'str']
+  description: 'The signing key bytes.'
+  type_name: 'str'
+  is_generator: False
+=== detect
+google
+=== compose google
+Calculates the signing key used to calculate the signature for
+AWS Signature Version 4 based on:
+https://docs.aws.amazon.com/general/latest/gr/sigv4-calculate-signature.html
+
+Args:
+    key (str): The AWS secret access key.
+    date_stamp (str): The '%Y%m%d' date format.
+    region_name (str): The AWS region.
+    service_name (str): The AWS service name, eg. sts.
+
+Returns:
+    str: The signing key bytes.

@@ -1,0 +1,52 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Get input from user.
+
+        Args:
+            console (Console): Console instance.
+            prompt (TextType): Prompt text.
+            password (bool): Enable password entry.
+
+        Returns:
+            str: String from user.
+        
+=== parse google
+short_description: 'Get input from user.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'console (Console)']
+  description: 'Console instance.'
+  arg_name: 'console'
+  type_name: 'Console'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'prompt (TextType)']
+  description: 'Prompt text.'
+  arg_name: 'prompt'
+  type_name: 'TextType'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'password (bool)']
+  description: 'Enable password entry.'
+  arg_name: 'password'
+  type_name: 'bool'
+  is_optional: False
+- DocstringReturns
+  args: ['returns', 'str']
+  description: 'String from user.'
+  type_name: 'str'
+  is_generator: False
+=== detect
+google
+=== compose google
+Get input from user.
+
+Args:
+    console (Console): Console instance.
+    prompt (TextType): Prompt text.
+    password (bool): Enable password entry.
+
+Returns:
+    str: String from user.

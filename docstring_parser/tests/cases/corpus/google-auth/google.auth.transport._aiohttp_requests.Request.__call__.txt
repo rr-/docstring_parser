@@ -1,0 +1,100 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+
+        Make an HTTP request using aiohttp.
+
+        Args:
+            url (str): The URL to be requested.
+            method (Optional[str]):
+                The HTTP method to use for the request. Defaults to 'GET'.
+            body (Optional[bytes]):
+                The payload or body in HTTP request.
+            headers (Optional[Mapping[str, str]]):
+                Request headers.
+            timeout (Optional[int]): The number of seconds to wait for a
+                response from the server. If not specified or if None, the
+                requests default timeout will be used.
+            kwargs: Additional arguments passed through to the underlying
+                requests :meth:`requests.Session.request` method.
+
+        Returns:
+            google.auth.transport.Response: The HTTP response.
+
+        Raises:
+            google.auth.exceptions.TransportError: If any exception occurred.
+        
+=== parse google
+short_description: 'Make an HTTP request using aiohttp.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'url (str)']
+  description: 'The URL to be requested.'
+  arg_name: 'url'
+  type_name: 'str'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'method (Optional[str])']
+  description: "The HTTP method to use for the request. Defaults to 'GET'."
+  arg_name: 'method'
+  type_name: 'Optional[str]'
+  is_optional: False
+  default: "'GET'"
+- DocstringParam
+  args: ['param', 'body (Optional[bytes])']
+  description: 'The payload or body in HTTP request.'
+  arg_name: 'body'
+  type_name: 'Optional[bytes]'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'headers (Optional[Mapping[str, str]])']
+  description: 'Request headers.'
+  arg_name: 'headers'
+  type_name: 'Optional[Mapping[str, str]]'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'timeout (Optional[int])']
+  description: |
+    The number of seconds to wait for a
+    response from the server. If not specified or if None, the
+    requests default timeout will be used.
+  arg_name: 'timeout'
+  type_name: 'Optional[int]'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'kwargs']
+  description: |
+    Additional arguments passed through to the underlying
+    requests :meth:`requests.Session.request` method.
+  arg_name: 'kwargs'
+- DocstringReturns
+  args: ['returns', 'google.auth.transport.Response']
+  description: 'The HTTP response.'
+  type_name: 'google.auth.transport.Response'
+  is_generator: False
+- DocstringRaises
+  args: ['raises', 'google.auth.exceptions.TransportError']
+  description: 'If any exception occurred.'
+  type_name: 'google.auth.exceptions.TransportError'
+=== detect
+google
+=== compose google
+Make an HTTP request using aiohttp.
+
+Args:
+    url (str): The URL to be requested.
+    method (Optional[str]): The HTTP method to use for the request. Defaults to 'GET'.
+    body (Optional[bytes]): The payload or body in HTTP request.
+    headers (Optional[Mapping[str, str]]): Request headers.
+    timeout (Optional[int]): The number of seconds to wait for a
+        response from the server. If not specified or if None, the
+        requests default timeout will be used.
+    kwargs: Additional arguments passed through to the underlying
+        requests :meth:`requests.Session.request` method.
+
+Returns:
+    google.auth.transport.Response: The HTTP response.
+
+Raises:
+    google.auth.exceptions.TransportError: If any exception occurred.

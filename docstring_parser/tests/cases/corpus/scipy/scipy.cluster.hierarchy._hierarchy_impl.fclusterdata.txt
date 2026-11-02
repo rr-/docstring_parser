@@ -1,0 +1,290 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Cluster observation data using a given metric.
+
+    Clusters the original observations in the n-by-m data
+    matrix X (n observations in m dimensions), using the euclidean
+    distance metric to calculate distances between original observations,
+    performs hierarchical clustering using the single linkage algorithm,
+    and forms flat clusters using the inconsistency method with `t` as the
+    cut-off threshold.
+
+    A 1-D array ``T`` of length ``n`` is returned. ``T[i]`` is
+    the index of the flat cluster to which the original observation ``i``
+    belongs.
+
+    Parameters
+    ----------
+    X : (N, M) ndarray
+        N by M data matrix with N observations in M dimensions.
+    t : scalar
+        For criteria 'inconsistent', 'distance' or 'monocrit',
+         this is the threshold to apply when forming flat clusters.
+        For 'maxclust' or 'maxclust_monocrit' criteria,
+         this would be max number of clusters requested.
+    criterion : str, optional
+        Specifies the criterion for forming flat clusters. Valid
+        values are 'inconsistent' (default), 'distance', or 'maxclust'
+        cluster formation algorithms. See `fcluster` for descriptions.
+    metric : str or function, optional
+        The distance metric for calculating pairwise distances. See
+        ``distance.pdist`` for descriptions and linkage to verify
+        compatibility with the linkage method.
+    depth : int, optional
+        The maximum depth for the inconsistency calculation. See
+        `inconsistent` for more information.
+    method : str, optional
+        The linkage method to use (single, complete, average,
+        weighted, median centroid, ward). See `linkage` for more
+        information. Default is "single".
+    R : ndarray, optional
+        The inconsistency matrix. It will be computed if necessary
+        if it is not passed.
+
+    Returns
+    -------
+    fclusterdata : ndarray
+        A vector of length n. T[i] is the flat cluster number to
+        which original observation i belongs.
+
+    See Also
+    --------
+    scipy.spatial.distance.pdist : pairwise distance metrics
+
+    Notes
+    -----
+    This function is similar to the MATLAB function ``clusterdata``.
+
+    Examples
+    --------
+    >>> from scipy.cluster.hierarchy import fclusterdata
+
+    This is a convenience method that abstracts all the steps to perform in a
+    typical SciPy's hierarchical clustering workflow.
+
+    * Transform the input data into a condensed matrix with
+      `scipy.spatial.distance.pdist`.
+
+    * Apply a clustering method.
+
+    * Obtain flat clusters at a user defined distance threshold ``t`` using
+      `scipy.cluster.hierarchy.fcluster`.
+
+    >>> X = [[0, 0], [0, 1], [1, 0],
+    ...      [0, 4], [0, 3], [1, 4],
+    ...      [4, 0], [3, 0], [4, 1],
+    ...      [4, 4], [3, 4], [4, 3]]
+
+    >>> fclusterdata(X, t=1)
+    array([3, 3, 3, 4, 4, 4, 2, 2, 2, 1, 1, 1], dtype=int32)
+
+    The output here (for the dataset ``X``, distance threshold ``t``, and the
+    default settings) is four clusters with three data points each.
+
+    
+=== parse numpydoc
+short_description: 'Cluster observation data using a given metric.'
+long_description: |
+  Clusters the original observations in the n-by-m data
+  matrix X (n observations in m dimensions), using the euclidean
+  distance metric to calculate distances between original observations,
+  performs hierarchical clustering using the single linkage algorithm,
+  and forms flat clusters using the inconsistency method with `t` as the
+  cut-off threshold.
+  
+  A 1-D array ``T`` of length ``n`` is returned. ``T[i]`` is
+  the index of the flat cluster to which the original observation ``i``
+  belongs.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'X']
+  description: 'N by M data matrix with N observations in M dimensions.'
+  arg_name: 'X'
+  type_name: '(N, M) ndarray'
+  is_optional: False
+- DocstringParam
+  args: ['param', 't']
+  description: |
+    For criteria 'inconsistent', 'distance' or 'monocrit',
+     this is the threshold to apply when forming flat clusters.
+    For 'maxclust' or 'maxclust_monocrit' criteria,
+     this would be max number of clusters requested.
+  arg_name: 't'
+  type_name: 'scalar'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'criterion']
+  description: |
+    Specifies the criterion for forming flat clusters. Valid
+    values are 'inconsistent' (default), 'distance', or 'maxclust'
+    cluster formation algorithms. See `fcluster` for descriptions.
+  arg_name: 'criterion'
+  type_name: 'str'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'metric']
+  description: |
+    The distance metric for calculating pairwise distances. See
+    ``distance.pdist`` for descriptions and linkage to verify
+    compatibility with the linkage method.
+  arg_name: 'metric'
+  type_name: 'str or function'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'depth']
+  description: |
+    The maximum depth for the inconsistency calculation. See
+    `inconsistent` for more information.
+  arg_name: 'depth'
+  type_name: 'int'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'method']
+  description: |
+    The linkage method to use (single, complete, average,
+    weighted, median centroid, ward). See `linkage` for more
+    information. Default is "single".
+  arg_name: 'method'
+  type_name: 'str'
+  is_optional: True
+  default: '"single"'
+- DocstringParam
+  args: ['param', 'R']
+  description: |
+    The inconsistency matrix. It will be computed if necessary
+    if it is not passed.
+  arg_name: 'R'
+  type_name: 'ndarray'
+  is_optional: True
+- DocstringReturns
+  args: ['returns']
+  description: |
+    A vector of length n. T[i] is the flat cluster number to
+    which original observation i belongs.
+  type_name: 'ndarray'
+  is_generator: False
+  return_name: 'fclusterdata'
+- DocstringMeta
+  args: ['see_also']
+  description: 'scipy.spatial.distance.pdist : pairwise distance metrics'
+- DocstringMeta
+  args: ['notes']
+  description: 'This function is similar to the MATLAB function ``clusterdata``.'
+- DocstringExample
+  args: ['examples']
+  description: |
+    
+    This is a convenience method that abstracts all the steps to perform in a
+    typical SciPy's hierarchical clustering workflow.
+    
+    * Transform the input data into a condensed matrix with
+      `scipy.spatial.distance.pdist`.
+    
+    * Apply a clustering method.
+    
+    * Obtain flat clusters at a user defined distance threshold ``t`` using
+      `scipy.cluster.hierarchy.fcluster`.
+    
+  snippet: '>>> from scipy.cluster.hierarchy import fclusterdata'
+- DocstringExample
+  args: ['examples']
+  description: |
+    ...      [0, 4], [0, 3], [1, 4],
+    ...      [4, 0], [3, 0], [4, 1],
+    ...      [4, 4], [3, 4], [4, 3]]
+    
+  snippet: '>>> X = [[0, 0], [0, 1], [1, 0],'
+- DocstringExample
+  args: ['examples']
+  description: |
+    array([3, 3, 3, 4, 4, 4, 2, 2, 2, 1, 1, 1], dtype=int32)
+    
+    The output here (for the dataset ``X``, distance threshold ``t``, and the
+    default settings) is four clusters with three data points each.
+  snippet: '>>> fclusterdata(X, t=1)'
+=== detect
+numpydoc
+=== compose numpydoc
+Cluster observation data using a given metric.
+
+Clusters the original observations in the n-by-m data
+matrix X (n observations in m dimensions), using the euclidean
+distance metric to calculate distances between original observations,
+performs hierarchical clustering using the single linkage algorithm,
+and forms flat clusters using the inconsistency method with `t` as the
+cut-off threshold.
+
+A 1-D array ``T`` of length ``n`` is returned. ``T[i]`` is
+the index of the flat cluster to which the original observation ``i``
+belongs.
+
+Parameters
+----------
+X : (N, M) ndarray
+    N by M data matrix with N observations in M dimensions.
+t : scalar
+    For criteria 'inconsistent', 'distance' or 'monocrit',
+     this is the threshold to apply when forming flat clusters.
+    For 'maxclust' or 'maxclust_monocrit' criteria,
+     this would be max number of clusters requested.
+criterion : str, optional
+    Specifies the criterion for forming flat clusters. Valid
+    values are 'inconsistent' (default), 'distance', or 'maxclust'
+    cluster formation algorithms. See `fcluster` for descriptions.
+metric : str or function, optional
+    The distance metric for calculating pairwise distances. See
+    ``distance.pdist`` for descriptions and linkage to verify
+    compatibility with the linkage method.
+depth : int, optional
+    The maximum depth for the inconsistency calculation. See
+    `inconsistent` for more information.
+method : str, default="single"
+    The linkage method to use (single, complete, average,
+    weighted, median centroid, ward). See `linkage` for more
+    information. Default is "single".
+R : ndarray, optional
+    The inconsistency matrix. It will be computed if necessary
+    if it is not passed.
+
+Returns
+-------
+fclusterdata : ndarray
+    A vector of length n. T[i] is the flat cluster number to
+    which original observation i belongs.
+
+Examples
+--------
+>>> from scipy.cluster.hierarchy import fclusterdata
+
+This is a convenience method that abstracts all the steps to perform in a
+typical SciPy's hierarchical clustering workflow.
+
+* Transform the input data into a condensed matrix with
+  `scipy.spatial.distance.pdist`.
+
+* Apply a clustering method.
+
+* Obtain flat clusters at a user defined distance threshold ``t`` using
+  `scipy.cluster.hierarchy.fcluster`.
+
+>>> X = [[0, 0], [0, 1], [1, 0],
+...      [0, 4], [0, 3], [1, 4],
+...      [4, 0], [3, 0], [4, 1],
+...      [4, 4], [3, 4], [4, 3]]
+
+>>> fclusterdata(X, t=1)
+array([3, 3, 3, 4, 4, 4, 2, 2, 2, 1, 1, 1], dtype=int32)
+
+The output here (for the dataset ``X``, distance threshold ``t``, and the
+default settings) is four clusters with three data points each.
+
+See Also
+--------
+scipy.spatial.distance.pdist : pairwise distance metrics
+
+Notes
+-----
+This function is similar to the MATLAB function ``clusterdata``.

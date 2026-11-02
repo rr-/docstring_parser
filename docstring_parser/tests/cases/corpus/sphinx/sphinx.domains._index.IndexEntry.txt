@@ -1,0 +1,28 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+An index entry.
+
+    .. note::
+
+       The *qualifier* and *description* are not rendered for some output formats,
+       such as LaTeX.
+    
+=== parse rest
+short_description: 'An index entry.'
+long_description: |
+  .. note::
+  
+     The *qualifier* and *description* are not rendered for some output formats,
+     such as LaTeX.
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+An index entry.
+
+.. note::
+
+   The *qualifier* and *description* are not rendered for some output formats,
+   such as LaTeX.

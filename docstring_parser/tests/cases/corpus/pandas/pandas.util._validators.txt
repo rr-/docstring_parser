@@ -1,0 +1,17 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+Module that contains many useful utilities
+for validating data or function arguments
+
+=== parse numpydoc
+short_description: 'Module that contains many useful utilities'
+long_description: 'for validating data or function arguments'
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Module that contains many useful utilities
+for validating data or function arguments

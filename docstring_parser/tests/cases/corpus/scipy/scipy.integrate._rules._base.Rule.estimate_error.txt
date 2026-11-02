@@ -1,0 +1,142 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Estimate the error of the approximation for the integral of `f` in rectangular
+        region described by corners `a` and `b`.
+
+        If a subclass does not override this method, then a default error estimator is
+        used. This estimates the error as ``|est - refined_est|`` where ``est`` is
+        ``estimate(f, a, b)`` and ``refined_est`` is the sum of
+        ``estimate(f, a_k, b_k)`` where ``a_k, b_k`` are the coordinates of each
+        subregion of the region described by ``a`` and ``b``. In the 1D case, this
+        is equivalent to comparing the integral over an entire interval ``[a, b]`` to
+        the sum of the integrals over the left and right subintervals, ``[a, (a+b)/2]``
+        and ``[(a+b)/2, b]``.
+
+        Parameters
+        ----------
+        f : callable
+            Function to estimate error for. `f` must have the signature::
+                f(x : ndarray, \*args) -> ndarray
+
+            `f` should accept arrays `x` of shape::
+                (npoints, ndim)
+
+            and output arrays of shape::
+                (npoints, output_dim_1, ..., output_dim_n)
+
+            In this case, `estimate` will return arrays of shape::
+                (output_dim_1, ..., output_dim_n)
+        a, b : ndarray
+            Lower and upper limits of integration as rank-1 arrays specifying the left
+            and right endpoints of the intervals being integrated over. Infinite limits
+            are currently not supported.
+        args : tuple, optional
+            Additional positional args passed to `f`, if any.
+
+        Returns
+        -------
+        err_est : ndarray
+            Result of error estimation. If `f` returns arrays of shape
+            ``(npoints, output_dim_1, ..., output_dim_n)``, then `est` will be
+            of shape ``(output_dim_1, ..., output_dim_n)``.
+        
+=== parse numpydoc
+short_description: 'Estimate the error of the approximation for the integral of `f` in rectangular'
+long_description: |
+  region described by corners `a` and `b`.
+  
+  If a subclass does not override this method, then a default error estimator is
+  used. This estimates the error as ``|est - refined_est|`` where ``est`` is
+  ``estimate(f, a, b)`` and ``refined_est`` is the sum of
+  ``estimate(f, a_k, b_k)`` where ``a_k, b_k`` are the coordinates of each
+  subregion of the region described by ``a`` and ``b``. In the 1D case, this
+  is equivalent to comparing the integral over an entire interval ``[a, b]`` to
+  the sum of the integrals over the left and right subintervals, ``[a, (a+b)/2]``
+  and ``[(a+b)/2, b]``.
+blank_after_short_description: False
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'f']
+  description: |
+    Function to estimate error for. `f` must have the signature::
+        f(x : ndarray, \*args) -> ndarray
+    
+    `f` should accept arrays `x` of shape::
+        (npoints, ndim)
+    
+    and output arrays of shape::
+        (npoints, output_dim_1, ..., output_dim_n)
+    
+    In this case, `estimate` will return arrays of shape::
+        (output_dim_1, ..., output_dim_n)
+  arg_name: 'f'
+  type_name: 'callable'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'a, b']
+  description: |
+    Lower and upper limits of integration as rank-1 arrays specifying the left
+    and right endpoints of the intervals being integrated over. Infinite limits
+    are currently not supported.
+  arg_name: 'a, b'
+  type_name: 'ndarray'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'args']
+  description: 'Additional positional args passed to `f`, if any.'
+  arg_name: 'args'
+  type_name: 'tuple'
+  is_optional: True
+- DocstringReturns
+  args: ['returns']
+  description: |
+    Result of error estimation. If `f` returns arrays of shape
+    ``(npoints, output_dim_1, ..., output_dim_n)``, then `est` will be
+    of shape ``(output_dim_1, ..., output_dim_n)``.
+  type_name: 'ndarray'
+  is_generator: False
+  return_name: 'err_est'
+=== detect
+numpydoc
+=== compose numpydoc
+Estimate the error of the approximation for the integral of `f` in rectangular
+region described by corners `a` and `b`.
+
+If a subclass does not override this method, then a default error estimator is
+used. This estimates the error as ``|est - refined_est|`` where ``est`` is
+``estimate(f, a, b)`` and ``refined_est`` is the sum of
+``estimate(f, a_k, b_k)`` where ``a_k, b_k`` are the coordinates of each
+subregion of the region described by ``a`` and ``b``. In the 1D case, this
+is equivalent to comparing the integral over an entire interval ``[a, b]`` to
+the sum of the integrals over the left and right subintervals, ``[a, (a+b)/2]``
+and ``[(a+b)/2, b]``.
+
+Parameters
+----------
+f : callable
+    Function to estimate error for. `f` must have the signature::
+        f(x : ndarray, \*args) -> ndarray
+    
+    `f` should accept arrays `x` of shape::
+        (npoints, ndim)
+    
+    and output arrays of shape::
+        (npoints, output_dim_1, ..., output_dim_n)
+    
+    In this case, `estimate` will return arrays of shape::
+        (output_dim_1, ..., output_dim_n)
+a, b : ndarray
+    Lower and upper limits of integration as rank-1 arrays specifying the left
+    and right endpoints of the intervals being integrated over. Infinite limits
+    are currently not supported.
+args : tuple, optional
+    Additional positional args passed to `f`, if any.
+
+Returns
+-------
+err_est : ndarray
+    Result of error estimation. If `f` returns arrays of shape
+    ``(npoints, output_dim_1, ..., output_dim_n)``, then `est` will be
+    of shape ``(output_dim_1, ..., output_dim_n)``.

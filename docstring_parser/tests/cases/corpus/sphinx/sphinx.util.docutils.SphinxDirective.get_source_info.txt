@@ -1,0 +1,18 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Get source and line number.
+
+        .. versionadded:: 3.0
+        
+=== parse rest
+short_description: 'Get source and line number.'
+long_description: '.. versionadded:: 3.0'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Get source and line number.
+
+.. versionadded:: 3.0

@@ -1,0 +1,24 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+End capture mode and return captured string.
+
+        Returns:
+            str: Console output.
+        
+=== parse google
+short_description: 'End capture mode and return captured string.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringReturns
+  args: ['returns', 'str']
+  description: 'Console output.'
+  type_name: 'str'
+  is_generator: False
+=== detect
+google
+=== compose google
+End capture mode and return captured string.
+
+Returns:
+    str: Console output.

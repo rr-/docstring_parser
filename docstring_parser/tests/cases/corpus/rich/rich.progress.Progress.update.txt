@@ -1,0 +1,81 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Update information associated with a task.
+
+        Args:
+            task_id (TaskID): Task id (returned by add_task).
+            total (float, optional): Updates task.total if not None.
+            completed (float, optional): Updates task.completed if not None.
+            advance (float, optional): Add a value to task.completed if not None.
+            description (str, optional): Change task description if not None.
+            visible (bool, optional): Set visible flag if not None.
+            refresh (bool): Force a refresh of progress information. Default is False.
+            **fields (Any): Additional data fields required for rendering.
+        
+=== parse google
+short_description: 'Update information associated with a task.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'task_id (TaskID)']
+  description: 'Task id (returned by add_task).'
+  arg_name: 'task_id'
+  type_name: 'TaskID'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'total (float, optional)']
+  description: 'Updates task.total if not None.'
+  arg_name: 'total'
+  type_name: 'float'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'completed (float, optional)']
+  description: 'Updates task.completed if not None.'
+  arg_name: 'completed'
+  type_name: 'float'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'advance (float, optional)']
+  description: 'Add a value to task.completed if not None.'
+  arg_name: 'advance'
+  type_name: 'float'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'description (str, optional)']
+  description: 'Change task description if not None.'
+  arg_name: 'description'
+  type_name: 'str'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'visible (bool, optional)']
+  description: 'Set visible flag if not None.'
+  arg_name: 'visible'
+  type_name: 'bool'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'refresh (bool)']
+  description: 'Force a refresh of progress information. Default is False.'
+  arg_name: 'refresh'
+  type_name: 'bool'
+  is_optional: False
+- DocstringParam
+  args: ['param', '**fields (Any)']
+  description: 'Additional data fields required for rendering.'
+  arg_name: '**fields'
+  type_name: 'Any'
+  is_optional: False
+=== detect
+google
+=== compose google
+Update information associated with a task.
+
+Args:
+    task_id (TaskID): Task id (returned by add_task).
+    total (float?): Updates task.total if not None.
+    completed (float?): Updates task.completed if not None.
+    advance (float?): Add a value to task.completed if not None.
+    description (str?): Change task description if not None.
+    visible (bool?): Set visible flag if not None.
+    refresh (bool): Force a refresh of progress information. Default is False.
+    **fields (Any): Additional data fields required for rendering.

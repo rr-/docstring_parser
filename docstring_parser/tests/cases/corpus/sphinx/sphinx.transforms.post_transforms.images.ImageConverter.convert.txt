@@ -1,0 +1,22 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Convert an image file to the expected format.
+
+        *_from* is a path of the source image file, and *_to* is a path
+        of the destination file.
+        
+=== parse rest
+short_description: 'Convert an image file to the expected format.'
+long_description: |
+  *_from* is a path of the source image file, and *_to* is a path
+  of the destination file.
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Convert an image file to the expected format.
+
+*_from* is a path of the source image file, and *_to* is a path
+of the destination file.

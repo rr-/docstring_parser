@@ -1,0 +1,170 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Calculate the standard deviation of the values of an N-D image array,
+    optionally at specified sub-regions.
+
+    Parameters
+    ----------
+    input : array_like
+        N-D image data to process.
+    labels : array_like, optional
+        Labels to identify sub-regions in `input`.
+        If not None, must be same shape as `input`.
+    index : int or sequence of ints, optional
+        `labels` to include in output. If None (default), all values where
+        `labels` is non-zero are used.
+
+    Returns
+    -------
+    standard_deviation : float or ndarray
+        Values of standard deviation, for each sub-region if `labels` and
+        `index` are specified.
+
+    See Also
+    --------
+    label, variance, maximum, minimum, extrema
+
+    Examples
+    --------
+    >>> import numpy as np
+    >>> a = np.array([[1, 2, 0, 0],
+    ...               [5, 3, 0, 4],
+    ...               [0, 0, 0, 7],
+    ...               [9, 3, 0, 0]])
+    >>> from scipy import ndimage
+    >>> ndimage.standard_deviation(a)
+    2.7585095613392387
+
+    Features to process can be specified using `labels` and `index`:
+
+    >>> lbl, nlbl = ndimage.label(a)
+    >>> ndimage.standard_deviation(a, lbl, index=np.arange(1, nlbl+1))
+    array([ 1.479,  1.5  ,  3.   ])
+
+    If no index is given, non-zero `labels` are processed:
+
+    >>> ndimage.standard_deviation(a, lbl)
+    2.4874685927665499
+
+    
+=== parse numpydoc
+short_description: 'Calculate the standard deviation of the values of an N-D image array,'
+long_description: 'optionally at specified sub-regions.'
+blank_after_short_description: False
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'input']
+  description: 'N-D image data to process.'
+  arg_name: 'input'
+  type_name: 'array_like'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'labels']
+  description: |
+    Labels to identify sub-regions in `input`.
+    If not None, must be same shape as `input`.
+  arg_name: 'labels'
+  type_name: 'array_like'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'index']
+  description: |
+    `labels` to include in output. If None (default), all values where
+    `labels` is non-zero are used.
+  arg_name: 'index'
+  type_name: 'int or sequence of ints'
+  is_optional: True
+- DocstringReturns
+  args: ['returns']
+  description: |
+    Values of standard deviation, for each sub-region if `labels` and
+    `index` are specified.
+  type_name: 'float or ndarray'
+  is_generator: False
+  return_name: 'standard_deviation'
+- DocstringMeta
+  args: ['see_also']
+  description: 'label, variance, maximum, minimum, extrema'
+- DocstringExample
+  args: ['examples']
+  description: |
+    ...               [5, 3, 0, 4],
+    ...               [0, 0, 0, 7],
+    ...               [9, 3, 0, 0]])
+  snippet: |
+    >>> import numpy as np
+    >>> a = np.array([[1, 2, 0, 0],
+- DocstringExample
+  args: ['examples']
+  description: |
+    2.7585095613392387
+    
+    Features to process can be specified using `labels` and `index`:
+    
+  snippet: |
+    >>> from scipy import ndimage
+    >>> ndimage.standard_deviation(a)
+- DocstringExample
+  args: ['examples']
+  description: |
+    array([ 1.479,  1.5  ,  3.   ])
+    
+    If no index is given, non-zero `labels` are processed:
+    
+  snippet: |
+    >>> lbl, nlbl = ndimage.label(a)
+    >>> ndimage.standard_deviation(a, lbl, index=np.arange(1, nlbl+1))
+- DocstringExample
+  args: ['examples']
+  description: '2.4874685927665499'
+  snippet: '>>> ndimage.standard_deviation(a, lbl)'
+=== detect
+numpydoc
+=== compose numpydoc
+Calculate the standard deviation of the values of an N-D image array,
+optionally at specified sub-regions.
+
+Parameters
+----------
+input : array_like
+    N-D image data to process.
+labels : array_like, optional
+    Labels to identify sub-regions in `input`.
+    If not None, must be same shape as `input`.
+index : int or sequence of ints, optional
+    `labels` to include in output. If None (default), all values where
+    `labels` is non-zero are used.
+
+Returns
+-------
+standard_deviation : float or ndarray
+    Values of standard deviation, for each sub-region if `labels` and
+    `index` are specified.
+
+Examples
+--------
+>>> import numpy as np
+>>> a = np.array([[1, 2, 0, 0],
+...               [5, 3, 0, 4],
+...               [0, 0, 0, 7],
+...               [9, 3, 0, 0]])
+>>> from scipy import ndimage
+>>> ndimage.standard_deviation(a)
+2.7585095613392387
+
+Features to process can be specified using `labels` and `index`:
+
+>>> lbl, nlbl = ndimage.label(a)
+>>> ndimage.standard_deviation(a, lbl, index=np.arange(1, nlbl+1))
+array([ 1.479,  1.5  ,  3.   ])
+
+If no index is given, non-zero `labels` are processed:
+
+>>> ndimage.standard_deviation(a, lbl)
+2.4874685927665499
+
+See Also
+--------
+label, variance, maximum, minimum, extrema

@@ -1,0 +1,128 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Simple creation of command line interfaces.
+
+    Previously called ``jsonargparse.CLI``, renamed to follow the standard of functions in lowercase.
+
+    Creates an argument parser from one or more functions/classes, parses
+    arguments and runs one of the functions or class methods depending on what
+    was parsed.
+
+    Inspired by `Fire <https://pypi.org/project/fire/>`__, though with
+    fundamental differences: arguments are derived from type hints and
+    validated against them, instead of being guessed from the given values; and
+    return values are not printed, they are given back to the caller.
+
+    Args:
+        components: One or more functions/classes to include in the command line interface.
+        args: List of arguments to parse or ``None`` to use ``sys.argv``.
+        config_help: Help string for config file option in help.
+        set_defaults: Dictionary of values to override components defaults.
+        as_positional: Whether to add required parameters as positional arguments.
+        return_instance: Whether class components should be instantiated directly and returned,
+            i.e. without exposing class methods as subcommands.
+        fail_untyped: Whether to raise an exception for parameters that don't have a type:
+            True for the required ones, "all" for all of them, False for none.
+        parser_class: The :class:`ArgumentParser` subclass to use.
+        instantiators: Custom instantiators, see :meth:`.ArgumentParser.instantiate`.
+        **kwargs: Used to instantiate :class:`.ArgumentParser`.
+
+    Returns:
+        The value returned by the executed function or class method.
+    
+=== parse google
+short_description: 'Simple creation of command line interfaces.'
+long_description: |
+  Previously called ``jsonargparse.CLI``, renamed to follow the standard of functions in lowercase.
+  
+  Creates an argument parser from one or more functions/classes, parses
+  arguments and runs one of the functions or class methods depending on what
+  was parsed.
+  
+  Inspired by `Fire <https://pypi.org/project/fire/>`__, though with
+  fundamental differences: arguments are derived from type hints and
+  validated against them, instead of being guessed from the given values; and
+  return values are not printed, they are given back to the caller.
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'components']
+  description: 'One or more functions/classes to include in the command line interface.'
+  arg_name: 'components'
+- DocstringParam
+  args: ['param', 'args']
+  description: 'List of arguments to parse or ``None`` to use ``sys.argv``.'
+  arg_name: 'args'
+- DocstringParam
+  args: ['param', 'config_help']
+  description: 'Help string for config file option in help.'
+  arg_name: 'config_help'
+- DocstringParam
+  args: ['param', 'set_defaults']
+  description: 'Dictionary of values to override components defaults.'
+  arg_name: 'set_defaults'
+- DocstringParam
+  args: ['param', 'as_positional']
+  description: 'Whether to add required parameters as positional arguments.'
+  arg_name: 'as_positional'
+- DocstringParam
+  args: ['param', 'return_instance']
+  description: |
+    Whether class components should be instantiated directly and returned,
+    i.e. without exposing class methods as subcommands.
+  arg_name: 'return_instance'
+- DocstringParam
+  args: ['param', 'fail_untyped']
+  description: |
+    Whether to raise an exception for parameters that don't have a type:
+    True for the required ones, "all" for all of them, False for none.
+  arg_name: 'fail_untyped'
+- DocstringParam
+  args: ['param', 'parser_class']
+  description: 'The :class:`ArgumentParser` subclass to use.'
+  arg_name: 'parser_class'
+- DocstringParam
+  args: ['param', 'instantiators']
+  description: 'Custom instantiators, see :meth:`.ArgumentParser.instantiate`.'
+  arg_name: 'instantiators'
+- DocstringParam
+  args: ['param', '**kwargs']
+  description: 'Used to instantiate :class:`.ArgumentParser`.'
+  arg_name: '**kwargs'
+- DocstringReturns
+  args: ['returns']
+  description: 'The value returned by the executed function or class method.'
+  is_generator: False
+=== detect
+google
+=== compose google
+Simple creation of command line interfaces.
+
+Previously called ``jsonargparse.CLI``, renamed to follow the standard of functions in lowercase.
+
+Creates an argument parser from one or more functions/classes, parses
+arguments and runs one of the functions or class methods depending on what
+was parsed.
+
+Inspired by `Fire <https://pypi.org/project/fire/>`__, though with
+fundamental differences: arguments are derived from type hints and
+validated against them, instead of being guessed from the given values; and
+return values are not printed, they are given back to the caller.
+
+Args:
+    components: One or more functions/classes to include in the command line interface.
+    args: List of arguments to parse or ``None`` to use ``sys.argv``.
+    config_help: Help string for config file option in help.
+    set_defaults: Dictionary of values to override components defaults.
+    as_positional: Whether to add required parameters as positional arguments.
+    return_instance: Whether class components should be instantiated directly and returned,
+        i.e. without exposing class methods as subcommands.
+    fail_untyped: Whether to raise an exception for parameters that don't have a type:
+        True for the required ones, "all" for all of them, False for none.
+    parser_class: The :class:`ArgumentParser` subclass to use.
+    instantiators: Custom instantiators, see :meth:`.ArgumentParser.instantiate`.
+    **kwargs: Used to instantiate :class:`.ArgumentParser`.
+
+Returns:
+    The value returned by the executed function or class method.

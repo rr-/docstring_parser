@@ -1,0 +1,47 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Checks if a request can be retried by inspecting the status code
+    and response body of the request.
+
+    Args:
+        status_code (int): The response status code.
+        response_data (Mapping | str): The decoded response data.
+
+    Returns:
+      bool: True if the response is retryable. False otherwise.
+    
+=== parse google
+short_description: 'Checks if a request can be retried by inspecting the status code'
+long_description: 'and response body of the request.'
+blank_after_short_description: False
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'status_code (int)']
+  description: 'The response status code.'
+  arg_name: 'status_code'
+  type_name: 'int'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'response_data (Mapping | str)']
+  description: 'The decoded response data.'
+  arg_name: 'response_data'
+  type_name: 'Mapping | str'
+  is_optional: False
+- DocstringReturns
+  args: ['returns', 'bool']
+  description: 'True if the response is retryable. False otherwise.'
+  type_name: 'bool'
+  is_generator: False
+=== detect
+google
+=== compose google
+Checks if a request can be retried by inspecting the status code
+and response body of the request.
+
+Args:
+    status_code (int): The response status code.
+    response_data (Mapping | str): The decoded response data.
+
+Returns:
+    bool: True if the response is retryable. False otherwise.

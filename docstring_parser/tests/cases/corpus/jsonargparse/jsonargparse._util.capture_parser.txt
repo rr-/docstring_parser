@@ -1,0 +1,60 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Returns the parser object used within the execution of a function.
+
+    The function execution is stopped on the start of the call to
+    :meth:`parse_args <.ArgumentParser.parse_args>`. No parsing is done or
+    execution of instructions after the :meth:`parse_args
+    <.ArgumentParser.parse_args>`.
+
+    Args:
+        function: A callable that internally creates a parser and calls :meth:`parse_args <.ArgumentParser.parse_args>`.
+        *args: Positional arguments used to run the function.
+        **kwargs: Keyword arguments used to run the function.
+
+    Raises:
+        CaptureParserException: If the function does not call :meth:`parse_args <.ArgumentParser.parse_args>`.
+    
+=== parse google
+short_description: 'Returns the parser object used within the execution of a function.'
+long_description: |
+  The function execution is stopped on the start of the call to
+  :meth:`parse_args <.ArgumentParser.parse_args>`. No parsing is done or
+  execution of instructions after the :meth:`parse_args
+  <.ArgumentParser.parse_args>`.
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'function']
+  description: 'A callable that internally creates a parser and calls :meth:`parse_args <.ArgumentParser.parse_args>`.'
+  arg_name: 'function'
+- DocstringParam
+  args: ['param', '*args']
+  description: 'Positional arguments used to run the function.'
+  arg_name: '*args'
+- DocstringParam
+  args: ['param', '**kwargs']
+  description: 'Keyword arguments used to run the function.'
+  arg_name: '**kwargs'
+- DocstringRaises
+  args: ['raises', 'CaptureParserException']
+  description: 'If the function does not call :meth:`parse_args <.ArgumentParser.parse_args>`.'
+  type_name: 'CaptureParserException'
+=== detect
+google
+=== compose google
+Returns the parser object used within the execution of a function.
+
+The function execution is stopped on the start of the call to
+:meth:`parse_args <.ArgumentParser.parse_args>`. No parsing is done or
+execution of instructions after the :meth:`parse_args
+<.ArgumentParser.parse_args>`.
+
+Args:
+    function: A callable that internally creates a parser and calls :meth:`parse_args <.ArgumentParser.parse_args>`.
+    *args: Positional arguments used to run the function.
+    **kwargs: Keyword arguments used to run the function.
+
+Raises:
+    CaptureParserException: If the function does not call :meth:`parse_args <.ArgumentParser.parse_args>`.

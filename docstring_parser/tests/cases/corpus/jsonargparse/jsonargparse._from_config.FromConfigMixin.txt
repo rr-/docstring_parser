@@ -1,0 +1,76 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Mixin class that adds from config support to classes.
+
+    This mixin does two things:
+
+        1. Adds support for overriding ``__init__`` defaults by defining a
+           ``__from_config_init_defaults__`` class attribute pointing to a
+           config file path. The overriding of defaults happens on subclass
+           creation time. Inspecting the signature will give the overridden
+           defaults.
+
+        2. Adds a ``from_config`` ``@classmethod``, that instantiates the class
+           based on a config file or dict. If
+           ``config_read_mode_fsspec_enabled=True`` is set, then config paths
+           can be URLs.
+
+    Attributes:
+        __from_config_init_defaults__: Optional path to a config file for
+            overriding ``__init__`` defaults.
+        __from_config_parser_kwargs__: Additional kwargs to pass to the
+            ArgumentParser used for parsing configs.
+    
+=== parse google
+short_description: 'Mixin class that adds from config support to classes.'
+long_description: |
+  This mixin does two things:
+  
+      1. Adds support for overriding ``__init__`` defaults by defining a
+         ``__from_config_init_defaults__`` class attribute pointing to a
+         config file path. The overriding of defaults happens on subclass
+         creation time. Inspecting the signature will give the overridden
+         defaults.
+  
+      2. Adds a ``from_config`` ``@classmethod``, that instantiates the class
+         based on a config file or dict. If
+         ``config_read_mode_fsspec_enabled=True`` is set, then config paths
+         can be URLs.
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['attribute', '__from_config_init_defaults__']
+  description: |
+    Optional path to a config file for
+    overriding ``__init__`` defaults.
+  arg_name: '__from_config_init_defaults__'
+- DocstringParam
+  args: ['attribute', '__from_config_parser_kwargs__']
+  description: |
+    Additional kwargs to pass to the
+    ArgumentParser used for parsing configs.
+  arg_name: '__from_config_parser_kwargs__'
+=== detect
+google
+=== compose google
+Mixin class that adds from config support to classes.
+
+This mixin does two things:
+
+    1. Adds support for overriding ``__init__`` defaults by defining a
+       ``__from_config_init_defaults__`` class attribute pointing to a
+       config file path. The overriding of defaults happens on subclass
+       creation time. Inspecting the signature will give the overridden
+       defaults.
+
+    2. Adds a ``from_config`` ``@classmethod``, that instantiates the class
+       based on a config file or dict. If
+       ``config_read_mode_fsspec_enabled=True`` is set, then config paths
+       can be URLs.
+
+Attributes:
+    __from_config_init_defaults__: Optional path to a config file for
+        overriding ``__init__`` defaults.
+    __from_config_parser_kwargs__: Additional kwargs to pass to the
+        ArgumentParser used for parsing configs.

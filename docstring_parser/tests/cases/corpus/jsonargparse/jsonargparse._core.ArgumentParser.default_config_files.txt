@@ -1,0 +1,32 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Default config file locations.
+
+        :getter: Returns the current default config file locations.
+        :setter: Sets new default config file locations, e.g. ``['~/.config/myapp/*.yaml']``.
+
+        Raises:
+            ValueError: If an invalid value is given.
+        
+=== parse google
+short_description: 'Default config file locations.'
+long_description: |
+  :getter: Returns the current default config file locations.
+  :setter: Sets new default config file locations, e.g. ``['~/.config/myapp/*.yaml']``.
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringRaises
+  args: ['raises', 'ValueError']
+  description: 'If an invalid value is given.'
+  type_name: 'ValueError'
+=== detect
+rest
+=== compose google
+Default config file locations.
+
+:getter: Returns the current default config file locations.
+:setter: Sets new default config file locations, e.g. ``['~/.config/myapp/*.yaml']``.
+
+Raises:
+    ValueError: If an invalid value is given.

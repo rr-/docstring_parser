@@ -1,0 +1,108 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+    Info:
+        To use this type, you need to install the optional
+        [`email-validator`](https://github.com/JoshData/python-email-validator) package:
+
+        ```bash
+        pip install email-validator
+        ```
+
+    Validate a name and email address combination, as specified by
+    [RFC 5322](https://datatracker.ietf.org/doc/html/rfc5322#section-3.4).
+
+    The `NameEmail` has two properties: `name` and `email`.
+    In case the `name` is not provided, it's inferred from the email address.
+
+    ```python
+    from pydantic import BaseModel, NameEmail
+
+    class User(BaseModel):
+        email: NameEmail
+
+    user = User(email='Fred Bloggs <fred.bloggs@example.com>')
+    print(user.email)
+    #> Fred Bloggs <fred.bloggs@example.com>
+    print(user.email.name)
+    #> Fred Bloggs
+
+    user = User(email='fred.bloggs@example.com')
+    print(user.email)
+    #> fred.bloggs <fred.bloggs@example.com>
+    print(user.email.name)
+    #> fred.bloggs
+    ```
+    
+=== parse google
+short_description: 'Info:'
+long_description: |
+  To use this type, you need to install the optional
+      [`email-validator`](https://github.com/JoshData/python-email-validator) package:
+  
+      ```bash
+      pip install email-validator
+      ```
+  
+  Validate a name and email address combination, as specified by
+  [RFC 5322](https://datatracker.ietf.org/doc/html/rfc5322#section-3.4).
+  
+  The `NameEmail` has two properties: `name` and `email`.
+  In case the `name` is not provided, it's inferred from the email address.
+  
+  ```python
+  from pydantic import BaseModel, NameEmail
+  
+  class User(BaseModel):
+      email: NameEmail
+  
+  user = User(email='Fred Bloggs <fred.bloggs@example.com>')
+  print(user.email)
+  #> Fred Bloggs <fred.bloggs@example.com>
+  print(user.email.name)
+  #> Fred Bloggs
+  
+  user = User(email='fred.bloggs@example.com')
+  print(user.email)
+  #> fred.bloggs <fred.bloggs@example.com>
+  print(user.email.name)
+  #> fred.bloggs
+  ```
+blank_after_short_description: False
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Info:
+To use this type, you need to install the optional
+    [`email-validator`](https://github.com/JoshData/python-email-validator) package:
+
+    ```bash
+    pip install email-validator
+    ```
+
+Validate a name and email address combination, as specified by
+[RFC 5322](https://datatracker.ietf.org/doc/html/rfc5322#section-3.4).
+
+The `NameEmail` has two properties: `name` and `email`.
+In case the `name` is not provided, it's inferred from the email address.
+
+```python
+from pydantic import BaseModel, NameEmail
+
+class User(BaseModel):
+    email: NameEmail
+
+user = User(email='Fred Bloggs <fred.bloggs@example.com>')
+print(user.email)
+#> Fred Bloggs <fred.bloggs@example.com>
+print(user.email.name)
+#> Fred Bloggs
+
+user = User(email='fred.bloggs@example.com')
+print(user.email)
+#> fred.bloggs <fred.bloggs@example.com>
+print(user.email.name)
+#> fred.bloggs
+```

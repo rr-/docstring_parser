@@ -1,0 +1,16 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Japanese search implementation: uses no stemmer, but word splitting is quite
+    complicated.
+    
+=== parse rest
+short_description: 'Japanese search implementation: uses no stemmer, but word splitting is quite'
+long_description: 'complicated.'
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Japanese search implementation: uses no stemmer, but word splitting is quite
+complicated.

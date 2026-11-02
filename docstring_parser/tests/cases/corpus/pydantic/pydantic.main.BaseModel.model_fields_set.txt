@@ -1,0 +1,27 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Returns the set of fields that have been explicitly set on this model instance.
+
+        Returns:
+            A set of strings representing the fields that have been set,
+                i.e. that were not filled from defaults.
+        
+=== parse google
+short_description: 'Returns the set of fields that have been explicitly set on this model instance.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringReturns
+  args: ['returns']
+  description: |
+    A set of strings representing the fields that have been set,
+    i.e. that were not filled from defaults.
+  is_generator: False
+=== detect
+google
+=== compose google
+Returns the set of fields that have been explicitly set on this model instance.
+
+Returns:
+    A set of strings representing the fields that have been set,
+    i.e. that were not filled from defaults.

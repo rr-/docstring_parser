@@ -1,0 +1,33 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Decode the data using the encoder.
+
+        Args:
+            data: The data to decode.
+
+        Returns:
+            The decoded data.
+        
+=== parse google
+short_description: 'Decode the data using the encoder.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'data']
+  description: 'The data to decode.'
+  arg_name: 'data'
+- DocstringReturns
+  args: ['returns']
+  description: 'The decoded data.'
+  is_generator: False
+=== detect
+google
+=== compose google
+Decode the data using the encoder.
+
+Args:
+    data: The data to decode.
+
+Returns:
+    The decoded data.

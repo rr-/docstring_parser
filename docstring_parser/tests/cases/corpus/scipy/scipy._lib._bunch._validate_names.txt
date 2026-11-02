@@ -1,0 +1,21 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Ensure that all the given names are valid Python identifiers that
+    do not start with '_'.  Also check that there are no duplicates
+    among field_names + extra_field_names.
+    
+=== parse numpydoc
+short_description: 'Ensure that all the given names are valid Python identifiers that'
+long_description: |
+  do not start with '_'.  Also check that there are no duplicates
+  among field_names + extra_field_names.
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Ensure that all the given names are valid Python identifiers that
+do not start with '_'.  Also check that there are no duplicates
+among field_names + extra_field_names.

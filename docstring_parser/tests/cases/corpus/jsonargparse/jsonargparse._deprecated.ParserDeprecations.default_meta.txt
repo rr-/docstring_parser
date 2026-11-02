@@ -1,0 +1,32 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Whether by default metadata is included in config objects.
+
+        :getter: Returns the current default metadata setting.
+        :setter: Sets the default metadata setting.
+
+        Raises:
+            ValueError: If an invalid value is given.
+        
+=== parse google
+short_description: 'Whether by default metadata is included in config objects.'
+long_description: |
+  :getter: Returns the current default metadata setting.
+  :setter: Sets the default metadata setting.
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringRaises
+  args: ['raises', 'ValueError']
+  description: 'If an invalid value is given.'
+  type_name: 'ValueError'
+=== detect
+rest
+=== compose google
+Whether by default metadata is included in config objects.
+
+:getter: Returns the current default metadata setting.
+:setter: Sets the default metadata setting.
+
+Raises:
+    ValueError: If an invalid value is given.

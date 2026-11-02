@@ -1,0 +1,17 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+    A stub transport implementation used to support L{AMP} over a
+    L{ProcessProtocol} transport.
+    
+=== parse epydoc
+short_description: 'A stub transport implementation used to support L{AMP} over a'
+long_description: 'L{ProcessProtocol} transport.'
+blank_after_short_description: False
+blank_after_long_description: False
+style: epydoc
+=== detect
+rest
+=== compose epydoc
+A stub transport implementation used to support L{AMP} over a
+L{ProcessProtocol} transport.

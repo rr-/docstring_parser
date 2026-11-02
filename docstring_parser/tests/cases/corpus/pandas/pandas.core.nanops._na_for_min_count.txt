@@ -1,0 +1,57 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Return the missing value for `values`.
+
+    Parameters
+    ----------
+    values : ndarray
+    axis : int or None
+        axis for the reduction, required if values.ndim > 1.
+
+    Returns
+    -------
+    result : scalar or ndarray
+        For 1-D values, returns a scalar of the correct missing type.
+        For 2-D values, returns a 1-D array where each element is missing.
+    
+=== parse numpydoc
+short_description: 'Return the missing value for `values`.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'values']
+  arg_name: 'values'
+  type_name: 'ndarray'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'axis']
+  description: 'axis for the reduction, required if values.ndim > 1.'
+  arg_name: 'axis'
+  type_name: 'int or None'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: |
+    For 1-D values, returns a scalar of the correct missing type.
+    For 2-D values, returns a 1-D array where each element is missing.
+  type_name: 'scalar or ndarray'
+  is_generator: False
+  return_name: 'result'
+=== detect
+numpydoc
+=== compose numpydoc
+Return the missing value for `values`.
+
+Parameters
+----------
+values : ndarray
+axis : int or None
+    axis for the reduction, required if values.ndim > 1.
+
+Returns
+-------
+result : scalar or ndarray
+    For 1-D values, returns a scalar of the correct missing type.
+    For 2-D values, returns a 1-D array where each element is missing.

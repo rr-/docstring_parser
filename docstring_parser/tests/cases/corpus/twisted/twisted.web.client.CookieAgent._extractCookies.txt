@@ -1,0 +1,35 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Extract response cookies and store them in the cookie jar.
+
+        @param response: the Twisted Web response that we are processing.
+
+        @param request: A L{_FakeStdlibRequest} wrapping our Twisted request,
+            for L{CookieJar} to extract cookies from.
+        
+=== parse epydoc
+short_description: 'Extract response cookies and store them in the cookie jar.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringParam
+  args: ['param', 'response']
+  description: 'the Twisted Web response that we are processing.'
+  arg_name: 'response'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'request']
+  description: |
+    A L{_FakeStdlibRequest} wrapping our Twisted request,
+    for L{CookieJar} to extract cookies from.
+  arg_name: 'request'
+  is_optional: False
+=== detect
+epydoc
+=== compose epydoc
+Extract response cookies and store them in the cookie jar.
+
+@param response: the Twisted Web response that we are processing.
+@param request: A L{_FakeStdlibRequest} wrapping our Twisted request,
+    for L{CookieJar} to extract cookies from.

@@ -1,0 +1,22 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Gets the instantiator of the current context.
+
+    The applied instantiation links are taken at this point, so that a deferred call, e.g. a partial given by
+    ``instantiate``, gets them even though it happens outside of the ``instantiate`` call.
+    
+=== parse google
+short_description: 'Gets the instantiator of the current context.'
+long_description: |
+  The applied instantiation links are taken at this point, so that a deferred call, e.g. a partial given by
+  ``instantiate``, gets them even though it happens outside of the ``instantiate`` call.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Gets the instantiator of the current context.
+
+The applied instantiation links are taken at this point, so that a deferred call, e.g. a partial given by
+``instantiate``, gets them even though it happens outside of the ``instantiate`` call.

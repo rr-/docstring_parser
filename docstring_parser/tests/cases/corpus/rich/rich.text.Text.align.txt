@@ -1,0 +1,42 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Align text to a given width.
+
+        Args:
+            align (AlignMethod): One of "left", "center", or "right".
+            width (int): Desired width.
+            character (str, optional): Character to pad with. Defaults to " ".
+        
+=== parse google
+short_description: 'Align text to a given width.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'align (AlignMethod)']
+  description: 'One of "left", "center", or "right".'
+  arg_name: 'align'
+  type_name: 'AlignMethod'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'width (int)']
+  description: 'Desired width.'
+  arg_name: 'width'
+  type_name: 'int'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'character (str, optional)']
+  description: 'Character to pad with. Defaults to " ".'
+  arg_name: 'character'
+  type_name: 'str'
+  is_optional: True
+  default: '" "'
+=== detect
+google
+=== compose google
+Align text to a given width.
+
+Args:
+    align (AlignMethod): One of "left", "center", or "right".
+    width (int): Desired width.
+    character (str?): Character to pad with. Defaults to " ".

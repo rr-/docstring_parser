@@ -1,0 +1,49 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Get the parameters used to repr(dataFrame) calls using DataFrame.to_string.
+
+    Supplying these parameters to DataFrame.to_string is equivalent to calling
+    ``repr(DataFrame)``. This is useful if you want to adjust the repr output.
+
+    Example
+    -------
+    >>> import pandas as pd
+    >>>
+    >>> df = pd.DataFrame([[1, 2], [3, 4]])
+    >>> repr_params = pd.io.formats.format.get_dataframe_repr_params()
+    >>> repr(df) == df.to_string(**repr_params)
+    True
+    
+=== parse numpydoc
+short_description: 'Get the parameters used to repr(dataFrame) calls using DataFrame.to_string.'
+long_description: |
+  Supplying these parameters to DataFrame.to_string is equivalent to calling
+  ``repr(DataFrame)``. This is useful if you want to adjust the repr output.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringExample
+  args: ['examples']
+  description: 'True'
+  snippet: |
+    >>> import pandas as pd
+    >>>
+    >>> df = pd.DataFrame([[1, 2], [3, 4]])
+    >>> repr_params = pd.io.formats.format.get_dataframe_repr_params()
+    >>> repr(df) == df.to_string(**repr_params)
+=== detect
+numpydoc
+=== compose numpydoc
+Get the parameters used to repr(dataFrame) calls using DataFrame.to_string.
+
+Supplying these parameters to DataFrame.to_string is equivalent to calling
+``repr(DataFrame)``. This is useful if you want to adjust the repr output.
+
+Examples
+--------
+>>> import pandas as pd
+>>>
+>>> df = pd.DataFrame([[1, 2], [3, 4]])
+>>> repr_params = pd.io.formats.format.get_dataframe_repr_params()
+>>> repr(df) == df.to_string(**repr_params)
+True

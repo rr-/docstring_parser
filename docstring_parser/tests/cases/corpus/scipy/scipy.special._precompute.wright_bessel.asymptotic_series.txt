@@ -1,0 +1,40 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Asymptotic expansion for large x.
+
+    Phi(a, b, x) ~ Z^(1/2-b) * exp((1+a)/a * Z) * sum_k (-1)^k * C_k / Z^k
+    Z = (a*x)^(1/(1+a))
+
+    Wright (1935) lists the coefficients C_0 and C_1 (he calls them a_0 and
+    a_1). With slightly different notation, Paris (2017) lists coefficients
+    c_k up to order k=3.
+    Paris (2017) uses ZP = (1+a)/a * Z  (ZP = Z of Paris) and
+    C_k = C_0 * (-a/(1+a))^k * c_k
+    
+=== parse numpydoc
+short_description: 'Asymptotic expansion for large x.'
+long_description: |
+  Phi(a, b, x) ~ Z^(1/2-b) * exp((1+a)/a * Z) * sum_k (-1)^k * C_k / Z^k
+  Z = (a*x)^(1/(1+a))
+  
+  Wright (1935) lists the coefficients C_0 and C_1 (he calls them a_0 and
+  a_1). With slightly different notation, Paris (2017) lists coefficients
+  c_k up to order k=3.
+  Paris (2017) uses ZP = (1+a)/a * Z  (ZP = Z of Paris) and
+  C_k = C_0 * (-a/(1+a))^k * c_k
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Asymptotic expansion for large x.
+
+Phi(a, b, x) ~ Z^(1/2-b) * exp((1+a)/a * Z) * sum_k (-1)^k * C_k / Z^k
+Z = (a*x)^(1/(1+a))
+
+Wright (1935) lists the coefficients C_0 and C_1 (he calls them a_0 and
+a_1). With slightly different notation, Paris (2017) lists coefficients
+c_k up to order k=3.
+Paris (2017) uses ZP = (1+a)/a * Z  (ZP = Z of Paris) and
+C_k = C_0 * (-a/(1+a))^k * c_k

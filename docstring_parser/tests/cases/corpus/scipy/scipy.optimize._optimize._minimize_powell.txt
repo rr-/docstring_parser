@@ -1,0 +1,331 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Minimization of scalar function of one or more variables using the
+    modified Powell algorithm.
+
+    Parameters
+    ----------
+    fun : callable
+        The objective function to be minimized::
+
+            fun(x, *args) -> float
+
+        where ``x`` is a 1-D array with shape (n,) and ``args``
+        is a tuple of the fixed parameters needed to completely
+        specify the function.
+    x0 : ndarray, shape (n,)
+        Initial guess. Array of real elements of size (n,),
+        where ``n`` is the number of independent variables.
+    args : tuple, optional
+        Extra arguments passed to the objective function and its
+        derivatives (`fun`, `jac` and `hess` functions).
+    method : str or callable, optional
+        The present documentation is specific to ``method='powell'``, but other
+        options are available. See documentation for `scipy.optimize.minimize`.
+    bounds : sequence or `Bounds`, optional
+        Bounds on decision variables. There are two ways to specify the bounds:
+
+        1. Instance of `Bounds` class.
+        2. Sequence of ``(min, max)`` pairs for each element in `x`. None
+           is used to specify no bound.
+
+        If bounds are not provided, then an unbounded line search will be used.
+        If bounds are provided and the initial guess is within the bounds, then
+        every function evaluation throughout the minimization procedure will be
+        within the bounds. If bounds are provided, the initial guess is outside
+        the bounds, and `direc` is full rank (or left to default), then some
+        function evaluations during the first iteration may be outside the
+        bounds, but every function evaluation after the first iteration will be
+        within the bounds. If `direc` is not full rank, then some parameters
+        may not be optimized and the solution is not guaranteed to be within
+        the bounds.
+
+    options : dict, optional
+        A dictionary of solver options. All methods accept the following
+        generic options:
+
+        maxiter : int
+            Maximum number of iterations to perform. Depending on the
+            method each iteration may use several function evaluations.
+        disp : bool
+            Set to True to print convergence messages.
+
+        See method-specific options for ``method='powell'`` below.
+    callback : callable, optional
+        Called after each iteration. The signature is::
+
+            callback(xk)
+
+        where ``xk`` is the current parameter vector.
+
+    Returns
+    -------
+    res : OptimizeResult
+        The optimization result represented as a ``OptimizeResult`` object.
+        Important attributes are: ``x`` the solution array, ``success`` a
+        Boolean flag indicating if the optimizer exited successfully and
+        ``message`` which describes the cause of the termination. See
+        `OptimizeResult` for a description of other attributes.
+
+    Options
+    -------
+    disp : bool
+        Set to True to print convergence messages.
+    xtol : float
+        Relative error in solution `xopt` acceptable for convergence.
+    ftol : float
+        Relative error in ``fun(xopt)`` acceptable for convergence.
+    maxiter, maxfev : int
+        Maximum allowed number of iterations and function evaluations.
+        Will default to ``N*1000``, where ``N`` is the number of
+        variables, if neither `maxiter` or `maxfev` is set. If both
+        `maxiter` and `maxfev` are set, minimization will stop at the
+        first reached.
+    direc : ndarray
+        Initial set of direction vectors for the Powell method.
+    return_all : bool, optional
+        Set to True to return a list of the best solution at each of the
+        iterations.
+    
+=== parse numpydoc
+short_description: 'Minimization of scalar function of one or more variables using the'
+long_description: 'modified Powell algorithm.'
+blank_after_short_description: False
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'fun']
+  description: |
+    The objective function to be minimized::
+    
+        fun(x, *args) -> float
+    
+    where ``x`` is a 1-D array with shape (n,) and ``args``
+    is a tuple of the fixed parameters needed to completely
+    specify the function.
+  arg_name: 'fun'
+  type_name: 'callable'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'x0']
+  description: |
+    Initial guess. Array of real elements of size (n,),
+    where ``n`` is the number of independent variables.
+  arg_name: 'x0'
+  type_name: 'ndarray, shape (n,)'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'args']
+  description: |
+    Extra arguments passed to the objective function and its
+    derivatives (`fun`, `jac` and `hess` functions).
+  arg_name: 'args'
+  type_name: 'tuple'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'method']
+  description: |
+    The present documentation is specific to ``method='powell'``, but other
+    options are available. See documentation for `scipy.optimize.minimize`.
+  arg_name: 'method'
+  type_name: 'str or callable'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'bounds']
+  description: |
+    Bounds on decision variables. There are two ways to specify the bounds:
+    
+    1. Instance of `Bounds` class.
+    2. Sequence of ``(min, max)`` pairs for each element in `x`. None
+       is used to specify no bound.
+    
+    If bounds are not provided, then an unbounded line search will be used.
+    If bounds are provided and the initial guess is within the bounds, then
+    every function evaluation throughout the minimization procedure will be
+    within the bounds. If bounds are provided, the initial guess is outside
+    the bounds, and `direc` is full rank (or left to default), then some
+    function evaluations during the first iteration may be outside the
+    bounds, but every function evaluation after the first iteration will be
+    within the bounds. If `direc` is not full rank, then some parameters
+    may not be optimized and the solution is not guaranteed to be within
+    the bounds.
+  arg_name: 'bounds'
+  type_name: 'sequence or `Bounds`'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'options']
+  description: |
+    A dictionary of solver options. All methods accept the following
+    generic options:
+    
+    maxiter : int
+        Maximum number of iterations to perform. Depending on the
+        method each iteration may use several function evaluations.
+    disp : bool
+        Set to True to print convergence messages.
+    
+    See method-specific options for ``method='powell'`` below.
+  arg_name: 'options'
+  type_name: 'dict'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'callback']
+  description: |
+    Called after each iteration. The signature is::
+    
+        callback(xk)
+    
+    where ``xk`` is the current parameter vector.
+  arg_name: 'callback'
+  type_name: 'callable'
+  is_optional: True
+- DocstringReturns
+  args: ['returns']
+  description: |
+    The optimization result represented as a ``OptimizeResult`` object.
+    Important attributes are: ``x`` the solution array, ``success`` a
+    Boolean flag indicating if the optimizer exited successfully and
+    ``message`` which describes the cause of the termination. See
+    `OptimizeResult` for a description of other attributes.
+  type_name: 'OptimizeResult'
+  is_generator: False
+  return_name: 'res'
+- DocstringReturns
+  args: ['returns']
+  type_name: 'Options'
+  is_generator: False
+- DocstringReturns
+  args: ['returns']
+  type_name: '-------'
+  is_generator: False
+- DocstringReturns
+  args: ['returns']
+  description: 'Set to True to print convergence messages.'
+  type_name: 'bool'
+  is_generator: False
+  return_name: 'disp'
+- DocstringReturns
+  args: ['returns']
+  description: 'Relative error in solution `xopt` acceptable for convergence.'
+  type_name: 'float'
+  is_generator: False
+  return_name: 'xtol'
+- DocstringReturns
+  args: ['returns']
+  description: 'Relative error in ``fun(xopt)`` acceptable for convergence.'
+  type_name: 'float'
+  is_generator: False
+  return_name: 'ftol'
+- DocstringReturns
+  args: ['returns']
+  description: |
+    Maximum allowed number of iterations and function evaluations.
+    Will default to ``N*1000``, where ``N`` is the number of
+    variables, if neither `maxiter` or `maxfev` is set. If both
+    `maxiter` and `maxfev` are set, minimization will stop at the
+    first reached.
+  type_name: 'int'
+  is_generator: False
+  return_name: 'maxiter, maxfev'
+- DocstringReturns
+  args: ['returns']
+  description: 'Initial set of direction vectors for the Powell method.'
+  type_name: 'ndarray'
+  is_generator: False
+  return_name: 'direc'
+- DocstringReturns
+  args: ['returns']
+  description: |
+    Set to True to return a list of the best solution at each of the
+    iterations.
+  type_name: 'bool, optional'
+  is_generator: False
+  return_name: 'return_all'
+=== detect
+numpydoc
+=== compose numpydoc
+Minimization of scalar function of one or more variables using the
+modified Powell algorithm.
+
+Parameters
+----------
+fun : callable
+    The objective function to be minimized::
+    
+        fun(x, *args) -> float
+    
+    where ``x`` is a 1-D array with shape (n,) and ``args``
+    is a tuple of the fixed parameters needed to completely
+    specify the function.
+x0 : ndarray, shape (n,)
+    Initial guess. Array of real elements of size (n,),
+    where ``n`` is the number of independent variables.
+args : tuple, optional
+    Extra arguments passed to the objective function and its
+    derivatives (`fun`, `jac` and `hess` functions).
+method : str or callable, optional
+    The present documentation is specific to ``method='powell'``, but other
+    options are available. See documentation for `scipy.optimize.minimize`.
+bounds : sequence or `Bounds`, optional
+    Bounds on decision variables. There are two ways to specify the bounds:
+    
+    1. Instance of `Bounds` class.
+    2. Sequence of ``(min, max)`` pairs for each element in `x`. None
+       is used to specify no bound.
+    
+    If bounds are not provided, then an unbounded line search will be used.
+    If bounds are provided and the initial guess is within the bounds, then
+    every function evaluation throughout the minimization procedure will be
+    within the bounds. If bounds are provided, the initial guess is outside
+    the bounds, and `direc` is full rank (or left to default), then some
+    function evaluations during the first iteration may be outside the
+    bounds, but every function evaluation after the first iteration will be
+    within the bounds. If `direc` is not full rank, then some parameters
+    may not be optimized and the solution is not guaranteed to be within
+    the bounds.
+options : dict, optional
+    A dictionary of solver options. All methods accept the following
+    generic options:
+    
+    maxiter : int
+        Maximum number of iterations to perform. Depending on the
+        method each iteration may use several function evaluations.
+    disp : bool
+        Set to True to print convergence messages.
+    
+    See method-specific options for ``method='powell'`` below.
+callback : callable, optional
+    Called after each iteration. The signature is::
+    
+        callback(xk)
+    
+    where ``xk`` is the current parameter vector.
+
+Returns
+-------
+res : OptimizeResult
+    The optimization result represented as a ``OptimizeResult`` object.
+    Important attributes are: ``x`` the solution array, ``success`` a
+    Boolean flag indicating if the optimizer exited successfully and
+    ``message`` which describes the cause of the termination. See
+    `OptimizeResult` for a description of other attributes.
+Options
+-------
+disp : bool
+    Set to True to print convergence messages.
+xtol : float
+    Relative error in solution `xopt` acceptable for convergence.
+ftol : float
+    Relative error in ``fun(xopt)`` acceptable for convergence.
+maxiter, maxfev : int
+    Maximum allowed number of iterations and function evaluations.
+    Will default to ``N*1000``, where ``N`` is the number of
+    variables, if neither `maxiter` or `maxfev` is set. If both
+    `maxiter` and `maxfev` are set, minimization will stop at the
+    first reached.
+direc : ndarray
+    Initial set of direction vectors for the Powell method.
+return_all : bool, optional
+    Set to True to return a list of the best solution at each of the
+    iterations.

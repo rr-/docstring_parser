@@ -1,0 +1,66 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Copies an array.
+
+    Parameters
+    ----------
+    x : array
+
+    xp : array_namespace
+
+    Returns
+    -------
+    copy : array
+        Copied array
+
+    Notes
+    -----
+    This copy function does not offer all the semantics of `np.copy`, i.e. the
+    `subok` and `order` keywords are not used.
+    
+=== parse numpydoc
+short_description: 'Copies an array.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'x']
+  arg_name: 'x'
+  type_name: 'array'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'xp']
+  arg_name: 'xp'
+  type_name: 'array_namespace'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: 'Copied array'
+  type_name: 'array'
+  is_generator: False
+  return_name: 'copy'
+- DocstringMeta
+  args: ['notes']
+  description: |
+    This copy function does not offer all the semantics of `np.copy`, i.e. the
+    `subok` and `order` keywords are not used.
+=== detect
+numpydoc
+=== compose numpydoc
+Copies an array.
+
+Parameters
+----------
+x : array
+xp : array_namespace
+
+Returns
+-------
+copy : array
+    Copied array
+
+Notes
+-----
+This copy function does not offer all the semantics of `np.copy`, i.e. the
+`subok` and `order` keywords are not used.

@@ -1,0 +1,30 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+If there are no contracted indices, then we can directly transpose and
+    insert singleton dimensions into ``a`` and ``b`` such that (broadcast)
+    elementwise multiplication performs the einsum.
+
+    No need to cache this as it is within the cached
+    ``_parse_eq_to_batch_matmul``.
+
+    
+=== parse numpydoc
+short_description: 'If there are no contracted indices, then we can directly transpose and'
+long_description: |
+  insert singleton dimensions into ``a`` and ``b`` such that (broadcast)
+  elementwise multiplication performs the einsum.
+  
+  No need to cache this as it is within the cached
+  ``_parse_eq_to_batch_matmul``.
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+If there are no contracted indices, then we can directly transpose and
+insert singleton dimensions into ``a`` and ``b`` such that (broadcast)
+elementwise multiplication performs the einsum.
+
+No need to cache this as it is within the cached
+``_parse_eq_to_batch_matmul``.

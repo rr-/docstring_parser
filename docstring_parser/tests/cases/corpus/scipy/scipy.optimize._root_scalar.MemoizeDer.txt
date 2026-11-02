@@ -1,0 +1,37 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Decorator that caches the value and derivative(s) of function each
+    time it is called.
+
+    This is a simplistic memoizer that calls and caches a single value
+    of ``f(x, *args)``.
+    It assumes that `args` does not change between invocations.
+    It supports the use case of a root-finder where `args` is fixed,
+    `x` changes, and only rarely, if at all, does x assume the same value
+    more than once.
+=== parse numpydoc
+short_description: 'Decorator that caches the value and derivative(s) of function each'
+long_description: |
+  time it is called.
+  
+  This is a simplistic memoizer that calls and caches a single value
+  of ``f(x, *args)``.
+  It assumes that `args` does not change between invocations.
+  It supports the use case of a root-finder where `args` is fixed,
+  `x` changes, and only rarely, if at all, does x assume the same value
+  more than once.
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Decorator that caches the value and derivative(s) of function each
+time it is called.
+
+This is a simplistic memoizer that calls and caches a single value
+of ``f(x, *args)``.
+It assumes that `args` does not change between invocations.
+It supports the use case of a root-finder where `args` is fixed,
+`x` changes, and only rarely, if at all, does x assume the same value
+more than once.

@@ -1,0 +1,22 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Add to global_vars types referenced as string forward refs in generic aliases but missing from it.
+
+    Handles the case where a generic alias such as ``list["ForwardReferenced"]`` was defined in
+    module A and imported into module B, but ``ForwardReferenced`` was not imported into module B.
+    
+=== parse google
+short_description: 'Add to global_vars types referenced as string forward refs in generic aliases but missing from it.'
+long_description: |
+  Handles the case where a generic alias such as ``list["ForwardReferenced"]`` was defined in
+  module A and imported into module B, but ``ForwardReferenced`` was not imported into module B.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Add to global_vars types referenced as string forward refs in generic aliases but missing from it.
+
+Handles the case where a generic alias such as ``list["ForwardReferenced"]`` was defined in
+module A and imported into module B, but ``ForwardReferenced`` was not imported into module B.

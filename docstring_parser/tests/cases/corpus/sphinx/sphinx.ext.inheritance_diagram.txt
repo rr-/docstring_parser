@@ -1,0 +1,94 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Defines a docutils directive for inserting inheritance diagrams.
+
+Provide the directive with one or more classes or modules (separated
+by whitespace).  For modules, all of the classes in that module will
+be used.
+
+Example::
+
+   Given the following classes:
+
+   class A: pass
+   class B(A): pass
+   class C(A): pass
+   class D(B, C): pass
+   class E(B): pass
+
+   .. inheritance-diagram: D E
+
+   Produces a graph like the following:
+
+               A
+              / \
+             B   C
+            / \ /
+           E   D
+
+The graph is inserted as a PNG+image map into HTML and a PDF in
+LaTeX.
+
+=== parse rest
+short_description: 'Defines a docutils directive for inserting inheritance diagrams.'
+long_description: |
+  Provide the directive with one or more classes or modules (separated
+  by whitespace).  For modules, all of the classes in that module will
+  be used.
+  
+  Example::
+  
+     Given the following classes:
+  
+     class A: pass
+     class B(A): pass
+     class C(A): pass
+     class D(B, C): pass
+     class E(B): pass
+  
+     .. inheritance-diagram: D E
+  
+     Produces a graph like the following:
+  
+                 A
+                / \
+               B   C
+              / \ /
+             E   D
+  
+  The graph is inserted as a PNG+image map into HTML and a PDF in
+  LaTeX.
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Defines a docutils directive for inserting inheritance diagrams.
+
+Provide the directive with one or more classes or modules (separated
+by whitespace).  For modules, all of the classes in that module will
+be used.
+
+Example::
+
+   Given the following classes:
+
+   class A: pass
+   class B(A): pass
+   class C(A): pass
+   class D(B, C): pass
+   class E(B): pass
+
+   .. inheritance-diagram: D E
+
+   Produces a graph like the following:
+
+               A
+              / \
+             B   C
+            / \ /
+           E   D
+
+The graph is inserted as a PNG+image map into HTML and a PDF in
+LaTeX.

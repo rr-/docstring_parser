@@ -1,0 +1,22 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Get the real module name of an object to document.
+
+        It can differ from the name of the module through which the object was
+        imported.
+        
+=== parse rest
+short_description: 'Get the real module name of an object to document.'
+long_description: |
+  It can differ from the name of the module through which the object was
+  imported.
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Get the real module name of an object to document.
+
+It can differ from the name of the module through which the object was
+imported.

@@ -1,0 +1,62 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+    Client connections that do not require a factory.
+
+    The various connect* methods create a protocol instance using the given
+    protocol class and arguments, and connect it, returning a Deferred of the
+    resulting protocol instance.
+
+    Useful for cases when we don't really need a factory.  Mainly this
+    is when there is no shared state between protocol instances, and no need
+    to reconnect.
+
+    The C{connectTCP}, C{connectUNIX}, and C{connectSSL} methods each return a
+    L{Deferred} which will fire with an instance of the protocol class passed to
+    L{ClientCreator.__init__}.  These Deferred can be cancelled to abort the
+    connection attempt (in a very unlikely case, cancelling the Deferred may not
+    prevent the protocol from being instantiated and connected to a transport;
+    if this happens, it will be disconnected immediately afterwards and the
+    Deferred will still errback with L{CancelledError}).
+    
+=== parse epydoc
+short_description: 'Client connections that do not require a factory.'
+long_description: |
+  The various connect* methods create a protocol instance using the given
+  protocol class and arguments, and connect it, returning a Deferred of the
+  resulting protocol instance.
+  
+  Useful for cases when we don't really need a factory.  Mainly this
+  is when there is no shared state between protocol instances, and no need
+  to reconnect.
+  
+  The C{connectTCP}, C{connectUNIX}, and C{connectSSL} methods each return a
+  L{Deferred} which will fire with an instance of the protocol class passed to
+  L{ClientCreator.__init__}.  These Deferred can be cancelled to abort the
+  connection attempt (in a very unlikely case, cancelling the Deferred may not
+  prevent the protocol from being instantiated and connected to a transport;
+  if this happens, it will be disconnected immediately afterwards and the
+  Deferred will still errback with L{CancelledError}).
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+=== detect
+rest
+=== compose epydoc
+Client connections that do not require a factory.
+
+The various connect* methods create a protocol instance using the given
+protocol class and arguments, and connect it, returning a Deferred of the
+resulting protocol instance.
+
+Useful for cases when we don't really need a factory.  Mainly this
+is when there is no shared state between protocol instances, and no need
+to reconnect.
+
+The C{connectTCP}, C{connectUNIX}, and C{connectSSL} methods each return a
+L{Deferred} which will fire with an instance of the protocol class passed to
+L{ClientCreator.__init__}.  These Deferred can be cancelled to abort the
+connection attempt (in a very unlikely case, cancelling the Deferred may not
+prevent the protocol from being instantiated and connected to a transport;
+if this happens, it will be disconnected immediately afterwards and the
+Deferred will still errback with L{CancelledError}).

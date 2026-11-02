@@ -1,0 +1,22 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Sort target and index nodes.
+
+    Find all consecutive target and index nodes starting from ``start_node``,
+    and move all index nodes to before the first target node.
+    
+=== parse rest
+short_description: 'Sort target and index nodes.'
+long_description: |
+  Find all consecutive target and index nodes starting from ``start_node``,
+  and move all index nodes to before the first target node.
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Sort target and index nodes.
+
+Find all consecutive target and index nodes starting from ``start_node``,
+and move all index nodes to before the first target node.

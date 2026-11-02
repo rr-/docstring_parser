@@ -1,0 +1,160 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Return a possibly reshaped matrix.
+
+        Refer to `numpy.squeeze` for more documentation.
+
+        Parameters
+        ----------
+        axis : None or int or tuple of ints, optional
+            Selects a subset of the axes of length one in the shape.
+            If an axis is selected with shape entry greater than one,
+            an error is raised.
+
+        Returns
+        -------
+        squeezed : matrix
+            The matrix, but as a (1, N) matrix if it had shape (N, 1).
+
+        See Also
+        --------
+        numpy.squeeze : related function
+
+        Notes
+        -----
+        If `m` has a single column then that column is returned
+        as the single row of a matrix.  Otherwise `m` is returned.
+        The returned matrix is always either `m` itself or a view into `m`.
+        Supplying an axis keyword argument will not affect the returned matrix
+        but it may cause an error to be raised.
+
+        Examples
+        --------
+        >>> c = np.matrix([[1], [2]])
+        >>> c
+        matrix([[1],
+                [2]])
+        >>> c.squeeze()
+        matrix([[1, 2]])
+        >>> r = c.T
+        >>> r
+        matrix([[1, 2]])
+        >>> r.squeeze()
+        matrix([[1, 2]])
+        >>> m = np.matrix([[1, 2], [3, 4]])
+        >>> m.squeeze()
+        matrix([[1, 2],
+                [3, 4]])
+
+        
+=== parse numpydoc
+short_description: 'Return a possibly reshaped matrix.'
+long_description: 'Refer to `numpy.squeeze` for more documentation.'
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'axis']
+  description: |
+    Selects a subset of the axes of length one in the shape.
+    If an axis is selected with shape entry greater than one,
+    an error is raised.
+  arg_name: 'axis'
+  type_name: 'None or int or tuple of ints'
+  is_optional: True
+- DocstringReturns
+  args: ['returns']
+  description: 'The matrix, but as a (1, N) matrix if it had shape (N, 1).'
+  type_name: 'matrix'
+  is_generator: False
+  return_name: 'squeezed'
+- DocstringMeta
+  args: ['see_also']
+  description: 'numpy.squeeze : related function'
+- DocstringMeta
+  args: ['notes']
+  description: |
+    If `m` has a single column then that column is returned
+    as the single row of a matrix.  Otherwise `m` is returned.
+    The returned matrix is always either `m` itself or a view into `m`.
+    Supplying an axis keyword argument will not affect the returned matrix
+    but it may cause an error to be raised.
+- DocstringExample
+  args: ['examples']
+  description: |
+    matrix([[1],
+            [2]])
+  snippet: |
+    >>> c = np.matrix([[1], [2]])
+    >>> c
+- DocstringExample
+  args: ['examples']
+  description: 'matrix([[1, 2]])'
+  snippet: '>>> c.squeeze()'
+- DocstringExample
+  args: ['examples']
+  description: 'matrix([[1, 2]])'
+  snippet: |
+    >>> r = c.T
+    >>> r
+- DocstringExample
+  args: ['examples']
+  description: 'matrix([[1, 2]])'
+  snippet: '>>> r.squeeze()'
+- DocstringExample
+  args: ['examples']
+  description: |
+    matrix([[1, 2],
+            [3, 4]])
+  snippet: |
+    >>> m = np.matrix([[1, 2], [3, 4]])
+    >>> m.squeeze()
+=== detect
+numpydoc
+=== compose numpydoc
+Return a possibly reshaped matrix.
+
+Refer to `numpy.squeeze` for more documentation.
+
+Parameters
+----------
+axis : None or int or tuple of ints, optional
+    Selects a subset of the axes of length one in the shape.
+    If an axis is selected with shape entry greater than one,
+    an error is raised.
+
+Returns
+-------
+squeezed : matrix
+    The matrix, but as a (1, N) matrix if it had shape (N, 1).
+
+Examples
+--------
+>>> c = np.matrix([[1], [2]])
+>>> c
+matrix([[1],
+        [2]])
+>>> c.squeeze()
+matrix([[1, 2]])
+>>> r = c.T
+>>> r
+matrix([[1, 2]])
+>>> r.squeeze()
+matrix([[1, 2]])
+>>> m = np.matrix([[1, 2], [3, 4]])
+>>> m.squeeze()
+matrix([[1, 2],
+        [3, 4]])
+
+See Also
+--------
+numpy.squeeze : related function
+
+Notes
+-----
+If `m` has a single column then that column is returned
+as the single row of a matrix.  Otherwise `m` is returned.
+The returned matrix is always either `m` itself or a view into `m`.
+Supplying an axis keyword argument will not affect the returned matrix
+but it may cause an error to be raised.

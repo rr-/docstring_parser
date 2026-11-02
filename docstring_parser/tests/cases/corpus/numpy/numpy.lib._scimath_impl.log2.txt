@@ -1,0 +1,137 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Compute the logarithm base 2 of `x`.
+
+    Return the "principal value" (for a description of this, see
+    `numpy.log2`) of :math:`log_2(x)`. For real `x > 0`, this is
+    a real number (``log2(0)`` returns ``-inf`` and ``log2(np.inf)`` returns
+    ``inf``). Otherwise, the complex principle value is returned.
+
+    Parameters
+    ----------
+    x : array_like
+       The value(s) whose log base 2 is (are) required.
+
+    Returns
+    -------
+    out : ndarray or scalar
+       The log base 2 of the `x` value(s). If `x` was a scalar, so is `out`,
+       otherwise an array is returned.
+
+    See Also
+    --------
+    numpy.log2
+
+    Notes
+    -----
+    For a log2() that returns ``NAN`` when real `x < 0`, use `numpy.log2`
+    (note, however, that otherwise `numpy.log2` and this `log2` are
+    identical, i.e., both return ``-inf`` for `x = 0`, ``inf`` for `x = inf`,
+    and, notably, the complex principle value if ``x.imag != 0``).
+
+    Examples
+    --------
+
+    We set the printing precision so the example can be auto-tested:
+
+    >>> np.set_printoptions(precision=4)
+
+    >>> np.emath.log2(8)
+    3.0
+    >>> np.emath.log2([-4, -8, 8])
+    array([2.+4.5324j, 3.+4.5324j, 3.+0.j    ])
+
+    
+=== parse numpydoc
+short_description: 'Compute the logarithm base 2 of `x`.'
+long_description: |
+  Return the "principal value" (for a description of this, see
+  `numpy.log2`) of :math:`log_2(x)`. For real `x > 0`, this is
+  a real number (``log2(0)`` returns ``-inf`` and ``log2(np.inf)`` returns
+  ``inf``). Otherwise, the complex principle value is returned.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'x']
+  description: 'The value(s) whose log base 2 is (are) required.'
+  arg_name: 'x'
+  type_name: 'array_like'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: |
+    The log base 2 of the `x` value(s). If `x` was a scalar, so is `out`,
+    otherwise an array is returned.
+  type_name: 'ndarray or scalar'
+  is_generator: False
+  return_name: 'out'
+- DocstringMeta
+  args: ['see_also']
+  description: 'numpy.log2'
+- DocstringMeta
+  args: ['notes']
+  description: |
+    For a log2() that returns ``NAN`` when real `x < 0`, use `numpy.log2`
+    (note, however, that otherwise `numpy.log2` and this `log2` are
+    identical, i.e., both return ``-inf`` for `x = 0`, ``inf`` for `x = inf`,
+    and, notably, the complex principle value if ``x.imag != 0``).
+- DocstringExample
+  args: ['examples']
+  description: |
+    We set the printing precision so the example can be auto-tested:
+    
+- DocstringExample
+  args: ['examples']
+  description: ''
+  snippet: '>>> np.set_printoptions(precision=4)'
+- DocstringExample
+  args: ['examples']
+  description: '3.0'
+  snippet: '>>> np.emath.log2(8)'
+- DocstringExample
+  args: ['examples']
+  description: 'array([2.+4.5324j, 3.+4.5324j, 3.+0.j    ])'
+  snippet: '>>> np.emath.log2([-4, -8, 8])'
+=== detect
+numpydoc
+=== compose numpydoc
+Compute the logarithm base 2 of `x`.
+
+Return the "principal value" (for a description of this, see
+`numpy.log2`) of :math:`log_2(x)`. For real `x > 0`, this is
+a real number (``log2(0)`` returns ``-inf`` and ``log2(np.inf)`` returns
+``inf``). Otherwise, the complex principle value is returned.
+
+Parameters
+----------
+x : array_like
+    The value(s) whose log base 2 is (are) required.
+
+Returns
+-------
+out : ndarray or scalar
+    The log base 2 of the `x` value(s). If `x` was a scalar, so is `out`,
+    otherwise an array is returned.
+
+Examples
+--------
+We set the printing precision so the example can be auto-tested:
+
+>>> np.set_printoptions(precision=4)
+>>> np.emath.log2(8)
+3.0
+>>> np.emath.log2([-4, -8, 8])
+array([2.+4.5324j, 3.+4.5324j, 3.+0.j    ])
+
+See Also
+--------
+numpy.log2
+
+Notes
+-----
+For a log2() that returns ``NAN`` when real `x < 0`, use `numpy.log2`
+(note, however, that otherwise `numpy.log2` and this `log2` are
+identical, i.e., both return ``-inf`` for `x = 0`, ``inf`` for `x = inf`,
+and, notably, the complex principle value if ``x.imag != 0``).

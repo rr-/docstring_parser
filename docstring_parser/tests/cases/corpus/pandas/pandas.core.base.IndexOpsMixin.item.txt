@@ -1,0 +1,110 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Return the first element of the underlying data as a Python scalar.
+
+        This method extracts the single element from a length-1 Series or
+        Index and returns it as a native Python scalar type (e.g., ``int``,
+        ``float``, ``str``).
+
+        Returns
+        -------
+        scalar
+            The first element of Series or Index.
+
+        Raises
+        ------
+        ValueError
+            If the data is not length = 1.
+
+        See Also
+        --------
+        Index.values : Returns an array representing the data in the Index.
+        Series.head : Returns the first `n` rows.
+
+        Examples
+        --------
+        >>> s = pd.Series([1])
+        >>> s.item()
+        1
+
+        For an index:
+
+        >>> s = pd.Series([1], index=["a"])
+        >>> s.index.item()
+        'a'
+        
+=== parse numpydoc
+short_description: 'Return the first element of the underlying data as a Python scalar.'
+long_description: |
+  This method extracts the single element from a length-1 Series or
+  Index and returns it as a native Python scalar type (e.g., ``int``,
+  ``float``, ``str``).
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringReturns
+  args: ['returns']
+  description: 'The first element of Series or Index.'
+  type_name: 'scalar'
+  is_generator: False
+- DocstringRaises
+  args: ['raises', 'ValueError']
+  description: 'If the data is not length = 1.'
+  type_name: 'ValueError'
+- DocstringMeta
+  args: ['see_also']
+  description: |
+    Index.values : Returns an array representing the data in the Index.
+    Series.head : Returns the first `n` rows.
+- DocstringExample
+  args: ['examples']
+  description: |
+    1
+    
+    For an index:
+    
+  snippet: |
+    >>> s = pd.Series([1])
+    >>> s.item()
+- DocstringExample
+  args: ['examples']
+  description: "'a'"
+  snippet: |
+    >>> s = pd.Series([1], index=["a"])
+    >>> s.index.item()
+=== detect
+numpydoc
+=== compose numpydoc
+Return the first element of the underlying data as a Python scalar.
+
+This method extracts the single element from a length-1 Series or
+Index and returns it as a native Python scalar type (e.g., ``int``,
+``float``, ``str``).
+
+Returns
+-------
+scalar
+    The first element of Series or Index.
+
+Raises
+------
+ValueError
+    If the data is not length = 1.
+
+Examples
+--------
+>>> s = pd.Series([1])
+>>> s.item()
+1
+
+For an index:
+
+>>> s = pd.Series([1], index=["a"])
+>>> s.index.item()
+'a'
+
+See Also
+--------
+Index.values : Returns an array representing the data in the Index.
+Series.head : Returns the first `n` rows.

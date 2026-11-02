@@ -1,0 +1,46 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Check if windows match.
+
+        Parameters
+        ----------
+        other : class instance
+            The other class must have the ``window`` attribute.
+
+        Returns
+        -------
+        bool : boolean
+            True if the windows are the same, False otherwise.
+
+        
+=== parse numpydoc
+short_description: 'Check if windows match.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'other']
+  description: 'The other class must have the ``window`` attribute.'
+  arg_name: 'other'
+  type_name: 'class instance'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: 'True if the windows are the same, False otherwise.'
+  type_name: 'boolean'
+  is_generator: False
+  return_name: 'bool'
+=== detect
+numpydoc
+=== compose numpydoc
+Check if windows match.
+
+Parameters
+----------
+other : class instance
+    The other class must have the ``window`` attribute.
+
+Returns
+-------
+bool : boolean
+    True if the windows are the same, False otherwise.

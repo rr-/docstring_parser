@@ -1,0 +1,22 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Removes a top level ReadOnly wrapper, which only marks a TypedDict key as not mutable.
+
+    Nothing is ever written back into a parsed TypedDict, so ReadOnly imposes no
+    restriction and changes neither the type of a key nor its requiredness.
+    
+=== parse google
+short_description: 'Removes a top level ReadOnly wrapper, which only marks a TypedDict key as not mutable.'
+long_description: |
+  Nothing is ever written back into a parsed TypedDict, so ReadOnly imposes no
+  restriction and changes neither the type of a key nor its requiredness.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Removes a top level ReadOnly wrapper, which only marks a TypedDict key as not mutable.
+
+Nothing is ever written back into a parsed TypedDict, so ReadOnly imposes no
+restriction and changes neither the type of a key nor its requiredness.

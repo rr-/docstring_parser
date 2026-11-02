@@ -1,0 +1,113 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Implement a smoothing IIR filter with mirror-symmetric boundary conditions
+    using a cascade of second-order sections.
+
+    The second section uses a reversed sequence.  This implements the following
+    transfer function::
+
+                                  cs^2
+         H(z) = ---------------------------------------
+                (1 - a2/z - a3/z^2) (1 - a2 z - a3 z^2 )
+
+    where::
+
+          a2 = 2 * r * cos(omega)
+          a3 = - r ** 2
+          cs = 1 - 2 * r * cos(omega) + r ** 2
+
+    Parameters
+    ----------
+    input : ndarray
+        The input signal.
+    r, omega : float
+        Parameters in the transfer function.
+    precision : float
+        Specifies the precision for calculating initial conditions
+        of the recursive filter based on mirror-symmetric input.
+
+    Returns
+    -------
+    output : ndarray
+        The filtered signal.
+    
+=== parse numpydoc
+short_description: 'Implement a smoothing IIR filter with mirror-symmetric boundary conditions'
+long_description: |
+  using a cascade of second-order sections.
+  
+  The second section uses a reversed sequence.  This implements the following
+  transfer function::
+  
+                                cs^2
+       H(z) = ---------------------------------------
+              (1 - a2/z - a3/z^2) (1 - a2 z - a3 z^2 )
+  
+  where::
+  
+        a2 = 2 * r * cos(omega)
+        a3 = - r ** 2
+        cs = 1 - 2 * r * cos(omega) + r ** 2
+blank_after_short_description: False
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'input']
+  description: 'The input signal.'
+  arg_name: 'input'
+  type_name: 'ndarray'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'r, omega']
+  description: 'Parameters in the transfer function.'
+  arg_name: 'r, omega'
+  type_name: 'float'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'precision']
+  description: |
+    Specifies the precision for calculating initial conditions
+    of the recursive filter based on mirror-symmetric input.
+  arg_name: 'precision'
+  type_name: 'float'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: 'The filtered signal.'
+  type_name: 'ndarray'
+  is_generator: False
+  return_name: 'output'
+=== detect
+numpydoc
+=== compose numpydoc
+Implement a smoothing IIR filter with mirror-symmetric boundary conditions
+using a cascade of second-order sections.
+
+The second section uses a reversed sequence.  This implements the following
+transfer function::
+
+                              cs^2
+     H(z) = ---------------------------------------
+            (1 - a2/z - a3/z^2) (1 - a2 z - a3 z^2 )
+
+where::
+
+      a2 = 2 * r * cos(omega)
+      a3 = - r ** 2
+      cs = 1 - 2 * r * cos(omega) + r ** 2
+
+Parameters
+----------
+input : ndarray
+    The input signal.
+r, omega : float
+    Parameters in the transfer function.
+precision : float
+    Specifies the precision for calculating initial conditions
+    of the recursive filter based on mirror-symmetric input.
+
+Returns
+-------
+output : ndarray
+    The filtered signal.

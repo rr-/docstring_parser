@@ -1,0 +1,84 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Returns the average of the array elements along given axis.
+
+        Masked entries are ignored, and result elements which are not
+        finite will be masked.
+
+        Refer to `numpy.mean` for full documentation.
+
+        See Also
+        --------
+        numpy.ndarray.mean : corresponding function for ndarrays
+        numpy.mean : Equivalent function
+        numpy.ma.average : Weighted average.
+
+        Examples
+        --------
+        >>> import numpy as np
+        >>> a = np.ma.array([1,2,3], mask=[False, False, True])
+        >>> a
+        masked_array(data=[1, 2, --],
+                     mask=[False, False,  True],
+               fill_value=999999)
+        >>> a.mean()
+        1.5
+
+        
+=== parse numpydoc
+short_description: 'Returns the average of the array elements along given axis.'
+long_description: |
+  Masked entries are ignored, and result elements which are not
+  finite will be masked.
+  
+  Refer to `numpy.mean` for full documentation.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringMeta
+  args: ['see_also']
+  description: |
+    numpy.ndarray.mean : corresponding function for ndarrays
+    numpy.mean : Equivalent function
+    numpy.ma.average : Weighted average.
+- DocstringExample
+  args: ['examples']
+  description: |
+    masked_array(data=[1, 2, --],
+                 mask=[False, False,  True],
+           fill_value=999999)
+  snippet: |
+    >>> import numpy as np
+    >>> a = np.ma.array([1,2,3], mask=[False, False, True])
+    >>> a
+- DocstringExample
+  args: ['examples']
+  description: '1.5'
+  snippet: '>>> a.mean()'
+=== detect
+numpydoc
+=== compose numpydoc
+Returns the average of the array elements along given axis.
+
+Masked entries are ignored, and result elements which are not
+finite will be masked.
+
+Refer to `numpy.mean` for full documentation.
+
+Examples
+--------
+>>> import numpy as np
+>>> a = np.ma.array([1,2,3], mask=[False, False, True])
+>>> a
+masked_array(data=[1, 2, --],
+             mask=[False, False,  True],
+       fill_value=999999)
+>>> a.mean()
+1.5
+
+See Also
+--------
+numpy.ndarray.mean : corresponding function for ndarrays
+numpy.mean : Equivalent function
+numpy.ma.average : Weighted average.

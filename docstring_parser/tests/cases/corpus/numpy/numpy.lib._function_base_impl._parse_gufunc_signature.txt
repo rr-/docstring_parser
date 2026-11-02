@@ -1,0 +1,52 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Parse string signatures for a generalized universal function.
+
+    Arguments
+    ---------
+    signature : string
+        Generalized universal function signature, e.g., ``(m,n),(n,p)->(m,p)``
+        for ``np.matmul``.
+
+    Returns
+    -------
+    Tuple of input and output core dimensions parsed from the signature, each
+    of the form List[Tuple[str, ...]].
+    
+=== parse numpydoc
+short_description: 'Parse string signatures for a generalized universal function.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'signature']
+  description: |
+    Generalized universal function signature, e.g., ``(m,n),(n,p)->(m,p)``
+    for ``np.matmul``.
+  arg_name: 'signature'
+  type_name: 'string'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  type_name: 'Tuple of input and output core dimensions parsed from the signature, each'
+  is_generator: False
+- DocstringReturns
+  args: ['returns']
+  type_name: 'of the form List[Tuple[str, ...]].'
+  is_generator: False
+=== detect
+numpydoc
+=== compose numpydoc
+Parse string signatures for a generalized universal function.
+
+Parameters
+----------
+signature : string
+    Generalized universal function signature, e.g., ``(m,n),(n,p)->(m,p)``
+    for ``np.matmul``.
+
+Returns
+-------
+Tuple of input and output core dimensions parsed from the signature, each
+of the form List[Tuple[str, ...]].

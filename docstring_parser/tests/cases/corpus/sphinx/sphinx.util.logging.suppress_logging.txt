@@ -1,0 +1,34 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Context manager to suppress logging all logs temporarily.
+
+    For example::
+
+        >>> with suppress_logging():
+        >>>     logger.warning('Warning message!')  # suppressed
+        >>>     some_long_process()
+        >>>
+    
+=== parse rest
+short_description: 'Context manager to suppress logging all logs temporarily.'
+long_description: |
+  For example::
+  
+      >>> with suppress_logging():
+      >>>     logger.warning('Warning message!')  # suppressed
+      >>>     some_long_process()
+      >>>
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Context manager to suppress logging all logs temporarily.
+
+For example::
+
+    >>> with suppress_logging():
+    >>>     logger.warning('Warning message!')  # suppressed
+    >>>     some_long_process()
+    >>>

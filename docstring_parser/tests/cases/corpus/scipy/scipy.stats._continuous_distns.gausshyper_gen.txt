@@ -1,0 +1,97 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+A Gauss hypergeometric continuous random variable.
+
+    %(before_notes)s
+
+    Notes
+    -----
+    The probability density function for `gausshyper` is:
+
+    .. math::
+
+        f(x, a, b, c, z) = C x^{a-1} (1-x)^{b-1} (1+zx)^{-c}
+
+    for :math:`0 \le x \le 1`, :math:`a,b > 0`, :math:`c` a real number,
+    :math:`z > -1`, and :math:`C = \frac{1}{B(a, b) F[2, 1](c, a; a+b; -z)}`.
+    :math:`F[2, 1]` is the Gauss hypergeometric function
+    `scipy.special.hyp2f1`.
+
+    `gausshyper` takes :math:`a`, :math:`b`, :math:`c` and :math:`z` as shape
+    parameters.
+
+    %(after_notes)s
+
+    References
+    ----------
+    .. [1] Armero, C., and M. J. Bayarri. "Prior Assessments for Prediction in
+           Queues." *Journal of the Royal Statistical Society*. Series D (The
+           Statistician) 43, no. 1 (1994): 139-53. :doi:`10.2307/2348939`.
+
+    %(example)s
+
+    
+=== parse numpydoc
+short_description: 'A Gauss hypergeometric continuous random variable.'
+long_description: '%(before_notes)s'
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringMeta
+  args: ['notes']
+  description: |
+    The probability density function for `gausshyper` is:
+    
+    .. math::
+    
+        f(x, a, b, c, z) = C x^{a-1} (1-x)^{b-1} (1+zx)^{-c}
+    
+    for :math:`0 \le x \le 1`, :math:`a,b > 0`, :math:`c` a real number,
+    :math:`z > -1`, and :math:`C = \frac{1}{B(a, b) F[2, 1](c, a; a+b; -z)}`.
+    :math:`F[2, 1]` is the Gauss hypergeometric function
+    `scipy.special.hyp2f1`.
+    
+    `gausshyper` takes :math:`a`, :math:`b`, :math:`c` and :math:`z` as shape
+    parameters.
+    
+    %(after_notes)s
+- DocstringMeta
+  args: ['references']
+  description: |
+    .. [1] Armero, C., and M. J. Bayarri. "Prior Assessments for Prediction in
+           Queues." *Journal of the Royal Statistical Society*. Series D (The
+           Statistician) 43, no. 1 (1994): 139-53. :doi:`10.2307/2348939`.
+    
+    %(example)s
+=== detect
+rest
+=== compose numpydoc
+A Gauss hypergeometric continuous random variable.
+
+%(before_notes)s
+
+Notes
+-----
+The probability density function for `gausshyper` is:
+
+.. math::
+
+    f(x, a, b, c, z) = C x^{a-1} (1-x)^{b-1} (1+zx)^{-c}
+
+for :math:`0 \le x \le 1`, :math:`a,b > 0`, :math:`c` a real number,
+:math:`z > -1`, and :math:`C = \frac{1}{B(a, b) F[2, 1](c, a; a+b; -z)}`.
+:math:`F[2, 1]` is the Gauss hypergeometric function
+`scipy.special.hyp2f1`.
+
+`gausshyper` takes :math:`a`, :math:`b`, :math:`c` and :math:`z` as shape
+parameters.
+
+%(after_notes)s
+
+References
+----------
+.. [1] Armero, C., and M. J. Bayarri. "Prior Assessments for Prediction in
+       Queues." *Journal of the Royal Statistical Society*. Series D (The
+       Statistician) 43, no. 1 (1994): 139-53. :doi:`10.2307/2348939`.
+
+%(example)s

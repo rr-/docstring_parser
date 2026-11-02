@@ -1,0 +1,131 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Compute the Mahalanobis distance between two 1-D arrays.
+
+    The Mahalanobis distance between 1-D arrays `u` and `v`, is defined as
+
+    .. math::
+
+       \sqrt{ (u-v) V^{-1} (u-v)^T }
+
+    where ``V`` is the covariance matrix.  Note that the argument `VI`
+    is the inverse of ``V``.
+
+    Parameters
+    ----------
+    u : (N,) array_like
+        Input array.
+    v : (N,) array_like
+        Input array.
+    VI : array_like
+        The inverse of the covariance matrix.
+
+    Returns
+    -------
+    mahalanobis : double
+        The Mahalanobis distance between vectors `u` and `v`.
+
+    Examples
+    --------
+    >>> from scipy.spatial import distance
+    >>> iv = [[1, 0.5, 0.5], [0.5, 1, 0.5], [0.5, 0.5, 1]]
+    >>> distance.mahalanobis([1, 0, 0], [0, 1, 0], iv)
+    1.0
+    >>> distance.mahalanobis([0, 2, 0], [0, 1, 0], iv)
+    1.0
+    >>> distance.mahalanobis([2, 0, 0], [0, 1, 0], iv)
+    1.7320508075688772
+
+    
+=== parse numpydoc
+short_description: 'Compute the Mahalanobis distance between two 1-D arrays.'
+long_description: |
+  The Mahalanobis distance between 1-D arrays `u` and `v`, is defined as
+  
+  .. math::
+  
+     \sqrt{ (u-v) V^{-1} (u-v)^T }
+  
+  where ``V`` is the covariance matrix.  Note that the argument `VI`
+  is the inverse of ``V``.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'u']
+  description: 'Input array.'
+  arg_name: 'u'
+  type_name: '(N,) array_like'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'v']
+  description: 'Input array.'
+  arg_name: 'v'
+  type_name: '(N,) array_like'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'VI']
+  description: 'The inverse of the covariance matrix.'
+  arg_name: 'VI'
+  type_name: 'array_like'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: 'The Mahalanobis distance between vectors `u` and `v`.'
+  type_name: 'double'
+  is_generator: False
+  return_name: 'mahalanobis'
+- DocstringExample
+  args: ['examples']
+  description: '1.0'
+  snippet: |
+    >>> from scipy.spatial import distance
+    >>> iv = [[1, 0.5, 0.5], [0.5, 1, 0.5], [0.5, 0.5, 1]]
+    >>> distance.mahalanobis([1, 0, 0], [0, 1, 0], iv)
+- DocstringExample
+  args: ['examples']
+  description: '1.0'
+  snippet: '>>> distance.mahalanobis([0, 2, 0], [0, 1, 0], iv)'
+- DocstringExample
+  args: ['examples']
+  description: '1.7320508075688772'
+  snippet: '>>> distance.mahalanobis([2, 0, 0], [0, 1, 0], iv)'
+=== detect
+numpydoc
+=== compose numpydoc
+Compute the Mahalanobis distance between two 1-D arrays.
+
+The Mahalanobis distance between 1-D arrays `u` and `v`, is defined as
+
+.. math::
+
+   \sqrt{ (u-v) V^{-1} (u-v)^T }
+
+where ``V`` is the covariance matrix.  Note that the argument `VI`
+is the inverse of ``V``.
+
+Parameters
+----------
+u : (N,) array_like
+    Input array.
+v : (N,) array_like
+    Input array.
+VI : array_like
+    The inverse of the covariance matrix.
+
+Returns
+-------
+mahalanobis : double
+    The Mahalanobis distance between vectors `u` and `v`.
+
+Examples
+--------
+>>> from scipy.spatial import distance
+>>> iv = [[1, 0.5, 0.5], [0.5, 1, 0.5], [0.5, 0.5, 1]]
+>>> distance.mahalanobis([1, 0, 0], [0, 1, 0], iv)
+1.0
+>>> distance.mahalanobis([0, 2, 0], [0, 1, 0], iv)
+1.0
+>>> distance.mahalanobis([2, 0, 0], [0, 1, 0], iv)
+1.7320508075688772

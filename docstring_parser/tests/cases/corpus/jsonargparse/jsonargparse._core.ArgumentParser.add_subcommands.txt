@@ -1,0 +1,57 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Adds subcommand parsers to the ArgumentParser.
+
+        The aim is the same as `argparse.ArgumentParser.add_subparsers
+        <https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser.add_subparsers>`_
+        the difference being that dest by default is ``subcommand`` and the parsed
+        values of the subcommand are stored in a nested namespace using the
+        subcommand's name as base key.
+
+        Args:
+            required: Whether the subcommand must be provided.
+            dest: Destination key where the chosen subcommand name is stored.
+            **kwargs: All options that `argparse.ArgumentParser.add_subparsers
+                <https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser.add_subparsers>`_ accepts.
+        
+=== parse google
+short_description: 'Adds subcommand parsers to the ArgumentParser.'
+long_description: |
+  The aim is the same as `argparse.ArgumentParser.add_subparsers
+  <https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser.add_subparsers>`_
+  the difference being that dest by default is ``subcommand`` and the parsed
+  values of the subcommand are stored in a nested namespace using the
+  subcommand's name as base key.
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'required']
+  description: 'Whether the subcommand must be provided.'
+  arg_name: 'required'
+- DocstringParam
+  args: ['param', 'dest']
+  description: 'Destination key where the chosen subcommand name is stored.'
+  arg_name: 'dest'
+- DocstringParam
+  args: ['param', '**kwargs']
+  description: |
+    All options that `argparse.ArgumentParser.add_subparsers
+    <https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser.add_subparsers>`_ accepts.
+  arg_name: '**kwargs'
+=== detect
+google
+=== compose google
+Adds subcommand parsers to the ArgumentParser.
+
+The aim is the same as `argparse.ArgumentParser.add_subparsers
+<https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser.add_subparsers>`_
+the difference being that dest by default is ``subcommand`` and the parsed
+values of the subcommand are stored in a nested namespace using the
+subcommand's name as base key.
+
+Args:
+    required: Whether the subcommand must be provided.
+    dest: Destination key where the chosen subcommand name is stored.
+    **kwargs: All options that `argparse.ArgumentParser.add_subparsers
+        <https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser.add_subparsers>`_ accepts.

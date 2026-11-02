@@ -1,0 +1,32 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Get all file names in a directory, recursively.
+
+    Filter file names by the glob-style include_patterns and exclude_patterns.
+    The default values include all files ("**") and exclude nothing ("").
+
+    Only files matching some pattern in *include_patterns* are included, and
+    exclusions from *exclude_patterns* take priority over inclusions.
+
+    
+=== parse rest
+short_description: 'Get all file names in a directory, recursively.'
+long_description: |
+  Filter file names by the glob-style include_patterns and exclude_patterns.
+  The default values include all files ("**") and exclude nothing ("").
+  
+  Only files matching some pattern in *include_patterns* are included, and
+  exclusions from *exclude_patterns* take priority over inclusions.
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Get all file names in a directory, recursively.
+
+Filter file names by the glob-style include_patterns and exclude_patterns.
+The default values include all files ("**") and exclude nothing ("").
+
+Only files matching some pattern in *include_patterns* are included, and
+exclusions from *exclude_patterns* take priority over inclusions.

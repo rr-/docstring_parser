@@ -1,0 +1,24 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+
+requests.exceptions
+~~~~~~~~~~~~~~~~~~~
+
+This module contains the set of Requests' exceptions.
+
+=== parse rest
+short_description: 'requests.exceptions'
+long_description: |
+  ~~~~~~~~~~~~~~~~~~~
+  
+  This module contains the set of Requests' exceptions.
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+requests.exceptions
+~~~~~~~~~~~~~~~~~~~
+
+This module contains the set of Requests' exceptions.

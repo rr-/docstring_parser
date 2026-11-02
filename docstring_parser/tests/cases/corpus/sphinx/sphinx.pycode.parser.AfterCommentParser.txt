@@ -1,0 +1,22 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Python source code parser to pick up comments after assignments.
+
+    This parser takes code which starts with an assignment statement,
+    and returns the comment for the variable if one exists.
+    
+=== parse rest
+short_description: 'Python source code parser to pick up comments after assignments.'
+long_description: |
+  This parser takes code which starts with an assignment statement,
+  and returns the comment for the variable if one exists.
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Python source code parser to pick up comments after assignments.
+
+This parser takes code which starts with an assignment statement,
+and returns the comment for the variable if one exists.

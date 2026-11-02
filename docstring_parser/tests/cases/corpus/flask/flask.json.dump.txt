@@ -1,0 +1,85 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Serialize data as JSON and write to a file.
+
+    If :data:`~flask.current_app` is available, it will use its
+    :meth:`app.json.dump() <flask.json.provider.JSONProvider.dump>`
+    method, otherwise it will use :func:`json.dump`.
+
+    :param obj: The data to serialize.
+    :param fp: A file opened for writing text. Should use the UTF-8
+        encoding to be valid JSON.
+    :param kwargs: Arguments passed to the ``dump`` implementation.
+
+    .. versionchanged:: 2.3
+        The ``app`` parameter was removed.
+
+    .. versionchanged:: 2.2
+        Calls ``current_app.json.dump``, allowing an app to override
+        the behavior.
+
+    .. versionchanged:: 2.0
+        Writing to a binary file, and the ``encoding`` argument, will be
+        removed in Flask 2.1.
+    
+=== parse rest
+short_description: 'Serialize data as JSON and write to a file.'
+long_description: |
+  If :data:`~flask.current_app` is available, it will use its
+  
+  .. versionchanged:: 2.3
+      The ``app`` parameter was removed.
+  
+  .. versionchanged:: 2.2
+      Calls ``current_app.json.dump``, allowing an app to override
+      the behavior.
+  
+  .. versionchanged:: 2.0
+      Writing to a binary file, and the ``encoding`` argument, will be
+      removed in Flask 2.1.
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringMeta
+  args: ['meth']
+  description: |
+    `app.json.dump() <flask.json.provider.JSONProvider.dump>`
+    method, otherwise it will use :func:`json.dump`.
+- DocstringParam
+  args: ['param', 'obj']
+  description: 'The data to serialize.'
+  arg_name: 'obj'
+- DocstringParam
+  args: ['param', 'fp']
+  description: |
+    A file opened for writing text. Should use the UTF-8
+    encoding to be valid JSON.
+  arg_name: 'fp'
+- DocstringParam
+  args: ['param', 'kwargs']
+  description: 'Arguments passed to the ``dump`` implementation.'
+  arg_name: 'kwargs'
+=== detect
+rest
+=== compose rest
+Serialize data as JSON and write to a file.
+
+If :data:`~flask.current_app` is available, it will use its
+
+.. versionchanged:: 2.3
+    The ``app`` parameter was removed.
+
+.. versionchanged:: 2.2
+    Calls ``current_app.json.dump``, allowing an app to override
+    the behavior.
+
+.. versionchanged:: 2.0
+    Writing to a binary file, and the ``encoding`` argument, will be
+    removed in Flask 2.1.
+
+:meth: `app.json.dump() <flask.json.provider.JSONProvider.dump>`
+    method, otherwise it will use :func:`json.dump`.
+:param obj: The data to serialize.
+:param fp: A file opened for writing text. Should use the UTF-8
+    encoding to be valid JSON.
+:param kwargs: Arguments passed to the ``dump`` implementation.

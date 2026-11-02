@@ -1,0 +1,21 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Internal class for formatting output data in html for display in Jupyter
+    Notebooks. This class is intended for functionality specific to
+    DataFrame._repr_html_() and DataFrame.to_html(notebook=True)
+    
+=== parse numpydoc
+short_description: 'Internal class for formatting output data in html for display in Jupyter'
+long_description: |
+  Notebooks. This class is intended for functionality specific to
+  DataFrame._repr_html_() and DataFrame.to_html(notebook=True)
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Internal class for formatting output data in html for display in Jupyter
+Notebooks. This class is intended for functionality specific to
+DataFrame._repr_html_() and DataFrame.to_html(notebook=True)

@@ -1,0 +1,16 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+FileSystemLoader subclass that is not so strict about '..'  entries in
+    template names.
+    
+=== parse rest
+short_description: "FileSystemLoader subclass that is not so strict about '..'  entries in"
+long_description: 'template names.'
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+FileSystemLoader subclass that is not so strict about '..'  entries in
+template names.

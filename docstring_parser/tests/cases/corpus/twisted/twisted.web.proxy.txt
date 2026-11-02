@@ -1,0 +1,53 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+Simplistic HTTP proxy support.
+
+This comes in two main variants - the Proxy and the ReverseProxy.
+
+When a Proxy is in use, a browser trying to connect to a server (say,
+www.yahoo.com) will be intercepted by the Proxy, and the proxy will covertly
+connect to the server, and return the result.
+
+When a ReverseProxy is in use, the client connects directly to the ReverseProxy
+(say, www.yahoo.com) which farms off the request to one of a pool of servers,
+and returns the result.
+
+Normally, a Proxy is used on the client end of an Internet connection, while a
+ReverseProxy is used on the server end.
+
+=== parse epydoc
+short_description: 'Simplistic HTTP proxy support.'
+long_description: |
+  This comes in two main variants - the Proxy and the ReverseProxy.
+  
+  When a Proxy is in use, a browser trying to connect to a server (say,
+  www.yahoo.com) will be intercepted by the Proxy, and the proxy will covertly
+  connect to the server, and return the result.
+  
+  When a ReverseProxy is in use, the client connects directly to the ReverseProxy
+  (say, www.yahoo.com) which farms off the request to one of a pool of servers,
+  and returns the result.
+  
+  Normally, a Proxy is used on the client end of an Internet connection, while a
+  ReverseProxy is used on the server end.
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+=== detect
+rest
+=== compose epydoc
+Simplistic HTTP proxy support.
+
+This comes in two main variants - the Proxy and the ReverseProxy.
+
+When a Proxy is in use, a browser trying to connect to a server (say,
+www.yahoo.com) will be intercepted by the Proxy, and the proxy will covertly
+connect to the server, and return the result.
+
+When a ReverseProxy is in use, the client connects directly to the ReverseProxy
+(say, www.yahoo.com) which farms off the request to one of a pool of servers,
+and returns the result.
+
+Normally, a Proxy is used on the client end of an Internet connection, while a
+ReverseProxy is used on the server end.

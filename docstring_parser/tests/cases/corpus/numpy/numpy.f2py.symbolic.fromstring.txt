@@ -1,0 +1,22 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Create an expression from a string.
+
+    This is a "lazy" parser, that is, only arithmetic operations are
+    resolved, non-arithmetic operations are treated as symbols.
+    
+=== parse numpydoc
+short_description: 'Create an expression from a string.'
+long_description: |
+  This is a "lazy" parser, that is, only arithmetic operations are
+  resolved, non-arithmetic operations are treated as symbols.
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Create an expression from a string.
+
+This is a "lazy" parser, that is, only arithmetic operations are
+resolved, non-arithmetic operations are treated as symbols.

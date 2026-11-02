@@ -1,0 +1,29 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+XPath Parser.
+
+Besides the parser code produced by Yapps, this module also defines the
+parse-time exception classes, a scanner class, a base class for parsers
+produced by Yapps, and a context class that keeps track of the parse stack.
+These have been copied from the Yapps runtime module.
+
+=== parse epydoc
+short_description: 'XPath Parser.'
+long_description: |
+  Besides the parser code produced by Yapps, this module also defines the
+  parse-time exception classes, a scanner class, a base class for parsers
+  produced by Yapps, and a context class that keeps track of the parse stack.
+  These have been copied from the Yapps runtime module.
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+=== detect
+rest
+=== compose epydoc
+XPath Parser.
+
+Besides the parser code produced by Yapps, this module also defines the
+parse-time exception classes, a scanner class, a base class for parsers
+produced by Yapps, and a context class that keeps track of the parse stack.
+These have been copied from the Yapps runtime module.

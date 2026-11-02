@@ -1,0 +1,17 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Enable special function errors (such as underflow, overflow,
+    loss of precision, etc.)
+    
+=== parse numpydoc
+short_description: 'Enable special function errors (such as underflow, overflow,'
+long_description: 'loss of precision, etc.)'
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Enable special function errors (such as underflow, overflow,
+loss of precision, etc.)

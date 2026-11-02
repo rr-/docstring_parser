@@ -1,0 +1,16 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Raised from request.files during debugging.  The idea is that it can
+    provide a better error message than just a generic KeyError/BadRequest.
+    
+=== parse rest
+short_description: 'Raised from request.files during debugging.  The idea is that it can'
+long_description: 'provide a better error message than just a generic KeyError/BadRequest.'
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Raised from request.files during debugging.  The idea is that it can
+provide a better error message than just a generic KeyError/BadRequest.

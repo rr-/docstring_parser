@@ -1,0 +1,16 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+named=False|'single'|True: 'single' is e.g., for function objects which
+        doesn't need to name the arguments, but otherwise is a single name
+        
+=== parse rest
+short_description: "named=False|'single'|True: 'single' is e.g., for function objects which"
+long_description: "doesn't need to name the arguments, but otherwise is a single name"
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+named=False|'single'|True: 'single' is e.g., for function objects which
+doesn't need to name the arguments, but otherwise is a single name

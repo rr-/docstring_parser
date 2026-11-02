@@ -1,0 +1,172 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Wrap serializers receive the raw inputs along with a handler function that applies the standard serialization
+    logic, and can modify the resulting value before returning it as the final output of serialization.
+
+    For example, here's a scenario in which a wrap serializer transforms timezones to UTC **and** utilizes the existing `datetime` serialization logic.
+
+    ```python
+    from datetime import datetime, timezone
+    from typing import Annotated, Any
+
+    from pydantic import (
+        BaseModel,
+        SerializationInfo,
+        SerializerFunctionWrapHandler,
+        WrapSerializer,
+    )
+
+    def convert_to_utc(
+        value: Any, handler: SerializerFunctionWrapHandler, info: SerializationInfo
+    ):
+        # Note that `handler` can actually help serialize the `value` for
+        # further custom serialization in case it's a subclass.
+        serialized = handler(value)
+        if info.mode == 'json':
+            return datetime.fromisoformat(serialized).astimezone(timezone.utc)
+        else:
+            return serialized.astimezone(timezone.utc)
+
+    UTCDatetime = Annotated[datetime, WrapSerializer(convert_to_utc)]
+
+    class EventModel(BaseModel):
+        event_datetime: UTCDatetime
+
+    event = EventModel(event_datetime='2024-01-01T07:00:00-08:00')
+    print(event.model_dump())
+    '''
+    {
+        'event_datetime': datetime.datetime(
+            2024, 1, 1, 15, 0, tzinfo=datetime.timezone.utc
+        )
+    }
+    '''
+
+    print(event.model_dump_json())
+    #> {"event_datetime":"2024-01-01T15:00:00Z"}
+    ```
+
+    Attributes:
+        func: The serializer function to be wrapped.
+        return_type: The return type for the function. If omitted it will be inferred from the type annotation.
+        when_used: Determines when this serializer should be used. Accepts a string with values `'always'`,
+            `'unless-none'`, `'json'`, and `'json-unless-none'`. Defaults to 'always'.
+    
+=== parse google
+short_description: 'Wrap serializers receive the raw inputs along with a handler function that applies the standard serialization'
+long_description: |
+  logic, and can modify the resulting value before returning it as the final output of serialization.
+  
+  For example, here's a scenario in which a wrap serializer transforms timezones to UTC **and** utilizes the existing `datetime` serialization logic.
+  
+  ```python
+  from datetime import datetime, timezone
+  from typing import Annotated, Any
+  
+  from pydantic import (
+      BaseModel,
+      SerializationInfo,
+      SerializerFunctionWrapHandler,
+      WrapSerializer,
+  )
+  
+  def convert_to_utc(
+      value: Any, handler: SerializerFunctionWrapHandler, info: SerializationInfo
+  ):
+      # Note that `handler` can actually help serialize the `value` for
+      # further custom serialization in case it's a subclass.
+      serialized = handler(value)
+      if info.mode == 'json':
+          return datetime.fromisoformat(serialized).astimezone(timezone.utc)
+      else:
+          return serialized.astimezone(timezone.utc)
+  
+  UTCDatetime = Annotated[datetime, WrapSerializer(convert_to_utc)]
+  
+  class EventModel(BaseModel):
+      event_datetime: UTCDatetime
+  
+  event = EventModel(event_datetime='2024-01-01T07:00:00-08:00')
+  print(event.model_dump())
+  '''
+  {
+      'event_datetime': datetime.datetime(
+          2024, 1, 1, 15, 0, tzinfo=datetime.timezone.utc
+      )
+  }
+  '''
+  
+  print(event.model_dump_json())
+  #> {"event_datetime":"2024-01-01T15:00:00Z"}
+  ```
+blank_after_short_description: False
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['attribute', 'func']
+  description: 'The serializer function to be wrapped.'
+  arg_name: 'func'
+- DocstringParam
+  args: ['attribute', 'return_type']
+  description: 'The return type for the function. If omitted it will be inferred from the type annotation.'
+  arg_name: 'return_type'
+- DocstringParam
+  args: ['attribute', 'when_used']
+  description: |
+    Determines when this serializer should be used. Accepts a string with values `'always'`,
+    `'unless-none'`, `'json'`, and `'json-unless-none'`. Defaults to 'always'.
+  arg_name: 'when_used'
+=== detect
+google
+=== compose google
+Wrap serializers receive the raw inputs along with a handler function that applies the standard serialization
+logic, and can modify the resulting value before returning it as the final output of serialization.
+
+For example, here's a scenario in which a wrap serializer transforms timezones to UTC **and** utilizes the existing `datetime` serialization logic.
+
+```python
+from datetime import datetime, timezone
+from typing import Annotated, Any
+
+from pydantic import (
+    BaseModel,
+    SerializationInfo,
+    SerializerFunctionWrapHandler,
+    WrapSerializer,
+)
+
+def convert_to_utc(
+    value: Any, handler: SerializerFunctionWrapHandler, info: SerializationInfo
+):
+    # Note that `handler` can actually help serialize the `value` for
+    # further custom serialization in case it's a subclass.
+    serialized = handler(value)
+    if info.mode == 'json':
+        return datetime.fromisoformat(serialized).astimezone(timezone.utc)
+    else:
+        return serialized.astimezone(timezone.utc)
+
+UTCDatetime = Annotated[datetime, WrapSerializer(convert_to_utc)]
+
+class EventModel(BaseModel):
+    event_datetime: UTCDatetime
+
+event = EventModel(event_datetime='2024-01-01T07:00:00-08:00')
+print(event.model_dump())
+'''
+{
+    'event_datetime': datetime.datetime(
+        2024, 1, 1, 15, 0, tzinfo=datetime.timezone.utc
+    )
+}
+'''
+
+print(event.model_dump_json())
+#> {"event_datetime":"2024-01-01T15:00:00Z"}
+```
+
+Attributes:
+    func: The serializer function to be wrapped.
+    return_type: The return type for the function. If omitted it will be inferred from the type annotation.
+    when_used: Determines when this serializer should be used. Accepts a string with values `'always'`,
+        `'unless-none'`, `'json'`, and `'json-unless-none'`. Defaults to 'always'.

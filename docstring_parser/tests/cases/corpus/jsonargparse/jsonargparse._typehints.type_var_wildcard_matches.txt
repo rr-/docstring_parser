@@ -1,0 +1,28 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Whether two types are equal, a TypeVar in either of them matching any type.
+
+    A generic protocol is written in terms of its own TypeVars and an
+    implementation in terms of its own or of concrete types, so a TypeVar is
+    compared as a wildcard, like a static type checker does. Otherwise a generic
+    protocol could never be implemented.
+    
+=== parse google
+short_description: 'Whether two types are equal, a TypeVar in either of them matching any type.'
+long_description: |
+  A generic protocol is written in terms of its own TypeVars and an
+  implementation in terms of its own or of concrete types, so a TypeVar is
+  compared as a wildcard, like a static type checker does. Otherwise a generic
+  protocol could never be implemented.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Whether two types are equal, a TypeVar in either of them matching any type.
+
+A generic protocol is written in terms of its own TypeVars and an
+implementation in terms of its own or of concrete types, so a TypeVar is
+compared as a wildcard, like a static type checker does. Otherwise a generic
+protocol could never be implemented.

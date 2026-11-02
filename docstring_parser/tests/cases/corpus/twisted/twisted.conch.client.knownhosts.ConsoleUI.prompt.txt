@@ -1,0 +1,47 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Write the given text as a prompt to the console output, then read a
+        result from the console input.
+
+        @param text: Something to present to a user to solicit a yes or no
+            response.
+        @type text: L{bytes}
+
+        @return: a L{Deferred} which fires with L{True} when the user answers
+            'yes' and L{False} when the user answers 'no'.  It may errback if
+            there were any I/O errors.
+        
+=== parse epydoc
+short_description: 'Write the given text as a prompt to the console output, then read a'
+long_description: 'result from the console input.'
+blank_after_short_description: False
+blank_after_long_description: True
+style: epydoc
+- DocstringParam
+  args: ['param', 'text']
+  description: |
+    Something to present to a user to solicit a yes or no
+    response.
+  arg_name: 'text'
+  type_name: 'L{bytes}'
+  is_optional: False
+- DocstringReturns
+  args: ['return']
+  description: |
+    a L{Deferred} which fires with L{True} when the user answers
+    'yes' and L{False} when the user answers 'no'.  It may errback if
+    there were any I/O errors.
+  is_generator: False
+=== detect
+epydoc
+=== compose epydoc
+Write the given text as a prompt to the console output, then read a
+result from the console input.
+
+@type text: L{bytes}
+@param text: Something to present to a user to solicit a yes or no
+    response.
+@return: a L{Deferred} which fires with L{True} when the user answers
+    'yes' and L{False} when the user answers 'no'.  It may errback if
+    there were any I/O errors.

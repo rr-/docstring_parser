@@ -1,0 +1,39 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Validates the GCE metadata server environment configuration for mTLS.
+
+    mTLS is only supported when connecting to the default metadata server hosts.
+    If we are in strict mode (which requires mTLS), ensure that the metadata host
+    has not been overridden to a custom value (which means mTLS will fail).
+
+    Raises:
+        google.auth.exceptions.MutualTLSChannelError: if the environment
+            configuration is invalid for mTLS.
+    
+=== parse google
+short_description: 'Validates the GCE metadata server environment configuration for mTLS.'
+long_description: |
+  mTLS is only supported when connecting to the default metadata server hosts.
+  If we are in strict mode (which requires mTLS), ensure that the metadata host
+  has not been overridden to a custom value (which means mTLS will fail).
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringRaises
+  args: ['raises', 'google.auth.exceptions.MutualTLSChannelError']
+  description: |
+    if the environment
+    configuration is invalid for mTLS.
+  type_name: 'google.auth.exceptions.MutualTLSChannelError'
+=== detect
+google
+=== compose google
+Validates the GCE metadata server environment configuration for mTLS.
+
+mTLS is only supported when connecting to the default metadata server hosts.
+If we are in strict mode (which requires mTLS), ensure that the metadata host
+has not been overridden to a custom value (which means mTLS will fail).
+
+Raises:
+    google.auth.exceptions.MutualTLSChannelError: if the environment
+        configuration is invalid for mTLS.

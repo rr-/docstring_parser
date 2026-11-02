@@ -1,0 +1,25 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Set the terminal window title
+
+        Args:
+            title (str): The new terminal window title
+        
+=== parse google
+short_description: 'Set the terminal window title'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'title (str)']
+  description: 'The new terminal window title'
+  arg_name: 'title'
+  type_name: 'str'
+  is_optional: False
+=== detect
+google
+=== compose google
+Set the terminal window title
+
+Args:
+    title (str): The new terminal window title

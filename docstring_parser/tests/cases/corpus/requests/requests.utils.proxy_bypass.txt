@@ -1,0 +1,22 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Return True, if the host should be bypassed.
+
+        Checks proxy settings gathered from the environment, if specified,
+        or the registry.
+        
+=== parse rest
+short_description: 'Return True, if the host should be bypassed.'
+long_description: |
+  Checks proxy settings gathered from the environment, if specified,
+  or the registry.
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Return True, if the host should be bypassed.
+
+Checks proxy settings gathered from the environment, if specified,
+or the registry.

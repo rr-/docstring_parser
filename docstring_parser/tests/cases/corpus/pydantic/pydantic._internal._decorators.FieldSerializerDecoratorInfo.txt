@@ -1,0 +1,60 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+A container for data from `@field_serializer` so that we can access it
+    while building the pydantic-core schema.
+
+    Attributes:
+        decorator_repr: A class variable representing the decorator string, '@field_serializer'.
+        fields: A tuple of field names the serializer should be called on.
+        mode: The proposed serializer mode.
+        return_type: The type of the serializer's return value.
+        when_used: The serialization condition. Accepts a string with values `'always'`, `'unless-none'`, `'json'`,
+            and `'json-unless-none'`.
+        check_fields: Whether to check that the fields actually exist on the model.
+    
+=== parse google
+short_description: 'A container for data from `@field_serializer` so that we can access it'
+long_description: 'while building the pydantic-core schema.'
+blank_after_short_description: False
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['attribute', 'decorator_repr']
+  description: "A class variable representing the decorator string, '@field_serializer'."
+  arg_name: 'decorator_repr'
+- DocstringParam
+  args: ['attribute', 'fields']
+  description: 'A tuple of field names the serializer should be called on.'
+  arg_name: 'fields'
+- DocstringParam
+  args: ['attribute', 'mode']
+  description: 'The proposed serializer mode.'
+  arg_name: 'mode'
+- DocstringParam
+  args: ['attribute', 'return_type']
+  description: "The type of the serializer's return value."
+  arg_name: 'return_type'
+- DocstringParam
+  args: ['attribute', 'when_used']
+  description: |
+    The serialization condition. Accepts a string with values `'always'`, `'unless-none'`, `'json'`,
+    and `'json-unless-none'`.
+  arg_name: 'when_used'
+- DocstringParam
+  args: ['attribute', 'check_fields']
+  description: 'Whether to check that the fields actually exist on the model.'
+  arg_name: 'check_fields'
+=== detect
+google
+=== compose google
+A container for data from `@field_serializer` so that we can access it
+while building the pydantic-core schema.
+
+Attributes:
+    decorator_repr: A class variable representing the decorator string, '@field_serializer'.
+    fields: A tuple of field names the serializer should be called on.
+    mode: The proposed serializer mode.
+    return_type: The type of the serializer's return value.
+    when_used: The serialization condition. Accepts a string with values `'always'`, `'unless-none'`, `'json'`,
+        and `'json-unless-none'`.
+    check_fields: Whether to check that the fields actually exist on the model.

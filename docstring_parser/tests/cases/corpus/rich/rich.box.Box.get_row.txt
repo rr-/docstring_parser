@@ -1,0 +1,36 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Get the top of a simple box.
+
+        Args:
+            width (List[int]): Widths of columns.
+
+        Returns:
+            str: A string of box characters.
+        
+=== parse google
+short_description: 'Get the top of a simple box.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'width (List[int])']
+  description: 'Widths of columns.'
+  arg_name: 'width'
+  type_name: 'List[int]'
+  is_optional: False
+- DocstringReturns
+  args: ['returns', 'str']
+  description: 'A string of box characters.'
+  type_name: 'str'
+  is_generator: False
+=== detect
+google
+=== compose google
+Get the top of a simple box.
+
+Args:
+    width (List[int]): Widths of columns.
+
+Returns:
+    str: A string of box characters.

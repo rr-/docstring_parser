@@ -1,0 +1,57 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Checks that the content of a given configuration object conforms with the parser.
+
+        Args:
+            namespace: The configuration object to check.
+            skip_unset: Whether to skip checking of values that are the configured None/Unset value.
+            skip_required: Whether to skip checking required arguments.
+            branch: Base key in case cfg corresponds only to a branch.
+
+        Raises:
+            TypeError: If any of the values are not valid.
+            KeyError: If a key in cfg is not defined in the parser.
+        
+=== parse google
+short_description: 'Checks that the content of a given configuration object conforms with the parser.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'namespace']
+  description: 'The configuration object to check.'
+  arg_name: 'namespace'
+- DocstringParam
+  args: ['param', 'skip_unset']
+  description: 'Whether to skip checking of values that are the configured None/Unset value.'
+  arg_name: 'skip_unset'
+- DocstringParam
+  args: ['param', 'skip_required']
+  description: 'Whether to skip checking required arguments.'
+  arg_name: 'skip_required'
+- DocstringParam
+  args: ['param', 'branch']
+  description: 'Base key in case cfg corresponds only to a branch.'
+  arg_name: 'branch'
+- DocstringRaises
+  args: ['raises', 'TypeError']
+  description: 'If any of the values are not valid.'
+  type_name: 'TypeError'
+- DocstringRaises
+  args: ['raises', 'KeyError']
+  description: 'If a key in cfg is not defined in the parser.'
+  type_name: 'KeyError'
+=== detect
+google
+=== compose google
+Checks that the content of a given configuration object conforms with the parser.
+
+Args:
+    namespace: The configuration object to check.
+    skip_unset: Whether to skip checking of values that are the configured None/Unset value.
+    skip_required: Whether to skip checking required arguments.
+    branch: Base key in case cfg corresponds only to a branch.
+
+Raises:
+    TypeError: If any of the values are not valid.
+    KeyError: If a key in cfg is not defined in the parser.

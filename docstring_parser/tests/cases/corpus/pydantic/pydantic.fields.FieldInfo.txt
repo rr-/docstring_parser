@@ -1,0 +1,204 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+This class holds information about a field.
+
+    `FieldInfo` is used for any field definition regardless of whether the [`Field()`][pydantic.fields.Field]
+    function is explicitly used.
+
+    !!! warning
+        The `FieldInfo` class is meant to expose information about a field in a Pydantic model or dataclass.
+        `FieldInfo` instances shouldn't be instantiated directly, nor mutated.
+
+        If you need to derive a new model from another one and are willing to alter `FieldInfo` instances,
+        refer to this [dynamic model example](../examples/dynamic_models.md).
+
+    Attributes:
+        annotation: The type annotation of the field.
+        default: The default value of the field.
+        default_factory: A callable to generate the default value. The callable can either take 0 arguments
+            (in which case it is called as is) or a single argument containing the already validated data.
+        alias: The alias name of the field.
+        alias_priority: The priority of the field's alias.
+        validation_alias: The validation alias of the field.
+        serialization_alias: The serialization alias of the field.
+        title: The title of the field.
+        field_title_generator: A callable that takes a field's name and info and returns title for it.
+        description: The description of the field.
+        examples: List of examples of the field.
+        exclude: Whether to exclude the field from the model serialization.
+        exclude_if: A callable that determines whether to exclude a field during serialization based on its value.
+        discriminator: Field name or Discriminator for discriminating the type in a tagged union.
+        deprecated: A deprecation message, an instance of `warnings.deprecated` or the `typing_extensions.deprecated` backport,
+            or a boolean. If `True`, a default deprecation message will be emitted when accessing the field.
+        json_schema_extra: A dict or callable to provide extra JSON schema properties.
+        frozen: Whether the field is frozen.
+        validate_default: Whether to validate the default value of the field.
+        repr: Whether to include the field in representation of the model.
+        init: Whether the field should be included in the constructor of the dataclass.
+        init_var: Whether the field should _only_ be included in the constructor of the dataclass, and not stored.
+        kw_only: Whether the field should be a keyword-only argument in the constructor of the dataclass.
+        metadata: The metadata list. Contains all the data that isn't expressed as direct `FieldInfo` attributes, including:
+
+            * Type-specific constraints, such as `gt` or `min_length` (these are converted to metadata classes such as `annotated_types.Gt`).
+            * Any other arbitrary object used within [`Annotated`][typing.Annotated] metadata
+              (e.g. [custom types handlers](../concepts/types.md#as-an-annotation) or any object not recognized by Pydantic).
+    
+=== parse google
+short_description: 'This class holds information about a field.'
+long_description: |
+  `FieldInfo` is used for any field definition regardless of whether the [`Field()`][pydantic.fields.Field]
+  function is explicitly used.
+  
+  !!! warning
+      The `FieldInfo` class is meant to expose information about a field in a Pydantic model or dataclass.
+      `FieldInfo` instances shouldn't be instantiated directly, nor mutated.
+  
+      If you need to derive a new model from another one and are willing to alter `FieldInfo` instances,
+      refer to this [dynamic model example](../examples/dynamic_models.md).
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['attribute', 'annotation']
+  description: 'The type annotation of the field.'
+  arg_name: 'annotation'
+- DocstringParam
+  args: ['attribute', 'default']
+  description: 'The default value of the field.'
+  arg_name: 'default'
+- DocstringParam
+  args: ['attribute', 'default_factory']
+  description: |
+    A callable to generate the default value. The callable can either take 0 arguments
+    (in which case it is called as is) or a single argument containing the already validated data.
+  arg_name: 'default_factory'
+- DocstringParam
+  args: ['attribute', 'alias']
+  description: 'The alias name of the field.'
+  arg_name: 'alias'
+- DocstringParam
+  args: ['attribute', 'alias_priority']
+  description: "The priority of the field's alias."
+  arg_name: 'alias_priority'
+- DocstringParam
+  args: ['attribute', 'validation_alias']
+  description: 'The validation alias of the field.'
+  arg_name: 'validation_alias'
+- DocstringParam
+  args: ['attribute', 'serialization_alias']
+  description: 'The serialization alias of the field.'
+  arg_name: 'serialization_alias'
+- DocstringParam
+  args: ['attribute', 'title']
+  description: 'The title of the field.'
+  arg_name: 'title'
+- DocstringParam
+  args: ['attribute', 'field_title_generator']
+  description: "A callable that takes a field's name and info and returns title for it."
+  arg_name: 'field_title_generator'
+- DocstringParam
+  args: ['attribute', 'description']
+  description: 'The description of the field.'
+  arg_name: 'description'
+- DocstringParam
+  args: ['attribute', 'examples']
+  description: 'List of examples of the field.'
+  arg_name: 'examples'
+- DocstringParam
+  args: ['attribute', 'exclude']
+  description: 'Whether to exclude the field from the model serialization.'
+  arg_name: 'exclude'
+- DocstringParam
+  args: ['attribute', 'exclude_if']
+  description: 'A callable that determines whether to exclude a field during serialization based on its value.'
+  arg_name: 'exclude_if'
+- DocstringParam
+  args: ['attribute', 'discriminator']
+  description: 'Field name or Discriminator for discriminating the type in a tagged union.'
+  arg_name: 'discriminator'
+- DocstringParam
+  args: ['attribute', 'deprecated']
+  description: |
+    A deprecation message, an instance of `warnings.deprecated` or the `typing_extensions.deprecated` backport,
+    or a boolean. If `True`, a default deprecation message will be emitted when accessing the field.
+  arg_name: 'deprecated'
+- DocstringParam
+  args: ['attribute', 'json_schema_extra']
+  description: 'A dict or callable to provide extra JSON schema properties.'
+  arg_name: 'json_schema_extra'
+- DocstringParam
+  args: ['attribute', 'frozen']
+  description: 'Whether the field is frozen.'
+  arg_name: 'frozen'
+- DocstringParam
+  args: ['attribute', 'validate_default']
+  description: 'Whether to validate the default value of the field.'
+  arg_name: 'validate_default'
+- DocstringParam
+  args: ['attribute', 'repr']
+  description: 'Whether to include the field in representation of the model.'
+  arg_name: 'repr'
+- DocstringParam
+  args: ['attribute', 'init']
+  description: 'Whether the field should be included in the constructor of the dataclass.'
+  arg_name: 'init'
+- DocstringParam
+  args: ['attribute', 'init_var']
+  description: 'Whether the field should _only_ be included in the constructor of the dataclass, and not stored.'
+  arg_name: 'init_var'
+- DocstringParam
+  args: ['attribute', 'kw_only']
+  description: 'Whether the field should be a keyword-only argument in the constructor of the dataclass.'
+  arg_name: 'kw_only'
+- DocstringParam
+  args: ['attribute', 'metadata']
+  description: |
+    The metadata list. Contains all the data that isn't expressed as direct `FieldInfo` attributes, including:
+    * Type-specific constraints, such as `gt` or `min_length` (these are converted to metadata classes such as `annotated_types.Gt`).
+    * Any other arbitrary object used within [`Annotated`][typing.Annotated] metadata
+      (e.g. [custom types handlers](../concepts/types.md#as-an-annotation) or any object not recognized by Pydantic).
+  arg_name: 'metadata'
+=== detect
+google
+=== compose google
+This class holds information about a field.
+
+`FieldInfo` is used for any field definition regardless of whether the [`Field()`][pydantic.fields.Field]
+function is explicitly used.
+
+!!! warning
+    The `FieldInfo` class is meant to expose information about a field in a Pydantic model or dataclass.
+    `FieldInfo` instances shouldn't be instantiated directly, nor mutated.
+
+    If you need to derive a new model from another one and are willing to alter `FieldInfo` instances,
+    refer to this [dynamic model example](../examples/dynamic_models.md).
+
+Attributes:
+    annotation: The type annotation of the field.
+    default: The default value of the field.
+    default_factory: A callable to generate the default value. The callable can either take 0 arguments
+        (in which case it is called as is) or a single argument containing the already validated data.
+    alias: The alias name of the field.
+    alias_priority: The priority of the field's alias.
+    validation_alias: The validation alias of the field.
+    serialization_alias: The serialization alias of the field.
+    title: The title of the field.
+    field_title_generator: A callable that takes a field's name and info and returns title for it.
+    description: The description of the field.
+    examples: List of examples of the field.
+    exclude: Whether to exclude the field from the model serialization.
+    exclude_if: A callable that determines whether to exclude a field during serialization based on its value.
+    discriminator: Field name or Discriminator for discriminating the type in a tagged union.
+    deprecated: A deprecation message, an instance of `warnings.deprecated` or the `typing_extensions.deprecated` backport,
+        or a boolean. If `True`, a default deprecation message will be emitted when accessing the field.
+    json_schema_extra: A dict or callable to provide extra JSON schema properties.
+    frozen: Whether the field is frozen.
+    validate_default: Whether to validate the default value of the field.
+    repr: Whether to include the field in representation of the model.
+    init: Whether the field should be included in the constructor of the dataclass.
+    init_var: Whether the field should _only_ be included in the constructor of the dataclass, and not stored.
+    kw_only: Whether the field should be a keyword-only argument in the constructor of the dataclass.
+    metadata: The metadata list. Contains all the data that isn't expressed as direct `FieldInfo` attributes, including:
+        * Type-specific constraints, such as `gt` or `min_length` (these are converted to metadata classes such as `annotated_types.Gt`).
+        * Any other arbitrary object used within [`Annotated`][typing.Annotated] metadata
+          (e.g. [custom types handlers](../concepts/types.md#as-an-annotation) or any object not recognized by Pydantic).

@@ -1,0 +1,31 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+This is called once the class and its fields are fully initialized and ready to be used.
+
+        This typically happens when the class is created (just before
+        [`__pydantic_init_subclass__()`][pydantic.main.BaseModel.__pydantic_init_subclass__] is called on the superclass),
+        except when forward annotations are used that could not immediately be resolved.
+        In that case, it will be called later, when the model is rebuilt automatically or explicitly using
+        [`model_rebuild()`][pydantic.main.BaseModel.model_rebuild].
+        
+=== parse google
+short_description: 'This is called once the class and its fields are fully initialized and ready to be used.'
+long_description: |
+  This typically happens when the class is created (just before
+  [`__pydantic_init_subclass__()`][pydantic.main.BaseModel.__pydantic_init_subclass__] is called on the superclass),
+  except when forward annotations are used that could not immediately be resolved.
+  In that case, it will be called later, when the model is rebuilt automatically or explicitly using
+  [`model_rebuild()`][pydantic.main.BaseModel.model_rebuild].
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+This is called once the class and its fields are fully initialized and ready to be used.
+
+This typically happens when the class is created (just before
+[`__pydantic_init_subclass__()`][pydantic.main.BaseModel.__pydantic_init_subclass__] is called on the superclass),
+except when forward annotations are used that could not immediately be resolved.
+In that case, it will be called later, when the model is rebuilt automatically or explicitly using
+[`model_rebuild()`][pydantic.main.BaseModel.model_rebuild].

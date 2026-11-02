@@ -1,0 +1,34 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Returns the LaTeX environment name for the table.
+
+        It is used at time of ``depart_table()`` and again via ``get_colspec()``.
+        The class currently supports:
+
+        * longtable
+        * tabular
+        * tabulary
+        
+=== parse rest
+short_description: 'Returns the LaTeX environment name for the table.'
+long_description: |
+  It is used at time of ``depart_table()`` and again via ``get_colspec()``.
+  The class currently supports:
+  
+  * longtable
+  * tabular
+  * tabulary
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Returns the LaTeX environment name for the table.
+
+It is used at time of ``depart_table()`` and again via ``get_colspec()``.
+The class currently supports:
+
+* longtable
+* tabular
+* tabulary

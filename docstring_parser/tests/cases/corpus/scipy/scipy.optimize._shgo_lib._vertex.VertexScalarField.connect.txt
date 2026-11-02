@@ -1,0 +1,26 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Connects self to another vertex object v.
+
+        Parameters
+        ----------
+        v : VertexBase or VertexScalarField object
+        
+=== parse numpydoc
+short_description: 'Connects self to another vertex object v.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'v']
+  arg_name: 'v'
+  type_name: 'VertexBase or VertexScalarField object'
+  is_optional: False
+=== detect
+numpydoc
+=== compose numpydoc
+Connects self to another vertex object v.
+
+Parameters
+----------
+v : VertexBase or VertexScalarField object

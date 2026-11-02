@@ -1,0 +1,34 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Sorts the subtypes of a union for the parsing of a given value.
+
+    The sort that does not depend on the value is applied first, which is a
+    no-op for the type hint of an added argument, since it is already sorted,
+    see sort_unions_in_typehint. It is still needed for type hints resolved
+    while parsing, e.g. the types of the keys of a TypedDict. Then, only when
+    appending to a list, the sequence subtypes are moved to the front, since
+    the value must extend the previous list instead of replacing it.
+    
+=== parse google
+short_description: 'Sorts the subtypes of a union for the parsing of a given value.'
+long_description: |
+  The sort that does not depend on the value is applied first, which is a
+  no-op for the type hint of an added argument, since it is already sorted,
+  see sort_unions_in_typehint. It is still needed for type hints resolved
+  while parsing, e.g. the types of the keys of a TypedDict. Then, only when
+  appending to a list, the sequence subtypes are moved to the front, since
+  the value must extend the previous list instead of replacing it.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Sorts the subtypes of a union for the parsing of a given value.
+
+The sort that does not depend on the value is applied first, which is a
+no-op for the type hint of an added argument, since it is already sorted,
+see sort_unions_in_typehint. It is still needed for type hints resolved
+while parsing, e.g. the types of the keys of a TypedDict. Then, only when
+appending to a list, the sequence subtypes are moved to the front, since
+the value must extend the previous list instead of replacing it.

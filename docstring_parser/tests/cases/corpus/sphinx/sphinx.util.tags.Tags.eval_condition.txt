@@ -1,0 +1,25 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Evaluate a boolean condition.
+
+        Only conditional expressions and binary operators (and, or, not)
+        are permitted, and operate on tag names, where truthy values mean
+        the tag is present and vice versa.
+        
+=== parse rest
+short_description: 'Evaluate a boolean condition.'
+long_description: |
+  Only conditional expressions and binary operators (and, or, not)
+  are permitted, and operate on tag names, where truthy values mean
+  the tag is present and vice versa.
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Evaluate a boolean condition.
+
+Only conditional expressions and binary operators (and, or, not)
+are permitted, and operate on tag names, where truthy values mean
+the tag is present and vice versa.

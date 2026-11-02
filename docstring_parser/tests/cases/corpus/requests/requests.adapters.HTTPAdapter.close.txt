@@ -1,0 +1,22 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Disposes of any internal state.
+
+        Currently, this closes the PoolManager and any active ProxyManager,
+        which closes any pooled connections.
+        
+=== parse rest
+short_description: 'Disposes of any internal state.'
+long_description: |
+  Currently, this closes the PoolManager and any active ProxyManager,
+  which closes any pooled connections.
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Disposes of any internal state.
+
+Currently, this closes the PoolManager and any active ProxyManager,
+which closes any pooled connections.

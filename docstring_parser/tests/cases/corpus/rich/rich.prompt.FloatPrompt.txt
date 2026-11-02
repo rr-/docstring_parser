@@ -1,0 +1,23 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+A prompt that returns a float.
+
+    Example:
+        >>> temperature = FloatPrompt.ask("Enter desired temperature")
+
+    
+=== parse google
+short_description: 'A prompt that returns a float.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringExample
+  args: ['examples']
+  description: '>>> temperature = FloatPrompt.ask("Enter desired temperature")'
+=== detect
+google
+=== compose google
+A prompt that returns a float.
+
+Examples:
+    >>> temperature = FloatPrompt.ask("Enter desired temperature")

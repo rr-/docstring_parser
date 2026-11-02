@@ -1,0 +1,33 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Compute the frequency response of a digital filter in SOS format (legacy).
+
+   .. legacy:: function
+
+        This function is an alias, provided for backward compatibility.
+        New code should use the function :func:`scipy.signal.freqz_sos`.
+        This function became obsolete from version 1.15.0.
+
+    
+=== parse numpydoc
+short_description: ' Compute the frequency response of a digital filter in SOS format (legacy).'
+long_description: |
+  .. legacy:: function
+  
+       This function is an alias, provided for backward compatibility.
+       New code should use the function :func:`scipy.signal.freqz_sos`.
+       This function became obsolete from version 1.15.0.
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+ Compute the frequency response of a digital filter in SOS format (legacy).
+
+.. legacy:: function
+
+     This function is an alias, provided for backward compatibility.
+     New code should use the function :func:`scipy.signal.freqz_sos`.
+     This function became obsolete from version 1.15.0.

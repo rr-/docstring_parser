@@ -1,0 +1,413 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Load arrays or pickled objects from ``.npy``, ``.npz`` or pickled files.
+
+    .. warning:: Loading files that contain object arrays uses the ``pickle``
+                 module, which is not secure against erroneous or maliciously
+                 constructed data. Consider passing ``allow_pickle=False`` to
+                 load data that is known not to contain object arrays for the
+                 safer handling of untrusted sources.
+
+    Parameters
+    ----------
+    file : file-like object, string, or pathlib.Path
+        The file to read. File-like objects must support the
+        ``seek()`` and ``read()`` methods and must always
+        be opened in binary mode.  Pickled files require that the
+        file-like object support the ``readline()`` method as well.
+    mmap_mode : {None, 'r+', 'r', 'w+', 'c'}, optional
+        If not None, then memory-map the file, using the given mode (see
+        `numpy.memmap` for a detailed description of the modes).  A
+        memory-mapped array is kept on disk. However, it can be accessed
+        and sliced like any ndarray.  Memory mapping is especially useful
+        for accessing small fragments of large files without reading the
+        entire file into memory.
+    allow_pickle : bool, optional
+        Allow loading pickled object arrays stored in npy files. Reasons for
+        disallowing pickles include security, as loading pickled data can
+        execute arbitrary code. If pickles are disallowed, loading object
+        arrays will fail. Default: False
+    fix_imports : bool, optional
+        Only useful when loading Python 2 generated pickled files,
+        which includes npy/npz files containing object arrays. If `fix_imports`
+        is True, pickle will try to map the old Python 2 names to the new names
+        used in Python 3.
+    encoding : str, optional
+        What encoding to use when reading Python 2 strings. Only useful when
+        loading Python 2 generated pickled files, which includes
+        npy/npz files containing object arrays. Values other than 'latin1',
+        'ASCII', and 'bytes' are not allowed, as they can corrupt numerical
+        data. Default: 'ASCII'
+    max_header_size : int, optional
+        Maximum allowed size of the header.  Large headers may not be safe
+        to load securely and thus require explicitly passing a larger value.
+        See :py:func:`ast.literal_eval()` for details.
+        This option is ignored when `allow_pickle` is passed.  In that case
+        the file is by definition trusted and the limit is unnecessary.
+
+    Returns
+    -------
+    result : array, tuple, dict, etc.
+        Data stored in the file. For ``.npz`` files, the returned instance
+        of NpzFile class must be closed to avoid leaking file descriptors.
+
+    Raises
+    ------
+    OSError
+        If the input file does not exist or cannot be read.
+    UnpicklingError
+        If ``allow_pickle=True``, but the file cannot be loaded as a pickle.
+    ValueError
+        The file contains an object array, but ``allow_pickle=False`` given.
+    EOFError
+        When calling ``np.load`` multiple times on the same file handle,
+        if all data has already been read
+
+    See Also
+    --------
+    save, savez, savez_compressed, loadtxt
+    memmap : Create a memory-map to an array stored in a file on disk.
+    lib.format.open_memmap : Create or load a memory-mapped ``.npy`` file.
+
+    Notes
+    -----
+    - If the file contains pickle data, then whatever object is stored
+      in the pickle is returned.
+    - If the file is a ``.npy`` file, then a single array is returned.
+    - If the file is a ``.npz`` file, then a dictionary-like object is
+      returned, containing ``{filename: array}`` key-value pairs, one for
+      each file in the archive.
+    - If the file is a ``.npz`` file, the returned value supports the
+      context manager protocol in a similar fashion to the open function::
+
+        with load('foo.npz') as data:
+            a = data['a']
+
+      The underlying file descriptor is closed when exiting the 'with'
+      block.
+
+    Examples
+    --------
+    >>> import numpy as np
+
+    Store data to disk, and load it again:
+
+    >>> np.save('/tmp/123', np.array([[1, 2, 3], [4, 5, 6]]))
+    >>> np.load('/tmp/123.npy')
+    array([[1, 2, 3],
+           [4, 5, 6]])
+
+    Store compressed data to disk, and load it again:
+
+    >>> a=np.array([[1, 2, 3], [4, 5, 6]])
+    >>> b=np.array([1, 2])
+    >>> np.savez('/tmp/123.npz', a=a, b=b)
+    >>> data = np.load('/tmp/123.npz')
+    >>> data['a']
+    array([[1, 2, 3],
+           [4, 5, 6]])
+    >>> data['b']
+    array([1, 2])
+    >>> data.close()
+
+    Mem-map the stored array, and then access the second row
+    directly from disk:
+
+    >>> X = np.load('/tmp/123.npy', mmap_mode='r')
+    >>> X[1, :]
+    memmap([4, 5, 6])
+
+    
+=== parse numpydoc
+short_description: 'Load arrays or pickled objects from ``.npy``, ``.npz`` or pickled files.'
+long_description: |
+  .. warning:: Loading files that contain object arrays uses the ``pickle``
+               module, which is not secure against erroneous or maliciously
+               constructed data. Consider passing ``allow_pickle=False`` to
+               load data that is known not to contain object arrays for the
+               safer handling of untrusted sources.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'file']
+  description: |
+    The file to read. File-like objects must support the
+    ``seek()`` and ``read()`` methods and must always
+    be opened in binary mode.  Pickled files require that the
+    file-like object support the ``readline()`` method as well.
+  arg_name: 'file'
+  type_name: 'file-like object, string, or pathlib.Path'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'mmap_mode']
+  description: |
+    If not None, then memory-map the file, using the given mode (see
+    `numpy.memmap` for a detailed description of the modes).  A
+    memory-mapped array is kept on disk. However, it can be accessed
+    and sliced like any ndarray.  Memory mapping is especially useful
+    for accessing small fragments of large files without reading the
+    entire file into memory.
+  arg_name: 'mmap_mode'
+  type_name: "{None, 'r+', 'r', 'w+', 'c'}"
+  is_optional: True
+- DocstringParam
+  args: ['param', 'allow_pickle']
+  description: |
+    Allow loading pickled object arrays stored in npy files. Reasons for
+    disallowing pickles include security, as loading pickled data can
+    execute arbitrary code. If pickles are disallowed, loading object
+    arrays will fail. Default: False
+  arg_name: 'allow_pickle'
+  type_name: 'bool'
+  is_optional: True
+  default: 'False'
+- DocstringParam
+  args: ['param', 'fix_imports']
+  description: |
+    Only useful when loading Python 2 generated pickled files,
+    which includes npy/npz files containing object arrays. If `fix_imports`
+    is True, pickle will try to map the old Python 2 names to the new names
+    used in Python 3.
+  arg_name: 'fix_imports'
+  type_name: 'bool'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'encoding']
+  description: |
+    What encoding to use when reading Python 2 strings. Only useful when
+    loading Python 2 generated pickled files, which includes
+    npy/npz files containing object arrays. Values other than 'latin1',
+    'ASCII', and 'bytes' are not allowed, as they can corrupt numerical
+    data. Default: 'ASCII'
+  arg_name: 'encoding'
+  type_name: 'str'
+  is_optional: True
+  default: "'ASCII'"
+- DocstringParam
+  args: ['param', 'max_header_size']
+  description: |
+    Maximum allowed size of the header.  Large headers may not be safe
+    to load securely and thus require explicitly passing a larger value.
+    See :py:func:`ast.literal_eval()` for details.
+    This option is ignored when `allow_pickle` is passed.  In that case
+    the file is by definition trusted and the limit is unnecessary.
+  arg_name: 'max_header_size'
+  type_name: 'int'
+  is_optional: True
+- DocstringReturns
+  args: ['returns']
+  description: |
+    Data stored in the file. For ``.npz`` files, the returned instance
+    of NpzFile class must be closed to avoid leaking file descriptors.
+  type_name: 'array, tuple, dict, etc.'
+  is_generator: False
+  return_name: 'result'
+- DocstringRaises
+  args: ['raises', 'OSError']
+  description: 'If the input file does not exist or cannot be read.'
+  type_name: 'OSError'
+- DocstringRaises
+  args: ['raises', 'UnpicklingError']
+  description: 'If ``allow_pickle=True``, but the file cannot be loaded as a pickle.'
+  type_name: 'UnpicklingError'
+- DocstringRaises
+  args: ['raises', 'ValueError']
+  description: 'The file contains an object array, but ``allow_pickle=False`` given.'
+  type_name: 'ValueError'
+- DocstringRaises
+  args: ['raises', 'EOFError']
+  description: |
+    When calling ``np.load`` multiple times on the same file handle,
+    if all data has already been read
+  type_name: 'EOFError'
+- DocstringMeta
+  args: ['see_also']
+  description: |
+    save, savez, savez_compressed, loadtxt
+    memmap : Create a memory-map to an array stored in a file on disk.
+    lib.format.open_memmap : Create or load a memory-mapped ``.npy`` file.
+- DocstringMeta
+  args: ['notes']
+  description: |
+    - If the file contains pickle data, then whatever object is stored
+      in the pickle is returned.
+    - If the file is a ``.npy`` file, then a single array is returned.
+    - If the file is a ``.npz`` file, then a dictionary-like object is
+      returned, containing ``{filename: array}`` key-value pairs, one for
+      each file in the archive.
+    - If the file is a ``.npz`` file, the returned value supports the
+      context manager protocol in a similar fashion to the open function::
+    
+        with load('foo.npz') as data:
+            a = data['a']
+    
+      The underlying file descriptor is closed when exiting the 'with'
+      block.
+- DocstringExample
+  args: ['examples']
+  description: |
+    
+    Store data to disk, and load it again:
+    
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  args: ['examples']
+  description: |
+    array([[1, 2, 3],
+           [4, 5, 6]])
+    
+    Store compressed data to disk, and load it again:
+    
+  snippet: |
+    >>> np.save('/tmp/123', np.array([[1, 2, 3], [4, 5, 6]]))
+    >>> np.load('/tmp/123.npy')
+- DocstringExample
+  args: ['examples']
+  description: |
+    array([[1, 2, 3],
+           [4, 5, 6]])
+  snippet: |
+    >>> a=np.array([[1, 2, 3], [4, 5, 6]])
+    >>> b=np.array([1, 2])
+    >>> np.savez('/tmp/123.npz', a=a, b=b)
+    >>> data = np.load('/tmp/123.npz')
+    >>> data['a']
+- DocstringExample
+  args: ['examples']
+  description: 'array([1, 2])'
+  snippet: ">>> data['b']"
+- DocstringExample
+  args: ['examples']
+  description: |
+    
+    Mem-map the stored array, and then access the second row
+    directly from disk:
+    
+  snippet: '>>> data.close()'
+- DocstringExample
+  args: ['examples']
+  description: 'memmap([4, 5, 6])'
+  snippet: |
+    >>> X = np.load('/tmp/123.npy', mmap_mode='r')
+    >>> X[1, :]
+=== detect
+numpydoc
+=== compose numpydoc
+Load arrays or pickled objects from ``.npy``, ``.npz`` or pickled files.
+
+.. warning:: Loading files that contain object arrays uses the ``pickle``
+             module, which is not secure against erroneous or maliciously
+             constructed data. Consider passing ``allow_pickle=False`` to
+             load data that is known not to contain object arrays for the
+             safer handling of untrusted sources.
+
+Parameters
+----------
+file : file-like object, string, or pathlib.Path
+    The file to read. File-like objects must support the
+    ``seek()`` and ``read()`` methods and must always
+    be opened in binary mode.  Pickled files require that the
+    file-like object support the ``readline()`` method as well.
+mmap_mode : {None, 'r+', 'r', 'w+', 'c'}, optional
+    If not None, then memory-map the file, using the given mode (see
+    `numpy.memmap` for a detailed description of the modes).  A
+    memory-mapped array is kept on disk. However, it can be accessed
+    and sliced like any ndarray.  Memory mapping is especially useful
+    for accessing small fragments of large files without reading the
+    entire file into memory.
+allow_pickle : bool, default=False
+    Allow loading pickled object arrays stored in npy files. Reasons for
+    disallowing pickles include security, as loading pickled data can
+    execute arbitrary code. If pickles are disallowed, loading object
+    arrays will fail. Default: False
+fix_imports : bool, optional
+    Only useful when loading Python 2 generated pickled files,
+    which includes npy/npz files containing object arrays. If `fix_imports`
+    is True, pickle will try to map the old Python 2 names to the new names
+    used in Python 3.
+encoding : str, default='ASCII'
+    What encoding to use when reading Python 2 strings. Only useful when
+    loading Python 2 generated pickled files, which includes
+    npy/npz files containing object arrays. Values other than 'latin1',
+    'ASCII', and 'bytes' are not allowed, as they can corrupt numerical
+    data. Default: 'ASCII'
+max_header_size : int, optional
+    Maximum allowed size of the header.  Large headers may not be safe
+    to load securely and thus require explicitly passing a larger value.
+    See :py:func:`ast.literal_eval()` for details.
+    This option is ignored when `allow_pickle` is passed.  In that case
+    the file is by definition trusted and the limit is unnecessary.
+
+Returns
+-------
+result : array, tuple, dict, etc.
+    Data stored in the file. For ``.npz`` files, the returned instance
+    of NpzFile class must be closed to avoid leaking file descriptors.
+
+Raises
+------
+OSError
+    If the input file does not exist or cannot be read.
+UnpicklingError
+    If ``allow_pickle=True``, but the file cannot be loaded as a pickle.
+ValueError
+    The file contains an object array, but ``allow_pickle=False`` given.
+EOFError
+    When calling ``np.load`` multiple times on the same file handle,
+    if all data has already been read
+
+Examples
+--------
+>>> import numpy as np
+
+Store data to disk, and load it again:
+
+>>> np.save('/tmp/123', np.array([[1, 2, 3], [4, 5, 6]]))
+>>> np.load('/tmp/123.npy')
+array([[1, 2, 3],
+       [4, 5, 6]])
+
+Store compressed data to disk, and load it again:
+
+>>> a=np.array([[1, 2, 3], [4, 5, 6]])
+>>> b=np.array([1, 2])
+>>> np.savez('/tmp/123.npz', a=a, b=b)
+>>> data = np.load('/tmp/123.npz')
+>>> data['a']
+array([[1, 2, 3],
+       [4, 5, 6]])
+>>> data['b']
+array([1, 2])
+>>> data.close()
+
+Mem-map the stored array, and then access the second row
+directly from disk:
+
+>>> X = np.load('/tmp/123.npy', mmap_mode='r')
+>>> X[1, :]
+memmap([4, 5, 6])
+
+See Also
+--------
+save, savez, savez_compressed, loadtxt
+memmap : Create a memory-map to an array stored in a file on disk.
+lib.format.open_memmap : Create or load a memory-mapped ``.npy`` file.
+
+Notes
+-----
+- If the file contains pickle data, then whatever object is stored
+  in the pickle is returned.
+- If the file is a ``.npy`` file, then a single array is returned.
+- If the file is a ``.npz`` file, then a dictionary-like object is
+  returned, containing ``{filename: array}`` key-value pairs, one for
+  each file in the archive.
+- If the file is a ``.npz`` file, the returned value supports the
+  context manager protocol in a similar fashion to the open function::
+
+    with load('foo.npz') as data:
+        a = data['a']
+
+  The underlying file descriptor is closed when exiting the 'with'
+  block.

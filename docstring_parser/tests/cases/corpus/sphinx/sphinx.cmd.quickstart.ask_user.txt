@@ -1,0 +1,61 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Ask the user for quickstart values missing from *d*.
+
+    Values are:
+
+    * path:      root path
+    * sep:       separate source and build dirs (bool)
+    * dot:       replacement for dot in _templates etc.
+    * project:   project name
+    * author:    author names
+    * version:   version of project
+    * release:   release of project
+    * language:  document language
+    * suffix:    source file suffix
+    * master:    master document name
+    * extensions:  extensions to use (list)
+    * makefile:  make Makefile
+    * batchfile: make command file
+    
+=== parse rest
+short_description: 'Ask the user for quickstart values missing from *d*.'
+long_description: |
+  Values are:
+  
+  * path:      root path
+  * sep:       separate source and build dirs (bool)
+  * dot:       replacement for dot in _templates etc.
+  * project:   project name
+  * author:    author names
+  * version:   version of project
+  * release:   release of project
+  * language:  document language
+  * suffix:    source file suffix
+  * master:    master document name
+  * extensions:  extensions to use (list)
+  * makefile:  make Makefile
+  * batchfile: make command file
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Ask the user for quickstart values missing from *d*.
+
+Values are:
+
+* path:      root path
+* sep:       separate source and build dirs (bool)
+* dot:       replacement for dot in _templates etc.
+* project:   project name
+* author:    author names
+* version:   version of project
+* release:   release of project
+* language:  document language
+* suffix:    source file suffix
+* master:    master document name
+* extensions:  extensions to use (list)
+* makefile:  make Makefile
+* batchfile: make command file

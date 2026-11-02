@@ -1,0 +1,59 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Pluggable Credentials.
+Pluggable Credentials are initialized using external_account arguments which
+are typically loaded from third-party executables. Unlike other
+credentials that can be initialized with a list of explicit arguments, secrets
+or credentials, external account clients use the environment and hints/guidelines
+provided by the external_account JSON file to retrieve credentials and exchange
+them for Google access tokens.
+
+Example credential_source for pluggable credential:
+{
+    "executable": {
+        "command": "/path/to/get/credentials.sh --arg1=value1 --arg2=value2",
+        "timeout_millis": 5000,
+        "output_file": "/path/to/generated/cached/credentials"
+    }
+}
+
+=== parse google
+short_description: 'Pluggable Credentials.'
+long_description: |
+  Pluggable Credentials are initialized using external_account arguments which
+  are typically loaded from third-party executables. Unlike other
+  credentials that can be initialized with a list of explicit arguments, secrets
+  or credentials, external account clients use the environment and hints/guidelines
+  provided by the external_account JSON file to retrieve credentials and exchange
+  them for Google access tokens.
+  
+  Example credential_source for pluggable credential:
+  {
+      "executable": {
+          "command": "/path/to/get/credentials.sh --arg1=value1 --arg2=value2",
+          "timeout_millis": 5000,
+          "output_file": "/path/to/generated/cached/credentials"
+      }
+  }
+blank_after_short_description: False
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Pluggable Credentials.
+Pluggable Credentials are initialized using external_account arguments which
+are typically loaded from third-party executables. Unlike other
+credentials that can be initialized with a list of explicit arguments, secrets
+or credentials, external account clients use the environment and hints/guidelines
+provided by the external_account JSON file to retrieve credentials and exchange
+them for Google access tokens.
+
+Example credential_source for pluggable credential:
+{
+    "executable": {
+        "command": "/path/to/get/credentials.sh --arg1=value1 --arg2=value2",
+        "timeout_millis": 5000,
+        "output_file": "/path/to/generated/cached/credentials"
+    }
+}

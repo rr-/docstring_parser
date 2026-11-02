@@ -1,0 +1,31 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Raises if the value of a mapping that doesn't validate its values is an invalid subclass spec.
+
+    Only done when the ``validate_subclass_spec_in_any`` setting is enabled.
+    Unlike for ``Any``, the value is only validated and kept as a mapping, since
+    an instance would not correspond to the type. Building the class is the
+    responsibility of a class type, e.g. a member of the union that the mapping
+    is part of.
+    
+=== parse google
+short_description: "Raises if the value of a mapping that doesn't validate its values is an invalid subclass spec."
+long_description: |
+  Only done when the ``validate_subclass_spec_in_any`` setting is enabled.
+  Unlike for ``Any``, the value is only validated and kept as a mapping, since
+  an instance would not correspond to the type. Building the class is the
+  responsibility of a class type, e.g. a member of the union that the mapping
+  is part of.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Raises if the value of a mapping that doesn't validate its values is an invalid subclass spec.
+
+Only done when the ``validate_subclass_spec_in_any`` setting is enabled.
+Unlike for ``Any``, the value is only validated and kept as a mapping, since
+an instance would not correspond to the type. Building the class is the
+responsibility of a class type, e.g. a member of the union that the mapping
+is part of.

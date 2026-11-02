@@ -1,0 +1,65 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+The fully mutable :class:`PreparedRequest <PreparedRequest>` object,
+    containing the exact bytes that will be sent to the server.
+
+    Instances are generated from a :class:`Request <Request>` object, and
+    should not be instantiated manually; doing so may produce undesirable
+    effects.
+
+    Usage::
+
+      >>> import requests
+      >>> req = requests.Request('GET', 'https://httpbin.org/get')
+      >>> r = req.prepare()
+      >>> r
+      <PreparedRequest [GET]>
+
+      >>> s = requests.Session()
+      >>> s.send(r)
+      <Response [200]>
+    
+=== parse rest
+short_description: 'The fully mutable :class:`PreparedRequest <PreparedRequest>` object,'
+long_description: |
+  containing the exact bytes that will be sent to the server.
+  
+  Instances are generated from a :class:`Request <Request>` object, and
+  should not be instantiated manually; doing so may produce undesirable
+  effects.
+  
+  Usage::
+  
+    >>> import requests
+    >>> req = requests.Request('GET', 'https://httpbin.org/get')
+    >>> r = req.prepare()
+    >>> r
+    <PreparedRequest [GET]>
+  
+    >>> s = requests.Session()
+    >>> s.send(r)
+    <Response [200]>
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+The fully mutable :class:`PreparedRequest <PreparedRequest>` object,
+containing the exact bytes that will be sent to the server.
+
+Instances are generated from a :class:`Request <Request>` object, and
+should not be instantiated manually; doing so may produce undesirable
+effects.
+
+Usage::
+
+  >>> import requests
+  >>> req = requests.Request('GET', 'https://httpbin.org/get')
+  >>> r = req.prepare()
+  >>> r
+  <PreparedRequest [GET]>
+
+  >>> s = requests.Session()
+  >>> s.send(r)
+  <Response [200]>

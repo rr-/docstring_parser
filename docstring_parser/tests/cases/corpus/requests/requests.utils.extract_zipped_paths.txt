@@ -1,0 +1,20 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Replace nonexistent paths that look like they refer to a member of a zip
+    archive with the location of an extracted copy of the target, or else
+    just return the provided path unchanged.
+    
+=== parse rest
+short_description: 'Replace nonexistent paths that look like they refer to a member of a zip'
+long_description: |
+  archive with the location of an extracted copy of the target, or else
+  just return the provided path unchanged.
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Replace nonexistent paths that look like they refer to a member of a zip
+archive with the location of an extracted copy of the target, or else
+just return the provided path unchanged.

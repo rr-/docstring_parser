@@ -1,0 +1,44 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Module deprecation warning.
+
+    .. warning::
+
+        This warning should not be used, since nose testing is not relevant
+        anymore.
+
+    The nose tester turns ordinary Deprecation warnings into test failures.
+    That makes it hard to deprecate whole modules, because they get
+    imported by default. So this is a special Deprecation warning that the
+    nose tester will let pass without making tests fail.
+
+    
+=== parse numpydoc
+short_description: 'Module deprecation warning.'
+long_description: |
+  .. warning::
+  
+      This warning should not be used, since nose testing is not relevant
+      anymore.
+  
+  The nose tester turns ordinary Deprecation warnings into test failures.
+  That makes it hard to deprecate whole modules, because they get
+  imported by default. So this is a special Deprecation warning that the
+  nose tester will let pass without making tests fail.
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Module deprecation warning.
+
+.. warning::
+
+    This warning should not be used, since nose testing is not relevant
+    anymore.
+
+The nose tester turns ordinary Deprecation warnings into test failures.
+That makes it hard to deprecate whole modules, because they get
+imported by default. So this is a special Deprecation warning that the
+nose tester will let pass without making tests fail.

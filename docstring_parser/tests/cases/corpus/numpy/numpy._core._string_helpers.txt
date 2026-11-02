@@ -1,0 +1,19 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+String-handling utilities to avoid locale-dependence.
+
+Used primarily to generate type name aliases.
+
+=== parse numpydoc
+short_description: 'String-handling utilities to avoid locale-dependence.'
+long_description: 'Used primarily to generate type name aliases.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+String-handling utilities to avoid locale-dependence.
+
+Used primarily to generate type name aliases.

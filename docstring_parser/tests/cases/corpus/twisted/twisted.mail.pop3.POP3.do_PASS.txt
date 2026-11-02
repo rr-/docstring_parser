@@ -1,0 +1,55 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Handle a PASS command.
+
+        If a USER command was previously received, authenticate the user and
+        complete the authorization process with the L{_cbMailbox} callback
+        function on success or the L{_ebMailbox} and L{_ebUnexpected} errback
+        functions on failure.  If a USER command was not previously received,
+        send an error response.
+
+        @type password: L{bytes}
+        @param password: A password.
+
+        @type words: L{tuple} of L{bytes}
+        @param words: Other parts of the password split by spaces.
+        
+=== parse epydoc
+short_description: 'Handle a PASS command.'
+long_description: |
+  If a USER command was previously received, authenticate the user and
+  complete the authorization process with the L{_cbMailbox} callback
+  function on success or the L{_ebMailbox} and L{_ebUnexpected} errback
+  functions on failure.  If a USER command was not previously received,
+  send an error response.
+blank_after_short_description: True
+blank_after_long_description: True
+style: epydoc
+- DocstringParam
+  args: ['type', 'password']
+  description: 'A password.'
+  arg_name: 'password'
+  type_name: 'L{bytes}'
+  is_optional: False
+- DocstringParam
+  args: ['type', 'words']
+  description: 'Other parts of the password split by spaces.'
+  arg_name: 'words'
+  type_name: 'L{tuple} of L{bytes}'
+  is_optional: False
+=== detect
+epydoc
+=== compose epydoc
+Handle a PASS command.
+
+If a USER command was previously received, authenticate the user and
+complete the authorization process with the L{_cbMailbox} callback
+function on success or the L{_ebMailbox} and L{_ebUnexpected} errback
+functions on failure.  If a USER command was not previously received,
+send an error response.
+
+@type password: L{bytes}
+@param password: A password.
+@type words: L{tuple} of L{bytes}
+@param words: Other parts of the password split by spaces.

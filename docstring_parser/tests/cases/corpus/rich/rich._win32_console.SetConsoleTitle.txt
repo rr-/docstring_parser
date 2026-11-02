@@ -1,0 +1,36 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Sets the title of the current console window
+
+    Args:
+        title (str): The new title of the console window.
+
+    Returns:
+        bool: True if the function succeeds, otherwise False.
+    
+=== parse google
+short_description: 'Sets the title of the current console window'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'title (str)']
+  description: 'The new title of the console window.'
+  arg_name: 'title'
+  type_name: 'str'
+  is_optional: False
+- DocstringReturns
+  args: ['returns', 'bool']
+  description: 'True if the function succeeds, otherwise False.'
+  type_name: 'bool'
+  is_generator: False
+=== detect
+google
+=== compose google
+Sets the title of the current console window
+
+Args:
+    title (str): The new title of the console window.
+
+Returns:
+    bool: True if the function succeeds, otherwise False.

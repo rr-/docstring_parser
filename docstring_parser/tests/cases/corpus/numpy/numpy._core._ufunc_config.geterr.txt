@@ -1,0 +1,139 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Get the current way of handling floating-point errors.
+
+    Returns
+    -------
+    res : dict
+        A dictionary with keys "divide", "over", "under", and "invalid",
+        whose values are from the strings "ignore", "print", "log", "warn",
+        "raise", and "call". The keys represent possible floating-point
+        exceptions, and the values define how these exceptions are handled.
+
+    See Also
+    --------
+    geterrcall, seterr, seterrcall
+
+    Notes
+    -----
+    For complete documentation of the types of floating-point exceptions and
+    treatment options, see `seterr`.
+
+    **Concurrency note:** see :doc:`/reference/routines.err`
+
+    Examples
+    --------
+    >>> import numpy as np
+    >>> np.geterr()
+    {'divide': 'warn', 'over': 'warn', 'under': 'ignore', 'invalid': 'warn'}
+    >>> np.arange(3.) / np.arange(3.)  # doctest: +SKIP
+    array([nan,  1.,  1.])
+    RuntimeWarning: invalid value encountered in divide
+
+    >>> oldsettings = np.seterr(all='warn', invalid='raise')
+    >>> np.geterr()
+    {'divide': 'warn', 'over': 'warn', 'under': 'warn', 'invalid': 'raise'}
+    >>> np.arange(3.) / np.arange(3.)
+    Traceback (most recent call last):
+      ...
+    FloatingPointError: invalid value encountered in divide
+    >>> oldsettings = np.seterr(**oldsettings)  # restore original
+
+    
+=== parse numpydoc
+short_description: 'Get the current way of handling floating-point errors.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringReturns
+  args: ['returns']
+  description: |
+    A dictionary with keys "divide", "over", "under", and "invalid",
+    whose values are from the strings "ignore", "print", "log", "warn",
+    "raise", and "call". The keys represent possible floating-point
+    exceptions, and the values define how these exceptions are handled.
+  type_name: 'dict'
+  is_generator: False
+  return_name: 'res'
+- DocstringMeta
+  args: ['see_also']
+  description: 'geterrcall, seterr, seterrcall'
+- DocstringMeta
+  args: ['notes']
+  description: |
+    For complete documentation of the types of floating-point exceptions and
+    treatment options, see `seterr`.
+    
+    **Concurrency note:** see :doc:`/reference/routines.err`
+- DocstringExample
+  args: ['examples']
+  description: "{'divide': 'warn', 'over': 'warn', 'under': 'ignore', 'invalid': 'warn'}"
+  snippet: |
+    >>> import numpy as np
+    >>> np.geterr()
+- DocstringExample
+  args: ['examples']
+  description: |
+    array([nan,  1.,  1.])
+    RuntimeWarning: invalid value encountered in divide
+    
+  snippet: '>>> np.arange(3.) / np.arange(3.)  # doctest: +SKIP'
+- DocstringExample
+  args: ['examples']
+  description: "{'divide': 'warn', 'over': 'warn', 'under': 'warn', 'invalid': 'raise'}"
+  snippet: |
+    >>> oldsettings = np.seterr(all='warn', invalid='raise')
+    >>> np.geterr()
+- DocstringExample
+  args: ['examples']
+  description: |
+    Traceback (most recent call last):
+      ...
+    FloatingPointError: invalid value encountered in divide
+  snippet: '>>> np.arange(3.) / np.arange(3.)'
+- DocstringExample
+  args: ['examples']
+  description: ''
+  snippet: '>>> oldsettings = np.seterr(**oldsettings)  # restore original'
+=== detect
+numpydoc
+=== compose numpydoc
+Get the current way of handling floating-point errors.
+
+Returns
+-------
+res : dict
+    A dictionary with keys "divide", "over", "under", and "invalid",
+    whose values are from the strings "ignore", "print", "log", "warn",
+    "raise", and "call". The keys represent possible floating-point
+    exceptions, and the values define how these exceptions are handled.
+
+Examples
+--------
+>>> import numpy as np
+>>> np.geterr()
+{'divide': 'warn', 'over': 'warn', 'under': 'ignore', 'invalid': 'warn'}
+>>> np.arange(3.) / np.arange(3.)  # doctest: +SKIP
+array([nan,  1.,  1.])
+RuntimeWarning: invalid value encountered in divide
+
+>>> oldsettings = np.seterr(all='warn', invalid='raise')
+>>> np.geterr()
+{'divide': 'warn', 'over': 'warn', 'under': 'warn', 'invalid': 'raise'}
+>>> np.arange(3.) / np.arange(3.)
+Traceback (most recent call last):
+  ...
+FloatingPointError: invalid value encountered in divide
+>>> oldsettings = np.seterr(**oldsettings)  # restore original
+
+See Also
+--------
+geterrcall, seterr, seterrcall
+
+Notes
+-----
+For complete documentation of the types of floating-point exceptions and
+treatment options, see `seterr`.
+
+**Concurrency note:** see :doc:`/reference/routines.err`

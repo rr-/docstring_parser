@@ -1,0 +1,49 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Identity method.
+
+        This is implemented for compatibility with subclass implementations
+        when chaining.
+
+        Returns
+        -------
+        pd.Index
+            Caller.
+
+        See Also
+        --------
+        MultiIndex.to_flat_index : Subclass implementation.
+        
+=== parse numpydoc
+short_description: 'Identity method.'
+long_description: |
+  This is implemented for compatibility with subclass implementations
+  when chaining.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringReturns
+  args: ['returns']
+  description: 'Caller.'
+  type_name: 'pd.Index'
+  is_generator: False
+- DocstringMeta
+  args: ['see_also']
+  description: 'MultiIndex.to_flat_index : Subclass implementation.'
+=== detect
+numpydoc
+=== compose numpydoc
+Identity method.
+
+This is implemented for compatibility with subclass implementations
+when chaining.
+
+Returns
+-------
+pd.Index
+    Caller.
+
+See Also
+--------
+MultiIndex.to_flat_index : Subclass implementation.

@@ -1,0 +1,40 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Update json_schema with the following, extracted from `config` and `cls`:
+
+        * title
+        * description
+        * additional properties
+        * json_schema_extra
+        * deprecated
+
+        Done in place, hence there's no return value as the original json_schema is mutated.
+        No ref resolving is involved here, as that's not appropriate for simple updates.
+        
+=== parse google
+short_description: 'Update json_schema with the following, extracted from `config` and `cls`:'
+long_description: |
+  * title
+  * description
+  * additional properties
+  * json_schema_extra
+  * deprecated
+  
+  Done in place, hence there's no return value as the original json_schema is mutated.
+  No ref resolving is involved here, as that's not appropriate for simple updates.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Update json_schema with the following, extracted from `config` and `cls`:
+
+* title
+* description
+* additional properties
+* json_schema_extra
+* deprecated
+
+Done in place, hence there's no return value as the original json_schema is mutated.
+No ref resolving is involved here, as that's not appropriate for simple updates.

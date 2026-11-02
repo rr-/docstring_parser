@@ -1,0 +1,108 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Pad the input array.
+
+    Parameters
+    ----------
+    x : array
+        Input array.
+    pad_width : int or tuple of ints or sequence of pairs of ints
+        Pad the input array with this many elements from each side.
+        If a sequence of tuples, ``[(before_0, after_0), ... (before_N, after_N)]``,
+        each pair applies to the corresponding axis of ``x``.
+        A single tuple, ``(before, after)``, is equivalent to a list of ``x.ndim``
+        copies of this tuple.
+    mode : str, optional
+        Only "constant" mode is currently supported, which pads with
+        the value passed to `constant_values`.
+    constant_values : python scalar, optional
+        Use this value to pad the input. Default is zero.
+    xp : array_namespace, optional
+        The standard-compatible namespace for `x`. Default: infer.
+
+    Returns
+    -------
+    array
+        The input array,
+        padded with ``pad_width`` elements equal to ``constant_values``.
+    
+=== parse numpydoc
+short_description: 'Pad the input array.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'x']
+  description: 'Input array.'
+  arg_name: 'x'
+  type_name: 'array'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'pad_width']
+  description: |
+    Pad the input array with this many elements from each side.
+    If a sequence of tuples, ``[(before_0, after_0), ... (before_N, after_N)]``,
+    each pair applies to the corresponding axis of ``x``.
+    A single tuple, ``(before, after)``, is equivalent to a list of ``x.ndim``
+    copies of this tuple.
+  arg_name: 'pad_width'
+  type_name: 'int or tuple of ints or sequence of pairs of ints'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'mode']
+  description: |
+    Only "constant" mode is currently supported, which pads with
+    the value passed to `constant_values`.
+  arg_name: 'mode'
+  type_name: 'str'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'constant_values']
+  description: 'Use this value to pad the input. Default is zero.'
+  arg_name: 'constant_values'
+  type_name: 'python scalar'
+  is_optional: True
+  default: 'zero'
+- DocstringParam
+  args: ['param', 'xp']
+  description: 'The standard-compatible namespace for `x`. Default: infer.'
+  arg_name: 'xp'
+  type_name: 'array_namespace'
+  is_optional: True
+  default: 'infer'
+- DocstringReturns
+  args: ['returns']
+  description: |
+    The input array,
+    padded with ``pad_width`` elements equal to ``constant_values``.
+  type_name: 'array'
+  is_generator: False
+=== detect
+numpydoc
+=== compose numpydoc
+Pad the input array.
+
+Parameters
+----------
+x : array
+    Input array.
+pad_width : int or tuple of ints or sequence of pairs of ints
+    Pad the input array with this many elements from each side.
+    If a sequence of tuples, ``[(before_0, after_0), ... (before_N, after_N)]``,
+    each pair applies to the corresponding axis of ``x``.
+    A single tuple, ``(before, after)``, is equivalent to a list of ``x.ndim``
+    copies of this tuple.
+mode : str, optional
+    Only "constant" mode is currently supported, which pads with
+    the value passed to `constant_values`.
+constant_values : python scalar, default=zero
+    Use this value to pad the input. Default is zero.
+xp : array_namespace, default=infer
+    The standard-compatible namespace for `x`. Default: infer.
+
+Returns
+-------
+array
+    The input array,
+    padded with ``pad_width`` elements equal to ``constant_values``.

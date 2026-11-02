@@ -1,0 +1,42 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+    Remove all formatting codes from C{text}, leaving only the text.
+
+    @type text: C{str}
+    @param text: Formatted text to parse.
+
+    @rtype: C{str}
+    @return: Plain text without any control sequences.
+
+    @since: 13.1
+    
+=== parse epydoc
+short_description: 'Remove all formatting codes from C{text}, leaving only the text.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringParam
+  args: ['type', 'text']
+  description: 'Formatted text to parse.'
+  arg_name: 'text'
+  type_name: 'C{str}'
+  is_optional: False
+- DocstringReturns
+  args: ['rtype']
+  description: 'Plain text without any control sequences.'
+  type_name: 'C{str}'
+  is_generator: False
+- DocstringMeta
+  args: ['since']
+  description: '13.1'
+=== detect
+epydoc
+=== compose epydoc
+Remove all formatting codes from C{text}, leaving only the text.
+
+@type text: C{str}
+@param text: Formatted text to parse.
+@rtype: C{str}
+@return: Plain text without any control sequences.
+@since: 13.1

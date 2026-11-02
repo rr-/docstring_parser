@@ -1,0 +1,36 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Join text together with this instance as the separator.
+
+        Args:
+            lines (Iterable[Text]): An iterable of Text instances to join.
+
+        Returns:
+            Text: A new text instance containing join text.
+        
+=== parse google
+short_description: 'Join text together with this instance as the separator.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'lines (Iterable[Text])']
+  description: 'An iterable of Text instances to join.'
+  arg_name: 'lines'
+  type_name: 'Iterable[Text]'
+  is_optional: False
+- DocstringReturns
+  args: ['returns', 'Text']
+  description: 'A new text instance containing join text.'
+  type_name: 'Text'
+  is_generator: False
+=== detect
+google
+=== compose google
+Join text together with this instance as the separator.
+
+Args:
+    lines (Iterable[Text]): An iterable of Text instances to join.
+
+Returns:
+    Text: A new text instance containing join text.

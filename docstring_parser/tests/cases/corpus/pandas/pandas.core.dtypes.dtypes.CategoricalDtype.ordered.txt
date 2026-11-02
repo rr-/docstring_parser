@@ -1,0 +1,68 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Whether the categories have an ordered relationship.
+
+        When ``True``, comparison operations on the resulting Categorical
+        are valid and sort in the order of the categories.
+
+        See Also
+        --------
+        categories : An Index containing the unique categories allowed.
+
+        Examples
+        --------
+        >>> cat_type = pd.CategoricalDtype(categories=["a", "b"], ordered=True)
+        >>> cat_type.ordered
+        True
+
+        >>> cat_type = pd.CategoricalDtype(categories=["a", "b"], ordered=False)
+        >>> cat_type.ordered
+        False
+        
+=== parse numpydoc
+short_description: 'Whether the categories have an ordered relationship.'
+long_description: |
+  When ``True``, comparison operations on the resulting Categorical
+  are valid and sort in the order of the categories.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringMeta
+  args: ['see_also']
+  description: 'categories : An Index containing the unique categories allowed.'
+- DocstringExample
+  args: ['examples']
+  description: |
+    True
+    
+  snippet: |
+    >>> cat_type = pd.CategoricalDtype(categories=["a", "b"], ordered=True)
+    >>> cat_type.ordered
+- DocstringExample
+  args: ['examples']
+  description: 'False'
+  snippet: |
+    >>> cat_type = pd.CategoricalDtype(categories=["a", "b"], ordered=False)
+    >>> cat_type.ordered
+=== detect
+numpydoc
+=== compose numpydoc
+Whether the categories have an ordered relationship.
+
+When ``True``, comparison operations on the resulting Categorical
+are valid and sort in the order of the categories.
+
+Examples
+--------
+>>> cat_type = pd.CategoricalDtype(categories=["a", "b"], ordered=True)
+>>> cat_type.ordered
+True
+
+>>> cat_type = pd.CategoricalDtype(categories=["a", "b"], ordered=False)
+>>> cat_type.ordered
+False
+
+See Also
+--------
+categories : An Index containing the unique categories allowed.

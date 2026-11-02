@@ -1,0 +1,22 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+This class is only retained for backwards compatibility.
+
+    !!! Warning "Deprecated"
+        BaseConfig is deprecated. Use the [`pydantic.ConfigDict`][pydantic.ConfigDict] instead.
+    
+=== parse google
+short_description: 'This class is only retained for backwards compatibility.'
+long_description: |
+  !!! Warning "Deprecated"
+      BaseConfig is deprecated. Use the [`pydantic.ConfigDict`][pydantic.ConfigDict] instead.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+This class is only retained for backwards compatibility.
+
+!!! Warning "Deprecated"
+    BaseConfig is deprecated. Use the [`pydantic.ConfigDict`][pydantic.ConfigDict] instead.

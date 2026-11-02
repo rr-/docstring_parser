@@ -1,0 +1,60 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Returns boolean for whether the client certificate should be used for mTLS.
+
+    If GOOGLE_API_USE_CLIENT_CERTIFICATE is set to true or false, a corresponding
+    bool value will be returned. If the value is set to an unexpected string, it
+    will default to False.
+    If GOOGLE_API_USE_CLIENT_CERTIFICATE is unset, the value will be inferred
+    as True (auto-enabled) if a workload config file exists (pointed at by
+    GOOGLE_API_CERTIFICATE_CONFIG or CLOUDSDK_CONTEXT_AWARE_CERTIFICATE_CONFIG_FILE_PATH,
+    or the default path like ~/.config/gcloud/certificate_config.json)
+    containing a "workload" section, or if no certificate config file is
+    configured/present and the GKE credential bundle exists at
+    /var/run/secrets/workload-spiffe-credentials/x509.credential-bundle.private-key.pem.
+    Otherwise, it returns False.
+
+    Returns:
+        bool: Whether the client certificate should be used for mTLS connection.
+    
+=== parse google
+short_description: 'Returns boolean for whether the client certificate should be used for mTLS.'
+long_description: |
+  If GOOGLE_API_USE_CLIENT_CERTIFICATE is set to true or false, a corresponding
+  bool value will be returned. If the value is set to an unexpected string, it
+  will default to False.
+  If GOOGLE_API_USE_CLIENT_CERTIFICATE is unset, the value will be inferred
+  as True (auto-enabled) if a workload config file exists (pointed at by
+  GOOGLE_API_CERTIFICATE_CONFIG or CLOUDSDK_CONTEXT_AWARE_CERTIFICATE_CONFIG_FILE_PATH,
+  or the default path like ~/.config/gcloud/certificate_config.json)
+  containing a "workload" section, or if no certificate config file is
+  configured/present and the GKE credential bundle exists at
+  /var/run/secrets/workload-spiffe-credentials/x509.credential-bundle.private-key.pem.
+  Otherwise, it returns False.
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringReturns
+  args: ['returns', 'bool']
+  description: 'Whether the client certificate should be used for mTLS connection.'
+  type_name: 'bool'
+  is_generator: False
+=== detect
+google
+=== compose google
+Returns boolean for whether the client certificate should be used for mTLS.
+
+If GOOGLE_API_USE_CLIENT_CERTIFICATE is set to true or false, a corresponding
+bool value will be returned. If the value is set to an unexpected string, it
+will default to False.
+If GOOGLE_API_USE_CLIENT_CERTIFICATE is unset, the value will be inferred
+as True (auto-enabled) if a workload config file exists (pointed at by
+GOOGLE_API_CERTIFICATE_CONFIG or CLOUDSDK_CONTEXT_AWARE_CERTIFICATE_CONFIG_FILE_PATH,
+or the default path like ~/.config/gcloud/certificate_config.json)
+containing a "workload" section, or if no certificate config file is
+configured/present and the GKE credential bundle exists at
+/var/run/secrets/workload-spiffe-credentials/x509.credential-bundle.private-key.pem.
+Otherwise, it returns False.
+
+Returns:
+    bool: Whether the client certificate should be used for mTLS connection.

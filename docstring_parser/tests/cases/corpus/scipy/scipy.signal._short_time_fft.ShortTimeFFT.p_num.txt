@@ -1,0 +1,93 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Number of time slices for an input signal with `n` samples.
+
+        It is given by `p_num` = `p_max` - `p_min` with `p_min` typically
+        being negative.
+        A detailed example is provided in the :ref:`tutorial_stft_sliding_win`
+        section of the :ref:`user_guide`.
+
+        Parameters
+        ----------
+        n : int
+            Number of samples of input signal
+
+        Returns
+        -------
+        p_num : int
+            Number of time slices for input signal with `n` samples.
+
+        See Also
+        --------
+        k_min: The smallest possible signal index.
+        k_max: First sample index after signal end not touched by a time slice.
+        lower_border_end: Where pre-padding effects end.
+        p_min: The smallest possible slice index.
+        p_max: Index of first non-overlapping upper time slice.
+        p_range: Determine and validate slice index range.
+        upper_border_begin: Where post-padding effects start.
+        ShortTimeFFT: Class this method belongs to.
+        
+=== parse numpydoc
+short_description: 'Number of time slices for an input signal with `n` samples.'
+long_description: |
+  It is given by `p_num` = `p_max` - `p_min` with `p_min` typically
+  being negative.
+  A detailed example is provided in the :ref:`tutorial_stft_sliding_win`
+  section of the :ref:`user_guide`.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'n']
+  description: 'Number of samples of input signal'
+  arg_name: 'n'
+  type_name: 'int'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: 'Number of time slices for input signal with `n` samples.'
+  type_name: 'int'
+  is_generator: False
+  return_name: 'p_num'
+- DocstringMeta
+  args: ['see_also']
+  description: |
+    k_min: The smallest possible signal index.
+    k_max: First sample index after signal end not touched by a time slice.
+    lower_border_end: Where pre-padding effects end.
+    p_min: The smallest possible slice index.
+    p_max: Index of first non-overlapping upper time slice.
+    p_range: Determine and validate slice index range.
+    upper_border_begin: Where post-padding effects start.
+    ShortTimeFFT: Class this method belongs to.
+=== detect
+numpydoc
+=== compose numpydoc
+Number of time slices for an input signal with `n` samples.
+
+It is given by `p_num` = `p_max` - `p_min` with `p_min` typically
+being negative.
+A detailed example is provided in the :ref:`tutorial_stft_sliding_win`
+section of the :ref:`user_guide`.
+
+Parameters
+----------
+n : int
+    Number of samples of input signal
+
+Returns
+-------
+p_num : int
+    Number of time slices for input signal with `n` samples.
+
+See Also
+--------
+k_min: The smallest possible signal index.
+k_max: First sample index after signal end not touched by a time slice.
+lower_border_end: Where pre-padding effects end.
+p_min: The smallest possible slice index.
+p_max: Index of first non-overlapping upper time slice.
+p_range: Determine and validate slice index range.
+upper_border_begin: Where post-padding effects start.
+ShortTimeFFT: Class this method belongs to.

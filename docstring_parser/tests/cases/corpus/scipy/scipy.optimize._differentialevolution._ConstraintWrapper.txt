@@ -1,0 +1,109 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Object to wrap/evaluate user defined constraints.
+
+    Very similar in practice to `PreparedConstraint`, except that no evaluation
+    of jac/hess is performed (explicit or implicit).
+
+    If created successfully, it will contain the attributes listed below.
+
+    Parameters
+    ----------
+    constraint : {`NonlinearConstraint`, `LinearConstraint`, `Bounds`}
+        Constraint to check and prepare.
+    x0 : array_like
+        Initial vector of independent variables, shape (N,)
+
+    Attributes
+    ----------
+    fun : callable
+        Function defining the constraint wrapped by one of the convenience
+        classes.
+    bounds : 2-tuple
+        Contains lower and upper bounds for the constraints --- lb and ub.
+        These are converted to ndarray and have a size equal to the number of
+        the constraints.
+
+    Notes
+    -----
+    _ConstraintWrapper.fun and _ConstraintWrapper.violation can get sent
+    arrays of shape (N, S) or (N,), where S is the number of vectors of shape
+    (N,) to consider constraints for.
+    
+=== parse numpydoc
+short_description: 'Object to wrap/evaluate user defined constraints.'
+long_description: |
+  Very similar in practice to `PreparedConstraint`, except that no evaluation
+  of jac/hess is performed (explicit or implicit).
+  
+  If created successfully, it will contain the attributes listed below.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'constraint']
+  description: 'Constraint to check and prepare.'
+  arg_name: 'constraint'
+  type_name: '{`NonlinearConstraint`, `LinearConstraint`, `Bounds`}'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'x0']
+  description: 'Initial vector of independent variables, shape (N,)'
+  arg_name: 'x0'
+  type_name: 'array_like'
+  is_optional: False
+- DocstringParam
+  args: ['attribute', 'fun']
+  description: |
+    Function defining the constraint wrapped by one of the convenience
+    classes.
+  arg_name: 'fun'
+  type_name: 'callable'
+  is_optional: False
+- DocstringParam
+  args: ['attribute', 'bounds']
+  description: |
+    Contains lower and upper bounds for the constraints --- lb and ub.
+    These are converted to ndarray and have a size equal to the number of
+    the constraints.
+  arg_name: 'bounds'
+  type_name: '2-tuple'
+  is_optional: False
+- DocstringMeta
+  args: ['notes']
+  description: |
+    _ConstraintWrapper.fun and _ConstraintWrapper.violation can get sent
+    arrays of shape (N, S) or (N,), where S is the number of vectors of shape
+    (N,) to consider constraints for.
+=== detect
+numpydoc
+=== compose numpydoc
+Object to wrap/evaluate user defined constraints.
+
+Very similar in practice to `PreparedConstraint`, except that no evaluation
+of jac/hess is performed (explicit or implicit).
+
+If created successfully, it will contain the attributes listed below.
+
+Parameters
+----------
+constraint : {`NonlinearConstraint`, `LinearConstraint`, `Bounds`}
+    Constraint to check and prepare.
+x0 : array_like
+    Initial vector of independent variables, shape (N,)
+
+Attributes
+----------
+fun : callable
+    Function defining the constraint wrapped by one of the convenience
+    classes.
+bounds : 2-tuple
+    Contains lower and upper bounds for the constraints --- lb and ub.
+    These are converted to ndarray and have a size equal to the number of
+    the constraints.
+
+Notes
+-----
+_ConstraintWrapper.fun and _ConstraintWrapper.violation can get sent
+arrays of shape (N, S) or (N,), where S is the number of vectors of shape
+(N,) to consider constraints for.

@@ -1,0 +1,34 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Pad the left with a given character.
+
+        Args:
+            count (int): Number of characters to pad.
+            character (str, optional): Character to pad with. Defaults to " ".
+        
+=== parse google
+short_description: 'Pad the left with a given character.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'count (int)']
+  description: 'Number of characters to pad.'
+  arg_name: 'count'
+  type_name: 'int'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'character (str, optional)']
+  description: 'Character to pad with. Defaults to " ".'
+  arg_name: 'character'
+  type_name: 'str'
+  is_optional: True
+  default: '" "'
+=== detect
+google
+=== compose google
+Pad the left with a given character.
+
+Args:
+    count (int): Number of characters to pad.
+    character (str?): Character to pad with. Defaults to " ".

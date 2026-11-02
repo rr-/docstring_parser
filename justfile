@@ -10,6 +10,15 @@ setup:
 test *args:
     uv run pytest {{args}}
 
+# Rewrite the expected output in the text case files from the current code
+update-cases:
+    UPDATE_CASES=1 uv run pytest -q docstring_parser/tests/test_cases.py
+
+# Download the corpus docstrings again and fill in their expected output
+harvest:
+    uv run --no-project --python 3.14 python tools/harvest_corpus.py
+    just update-cases
+
 # Run every prek hook on the whole tree, fixing what ruff can
 lint:
     uv run prek run --all-files

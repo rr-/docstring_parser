@@ -1,0 +1,30 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+This function allows you to check if an IP belongs to a network subnet
+
+    Example: returns True if ip = 192.168.1.1 and net = 192.168.1.0/24
+             returns False if ip = 192.168.1.1 and net = 192.168.100.0/24
+
+    :rtype: bool
+    
+=== parse rest
+short_description: 'This function allows you to check if an IP belongs to a network subnet'
+long_description: |
+  Example: returns True if ip = 192.168.1.1 and net = 192.168.1.0/24
+           returns False if ip = 192.168.1.1 and net = 192.168.100.0/24
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringReturns
+  args: []
+  type_name: 'bool'
+  is_generator: False
+=== detect
+rest
+=== compose rest
+This function allows you to check if an IP belongs to a network subnet
+
+Example: returns True if ip = 192.168.1.1 and net = 192.168.1.0/24
+         returns False if ip = 192.168.1.1 and net = 192.168.100.0/24
+
+:returns bool:

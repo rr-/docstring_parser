@@ -1,0 +1,19 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+    This function is indirectly used by ``field_schema()``, you should probably be using that function.
+
+    Take a single Pydantic ``ModelField``, and return its schema and any additional definitions from sub-models.
+    
+=== parse google
+short_description: 'This function is indirectly used by ``field_schema()``, you should probably be using that function.'
+long_description: 'Take a single Pydantic ``ModelField``, and return its schema and any additional definitions from sub-models.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+This function is indirectly used by ``field_schema()``, you should probably be using that function.
+
+Take a single Pydantic ``ModelField``, and return its schema and any additional definitions from sub-models.

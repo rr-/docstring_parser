@@ -1,0 +1,26 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Renders file size downloaded and total, e.g. '0.5/2.3 GB'.
+
+    Args:
+        binary_units (bool, optional): Use binary units, KiB, MiB etc. Defaults to False.
+    
+=== parse google
+short_description: "Renders file size downloaded and total, e.g. '0.5/2.3 GB'."
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'binary_units (bool, optional)']
+  description: 'Use binary units, KiB, MiB etc. Defaults to False.'
+  arg_name: 'binary_units'
+  type_name: 'bool'
+  is_optional: True
+  default: 'False'
+=== detect
+google
+=== compose google
+Renders file size downloaded and total, e.g. '0.5/2.3 GB'.
+
+Args:
+    binary_units (bool?): Use binary units, KiB, MiB etc. Defaults to False.

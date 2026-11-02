@@ -1,0 +1,18 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Returns the title of the group that a class parser adds for the class itself.
+
+    The group for the class is the first one added, the rest correspond to nested keys.
+    
+=== parse google
+short_description: 'Returns the title of the group that a class parser adds for the class itself.'
+long_description: 'The group for the class is the first one added, the rest correspond to nested keys.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Returns the title of the group that a class parser adds for the class itself.
+
+The group for the class is the first one added, the rest correspond to nested keys.

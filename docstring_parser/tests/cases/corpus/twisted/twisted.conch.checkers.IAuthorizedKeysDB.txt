@@ -1,0 +1,21 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+    An object that provides valid authorized ssh keys mapped to usernames.
+
+    @since: 15.0
+    
+=== parse epydoc
+short_description: 'An object that provides valid authorized ssh keys mapped to usernames.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringMeta
+  args: ['since']
+  description: '15.0'
+=== detect
+epydoc
+=== compose epydoc
+An object that provides valid authorized ssh keys mapped to usernames.
+
+@since: 15.0

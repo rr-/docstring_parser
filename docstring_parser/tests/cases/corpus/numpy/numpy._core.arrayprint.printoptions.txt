@@ -1,0 +1,101 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Context manager for setting print options.
+
+    Set print options for the scope of the `with` block, and restore the old
+    options at the end. See `set_printoptions` for the full description of
+    available options.
+
+    Examples
+    --------
+    >>> import numpy as np
+
+    >>> from numpy.testing import assert_equal
+    >>> with np.printoptions(precision=2):
+    ...     np.array([2.0]) / 3
+    array([0.67])
+
+    The `as`-clause of the `with`-statement gives the current print options:
+
+    >>> with np.printoptions(precision=2) as opts:
+    ...      assert_equal(opts, np.get_printoptions())
+
+    See Also
+    --------
+    set_printoptions, get_printoptions
+
+    Notes
+    -----
+    These print options apply only to NumPy ndarrays, not to scalars.
+
+    **Concurrency note:** see :ref:`text_formatting_options`
+
+    
+=== parse numpydoc
+short_description: 'Context manager for setting print options.'
+long_description: |
+  Set print options for the scope of the `with` block, and restore the old
+  options at the end. See `set_printoptions` for the full description of
+  available options.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringExample
+  args: ['examples']
+  description: ''
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  args: ['examples']
+  description: |
+    ...     np.array([2.0]) / 3
+    array([0.67])
+    
+    The `as`-clause of the `with`-statement gives the current print options:
+    
+  snippet: |
+    >>> from numpy.testing import assert_equal
+    >>> with np.printoptions(precision=2):
+- DocstringExample
+  args: ['examples']
+  description: '...      assert_equal(opts, np.get_printoptions())'
+  snippet: '>>> with np.printoptions(precision=2) as opts:'
+- DocstringMeta
+  args: ['see_also']
+  description: 'set_printoptions, get_printoptions'
+- DocstringMeta
+  args: ['notes']
+  description: |
+    These print options apply only to NumPy ndarrays, not to scalars.
+    
+    **Concurrency note:** see :ref:`text_formatting_options`
+=== detect
+numpydoc
+=== compose numpydoc
+Context manager for setting print options.
+
+Set print options for the scope of the `with` block, and restore the old
+options at the end. See `set_printoptions` for the full description of
+available options.
+
+Examples
+--------
+>>> import numpy as np
+>>> from numpy.testing import assert_equal
+>>> with np.printoptions(precision=2):
+...     np.array([2.0]) / 3
+array([0.67])
+
+The `as`-clause of the `with`-statement gives the current print options:
+
+>>> with np.printoptions(precision=2) as opts:
+...      assert_equal(opts, np.get_printoptions())
+
+See Also
+--------
+set_printoptions, get_printoptions
+
+Notes
+-----
+These print options apply only to NumPy ndarrays, not to scalars.
+
+**Concurrency note:** see :ref:`text_formatting_options`

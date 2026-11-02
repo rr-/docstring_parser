@@ -1,0 +1,32 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    A decorator that makes an exception class look like its base.
+
+    We use this to hide subclasses that are implementation details - the user
+    should catch the base type, which is what the traceback will show them.
+
+    Classes decorated with this decorator are subject to removal without a
+    deprecation warning.
+    
+=== parse numpydoc
+short_description: 'A decorator that makes an exception class look like its base.'
+long_description: |
+  We use this to hide subclasses that are implementation details - the user
+  should catch the base type, which is what the traceback will show them.
+  
+  Classes decorated with this decorator are subject to removal without a
+  deprecation warning.
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+A decorator that makes an exception class look like its base.
+
+We use this to hide subclasses that are implementation details - the user
+should catch the base type, which is what the traceback will show them.
+
+Classes decorated with this decorator are subject to removal without a
+deprecation warning.

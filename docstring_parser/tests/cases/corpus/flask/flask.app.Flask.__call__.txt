@@ -1,0 +1,20 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+The WSGI server calls the Flask application object as the
+        WSGI application. This calls :meth:`wsgi_app`, which can be
+        wrapped to apply middleware.
+        
+=== parse rest
+short_description: 'The WSGI server calls the Flask application object as the'
+long_description: |
+  WSGI application. This calls :meth:`wsgi_app`, which can be
+  wrapped to apply middleware.
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+The WSGI server calls the Flask application object as the
+WSGI application. This calls :meth:`wsgi_app`, which can be
+wrapped to apply middleware.

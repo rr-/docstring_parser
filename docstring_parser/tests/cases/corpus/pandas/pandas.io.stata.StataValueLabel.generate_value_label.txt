@@ -1,0 +1,46 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Generate the binary representation of the value labels.
+
+        Parameters
+        ----------
+        byteorder : str
+            Byte order of the output
+
+        Returns
+        -------
+        value_label : bytes
+            Bytes containing the formatted value label
+        
+=== parse numpydoc
+short_description: 'Generate the binary representation of the value labels.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'byteorder']
+  description: 'Byte order of the output'
+  arg_name: 'byteorder'
+  type_name: 'str'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: 'Bytes containing the formatted value label'
+  type_name: 'bytes'
+  is_generator: False
+  return_name: 'value_label'
+=== detect
+numpydoc
+=== compose numpydoc
+Generate the binary representation of the value labels.
+
+Parameters
+----------
+byteorder : str
+    Byte order of the output
+
+Returns
+-------
+value_label : bytes
+    Bytes containing the formatted value label

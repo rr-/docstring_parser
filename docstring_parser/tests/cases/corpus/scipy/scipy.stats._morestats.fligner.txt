@@ -1,0 +1,304 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Perform Fligner-Killeen test for equality of variance.
+
+    Fligner's test tests the null hypothesis that all input samples
+    are from populations with equal variances.  Fligner-Killeen's test is
+    distribution free when populations are identical [2]_.
+
+    Parameters
+    ----------
+    *samples : array_like
+        Arrays of sample data.  Need not be the same length.
+    center : {'mean', 'median', 'trimmed'}, optional
+        Which statistics to use to center data points within each sample. Default
+        is 'median'.
+    proportiontocut : float, optional
+        When `center` is 'trimmed', this gives the proportion of data points
+        to cut from each end. (See `scipy.stats.trim_mean`.)
+        Default is 0.05.
+    axis : int or tuple of ints, default: 0
+        If an int or tuple of ints, the axis or axes of the input along which
+        to compute the statistic. The statistic of each axis-slice (e.g. row)
+        of the input will appear in a corresponding element of the output.
+        If ``None``, the input will be raveled before computing the statistic.
+
+    Returns
+    -------
+    statistic : float
+        The test statistic.
+    pvalue : float
+        The p-value for the hypothesis test.
+
+    See Also
+    --------
+    bartlett : A parametric test for equality of k variances in normal samples
+    levene : A robust parametric test for equality of k variances
+    :ref:`hypothesis_fligner` : Extended example
+
+    Notes
+    -----
+    As with Levene's test there are three variants of Fligner's test that
+    differ by the measure of central tendency used in the test.  See `levene`
+    for more information.
+
+    Conover et al. (1981) examine many of the existing parametric and
+    nonparametric tests by extensive simulations and they conclude that the
+    tests proposed by Fligner and Killeen (1976) and Levene (1960) appear to be
+    superior in terms of robustness of departures from normality and power
+    [3]_.
+
+    References
+    ----------
+    .. [1] Qu, A., Lindsay, B. G., and Li, B. (2000). Improving generalized
+           estimating equations using quadratic inference functions.
+           Biometrika, 87(4), 823-836.
+           :doi:`10.1093/biomet/87.4.823`
+    .. [2] Fligner, M.A. and Killeen, T.J. (1976). Distribution-free two-sample
+           tests for scale. Journal of the American Statistical Association.
+           71(353), 210-213.
+    .. [3] Conover, W. J., Johnson, M. E. and Johnson M. M. (1981). A
+           comparative study of tests for homogeneity of variances, with
+           applications to the outer continental shelf bidding data.
+           Technometrics, 23(4), 351-361.
+
+    Examples
+    --------
+
+    >>> import numpy as np
+    >>> from scipy import stats
+
+    Test whether the lists `a`, `b` and `c` come from populations
+    with equal variances.
+
+    >>> a = [8.88, 9.12, 9.04, 8.98, 9.00, 9.08, 9.01, 8.85, 9.06, 8.99]
+    >>> b = [8.88, 8.95, 9.29, 9.44, 9.15, 9.58, 8.36, 9.18, 8.67, 9.05]
+    >>> c = [8.95, 9.12, 8.95, 8.85, 9.03, 8.84, 9.07, 8.98, 8.86, 8.98]
+    >>> stat, p = stats.fligner(a, b, c)
+    >>> p
+    0.00450826080004775
+
+    The small p-value suggests that the populations do not have equal
+    variances.
+
+    This is not surprising, given that the sample variance of `b` is much
+    larger than that of `a` and `c`:
+
+    >>> [np.var(x, ddof=1) for x in [a, b, c]]
+    [0.007054444444444413, 0.13073888888888888, 0.008890000000000002]
+
+    For a more detailed example, see :ref:`hypothesis_fligner`.
+    
+=== parse numpydoc
+short_description: 'Perform Fligner-Killeen test for equality of variance.'
+long_description: |
+  Fligner's test tests the null hypothesis that all input samples
+  are from populations with equal variances.  Fligner-Killeen's test is
+  distribution free when populations are identical [2]_.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', '*samples']
+  description: 'Arrays of sample data.  Need not be the same length.'
+  arg_name: '*samples'
+  type_name: 'array_like'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'center']
+  description: |
+    Which statistics to use to center data points within each sample. Default
+    is 'median'.
+  arg_name: 'center'
+  type_name: "{'mean', 'median', 'trimmed'}"
+  is_optional: True
+  default: "'median'"
+- DocstringParam
+  args: ['param', 'proportiontocut']
+  description: |
+    When `center` is 'trimmed', this gives the proportion of data points
+    to cut from each end. (See `scipy.stats.trim_mean`.)
+    Default is 0.05.
+  arg_name: 'proportiontocut'
+  type_name: 'float'
+  is_optional: True
+  default: '0.05'
+- DocstringParam
+  args: ['param', 'axis']
+  description: |
+    If an int or tuple of ints, the axis or axes of the input along which
+    to compute the statistic. The statistic of each axis-slice (e.g. row)
+    of the input will appear in a corresponding element of the output.
+    If ``None``, the input will be raveled before computing the statistic.
+  arg_name: 'axis'
+  type_name: 'int or tuple of ints'
+  is_optional: True
+  default: '0'
+- DocstringReturns
+  args: ['returns']
+  description: 'The test statistic.'
+  type_name: 'float'
+  is_generator: False
+  return_name: 'statistic'
+- DocstringReturns
+  args: ['returns']
+  description: 'The p-value for the hypothesis test.'
+  type_name: 'float'
+  is_generator: False
+  return_name: 'pvalue'
+- DocstringMeta
+  args: ['see_also']
+  description: |
+    bartlett : A parametric test for equality of k variances in normal samples
+    levene : A robust parametric test for equality of k variances
+    :ref:`hypothesis_fligner` : Extended example
+- DocstringMeta
+  args: ['notes']
+  description: |
+    As with Levene's test there are three variants of Fligner's test that
+    differ by the measure of central tendency used in the test.  See `levene`
+    for more information.
+    
+    Conover et al. (1981) examine many of the existing parametric and
+    nonparametric tests by extensive simulations and they conclude that the
+    tests proposed by Fligner and Killeen (1976) and Levene (1960) appear to be
+    superior in terms of robustness of departures from normality and power
+    [3]_.
+- DocstringMeta
+  args: ['references']
+  description: |
+    .. [1] Qu, A., Lindsay, B. G., and Li, B. (2000). Improving generalized
+           estimating equations using quadratic inference functions.
+           Biometrika, 87(4), 823-836.
+           :doi:`10.1093/biomet/87.4.823`
+    .. [2] Fligner, M.A. and Killeen, T.J. (1976). Distribution-free two-sample
+           tests for scale. Journal of the American Statistical Association.
+           71(353), 210-213.
+    .. [3] Conover, W. J., Johnson, M. E. and Johnson M. M. (1981). A
+           comparative study of tests for homogeneity of variances, with
+           applications to the outer continental shelf bidding data.
+           Technometrics, 23(4), 351-361.
+- DocstringExample
+  args: ['examples']
+  description: |
+    
+    Test whether the lists `a`, `b` and `c` come from populations
+    with equal variances.
+    
+  snippet: |
+    >>> import numpy as np
+    >>> from scipy import stats
+- DocstringExample
+  args: ['examples']
+  description: |
+    0.00450826080004775
+    
+    The small p-value suggests that the populations do not have equal
+    variances.
+    
+    This is not surprising, given that the sample variance of `b` is much
+    larger than that of `a` and `c`:
+    
+  snippet: |
+    >>> a = [8.88, 9.12, 9.04, 8.98, 9.00, 9.08, 9.01, 8.85, 9.06, 8.99]
+    >>> b = [8.88, 8.95, 9.29, 9.44, 9.15, 9.58, 8.36, 9.18, 8.67, 9.05]
+    >>> c = [8.95, 9.12, 8.95, 8.85, 9.03, 8.84, 9.07, 8.98, 8.86, 8.98]
+    >>> stat, p = stats.fligner(a, b, c)
+    >>> p
+- DocstringExample
+  args: ['examples']
+  description: |
+    [0.007054444444444413, 0.13073888888888888, 0.008890000000000002]
+    
+    For a more detailed example, see :ref:`hypothesis_fligner`.
+  snippet: '>>> [np.var(x, ddof=1) for x in [a, b, c]]'
+=== detect
+numpydoc
+=== compose numpydoc
+Perform Fligner-Killeen test for equality of variance.
+
+Fligner's test tests the null hypothesis that all input samples
+are from populations with equal variances.  Fligner-Killeen's test is
+distribution free when populations are identical [2]_.
+
+Parameters
+----------
+*samples : array_like
+    Arrays of sample data.  Need not be the same length.
+center : {'mean', 'median', 'trimmed'}, default='median'
+    Which statistics to use to center data points within each sample. Default
+    is 'median'.
+proportiontocut : float, default=0.05
+    When `center` is 'trimmed', this gives the proportion of data points
+    to cut from each end. (See `scipy.stats.trim_mean`.)
+    Default is 0.05.
+axis : int or tuple of ints, default=0
+    If an int or tuple of ints, the axis or axes of the input along which
+    to compute the statistic. The statistic of each axis-slice (e.g. row)
+    of the input will appear in a corresponding element of the output.
+    If ``None``, the input will be raveled before computing the statistic.
+
+Returns
+-------
+statistic : float
+    The test statistic.
+pvalue : float
+    The p-value for the hypothesis test.
+
+Examples
+--------
+>>> import numpy as np
+>>> from scipy import stats
+
+Test whether the lists `a`, `b` and `c` come from populations
+with equal variances.
+
+>>> a = [8.88, 9.12, 9.04, 8.98, 9.00, 9.08, 9.01, 8.85, 9.06, 8.99]
+>>> b = [8.88, 8.95, 9.29, 9.44, 9.15, 9.58, 8.36, 9.18, 8.67, 9.05]
+>>> c = [8.95, 9.12, 8.95, 8.85, 9.03, 8.84, 9.07, 8.98, 8.86, 8.98]
+>>> stat, p = stats.fligner(a, b, c)
+>>> p
+0.00450826080004775
+
+The small p-value suggests that the populations do not have equal
+variances.
+
+This is not surprising, given that the sample variance of `b` is much
+larger than that of `a` and `c`:
+
+>>> [np.var(x, ddof=1) for x in [a, b, c]]
+[0.007054444444444413, 0.13073888888888888, 0.008890000000000002]
+
+For a more detailed example, see :ref:`hypothesis_fligner`.
+
+See Also
+--------
+bartlett : A parametric test for equality of k variances in normal samples
+levene : A robust parametric test for equality of k variances
+:ref:`hypothesis_fligner` : Extended example
+
+Notes
+-----
+As with Levene's test there are three variants of Fligner's test that
+differ by the measure of central tendency used in the test.  See `levene`
+for more information.
+
+Conover et al. (1981) examine many of the existing parametric and
+nonparametric tests by extensive simulations and they conclude that the
+tests proposed by Fligner and Killeen (1976) and Levene (1960) appear to be
+superior in terms of robustness of departures from normality and power
+[3]_.
+
+References
+----------
+.. [1] Qu, A., Lindsay, B. G., and Li, B. (2000). Improving generalized
+       estimating equations using quadratic inference functions.
+       Biometrika, 87(4), 823-836.
+       :doi:`10.1093/biomet/87.4.823`
+.. [2] Fligner, M.A. and Killeen, T.J. (1976). Distribution-free two-sample
+       tests for scale. Journal of the American Statistical Association.
+       71(353), 210-213.
+.. [3] Conover, W. J., Johnson, M. E. and Johnson M. M. (1981). A
+       comparative study of tests for homogeneity of variances, with
+       applications to the outer continental shelf bidding data.
+       Technometrics, 23(4), 351-361.

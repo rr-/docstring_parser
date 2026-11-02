@@ -1,0 +1,55 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Determine whether to use an mTLS endpoint.
+
+    This relies on the GOOGLE_API_USE_MTLS_ENDPOINT environment variable. If set to
+    "always", returns True. If set to "never", returns False. If set to "auto"
+    or unset, returns whether a client certificate is available.
+
+    Args:
+        client_cert_available (Optional[bool]): indicating if a client certificate
+            is available. If None, this is determined by checking if client
+            certificates are enabled using :func:`should_use_client_cert`.
+
+    Returns:
+        bool: indicating if an mTLS endpoint should be used.
+    
+=== parse google
+short_description: 'Determine whether to use an mTLS endpoint.'
+long_description: |
+  This relies on the GOOGLE_API_USE_MTLS_ENDPOINT environment variable. If set to
+  "always", returns True. If set to "never", returns False. If set to "auto"
+  or unset, returns whether a client certificate is available.
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'client_cert_available (Optional[bool])']
+  description: |
+    indicating if a client certificate
+    is available. If None, this is determined by checking if client
+    certificates are enabled using :func:`should_use_client_cert`.
+  arg_name: 'client_cert_available'
+  type_name: 'Optional[bool]'
+  is_optional: False
+- DocstringReturns
+  args: ['returns', 'bool']
+  description: 'indicating if an mTLS endpoint should be used.'
+  type_name: 'bool'
+  is_generator: False
+=== detect
+google
+=== compose google
+Determine whether to use an mTLS endpoint.
+
+This relies on the GOOGLE_API_USE_MTLS_ENDPOINT environment variable. If set to
+"always", returns True. If set to "never", returns False. If set to "auto"
+or unset, returns whether a client certificate is available.
+
+Args:
+    client_cert_available (Optional[bool]): indicating if a client certificate
+        is available. If None, this is determined by checking if client
+        certificates are enabled using :func:`should_use_client_cert`.
+
+Returns:
+    bool: indicating if an mTLS endpoint should be used.

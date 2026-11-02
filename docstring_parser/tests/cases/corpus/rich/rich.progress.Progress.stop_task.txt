@@ -1,0 +1,30 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Stop a task.
+
+        This will freeze the elapsed time on the task.
+
+        Args:
+            task_id (TaskID): ID of task.
+        
+=== parse google
+short_description: 'Stop a task.'
+long_description: 'This will freeze the elapsed time on the task.'
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'task_id (TaskID)']
+  description: 'ID of task.'
+  arg_name: 'task_id'
+  type_name: 'TaskID'
+  is_optional: False
+=== detect
+google
+=== compose google
+Stop a task.
+
+This will freeze the elapsed time on the task.
+
+Args:
+    task_id (TaskID): ID of task.

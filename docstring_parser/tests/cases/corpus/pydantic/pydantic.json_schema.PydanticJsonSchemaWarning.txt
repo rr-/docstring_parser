@@ -1,0 +1,23 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+This class is used to emit warnings produced during JSON schema generation.
+    See the [`GenerateJsonSchema.emit_warning`][pydantic.json_schema.GenerateJsonSchema.emit_warning] and
+    [`GenerateJsonSchema.render_warning_message`][pydantic.json_schema.GenerateJsonSchema.render_warning_message]
+    methods for more details; these can be overridden to control warning behavior.
+    
+=== parse google
+short_description: 'This class is used to emit warnings produced during JSON schema generation.'
+long_description: |
+  See the [`GenerateJsonSchema.emit_warning`][pydantic.json_schema.GenerateJsonSchema.emit_warning] and
+  [`GenerateJsonSchema.render_warning_message`][pydantic.json_schema.GenerateJsonSchema.render_warning_message]
+  methods for more details; these can be overridden to control warning behavior.
+blank_after_short_description: False
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+This class is used to emit warnings produced during JSON schema generation.
+See the [`GenerateJsonSchema.emit_warning`][pydantic.json_schema.GenerateJsonSchema.emit_warning] and
+[`GenerateJsonSchema.render_warning_message`][pydantic.json_schema.GenerateJsonSchema.render_warning_message]
+methods for more details; these can be overridden to control warning behavior.

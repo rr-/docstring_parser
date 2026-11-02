@@ -1,0 +1,128 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Check whether an array-like or dtype is of the datetime64 dtype.
+
+    This function checks for the base ``datetime64`` dtype without regard
+    to timezone information. For timezone-aware checks, use
+    :func:`api.types.is_datetime64_any_dtype` instead.
+
+    Parameters
+    ----------
+    arr_or_dtype : array-like or dtype
+        The array-like or dtype to check.
+
+    Returns
+    -------
+    boolean
+        Whether or not the array-like or dtype is of the datetime64 dtype.
+
+    See Also
+    --------
+    api.types.is_datetime64_ns_dtype: Check whether the provided array or
+                                        dtype is of the datetime64[ns] dtype.
+    api.types.is_datetime64_any_dtype: Check whether the provided array or
+                                        dtype is of the datetime64 dtype.
+
+    Examples
+    --------
+    >>> from pandas.api.types import is_datetime64_dtype
+    >>> is_datetime64_dtype(object)
+    False
+    >>> is_datetime64_dtype(np.datetime64)
+    True
+    >>> is_datetime64_dtype(np.array([], dtype=int))
+    False
+    >>> is_datetime64_dtype(np.array([], dtype=np.datetime64))
+    True
+    >>> is_datetime64_dtype([1, 2, 3])
+    False
+    
+=== parse numpydoc
+short_description: 'Check whether an array-like or dtype is of the datetime64 dtype.'
+long_description: |
+  This function checks for the base ``datetime64`` dtype without regard
+  to timezone information. For timezone-aware checks, use
+  :func:`api.types.is_datetime64_any_dtype` instead.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'arr_or_dtype']
+  description: 'The array-like or dtype to check.'
+  arg_name: 'arr_or_dtype'
+  type_name: 'array-like or dtype'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: 'Whether or not the array-like or dtype is of the datetime64 dtype.'
+  type_name: 'boolean'
+  is_generator: False
+- DocstringMeta
+  args: ['see_also']
+  description: |
+    api.types.is_datetime64_ns_dtype: Check whether the provided array or
+                                        dtype is of the datetime64[ns] dtype.
+    api.types.is_datetime64_any_dtype: Check whether the provided array or
+                                        dtype is of the datetime64 dtype.
+- DocstringExample
+  args: ['examples']
+  description: 'False'
+  snippet: |
+    >>> from pandas.api.types import is_datetime64_dtype
+    >>> is_datetime64_dtype(object)
+- DocstringExample
+  args: ['examples']
+  description: 'True'
+  snippet: '>>> is_datetime64_dtype(np.datetime64)'
+- DocstringExample
+  args: ['examples']
+  description: 'False'
+  snippet: '>>> is_datetime64_dtype(np.array([], dtype=int))'
+- DocstringExample
+  args: ['examples']
+  description: 'True'
+  snippet: '>>> is_datetime64_dtype(np.array([], dtype=np.datetime64))'
+- DocstringExample
+  args: ['examples']
+  description: 'False'
+  snippet: '>>> is_datetime64_dtype([1, 2, 3])'
+=== detect
+numpydoc
+=== compose numpydoc
+Check whether an array-like or dtype is of the datetime64 dtype.
+
+This function checks for the base ``datetime64`` dtype without regard
+to timezone information. For timezone-aware checks, use
+:func:`api.types.is_datetime64_any_dtype` instead.
+
+Parameters
+----------
+arr_or_dtype : array-like or dtype
+    The array-like or dtype to check.
+
+Returns
+-------
+boolean
+    Whether or not the array-like or dtype is of the datetime64 dtype.
+
+Examples
+--------
+>>> from pandas.api.types import is_datetime64_dtype
+>>> is_datetime64_dtype(object)
+False
+>>> is_datetime64_dtype(np.datetime64)
+True
+>>> is_datetime64_dtype(np.array([], dtype=int))
+False
+>>> is_datetime64_dtype(np.array([], dtype=np.datetime64))
+True
+>>> is_datetime64_dtype([1, 2, 3])
+False
+
+See Also
+--------
+api.types.is_datetime64_ns_dtype: Check whether the provided array or
+                                    dtype is of the datetime64[ns] dtype.
+api.types.is_datetime64_any_dtype: Check whether the provided array or
+                                    dtype is of the datetime64 dtype.

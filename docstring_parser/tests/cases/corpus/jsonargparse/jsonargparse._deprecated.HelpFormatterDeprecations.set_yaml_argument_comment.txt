@@ -1,0 +1,41 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Sets the comment for an argument to a ruamel.yaml object.
+
+        Args:
+            text: The content to use for the comment.
+            cfg: The parent ruamel.yaml object.
+            key: The key of the argument.
+            depth: The nested level of the argument.
+        
+=== parse google
+short_description: 'Sets the comment for an argument to a ruamel.yaml object.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'text']
+  description: 'The content to use for the comment.'
+  arg_name: 'text'
+- DocstringParam
+  args: ['param', 'cfg']
+  description: 'The parent ruamel.yaml object.'
+  arg_name: 'cfg'
+- DocstringParam
+  args: ['param', 'key']
+  description: 'The key of the argument.'
+  arg_name: 'key'
+- DocstringParam
+  args: ['param', 'depth']
+  description: 'The nested level of the argument.'
+  arg_name: 'depth'
+=== detect
+google
+=== compose google
+Sets the comment for an argument to a ruamel.yaml object.
+
+Args:
+    text: The content to use for the comment.
+    cfg: The parent ruamel.yaml object.
+    key: The key of the argument.
+    depth: The nested level of the argument.

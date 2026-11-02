@@ -1,0 +1,72 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Generate HTML from console contents (requires record=True argument in constructor).
+
+        Args:
+            theme (TerminalTheme, optional): TerminalTheme object containing console colors.
+            clear (bool, optional): Clear record buffer after exporting. Defaults to ``True``.
+            code_format (str, optional): Format string to render HTML. In addition to '{foreground}',
+                '{background}', and '{code}', should contain '{stylesheet}' if inline_styles is ``False``.
+            inline_styles (bool, optional): If ``True`` styles will be inlined in to spans, which makes files
+                larger but easier to cut and paste markup. If ``False``, styles will be embedded in a style tag.
+                Defaults to False.
+
+        Returns:
+            str: String containing console contents as HTML.
+        
+=== parse google
+short_description: 'Generate HTML from console contents (requires record=True argument in constructor).'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'theme (TerminalTheme, optional)']
+  description: 'TerminalTheme object containing console colors.'
+  arg_name: 'theme'
+  type_name: 'TerminalTheme'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'clear (bool, optional)']
+  description: 'Clear record buffer after exporting. Defaults to ``True``.'
+  arg_name: 'clear'
+  type_name: 'bool'
+  is_optional: True
+  default: '``True``'
+- DocstringParam
+  args: ['param', 'code_format (str, optional)']
+  description: |
+    Format string to render HTML. In addition to '{foreground}',
+    '{background}', and '{code}', should contain '{stylesheet}' if inline_styles is ``False``.
+  arg_name: 'code_format'
+  type_name: 'str'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'inline_styles (bool, optional)']
+  description: |
+    If ``True`` styles will be inlined in to spans, which makes files
+    larger but easier to cut and paste markup. If ``False``, styles will be embedded in a style tag.
+    Defaults to False.
+  arg_name: 'inline_styles'
+  type_name: 'bool'
+  is_optional: True
+- DocstringReturns
+  args: ['returns', 'str']
+  description: 'String containing console contents as HTML.'
+  type_name: 'str'
+  is_generator: False
+=== detect
+google
+=== compose google
+Generate HTML from console contents (requires record=True argument in constructor).
+
+Args:
+    theme (TerminalTheme?): TerminalTheme object containing console colors.
+    clear (bool?): Clear record buffer after exporting. Defaults to ``True``.
+    code_format (str?): Format string to render HTML. In addition to '{foreground}',
+        '{background}', and '{code}', should contain '{stylesheet}' if inline_styles is ``False``.
+    inline_styles (bool?): If ``True`` styles will be inlined in to spans, which makes files
+        larger but easier to cut and paste markup. If ``False``, styles will be embedded in a style tag.
+        Defaults to False.
+
+Returns:
+    str: String containing console contents as HTML.

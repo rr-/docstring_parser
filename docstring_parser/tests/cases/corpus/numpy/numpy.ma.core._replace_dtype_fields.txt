@@ -1,0 +1,29 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Construct a dtype description list from a given dtype.
+
+    Returns a new dtype object, with all fields and subtypes in the given type
+    recursively replaced with `primitive_dtype`.
+
+    Arguments are coerced to dtypes first.
+    
+=== parse numpydoc
+short_description: 'Construct a dtype description list from a given dtype.'
+long_description: |
+  Returns a new dtype object, with all fields and subtypes in the given type
+  recursively replaced with `primitive_dtype`.
+  
+  Arguments are coerced to dtypes first.
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Construct a dtype description list from a given dtype.
+
+Returns a new dtype object, with all fields and subtypes in the given type
+recursively replaced with `primitive_dtype`.
+
+Arguments are coerced to dtypes first.

@@ -1,0 +1,24 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Get windows console features.
+
+        Returns:
+            WindowsConsoleFeatures: An instance of WindowsConsoleFeatures.
+        
+=== parse google
+short_description: 'Get windows console features.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringReturns
+  args: ['returns', 'WindowsConsoleFeatures']
+  description: 'An instance of WindowsConsoleFeatures.'
+  type_name: 'WindowsConsoleFeatures'
+  is_generator: False
+=== detect
+google
+=== compose google
+Get windows console features.
+
+Returns:
+    WindowsConsoleFeatures: An instance of WindowsConsoleFeatures.

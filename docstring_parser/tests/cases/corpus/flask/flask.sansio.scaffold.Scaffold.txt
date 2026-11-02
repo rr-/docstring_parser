@@ -1,0 +1,74 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Common behavior shared between :class:`~flask.Flask` and
+    :class:`~flask.blueprints.Blueprint`.
+
+    :param import_name: The import name of the module where this object
+        is defined. Usually :attr:`__name__` should be used.
+    :param static_folder: Path to a folder of static files to serve.
+        If this is set, a static route will be added.
+    :param static_url_path: URL prefix for the static route.
+    :param template_folder: Path to a folder containing template files.
+        for rendering. If this is set, a Jinja loader will be added.
+    :param root_path: The path that static, template, and resource files
+        are relative to. Typically not set, it is discovered based on
+        the ``import_name``.
+
+    .. versionadded:: 2.0
+    
+=== parse rest
+short_description: 'Common behavior shared between :class:`~flask.Flask` and'
+long_description: '.. versionadded:: 2.0'
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringMeta
+  args: ['class']
+  description: '`~flask.blueprints.Blueprint`.'
+- DocstringParam
+  args: ['param', 'import_name']
+  description: |
+    The import name of the module where this object
+    is defined. Usually :attr:`__name__` should be used.
+  arg_name: 'import_name'
+- DocstringParam
+  args: ['param', 'static_folder']
+  description: |
+    Path to a folder of static files to serve.
+    If this is set, a static route will be added.
+  arg_name: 'static_folder'
+- DocstringParam
+  args: ['param', 'static_url_path']
+  description: 'URL prefix for the static route.'
+  arg_name: 'static_url_path'
+- DocstringParam
+  args: ['param', 'template_folder']
+  description: |
+    Path to a folder containing template files.
+    for rendering. If this is set, a Jinja loader will be added.
+  arg_name: 'template_folder'
+- DocstringParam
+  args: ['param', 'root_path']
+  description: |
+    The path that static, template, and resource files
+    are relative to. Typically not set, it is discovered based on
+    the ``import_name``.
+  arg_name: 'root_path'
+=== detect
+rest
+=== compose rest
+Common behavior shared between :class:`~flask.Flask` and
+
+.. versionadded:: 2.0
+
+:class: `~flask.blueprints.Blueprint`.
+:param import_name: The import name of the module where this object
+    is defined. Usually :attr:`__name__` should be used.
+:param static_folder: Path to a folder of static files to serve.
+    If this is set, a static route will be added.
+:param static_url_path: URL prefix for the static route.
+:param template_folder: Path to a folder containing template files.
+    for rendering. If this is set, a Jinja loader will be added.
+:param root_path: The path that static, template, and resource files
+    are relative to. Typically not set, it is discovered based on
+    the ``import_name``.

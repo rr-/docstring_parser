@@ -1,0 +1,86 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Dispatches request methods to the corresponding instance methods.
+    For example, if you implement a ``get`` method, it will be used to
+    handle ``GET`` requests.
+
+    This can be useful for defining a REST API.
+
+    :attr:`methods` is automatically set based on the methods defined on
+    the class.
+
+    See :doc:`views` for a detailed guide.
+
+    .. code-block:: python
+
+        class CounterAPI(MethodView):
+            def get(self):
+                return str(session.get("counter", 0))
+
+            def post(self):
+                session["counter"] = session.get("counter", 0) + 1
+                return redirect(url_for("counter"))
+
+        app.add_url_rule(
+            "/counter", view_func=CounterAPI.as_view("counter")
+        )
+    
+=== parse rest
+short_description: 'Dispatches request methods to the corresponding instance methods.'
+long_description: |
+  For example, if you implement a ``get`` method, it will be used to
+  handle ``GET`` requests.
+  
+  This can be useful for defining a REST API.
+  
+  See :doc:`views` for a detailed guide.
+  
+  .. code-block:: python
+  
+      class CounterAPI(MethodView):
+          def get(self):
+              return str(session.get("counter", 0))
+  
+          def post(self):
+              session["counter"] = session.get("counter", 0) + 1
+              return redirect(url_for("counter"))
+  
+      app.add_url_rule(
+          "/counter", view_func=CounterAPI.as_view("counter")
+      )
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringMeta
+  args: ['attr']
+  description: |
+    `methods` is automatically set based on the methods defined on
+    the class.
+=== detect
+rest
+=== compose rest
+Dispatches request methods to the corresponding instance methods.
+
+For example, if you implement a ``get`` method, it will be used to
+handle ``GET`` requests.
+
+This can be useful for defining a REST API.
+
+See :doc:`views` for a detailed guide.
+
+.. code-block:: python
+
+    class CounterAPI(MethodView):
+        def get(self):
+            return str(session.get("counter", 0))
+
+        def post(self):
+            session["counter"] = session.get("counter", 0) + 1
+            return redirect(url_for("counter"))
+
+    app.add_url_rule(
+        "/counter", view_func=CounterAPI.as_view("counter")
+    )
+
+:attr: `methods` is automatically set based on the methods defined on
+    the class.

@@ -1,0 +1,23 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Warn at most once that the installed numexpr is unusable.
+
+    Called where numexpr would otherwise have been used, so that users who never
+    reach such a code path are not warned (GH#66956).
+    
+=== parse numpydoc
+short_description: 'Warn at most once that the installed numexpr is unusable.'
+long_description: |
+  Called where numexpr would otherwise have been used, so that users who never
+  reach such a code path are not warned (GH#66956).
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Warn at most once that the installed numexpr is unusable.
+
+Called where numexpr would otherwise have been used, so that users who never
+reach such a code path are not warned (GH#66956).

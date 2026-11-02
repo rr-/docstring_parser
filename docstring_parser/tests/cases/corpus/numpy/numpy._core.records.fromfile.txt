@@ -1,0 +1,156 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Create an array from binary file data
+
+    Parameters
+    ----------
+    fd : str or file type
+        If file is a string or a path-like object then that file is opened,
+        else it is assumed to be a file object. The file object must
+        support random access (i.e. it must have tell and seek methods).
+    dtype : data-type, optional
+        valid dtype for all arrays
+    shape : int or tuple of ints, optional
+        shape of each array.
+    offset : int, optional
+        Position in the file to start reading from.
+    formats, names, titles, aligned, byteorder :
+        If `dtype` is ``None``, these arguments are passed to
+        `numpy.format_parser` to construct a dtype. See that function for
+        detailed documentation
+
+    Returns
+    -------
+    np.recarray
+        record array consisting of data enclosed in file.
+
+    Examples
+    --------
+    >>> from tempfile import TemporaryFile
+    >>> a = np.empty(10,dtype='f8,i4,S5')
+    >>> a[5] = (0.5,10,'abcde')
+    >>>
+    >>> fd=TemporaryFile()
+    >>> a = a.view(a.dtype.newbyteorder('<'))
+    >>> a.tofile(fd)
+    >>>
+    >>> _ = fd.seek(0)
+    >>> r=np.rec.fromfile(fd, formats='f8,i4,S5', shape=10,
+    ... byteorder='<')
+    >>> print(r[5])
+    (0.5, 10, b'abcde')
+    >>> r.shape
+    (10,)
+    
+=== parse numpydoc
+short_description: 'Create an array from binary file data'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'fd']
+  description: |
+    If file is a string or a path-like object then that file is opened,
+    else it is assumed to be a file object. The file object must
+    support random access (i.e. it must have tell and seek methods).
+  arg_name: 'fd'
+  type_name: 'str or file type'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'dtype']
+  description: 'valid dtype for all arrays'
+  arg_name: 'dtype'
+  type_name: 'data-type'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'shape']
+  description: 'shape of each array.'
+  arg_name: 'shape'
+  type_name: 'int or tuple of ints'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'offset']
+  description: 'Position in the file to start reading from.'
+  arg_name: 'offset'
+  type_name: 'int'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'formats, names, titles, aligned, byteorder']
+  description: |
+    If `dtype` is ``None``, these arguments are passed to
+    `numpy.format_parser` to construct a dtype. See that function for
+    detailed documentation
+  arg_name: 'formats, names, titles, aligned, byteorder'
+  type_name: ''
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: 'record array consisting of data enclosed in file.'
+  type_name: 'np.recarray'
+  is_generator: False
+- DocstringExample
+  args: ['examples']
+  description: "... byteorder='<')"
+  snippet: |
+    >>> from tempfile import TemporaryFile
+    >>> a = np.empty(10,dtype='f8,i4,S5')
+    >>> a[5] = (0.5,10,'abcde')
+    >>>
+    >>> fd=TemporaryFile()
+    >>> a = a.view(a.dtype.newbyteorder('<'))
+    >>> a.tofile(fd)
+    >>>
+    >>> _ = fd.seek(0)
+    >>> r=np.rec.fromfile(fd, formats='f8,i4,S5', shape=10,
+- DocstringExample
+  args: ['examples']
+  description: "(0.5, 10, b'abcde')"
+  snippet: '>>> print(r[5])'
+- DocstringExample
+  args: ['examples']
+  description: '(10,)'
+  snippet: '>>> r.shape'
+=== detect
+numpydoc
+=== compose numpydoc
+Create an array from binary file data
+
+Parameters
+----------
+fd : str or file type
+    If file is a string or a path-like object then that file is opened,
+    else it is assumed to be a file object. The file object must
+    support random access (i.e. it must have tell and seek methods).
+dtype : data-type, optional
+    valid dtype for all arrays
+shape : int or tuple of ints, optional
+    shape of each array.
+offset : int, optional
+    Position in the file to start reading from.
+formats, names, titles, aligned, byteorder
+    If `dtype` is ``None``, these arguments are passed to
+    `numpy.format_parser` to construct a dtype. See that function for
+    detailed documentation
+
+Returns
+-------
+np.recarray
+    record array consisting of data enclosed in file.
+
+Examples
+--------
+>>> from tempfile import TemporaryFile
+>>> a = np.empty(10,dtype='f8,i4,S5')
+>>> a[5] = (0.5,10,'abcde')
+>>>
+>>> fd=TemporaryFile()
+>>> a = a.view(a.dtype.newbyteorder('<'))
+>>> a.tofile(fd)
+>>>
+>>> _ = fd.seek(0)
+>>> r=np.rec.fromfile(fd, formats='f8,i4,S5', shape=10,
+... byteorder='<')
+>>> print(r[5])
+(0.5, 10, b'abcde')
+>>> r.shape
+(10,)

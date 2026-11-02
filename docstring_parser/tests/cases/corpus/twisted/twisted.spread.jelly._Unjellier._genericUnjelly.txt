@@ -1,0 +1,54 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Unjelly a type for which no specific unjellier is registered, but which
+        is nonetheless allowed.
+
+        @param cls: the class of the instance we are unjellying.
+        @type cls: L{type}
+
+        @param state: The jellied representation of the object's state; its
+            C{__dict__} unless it has a C{__setstate__} that takes something
+            else.
+        @type state: L{list}
+
+        @return: the new, unjellied instance.
+        
+=== parse epydoc
+short_description: 'Unjelly a type for which no specific unjellier is registered, but which'
+long_description: 'is nonetheless allowed.'
+blank_after_short_description: False
+blank_after_long_description: True
+style: epydoc
+- DocstringParam
+  args: ['param', 'cls']
+  description: 'the class of the instance we are unjellying.'
+  arg_name: 'cls'
+  type_name: 'L{type}'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'state']
+  description: |
+    The jellied representation of the object's state; its
+    C{__dict__} unless it has a C{__setstate__} that takes something
+    else.
+  arg_name: 'state'
+  type_name: 'L{list}'
+  is_optional: False
+- DocstringReturns
+  args: ['return']
+  description: 'the new, unjellied instance.'
+  is_generator: False
+=== detect
+epydoc
+=== compose epydoc
+Unjelly a type for which no specific unjellier is registered, but which
+is nonetheless allowed.
+
+@type cls: L{type}
+@param cls: the class of the instance we are unjellying.
+@type state: L{list}
+@param state: The jellied representation of the object's state; its
+    C{__dict__} unless it has a C{__setstate__} that takes something
+    else.
+@return: the new, unjellied instance.

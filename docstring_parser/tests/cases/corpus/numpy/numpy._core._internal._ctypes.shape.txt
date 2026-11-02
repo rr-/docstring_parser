@@ -1,0 +1,30 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        (c_intp*self.ndim): A ctypes array of length self.ndim where
+        the basetype is the C-integer corresponding to ``dtype('p')`` on this
+        platform (see `~numpy.ctypeslib.c_intp`). This base-type could be
+        `ctypes.c_int`, `ctypes.c_long`, or `ctypes.c_longlong` depending on
+        the platform. The ctypes array contains the shape of
+        the underlying array.
+        
+=== parse numpydoc
+short_description: '(c_intp*self.ndim): A ctypes array of length self.ndim where'
+long_description: |
+  the basetype is the C-integer corresponding to ``dtype('p')`` on this
+  platform (see `~numpy.ctypeslib.c_intp`). This base-type could be
+  `ctypes.c_int`, `ctypes.c_long`, or `ctypes.c_longlong` depending on
+  the platform. The ctypes array contains the shape of
+  the underlying array.
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+(c_intp*self.ndim): A ctypes array of length self.ndim where
+the basetype is the C-integer corresponding to ``dtype('p')`` on this
+platform (see `~numpy.ctypeslib.c_intp`). This base-type could be
+`ctypes.c_int`, `ctypes.c_long`, or `ctypes.c_longlong` depending on
+the platform. The ctypes array contains the shape of
+the underlying array.

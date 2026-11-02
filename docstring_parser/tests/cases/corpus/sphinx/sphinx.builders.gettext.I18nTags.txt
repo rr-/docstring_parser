@@ -1,0 +1,22 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Dummy tags module for I18nBuilder.
+
+    To ensure that all text inside ``only`` nodes is translated,
+    this class always returns ``True`` regardless the defined tags.
+    
+=== parse rest
+short_description: 'Dummy tags module for I18nBuilder.'
+long_description: |
+  To ensure that all text inside ``only`` nodes is translated,
+  this class always returns ``True`` regardless the defined tags.
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Dummy tags module for I18nBuilder.
+
+To ensure that all text inside ``only`` nodes is translated,
+this class always returns ``True`` regardless the defined tags.

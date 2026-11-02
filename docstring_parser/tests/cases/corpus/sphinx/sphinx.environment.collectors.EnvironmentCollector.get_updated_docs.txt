@@ -1,0 +1,25 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Return a list of docnames to re-read.
+
+        This method is called after reading the whole of documents.
+
+        .. seealso:: :event:`env-get-updated`
+        
+=== parse rest
+short_description: 'Return a list of docnames to re-read.'
+long_description: |
+  This method is called after reading the whole of documents.
+  
+  .. seealso:: :event:`env-get-updated`
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Return a list of docnames to re-read.
+
+This method is called after reading the whole of documents.
+
+.. seealso:: :event:`env-get-updated`

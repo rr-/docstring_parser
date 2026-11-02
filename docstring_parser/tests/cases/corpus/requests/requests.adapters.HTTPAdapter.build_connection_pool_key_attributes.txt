@@ -1,0 +1,151 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Build the PoolKey attributes used by urllib3 to return a connection.
+
+        This looks at the PreparedRequest, the user-specified verify value,
+        and the value of the cert parameter to determine what PoolKey values
+        to use to select a connection from a given urllib3 Connection Pool.
+
+        The SSL related pool key arguments are not consistently set. As of
+        this writing, use the following to determine what keys may be in that
+        dictionary:
+
+        * If ``verify`` is ``True``, ``"ssl_context"`` will be set and will be the
+          default Requests SSL Context
+        * If ``verify`` is ``False``, ``"ssl_context"`` will not be set but
+          ``"cert_reqs"`` will be set
+        * If ``verify`` is a string, (i.e., it is a user-specified trust bundle)
+          ``"ca_certs"`` will be set if the string is not a directory recognized
+          by :py:func:`os.path.isdir`, otherwise ``"ca_cert_dir"`` will be
+          set.
+        * If ``"cert"`` is specified, ``"cert_file"`` will always be set. If
+          ``"cert"`` is a tuple with a second item, ``"key_file"`` will also
+          be present
+
+        To override these settings, one may subclass this class, call this
+        method and use the above logic to change parameters as desired. For
+        example, if one wishes to use a custom :py:class:`ssl.SSLContext` one
+        must both set ``"ssl_context"`` and based on what else they require,
+        alter the other keys to ensure the desired behaviour.
+
+        :param request:
+            The PreparedRequest being sent over the connection.
+        :type request:
+            :class:`~requests.models.PreparedRequest`
+        :param verify:
+            Either a boolean, in which case it controls whether
+            we verify the server's TLS certificate, or a string, in which case it
+            must be a path to a CA bundle to use.
+        :param cert:
+            (optional) Any user-provided SSL certificate for client
+            authentication (a.k.a., mTLS). This may be a string (i.e., just
+            the path to a file which holds both certificate and key) or a
+            tuple of length 2 with the certificate file path and key file
+            path.
+        :returns:
+            A tuple of two dictionaries. The first is the "host parameters"
+            portion of the Pool Key including scheme, hostname, and port. The
+            second is a dictionary of SSLContext related parameters.
+        
+=== parse rest
+short_description: 'Build the PoolKey attributes used by urllib3 to return a connection.'
+long_description: |
+  This looks at the PreparedRequest, the user-specified verify value,
+  and the value of the cert parameter to determine what PoolKey values
+  to use to select a connection from a given urllib3 Connection Pool.
+  
+  The SSL related pool key arguments are not consistently set. As of
+  this writing, use the following to determine what keys may be in that
+  dictionary:
+  
+  * If ``verify`` is ``True``, ``"ssl_context"`` will be set and will be the
+    default Requests SSL Context
+  * If ``verify`` is ``False``, ``"ssl_context"`` will not be set but
+    ``"cert_reqs"`` will be set
+  * If ``verify`` is a string, (i.e., it is a user-specified trust bundle)
+    ``"ca_certs"`` will be set if the string is not a directory recognized
+    by :py:func:`os.path.isdir`, otherwise ``"ca_cert_dir"`` will be
+    set.
+  * If ``"cert"`` is specified, ``"cert_file"`` will always be set. If
+    ``"cert"`` is a tuple with a second item, ``"key_file"`` will also
+    be present
+  
+  To override these settings, one may subclass this class, call this
+  method and use the above logic to change parameters as desired. For
+  example, if one wishes to use a custom :py:class:`ssl.SSLContext` one
+  must both set ``"ssl_context"`` and based on what else they require,
+  alter the other keys to ensure the desired behaviour.
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringParam
+  args: ['param', 'request']
+  description: 'The PreparedRequest being sent over the connection.'
+  arg_name: 'request'
+  type_name: ':class:`~requests.models.PreparedRequest`'
+- DocstringParam
+  args: ['param', 'verify']
+  description: |
+    Either a boolean, in which case it controls whether
+    we verify the server's TLS certificate, or a string, in which case it
+    must be a path to a CA bundle to use.
+  arg_name: 'verify'
+- DocstringParam
+  args: ['param', 'cert']
+  description: |
+    (optional) Any user-provided SSL certificate for client
+    authentication (a.k.a., mTLS). This may be a string (i.e., just
+    the path to a file which holds both certificate and key) or a
+    tuple of length 2 with the certificate file path and key file
+    path.
+  arg_name: 'cert'
+- DocstringReturns
+  args: ['returns']
+  description: |
+    A tuple of two dictionaries. The first is the "host parameters"
+    portion of the Pool Key including scheme, hostname, and port. The
+    second is a dictionary of SSLContext related parameters.
+  is_generator: False
+=== detect
+rest
+=== compose rest
+Build the PoolKey attributes used by urllib3 to return a connection.
+
+This looks at the PreparedRequest, the user-specified verify value,
+and the value of the cert parameter to determine what PoolKey values
+to use to select a connection from a given urllib3 Connection Pool.
+
+The SSL related pool key arguments are not consistently set. As of
+this writing, use the following to determine what keys may be in that
+dictionary:
+
+* If ``verify`` is ``True``, ``"ssl_context"`` will be set and will be the
+  default Requests SSL Context
+* If ``verify`` is ``False``, ``"ssl_context"`` will not be set but
+  ``"cert_reqs"`` will be set
+* If ``verify`` is a string, (i.e., it is a user-specified trust bundle)
+  ``"ca_certs"`` will be set if the string is not a directory recognized
+  by :py:func:`os.path.isdir`, otherwise ``"ca_cert_dir"`` will be
+  set.
+* If ``"cert"`` is specified, ``"cert_file"`` will always be set. If
+  ``"cert"`` is a tuple with a second item, ``"key_file"`` will also
+  be present
+
+To override these settings, one may subclass this class, call this
+method and use the above logic to change parameters as desired. For
+example, if one wishes to use a custom :py:class:`ssl.SSLContext` one
+must both set ``"ssl_context"`` and based on what else they require,
+alter the other keys to ensure the desired behaviour.
+
+:param :class:`~requests.models.PreparedRequest` request: The PreparedRequest being sent over the connection.
+:param verify: Either a boolean, in which case it controls whether
+    we verify the server's TLS certificate, or a string, in which case it
+    must be a path to a CA bundle to use.
+:param cert: (optional) Any user-provided SSL certificate for client
+    authentication (a.k.a., mTLS). This may be a string (i.e., just
+    the path to a file which holds both certificate and key) or a
+    tuple of length 2 with the certificate file path and key file
+    path.
+:returns: A tuple of two dictionaries. The first is the "host parameters"
+    portion of the Pool Key including scheme, hostname, and port. The
+    second is a dictionary of SSLContext related parameters.

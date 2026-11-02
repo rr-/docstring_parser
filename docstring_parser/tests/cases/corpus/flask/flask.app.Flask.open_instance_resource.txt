@@ -1,0 +1,55 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Open a resource file relative to the application's instance folder
+        :attr:`instance_path`. Unlike :meth:`open_resource`, files in the
+        instance folder can be opened for writing.
+
+        :param resource: Path to the resource relative to :attr:`instance_path`.
+        :param mode: Open the file in this mode.
+        :param encoding: Open the file with this encoding when opening in text
+            mode. This is ignored when opening in binary mode.
+
+        .. versionchanged:: 3.1
+            Added the ``encoding`` parameter.
+        
+=== parse rest
+short_description: "Open a resource file relative to the application's instance folder"
+long_description: |
+  .. versionchanged:: 3.1
+      Added the ``encoding`` parameter.
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringMeta
+  args: ['attr']
+  description: |
+    `instance_path`. Unlike :meth:`open_resource`, files in the
+    instance folder can be opened for writing.
+- DocstringParam
+  args: ['param', 'resource']
+  description: 'Path to the resource relative to :attr:`instance_path`.'
+  arg_name: 'resource'
+- DocstringParam
+  args: ['param', 'mode']
+  description: 'Open the file in this mode.'
+  arg_name: 'mode'
+- DocstringParam
+  args: ['param', 'encoding']
+  description: |
+    Open the file with this encoding when opening in text
+    mode. This is ignored when opening in binary mode.
+  arg_name: 'encoding'
+=== detect
+rest
+=== compose rest
+Open a resource file relative to the application's instance folder
+
+.. versionchanged:: 3.1
+    Added the ``encoding`` parameter.
+
+:attr: `instance_path`. Unlike :meth:`open_resource`, files in the
+    instance folder can be opened for writing.
+:param resource: Path to the resource relative to :attr:`instance_path`.
+:param mode: Open the file in this mode.
+:param encoding: Open the file with this encoding when opening in text
+    mode. This is ignored when opening in binary mode.

@@ -1,0 +1,27 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Returns a key/value dictionary from a CookieJar.
+
+    :param cj: CookieJar object to extract cookies from.
+    :rtype: dict
+    
+=== parse rest
+short_description: 'Returns a key/value dictionary from a CookieJar.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringParam
+  args: ['param', 'cj']
+  description: 'CookieJar object to extract cookies from.'
+  arg_name: 'cj'
+- DocstringReturns
+  args: []
+  type_name: 'dict'
+  is_generator: False
+=== detect
+rest
+=== compose rest
+Returns a key/value dictionary from a CookieJar.
+
+:param cj: CookieJar object to extract cookies from.
+:returns dict:

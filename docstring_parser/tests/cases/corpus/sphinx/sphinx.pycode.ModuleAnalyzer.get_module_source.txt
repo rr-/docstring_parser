@@ -1,0 +1,22 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Try to find the source code for a module.
+
+        Returns ('filename', 'source'). One of it can be None if
+        no filename or source found
+        
+=== parse rest
+short_description: 'Try to find the source code for a module.'
+long_description: |
+  Returns ('filename', 'source'). One of it can be None if
+  no filename or source found
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Try to find the source code for a module.
+
+Returns ('filename', 'source'). One of it can be None if
+no filename or source found

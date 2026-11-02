@@ -1,0 +1,76 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Generates JSON schema definitions from a list of core schemas, pairing the generated definitions with a
+        mapping that links the input keys to the definition references.
+
+        Args:
+            inputs: A sequence of tuples, where:
+
+                - The first element is a JSON schema key type.
+                - The second element is the JSON mode: either 'validation' or 'serialization'.
+                - The third element is a core schema.
+
+        Returns:
+            A tuple where:
+
+                - The first element is a dictionary whose keys are tuples of JSON schema key type and JSON mode, and
+                    whose values are the JSON schema corresponding to that pair of inputs. (These schemas may have
+                    JsonRef references to definitions that are defined in the second returned element.)
+                - The second element is a dictionary whose keys are definition references for the JSON schemas
+                    from the first returned element, and whose values are the actual JSON schema definitions.
+
+        Raises:
+            PydanticUserError: Raised if the JSON schema generator has already been used to generate a JSON schema.
+        
+=== parse google
+short_description: 'Generates JSON schema definitions from a list of core schemas, pairing the generated definitions with a'
+long_description: 'mapping that links the input keys to the definition references.'
+blank_after_short_description: False
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'inputs']
+  description: |
+    A sequence of tuples, where:
+    - The first element is a JSON schema key type.
+    - The second element is the JSON mode: either 'validation' or 'serialization'.
+    - The third element is a core schema.
+  arg_name: 'inputs'
+- DocstringReturns
+  args: ['returns']
+  description: |
+    A tuple where:
+    
+    - The first element is a dictionary whose keys are tuples of JSON schema key type and JSON mode, and
+        whose values are the JSON schema corresponding to that pair of inputs. (These schemas may have
+        JsonRef references to definitions that are defined in the second returned element.)
+    - The second element is a dictionary whose keys are definition references for the JSON schemas
+        from the first returned element, and whose values are the actual JSON schema definitions.
+  is_generator: False
+- DocstringRaises
+  args: ['raises', 'PydanticUserError']
+  description: 'Raised if the JSON schema generator has already been used to generate a JSON schema.'
+  type_name: 'PydanticUserError'
+=== detect
+google
+=== compose google
+Generates JSON schema definitions from a list of core schemas, pairing the generated definitions with a
+mapping that links the input keys to the definition references.
+
+Args:
+    inputs: A sequence of tuples, where:
+        - The first element is a JSON schema key type.
+        - The second element is the JSON mode: either 'validation' or 'serialization'.
+        - The third element is a core schema.
+
+Returns:
+    A tuple where:
+    
+    - The first element is a dictionary whose keys are tuples of JSON schema key type and JSON mode, and
+        whose values are the JSON schema corresponding to that pair of inputs. (These schemas may have
+        JsonRef references to definitions that are defined in the second returned element.)
+    - The second element is a dictionary whose keys are definition references for the JSON schemas
+        from the first returned element, and whose values are the actual JSON schema definitions.
+
+Raises:
+    PydanticUserError: Raised if the JSON schema generator has already been used to generate a JSON schema.

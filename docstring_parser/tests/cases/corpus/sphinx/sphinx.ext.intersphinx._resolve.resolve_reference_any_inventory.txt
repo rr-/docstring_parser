@@ -1,0 +1,18 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Attempt to resolve a missing reference via intersphinx references.
+
+    Resolution is tried with the target as is in any inventory.
+    
+=== parse rest
+short_description: 'Attempt to resolve a missing reference via intersphinx references.'
+long_description: 'Resolution is tried with the target as is in any inventory.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Attempt to resolve a missing reference via intersphinx references.
+
+Resolution is tried with the target as is in any inventory.

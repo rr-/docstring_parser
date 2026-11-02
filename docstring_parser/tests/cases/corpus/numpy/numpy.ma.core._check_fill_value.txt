@@ -1,0 +1,33 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Private function validating the given `fill_value` for the given dtype.
+
+    If fill_value is None, it is set to the default corresponding to the dtype.
+
+    If fill_value is not None, its value is forced to the given dtype.
+
+    The result is always a 0d array.
+
+    
+=== parse numpydoc
+short_description: 'Private function validating the given `fill_value` for the given dtype.'
+long_description: |
+  If fill_value is None, it is set to the default corresponding to the dtype.
+  
+  If fill_value is not None, its value is forced to the given dtype.
+  
+  The result is always a 0d array.
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Private function validating the given `fill_value` for the given dtype.
+
+If fill_value is None, it is set to the default corresponding to the dtype.
+
+If fill_value is not None, its value is forced to the given dtype.
+
+The result is always a 0d array.

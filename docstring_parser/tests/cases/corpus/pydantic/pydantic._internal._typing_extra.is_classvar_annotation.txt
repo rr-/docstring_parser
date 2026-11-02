@@ -1,0 +1,37 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Return whether the provided argument represents a class variable annotation.
+
+    Although not explicitly stated by the typing specification, `ClassVar` can be used
+    inside `Annotated` and as such, this function checks for this specific scenario.
+
+    Because this function is used to detect class variables before evaluating forward references
+    (or because evaluation failed), we also implement a naive regex match implementation. This is
+    required because class variables are inspected before fields are collected, so we try to be
+    as accurate as possible.
+    
+=== parse google
+short_description: 'Return whether the provided argument represents a class variable annotation.'
+long_description: |
+  Although not explicitly stated by the typing specification, `ClassVar` can be used
+  inside `Annotated` and as such, this function checks for this specific scenario.
+  
+  Because this function is used to detect class variables before evaluating forward references
+  (or because evaluation failed), we also implement a naive regex match implementation. This is
+  required because class variables are inspected before fields are collected, so we try to be
+  as accurate as possible.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Return whether the provided argument represents a class variable annotation.
+
+Although not explicitly stated by the typing specification, `ClassVar` can be used
+inside `Annotated` and as such, this function checks for this specific scenario.
+
+Because this function is used to detect class variables before evaluating forward references
+(or because evaluation failed), we also implement a naive regex match implementation. This is
+required because class variables are inspected before fields are collected, so we try to be
+as accurate as possible.

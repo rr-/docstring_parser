@@ -1,0 +1,36 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Append iterable of str and style. Style may be a Style instance or a str style definition.
+
+        Args:
+            tokens (Iterable[Tuple[str, Optional[StyleType]]]): An iterable of tuples containing str content and style.
+
+        Returns:
+            Text: Returns self for chaining.
+        
+=== parse google
+short_description: 'Append iterable of str and style. Style may be a Style instance or a str style definition.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'tokens (Iterable[Tuple[str, Optional[StyleType]]])']
+  description: 'An iterable of tuples containing str content and style.'
+  arg_name: 'tokens'
+  type_name: 'Iterable[Tuple[str, Optional[StyleType]]]'
+  is_optional: False
+- DocstringReturns
+  args: ['returns', 'Text']
+  description: 'Returns self for chaining.'
+  type_name: 'Text'
+  is_generator: False
+=== detect
+google
+=== compose google
+Append iterable of str and style. Style may be a Style instance or a str style definition.
+
+Args:
+    tokens (Iterable[Tuple[str, Optional[StyleType]]]): An iterable of tuples containing str content and style.
+
+Returns:
+    Text: Returns self for chaining.

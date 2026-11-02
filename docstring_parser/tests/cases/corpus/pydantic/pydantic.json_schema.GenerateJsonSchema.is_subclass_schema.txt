@@ -1,0 +1,38 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Handles JSON schema generation for a core schema that checks if a value is a subclass of a class.
+
+        For backwards compatibility with v1, this does not raise an error, but can be overridden to change this.
+
+        Args:
+            schema: The core schema.
+
+        Returns:
+            The generated JSON schema.
+        
+=== parse google
+short_description: 'Handles JSON schema generation for a core schema that checks if a value is a subclass of a class.'
+long_description: 'For backwards compatibility with v1, this does not raise an error, but can be overridden to change this.'
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'schema']
+  description: 'The core schema.'
+  arg_name: 'schema'
+- DocstringReturns
+  args: ['returns']
+  description: 'The generated JSON schema.'
+  is_generator: False
+=== detect
+google
+=== compose google
+Handles JSON schema generation for a core schema that checks if a value is a subclass of a class.
+
+For backwards compatibility with v1, this does not raise an error, but can be overridden to change this.
+
+Args:
+    schema: The core schema.
+
+Returns:
+    The generated JSON schema.

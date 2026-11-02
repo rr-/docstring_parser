@@ -1,0 +1,25 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Encode parameters in a piece of data.
+
+        Will successfully encode parameters when passed as a dict or a list of
+        2-tuples. Order is retained if data is a list of 2-tuples but arbitrary
+        if parameters are supplied as a dict.
+        
+=== parse rest
+short_description: 'Encode parameters in a piece of data.'
+long_description: |
+  Will successfully encode parameters when passed as a dict or a list of
+  2-tuples. Order is retained if data is a list of 2-tuples but arbitrary
+  if parameters are supplied as a dict.
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Encode parameters in a piece of data.
+
+Will successfully encode parameters when passed as a dict or a list of
+2-tuples. Order is retained if data is a list of 2-tuples but arbitrary
+if parameters are supplied as a dict.

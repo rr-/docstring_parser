@@ -1,0 +1,353 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Return the root nodes in a hierarchical clustering.
+
+    Returns the root nodes in a hierarchical clustering corresponding
+    to a cut defined by a flat cluster assignment vector ``T``. See
+    the ``fcluster`` function for more information on the format of ``T``.
+
+    For each flat cluster :math:`j` of the :math:`k` flat clusters
+    represented in the n-sized flat cluster assignment vector ``T``,
+    this function finds the lowest cluster node :math:`i` in the linkage
+    tree Z, such that:
+
+    * leaf descendants belong only to flat cluster j
+      (i.e., ``T[p]==j`` for all :math:`p` in :math:`S(i)`, where
+      :math:`S(i)` is the set of leaf ids of descendant leaf nodes
+      with cluster node :math:`i`)
+
+    * there does not exist a leaf that is not a descendant with
+      :math:`i` that also belongs to cluster :math:`j`
+      (i.e., ``T[q]!=j`` for all :math:`q` not in :math:`S(i)`). If
+      this condition is violated, ``T`` is not a valid cluster
+      assignment vector, and an exception will be thrown.
+
+    Parameters
+    ----------
+    Z : ndarray
+        The hierarchical clustering encoded as a matrix. See
+        `linkage` for more information.
+    T : ndarray
+        The flat cluster assignment vector.
+
+    Returns
+    -------
+    L : ndarray
+        The leader linkage node id's stored as a k-element 1-D array,
+        where ``k`` is the number of flat clusters found in ``T``.
+
+        ``L[j]=i`` is the linkage cluster node id that is the
+        leader of flat cluster with id M[j]. If ``i < n``, ``i``
+        corresponds to an original observation, otherwise it
+        corresponds to a non-singleton cluster.
+    M : ndarray
+        The leader linkage node id's stored as a k-element 1-D array, where
+        ``k`` is the number of flat clusters found in ``T``. This allows the
+        set of flat cluster ids to be any arbitrary set of ``k`` integers.
+
+        For example: if ``L[3]=2`` and ``M[3]=8``, the flat cluster with
+        id 8's leader is linkage node 2.
+
+    See Also
+    --------
+    fcluster : for the creation of flat cluster assignments.
+
+    Examples
+    --------
+    >>> from scipy.cluster.hierarchy import ward, fcluster, leaders
+    >>> from scipy.spatial.distance import pdist
+
+    Given a linkage matrix ``Z`` - obtained after apply a clustering method
+    to a dataset ``X`` - and a flat cluster assignment array ``T``:
+
+    >>> X = [[0, 0], [0, 1], [1, 0],
+    ...      [0, 4], [0, 3], [1, 4],
+    ...      [4, 0], [3, 0], [4, 1],
+    ...      [4, 4], [3, 4], [4, 3]]
+
+    >>> Z = ward(pdist(X))
+    >>> Z
+    array([[ 0.        ,  1.        ,  1.        ,  2.        ],
+           [ 3.        ,  4.        ,  1.        ,  2.        ],
+           [ 6.        ,  7.        ,  1.        ,  2.        ],
+           [ 9.        , 10.        ,  1.        ,  2.        ],
+           [ 2.        , 12.        ,  1.29099445,  3.        ],
+           [ 5.        , 13.        ,  1.29099445,  3.        ],
+           [ 8.        , 14.        ,  1.29099445,  3.        ],
+           [11.        , 15.        ,  1.29099445,  3.        ],
+           [16.        , 17.        ,  5.77350269,  6.        ],
+           [18.        , 19.        ,  5.77350269,  6.        ],
+           [20.        , 21.        ,  8.16496581, 12.        ]])
+
+    >>> T = fcluster(Z, 3, criterion='distance')
+    >>> T
+    array([1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4], dtype=int32)
+
+    `scipy.cluster.hierarchy.leaders` returns the indices of the nodes
+    in the dendrogram that are the leaders of each flat cluster:
+
+    >>> L, M = leaders(Z, T)
+    >>> L
+    array([16, 17, 18, 19], dtype=int32)
+
+    (remember that indices 0-11 point to the 12 data points in ``X``,
+    whereas indices 12-22 point to the 11 rows of ``Z``)
+
+    `scipy.cluster.hierarchy.leaders` also returns the indices of
+    the flat clusters in ``T``:
+
+    >>> M
+    array([1, 2, 3, 4], dtype=int32)
+
+    Notes
+    -----
+    *Array API support (experimental):* This function returns arrays
+    with data-dependent shape. In JAX, at the moment of writing this makes it
+    impossible to execute it inside `@jax.jit`.
+    
+=== parse numpydoc
+short_description: 'Return the root nodes in a hierarchical clustering.'
+long_description: |
+  Returns the root nodes in a hierarchical clustering corresponding
+  to a cut defined by a flat cluster assignment vector ``T``. See
+  the ``fcluster`` function for more information on the format of ``T``.
+  
+  For each flat cluster :math:`j` of the :math:`k` flat clusters
+  represented in the n-sized flat cluster assignment vector ``T``,
+  this function finds the lowest cluster node :math:`i` in the linkage
+  tree Z, such that:
+  
+  * leaf descendants belong only to flat cluster j
+    (i.e., ``T[p]==j`` for all :math:`p` in :math:`S(i)`, where
+    :math:`S(i)` is the set of leaf ids of descendant leaf nodes
+    with cluster node :math:`i`)
+  
+  * there does not exist a leaf that is not a descendant with
+    :math:`i` that also belongs to cluster :math:`j`
+    (i.e., ``T[q]!=j`` for all :math:`q` not in :math:`S(i)`). If
+    this condition is violated, ``T`` is not a valid cluster
+    assignment vector, and an exception will be thrown.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'Z']
+  description: |
+    The hierarchical clustering encoded as a matrix. See
+    `linkage` for more information.
+  arg_name: 'Z'
+  type_name: 'ndarray'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'T']
+  description: 'The flat cluster assignment vector.'
+  arg_name: 'T'
+  type_name: 'ndarray'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: |
+    The leader linkage node id's stored as a k-element 1-D array,
+    where ``k`` is the number of flat clusters found in ``T``.
+    
+    ``L[j]=i`` is the linkage cluster node id that is the
+    leader of flat cluster with id M[j]. If ``i < n``, ``i``
+    corresponds to an original observation, otherwise it
+    corresponds to a non-singleton cluster.
+  type_name: 'ndarray'
+  is_generator: False
+  return_name: 'L'
+- DocstringReturns
+  args: ['returns']
+  description: |
+    The leader linkage node id's stored as a k-element 1-D array, where
+    ``k`` is the number of flat clusters found in ``T``. This allows the
+    set of flat cluster ids to be any arbitrary set of ``k`` integers.
+    
+    For example: if ``L[3]=2`` and ``M[3]=8``, the flat cluster with
+    id 8's leader is linkage node 2.
+  type_name: 'ndarray'
+  is_generator: False
+  return_name: 'M'
+- DocstringMeta
+  args: ['see_also']
+  description: 'fcluster : for the creation of flat cluster assignments.'
+- DocstringExample
+  args: ['examples']
+  description: |
+    
+    Given a linkage matrix ``Z`` - obtained after apply a clustering method
+    to a dataset ``X`` - and a flat cluster assignment array ``T``:
+    
+  snippet: |
+    >>> from scipy.cluster.hierarchy import ward, fcluster, leaders
+    >>> from scipy.spatial.distance import pdist
+- DocstringExample
+  args: ['examples']
+  description: |
+    ...      [0, 4], [0, 3], [1, 4],
+    ...      [4, 0], [3, 0], [4, 1],
+    ...      [4, 4], [3, 4], [4, 3]]
+    
+  snippet: '>>> X = [[0, 0], [0, 1], [1, 0],'
+- DocstringExample
+  args: ['examples']
+  description: |
+    array([[ 0.        ,  1.        ,  1.        ,  2.        ],
+           [ 3.        ,  4.        ,  1.        ,  2.        ],
+           [ 6.        ,  7.        ,  1.        ,  2.        ],
+           [ 9.        , 10.        ,  1.        ,  2.        ],
+           [ 2.        , 12.        ,  1.29099445,  3.        ],
+           [ 5.        , 13.        ,  1.29099445,  3.        ],
+           [ 8.        , 14.        ,  1.29099445,  3.        ],
+           [11.        , 15.        ,  1.29099445,  3.        ],
+           [16.        , 17.        ,  5.77350269,  6.        ],
+           [18.        , 19.        ,  5.77350269,  6.        ],
+           [20.        , 21.        ,  8.16496581, 12.        ]])
+    
+  snippet: |
+    >>> Z = ward(pdist(X))
+    >>> Z
+- DocstringExample
+  args: ['examples']
+  description: |
+    array([1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4], dtype=int32)
+    
+    `scipy.cluster.hierarchy.leaders` returns the indices of the nodes
+    in the dendrogram that are the leaders of each flat cluster:
+    
+  snippet: |
+    >>> T = fcluster(Z, 3, criterion='distance')
+    >>> T
+- DocstringExample
+  args: ['examples']
+  description: |
+    array([16, 17, 18, 19], dtype=int32)
+    
+    (remember that indices 0-11 point to the 12 data points in ``X``,
+    whereas indices 12-22 point to the 11 rows of ``Z``)
+    
+    `scipy.cluster.hierarchy.leaders` also returns the indices of
+    the flat clusters in ``T``:
+    
+  snippet: |
+    >>> L, M = leaders(Z, T)
+    >>> L
+- DocstringExample
+  args: ['examples']
+  description: 'array([1, 2, 3, 4], dtype=int32)'
+  snippet: '>>> M'
+- DocstringMeta
+  args: ['notes']
+  description: |
+    *Array API support (experimental):* This function returns arrays
+    with data-dependent shape. In JAX, at the moment of writing this makes it
+    impossible to execute it inside `@jax.jit`.
+=== detect
+numpydoc
+=== compose numpydoc
+Return the root nodes in a hierarchical clustering.
+
+Returns the root nodes in a hierarchical clustering corresponding
+to a cut defined by a flat cluster assignment vector ``T``. See
+the ``fcluster`` function for more information on the format of ``T``.
+
+For each flat cluster :math:`j` of the :math:`k` flat clusters
+represented in the n-sized flat cluster assignment vector ``T``,
+this function finds the lowest cluster node :math:`i` in the linkage
+tree Z, such that:
+
+* leaf descendants belong only to flat cluster j
+  (i.e., ``T[p]==j`` for all :math:`p` in :math:`S(i)`, where
+  :math:`S(i)` is the set of leaf ids of descendant leaf nodes
+  with cluster node :math:`i`)
+
+* there does not exist a leaf that is not a descendant with
+  :math:`i` that also belongs to cluster :math:`j`
+  (i.e., ``T[q]!=j`` for all :math:`q` not in :math:`S(i)`). If
+  this condition is violated, ``T`` is not a valid cluster
+  assignment vector, and an exception will be thrown.
+
+Parameters
+----------
+Z : ndarray
+    The hierarchical clustering encoded as a matrix. See
+    `linkage` for more information.
+T : ndarray
+    The flat cluster assignment vector.
+
+Returns
+-------
+L : ndarray
+    The leader linkage node id's stored as a k-element 1-D array,
+    where ``k`` is the number of flat clusters found in ``T``.
+    
+    ``L[j]=i`` is the linkage cluster node id that is the
+    leader of flat cluster with id M[j]. If ``i < n``, ``i``
+    corresponds to an original observation, otherwise it
+    corresponds to a non-singleton cluster.
+M : ndarray
+    The leader linkage node id's stored as a k-element 1-D array, where
+    ``k`` is the number of flat clusters found in ``T``. This allows the
+    set of flat cluster ids to be any arbitrary set of ``k`` integers.
+    
+    For example: if ``L[3]=2`` and ``M[3]=8``, the flat cluster with
+    id 8's leader is linkage node 2.
+
+Examples
+--------
+>>> from scipy.cluster.hierarchy import ward, fcluster, leaders
+>>> from scipy.spatial.distance import pdist
+
+Given a linkage matrix ``Z`` - obtained after apply a clustering method
+to a dataset ``X`` - and a flat cluster assignment array ``T``:
+
+>>> X = [[0, 0], [0, 1], [1, 0],
+...      [0, 4], [0, 3], [1, 4],
+...      [4, 0], [3, 0], [4, 1],
+...      [4, 4], [3, 4], [4, 3]]
+
+>>> Z = ward(pdist(X))
+>>> Z
+array([[ 0.        ,  1.        ,  1.        ,  2.        ],
+       [ 3.        ,  4.        ,  1.        ,  2.        ],
+       [ 6.        ,  7.        ,  1.        ,  2.        ],
+       [ 9.        , 10.        ,  1.        ,  2.        ],
+       [ 2.        , 12.        ,  1.29099445,  3.        ],
+       [ 5.        , 13.        ,  1.29099445,  3.        ],
+       [ 8.        , 14.        ,  1.29099445,  3.        ],
+       [11.        , 15.        ,  1.29099445,  3.        ],
+       [16.        , 17.        ,  5.77350269,  6.        ],
+       [18.        , 19.        ,  5.77350269,  6.        ],
+       [20.        , 21.        ,  8.16496581, 12.        ]])
+
+>>> T = fcluster(Z, 3, criterion='distance')
+>>> T
+array([1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4], dtype=int32)
+
+`scipy.cluster.hierarchy.leaders` returns the indices of the nodes
+in the dendrogram that are the leaders of each flat cluster:
+
+>>> L, M = leaders(Z, T)
+>>> L
+array([16, 17, 18, 19], dtype=int32)
+
+(remember that indices 0-11 point to the 12 data points in ``X``,
+whereas indices 12-22 point to the 11 rows of ``Z``)
+
+`scipy.cluster.hierarchy.leaders` also returns the indices of
+the flat clusters in ``T``:
+
+>>> M
+array([1, 2, 3, 4], dtype=int32)
+
+See Also
+--------
+fcluster : for the creation of flat cluster assignments.
+
+Notes
+-----
+*Array API support (experimental):* This function returns arrays
+with data-dependent shape. In JAX, at the moment of writing this makes it
+impossible to execute it inside `@jax.jit`.

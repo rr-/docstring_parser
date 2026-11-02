@@ -1,0 +1,24 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+
+requests.structures
+~~~~~~~~~~~~~~~~~~~
+
+Data structures that power Requests.
+
+=== parse rest
+short_description: 'requests.structures'
+long_description: |
+  ~~~~~~~~~~~~~~~~~~~
+  
+  Data structures that power Requests.
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+requests.structures
+~~~~~~~~~~~~~~~~~~~
+
+Data structures that power Requests.

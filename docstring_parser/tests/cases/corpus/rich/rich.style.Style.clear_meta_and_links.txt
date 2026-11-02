@@ -1,0 +1,24 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Get a copy of this style with link and meta information removed.
+
+        Returns:
+            Style: New style object.
+        
+=== parse google
+short_description: 'Get a copy of this style with link and meta information removed.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringReturns
+  args: ['returns', 'Style']
+  description: 'New style object.'
+  type_name: 'Style'
+  is_generator: False
+=== detect
+google
+=== compose google
+Get a copy of this style with link and meta information removed.
+
+Returns:
+    Style: New style object.

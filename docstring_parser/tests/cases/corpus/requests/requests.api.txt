@@ -1,0 +1,36 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+
+requests.api
+~~~~~~~~~~~~
+
+This module implements the Requests API.
+
+:copyright: (c) 2012 by Kenneth Reitz.
+:license: Apache2, see LICENSE for more details.
+
+=== parse rest
+short_description: 'requests.api'
+long_description: |
+  ~~~~~~~~~~~~
+  
+  This module implements the Requests API.
+blank_after_short_description: False
+blank_after_long_description: True
+style: rest
+- DocstringMeta
+  args: ['copyright']
+  description: '(c) 2012 by Kenneth Reitz.'
+- DocstringMeta
+  args: ['license']
+  description: 'Apache2, see LICENSE for more details.'
+=== detect
+rest
+=== compose rest
+requests.api
+~~~~~~~~~~~~
+
+This module implements the Requests API.
+
+:copyright: (c) 2012 by Kenneth Reitz.
+:license: Apache2, see LICENSE for more details.

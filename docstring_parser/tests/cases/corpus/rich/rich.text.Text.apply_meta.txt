@@ -1,0 +1,44 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Apply metadata to the text, or a portion of the text.
+
+        Args:
+            meta (Dict[str, Any]): A dict of meta information.
+            start (int): Start offset (negative indexing is supported). Defaults to 0.
+            end (Optional[int], optional): End offset (negative indexing is supported), or None for end of text. Defaults to None.
+
+        
+=== parse google
+short_description: 'Apply metadata to the text, or a portion of the text.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'meta (Dict[str, Any])']
+  description: 'A dict of meta information.'
+  arg_name: 'meta'
+  type_name: 'Dict[str, Any]'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'start (int)']
+  description: 'Start offset (negative indexing is supported). Defaults to 0.'
+  arg_name: 'start'
+  type_name: 'int'
+  is_optional: False
+  default: '0'
+- DocstringParam
+  args: ['param', 'end (Optional[int], optional)']
+  description: 'End offset (negative indexing is supported), or None for end of text. Defaults to None.'
+  arg_name: 'end'
+  type_name: 'Optional[int]'
+  is_optional: True
+  default: 'None'
+=== detect
+google
+=== compose google
+Apply metadata to the text, or a portion of the text.
+
+Args:
+    meta (Dict[str, Any]): A dict of meta information.
+    start (int): Start offset (negative indexing is supported). Defaults to 0.
+    end (Optional[int]?): End offset (negative indexing is supported), or None for end of text. Defaults to None.

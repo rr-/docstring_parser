@@ -1,0 +1,25 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Loads and adapts a sub-config when val is a path to a config file.
+
+    Only relevant for types that expect a class, since for these a string is
+    otherwise interpreted as a class path. Makes it possible for items in a
+    list or dict of classes to be given as paths to sub-config files.
+    
+=== parse google
+short_description: 'Loads and adapts a sub-config when val is a path to a config file.'
+long_description: |
+  Only relevant for types that expect a class, since for these a string is
+  otherwise interpreted as a class path. Makes it possible for items in a
+  list or dict of classes to be given as paths to sub-config files.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Loads and adapts a sub-config when val is a path to a config file.
+
+Only relevant for types that expect a class, since for these a string is
+otherwise interpreted as a class path. Makes it possible for items in a
+list or dict of classes to be given as paths to sub-config files.

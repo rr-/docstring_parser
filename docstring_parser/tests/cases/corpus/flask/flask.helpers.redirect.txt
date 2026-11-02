@@ -1,0 +1,65 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Create a redirect response object.
+
+    If :data:`~flask.current_app` is available, it will use its
+    :meth:`~flask.Flask.redirect` method, otherwise it will use
+    :func:`werkzeug.utils.redirect`.
+
+    :param location: The URL to redirect to.
+    :param code: The status code for the redirect.
+    :param Response: The response class to use. Not used when
+        ``current_app`` is active, which uses ``app.response_class``.
+
+    .. versionadded:: 2.2
+        Calls ``current_app.redirect`` if available instead of always
+        using Werkzeug's default ``redirect``.
+    
+=== parse rest
+short_description: 'Create a redirect response object.'
+long_description: |
+  If :data:`~flask.current_app` is available, it will use its
+  
+  .. versionadded:: 2.2
+      Calls ``current_app.redirect`` if available instead of always
+      using Werkzeug's default ``redirect``.
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringMeta
+  args: ['meth']
+  description: '`~flask.Flask.redirect` method, otherwise it will use'
+- DocstringMeta
+  args: ['func']
+  description: '`werkzeug.utils.redirect`.'
+- DocstringParam
+  args: ['param', 'location']
+  description: 'The URL to redirect to.'
+  arg_name: 'location'
+- DocstringParam
+  args: ['param', 'code']
+  description: 'The status code for the redirect.'
+  arg_name: 'code'
+- DocstringParam
+  args: ['param', 'Response']
+  description: |
+    The response class to use. Not used when
+    ``current_app`` is active, which uses ``app.response_class``.
+  arg_name: 'Response'
+=== detect
+rest
+=== compose rest
+Create a redirect response object.
+
+If :data:`~flask.current_app` is available, it will use its
+
+.. versionadded:: 2.2
+    Calls ``current_app.redirect`` if available instead of always
+    using Werkzeug's default ``redirect``.
+
+:meth: `~flask.Flask.redirect` method, otherwise it will use
+:func: `werkzeug.utils.redirect`.
+:param location: The URL to redirect to.
+:param code: The status code for the redirect.
+:param Response: The response class to use. Not used when
+    ``current_app`` is active, which uses ``app.response_class``.

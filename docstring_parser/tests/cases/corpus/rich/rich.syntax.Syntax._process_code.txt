@@ -1,0 +1,44 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Applies various processing to a raw code string
+        (normalises it so it always ends with a line return, dedents it if necessary, etc.)
+
+        Args:
+            code (str): The raw code string to process
+
+        Returns:
+            Tuple[bool, str]: the boolean indicates whether the raw code ends with a line return,
+                while the string is the processed code.
+        
+=== parse google
+short_description: 'Applies various processing to a raw code string'
+long_description: '(normalises it so it always ends with a line return, dedents it if necessary, etc.)'
+blank_after_short_description: False
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'code (str)']
+  description: 'The raw code string to process'
+  arg_name: 'code'
+  type_name: 'str'
+  is_optional: False
+- DocstringReturns
+  args: ['returns', 'Tuple[bool, str]']
+  description: |
+    the boolean indicates whether the raw code ends with a line return,
+    while the string is the processed code.
+  type_name: 'Tuple[bool, str]'
+  is_generator: False
+=== detect
+google
+=== compose google
+Applies various processing to a raw code string
+(normalises it so it always ends with a line return, dedents it if necessary, etc.)
+
+Args:
+    code (str): The raw code string to process
+
+Returns:
+    Tuple[bool, str]: the boolean indicates whether the raw code ends with a line return,
+        while the string is the processed code.

@@ -1,0 +1,21 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Make a MockResponse for `cookiejar` to read.
+
+        :param headers: a httplib.HTTPMessage or analogous carrying the headers
+        
+=== parse rest
+short_description: 'Make a MockResponse for `cookiejar` to read.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringParam
+  args: ['param', 'headers']
+  description: 'a httplib.HTTPMessage or analogous carrying the headers'
+  arg_name: 'headers'
+=== detect
+rest
+=== compose rest
+Make a MockResponse for `cookiejar` to read.
+
+:param headers: a httplib.HTTPMessage or analogous carrying the headers

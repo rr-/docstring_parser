@@ -1,0 +1,125 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) Hessian update strategy.
+
+    Parameters
+    ----------
+    exception_strategy : {'skip_update', 'damp_update'}, optional
+        Define how to proceed when the curvature condition is violated.
+        Set it to 'skip_update' to just skip the update. Or, alternatively,
+        set it to 'damp_update' to interpolate between the actual BFGS
+        result and the unmodified matrix. Both exceptions strategies
+        are explained  in [1]_, p.536-537.
+    min_curvature : float
+        This number, scaled by a normalization factor, defines the
+        minimum curvature ``dot(delta_grad, delta_x)`` allowed to go
+        unaffected by the exception strategy. By default is equal to
+        1e-8 when ``exception_strategy = 'skip_update'`` and equal
+        to 0.2 when ``exception_strategy = 'damp_update'``.
+    init_scale : {float, np.array, 'auto'}
+        This parameter can be used to initialize the Hessian or its
+        inverse. When a float is given, the relevant array is initialized
+        to ``np.eye(n) * init_scale``, where ``n`` is the problem dimension.
+        Alternatively, if a precisely ``(n, n)`` shaped, symmetric array is given,
+        this array will be used. Otherwise an error is generated.
+        Set it to 'auto' in order to use an automatic heuristic for choosing
+        the initial scale. The heuristic is described in [1]_, p.143.
+        The default is 'auto'.
+
+    Notes
+    -----
+    The update is based on the description in [1]_, p.140.
+
+    References
+    ----------
+    .. [1] Nocedal, Jorge, and Stephen J. Wright. "Numerical optimization"
+           Second Edition (2006).
+    
+=== parse numpydoc
+short_description: 'Broyden-Fletcher-Goldfarb-Shanno (BFGS) Hessian update strategy.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'exception_strategy']
+  description: |
+    Define how to proceed when the curvature condition is violated.
+    Set it to 'skip_update' to just skip the update. Or, alternatively,
+    set it to 'damp_update' to interpolate between the actual BFGS
+    result and the unmodified matrix. Both exceptions strategies
+    are explained  in [1]_, p.536-537.
+  arg_name: 'exception_strategy'
+  type_name: "{'skip_update', 'damp_update'}"
+  is_optional: True
+- DocstringParam
+  args: ['param', 'min_curvature']
+  description: |
+    This number, scaled by a normalization factor, defines the
+    minimum curvature ``dot(delta_grad, delta_x)`` allowed to go
+    unaffected by the exception strategy. By default is equal to
+    1e-8 when ``exception_strategy = 'skip_update'`` and equal
+    to 0.2 when ``exception_strategy = 'damp_update'``.
+  arg_name: 'min_curvature'
+  type_name: 'float'
+  is_optional: False
+  default: 'equal'
+- DocstringParam
+  args: ['param', 'init_scale']
+  description: |
+    This parameter can be used to initialize the Hessian or its
+    inverse. When a float is given, the relevant array is initialized
+    to ``np.eye(n) * init_scale``, where ``n`` is the problem dimension.
+    Alternatively, if a precisely ``(n, n)`` shaped, symmetric array is given,
+    this array will be used. Otherwise an error is generated.
+    Set it to 'auto' in order to use an automatic heuristic for choosing
+    the initial scale. The heuristic is described in [1]_, p.143.
+    The default is 'auto'.
+  arg_name: 'init_scale'
+  type_name: "{float, np.array, 'auto'}"
+  is_optional: False
+  default: "'auto'"
+- DocstringMeta
+  args: ['notes']
+  description: 'The update is based on the description in [1]_, p.140.'
+- DocstringMeta
+  args: ['references']
+  description: |
+    .. [1] Nocedal, Jorge, and Stephen J. Wright. "Numerical optimization"
+           Second Edition (2006).
+=== detect
+numpydoc
+=== compose numpydoc
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) Hessian update strategy.
+
+Parameters
+----------
+exception_strategy : {'skip_update', 'damp_update'}, optional
+    Define how to proceed when the curvature condition is violated.
+    Set it to 'skip_update' to just skip the update. Or, alternatively,
+    set it to 'damp_update' to interpolate between the actual BFGS
+    result and the unmodified matrix. Both exceptions strategies
+    are explained  in [1]_, p.536-537.
+min_curvature : float, default=equal
+    This number, scaled by a normalization factor, defines the
+    minimum curvature ``dot(delta_grad, delta_x)`` allowed to go
+    unaffected by the exception strategy. By default is equal to
+    1e-8 when ``exception_strategy = 'skip_update'`` and equal
+    to 0.2 when ``exception_strategy = 'damp_update'``.
+init_scale : {float, np.array, 'auto'}, default='auto'
+    This parameter can be used to initialize the Hessian or its
+    inverse. When a float is given, the relevant array is initialized
+    to ``np.eye(n) * init_scale``, where ``n`` is the problem dimension.
+    Alternatively, if a precisely ``(n, n)`` shaped, symmetric array is given,
+    this array will be used. Otherwise an error is generated.
+    Set it to 'auto' in order to use an automatic heuristic for choosing
+    the initial scale. The heuristic is described in [1]_, p.143.
+    The default is 'auto'.
+
+Notes
+-----
+The update is based on the description in [1]_, p.140.
+
+References
+----------
+.. [1] Nocedal, Jorge, and Stephen J. Wright. "Numerical optimization"
+       Second Edition (2006).

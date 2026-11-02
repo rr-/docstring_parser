@@ -1,0 +1,22 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Return the target URI for a document name.
+
+        *typ* can be used to qualify the link characteristic for individual
+        builders.
+        
+=== parse rest
+short_description: 'Return the target URI for a document name.'
+long_description: |
+  *typ* can be used to qualify the link characteristic for individual
+  builders.
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Return the target URI for a document name.
+
+*typ* can be used to qualify the link characteristic for individual
+builders.

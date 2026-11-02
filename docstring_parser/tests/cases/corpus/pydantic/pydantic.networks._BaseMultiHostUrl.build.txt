@@ -1,0 +1,90 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Build a new `MultiHostUrl` instance from its component parts.
+
+        This method takes either `hosts` - a list of `MultiHostHost` typed dicts, or the individual components
+        `username`, `password`, `host` and `port`.
+
+        Args:
+            scheme: The scheme part of the URL.
+            hosts: Multiple hosts to build the URL from.
+            username: The username part of the URL.
+            password: The password part of the URL.
+            host: The host part of the URL.
+            port: The port part of the URL.
+            path: The path part of the URL.
+            query: The query part of the URL, or omit for no query.
+            fragment: The fragment part of the URL, or omit for no fragment.
+
+        Returns:
+            An instance of `MultiHostUrl`
+        
+=== parse google
+short_description: 'Build a new `MultiHostUrl` instance from its component parts.'
+long_description: |
+  This method takes either `hosts` - a list of `MultiHostHost` typed dicts, or the individual components
+  `username`, `password`, `host` and `port`.
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'scheme']
+  description: 'The scheme part of the URL.'
+  arg_name: 'scheme'
+- DocstringParam
+  args: ['param', 'hosts']
+  description: 'Multiple hosts to build the URL from.'
+  arg_name: 'hosts'
+- DocstringParam
+  args: ['param', 'username']
+  description: 'The username part of the URL.'
+  arg_name: 'username'
+- DocstringParam
+  args: ['param', 'password']
+  description: 'The password part of the URL.'
+  arg_name: 'password'
+- DocstringParam
+  args: ['param', 'host']
+  description: 'The host part of the URL.'
+  arg_name: 'host'
+- DocstringParam
+  args: ['param', 'port']
+  description: 'The port part of the URL.'
+  arg_name: 'port'
+- DocstringParam
+  args: ['param', 'path']
+  description: 'The path part of the URL.'
+  arg_name: 'path'
+- DocstringParam
+  args: ['param', 'query']
+  description: 'The query part of the URL, or omit for no query.'
+  arg_name: 'query'
+- DocstringParam
+  args: ['param', 'fragment']
+  description: 'The fragment part of the URL, or omit for no fragment.'
+  arg_name: 'fragment'
+- DocstringReturns
+  args: ['returns']
+  description: 'An instance of `MultiHostUrl`'
+  is_generator: False
+=== detect
+google
+=== compose google
+Build a new `MultiHostUrl` instance from its component parts.
+
+This method takes either `hosts` - a list of `MultiHostHost` typed dicts, or the individual components
+`username`, `password`, `host` and `port`.
+
+Args:
+    scheme: The scheme part of the URL.
+    hosts: Multiple hosts to build the URL from.
+    username: The username part of the URL.
+    password: The password part of the URL.
+    host: The host part of the URL.
+    port: The port part of the URL.
+    path: The path part of the URL.
+    query: The query part of the URL, or omit for no query.
+    fragment: The fragment part of the URL, or omit for no fragment.
+
+Returns:
+    An instance of `MultiHostUrl`

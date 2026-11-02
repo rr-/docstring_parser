@@ -1,0 +1,24 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        We can't directly use `typing.get_origin` since we need a fallback to support
+        custom generic classes like `ConstrainedList`
+        It should be useless once https://github.com/cython/cython/issues/3537 is
+        solved and https://github.com/pydantic/pydantic/pull/1753 is merged.
+        
+=== parse google
+short_description: "We can't directly use `typing.get_origin` since we need a fallback to support"
+long_description: |
+  custom generic classes like `ConstrainedList`
+  It should be useless once https://github.com/cython/cython/issues/3537 is
+  solved and https://github.com/pydantic/pydantic/pull/1753 is merged.
+blank_after_short_description: False
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+We can't directly use `typing.get_origin` since we need a fallback to support
+custom generic classes like `ConstrainedList`
+It should be useless once https://github.com/cython/cython/issues/3537 is
+solved and https://github.com/pydantic/pydantic/pull/1753 is merged.

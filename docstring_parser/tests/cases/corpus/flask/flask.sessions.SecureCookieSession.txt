@@ -1,0 +1,30 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Base class for sessions based on signed cookies.
+
+    This session backend will set the :attr:`modified` and
+    :attr:`accessed` attributes. It cannot reliably track whether a
+    session is new (vs. empty), so :attr:`new` remains hard coded to
+    ``False``.
+    
+=== parse rest
+short_description: 'Base class for sessions based on signed cookies.'
+long_description: 'This session backend will set the :attr:`modified` and'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringMeta
+  args: ['attr']
+  description: |
+    `accessed` attributes. It cannot reliably track whether a
+    session is new (vs. empty), so :attr:`new` remains hard coded to
+    ``False``.
+=== detect
+rest
+=== compose rest
+Base class for sessions based on signed cookies.
+
+This session backend will set the :attr:`modified` and
+:attr: `accessed` attributes. It cannot reliably track whether a
+    session is new (vs. empty), so :attr:`new` remains hard coded to
+    ``False``.

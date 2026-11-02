@@ -1,0 +1,28 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Node for the main object name.
+
+    For example, in the declaration of a Python class ``MyModule.MyClass``,
+    the main name is ``MyClass``.
+
+    This node always has the class ``sig-name``.
+    
+=== parse rest
+short_description: 'Node for the main object name.'
+long_description: |
+  For example, in the declaration of a Python class ``MyModule.MyClass``,
+  the main name is ``MyClass``.
+  
+  This node always has the class ``sig-name``.
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Node for the main object name.
+
+For example, in the declaration of a Python class ``MyModule.MyClass``,
+the main name is ``MyClass``.
+
+This node always has the class ``sig-name``.

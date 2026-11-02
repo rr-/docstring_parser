@@ -1,0 +1,63 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+ Records any parameters used to define the endpoints of the domain.
+
+        Adds the keyword name of each parameter and its text representation
+        to the  `symbols` attribute as key:value pairs.
+        For instance, a parameter may be passed into to a distribution's
+        initializer using the keyword `log_a`, and the corresponding
+        string representation may be '\log(a)'. To form the text
+        representation of the domain for use in documentation, the
+        _Domain object needs to map from the keyword name used in the code
+        to the string representation.
+
+        Returns None, but updates the `symbols` attribute.
+
+        Parameters
+        ----------
+        *parameters : _Parameter objects
+            Parameters that may define the endpoints of the domain.
+
+        
+=== parse numpydoc
+short_description: 'Records any parameters used to define the endpoints of the domain.'
+long_description: |
+  Adds the keyword name of each parameter and its text representation
+  to the  `symbols` attribute as key:value pairs.
+  For instance, a parameter may be passed into to a distribution's
+  initializer using the keyword `log_a`, and the corresponding
+  string representation may be '\log(a)'. To form the text
+  representation of the domain for use in documentation, the
+  _Domain object needs to map from the keyword name used in the code
+  to the string representation.
+  
+  Returns None, but updates the `symbols` attribute.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', '*parameters']
+  description: 'Parameters that may define the endpoints of the domain.'
+  arg_name: '*parameters'
+  type_name: '_Parameter objects'
+  is_optional: False
+=== detect
+numpydoc
+=== compose numpydoc
+Records any parameters used to define the endpoints of the domain.
+
+Adds the keyword name of each parameter and its text representation
+to the  `symbols` attribute as key:value pairs.
+For instance, a parameter may be passed into to a distribution's
+initializer using the keyword `log_a`, and the corresponding
+string representation may be '\log(a)'. To form the text
+representation of the domain for use in documentation, the
+_Domain object needs to map from the keyword name used in the code
+to the string representation.
+
+Returns None, but updates the `symbols` attribute.
+
+Parameters
+----------
+*parameters : _Parameter objects
+    Parameters that may define the endpoints of the domain.

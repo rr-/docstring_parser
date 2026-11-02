@@ -1,0 +1,70 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Track progress file reading from a binary file.
+
+        Args:
+            file (BinaryIO): A file-like object opened in binary mode.
+            total (int, optional): Total number of bytes to read. This must be provided unless a task with a total is also given.
+            task_id (TaskID): Task to track. Default is new task.
+            description (str, optional): Description of task, if new task is created.
+
+        Returns:
+            BinaryIO: A readable file-like object in binary mode.
+
+        Raises:
+            ValueError: When no total value can be extracted from the arguments or the task.
+        
+=== parse google
+short_description: 'Track progress file reading from a binary file.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'file (BinaryIO)']
+  description: 'A file-like object opened in binary mode.'
+  arg_name: 'file'
+  type_name: 'BinaryIO'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'total (int, optional)']
+  description: 'Total number of bytes to read. This must be provided unless a task with a total is also given.'
+  arg_name: 'total'
+  type_name: 'int'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'task_id (TaskID)']
+  description: 'Task to track. Default is new task.'
+  arg_name: 'task_id'
+  type_name: 'TaskID'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'description (str, optional)']
+  description: 'Description of task, if new task is created.'
+  arg_name: 'description'
+  type_name: 'str'
+  is_optional: True
+- DocstringReturns
+  args: ['returns', 'BinaryIO']
+  description: 'A readable file-like object in binary mode.'
+  type_name: 'BinaryIO'
+  is_generator: False
+- DocstringRaises
+  args: ['raises', 'ValueError']
+  description: 'When no total value can be extracted from the arguments or the task.'
+  type_name: 'ValueError'
+=== detect
+google
+=== compose google
+Track progress file reading from a binary file.
+
+Args:
+    file (BinaryIO): A file-like object opened in binary mode.
+    total (int?): Total number of bytes to read. This must be provided unless a task with a total is also given.
+    task_id (TaskID): Task to track. Default is new task.
+    description (str?): Description of task, if new task is created.
+
+Returns:
+    BinaryIO: A readable file-like object in binary mode.
+
+Raises:
+    ValueError: When no total value can be extracted from the arguments or the task.

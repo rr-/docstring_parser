@@ -1,0 +1,70 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Convert Timestamp to a Julian Date.
+
+        This method returns the number of days as a float since noon January 1, 4713 BC.
+
+        https://en.wikipedia.org/wiki/Julian_day
+
+        Returns
+        -------
+        ndarray or Index
+            Float values that represent each date in Julian Calendar.
+
+        See Also
+        --------
+        Timestamp.to_julian_date : Equivalent method on ``Timestamp`` objects.
+
+        Examples
+        --------
+        >>> idx = pd.DatetimeIndex(["2028-08-12 00:54", "2028-08-12 02:06"])
+        >>> idx.to_julian_date()
+        Index([2461995.5375, 2461995.5875], dtype='float64')
+        
+=== parse numpydoc
+short_description: 'Convert Timestamp to a Julian Date.'
+long_description: |
+  This method returns the number of days as a float since noon January 1, 4713 BC.
+  
+  https://en.wikipedia.org/wiki/Julian_day
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringReturns
+  args: ['returns']
+  description: 'Float values that represent each date in Julian Calendar.'
+  type_name: 'ndarray or Index'
+  is_generator: False
+- DocstringMeta
+  args: ['see_also']
+  description: 'Timestamp.to_julian_date : Equivalent method on ``Timestamp`` objects.'
+- DocstringExample
+  args: ['examples']
+  description: "Index([2461995.5375, 2461995.5875], dtype='float64')"
+  snippet: |
+    >>> idx = pd.DatetimeIndex(["2028-08-12 00:54", "2028-08-12 02:06"])
+    >>> idx.to_julian_date()
+=== detect
+numpydoc
+=== compose numpydoc
+Convert Timestamp to a Julian Date.
+
+This method returns the number of days as a float since noon January 1, 4713 BC.
+
+https://en.wikipedia.org/wiki/Julian_day
+
+Returns
+-------
+ndarray or Index
+    Float values that represent each date in Julian Calendar.
+
+Examples
+--------
+>>> idx = pd.DatetimeIndex(["2028-08-12 00:54", "2028-08-12 02:06"])
+>>> idx.to_julian_date()
+Index([2461995.5375, 2461995.5875], dtype='float64')
+
+See Also
+--------
+Timestamp.to_julian_date : Equivalent method on ``Timestamp`` objects.

@@ -1,0 +1,39 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+
+requests.hooks
+~~~~~~~~~~~~~~
+
+This module provides the capabilities for the Requests hooks system.
+
+Available hooks:
+
+``response``:
+    The response generated from a Request.
+
+=== parse rest
+short_description: 'requests.hooks'
+long_description: |
+  ~~~~~~~~~~~~~~
+  
+  This module provides the capabilities for the Requests hooks system.
+  
+  Available hooks:
+  
+  ``response``:
+      The response generated from a Request.
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+requests.hooks
+~~~~~~~~~~~~~~
+
+This module provides the capabilities for the Requests hooks system.
+
+Available hooks:
+
+``response``:
+    The response generated from a Request.

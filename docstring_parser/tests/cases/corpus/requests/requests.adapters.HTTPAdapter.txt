@@ -1,0 +1,94 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+The built-in HTTP Adapter for urllib3.
+
+    Provides a general-case interface for Requests sessions to contact HTTP and
+    HTTPS urls by implementing the Transport Adapter interface. This class will
+    usually be created by the :class:`Session <Session>` class under the
+    covers.
+
+    :param pool_connections: The number of urllib3 connection pools to cache.
+    :param pool_maxsize: The maximum number of connections to save in the pool.
+    :param max_retries: The maximum number of retries each connection
+        should attempt. Note, this applies only to failed DNS lookups, socket
+        connections and connection timeouts, never to requests where data has
+        made it to the server. By default, Requests does not retry failed
+        connections. If you need granular control over the conditions under
+        which we retry a request, import urllib3's ``Retry`` class and pass
+        that instead.
+    :param pool_block: Whether the connection pool should block for connections.
+
+    Usage::
+
+      >>> import requests
+      >>> s = requests.Session()
+      >>> a = requests.adapters.HTTPAdapter(max_retries=3)
+      >>> s.mount('http://', a)
+    
+=== parse rest
+short_description: 'The built-in HTTP Adapter for urllib3.'
+long_description: |
+  Provides a general-case interface for Requests sessions to contact HTTP and
+  HTTPS urls by implementing the Transport Adapter interface. This class will
+  usually be created by the :class:`Session <Session>` class under the
+  covers.
+  
+  Usage::
+  
+    >>> import requests
+    >>> s = requests.Session()
+    >>> a = requests.adapters.HTTPAdapter(max_retries=3)
+    >>> s.mount('http://', a)
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringParam
+  args: ['param', 'pool_connections']
+  description: 'The number of urllib3 connection pools to cache.'
+  arg_name: 'pool_connections'
+- DocstringParam
+  args: ['param', 'pool_maxsize']
+  description: 'The maximum number of connections to save in the pool.'
+  arg_name: 'pool_maxsize'
+- DocstringParam
+  args: ['param', 'max_retries']
+  description: |
+    The maximum number of retries each connection
+    should attempt. Note, this applies only to failed DNS lookups, socket
+    connections and connection timeouts, never to requests where data has
+    made it to the server. By default, Requests does not retry failed
+    connections. If you need granular control over the conditions under
+    which we retry a request, import urllib3's ``Retry`` class and pass
+    that instead.
+  arg_name: 'max_retries'
+- DocstringParam
+  args: ['param', 'pool_block']
+  description: 'Whether the connection pool should block for connections.'
+  arg_name: 'pool_block'
+=== detect
+rest
+=== compose rest
+The built-in HTTP Adapter for urllib3.
+
+Provides a general-case interface for Requests sessions to contact HTTP and
+HTTPS urls by implementing the Transport Adapter interface. This class will
+usually be created by the :class:`Session <Session>` class under the
+covers.
+
+Usage::
+
+  >>> import requests
+  >>> s = requests.Session()
+  >>> a = requests.adapters.HTTPAdapter(max_retries=3)
+  >>> s.mount('http://', a)
+
+:param pool_connections: The number of urllib3 connection pools to cache.
+:param pool_maxsize: The maximum number of connections to save in the pool.
+:param max_retries: The maximum number of retries each connection
+    should attempt. Note, this applies only to failed DNS lookups, socket
+    connections and connection timeouts, never to requests where data has
+    made it to the server. By default, Requests does not retry failed
+    connections. If you need granular control over the conditions under
+    which we retry a request, import urllib3's ``Retry`` class and pass
+    that instead.
+:param pool_block: Whether the connection pool should block for connections.

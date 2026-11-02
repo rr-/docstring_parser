@@ -1,0 +1,45 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Move cursor relative to current position.
+
+        Args:
+            x (int): X offset.
+            y (int): Y offset.
+
+        Returns:
+            ~Control: Control object.
+
+        
+=== parse google
+short_description: 'Move cursor relative to current position.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'x (int)']
+  description: 'X offset.'
+  arg_name: 'x'
+  type_name: 'int'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'y (int)']
+  description: 'Y offset.'
+  arg_name: 'y'
+  type_name: 'int'
+  is_optional: False
+- DocstringReturns
+  args: ['returns', '~Control']
+  description: 'Control object.'
+  type_name: '~Control'
+  is_generator: False
+=== detect
+google
+=== compose google
+Move cursor relative to current position.
+
+Args:
+    x (int): X offset.
+    y (int): Y offset.
+
+Returns:
+    ~Control: Control object.

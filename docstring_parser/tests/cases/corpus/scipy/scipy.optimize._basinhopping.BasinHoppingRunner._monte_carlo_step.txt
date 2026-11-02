@@ -1,0 +1,22 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Do one Monte Carlo iteration
+
+        Randomly displace the coordinates, minimize, and decide whether
+        or not to accept the new coordinates.
+        
+=== parse numpydoc
+short_description: 'Do one Monte Carlo iteration'
+long_description: |
+  Randomly displace the coordinates, minimize, and decide whether
+  or not to accept the new coordinates.
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Do one Monte Carlo iteration
+
+Randomly displace the coordinates, minimize, and decide whether
+or not to accept the new coordinates.

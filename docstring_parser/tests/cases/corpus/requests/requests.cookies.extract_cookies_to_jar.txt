@@ -1,0 +1,33 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Extract the cookies from the response into a CookieJar.
+
+    :param jar: http.cookiejar.CookieJar (not necessarily a RequestsCookieJar)
+    :param request: our own requests.Request object
+    :param response: urllib3.HTTPResponse object
+    
+=== parse rest
+short_description: 'Extract the cookies from the response into a CookieJar.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringParam
+  args: ['param', 'jar']
+  description: 'http.cookiejar.CookieJar (not necessarily a RequestsCookieJar)'
+  arg_name: 'jar'
+- DocstringParam
+  args: ['param', 'request']
+  description: 'our own requests.Request object'
+  arg_name: 'request'
+- DocstringParam
+  args: ['param', 'response']
+  description: 'urllib3.HTTPResponse object'
+  arg_name: 'response'
+=== detect
+rest
+=== compose rest
+Extract the cookies from the response into a CookieJar.
+
+:param jar: http.cookiejar.CookieJar (not necessarily a RequestsCookieJar)
+:param request: our own requests.Request object
+:param response: urllib3.HTTPResponse object

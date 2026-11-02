@@ -1,0 +1,36 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Render the speed in iterations per second.
+
+        Args:
+            task (Task): A Task object.
+
+        Returns:
+            Text: Text object containing the task speed.
+        
+=== parse google
+short_description: 'Render the speed in iterations per second.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'task (Task)']
+  description: 'A Task object.'
+  arg_name: 'task'
+  type_name: 'Task'
+  is_optional: False
+- DocstringReturns
+  args: ['returns', 'Text']
+  description: 'Text object containing the task speed.'
+  type_name: 'Text'
+  is_generator: False
+=== detect
+google
+=== compose google
+Render the speed in iterations per second.
+
+Args:
+    task (Task): A Task object.
+
+Returns:
+    Text: Text object containing the task speed.

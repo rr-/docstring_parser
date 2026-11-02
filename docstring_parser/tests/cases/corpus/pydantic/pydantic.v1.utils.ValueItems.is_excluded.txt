@@ -1,0 +1,19 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Check if item is fully excluded.
+
+        :param item: key or index of a value
+        
+=== parse google
+short_description: 'Check if item is fully excluded.'
+long_description: ':param item: key or index of a value'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Check if item is fully excluded.
+
+:param item: key or index of a value

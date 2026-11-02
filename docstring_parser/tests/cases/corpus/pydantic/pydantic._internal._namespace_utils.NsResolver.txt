@@ -1,0 +1,248 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+A class responsible for the namespaces resolving logic for annotations evaluation.
+
+    This class handles the namespace logic when evaluating annotations mainly for class objects.
+
+    It holds a stack of classes that are being inspected during the core schema building,
+    and the `types_namespace` property exposes the globals and locals to be used for
+    type annotation evaluation. Additionally -- if no class is present in the stack -- a
+    fallback globals and locals can be provided using the `namespaces_tuple` argument
+    (this is useful when generating a schema for a simple annotation, e.g. when using
+    `TypeAdapter`).
+
+    The namespace creation logic is unfortunately flawed in some cases, for backwards
+    compatibility reasons and to better support valid edge cases. See the description
+    for the `parent_namespace` argument and the example for more details.
+
+    Args:
+        namespaces_tuple: The default globals and locals to use if no class is present
+            on the stack. This can be useful when using the `GenerateSchema` class
+            with `TypeAdapter`, where the "type" being analyzed is a simple annotation.
+        parent_namespace: An optional parent namespace that will be added to the locals
+            with the lowest priority. For a given class defined in a function, the locals
+            of this function are usually used as the parent namespace:
+
+            ```python {lint="skip" test="skip"}
+            from pydantic import BaseModel
+
+            def func() -> None:
+                SomeType = int
+
+                class Model(BaseModel):
+                    f: 'SomeType'
+
+                # when collecting fields, an namespace resolver instance will be created
+                # this way:
+                # ns_resolver = NsResolver(parent_namespace={'SomeType': SomeType})
+            ```
+
+            For backwards compatibility reasons and to support valid edge cases, this parent
+            namespace will be used for *every* type being pushed to the stack. In the future,
+            we might want to be smarter by only doing so when the type being pushed is defined
+            in the same module as the parent namespace.
+
+    Example:
+        ```python {lint="skip" test="skip"}
+        ns_resolver = NsResolver(
+            parent_namespace={'fallback': 1},
+        )
+
+        class Sub:
+            m: 'Model'
+
+        class Model:
+            some_local = 1
+            sub: Sub
+
+        ns_resolver = NsResolver()
+
+        # This is roughly what happens when we build a core schema for `Model`:
+        with ns_resolver.push(Model):
+            ns_resolver.types_namespace
+            #> NamespacesTuple({'Sub': Sub}, {'Model': Model, 'some_local': 1})
+            # First thing to notice here, the model being pushed is added to the locals.
+            # Because `NsResolver` is being used during the model definition, it is not
+            # yet added to the globals. This is useful when resolving self-referencing annotations.
+
+            with ns_resolver.push(Sub):
+                ns_resolver.types_namespace
+                #> NamespacesTuple({'Sub': Sub}, {'Sub': Sub, 'Model': Model})
+                # Second thing to notice: `Sub` is present in both the globals and locals.
+                # This is not an issue, just that as described above, the model being pushed
+                # is added to the locals, but it happens to be present in the globals as well
+                # because it is already defined.
+                # Third thing to notice: `Model` is also added in locals. This is a backwards
+                # compatibility workaround that allows for `Sub` to be able to resolve `'Model'`
+                # correctly (as otherwise models would have to be rebuilt even though this
+                # doesn't look necessary).
+        ```
+    
+=== parse google
+short_description: 'A class responsible for the namespaces resolving logic for annotations evaluation.'
+long_description: |
+  This class handles the namespace logic when evaluating annotations mainly for class objects.
+  
+  It holds a stack of classes that are being inspected during the core schema building,
+  and the `types_namespace` property exposes the globals and locals to be used for
+  type annotation evaluation. Additionally -- if no class is present in the stack -- a
+  fallback globals and locals can be provided using the `namespaces_tuple` argument
+  (this is useful when generating a schema for a simple annotation, e.g. when using
+  `TypeAdapter`).
+  
+  The namespace creation logic is unfortunately flawed in some cases, for backwards
+  compatibility reasons and to better support valid edge cases. See the description
+  for the `parent_namespace` argument and the example for more details.
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'namespaces_tuple']
+  description: |
+    The default globals and locals to use if no class is present
+    on the stack. This can be useful when using the `GenerateSchema` class
+    with `TypeAdapter`, where the "type" being analyzed is a simple annotation.
+  arg_name: 'namespaces_tuple'
+- DocstringParam
+  args: ['param', 'parent_namespace']
+  description: |
+    An optional parent namespace that will be added to the locals
+    with the lowest priority. For a given class defined in a function, the locals
+    of this function are usually used as the parent namespace:
+    
+    ```python {lint="skip" test="skip"}
+    from pydantic import BaseModel
+    
+    def func() -> None:
+        SomeType = int
+    
+        class Model(BaseModel):
+            f: 'SomeType'
+    
+        # when collecting fields, an namespace resolver instance will be created
+        # this way:
+        # ns_resolver = NsResolver(parent_namespace={'SomeType': SomeType})
+    ```
+    
+    For backwards compatibility reasons and to support valid edge cases, this parent
+    namespace will be used for *every* type being pushed to the stack. In the future,
+    we might want to be smarter by only doing so when the type being pushed is defined
+    in the same module as the parent namespace.
+  arg_name: 'parent_namespace'
+- DocstringExample
+  args: ['examples']
+  description: |
+    ```python {lint="skip" test="skip"}
+    ns_resolver = NsResolver(
+        parent_namespace={'fallback': 1},
+    )
+    
+    class Sub:
+        m: 'Model'
+    
+    class Model:
+        some_local = 1
+        sub: Sub
+    
+    ns_resolver = NsResolver()
+    
+    # This is roughly what happens when we build a core schema for `Model`:
+    with ns_resolver.push(Model):
+        ns_resolver.types_namespace
+        #> NamespacesTuple({'Sub': Sub}, {'Model': Model, 'some_local': 1})
+        # First thing to notice here, the model being pushed is added to the locals.
+        # Because `NsResolver` is being used during the model definition, it is not
+        # yet added to the globals. This is useful when resolving self-referencing annotations.
+    
+        with ns_resolver.push(Sub):
+            ns_resolver.types_namespace
+            #> NamespacesTuple({'Sub': Sub}, {'Sub': Sub, 'Model': Model})
+            # Second thing to notice: `Sub` is present in both the globals and locals.
+            # This is not an issue, just that as described above, the model being pushed
+            # is added to the locals, but it happens to be present in the globals as well
+            # because it is already defined.
+            # Third thing to notice: `Model` is also added in locals. This is a backwards
+            # compatibility workaround that allows for `Sub` to be able to resolve `'Model'`
+            # correctly (as otherwise models would have to be rebuilt even though this
+            # doesn't look necessary).
+    ```
+=== detect
+google
+=== compose google
+A class responsible for the namespaces resolving logic for annotations evaluation.
+
+This class handles the namespace logic when evaluating annotations mainly for class objects.
+
+It holds a stack of classes that are being inspected during the core schema building,
+and the `types_namespace` property exposes the globals and locals to be used for
+type annotation evaluation. Additionally -- if no class is present in the stack -- a
+fallback globals and locals can be provided using the `namespaces_tuple` argument
+(this is useful when generating a schema for a simple annotation, e.g. when using
+`TypeAdapter`).
+
+The namespace creation logic is unfortunately flawed in some cases, for backwards
+compatibility reasons and to better support valid edge cases. See the description
+for the `parent_namespace` argument and the example for more details.
+
+Args:
+    namespaces_tuple: The default globals and locals to use if no class is present
+        on the stack. This can be useful when using the `GenerateSchema` class
+        with `TypeAdapter`, where the "type" being analyzed is a simple annotation.
+    parent_namespace: An optional parent namespace that will be added to the locals
+        with the lowest priority. For a given class defined in a function, the locals
+        of this function are usually used as the parent namespace:
+        
+        ```python {lint="skip" test="skip"}
+        from pydantic import BaseModel
+        
+        def func() -> None:
+            SomeType = int
+        
+            class Model(BaseModel):
+                f: 'SomeType'
+        
+            # when collecting fields, an namespace resolver instance will be created
+            # this way:
+            # ns_resolver = NsResolver(parent_namespace={'SomeType': SomeType})
+        ```
+        
+        For backwards compatibility reasons and to support valid edge cases, this parent
+        namespace will be used for *every* type being pushed to the stack. In the future,
+        we might want to be smarter by only doing so when the type being pushed is defined
+        in the same module as the parent namespace.
+
+Examples:
+    ```python {lint="skip" test="skip"}
+    ns_resolver = NsResolver(
+        parent_namespace={'fallback': 1},
+    )
+    
+    class Sub:
+        m: 'Model'
+    
+    class Model:
+        some_local = 1
+        sub: Sub
+    
+    ns_resolver = NsResolver()
+    
+    # This is roughly what happens when we build a core schema for `Model`:
+    with ns_resolver.push(Model):
+        ns_resolver.types_namespace
+        #> NamespacesTuple({'Sub': Sub}, {'Model': Model, 'some_local': 1})
+        # First thing to notice here, the model being pushed is added to the locals.
+        # Because `NsResolver` is being used during the model definition, it is not
+        # yet added to the globals. This is useful when resolving self-referencing annotations.
+    
+        with ns_resolver.push(Sub):
+            ns_resolver.types_namespace
+            #> NamespacesTuple({'Sub': Sub}, {'Sub': Sub, 'Model': Model})
+            # Second thing to notice: `Sub` is present in both the globals and locals.
+            # This is not an issue, just that as described above, the model being pushed
+            # is added to the locals, but it happens to be present in the globals as well
+            # because it is already defined.
+            # Third thing to notice: `Model` is also added in locals. This is a backwards
+            # compatibility workaround that allows for `Sub` to be able to resolve `'Model'`
+            # correctly (as otherwise models would have to be rebuilt even though this
+            # doesn't look necessary).
+    ```

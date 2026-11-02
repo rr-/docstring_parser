@@ -1,0 +1,33 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Advance task by a number of steps.
+
+        Args:
+            task_id (TaskID): ID of task.
+            advance (float): Number of steps to advance. Default is 1.
+        
+=== parse google
+short_description: 'Advance task by a number of steps.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'task_id (TaskID)']
+  description: 'ID of task.'
+  arg_name: 'task_id'
+  type_name: 'TaskID'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'advance (float)']
+  description: 'Number of steps to advance. Default is 1.'
+  arg_name: 'advance'
+  type_name: 'float'
+  is_optional: False
+=== detect
+google
+=== compose google
+Advance task by a number of steps.
+
+Args:
+    task_id (TaskID): ID of task.
+    advance (float): Number of steps to advance. Default is 1.

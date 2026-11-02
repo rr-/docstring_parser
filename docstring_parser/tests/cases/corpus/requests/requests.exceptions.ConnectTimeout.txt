@@ -1,0 +1,18 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+The request timed out while trying to connect to the remote server.
+
+    Requests that produced this error are safe to retry.
+    
+=== parse rest
+short_description: 'The request timed out while trying to connect to the remote server.'
+long_description: 'Requests that produced this error are safe to retry.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+The request timed out while trying to connect to the remote server.
+
+Requests that produced this error are safe to retry.

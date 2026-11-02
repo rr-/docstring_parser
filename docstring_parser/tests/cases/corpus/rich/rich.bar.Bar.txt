@@ -1,0 +1,68 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Renders a solid block bar.
+
+    Args:
+        size (float): Value for the end of the bar.
+        begin (float): Begin point (between 0 and size, inclusive).
+        end (float): End point (between 0 and size, inclusive).
+        width (int, optional): Width of the bar, or ``None`` for maximum width. Defaults to None.
+        color (Union[Color, str], optional): Color of the bar. Defaults to "default".
+        bgcolor (Union[Color, str], optional): Color of bar background. Defaults to "default".
+    
+=== parse google
+short_description: 'Renders a solid block bar.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'size (float)']
+  description: 'Value for the end of the bar.'
+  arg_name: 'size'
+  type_name: 'float'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'begin (float)']
+  description: 'Begin point (between 0 and size, inclusive).'
+  arg_name: 'begin'
+  type_name: 'float'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'end (float)']
+  description: 'End point (between 0 and size, inclusive).'
+  arg_name: 'end'
+  type_name: 'float'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'width (int, optional)']
+  description: 'Width of the bar, or ``None`` for maximum width. Defaults to None.'
+  arg_name: 'width'
+  type_name: 'int'
+  is_optional: True
+  default: 'None'
+- DocstringParam
+  args: ['param', 'color (Union[Color, str], optional)']
+  description: 'Color of the bar. Defaults to "default".'
+  arg_name: 'color'
+  type_name: 'Union[Color, str]'
+  is_optional: True
+  default: '"default"'
+- DocstringParam
+  args: ['param', 'bgcolor (Union[Color, str], optional)']
+  description: 'Color of bar background. Defaults to "default".'
+  arg_name: 'bgcolor'
+  type_name: 'Union[Color, str]'
+  is_optional: True
+  default: '"default"'
+=== detect
+google
+=== compose google
+Renders a solid block bar.
+
+Args:
+    size (float): Value for the end of the bar.
+    begin (float): Begin point (between 0 and size, inclusive).
+    end (float): End point (between 0 and size, inclusive).
+    width (int?): Width of the bar, or ``None`` for maximum width. Defaults to None.
+    color (Union[Color, str]?): Color of the bar. Defaults to "default".
+    bgcolor (Union[Color, str]?): Color of bar background. Defaults to "default".

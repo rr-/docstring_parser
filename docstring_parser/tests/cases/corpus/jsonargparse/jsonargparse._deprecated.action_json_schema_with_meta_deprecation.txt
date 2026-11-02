@@ -1,0 +1,22 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Handle deprecated ``with_meta`` parameter in ``ActionJsonSchema``.
+
+    If ``with_meta`` was given, emit a deprecation warning. Returns its value,
+    or ``True`` if not given.
+    
+=== parse google
+short_description: 'Handle deprecated ``with_meta`` parameter in ``ActionJsonSchema``.'
+long_description: |
+  If ``with_meta`` was given, emit a deprecation warning. Returns its value,
+  or ``True`` if not given.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Handle deprecated ``with_meta`` parameter in ``ActionJsonSchema``.
+
+If ``with_meta`` was given, emit a deprecation warning. Returns its value,
+or ``True`` if not given.

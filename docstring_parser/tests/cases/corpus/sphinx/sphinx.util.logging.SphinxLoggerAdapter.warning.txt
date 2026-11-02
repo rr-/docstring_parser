@@ -1,0 +1,98 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Log a sphinx warning.
+
+        It is recommended to include a ``type`` and ``subtype`` for warnings as
+        these can be displayed to the user using :confval:`show_warning_types`
+        and used in :confval:`suppress_warnings` to suppress specific warnings.
+
+        It is also recommended to specify a ``location`` whenever possible
+        to help users in correcting the warning.
+
+        :param msg: The message, which may contain placeholders for ``args``.
+        :param args: The arguments to substitute into ``msg``.
+        :param type: The type of the warning.
+        :param subtype: The subtype of the warning.
+        :param location: The source location of the warning's origin,
+            which can be a string (the ``docname`` or ``docname:lineno``),
+            a tuple of ``(docname, lineno)``,
+            or the docutils node object.
+        :param nonl: Whether to append a new line terminator to the message.
+        :param color: A color code for the message.
+        :param once: Do not log this warning,
+            if a previous warning already has same ``msg``, ``args`` and ``once=True``.
+        
+=== parse rest
+short_description: 'Log a sphinx warning.'
+long_description: |
+  It is recommended to include a ``type`` and ``subtype`` for warnings as
+  these can be displayed to the user using :confval:`show_warning_types`
+  and used in :confval:`suppress_warnings` to suppress specific warnings.
+  
+  It is also recommended to specify a ``location`` whenever possible
+  to help users in correcting the warning.
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringParam
+  args: ['param', 'msg']
+  description: 'The message, which may contain placeholders for ``args``.'
+  arg_name: 'msg'
+- DocstringParam
+  args: ['param', 'args']
+  description: 'The arguments to substitute into ``msg``.'
+  arg_name: 'args'
+- DocstringParam
+  args: ['param', 'type']
+  description: 'The type of the warning.'
+  arg_name: 'type'
+- DocstringParam
+  args: ['param', 'subtype']
+  description: 'The subtype of the warning.'
+  arg_name: 'subtype'
+- DocstringParam
+  args: ['param', 'location']
+  description: |
+    The source location of the warning's origin,
+    which can be a string (the ``docname`` or ``docname:lineno``),
+    a tuple of ``(docname, lineno)``,
+    or the docutils node object.
+  arg_name: 'location'
+- DocstringParam
+  args: ['param', 'nonl']
+  description: 'Whether to append a new line terminator to the message.'
+  arg_name: 'nonl'
+- DocstringParam
+  args: ['param', 'color']
+  description: 'A color code for the message.'
+  arg_name: 'color'
+- DocstringParam
+  args: ['param', 'once']
+  description: |
+    Do not log this warning,
+    if a previous warning already has same ``msg``, ``args`` and ``once=True``.
+  arg_name: 'once'
+=== detect
+rest
+=== compose rest
+Log a sphinx warning.
+
+It is recommended to include a ``type`` and ``subtype`` for warnings as
+these can be displayed to the user using :confval:`show_warning_types`
+and used in :confval:`suppress_warnings` to suppress specific warnings.
+
+It is also recommended to specify a ``location`` whenever possible
+to help users in correcting the warning.
+
+:param msg: The message, which may contain placeholders for ``args``.
+:param args: The arguments to substitute into ``msg``.
+:param type: The type of the warning.
+:param subtype: The subtype of the warning.
+:param location: The source location of the warning's origin,
+    which can be a string (the ``docname`` or ``docname:lineno``),
+    a tuple of ``(docname, lineno)``,
+    or the docutils node object.
+:param nonl: Whether to append a new line terminator to the message.
+:param color: A color code for the message.
+:param once: Do not log this warning,
+    if a previous warning already has same ``msg``, ``args`` and ``once=True``.

@@ -1,0 +1,56 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Flashes a message to the next request.  In order to remove the
+    flashed message from the session and to display it to the user,
+    the template has to call :func:`get_flashed_messages`.
+
+    .. versionchanged:: 0.3
+       `category` parameter added.
+
+    :param message: the message to be flashed.
+    :param category: the category for the message.  The following values
+                     are recommended: ``'message'`` for any kind of message,
+                     ``'error'`` for errors, ``'info'`` for information
+                     messages and ``'warning'`` for warnings.  However any
+                     kind of string can be used as category.
+    
+=== parse rest
+short_description: 'Flashes a message to the next request.  In order to remove the'
+long_description: |
+  flashed message from the session and to display it to the user,
+  the template has to call :func:`get_flashed_messages`.
+  
+  .. versionchanged:: 0.3
+     `category` parameter added.
+blank_after_short_description: False
+blank_after_long_description: True
+style: rest
+- DocstringParam
+  args: ['param', 'message']
+  description: 'the message to be flashed.'
+  arg_name: 'message'
+- DocstringParam
+  args: ['param', 'category']
+  description: |
+    the category for the message.  The following values
+    are recommended: ``'message'`` for any kind of message,
+    ``'error'`` for errors, ``'info'`` for information
+    messages and ``'warning'`` for warnings.  However any
+    kind of string can be used as category.
+  arg_name: 'category'
+=== detect
+rest
+=== compose rest
+Flashes a message to the next request.  In order to remove the
+flashed message from the session and to display it to the user,
+the template has to call :func:`get_flashed_messages`.
+
+.. versionchanged:: 0.3
+   `category` parameter added.
+
+:param message: the message to be flashed.
+:param category: the category for the message.  The following values
+    are recommended: ``'message'`` for any kind of message,
+    ``'error'`` for errors, ``'info'`` for information
+    messages and ``'warning'`` for warnings.  However any
+    kind of string can be used as category.

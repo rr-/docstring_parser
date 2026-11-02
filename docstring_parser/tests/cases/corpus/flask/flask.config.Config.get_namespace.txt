@@ -1,0 +1,100 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Returns a dictionary containing a subset of configuration options
+        that match the specified namespace/prefix. Example usage::
+
+            app.config['IMAGE_STORE_TYPE'] = 'fs'
+            app.config['IMAGE_STORE_PATH'] = '/var/app/images'
+            app.config['IMAGE_STORE_BASE_URL'] = 'http://img.website.com'
+            image_store_config = app.config.get_namespace('IMAGE_STORE_')
+
+        The resulting dictionary `image_store_config` would look like::
+
+            {
+                'type': 'fs',
+                'path': '/var/app/images',
+                'base_url': 'http://img.website.com'
+            }
+
+        This is often useful when configuration options map directly to
+        keyword arguments in functions or class constructors.
+
+        :param namespace: a configuration namespace
+        :param lowercase: a flag indicating if the keys of the resulting
+                          dictionary should be lowercase
+        :param trim_namespace: a flag indicating if the keys of the resulting
+                          dictionary should not include the namespace
+
+        .. versionadded:: 0.11
+        
+=== parse rest
+short_description: 'Returns a dictionary containing a subset of configuration options'
+long_description: |
+  that match the specified namespace/prefix. Example usage::
+  
+      app.config['IMAGE_STORE_TYPE'] = 'fs'
+      app.config['IMAGE_STORE_PATH'] = '/var/app/images'
+      app.config['IMAGE_STORE_BASE_URL'] = 'http://img.website.com'
+      image_store_config = app.config.get_namespace('IMAGE_STORE_')
+  
+  The resulting dictionary `image_store_config` would look like::
+  
+      {
+          'type': 'fs',
+          'path': '/var/app/images',
+          'base_url': 'http://img.website.com'
+      }
+  
+  This is often useful when configuration options map directly to
+  keyword arguments in functions or class constructors.
+  
+  .. versionadded:: 0.11
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringParam
+  args: ['param', 'namespace']
+  description: 'a configuration namespace'
+  arg_name: 'namespace'
+- DocstringParam
+  args: ['param', 'lowercase']
+  description: |
+    a flag indicating if the keys of the resulting
+    dictionary should be lowercase
+  arg_name: 'lowercase'
+- DocstringParam
+  args: ['param', 'trim_namespace']
+  description: |
+    a flag indicating if the keys of the resulting
+    dictionary should not include the namespace
+  arg_name: 'trim_namespace'
+=== detect
+rest
+=== compose rest
+Returns a dictionary containing a subset of configuration options
+
+that match the specified namespace/prefix. Example usage::
+
+    app.config['IMAGE_STORE_TYPE'] = 'fs'
+    app.config['IMAGE_STORE_PATH'] = '/var/app/images'
+    app.config['IMAGE_STORE_BASE_URL'] = 'http://img.website.com'
+    image_store_config = app.config.get_namespace('IMAGE_STORE_')
+
+The resulting dictionary `image_store_config` would look like::
+
+    {
+        'type': 'fs',
+        'path': '/var/app/images',
+        'base_url': 'http://img.website.com'
+    }
+
+This is often useful when configuration options map directly to
+keyword arguments in functions or class constructors.
+
+.. versionadded:: 0.11
+
+:param namespace: a configuration namespace
+:param lowercase: a flag indicating if the keys of the resulting
+    dictionary should be lowercase
+:param trim_namespace: a flag indicating if the keys of the resulting
+    dictionary should not include the namespace

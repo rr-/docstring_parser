@@ -1,0 +1,177 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Convert the return value from a view function to an instance of
+        :attr:`response_class`.
+
+        :param rv: the return value from the view function. The view function
+            must return a response. Returning ``None``, or the view ending
+            without returning, is not allowed. The following types are allowed
+            for ``view_rv``:
+
+            ``str``
+                A response object is created with the string encoded to UTF-8
+                as the body.
+
+            ``bytes``
+                A response object is created with the bytes as the body.
+
+            ``dict``
+                A dictionary that will be jsonify'd before being returned.
+
+            ``list``
+                A list that will be jsonify'd before being returned.
+
+            ``generator`` or ``iterator``
+                A generator that returns ``str`` or ``bytes`` to be
+                streamed as the response.
+
+            ``tuple``
+                Either ``(body, status, headers)``, ``(body, status)``, or
+                ``(body, headers)``, where ``body`` is any of the other types
+                allowed here, ``status`` is a string or an integer, and
+                ``headers`` is a dictionary or a list of ``(key, value)``
+                tuples. If ``body`` is a :attr:`response_class` instance,
+                ``status`` overwrites the exiting value and ``headers`` are
+                extended.
+
+            :attr:`response_class`
+                The object is returned unchanged.
+
+            other :class:`~werkzeug.wrappers.Response` class
+                The object is coerced to :attr:`response_class`.
+
+            :func:`callable`
+                The function is called as a WSGI application. The result is
+                used to create a response object.
+
+        .. versionchanged:: 2.2
+            A generator will be converted to a streaming response.
+            A list will be converted to a JSON response.
+
+        .. versionchanged:: 1.1
+            A dict will be converted to a JSON response.
+
+        .. versionchanged:: 0.9
+           Previously a tuple was interpreted as the arguments for the
+           response object.
+        
+=== parse rest
+short_description: 'Convert the return value from a view function to an instance of'
+long_description: |
+  .. versionchanged:: 2.2
+      A generator will be converted to a streaming response.
+      A list will be converted to a JSON response.
+  
+  .. versionchanged:: 1.1
+      A dict will be converted to a JSON response.
+  
+  .. versionchanged:: 0.9
+     Previously a tuple was interpreted as the arguments for the
+     response object.
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringMeta
+  args: ['attr']
+  description: '`response_class`.'
+- DocstringParam
+  args: ['param', 'rv']
+  description: |
+    the return value from the view function. The view function
+    must return a response. Returning ``None``, or the view ending
+    without returning, is not allowed. The following types are allowed
+    for ``view_rv``:
+    
+    ``str``
+        A response object is created with the string encoded to UTF-8
+        as the body.
+    
+    ``bytes``
+        A response object is created with the bytes as the body.
+    
+    ``dict``
+        A dictionary that will be jsonify'd before being returned.
+    
+    ``list``
+        A list that will be jsonify'd before being returned.
+    
+    ``generator`` or ``iterator``
+        A generator that returns ``str`` or ``bytes`` to be
+        streamed as the response.
+    
+    ``tuple``
+        Either ``(body, status, headers)``, ``(body, status)``, or
+        ``(body, headers)``, where ``body`` is any of the other types
+        allowed here, ``status`` is a string or an integer, and
+        ``headers`` is a dictionary or a list of ``(key, value)``
+        tuples. If ``body`` is a :attr:`response_class` instance,
+        ``status`` overwrites the exiting value and ``headers`` are
+        extended.
+    
+    :attr:`response_class`
+        The object is returned unchanged.
+    
+    other :class:`~werkzeug.wrappers.Response` class
+        The object is coerced to :attr:`response_class`.
+    
+    :func:`callable`
+        The function is called as a WSGI application. The result is
+        used to create a response object.
+  arg_name: 'rv'
+=== detect
+rest
+=== compose rest
+Convert the return value from a view function to an instance of
+
+.. versionchanged:: 2.2
+    A generator will be converted to a streaming response.
+    A list will be converted to a JSON response.
+
+.. versionchanged:: 1.1
+    A dict will be converted to a JSON response.
+
+.. versionchanged:: 0.9
+   Previously a tuple was interpreted as the arguments for the
+   response object.
+
+:attr: `response_class`.
+:param rv: the return value from the view function. The view function
+    must return a response. Returning ``None``, or the view ending
+    without returning, is not allowed. The following types are allowed
+    for ``view_rv``:
+
+    ``str``
+        A response object is created with the string encoded to UTF-8
+        as the body.
+
+    ``bytes``
+        A response object is created with the bytes as the body.
+
+    ``dict``
+        A dictionary that will be jsonify'd before being returned.
+
+    ``list``
+        A list that will be jsonify'd before being returned.
+
+    ``generator`` or ``iterator``
+        A generator that returns ``str`` or ``bytes`` to be
+        streamed as the response.
+
+    ``tuple``
+        Either ``(body, status, headers)``, ``(body, status)``, or
+        ``(body, headers)``, where ``body`` is any of the other types
+        allowed here, ``status`` is a string or an integer, and
+        ``headers`` is a dictionary or a list of ``(key, value)``
+        tuples. If ``body`` is a :attr:`response_class` instance,
+        ``status`` overwrites the exiting value and ``headers`` are
+        extended.
+
+    :attr:`response_class`
+        The object is returned unchanged.
+
+    other :class:`~werkzeug.wrappers.Response` class
+        The object is coerced to :attr:`response_class`.
+
+    :func:`callable`
+        The function is called as a WSGI application. The result is
+        used to create a response object.

@@ -1,0 +1,34 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Constructs a sparse array from the Laplacian data. The returned sparse
+        array format is dependent on the selected boundary conditions.
+
+        Returns
+        -------
+        L : scipy.sparse.sparray
+            The shape is ``(N, N)`` where ``N = np.prod(grid_shape)``.
+
+        
+=== parse numpydoc
+short_description: 'Constructs a sparse array from the Laplacian data. The returned sparse'
+long_description: 'array format is dependent on the selected boundary conditions.'
+blank_after_short_description: False
+blank_after_long_description: True
+style: numpydoc
+- DocstringReturns
+  args: ['returns']
+  description: 'The shape is ``(N, N)`` where ``N = np.prod(grid_shape)``.'
+  type_name: 'scipy.sparse.sparray'
+  is_generator: False
+  return_name: 'L'
+=== detect
+numpydoc
+=== compose numpydoc
+Constructs a sparse array from the Laplacian data. The returned sparse
+array format is dependent on the selected boundary conditions.
+
+Returns
+-------
+L : scipy.sparse.sparray
+    The shape is ``(N, N)`` where ``N = np.prod(grid_shape)``.

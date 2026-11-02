@@ -1,0 +1,25 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Clear buffered data.
+
+        @return: All of the cleared buffered data.
+        @rtype: C{bytes}
+        
+=== parse epydoc
+short_description: 'Clear buffered data.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringReturns
+  args: ['return']
+  description: 'All of the cleared buffered data.'
+  type_name: 'C{bytes}'
+  is_generator: False
+=== detect
+epydoc
+=== compose epydoc
+Clear buffered data.
+
+@rtype: C{bytes}
+@return: All of the cleared buffered data.

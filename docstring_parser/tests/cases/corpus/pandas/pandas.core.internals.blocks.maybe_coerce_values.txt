@@ -1,0 +1,47 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Input validation for values passed to __init__. Ensure that
+    any datetime64/timedelta64 dtypes are in nanoseconds.  Ensure
+    that we do not have string dtypes.
+
+    Parameters
+    ----------
+    values : np.ndarray or ExtensionArray
+
+    Returns
+    -------
+    values : np.ndarray or ExtensionArray
+    
+=== parse numpydoc
+short_description: 'Input validation for values passed to __init__. Ensure that'
+long_description: |
+  any datetime64/timedelta64 dtypes are in nanoseconds.  Ensure
+  that we do not have string dtypes.
+blank_after_short_description: False
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'values']
+  arg_name: 'values'
+  type_name: 'np.ndarray or ExtensionArray'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  type_name: 'np.ndarray or ExtensionArray'
+  is_generator: False
+  return_name: 'values'
+=== detect
+numpydoc
+=== compose numpydoc
+Input validation for values passed to __init__. Ensure that
+any datetime64/timedelta64 dtypes are in nanoseconds.  Ensure
+that we do not have string dtypes.
+
+Parameters
+----------
+values : np.ndarray or ExtensionArray
+
+Returns
+-------
+values : np.ndarray or ExtensionArray

@@ -1,0 +1,31 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Add examples to a JSON schema.
+
+    If the JSON Schema already contains examples, the provided examples
+    will be appended.
+
+    If `mode` is set this will only apply to that schema generation mode,
+    allowing you to add different examples for validation and serialization.
+    
+=== parse google
+short_description: 'Add examples to a JSON schema.'
+long_description: |
+  If the JSON Schema already contains examples, the provided examples
+  will be appended.
+  
+  If `mode` is set this will only apply to that schema generation mode,
+  allowing you to add different examples for validation and serialization.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Add examples to a JSON schema.
+
+If the JSON Schema already contains examples, the provided examples
+will be appended.
+
+If `mode` is set this will only apply to that schema generation mode,
+allowing you to add different examples for validation and serialization.

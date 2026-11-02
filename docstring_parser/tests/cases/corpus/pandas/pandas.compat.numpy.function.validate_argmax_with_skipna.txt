@@ -1,0 +1,24 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    If 'Series.argmax' is called via the 'numpy' library, the third parameter
+    in its signature is 'out', which takes either an ndarray or 'None', so
+    check if the 'skipna' parameter is either an instance of ndarray or is
+    None, since 'skipna' itself should be a boolean
+    
+=== parse numpydoc
+short_description: "If 'Series.argmax' is called via the 'numpy' library, the third parameter"
+long_description: |
+  in its signature is 'out', which takes either an ndarray or 'None', so
+  check if the 'skipna' parameter is either an instance of ndarray or is
+  None, since 'skipna' itself should be a boolean
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+If 'Series.argmax' is called via the 'numpy' library, the third parameter
+in its signature is 'out', which takes either an ndarray or 'None', so
+check if the 'skipna' parameter is either an instance of ndarray or is
+None, since 'skipna' itself should be a boolean

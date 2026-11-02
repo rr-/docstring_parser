@@ -1,0 +1,35 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Adds an argument to the parser or argument group.
+
+        All the arguments from `argparse.ArgumentParser.add_argument
+        <https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser.add_argument>`_
+        are supported. Additionally it accepts:
+
+        Args:
+            sub_configs: Whether to try parsing a sub-config when argument is a complex type.
+        
+=== parse google
+short_description: 'Adds an argument to the parser or argument group.'
+long_description: |
+  All the arguments from `argparse.ArgumentParser.add_argument
+  <https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser.add_argument>`_
+  are supported. Additionally it accepts:
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'sub_configs']
+  description: 'Whether to try parsing a sub-config when argument is a complex type.'
+  arg_name: 'sub_configs'
+=== detect
+google
+=== compose google
+Adds an argument to the parser or argument group.
+
+All the arguments from `argparse.ArgumentParser.add_argument
+<https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser.add_argument>`_
+are supported. Additionally it accepts:
+
+Args:
+    sub_configs: Whether to try parsing a sub-config when argument is a complex type.

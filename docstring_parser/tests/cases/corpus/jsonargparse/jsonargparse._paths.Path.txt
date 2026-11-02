@@ -1,0 +1,70 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Base class for Path types. Stores a (possibly relative) path and the corresponding absolute path.
+
+    From the object the absolute path can be obtained without having to remember
+    the working directory (or parent remote path) from when the object was
+    created.
+
+    When a Path instance is created, it is checked that: the path exists,
+    whether it is a file or directory and whether it has the required access
+    permissions (f=file, d=directory, r=readable, w=writable, x=executable,
+    c=creatable, u=url, s=fsspec or in uppercase meaning not, i.e., F=not-file,
+    D=not-directory, R=not-readable, W=not-writable and X=not-executable).
+
+    The creatable flag "c" can be given one or two times. If given once, the
+    parent directory must exist and be writable. If given twice, the parent
+    directory does not have to exist, but should be allowed to create.
+
+    An instance of Path class can also refer to the standard input or output.
+    To do that, path must be set with the value "-"; it is a common practice.
+    Then, getting the content or opening it will automatically be done on
+    standard input or output.
+    
+=== parse google
+short_description: 'Base class for Path types. Stores a (possibly relative) path and the corresponding absolute path.'
+long_description: |
+  From the object the absolute path can be obtained without having to remember
+  the working directory (or parent remote path) from when the object was
+  created.
+  
+  When a Path instance is created, it is checked that: the path exists,
+  whether it is a file or directory and whether it has the required access
+  permissions (f=file, d=directory, r=readable, w=writable, x=executable,
+  c=creatable, u=url, s=fsspec or in uppercase meaning not, i.e., F=not-file,
+  D=not-directory, R=not-readable, W=not-writable and X=not-executable).
+  
+  The creatable flag "c" can be given one or two times. If given once, the
+  parent directory must exist and be writable. If given twice, the parent
+  directory does not have to exist, but should be allowed to create.
+  
+  An instance of Path class can also refer to the standard input or output.
+  To do that, path must be set with the value "-"; it is a common practice.
+  Then, getting the content or opening it will automatically be done on
+  standard input or output.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Base class for Path types. Stores a (possibly relative) path and the corresponding absolute path.
+
+From the object the absolute path can be obtained without having to remember
+the working directory (or parent remote path) from when the object was
+created.
+
+When a Path instance is created, it is checked that: the path exists,
+whether it is a file or directory and whether it has the required access
+permissions (f=file, d=directory, r=readable, w=writable, x=executable,
+c=creatable, u=url, s=fsspec or in uppercase meaning not, i.e., F=not-file,
+D=not-directory, R=not-readable, W=not-writable and X=not-executable).
+
+The creatable flag "c" can be given one or two times. If given once, the
+parent directory must exist and be writable. If given twice, the parent
+directory does not have to exist, but should be allowed to create.
+
+An instance of Path class can also refer to the standard input or output.
+To do that, path must be set with the value "-"; it is a common practice.
+Then, getting the content or opening it will automatically be done on
+standard input or output.

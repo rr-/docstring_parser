@@ -1,0 +1,17 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Get a signal handling object that implements the basic behavior of
+        stopping the reactor on SIGINT, SIGBREAK, and SIGTERM.
+        
+=== parse epydoc
+short_description: 'Get a signal handling object that implements the basic behavior of'
+long_description: 'stopping the reactor on SIGINT, SIGBREAK, and SIGTERM.'
+blank_after_short_description: False
+blank_after_long_description: False
+style: epydoc
+=== detect
+rest
+=== compose epydoc
+Get a signal handling object that implements the basic behavior of
+stopping the reactor on SIGINT, SIGBREAK, and SIGTERM.

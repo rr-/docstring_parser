@@ -1,0 +1,22 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+    Decode an FTP response specifying a host and port.
+
+    @return: a 2-tuple of (host, port).
+    
+=== parse epydoc
+short_description: 'Decode an FTP response specifying a host and port.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringReturns
+  args: ['return']
+  description: 'a 2-tuple of (host, port).'
+  is_generator: False
+=== detect
+epydoc
+=== compose epydoc
+Decode an FTP response specifying a host and port.
+
+@return: a 2-tuple of (host, port).

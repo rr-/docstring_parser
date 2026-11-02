@@ -1,0 +1,16 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Inserted to set the highlight language and line number options for
+    subsequent code blocks.
+    
+=== parse rest
+short_description: 'Inserted to set the highlight language and line number options for'
+long_description: 'subsequent code blocks.'
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Inserted to set the highlight language and line number options for
+subsequent code blocks.

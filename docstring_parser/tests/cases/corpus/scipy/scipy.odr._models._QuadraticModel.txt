@@ -1,0 +1,82 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Quadratic model
+
+    .. deprecated:: 1.17.0
+        `scipy.odr` is deprecated and will be removed in SciPy 1.19.0. Please use
+        `pypi.org/project/odrpack/ <https://pypi.org/project/odrpack/>`_
+        instead.
+
+    This model is defined by :math:`y = \beta_0 x^2 + \beta_1 x + \beta_2`
+
+    Examples
+    --------
+    We can calculate orthogonal distance regression with a quadratic model:
+
+    >>> from scipy import odr
+    >>> import numpy as np
+    >>> x = np.linspace(0.0, 5.0)
+    >>> y = 1.0 * x ** 2 + 2.0 * x + 3.0
+    >>> data = odr.Data(x, y)
+    >>> odr_obj = odr.ODR(data, odr.quadratic)
+    >>> output = odr_obj.run()
+    >>> print(output.beta)
+    [1. 2. 3.]
+
+    
+=== parse numpydoc
+short_description: 'Quadratic model'
+long_description: 'This model is defined by :math:`y = \\beta_0 x^2 + \\beta_1 x + \\beta_2`'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringDeprecated
+  args: ['deprecation']
+  description: |
+    `scipy.odr` is deprecated and will be removed in SciPy 1.19.0. Please use
+    `pypi.org/project/odrpack/ <https://pypi.org/project/odrpack/>`_
+    instead.
+  version: '1.17.0'
+- DocstringExample
+  args: ['examples']
+  description: |
+    We can calculate orthogonal distance regression with a quadratic model:
+    
+- DocstringExample
+  args: ['examples']
+  description: '[1. 2. 3.]'
+  snippet: |
+    >>> from scipy import odr
+    >>> import numpy as np
+    >>> x = np.linspace(0.0, 5.0)
+    >>> y = 1.0 * x ** 2 + 2.0 * x + 3.0
+    >>> data = odr.Data(x, y)
+    >>> odr_obj = odr.ODR(data, odr.quadratic)
+    >>> output = odr_obj.run()
+    >>> print(output.beta)
+=== detect
+numpydoc
+=== compose numpydoc
+Quadratic model
+
+.. deprecated:: 1.17.0
+    `scipy.odr` is deprecated and will be removed in SciPy 1.19.0. Please use
+    `pypi.org/project/odrpack/ <https://pypi.org/project/odrpack/>`_
+    instead.
+
+This model is defined by :math:`y = \beta_0 x^2 + \beta_1 x + \beta_2`
+
+Examples
+--------
+We can calculate orthogonal distance regression with a quadratic model:
+
+>>> from scipy import odr
+>>> import numpy as np
+>>> x = np.linspace(0.0, 5.0)
+>>> y = 1.0 * x ** 2 + 2.0 * x + 3.0
+>>> data = odr.Data(x, y)
+>>> odr_obj = odr.ODR(data, odr.quadratic)
+>>> output = odr_obj.run()
+>>> print(output.beta)
+[1. 2. 3.]

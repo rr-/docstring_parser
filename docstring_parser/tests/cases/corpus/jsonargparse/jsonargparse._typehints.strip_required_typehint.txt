@@ -1,0 +1,25 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Removes top level Required/NotRequired and ReadOnly wrappers, checking the requiredness.
+
+    The requiredness of an argument is already given by the argument itself, thus Required and
+    NotRequired are only accepted as a redundant specification, failing when they disagree, and
+    neither they nor ReadOnly are included in the type shown in the help.
+    
+=== parse google
+short_description: 'Removes top level Required/NotRequired and ReadOnly wrappers, checking the requiredness.'
+long_description: |
+  The requiredness of an argument is already given by the argument itself, thus Required and
+  NotRequired are only accepted as a redundant specification, failing when they disagree, and
+  neither they nor ReadOnly are included in the type shown in the help.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Removes top level Required/NotRequired and ReadOnly wrappers, checking the requiredness.
+
+The requiredness of an argument is already given by the argument itself, thus Required and
+NotRequired are only accepted as a redundant specification, failing when they disagree, and
+neither they nor ReadOnly are included in the type shown in the help.

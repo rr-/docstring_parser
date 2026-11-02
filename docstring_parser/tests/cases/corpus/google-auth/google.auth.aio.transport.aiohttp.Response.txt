@@ -1,0 +1,46 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+
+    Represents an HTTP response and its data. It is returned by ``google.auth.aio.transport.sessions.AsyncAuthorizedSession``.
+
+    Args:
+        response (aiohttp.ClientResponse): An instance of aiohttp.ClientResponse.
+
+    Attributes:
+        status_code (int): The HTTP status code of the response.
+        headers (Mapping[str, str]): The HTTP headers of the response.
+    
+=== parse google
+short_description: 'Represents an HTTP response and its data. It is returned by ``google.auth.aio.transport.sessions.AsyncAuthorizedSession``.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'response (aiohttp.ClientResponse)']
+  description: 'An instance of aiohttp.ClientResponse.'
+  arg_name: 'response'
+  type_name: 'aiohttp.ClientResponse'
+  is_optional: False
+- DocstringParam
+  args: ['attribute', 'status_code (int)']
+  description: 'The HTTP status code of the response.'
+  arg_name: 'status_code'
+  type_name: 'int'
+  is_optional: False
+- DocstringParam
+  args: ['attribute', 'headers (Mapping[str, str])']
+  description: 'The HTTP headers of the response.'
+  arg_name: 'headers'
+  type_name: 'Mapping[str, str]'
+  is_optional: False
+=== detect
+google
+=== compose google
+Represents an HTTP response and its data. It is returned by ``google.auth.aio.transport.sessions.AsyncAuthorizedSession``.
+
+Args:
+    response (aiohttp.ClientResponse): An instance of aiohttp.ClientResponse.
+
+Attributes:
+    status_code (int): The HTTP status code of the response.
+    headers (Mapping[str, str]): The HTTP headers of the response.

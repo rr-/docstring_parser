@@ -1,0 +1,195 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Interpolation at coordinates.
+
+        Parameters
+        ----------
+        xi : ndarray of shape (..., ndim)
+            The coordinates to evaluate the interpolator at.
+
+        method : str, optional
+            The method of interpolation to perform. Supported are "linear",
+            "nearest", "slinear", "cubic", "quintic" and "pchip". Default is
+            the method chosen when the interpolator was created.
+
+        nu : sequence of ints, length ndim, optional
+            If not None, the orders of the derivatives to evaluate.
+            Each entry must be non-negative.
+            Only allowed for methods "slinear", "cubic" and "quintic".
+
+            .. versionadded:: 1.13
+
+        Returns
+        -------
+        values_x : ndarray, shape xi.shape[:-1] + values.shape[ndim:]
+            Interpolated values at `xi`. See notes for behaviour when
+            ``xi.ndim == 1``.
+
+        Notes
+        -----
+        In the case that ``xi.ndim == 1`` a new axis is inserted into
+        the 0 position of the returned array, values_x, so its shape is
+        instead ``(1,) + values.shape[ndim:]``.
+
+        Examples
+        --------
+        Here we define a nearest-neighbor interpolator of a simple function
+
+        >>> import numpy as np
+        >>> x, y = np.array([0, 1, 2]), np.array([1, 3, 7])
+        >>> def f(x, y):
+        ...     return x**2 + y**2
+        >>> data = f(*np.meshgrid(x, y, indexing='ij', sparse=True))
+        >>> from scipy.interpolate import RegularGridInterpolator
+        >>> interp = RegularGridInterpolator((x, y), data, method='nearest')
+
+        By construction, the interpolator uses the nearest-neighbor
+        interpolation
+
+        >>> interp([[1.5, 1.3], [0.3, 4.5]])
+        array([2., 9.])
+
+        We can however evaluate the linear interpolant by overriding the
+        `method` parameter
+
+        >>> interp([[1.5, 1.3], [0.3, 4.5]], method='linear')
+        array([ 4.7, 24.3])
+        
+=== parse numpydoc
+short_description: 'Interpolation at coordinates.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'xi']
+  description: 'The coordinates to evaluate the interpolator at.'
+  arg_name: 'xi'
+  type_name: 'ndarray of shape (..., ndim)'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'method']
+  description: |
+    The method of interpolation to perform. Supported are "linear",
+    "nearest", "slinear", "cubic", "quintic" and "pchip". Default is
+    the method chosen when the interpolator was created.
+  arg_name: 'method'
+  type_name: 'str'
+  is_optional: True
+  default: 'the'
+- DocstringParam
+  args: ['param', 'nu']
+  description: |
+    If not None, the orders of the derivatives to evaluate.
+    Each entry must be non-negative.
+    Only allowed for methods "slinear", "cubic" and "quintic".
+    
+    .. versionadded:: 1.13
+  arg_name: 'nu'
+  type_name: 'sequence of ints, length ndim'
+  is_optional: True
+- DocstringReturns
+  args: ['returns']
+  description: |
+    Interpolated values at `xi`. See notes for behaviour when
+    ``xi.ndim == 1``.
+  type_name: 'ndarray, shape xi.shape[:-1] + values.shape[ndim:]'
+  is_generator: False
+  return_name: 'values_x'
+- DocstringMeta
+  args: ['notes']
+  description: |
+    In the case that ``xi.ndim == 1`` a new axis is inserted into
+    the 0 position of the returned array, values_x, so its shape is
+    instead ``(1,) + values.shape[ndim:]``.
+- DocstringExample
+  args: ['examples']
+  description: |
+    Here we define a nearest-neighbor interpolator of a simple function
+    
+- DocstringExample
+  args: ['examples']
+  description: '...     return x**2 + y**2'
+  snippet: |
+    >>> import numpy as np
+    >>> x, y = np.array([0, 1, 2]), np.array([1, 3, 7])
+    >>> def f(x, y):
+- DocstringExample
+  args: ['examples']
+  description: |
+    
+    By construction, the interpolator uses the nearest-neighbor
+    interpolation
+    
+  snippet: |
+    >>> data = f(*np.meshgrid(x, y, indexing='ij', sparse=True))
+    >>> from scipy.interpolate import RegularGridInterpolator
+    >>> interp = RegularGridInterpolator((x, y), data, method='nearest')
+- DocstringExample
+  args: ['examples']
+  description: |
+    array([2., 9.])
+    
+    We can however evaluate the linear interpolant by overriding the
+    `method` parameter
+    
+  snippet: '>>> interp([[1.5, 1.3], [0.3, 4.5]])'
+- DocstringExample
+  args: ['examples']
+  description: 'array([ 4.7, 24.3])'
+  snippet: ">>> interp([[1.5, 1.3], [0.3, 4.5]], method='linear')"
+=== detect
+numpydoc
+=== compose numpydoc
+Interpolation at coordinates.
+
+Parameters
+----------
+xi : ndarray of shape (..., ndim)
+    The coordinates to evaluate the interpolator at.
+method : str, default=the
+    The method of interpolation to perform. Supported are "linear",
+    "nearest", "slinear", "cubic", "quintic" and "pchip". Default is
+    the method chosen when the interpolator was created.
+nu : sequence of ints, length ndim, optional
+    If not None, the orders of the derivatives to evaluate.
+    Each entry must be non-negative.
+    Only allowed for methods "slinear", "cubic" and "quintic".
+    
+    .. versionadded:: 1.13
+
+Returns
+-------
+values_x : ndarray, shape xi.shape[:-1] + values.shape[ndim:]
+    Interpolated values at `xi`. See notes for behaviour when
+    ``xi.ndim == 1``.
+
+Examples
+--------
+Here we define a nearest-neighbor interpolator of a simple function
+
+>>> import numpy as np
+>>> x, y = np.array([0, 1, 2]), np.array([1, 3, 7])
+>>> def f(x, y):
+...     return x**2 + y**2
+>>> data = f(*np.meshgrid(x, y, indexing='ij', sparse=True))
+>>> from scipy.interpolate import RegularGridInterpolator
+>>> interp = RegularGridInterpolator((x, y), data, method='nearest')
+
+By construction, the interpolator uses the nearest-neighbor
+interpolation
+
+>>> interp([[1.5, 1.3], [0.3, 4.5]])
+array([2., 9.])
+
+We can however evaluate the linear interpolant by overriding the
+`method` parameter
+
+>>> interp([[1.5, 1.3], [0.3, 4.5]], method='linear')
+array([ 4.7, 24.3])
+
+Notes
+-----
+In the case that ``xi.ndim == 1`` a new axis is inserted into
+the 0 position of the returned array, values_x, so its shape is
+instead ``(1,) + values.shape[ndim:]``.

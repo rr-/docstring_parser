@@ -1,0 +1,32 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Add a log observer to the global publisher.
+
+        @see: L{LogPublisher.addObserver}
+
+        @param observer: a log observer
+        @type observer: L{callable}
+        
+=== parse epydoc
+short_description: 'Add a log observer to the global publisher.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringMeta
+  args: ['see']
+  description: 'L{LogPublisher.addObserver}'
+- DocstringParam
+  args: ['param', 'observer']
+  description: 'a log observer'
+  arg_name: 'observer'
+  type_name: 'L{callable}'
+  is_optional: False
+=== detect
+epydoc
+=== compose epydoc
+Add a log observer to the global publisher.
+
+@see: L{LogPublisher.addObserver}
+@type observer: L{callable}
+@param observer: a log observer

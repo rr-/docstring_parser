@@ -1,0 +1,134 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Factory function for creating a subclass of ``Styler``.
+
+        Uses custom templates and Jinja environment.
+
+        Parameters
+        ----------
+        searchpath : str or list
+            Path or paths of directories containing the templates.
+        html_table : str
+            Name of your custom template to replace the html_table template.
+        html_style : str
+            Name of your custom template to replace the html_style template.
+
+        Returns
+        -------
+        MyStyler : subclass of Styler
+            Has the correct ``env``, ``template_html``, ``template_html_table`` and
+            ``template_html_style`` class attributes set.
+
+        See Also
+        --------
+        Styler.export : Export the styles applied to the current Styler.
+        Styler.use : Set the styles on the current Styler.
+
+        Examples
+        --------
+        >>> from pandas.io.formats.style import Styler
+        >>> EasyStyler = Styler.from_custom_template(
+        ...     "path/to/template",
+        ...     "template.tpl",
+        ... )  # doctest: +SKIP
+        >>> df = pd.DataFrame({"A": [1, 2]})
+        >>> EasyStyler(df)  # doctest: +SKIP
+
+        Please see:
+        `Table Visualization <../../user_guide/style.ipynb>`_ for more examples.
+        
+=== parse numpydoc
+short_description: 'Factory function for creating a subclass of ``Styler``.'
+long_description: 'Uses custom templates and Jinja environment.'
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'searchpath']
+  description: 'Path or paths of directories containing the templates.'
+  arg_name: 'searchpath'
+  type_name: 'str or list'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'html_table']
+  description: 'Name of your custom template to replace the html_table template.'
+  arg_name: 'html_table'
+  type_name: 'str'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'html_style']
+  description: 'Name of your custom template to replace the html_style template.'
+  arg_name: 'html_style'
+  type_name: 'str'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: |
+    Has the correct ``env``, ``template_html``, ``template_html_table`` and
+    ``template_html_style`` class attributes set.
+  type_name: 'subclass of Styler'
+  is_generator: False
+  return_name: 'MyStyler'
+- DocstringMeta
+  args: ['see_also']
+  description: |
+    Styler.export : Export the styles applied to the current Styler.
+    Styler.use : Set the styles on the current Styler.
+- DocstringExample
+  args: ['examples']
+  description: |
+    ...     "path/to/template",
+    ...     "template.tpl",
+    ... )  # doctest: +SKIP
+  snippet: |
+    >>> from pandas.io.formats.style import Styler
+    >>> EasyStyler = Styler.from_custom_template(
+- DocstringExample
+  args: ['examples']
+  description: |
+    
+    Please see:
+    `Table Visualization <../../user_guide/style.ipynb>`_ for more examples.
+  snippet: |
+    >>> df = pd.DataFrame({"A": [1, 2]})
+    >>> EasyStyler(df)  # doctest: +SKIP
+=== detect
+numpydoc
+=== compose numpydoc
+Factory function for creating a subclass of ``Styler``.
+
+Uses custom templates and Jinja environment.
+
+Parameters
+----------
+searchpath : str or list
+    Path or paths of directories containing the templates.
+html_table : str
+    Name of your custom template to replace the html_table template.
+html_style : str
+    Name of your custom template to replace the html_style template.
+
+Returns
+-------
+MyStyler : subclass of Styler
+    Has the correct ``env``, ``template_html``, ``template_html_table`` and
+    ``template_html_style`` class attributes set.
+
+Examples
+--------
+>>> from pandas.io.formats.style import Styler
+>>> EasyStyler = Styler.from_custom_template(
+...     "path/to/template",
+...     "template.tpl",
+... )  # doctest: +SKIP
+>>> df = pd.DataFrame({"A": [1, 2]})
+>>> EasyStyler(df)  # doctest: +SKIP
+
+Please see:
+`Table Visualization <../../user_guide/style.ipynb>`_ for more examples.
+
+See Also
+--------
+Styler.export : Export the styles applied to the current Styler.
+Styler.use : Set the styles on the current Styler.

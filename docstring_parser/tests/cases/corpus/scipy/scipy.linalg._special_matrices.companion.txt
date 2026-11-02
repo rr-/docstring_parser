@@ -1,0 +1,159 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Create a companion matrix.
+
+    Create the companion matrix [1]_ associated with the polynomial whose
+    coefficients are given in `a`.
+
+    Array argument(s) of this function may have additional
+    "batch" dimensions prepended to the core shape. In this case, the array is treated
+    as a batch of lower-dimensional slices; see :ref:`linalg_batch` for details.
+
+    Parameters
+    ----------
+    a : (..., N) array_like
+        1-D array of polynomial coefficients. The length of `a` must be
+        at least two, and ``a[0]`` must not be zero.
+        M-dimensional arrays are treated as a batch: each slice along the last
+        axis is a 1-D array of polynomial coefficients.
+
+    Returns
+    -------
+    c : (..., N-1, N-1) ndarray
+        For 1-D input, the first row of `c` is ``-a[1:]/a[0]``, and the first
+        sub-diagonal is all ones.  The data-type of the array is the same
+        as the data-type of ``1.0*a[0]``.
+        For batch input, each slice of shape ``(N-1, N-1)`` along the last two
+        dimensions of the output corresponds with a slice of shape ``(N,)``
+        along the last dimension of the input.
+
+    Raises
+    ------
+    ValueError
+        If any of the following are true: a) ``a.shape[-1] < 2``; b) ``a[..., 0] == 0``.
+
+    Notes
+    -----
+    .. versionadded:: 0.8.0
+
+    References
+    ----------
+    .. [1] R. A. Horn & C. R. Johnson, *Matrix Analysis*.  Cambridge, UK:
+        Cambridge University Press, 1999, pp. 146-7.
+
+    Examples
+    --------
+    >>> from scipy.linalg import companion
+    >>> companion([1, -10, 31, -30])
+    array([[ 10., -31.,  30.],
+           [  1.,   0.,   0.],
+           [  0.,   1.,   0.]])
+
+    
+=== parse numpydoc
+short_description: 'Create a companion matrix.'
+long_description: |
+  Create the companion matrix [1]_ associated with the polynomial whose
+  coefficients are given in `a`.
+  
+  Array argument(s) of this function may have additional
+  "batch" dimensions prepended to the core shape. In this case, the array is treated
+  as a batch of lower-dimensional slices; see :ref:`linalg_batch` for details.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'a']
+  description: |
+    1-D array of polynomial coefficients. The length of `a` must be
+    at least two, and ``a[0]`` must not be zero.
+    M-dimensional arrays are treated as a batch: each slice along the last
+    axis is a 1-D array of polynomial coefficients.
+  arg_name: 'a'
+  type_name: '(..., N) array_like'
+  is_optional: False
+- DocstringReturns
+  args: ['returns']
+  description: |
+    For 1-D input, the first row of `c` is ``-a[1:]/a[0]``, and the first
+    sub-diagonal is all ones.  The data-type of the array is the same
+    as the data-type of ``1.0*a[0]``.
+    For batch input, each slice of shape ``(N-1, N-1)`` along the last two
+    dimensions of the output corresponds with a slice of shape ``(N,)``
+    along the last dimension of the input.
+  type_name: '(..., N-1, N-1) ndarray'
+  is_generator: False
+  return_name: 'c'
+- DocstringRaises
+  args: ['raises', 'ValueError']
+  description: 'If any of the following are true: a) ``a.shape[-1] < 2``; b) ``a[..., 0] == 0``.'
+  type_name: 'ValueError'
+- DocstringMeta
+  args: ['notes']
+  description: '.. versionadded:: 0.8.0'
+- DocstringMeta
+  args: ['references']
+  description: |
+    .. [1] R. A. Horn & C. R. Johnson, *Matrix Analysis*.  Cambridge, UK:
+        Cambridge University Press, 1999, pp. 146-7.
+- DocstringExample
+  args: ['examples']
+  description: |
+    array([[ 10., -31.,  30.],
+           [  1.,   0.,   0.],
+           [  0.,   1.,   0.]])
+  snippet: |
+    >>> from scipy.linalg import companion
+    >>> companion([1, -10, 31, -30])
+=== detect
+numpydoc
+=== compose numpydoc
+Create a companion matrix.
+
+Create the companion matrix [1]_ associated with the polynomial whose
+coefficients are given in `a`.
+
+Array argument(s) of this function may have additional
+"batch" dimensions prepended to the core shape. In this case, the array is treated
+as a batch of lower-dimensional slices; see :ref:`linalg_batch` for details.
+
+Parameters
+----------
+a : (..., N) array_like
+    1-D array of polynomial coefficients. The length of `a` must be
+    at least two, and ``a[0]`` must not be zero.
+    M-dimensional arrays are treated as a batch: each slice along the last
+    axis is a 1-D array of polynomial coefficients.
+
+Returns
+-------
+c : (..., N-1, N-1) ndarray
+    For 1-D input, the first row of `c` is ``-a[1:]/a[0]``, and the first
+    sub-diagonal is all ones.  The data-type of the array is the same
+    as the data-type of ``1.0*a[0]``.
+    For batch input, each slice of shape ``(N-1, N-1)`` along the last two
+    dimensions of the output corresponds with a slice of shape ``(N,)``
+    along the last dimension of the input.
+
+Raises
+------
+ValueError
+    If any of the following are true: a) ``a.shape[-1] < 2``; b) ``a[..., 0] == 0``.
+
+Examples
+--------
+>>> from scipy.linalg import companion
+>>> companion([1, -10, 31, -30])
+array([[ 10., -31.,  30.],
+       [  1.,   0.,   0.],
+       [  0.,   1.,   0.]])
+
+Notes
+-----
+.. versionadded:: 0.8.0
+
+References
+----------
+.. [1] R. A. Horn & C. R. Johnson, *Matrix Analysis*.  Cambridge, UK:
+    Cambridge University Press, 1999, pp. 146-7.

@@ -1,0 +1,25 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Remove whitespace beyond a certain width at the end of the text.
+
+        Args:
+            size (int): The desired size of the text.
+        
+=== parse google
+short_description: 'Remove whitespace beyond a certain width at the end of the text.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'size (int)']
+  description: 'The desired size of the text.'
+  arg_name: 'size'
+  type_name: 'int'
+  is_optional: False
+=== detect
+google
+=== compose google
+Remove whitespace beyond a certain width at the end of the text.
+
+Args:
+    size (int): The desired size of the text.

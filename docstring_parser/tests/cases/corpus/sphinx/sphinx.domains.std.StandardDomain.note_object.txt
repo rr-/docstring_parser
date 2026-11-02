@@ -1,0 +1,18 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Note a generic object for cross reference.
+
+        .. versionadded:: 3.0
+        
+=== parse rest
+short_description: 'Note a generic object for cross reference.'
+long_description: '.. versionadded:: 3.0'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Note a generic object for cross reference.
+
+.. versionadded:: 3.0

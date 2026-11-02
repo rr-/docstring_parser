@@ -1,0 +1,79 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Word wrap the text.
+
+        Args:
+            console (Console): Console instance.
+            width (int): Number of cells available per line.
+            justify (str, optional): Justify method: "default", "left", "center", "full", "right". Defaults to "default".
+            overflow (str, optional): Overflow method: "crop", "fold", or "ellipsis". Defaults to None.
+            tab_size (int, optional): Default tab size. Defaults to 8.
+            no_wrap (bool, optional): Disable wrapping, Defaults to False.
+
+        Returns:
+            Lines: Number of lines.
+        
+=== parse google
+short_description: 'Word wrap the text.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'console (Console)']
+  description: 'Console instance.'
+  arg_name: 'console'
+  type_name: 'Console'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'width (int)']
+  description: 'Number of cells available per line.'
+  arg_name: 'width'
+  type_name: 'int'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'justify (str, optional)']
+  description: 'Justify method: "default", "left", "center", "full", "right". Defaults to "default".'
+  arg_name: 'justify'
+  type_name: 'str'
+  is_optional: True
+  default: '"default"'
+- DocstringParam
+  args: ['param', 'overflow (str, optional)']
+  description: 'Overflow method: "crop", "fold", or "ellipsis". Defaults to None.'
+  arg_name: 'overflow'
+  type_name: 'str'
+  is_optional: True
+  default: 'None'
+- DocstringParam
+  args: ['param', 'tab_size (int, optional)']
+  description: 'Default tab size. Defaults to 8.'
+  arg_name: 'tab_size'
+  type_name: 'int'
+  is_optional: True
+  default: '8'
+- DocstringParam
+  args: ['param', 'no_wrap (bool, optional)']
+  description: 'Disable wrapping, Defaults to False.'
+  arg_name: 'no_wrap'
+  type_name: 'bool'
+  is_optional: True
+- DocstringReturns
+  args: ['returns', 'Lines']
+  description: 'Number of lines.'
+  type_name: 'Lines'
+  is_generator: False
+=== detect
+google
+=== compose google
+Word wrap the text.
+
+Args:
+    console (Console): Console instance.
+    width (int): Number of cells available per line.
+    justify (str?): Justify method: "default", "left", "center", "full", "right". Defaults to "default".
+    overflow (str?): Overflow method: "crop", "fold", or "ellipsis". Defaults to None.
+    tab_size (int?): Default tab size. Defaults to 8.
+    no_wrap (bool?): Disable wrapping, Defaults to False.
+
+Returns:
+    Lines: Number of lines.

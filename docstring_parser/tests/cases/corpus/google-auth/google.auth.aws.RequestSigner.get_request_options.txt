@@ -1,0 +1,87 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Generates the signed request for the provided HTTP request for calling
+        an AWS API. This follows the steps described at:
+        https://docs.aws.amazon.com/general/latest/gr/sigv4_signing.html
+
+        Args:
+            aws_security_credentials (AWSSecurityCredentials): The AWS security credentials.
+            url (str): The AWS service URL containing the canonical URI and
+                query string.
+            method (str): The HTTP method used to call this API.
+            request_payload (Optional[str]): The optional request payload if
+                available.
+            additional_headers (Optional[Mapping[str, str]]): The optional
+                additional headers needed for the requested AWS API.
+
+        Returns:
+            Mapping[str, str]: The AWS signed request dictionary object.
+        
+=== parse google
+short_description: 'Generates the signed request for the provided HTTP request for calling'
+long_description: |
+  an AWS API. This follows the steps described at:
+  https://docs.aws.amazon.com/general/latest/gr/sigv4_signing.html
+blank_after_short_description: False
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'aws_security_credentials (AWSSecurityCredentials)']
+  description: 'The AWS security credentials.'
+  arg_name: 'aws_security_credentials'
+  type_name: 'AWSSecurityCredentials'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'url (str)']
+  description: |
+    The AWS service URL containing the canonical URI and
+    query string.
+  arg_name: 'url'
+  type_name: 'str'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'method (str)']
+  description: 'The HTTP method used to call this API.'
+  arg_name: 'method'
+  type_name: 'str'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'request_payload (Optional[str])']
+  description: |
+    The optional request payload if
+    available.
+  arg_name: 'request_payload'
+  type_name: 'Optional[str]'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'additional_headers (Optional[Mapping[str, str]])']
+  description: |
+    The optional
+    additional headers needed for the requested AWS API.
+  arg_name: 'additional_headers'
+  type_name: 'Optional[Mapping[str, str]]'
+  is_optional: False
+- DocstringReturns
+  args: ['returns', 'Mapping[str, str]']
+  description: 'The AWS signed request dictionary object.'
+  type_name: 'Mapping[str, str]'
+  is_generator: False
+=== detect
+google
+=== compose google
+Generates the signed request for the provided HTTP request for calling
+an AWS API. This follows the steps described at:
+https://docs.aws.amazon.com/general/latest/gr/sigv4_signing.html
+
+Args:
+    aws_security_credentials (AWSSecurityCredentials): The AWS security credentials.
+    url (str): The AWS service URL containing the canonical URI and
+        query string.
+    method (str): The HTTP method used to call this API.
+    request_payload (Optional[str]): The optional request payload if
+        available.
+    additional_headers (Optional[Mapping[str, str]]): The optional
+        additional headers needed for the requested AWS API.
+
+Returns:
+    Mapping[str, str]: The AWS signed request dictionary object.

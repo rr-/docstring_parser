@@ -1,0 +1,20 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Implements an AWS request signer based on the AWS Signature Version 4 signing
+    process.
+    https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html
+    
+=== parse google
+short_description: 'Implements an AWS request signer based on the AWS Signature Version 4 signing'
+long_description: |
+  process.
+  https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html
+blank_after_short_description: False
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Implements an AWS request signer based on the AWS Signature Version 4 signing
+process.
+https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html

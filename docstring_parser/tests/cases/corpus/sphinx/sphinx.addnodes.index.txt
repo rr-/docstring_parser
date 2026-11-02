@@ -1,0 +1,45 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Node for index entries.
+
+    This node is created by the ``index`` directive and has one attribute,
+    ``entries``.  Its value is a list of 5-tuples of ``(entrytype, entryname,
+    target, ignored, key)``.
+
+    *entrytype* is one of "single", "pair", "double", "triple".
+
+    *key* is categorization characters (usually a single character) for
+    general index page. For the details of this, please see also:
+    :rst:dir:`glossary` and https://github.com/sphinx-doc/sphinx/pull/2320.
+    
+=== parse rest
+short_description: 'Node for index entries.'
+long_description: |
+  This node is created by the ``index`` directive and has one attribute,
+  ``entries``.  Its value is a list of 5-tuples of ``(entrytype, entryname,
+  target, ignored, key)``.
+  
+  *entrytype* is one of "single", "pair", "double", "triple".
+  
+  *key* is categorization characters (usually a single character) for
+  general index page. For the details of this, please see also:
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringMeta
+  args: ['rst']
+  description: 'dir:`glossary` and https://github.com/sphinx-doc/sphinx/pull/2320.'
+=== detect
+rest
+=== compose rest
+Node for index entries.
+
+This node is created by the ``index`` directive and has one attribute,
+``entries``.  Its value is a list of 5-tuples of ``(entrytype, entryname,
+target, ignored, key)``.
+
+*entrytype* is one of "single", "pair", "double", "triple".
+
+*key* is categorization characters (usually a single character) for
+general index page. For the details of this, please see also:
+:rst: dir:`glossary` and https://github.com/sphinx-doc/sphinx/pull/2320.

@@ -1,0 +1,34 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Return the maximum of an array or maximum along an axis.
+
+    `amax` is an alias of `~numpy.max`.
+
+    See Also
+    --------
+    max : alias of this function
+    ndarray.max : equivalent method
+    
+=== parse numpydoc
+short_description: 'Return the maximum of an array or maximum along an axis.'
+long_description: '`amax` is an alias of `~numpy.max`.'
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringMeta
+  args: ['see_also']
+  description: |
+    max : alias of this function
+    ndarray.max : equivalent method
+=== detect
+numpydoc
+=== compose numpydoc
+Return the maximum of an array or maximum along an axis.
+
+`amax` is an alias of `~numpy.max`.
+
+See Also
+--------
+max : alias of this function
+ndarray.max : equivalent method

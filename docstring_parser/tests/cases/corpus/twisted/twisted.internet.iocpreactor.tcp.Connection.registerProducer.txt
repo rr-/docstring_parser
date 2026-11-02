@@ -1,0 +1,19 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Register a producer.
+
+        If TLS is enabled, the TLS connection handles this.
+        
+=== parse epydoc
+short_description: 'Register a producer.'
+long_description: 'If TLS is enabled, the TLS connection handles this.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+=== detect
+rest
+=== compose epydoc
+Register a producer.
+
+If TLS is enabled, the TLS connection handles this.

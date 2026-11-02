@@ -1,0 +1,25 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Return the minimum number of seconds between client logins.
+
+        @rtype: L{int}
+        @return: The minimum number of seconds between client logins.
+        
+=== parse epydoc
+short_description: 'Return the minimum number of seconds between client logins.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringReturns
+  args: ['rtype']
+  description: 'The minimum number of seconds between client logins.'
+  type_name: 'L{int}'
+  is_generator: False
+=== detect
+epydoc
+=== compose epydoc
+Return the minimum number of seconds between client logins.
+
+@rtype: L{int}
+@return: The minimum number of seconds between client logins.

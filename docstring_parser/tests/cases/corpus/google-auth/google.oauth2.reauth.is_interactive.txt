@@ -1,0 +1,45 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Check if we are in an interractive environment.
+
+    Override this function with a different logic if you are using this library
+    outside a CLI.
+
+    If the rapt token needs refreshing, the user needs to answer the challenges.
+    If the user is not in an interractive environment, the challenges can not
+    be answered and we just wait for timeout for no reason.
+
+    Returns:
+        bool: True if is interactive environment, False otherwise.
+    
+=== parse google
+short_description: 'Check if we are in an interractive environment.'
+long_description: |
+  Override this function with a different logic if you are using this library
+  outside a CLI.
+  
+  If the rapt token needs refreshing, the user needs to answer the challenges.
+  If the user is not in an interractive environment, the challenges can not
+  be answered and we just wait for timeout for no reason.
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringReturns
+  args: ['returns', 'bool']
+  description: 'True if is interactive environment, False otherwise.'
+  type_name: 'bool'
+  is_generator: False
+=== detect
+google
+=== compose google
+Check if we are in an interractive environment.
+
+Override this function with a different logic if you are using this library
+outside a CLI.
+
+If the rapt token needs refreshing, the user needs to answer the challenges.
+If the user is not in an interractive environment, the challenges can not
+be answered and we just wait for timeout for no reason.
+
+Returns:
+    bool: True if is interactive environment, False otherwise.

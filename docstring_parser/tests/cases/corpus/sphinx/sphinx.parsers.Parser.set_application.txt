@@ -1,0 +1,23 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+set_application will be called from Sphinx to set app and other instance variables
+
+        :param sphinx.application.Sphinx app: Sphinx application object
+        
+=== parse rest
+short_description: 'set_application will be called from Sphinx to set app and other instance variables'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringParam
+  args: ['param', 'sphinx.application.Sphinx', 'app']
+  description: 'Sphinx application object'
+  arg_name: 'app'
+  type_name: 'sphinx.application.Sphinx'
+  is_optional: False
+=== detect
+rest
+=== compose rest
+set_application will be called from Sphinx to set app and other instance variables
+
+:param sphinx.application.Sphinx app: Sphinx application object

@@ -1,0 +1,23 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Resume producing data.
+
+        This tells the L{H2Connection} to re-add itself to the main loop and
+        produce more data for the consumer.
+        
+=== parse epydoc
+short_description: 'Resume producing data.'
+long_description: |
+  This tells the L{H2Connection} to re-add itself to the main loop and
+  produce more data for the consumer.
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+=== detect
+rest
+=== compose epydoc
+Resume producing data.
+
+This tells the L{H2Connection} to re-add itself to the main loop and
+produce more data for the consumer.

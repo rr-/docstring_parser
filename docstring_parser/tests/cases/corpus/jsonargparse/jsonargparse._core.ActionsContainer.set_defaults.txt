@@ -1,0 +1,39 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Sets default values from dictionary or keyword arguments.
+
+        Args:
+            *args: Dictionary defining the default values to set.
+            **kwargs: Sets default values based on keyword arguments.
+
+        Raises:
+            KeyError: If key not defined in the parser.
+        
+=== parse google
+short_description: 'Sets default values from dictionary or keyword arguments.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', '*args']
+  description: 'Dictionary defining the default values to set.'
+  arg_name: '*args'
+- DocstringParam
+  args: ['param', '**kwargs']
+  description: 'Sets default values based on keyword arguments.'
+  arg_name: '**kwargs'
+- DocstringRaises
+  args: ['raises', 'KeyError']
+  description: 'If key not defined in the parser.'
+  type_name: 'KeyError'
+=== detect
+google
+=== compose google
+Sets default values from dictionary or keyword arguments.
+
+Args:
+    *args: Dictionary defining the default values to set.
+    **kwargs: Sets default values based on keyword arguments.
+
+Raises:
+    KeyError: If key not defined in the parser.

@@ -1,0 +1,109 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Extract traceback information.
+
+        Args:
+            exc_type (Type[BaseException]): Exception type.
+            exc_value (BaseException): Exception value.
+            traceback (TracebackType): Python Traceback object.
+            show_locals (bool, optional): Enable display of local variables. Defaults to False.
+            locals_max_length (int, optional): Maximum length of containers before abbreviating, or None for no abbreviation.
+                Defaults to 10.
+            locals_max_string (int, optional): Maximum length of string before truncating, or None to disable. Defaults to 80.
+            locals_max_depth (int, optional): Maximum depths of locals before truncating, or None to disable. Defaults to None.
+            locals_hide_dunder (bool, optional): Hide locals prefixed with double underscore. Defaults to True.
+            locals_hide_sunder (bool, optional): Hide locals prefixed with single underscore. Defaults to False.
+
+        Returns:
+            Trace: A Trace instance which you can use to construct a `Traceback`.
+        
+=== parse google
+short_description: 'Extract traceback information.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'exc_type (Type[BaseException])']
+  description: 'Exception type.'
+  arg_name: 'exc_type'
+  type_name: 'Type[BaseException]'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'exc_value (BaseException)']
+  description: 'Exception value.'
+  arg_name: 'exc_value'
+  type_name: 'BaseException'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'traceback (TracebackType)']
+  description: 'Python Traceback object.'
+  arg_name: 'traceback'
+  type_name: 'TracebackType'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'show_locals (bool, optional)']
+  description: 'Enable display of local variables. Defaults to False.'
+  arg_name: 'show_locals'
+  type_name: 'bool'
+  is_optional: True
+  default: 'False'
+- DocstringParam
+  args: ['param', 'locals_max_length (int, optional)']
+  description: |
+    Maximum length of containers before abbreviating, or None for no abbreviation.
+    Defaults to 10.
+  arg_name: 'locals_max_length'
+  type_name: 'int'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'locals_max_string (int, optional)']
+  description: 'Maximum length of string before truncating, or None to disable. Defaults to 80.'
+  arg_name: 'locals_max_string'
+  type_name: 'int'
+  is_optional: True
+  default: '80'
+- DocstringParam
+  args: ['param', 'locals_max_depth (int, optional)']
+  description: 'Maximum depths of locals before truncating, or None to disable. Defaults to None.'
+  arg_name: 'locals_max_depth'
+  type_name: 'int'
+  is_optional: True
+  default: 'None'
+- DocstringParam
+  args: ['param', 'locals_hide_dunder (bool, optional)']
+  description: 'Hide locals prefixed with double underscore. Defaults to True.'
+  arg_name: 'locals_hide_dunder'
+  type_name: 'bool'
+  is_optional: True
+  default: 'True'
+- DocstringParam
+  args: ['param', 'locals_hide_sunder (bool, optional)']
+  description: 'Hide locals prefixed with single underscore. Defaults to False.'
+  arg_name: 'locals_hide_sunder'
+  type_name: 'bool'
+  is_optional: True
+  default: 'False'
+- DocstringReturns
+  args: ['returns', 'Trace']
+  description: 'A Trace instance which you can use to construct a `Traceback`.'
+  type_name: 'Trace'
+  is_generator: False
+=== detect
+google
+=== compose google
+Extract traceback information.
+
+Args:
+    exc_type (Type[BaseException]): Exception type.
+    exc_value (BaseException): Exception value.
+    traceback (TracebackType): Python Traceback object.
+    show_locals (bool?): Enable display of local variables. Defaults to False.
+    locals_max_length (int?): Maximum length of containers before abbreviating, or None for no abbreviation.
+        Defaults to 10.
+    locals_max_string (int?): Maximum length of string before truncating, or None to disable. Defaults to 80.
+    locals_max_depth (int?): Maximum depths of locals before truncating, or None to disable. Defaults to None.
+    locals_hide_dunder (bool?): Hide locals prefixed with double underscore. Defaults to True.
+    locals_hide_sunder (bool?): Hide locals prefixed with single underscore. Defaults to False.
+
+Returns:
+    Trace: A Trace instance which you can use to construct a `Traceback`.

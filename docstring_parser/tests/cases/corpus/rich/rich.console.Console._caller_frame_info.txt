@@ -1,0 +1,62 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Get caller frame information.
+
+        Args:
+            offset (int): the caller offset within the current frame stack.
+            currentframe (Callable[[], Optional[FrameType]], optional): the callable to use to
+                retrieve the current frame. Defaults to None, which will use ``inspect.currentframe()``.
+
+        Returns:
+            Tuple[str, int, Dict[str, Any]]: A tuple containing the filename, the line number and
+                the dictionary of local variables associated with the caller frame.
+
+        Raises:
+            RuntimeError: If the stack offset is invalid.
+        
+=== parse google
+short_description: 'Get caller frame information.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'offset (int)']
+  description: 'the caller offset within the current frame stack.'
+  arg_name: 'offset'
+  type_name: 'int'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'currentframe (Callable[[], Optional[FrameType]], optional)']
+  description: |
+    the callable to use to
+    retrieve the current frame. Defaults to None, which will use ``inspect.currentframe()``.
+  arg_name: 'currentframe'
+  type_name: 'Callable[[], Optional[FrameType]]'
+  is_optional: True
+- DocstringReturns
+  args: ['returns', 'Tuple[str, int, Dict[str, Any]]']
+  description: |
+    A tuple containing the filename, the line number and
+    the dictionary of local variables associated with the caller frame.
+  type_name: 'Tuple[str, int, Dict[str, Any]]'
+  is_generator: False
+- DocstringRaises
+  args: ['raises', 'RuntimeError']
+  description: 'If the stack offset is invalid.'
+  type_name: 'RuntimeError'
+=== detect
+google
+=== compose google
+Get caller frame information.
+
+Args:
+    offset (int): the caller offset within the current frame stack.
+    currentframe (Callable[[], Optional[FrameType]]?): the callable to use to
+        retrieve the current frame. Defaults to None, which will use ``inspect.currentframe()``.
+
+Returns:
+    Tuple[str, int, Dict[str, Any]]: A tuple containing the filename, the line number and
+        the dictionary of local variables associated with the caller frame.
+
+Raises:
+    RuntimeError: If the stack offset is invalid.

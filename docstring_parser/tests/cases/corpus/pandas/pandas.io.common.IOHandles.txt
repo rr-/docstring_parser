@@ -1,0 +1,41 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Return value of io/common.py:get_handle
+
+    Can be used as a context manager.
+
+    This is used to easily close created buffers and to handle corner cases when
+    TextIOWrapper is inserted.
+
+    handle: The file handle to be used.
+    created_handles: All file handles that are created by get_handle
+    is_wrapped: Whether a TextIOWrapper needs to be detached.
+    
+=== parse numpydoc
+short_description: 'Return value of io/common.py:get_handle'
+long_description: |
+  Can be used as a context manager.
+  
+  This is used to easily close created buffers and to handle corner cases when
+  TextIOWrapper is inserted.
+  
+  handle: The file handle to be used.
+  created_handles: All file handles that are created by get_handle
+  is_wrapped: Whether a TextIOWrapper needs to be detached.
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Return value of io/common.py:get_handle
+
+Can be used as a context manager.
+
+This is used to easily close created buffers and to handle corner cases when
+TextIOWrapper is inserted.
+
+handle: The file handle to be used.
+created_handles: All file handles that are created by get_handle
+is_wrapped: Whether a TextIOWrapper needs to be detached.

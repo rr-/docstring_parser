@@ -1,0 +1,17 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Accumulate `target` along `axis` after filling with y fill
+        value.
+
+        
+=== parse numpydoc
+short_description: 'Accumulate `target` along `axis` after filling with y fill'
+long_description: 'value.'
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Accumulate `target` along `axis` after filling with y fill
+value.

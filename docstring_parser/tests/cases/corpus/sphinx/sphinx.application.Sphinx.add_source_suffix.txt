@@ -1,0 +1,43 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Register a suffix of source files.
+
+        Same as :confval:`source_suffix`.  The users can override this
+        using the config setting.
+
+        :param override: If false, do not install it the same suffix
+                         is already installed.
+                         If true, unconditionally install the suffix.
+
+        .. versionadded:: 1.8
+        
+=== parse rest
+short_description: 'Register a suffix of source files.'
+long_description: |
+  Same as :confval:`source_suffix`.  The users can override this
+  using the config setting.
+  
+  .. versionadded:: 1.8
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringParam
+  args: ['param', 'override']
+  description: |
+    If false, do not install it the same suffix
+    is already installed.
+    If true, unconditionally install the suffix.
+  arg_name: 'override'
+=== detect
+rest
+=== compose rest
+Register a suffix of source files.
+
+Same as :confval:`source_suffix`.  The users can override this
+using the config setting.
+
+.. versionadded:: 1.8
+
+:param override: If false, do not install it the same suffix
+    is already installed.
+    If true, unconditionally install the suffix.

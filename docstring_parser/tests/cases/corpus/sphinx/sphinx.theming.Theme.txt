@@ -1,0 +1,18 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+A Theme is a set of HTML templates and configurations.
+
+    This class supports both theme directory and theme archive (zipped theme).
+    
+=== parse rest
+short_description: 'A Theme is a set of HTML templates and configurations.'
+long_description: 'This class supports both theme directory and theme archive (zipped theme).'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+A Theme is a set of HTML templates and configurations.
+
+This class supports both theme directory and theme archive (zipped theme).

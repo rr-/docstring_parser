@@ -1,0 +1,116 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+A protocol for representing nested sequences.
+
+    Warning
+    -------
+    `_NestedSequence` currently does not work in combination with typevars,
+    *e.g.* ``def func(a: _NestedSequence[T]) -> T: ...``.
+
+    See Also
+    --------
+    collections.abc.Sequence
+        ABCs for read-only and mutable :term:`sequences`.
+
+    Examples
+    --------
+    .. code-block:: python
+
+        >>> from typing import TYPE_CHECKING
+        >>> import numpy as np
+        >>> from numpy._typing import _NestedSequence
+
+        >>> def get_dtype(seq: _NestedSequence[float]) -> np.dtype[np.float64]:
+        ...     return np.asarray(seq).dtype
+
+        >>> a = get_dtype([1.0])
+        >>> b = get_dtype([[1.0]])
+        >>> c = get_dtype([[[1.0]]])
+        >>> d = get_dtype([[[[1.0]]]])
+
+        >>> if TYPE_CHECKING:
+        ...     reveal_locals()
+        ...     # note: Revealed local types are:
+        ...     # note:     a: numpy.dtype[numpy.floating[numpy._typing._64Bit]]
+        ...     # note:     b: numpy.dtype[numpy.floating[numpy._typing._64Bit]]
+        ...     # note:     c: numpy.dtype[numpy.floating[numpy._typing._64Bit]]
+        ...     # note:     d: numpy.dtype[numpy.floating[numpy._typing._64Bit]]
+
+    
+=== parse numpydoc
+short_description: 'A protocol for representing nested sequences.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringMeta
+  args: ['warnings']
+  description: |
+    `_NestedSequence` currently does not work in combination with typevars,
+    *e.g.* ``def func(a: _NestedSequence[T]) -> T: ...``.
+- DocstringMeta
+  args: ['see_also']
+  description: |
+    collections.abc.Sequence
+        ABCs for read-only and mutable :term:`sequences`.
+- DocstringExample
+  args: ['examples']
+  description: |
+    .. code-block:: python
+    
+        >>> from typing import TYPE_CHECKING
+        >>> import numpy as np
+        >>> from numpy._typing import _NestedSequence
+    
+        >>> def get_dtype(seq: _NestedSequence[float]) -> np.dtype[np.float64]:
+        ...     return np.asarray(seq).dtype
+    
+        >>> a = get_dtype([1.0])
+        >>> b = get_dtype([[1.0]])
+        >>> c = get_dtype([[[1.0]]])
+        >>> d = get_dtype([[[[1.0]]]])
+    
+        >>> if TYPE_CHECKING:
+        ...     reveal_locals()
+        ...     # note: Revealed local types are:
+        ...     # note:     a: numpy.dtype[numpy.floating[numpy._typing._64Bit]]
+        ...     # note:     b: numpy.dtype[numpy.floating[numpy._typing._64Bit]]
+        ...     # note:     c: numpy.dtype[numpy.floating[numpy._typing._64Bit]]
+        ...     # note:     d: numpy.dtype[numpy.floating[numpy._typing._64Bit]]
+=== detect
+numpydoc
+=== compose numpydoc
+A protocol for representing nested sequences.
+
+Examples
+--------
+.. code-block:: python
+
+    >>> from typing import TYPE_CHECKING
+    >>> import numpy as np
+    >>> from numpy._typing import _NestedSequence
+
+    >>> def get_dtype(seq: _NestedSequence[float]) -> np.dtype[np.float64]:
+    ...     return np.asarray(seq).dtype
+
+    >>> a = get_dtype([1.0])
+    >>> b = get_dtype([[1.0]])
+    >>> c = get_dtype([[[1.0]]])
+    >>> d = get_dtype([[[[1.0]]]])
+
+    >>> if TYPE_CHECKING:
+    ...     reveal_locals()
+    ...     # note: Revealed local types are:
+    ...     # note:     a: numpy.dtype[numpy.floating[numpy._typing._64Bit]]
+    ...     # note:     b: numpy.dtype[numpy.floating[numpy._typing._64Bit]]
+    ...     # note:     c: numpy.dtype[numpy.floating[numpy._typing._64Bit]]
+    ...     # note:     d: numpy.dtype[numpy.floating[numpy._typing._64Bit]]
+
+Warnings
+--------
+`_NestedSequence` currently does not work in combination with typevars,
+*e.g.* ``def func(a: _NestedSequence[T]) -> T: ...``.
+
+See Also
+--------
+collections.abc.Sequence
+    ABCs for read-only and mutable :term:`sequences`.

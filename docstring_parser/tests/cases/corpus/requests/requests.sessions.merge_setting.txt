@@ -1,0 +1,20 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Determines appropriate setting for a given request, taking into account
+    the explicit setting on that request, and the setting in the session. If a
+    setting is a dictionary, they will be merged together using `dict_class`
+    
+=== parse rest
+short_description: 'Determines appropriate setting for a given request, taking into account'
+long_description: |
+  the explicit setting on that request, and the setting in the session. If a
+  setting is a dictionary, they will be merged together using `dict_class`
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Determines appropriate setting for a given request, taking into account
+the explicit setting on that request, and the setting in the session. If a
+setting is a dictionary, they will be merged together using `dict_class`

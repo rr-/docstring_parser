@@ -1,0 +1,27 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Get a global :class:`~rich.console.Console` instance. This function is used when Rich requires a Console,
+    and hasn't been explicitly given one.
+
+    Returns:
+        Console: A console instance.
+    
+=== parse google
+short_description: 'Get a global :class:`~rich.console.Console` instance. This function is used when Rich requires a Console,'
+long_description: "and hasn't been explicitly given one."
+blank_after_short_description: False
+blank_after_long_description: True
+style: google
+- DocstringReturns
+  args: ['returns', 'Console']
+  description: 'A console instance.'
+  type_name: 'Console'
+  is_generator: False
+=== detect
+google
+=== compose google
+Get a global :class:`~rich.console.Console` instance. This function is used when Rich requires a Console,
+and hasn't been explicitly given one.
+
+Returns:
+    Console: A console instance.

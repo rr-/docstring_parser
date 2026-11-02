@@ -1,0 +1,22 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+
+    Return a dict of environment proxies.
+
+    :rtype: dict
+    
+=== parse rest
+short_description: 'Return a dict of environment proxies.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringReturns
+  args: []
+  type_name: 'dict'
+  is_generator: False
+=== detect
+rest
+=== compose rest
+Return a dict of environment proxies.
+
+:returns dict:

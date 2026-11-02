@@ -1,0 +1,24 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+The number of terminal cells required to display self.text.
+
+        Returns:
+            int: A number of cells.
+        
+=== parse google
+short_description: 'The number of terminal cells required to display self.text.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringReturns
+  args: ['returns', 'int']
+  description: 'A number of cells.'
+  type_name: 'int'
+  is_generator: False
+=== detect
+google
+=== compose google
+The number of terminal cells required to display self.text.
+
+Returns:
+    int: A number of cells.

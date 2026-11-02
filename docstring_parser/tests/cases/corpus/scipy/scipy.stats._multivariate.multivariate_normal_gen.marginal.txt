@@ -1,0 +1,68 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Return a marginal multivariate normal distribution.
+
+        Parameters
+        ----------
+        dimensions : int or 1-d array_like
+            The dimensions of the multivariate distribution corresponding
+            with the marginal variables, that is, the indices of the dimensions
+            that are being retained. The other dimensions are marginalized out.
+        %(_mvn_doc_default_callparams)s
+
+        Returns
+        -------
+        marginal_multivariate_normal : multivariate_normal_frozen
+            An object representing the marginal distribution.
+
+        Notes
+        -----
+        %(_mvn_doc_callparams_note)s
+        
+=== parse numpydoc
+short_description: 'Return a marginal multivariate normal distribution.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'dimensions']
+  description: |
+    The dimensions of the multivariate distribution corresponding
+    with the marginal variables, that is, the indices of the dimensions
+    that are being retained. The other dimensions are marginalized out.
+  arg_name: 'dimensions'
+  type_name: 'int or 1-d array_like'
+  is_optional: False
+- DocstringParam
+  args: ['param', '%(_mvn_doc_default_callparams)s']
+  arg_name: '%(_mvn_doc_default_callparams)s'
+- DocstringReturns
+  args: ['returns']
+  description: 'An object representing the marginal distribution.'
+  type_name: 'multivariate_normal_frozen'
+  is_generator: False
+  return_name: 'marginal_multivariate_normal'
+- DocstringMeta
+  args: ['notes']
+  description: '%(_mvn_doc_callparams_note)s'
+=== detect
+numpydoc
+=== compose numpydoc
+Return a marginal multivariate normal distribution.
+
+Parameters
+----------
+dimensions : int or 1-d array_like
+    The dimensions of the multivariate distribution corresponding
+    with the marginal variables, that is, the indices of the dimensions
+    that are being retained. The other dimensions are marginalized out.
+%(_mvn_doc_default_callparams)s
+
+Returns
+-------
+marginal_multivariate_normal : multivariate_normal_frozen
+    An object representing the marginal distribution.
+
+Notes
+-----
+%(_mvn_doc_callparams_note)s

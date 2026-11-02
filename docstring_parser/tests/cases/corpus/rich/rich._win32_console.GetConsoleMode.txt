@@ -1,0 +1,53 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Retrieves the current input mode of a console's input buffer
+    or the current output mode of a console screen buffer.
+
+    Args:
+        std_handle (wintypes.HANDLE): A handle to the console input buffer or the console screen buffer.
+
+    Raises:
+        LegacyWindowsError: If any error occurs while calling the Windows console API.
+
+    Returns:
+        int: Value representing the current console mode as documented at
+            https://docs.microsoft.com/en-us/windows/console/getconsolemode#parameters
+    
+=== parse google
+short_description: "Retrieves the current input mode of a console's input buffer"
+long_description: 'or the current output mode of a console screen buffer.'
+blank_after_short_description: False
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'std_handle (wintypes.HANDLE)']
+  description: 'A handle to the console input buffer or the console screen buffer.'
+  arg_name: 'std_handle'
+  type_name: 'wintypes.HANDLE'
+  is_optional: False
+- DocstringRaises
+  args: ['raises', 'LegacyWindowsError']
+  description: 'If any error occurs while calling the Windows console API.'
+  type_name: 'LegacyWindowsError'
+- DocstringReturns
+  args: ['returns', 'int']
+  description: |
+    Value representing the current console mode as documented at
+    https://docs.microsoft.com/en-us/windows/console/getconsolemode#parameters
+  type_name: 'int'
+  is_generator: False
+=== detect
+google
+=== compose google
+Retrieves the current input mode of a console's input buffer
+or the current output mode of a console screen buffer.
+
+Args:
+    std_handle (wintypes.HANDLE): A handle to the console input buffer or the console screen buffer.
+
+Returns:
+    int: Value representing the current console mode as documented at
+        https://docs.microsoft.com/en-us/windows/console/getconsolemode#parameters
+
+Raises:
+    LegacyWindowsError: If any error occurs while calling the Windows console API.

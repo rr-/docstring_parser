@@ -1,0 +1,18 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Try to load a theme with the specified name.
+
+        This uses the ``sphinx.html_themes`` entry point from package metadata.
+        
+=== parse rest
+short_description: 'Try to load a theme with the specified name.'
+long_description: 'This uses the ``sphinx.html_themes`` entry point from package metadata.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Try to load a theme with the specified name.
+
+This uses the ``sphinx.html_themes`` entry point from package metadata.

@@ -1,0 +1,42 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Get the value of an attribute if it is present, otherwise
+        set and return a default value. Like :meth:`dict.setdefault`.
+
+        :param name: Name of attribute to get.
+        :param default: Value to set and return if the attribute is not
+            present.
+
+        .. versionadded:: 0.11
+        
+=== parse rest
+short_description: 'Get the value of an attribute if it is present, otherwise'
+long_description: |
+  set and return a default value. Like :meth:`dict.setdefault`.
+  
+  .. versionadded:: 0.11
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringParam
+  args: ['param', 'name']
+  description: 'Name of attribute to get.'
+  arg_name: 'name'
+- DocstringParam
+  args: ['param', 'default']
+  description: |
+    Value to set and return if the attribute is not
+    present.
+  arg_name: 'default'
+=== detect
+rest
+=== compose rest
+Get the value of an attribute if it is present, otherwise
+
+set and return a default value. Like :meth:`dict.setdefault`.
+
+.. versionadded:: 0.11
+
+:param name: Name of attribute to get.
+:param default: Value to set and return if the attribute is not
+    present.

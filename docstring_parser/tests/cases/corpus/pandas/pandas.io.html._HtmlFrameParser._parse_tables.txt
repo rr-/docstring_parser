@@ -1,0 +1,79 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Return all tables from the parsed DOM.
+
+        Parameters
+        ----------
+        document : the DOM from which to parse the table element.
+
+        match : str or regular expression
+            The text to search for in the DOM tree.
+
+        attrs : dict
+            A dictionary of table attributes that can be used to disambiguate
+            multiple tables on a page.
+
+        Raises
+        ------
+        ValueError : `match` does not match any text in the document.
+
+        Returns
+        -------
+        list of node-like
+            HTML <table> elements to be parsed into raw data.
+        
+=== parse numpydoc
+short_description: 'Return all tables from the parsed DOM.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'document']
+  arg_name: 'document'
+  type_name: 'the DOM from which to parse the table element.'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'match']
+  description: 'The text to search for in the DOM tree.'
+  arg_name: 'match'
+  type_name: 'str or regular expression'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'attrs']
+  description: |
+    A dictionary of table attributes that can be used to disambiguate
+    multiple tables on a page.
+  arg_name: 'attrs'
+  type_name: 'dict'
+  is_optional: False
+- DocstringRaises
+  args: ['raises', 'ValueError : `match` does not match any text in the document.']
+  type_name: 'ValueError : `match` does not match any text in the document.'
+- DocstringReturns
+  args: ['returns']
+  description: 'HTML <table> elements to be parsed into raw data.'
+  type_name: 'list of node-like'
+  is_generator: False
+=== detect
+numpydoc
+=== compose numpydoc
+Return all tables from the parsed DOM.
+
+Parameters
+----------
+document : the DOM from which to parse the table element.
+match : str or regular expression
+    The text to search for in the DOM tree.
+attrs : dict
+    A dictionary of table attributes that can be used to disambiguate
+    multiple tables on a page.
+
+Returns
+-------
+list of node-like
+    HTML <table> elements to be parsed into raw data.
+
+Raises
+------
+ValueError : `match` does not match any text in the document.

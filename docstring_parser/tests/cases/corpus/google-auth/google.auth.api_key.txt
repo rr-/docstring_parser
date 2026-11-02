@@ -1,0 +1,23 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Google API key support.
+This module provides authentication using the `API key`_.
+.. _API key:
+    https://cloud.google.com/docs/authentication/api-keys/
+
+=== parse google
+short_description: 'Google API key support.'
+long_description: |
+  This module provides authentication using the `API key`_.
+  .. _API key:
+      https://cloud.google.com/docs/authentication/api-keys/
+blank_after_short_description: False
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Google API key support.
+This module provides authentication using the `API key`_.
+.. _API key:
+    https://cloud.google.com/docs/authentication/api-keys/

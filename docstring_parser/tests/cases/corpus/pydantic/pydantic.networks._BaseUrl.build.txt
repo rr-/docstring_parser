@@ -1,0 +1,75 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Build a new `Url` instance from its component parts.
+
+        Args:
+            scheme: The scheme part of the URL.
+            username: The username part of the URL, or omit for no username.
+            password: The password part of the URL, or omit for no password.
+            host: The host part of the URL.
+            port: The port part of the URL, or omit for no port.
+            path: The path part of the URL, or omit for no path.
+            query: The query part of the URL, or omit for no query.
+            fragment: The fragment part of the URL, or omit for no fragment.
+
+        Returns:
+            An instance of URL
+        
+=== parse google
+short_description: 'Build a new `Url` instance from its component parts.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'scheme']
+  description: 'The scheme part of the URL.'
+  arg_name: 'scheme'
+- DocstringParam
+  args: ['param', 'username']
+  description: 'The username part of the URL, or omit for no username.'
+  arg_name: 'username'
+- DocstringParam
+  args: ['param', 'password']
+  description: 'The password part of the URL, or omit for no password.'
+  arg_name: 'password'
+- DocstringParam
+  args: ['param', 'host']
+  description: 'The host part of the URL.'
+  arg_name: 'host'
+- DocstringParam
+  args: ['param', 'port']
+  description: 'The port part of the URL, or omit for no port.'
+  arg_name: 'port'
+- DocstringParam
+  args: ['param', 'path']
+  description: 'The path part of the URL, or omit for no path.'
+  arg_name: 'path'
+- DocstringParam
+  args: ['param', 'query']
+  description: 'The query part of the URL, or omit for no query.'
+  arg_name: 'query'
+- DocstringParam
+  args: ['param', 'fragment']
+  description: 'The fragment part of the URL, or omit for no fragment.'
+  arg_name: 'fragment'
+- DocstringReturns
+  args: ['returns']
+  description: 'An instance of URL'
+  is_generator: False
+=== detect
+google
+=== compose google
+Build a new `Url` instance from its component parts.
+
+Args:
+    scheme: The scheme part of the URL.
+    username: The username part of the URL, or omit for no username.
+    password: The password part of the URL, or omit for no password.
+    host: The host part of the URL.
+    port: The port part of the URL, or omit for no port.
+    path: The path part of the URL, or omit for no path.
+    query: The query part of the URL, or omit for no query.
+    fragment: The fragment part of the URL, or omit for no fragment.
+
+Returns:
+    An instance of URL

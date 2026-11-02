@@ -1,0 +1,185 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Return the row label of the minimum value.
+
+        If multiple values equal the minimum, the first row label with that
+        value is returned.
+
+        Parameters
+        ----------
+        axis : {0 or 'index'}
+            Unused. Parameter needed for compatibility with DataFrame.
+        skipna : bool, default True
+            Exclude NA/null values. If the entire Series is NA, or if ``skipna=False``
+            and there is an NA value, this method will raise a ``ValueError``.
+        *args, **kwargs
+            Additional arguments and keywords have no effect but might be
+            accepted for compatibility with NumPy.
+            See :ref:`gotchas.numpy_kwargs` for more.
+
+        Returns
+        -------
+        Index
+            Label of the minimum value.
+
+        Raises
+        ------
+        ValueError
+            If the Series is empty.
+
+        See Also
+        --------
+        numpy.argmin : Return indices of the minimum values
+            along the given axis.
+        DataFrame.idxmin : Return index of first occurrence of minimum
+            over requested axis.
+        Series.idxmax : Return index *label* of the first occurrence
+            of maximum of values.
+
+        Notes
+        -----
+        This method is the Series version of ``ndarray.argmin``. This method
+        returns the label of the minimum, while ``ndarray.argmin`` returns
+        the position. To get the position, use ``series.values.argmin()``.
+
+        Examples
+        --------
+        >>> s = pd.Series(data=[1, None, 4, 1], index=["A", "B", "C", "D"])
+        >>> s
+        A    1.0
+        B    NaN
+        C    4.0
+        D    1.0
+        dtype: float64
+
+        >>> s.idxmin()
+        'A'
+        
+=== parse numpydoc
+short_description: 'Return the row label of the minimum value.'
+long_description: |
+  If multiple values equal the minimum, the first row label with that
+  value is returned.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'axis']
+  description: 'Unused. Parameter needed for compatibility with DataFrame.'
+  arg_name: 'axis'
+  type_name: "{0 or 'index'}"
+  is_optional: False
+- DocstringParam
+  args: ['param', 'skipna']
+  description: |
+    Exclude NA/null values. If the entire Series is NA, or if ``skipna=False``
+    and there is an NA value, this method will raise a ``ValueError``.
+  arg_name: 'skipna'
+  type_name: 'bool'
+  is_optional: True
+  default: 'True'
+- DocstringParam
+  args: ['param', '*args, **kwargs']
+  description: |
+    Additional arguments and keywords have no effect but might be
+    accepted for compatibility with NumPy.
+    See :ref:`gotchas.numpy_kwargs` for more.
+  arg_name: '*args, **kwargs'
+- DocstringReturns
+  args: ['returns']
+  description: 'Label of the minimum value.'
+  type_name: 'Index'
+  is_generator: False
+- DocstringRaises
+  args: ['raises', 'ValueError']
+  description: 'If the Series is empty.'
+  type_name: 'ValueError'
+- DocstringMeta
+  args: ['see_also']
+  description: |
+    numpy.argmin : Return indices of the minimum values
+        along the given axis.
+    DataFrame.idxmin : Return index of first occurrence of minimum
+        over requested axis.
+    Series.idxmax : Return index *label* of the first occurrence
+        of maximum of values.
+- DocstringMeta
+  args: ['notes']
+  description: |
+    This method is the Series version of ``ndarray.argmin``. This method
+    returns the label of the minimum, while ``ndarray.argmin`` returns
+    the position. To get the position, use ``series.values.argmin()``.
+- DocstringExample
+  args: ['examples']
+  description: |
+    A    1.0
+    B    NaN
+    C    4.0
+    D    1.0
+    dtype: float64
+    
+  snippet: |
+    >>> s = pd.Series(data=[1, None, 4, 1], index=["A", "B", "C", "D"])
+    >>> s
+- DocstringExample
+  args: ['examples']
+  description: "'A'"
+  snippet: '>>> s.idxmin()'
+=== detect
+numpydoc
+=== compose numpydoc
+Return the row label of the minimum value.
+
+If multiple values equal the minimum, the first row label with that
+value is returned.
+
+Parameters
+----------
+axis : {0 or 'index'}
+    Unused. Parameter needed for compatibility with DataFrame.
+skipna : bool, default=True
+    Exclude NA/null values. If the entire Series is NA, or if ``skipna=False``
+    and there is an NA value, this method will raise a ``ValueError``.
+*args, **kwargs
+    Additional arguments and keywords have no effect but might be
+    accepted for compatibility with NumPy.
+    See :ref:`gotchas.numpy_kwargs` for more.
+
+Returns
+-------
+Index
+    Label of the minimum value.
+
+Raises
+------
+ValueError
+    If the Series is empty.
+
+Examples
+--------
+>>> s = pd.Series(data=[1, None, 4, 1], index=["A", "B", "C", "D"])
+>>> s
+A    1.0
+B    NaN
+C    4.0
+D    1.0
+dtype: float64
+
+>>> s.idxmin()
+'A'
+
+See Also
+--------
+numpy.argmin : Return indices of the minimum values
+    along the given axis.
+DataFrame.idxmin : Return index of first occurrence of minimum
+    over requested axis.
+Series.idxmax : Return index *label* of the first occurrence
+    of maximum of values.
+
+Notes
+-----
+This method is the Series version of ``ndarray.argmin``. This method
+returns the label of the minimum, while ``ndarray.argmin`` returns
+the position. To get the position, use ``series.values.argmin()``.

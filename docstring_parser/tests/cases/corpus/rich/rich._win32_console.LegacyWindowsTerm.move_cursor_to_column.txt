@@ -1,0 +1,25 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Move cursor to the column specified by the zero-based column index, staying on the same row
+
+        Args:
+            column (int): The zero-based column index to move the cursor to.
+        
+=== parse google
+short_description: 'Move cursor to the column specified by the zero-based column index, staying on the same row'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'column (int)']
+  description: 'The zero-based column index to move the cursor to.'
+  arg_name: 'column'
+  type_name: 'int'
+  is_optional: False
+=== detect
+google
+=== compose google
+Move cursor to the column specified by the zero-based column index, staying on the same row
+
+Args:
+    column (int): The zero-based column index to move the cursor to.

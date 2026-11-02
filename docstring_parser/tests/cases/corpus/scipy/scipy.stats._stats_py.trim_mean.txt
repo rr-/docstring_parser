@@ -1,0 +1,211 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Return mean of array after trimming a specified fraction of extreme values.
+
+    Removes the specified proportion of elements from *each* end of the
+    sorted array, then computes the mean of the remaining elements.
+
+    Parameters
+    ----------
+    a : array_like
+        Input array.
+    proportiontocut : float
+        Fraction of the most positive and most negative elements to remove.
+        When the specified proportion does not result in an integer number of
+        elements, the number of elements to trim is rounded down.
+    axis : int or None, default: 0
+        Axis along which the trimmed means are computed.
+        If None, compute over the raveled array.
+
+    Returns
+    -------
+    trim_mean : ndarray
+        Mean of trimmed array.
+
+    See Also
+    --------
+    trimboth : Remove a proportion of elements from each end of an array.
+    tmean : Compute the mean after trimming values outside specified limits.
+
+    Notes
+    -----
+    For 1-D array `a`, `trim_mean` is approximately equivalent to the following
+    calculation::
+
+        import numpy as np
+        a = np.sort(a)
+        m = int(proportiontocut * len(a))
+        np.mean(a[m: len(a) - m])
+
+    Examples
+    --------
+    >>> import numpy as np
+    >>> from scipy import stats
+    >>> x = [1, 2, 3, 5]
+    >>> stats.trim_mean(x, 0.25)
+    2.5
+
+    When the specified proportion does not result in an integer number of
+    elements, the number of elements to trim is rounded down.
+
+    >>> stats.trim_mean(x, 0.24999) == np.mean(x)
+    True
+
+    Use `axis` to specify the axis along which the calculation is performed.
+
+    >>> x2 = [[1, 2, 3, 5],
+    ...       [10, 20, 30, 50]]
+    >>> stats.trim_mean(x2, 0.25)
+    array([ 5.5, 11. , 16.5, 27.5])
+    >>> stats.trim_mean(x2, 0.25, axis=1)
+    array([ 2.5, 25. ])
+
+    
+=== parse numpydoc
+short_description: 'Return mean of array after trimming a specified fraction of extreme values.'
+long_description: |
+  Removes the specified proportion of elements from *each* end of the
+  sorted array, then computes the mean of the remaining elements.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'a']
+  description: 'Input array.'
+  arg_name: 'a'
+  type_name: 'array_like'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'proportiontocut']
+  description: |
+    Fraction of the most positive and most negative elements to remove.
+    When the specified proportion does not result in an integer number of
+    elements, the number of elements to trim is rounded down.
+  arg_name: 'proportiontocut'
+  type_name: 'float'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'axis']
+  description: |
+    Axis along which the trimmed means are computed.
+    If None, compute over the raveled array.
+  arg_name: 'axis'
+  type_name: 'int or None'
+  is_optional: True
+  default: '0'
+- DocstringReturns
+  args: ['returns']
+  description: 'Mean of trimmed array.'
+  type_name: 'ndarray'
+  is_generator: False
+  return_name: 'trim_mean'
+- DocstringMeta
+  args: ['see_also']
+  description: |
+    trimboth : Remove a proportion of elements from each end of an array.
+    tmean : Compute the mean after trimming values outside specified limits.
+- DocstringMeta
+  args: ['notes']
+  description: |
+    For 1-D array `a`, `trim_mean` is approximately equivalent to the following
+    calculation::
+    
+        import numpy as np
+        a = np.sort(a)
+        m = int(proportiontocut * len(a))
+        np.mean(a[m: len(a) - m])
+- DocstringExample
+  args: ['examples']
+  description: |
+    2.5
+    
+    When the specified proportion does not result in an integer number of
+    elements, the number of elements to trim is rounded down.
+    
+  snippet: |
+    >>> import numpy as np
+    >>> from scipy import stats
+    >>> x = [1, 2, 3, 5]
+    >>> stats.trim_mean(x, 0.25)
+- DocstringExample
+  args: ['examples']
+  description: |
+    True
+    
+    Use `axis` to specify the axis along which the calculation is performed.
+    
+  snippet: '>>> stats.trim_mean(x, 0.24999) == np.mean(x)'
+- DocstringExample
+  args: ['examples']
+  description: '...       [10, 20, 30, 50]]'
+  snippet: '>>> x2 = [[1, 2, 3, 5],'
+- DocstringExample
+  args: ['examples']
+  description: 'array([ 5.5, 11. , 16.5, 27.5])'
+  snippet: '>>> stats.trim_mean(x2, 0.25)'
+- DocstringExample
+  args: ['examples']
+  description: 'array([ 2.5, 25. ])'
+  snippet: '>>> stats.trim_mean(x2, 0.25, axis=1)'
+=== detect
+numpydoc
+=== compose numpydoc
+Return mean of array after trimming a specified fraction of extreme values.
+
+Removes the specified proportion of elements from *each* end of the
+sorted array, then computes the mean of the remaining elements.
+
+Parameters
+----------
+a : array_like
+    Input array.
+proportiontocut : float
+    Fraction of the most positive and most negative elements to remove.
+    When the specified proportion does not result in an integer number of
+    elements, the number of elements to trim is rounded down.
+axis : int or None, default=0
+    Axis along which the trimmed means are computed.
+    If None, compute over the raveled array.
+
+Returns
+-------
+trim_mean : ndarray
+    Mean of trimmed array.
+
+Examples
+--------
+>>> import numpy as np
+>>> from scipy import stats
+>>> x = [1, 2, 3, 5]
+>>> stats.trim_mean(x, 0.25)
+2.5
+
+When the specified proportion does not result in an integer number of
+elements, the number of elements to trim is rounded down.
+
+>>> stats.trim_mean(x, 0.24999) == np.mean(x)
+True
+
+Use `axis` to specify the axis along which the calculation is performed.
+
+>>> x2 = [[1, 2, 3, 5],
+...       [10, 20, 30, 50]]
+>>> stats.trim_mean(x2, 0.25)
+array([ 5.5, 11. , 16.5, 27.5])
+>>> stats.trim_mean(x2, 0.25, axis=1)
+array([ 2.5, 25. ])
+
+See Also
+--------
+trimboth : Remove a proportion of elements from each end of an array.
+tmean : Compute the mean after trimming values outside specified limits.
+
+Notes
+-----
+For 1-D array `a`, `trim_mean` is approximately equivalent to the following
+calculation::
+
+    import numpy as np
+    a = np.sort(a)
+    m = int(proportiontocut * len(a))
+    np.mean(a[m: len(a) - m])

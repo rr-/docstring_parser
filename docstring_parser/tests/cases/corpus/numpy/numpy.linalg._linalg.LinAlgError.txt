@@ -1,0 +1,81 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Generic Python-exception-derived object raised by linalg functions.
+
+    General purpose exception class, derived from Python's ValueError
+    class, programmatically raised in linalg functions when a Linear
+    Algebra-related condition would prevent further correct execution of the
+    function.
+
+    Parameters
+    ----------
+    None
+
+    Examples
+    --------
+    >>> from numpy import linalg as LA
+    >>> LA.inv(np.zeros((2,2)))
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+      File "...linalg.py", line 350,
+        in inv return wrap(solve(a, identity(a.shape[0], dtype=a.dtype)))
+      File "...linalg.py", line 249,
+        in solve
+        raise LinAlgError('Singular matrix')
+    numpy.linalg.LinAlgError: Singular matrix
+
+    
+=== parse numpydoc
+short_description: 'Generic Python-exception-derived object raised by linalg functions.'
+long_description: |
+  General purpose exception class, derived from Python's ValueError
+  class, programmatically raised in linalg functions when a Linear
+  Algebra-related condition would prevent further correct execution of the
+  function.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'None']
+  arg_name: 'None'
+- DocstringExample
+  args: ['examples']
+  description: |
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+      File "...linalg.py", line 350,
+        in inv return wrap(solve(a, identity(a.shape[0], dtype=a.dtype)))
+      File "...linalg.py", line 249,
+        in solve
+        raise LinAlgError('Singular matrix')
+    numpy.linalg.LinAlgError: Singular matrix
+  snippet: |
+    >>> from numpy import linalg as LA
+    >>> LA.inv(np.zeros((2,2)))
+=== detect
+numpydoc
+=== compose numpydoc
+Generic Python-exception-derived object raised by linalg functions.
+
+General purpose exception class, derived from Python's ValueError
+class, programmatically raised in linalg functions when a Linear
+Algebra-related condition would prevent further correct execution of the
+function.
+
+Parameters
+----------
+None
+
+Examples
+--------
+>>> from numpy import linalg as LA
+>>> LA.inv(np.zeros((2,2)))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "...linalg.py", line 350,
+    in inv return wrap(solve(a, identity(a.shape[0], dtype=a.dtype)))
+  File "...linalg.py", line 249,
+    in solve
+    raise LinAlgError('Singular matrix')
+numpy.linalg.LinAlgError: Singular matrix

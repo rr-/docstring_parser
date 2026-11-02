@@ -1,0 +1,40 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Gets and parses the agent identity certificate if not opted out.
+
+    Checks if the user has opted out of certificate-bound tokens. If not,
+    it gets the certificate path, reads the file, and parses it.
+
+    Returns:
+        Tuple[Optional[cryptography.x509.Certificate], Optional[bytes]]: A tuple
+            of (parsed certificate object, certificate bytes) if found and not
+            opted out, otherwise (None, None).
+    
+=== parse google
+short_description: 'Gets and parses the agent identity certificate if not opted out.'
+long_description: |
+  Checks if the user has opted out of certificate-bound tokens. If not,
+  it gets the certificate path, reads the file, and parses it.
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringReturns
+  args: ['returns', 'Tuple[Optional[cryptography.x509.Certificate], Optional[bytes]]']
+  description: |
+    A tuple
+    of (parsed certificate object, certificate bytes) if found and not
+    opted out, otherwise (None, None).
+  type_name: 'Tuple[Optional[cryptography.x509.Certificate], Optional[bytes]]'
+  is_generator: False
+=== detect
+google
+=== compose google
+Gets and parses the agent identity certificate if not opted out.
+
+Checks if the user has opted out of certificate-bound tokens. If not,
+it gets the certificate path, reads the file, and parses it.
+
+Returns:
+    Tuple[Optional[cryptography.x509.Certificate], Optional[bytes]]: A tuple
+        of (parsed certificate object, certificate bytes) if found and not
+        opted out, otherwise (None, None).

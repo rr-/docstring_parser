@@ -1,0 +1,26 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+
+        Record that a mail exchange host is functioning.
+
+        @type mx: L{bytes}
+        @param mx: The hostname of a mail exchange host.
+        
+=== parse epydoc
+short_description: 'Record that a mail exchange host is functioning.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringParam
+  args: ['type', 'mx']
+  description: 'The hostname of a mail exchange host.'
+  arg_name: 'mx'
+  type_name: 'L{bytes}'
+  is_optional: False
+=== detect
+epydoc
+=== compose epydoc
+Record that a mail exchange host is functioning.
+
+@type mx: L{bytes}
+@param mx: The hostname of a mail exchange host.

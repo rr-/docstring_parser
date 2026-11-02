@@ -1,0 +1,16 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Write the metainfo file content.opf It contains bibliographic data,
+        a file list and the spine (the reading order).
+        
+=== parse rest
+short_description: 'Write the metainfo file content.opf It contains bibliographic data,'
+long_description: 'a file list and the spine (the reading order).'
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Write the metainfo file content.opf It contains bibliographic data,
+a file list and the spine (the reading order).

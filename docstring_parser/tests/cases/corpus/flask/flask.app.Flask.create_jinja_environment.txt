@@ -1,0 +1,46 @@
+# flask 3.1.3 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+Create the Jinja environment based on :attr:`jinja_options`
+        and the various Jinja-related methods of the app. Changing
+        :attr:`jinja_options` after this will have no effect. Also adds
+        Flask-related globals and filters to the environment.
+
+        .. versionchanged:: 0.11
+           ``Environment.auto_reload`` set in accordance with
+           ``TEMPLATES_AUTO_RELOAD`` configuration option.
+
+        .. versionadded:: 0.5
+        
+=== parse rest
+short_description: 'Create the Jinja environment based on :attr:`jinja_options`'
+long_description: |
+  and the various Jinja-related methods of the app. Changing
+  
+  .. versionchanged:: 0.11
+     ``Environment.auto_reload`` set in accordance with
+     ``TEMPLATES_AUTO_RELOAD`` configuration option.
+  
+  .. versionadded:: 0.5
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringMeta
+  args: ['attr']
+  description: |
+    `jinja_options` after this will have no effect. Also adds
+    Flask-related globals and filters to the environment.
+=== detect
+rest
+=== compose rest
+Create the Jinja environment based on :attr:`jinja_options`
+
+and the various Jinja-related methods of the app. Changing
+
+.. versionchanged:: 0.11
+   ``Environment.auto_reload`` set in accordance with
+   ``TEMPLATES_AUTO_RELOAD`` configuration option.
+
+.. versionadded:: 0.5
+
+:attr: `jinja_options` after this will have no effect. Also adds
+    Flask-related globals and filters to the environment.

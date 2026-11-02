@@ -1,0 +1,36 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Replace emoji markup with corresponding unicode characters.
+
+        Args:
+            text (str): A string with emojis codes, e.g. "Hello :smiley:!"
+
+        Returns:
+            str: A string with emoji codes replaces with actual emoji.
+        
+=== parse google
+short_description: 'Replace emoji markup with corresponding unicode characters.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'text (str)']
+  description: 'A string with emojis codes, e.g. "Hello :smiley:!"'
+  arg_name: 'text'
+  type_name: 'str'
+  is_optional: False
+- DocstringReturns
+  args: ['returns', 'str']
+  description: 'A string with emoji codes replaces with actual emoji.'
+  type_name: 'str'
+  is_generator: False
+=== detect
+google
+=== compose google
+Replace emoji markup with corresponding unicode characters.
+
+Args:
+    text (str): A string with emojis codes, e.g. "Hello :smiley:!"
+
+Returns:
+    str: A string with emoji codes replaces with actual emoji.

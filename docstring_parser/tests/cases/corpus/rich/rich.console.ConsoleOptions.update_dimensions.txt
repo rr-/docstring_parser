@@ -1,0 +1,44 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Update the width and height, and return a copy.
+
+        Args:
+            width (int): New width (sets both min_width and max_width).
+            height (int): New height.
+
+        Returns:
+            ~ConsoleOptions: New console options instance.
+        
+=== parse google
+short_description: 'Update the width and height, and return a copy.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'width (int)']
+  description: 'New width (sets both min_width and max_width).'
+  arg_name: 'width'
+  type_name: 'int'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'height (int)']
+  description: 'New height.'
+  arg_name: 'height'
+  type_name: 'int'
+  is_optional: False
+- DocstringReturns
+  args: ['returns', '~ConsoleOptions']
+  description: 'New console options instance.'
+  type_name: '~ConsoleOptions'
+  is_generator: False
+=== detect
+google
+=== compose google
+Update the width and height, and return a copy.
+
+Args:
+    width (int): New width (sets both min_width and max_width).
+    height (int): New height.
+
+Returns:
+    ~ConsoleOptions: New console options instance.

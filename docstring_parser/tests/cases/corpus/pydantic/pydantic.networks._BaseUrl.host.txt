@@ -1,0 +1,22 @@
+# pydantic 2.14.2 (MIT), harvested by tools/harvest_corpus.py
+=== input
+The host part of the URL, or `None`.
+
+        If the URL must be punycode encoded, this is the encoded host, e.g. if the input URL is `https://£££.com`,
+        `host` will be `xn--9aaa.com`
+        
+=== parse google
+short_description: 'The host part of the URL, or `None`.'
+long_description: |
+  If the URL must be punycode encoded, this is the encoded host, e.g. if the input URL is `https://£££.com`,
+  `host` will be `xn--9aaa.com`
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+The host part of the URL, or `None`.
+
+If the URL must be punycode encoded, this is the encoded host, e.g. if the input URL is `https://£££.com`,
+`host` will be `xn--9aaa.com`

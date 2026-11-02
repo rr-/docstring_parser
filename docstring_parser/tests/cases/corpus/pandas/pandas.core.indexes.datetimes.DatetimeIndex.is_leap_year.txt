@@ -1,0 +1,68 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+        Boolean indicator if the date belongs to a leap year.
+
+        A leap year is a year, which has 366 days (instead of 365) including
+        29th of February as an intercalary day. Leap years are years which
+        are multiples of four with the exception of years divisible by 100
+        but not by 400.
+
+        See Also
+        --------
+        DatetimeIndex.is_year_end : Indicate whether the date is the last
+            day of the year.
+        DatetimeIndex.is_year_start : Indicate whether the date is the first
+            day of a year.
+
+        Examples
+        --------
+        >>> idx = pd.date_range("2012-01-01", "2015-01-01", freq="YE")
+        >>> idx.is_leap_year
+        array([ True, False, False])
+        
+=== parse numpydoc
+short_description: 'Boolean indicator if the date belongs to a leap year.'
+long_description: |
+  A leap year is a year, which has 366 days (instead of 365) including
+  29th of February as an intercalary day. Leap years are years which
+  are multiples of four with the exception of years divisible by 100
+  but not by 400.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringMeta
+  args: ['see_also']
+  description: |
+    DatetimeIndex.is_year_end : Indicate whether the date is the last
+        day of the year.
+    DatetimeIndex.is_year_start : Indicate whether the date is the first
+        day of a year.
+- DocstringExample
+  args: ['examples']
+  description: 'array([ True, False, False])'
+  snippet: |
+    >>> idx = pd.date_range("2012-01-01", "2015-01-01", freq="YE")
+    >>> idx.is_leap_year
+=== detect
+numpydoc
+=== compose numpydoc
+Boolean indicator if the date belongs to a leap year.
+
+A leap year is a year, which has 366 days (instead of 365) including
+29th of February as an intercalary day. Leap years are years which
+are multiples of four with the exception of years divisible by 100
+but not by 400.
+
+Examples
+--------
+>>> idx = pd.date_range("2012-01-01", "2015-01-01", freq="YE")
+>>> idx.is_leap_year
+array([ True, False, False])
+
+See Also
+--------
+DatetimeIndex.is_year_end : Indicate whether the date is the last
+    day of the year.
+DatetimeIndex.is_year_start : Indicate whether the date is the first
+    day of a year.

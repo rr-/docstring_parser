@@ -1,0 +1,82 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+A convenience function for pretty printing.
+
+    Args:
+        _object (Any): Object to pretty print.
+        console (Console, optional): Console instance, or None to use default. Defaults to None.
+        max_length (int, optional): Maximum length of containers before abbreviating, or None for no abbreviation.
+            Defaults to None.
+        max_string (int, optional): Maximum length of strings before truncating, or None to disable. Defaults to None.
+        max_depth (int, optional): Maximum depth for nested data structures, or None for unlimited depth. Defaults to None.
+        indent_guides (bool, optional): Enable indentation guides. Defaults to True.
+        expand_all (bool, optional): Expand all containers. Defaults to False.
+    
+=== parse google
+short_description: 'A convenience function for pretty printing.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', '_object (Any)']
+  description: 'Object to pretty print.'
+  arg_name: '_object'
+  type_name: 'Any'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'console (Console, optional)']
+  description: 'Console instance, or None to use default. Defaults to None.'
+  arg_name: 'console'
+  type_name: 'Console'
+  is_optional: True
+  default: 'None'
+- DocstringParam
+  args: ['param', 'max_length (int, optional)']
+  description: |
+    Maximum length of containers before abbreviating, or None for no abbreviation.
+    Defaults to None.
+  arg_name: 'max_length'
+  type_name: 'int'
+  is_optional: True
+- DocstringParam
+  args: ['param', 'max_string (int, optional)']
+  description: 'Maximum length of strings before truncating, or None to disable. Defaults to None.'
+  arg_name: 'max_string'
+  type_name: 'int'
+  is_optional: True
+  default: 'None'
+- DocstringParam
+  args: ['param', 'max_depth (int, optional)']
+  description: 'Maximum depth for nested data structures, or None for unlimited depth. Defaults to None.'
+  arg_name: 'max_depth'
+  type_name: 'int'
+  is_optional: True
+  default: 'None'
+- DocstringParam
+  args: ['param', 'indent_guides (bool, optional)']
+  description: 'Enable indentation guides. Defaults to True.'
+  arg_name: 'indent_guides'
+  type_name: 'bool'
+  is_optional: True
+  default: 'True'
+- DocstringParam
+  args: ['param', 'expand_all (bool, optional)']
+  description: 'Expand all containers. Defaults to False.'
+  arg_name: 'expand_all'
+  type_name: 'bool'
+  is_optional: True
+  default: 'False'
+=== detect
+google
+=== compose google
+A convenience function for pretty printing.
+
+Args:
+    _object (Any): Object to pretty print.
+    console (Console?): Console instance, or None to use default. Defaults to None.
+    max_length (int?): Maximum length of containers before abbreviating, or None for no abbreviation.
+        Defaults to None.
+    max_string (int?): Maximum length of strings before truncating, or None to disable. Defaults to None.
+    max_depth (int?): Maximum depth for nested data structures, or None for unlimited depth. Defaults to None.
+    indent_guides (bool?): Enable indentation guides. Defaults to True.
+    expand_all (bool?): Expand all containers. Defaults to False.

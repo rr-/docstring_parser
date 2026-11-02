@@ -1,0 +1,199 @@
+# numpy 2.5.4 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    can_cast(from_, to, casting='safe')
+
+    Returns True if cast between data types can occur according to the
+    casting rule.
+
+    Parameters
+    ----------
+    from_ : dtype, dtype specifier, NumPy scalar, or array
+        Data type, NumPy scalar, or array to cast from.
+    to : dtype or dtype specifier
+        Data type to cast to.
+    casting : {'no', 'equiv', 'safe', 'same_kind', 'unsafe'}, optional
+        Controls what kind of data casting may occur.
+
+        * 'no' means the data types should not be cast at all.
+        * 'equiv' means only byte-order changes are allowed.
+        * 'safe' means only casts which can preserve values are allowed.
+        * 'same_kind' means only safe casts or casts within a kind,
+          like float64 to float32, are allowed.
+        * 'unsafe' means any data conversions may be done.
+
+    Returns
+    -------
+    out : bool
+        True if cast can occur according to the casting rule.
+
+    Notes
+    -----
+    .. versionchanged:: 2.0
+       This function does not support Python scalars anymore and does not
+       apply any value-based logic for 0-D arrays and NumPy scalars.
+
+    See also
+    --------
+    dtype, result_type
+
+    Examples
+    --------
+    Basic examples
+
+    >>> import numpy as np
+    >>> np.can_cast(np.int32, np.int64)
+    True
+    >>> np.can_cast(np.float64, complex)
+    True
+    >>> np.can_cast(complex, float)
+    False
+
+    >>> np.can_cast('i8', 'f8')
+    True
+    >>> np.can_cast('i8', 'f4')
+    False
+    >>> np.can_cast('i4', 'S4')
+    False
+
+    
+=== parse numpydoc
+short_description: "can_cast(from_, to, casting='safe')"
+long_description: |
+  Returns True if cast between data types can occur according to the
+  casting rule.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'from_']
+  description: 'Data type, NumPy scalar, or array to cast from.'
+  arg_name: 'from_'
+  type_name: 'dtype, dtype specifier, NumPy scalar, or array'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'to']
+  description: 'Data type to cast to.'
+  arg_name: 'to'
+  type_name: 'dtype or dtype specifier'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'casting']
+  description: |
+    Controls what kind of data casting may occur.
+    
+    * 'no' means the data types should not be cast at all.
+    * 'equiv' means only byte-order changes are allowed.
+    * 'safe' means only casts which can preserve values are allowed.
+    * 'same_kind' means only safe casts or casts within a kind,
+      like float64 to float32, are allowed.
+    * 'unsafe' means any data conversions may be done.
+  arg_name: 'casting'
+  type_name: "{'no', 'equiv', 'safe', 'same_kind', 'unsafe'}"
+  is_optional: True
+- DocstringReturns
+  args: ['returns']
+  description: 'True if cast can occur according to the casting rule.'
+  type_name: 'bool'
+  is_generator: False
+  return_name: 'out'
+- DocstringMeta
+  args: ['notes']
+  description: |
+    .. versionchanged:: 2.0
+       This function does not support Python scalars anymore and does not
+       apply any value-based logic for 0-D arrays and NumPy scalars.
+    
+    See also
+    --------
+    dtype, result_type
+- DocstringExample
+  args: ['examples']
+  description: |
+    Basic examples
+    
+- DocstringExample
+  args: ['examples']
+  description: 'True'
+  snippet: |
+    >>> import numpy as np
+    >>> np.can_cast(np.int32, np.int64)
+- DocstringExample
+  args: ['examples']
+  description: 'True'
+  snippet: '>>> np.can_cast(np.float64, complex)'
+- DocstringExample
+  args: ['examples']
+  description: |
+    False
+    
+  snippet: '>>> np.can_cast(complex, float)'
+- DocstringExample
+  args: ['examples']
+  description: 'True'
+  snippet: ">>> np.can_cast('i8', 'f8')"
+- DocstringExample
+  args: ['examples']
+  description: 'False'
+  snippet: ">>> np.can_cast('i8', 'f4')"
+- DocstringExample
+  args: ['examples']
+  description: 'False'
+  snippet: ">>> np.can_cast('i4', 'S4')"
+=== detect
+numpydoc
+=== compose numpydoc
+can_cast(from_, to, casting='safe')
+
+Returns True if cast between data types can occur according to the
+casting rule.
+
+Parameters
+----------
+from_ : dtype, dtype specifier, NumPy scalar, or array
+    Data type, NumPy scalar, or array to cast from.
+to : dtype or dtype specifier
+    Data type to cast to.
+casting : {'no', 'equiv', 'safe', 'same_kind', 'unsafe'}, optional
+    Controls what kind of data casting may occur.
+    
+    * 'no' means the data types should not be cast at all.
+    * 'equiv' means only byte-order changes are allowed.
+    * 'safe' means only casts which can preserve values are allowed.
+    * 'same_kind' means only safe casts or casts within a kind,
+      like float64 to float32, are allowed.
+    * 'unsafe' means any data conversions may be done.
+
+Returns
+-------
+out : bool
+    True if cast can occur according to the casting rule.
+
+Examples
+--------
+Basic examples
+
+>>> import numpy as np
+>>> np.can_cast(np.int32, np.int64)
+True
+>>> np.can_cast(np.float64, complex)
+True
+>>> np.can_cast(complex, float)
+False
+
+>>> np.can_cast('i8', 'f8')
+True
+>>> np.can_cast('i8', 'f4')
+False
+>>> np.can_cast('i4', 'S4')
+False
+
+Notes
+-----
+.. versionchanged:: 2.0
+   This function does not support Python scalars anymore and does not
+   apply any value-based logic for 0-D arrays and NumPy scalars.
+
+See also
+--------
+dtype, result_type

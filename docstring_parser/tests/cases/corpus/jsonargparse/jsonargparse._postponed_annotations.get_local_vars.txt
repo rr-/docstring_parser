@@ -1,0 +1,28 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Returns the type-like names defined in the body of a class.
+
+    The annotations of a method are evaluated in the scope of the body of the
+    class that defines it, so names defined there, e.g. a nested class, must be
+    resolvable. Only type-like values are collected, so that unrelated class
+    attributes never shadow a module global.
+    
+=== parse google
+short_description: 'Returns the type-like names defined in the body of a class.'
+long_description: |
+  The annotations of a method are evaluated in the scope of the body of the
+  class that defines it, so names defined there, e.g. a nested class, must be
+  resolvable. Only type-like values are collected, so that unrelated class
+  attributes never shadow a module global.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Returns the type-like names defined in the body of a class.
+
+The annotations of a method are evaluated in the scope of the body of the
+class that defines it, so names defined there, e.g. a nested class, must be
+resolvable. Only type-like values are collected, so that unrelated class
+attributes never shadow a module global.

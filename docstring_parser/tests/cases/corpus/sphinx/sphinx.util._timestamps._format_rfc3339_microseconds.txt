@@ -1,0 +1,21 @@
+# sphinx 9.2.0 (BSD-2-Clause), harvested by tools/harvest_corpus.py
+=== input
+Return an RFC 3339 formatted string representing the given timestamp.
+
+    :param timestamp: The timestamp to format, in microseconds.
+    
+=== parse rest
+short_description: 'Return an RFC 3339 formatted string representing the given timestamp.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringParam
+  args: ['param', 'timestamp']
+  description: 'The timestamp to format, in microseconds.'
+  arg_name: 'timestamp'
+=== detect
+rest
+=== compose rest
+Return an RFC 3339 formatted string representing the given timestamp.
+
+:param timestamp: The timestamp to format, in microseconds.

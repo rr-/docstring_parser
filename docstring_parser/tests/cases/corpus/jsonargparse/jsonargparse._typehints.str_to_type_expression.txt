@@ -1,0 +1,22 @@
+# jsonargparse 4.53.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Returns the type that a string type expression represents, e.g. ``"int | str"``.
+
+    The expression is resolved from its ast instead of being evaluated, such that only
+    names, dot import paths, unions and subscripts are accepted, i.e. no arbitrary code.
+    
+=== parse google
+short_description: 'Returns the type that a string type expression represents, e.g. ``"int | str"``.'
+long_description: |
+  The expression is resolved from its ast instead of being evaluated, such that only
+  names, dot import paths, unions and subscripts are accepted, i.e. no arbitrary code.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Returns the type that a string type expression represents, e.g. ``"int | str"``.
+
+The expression is resolved from its ast instead of being evaluated, such that only
+names, dot import paths, unions and subscripts are accepted, i.e. no arbitrary code.

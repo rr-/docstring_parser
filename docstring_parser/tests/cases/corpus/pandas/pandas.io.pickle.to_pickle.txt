@@ -1,0 +1,266 @@
+# pandas 3.1.0 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Pickle (serialize) object to file.
+
+    Parameters
+    ----------
+    obj : any object
+        Any python object.
+    filepath_or_buffer : str, path object, or file-like object
+        String, path object (implementing ``os.PathLike[str]``), or file-like
+        object implementing a binary ``write()`` function.
+        Also accepts URL. URL has to be of S3 or GCS.
+
+        Certain URL schemes may require additional packages. For example, S3
+        URLs require the ``s3fs`` library. See
+        :ref:`install.optional_dependencies` for a full list.
+    compression : str or dict, default 'infer'
+        For on-the-fly compression of the output data. If 'infer' and
+        'filepath_or_buffer' is path-like, then detect compression from the
+        following extensions: '.gz', '.bz2', '.zip', '.xz', '.zst', '.tar',
+        '.tar.gz', '.tar.xz' or '.tar.bz2' (otherwise no compression).
+        Set to ``None`` for no compression.
+        Can also be a dict with key ``'method'`` set
+        to one of {``'zip'``, ``'gzip'``, ``'bz2'``, ``'zstd'``, ``'xz'``,
+        ``'tar'``} and other key-value pairs are forwarded to
+        ``zipfile.ZipFile``, ``gzip.GzipFile``,
+        ``bz2.BZ2File``, ``zstandard.ZstdCompressor``, ``lzma.LZMAFile`` or
+        ``tarfile.TarFile``, respectively.
+        As an example, the following could be passed for faster compression
+        and to create a reproducible gzip archive:
+        ``compression={'method': 'gzip', 'compresslevel': 1, 'mtime': 1}``.
+    protocol : int
+        Int which indicates which protocol should be used by the pickler,
+        default ``pickle.HIGHEST_PROTOCOL`` (see [1]_). A negative value for
+        the protocol parameter is equivalent to setting its value to
+        ``pickle.HIGHEST_PROTOCOL``.
+    storage_options : dict, optional
+        Extra options that make sense for a particular storage connection, e.g.
+        host, port, username, password, etc. For HTTP(S) URLs the key-value pairs
+        are forwarded to ``urllib.request.Request`` as header options. For other
+        URLs (e.g. starting with "s3://", and "gcs://") the key-value pairs are
+        forwarded to ``fsspec.open``. Please see ``fsspec`` and ``urllib`` for more
+        details, and for more examples on storage options refer `here
+        <https://pandas.pydata.org/docs/user_guide/io.html?
+        highlight=storage_options#reading-writing-remote-files>`_.
+
+        .. [1] https://docs.python.org/3/library/pickle.html
+
+    See Also
+    --------
+    read_pickle : Load pickled pandas object (or any object) from file.
+    DataFrame.to_hdf : Write DataFrame to an HDF5 file.
+    DataFrame.to_sql : Write DataFrame to a SQL database.
+    DataFrame.to_parquet : Write a DataFrame to the binary parquet format.
+
+    Examples
+    --------
+    >>> original_df = pd.DataFrame(
+    ...     {"foo": range(5), "bar": range(5, 10)}
+    ... )  # doctest: +SKIP
+    >>> original_df  # doctest: +SKIP
+       foo  bar
+    0    0    5
+    1    1    6
+    2    2    7
+    3    3    8
+    4    4    9
+    >>> pd.to_pickle(original_df, "./dummy.pkl")  # doctest: +SKIP
+
+    >>> unpickled_df = pd.read_pickle("./dummy.pkl")  # doctest: +SKIP
+    >>> unpickled_df  # doctest: +SKIP
+       foo  bar
+    0    0    5
+    1    1    6
+    2    2    7
+    3    3    8
+    4    4    9
+    
+=== parse numpydoc
+short_description: 'Pickle (serialize) object to file.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'obj']
+  description: 'Any python object.'
+  arg_name: 'obj'
+  type_name: 'any object'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'filepath_or_buffer']
+  description: |
+    String, path object (implementing ``os.PathLike[str]``), or file-like
+    object implementing a binary ``write()`` function.
+    Also accepts URL. URL has to be of S3 or GCS.
+    
+    Certain URL schemes may require additional packages. For example, S3
+    URLs require the ``s3fs`` library. See
+    :ref:`install.optional_dependencies` for a full list.
+  arg_name: 'filepath_or_buffer'
+  type_name: 'str, path object, or file-like object'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'compression']
+  description: |
+    For on-the-fly compression of the output data. If 'infer' and
+    'filepath_or_buffer' is path-like, then detect compression from the
+    following extensions: '.gz', '.bz2', '.zip', '.xz', '.zst', '.tar',
+    '.tar.gz', '.tar.xz' or '.tar.bz2' (otherwise no compression).
+    Set to ``None`` for no compression.
+    Can also be a dict with key ``'method'`` set
+    to one of {``'zip'``, ``'gzip'``, ``'bz2'``, ``'zstd'``, ``'xz'``,
+    ``'tar'``} and other key-value pairs are forwarded to
+    ``zipfile.ZipFile``, ``gzip.GzipFile``,
+    ``bz2.BZ2File``, ``zstandard.ZstdCompressor``, ``lzma.LZMAFile`` or
+    ``tarfile.TarFile``, respectively.
+    As an example, the following could be passed for faster compression
+    and to create a reproducible gzip archive:
+    ``compression={'method': 'gzip', 'compresslevel': 1, 'mtime': 1}``.
+  arg_name: 'compression'
+  type_name: 'str or dict'
+  is_optional: True
+  default: "'infer'"
+- DocstringParam
+  args: ['param', 'protocol']
+  description: |
+    Int which indicates which protocol should be used by the pickler,
+    default ``pickle.HIGHEST_PROTOCOL`` (see [1]_). A negative value for
+    the protocol parameter is equivalent to setting its value to
+    ``pickle.HIGHEST_PROTOCOL``.
+  arg_name: 'protocol'
+  type_name: 'int'
+  is_optional: False
+- DocstringParam
+  args: ['param', 'storage_options']
+  description: |
+    Extra options that make sense for a particular storage connection, e.g.
+    host, port, username, password, etc. For HTTP(S) URLs the key-value pairs
+    are forwarded to ``urllib.request.Request`` as header options. For other
+    URLs (e.g. starting with "s3://", and "gcs://") the key-value pairs are
+    forwarded to ``fsspec.open``. Please see ``fsspec`` and ``urllib`` for more
+    details, and for more examples on storage options refer `here
+    <https://pandas.pydata.org/docs/user_guide/io.html?
+    highlight=storage_options#reading-writing-remote-files>`_.
+    
+    .. [1] https://docs.python.org/3/library/pickle.html
+  arg_name: 'storage_options'
+  type_name: 'dict'
+  is_optional: True
+- DocstringMeta
+  args: ['see_also']
+  description: |
+    read_pickle : Load pickled pandas object (or any object) from file.
+    DataFrame.to_hdf : Write DataFrame to an HDF5 file.
+    DataFrame.to_sql : Write DataFrame to a SQL database.
+    DataFrame.to_parquet : Write a DataFrame to the binary parquet format.
+- DocstringExample
+  args: ['examples']
+  description: |
+    ...     {"foo": range(5), "bar": range(5, 10)}
+    ... )  # doctest: +SKIP
+  snippet: '>>> original_df = pd.DataFrame('
+- DocstringExample
+  args: ['examples']
+  description: |
+       foo  bar
+    0    0    5
+    1    1    6
+    2    2    7
+    3    3    8
+    4    4    9
+  snippet: '>>> original_df  # doctest: +SKIP'
+- DocstringExample
+  args: ['examples']
+  description: ''
+  snippet: '>>> pd.to_pickle(original_df, "./dummy.pkl")  # doctest: +SKIP'
+- DocstringExample
+  args: ['examples']
+  description: |
+       foo  bar
+    0    0    5
+    1    1    6
+    2    2    7
+    3    3    8
+    4    4    9
+  snippet: |
+    >>> unpickled_df = pd.read_pickle("./dummy.pkl")  # doctest: +SKIP
+    >>> unpickled_df  # doctest: +SKIP
+=== detect
+numpydoc
+=== compose numpydoc
+Pickle (serialize) object to file.
+
+Parameters
+----------
+obj : any object
+    Any python object.
+filepath_or_buffer : str, path object, or file-like object
+    String, path object (implementing ``os.PathLike[str]``), or file-like
+    object implementing a binary ``write()`` function.
+    Also accepts URL. URL has to be of S3 or GCS.
+    
+    Certain URL schemes may require additional packages. For example, S3
+    URLs require the ``s3fs`` library. See
+    :ref:`install.optional_dependencies` for a full list.
+compression : str or dict, default='infer'
+    For on-the-fly compression of the output data. If 'infer' and
+    'filepath_or_buffer' is path-like, then detect compression from the
+    following extensions: '.gz', '.bz2', '.zip', '.xz', '.zst', '.tar',
+    '.tar.gz', '.tar.xz' or '.tar.bz2' (otherwise no compression).
+    Set to ``None`` for no compression.
+    Can also be a dict with key ``'method'`` set
+    to one of {``'zip'``, ``'gzip'``, ``'bz2'``, ``'zstd'``, ``'xz'``,
+    ``'tar'``} and other key-value pairs are forwarded to
+    ``zipfile.ZipFile``, ``gzip.GzipFile``,
+    ``bz2.BZ2File``, ``zstandard.ZstdCompressor``, ``lzma.LZMAFile`` or
+    ``tarfile.TarFile``, respectively.
+    As an example, the following could be passed for faster compression
+    and to create a reproducible gzip archive:
+    ``compression={'method': 'gzip', 'compresslevel': 1, 'mtime': 1}``.
+protocol : int
+    Int which indicates which protocol should be used by the pickler,
+    default ``pickle.HIGHEST_PROTOCOL`` (see [1]_). A negative value for
+    the protocol parameter is equivalent to setting its value to
+    ``pickle.HIGHEST_PROTOCOL``.
+storage_options : dict, optional
+    Extra options that make sense for a particular storage connection, e.g.
+    host, port, username, password, etc. For HTTP(S) URLs the key-value pairs
+    are forwarded to ``urllib.request.Request`` as header options. For other
+    URLs (e.g. starting with "s3://", and "gcs://") the key-value pairs are
+    forwarded to ``fsspec.open``. Please see ``fsspec`` and ``urllib`` for more
+    details, and for more examples on storage options refer `here
+    <https://pandas.pydata.org/docs/user_guide/io.html?
+    highlight=storage_options#reading-writing-remote-files>`_.
+    
+    .. [1] https://docs.python.org/3/library/pickle.html
+
+Examples
+--------
+>>> original_df = pd.DataFrame(
+...     {"foo": range(5), "bar": range(5, 10)}
+... )  # doctest: +SKIP
+>>> original_df  # doctest: +SKIP
+   foo  bar
+0    0    5
+1    1    6
+2    2    7
+3    3    8
+4    4    9
+>>> pd.to_pickle(original_df, "./dummy.pkl")  # doctest: +SKIP
+>>> unpickled_df = pd.read_pickle("./dummy.pkl")  # doctest: +SKIP
+>>> unpickled_df  # doctest: +SKIP
+   foo  bar
+0    0    5
+1    1    6
+2    2    7
+3    3    8
+4    4    9
+
+See Also
+--------
+read_pickle : Load pickled pandas object (or any object) from file.
+DataFrame.to_hdf : Write DataFrame to an HDF5 file.
+DataFrame.to_sql : Write DataFrame to a SQL database.
+DataFrame.to_parquet : Write a DataFrame to the binary parquet format.

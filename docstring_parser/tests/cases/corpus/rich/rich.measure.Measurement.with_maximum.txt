@@ -1,0 +1,36 @@
+# rich 15.0.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+Get a RenderableWith where the widths are <= width.
+
+        Args:
+            width (int): Maximum desired width.
+
+        Returns:
+            Measurement: New Measurement object.
+        
+=== parse google
+short_description: 'Get a RenderableWith where the widths are <= width.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'width (int)']
+  description: 'Maximum desired width.'
+  arg_name: 'width'
+  type_name: 'int'
+  is_optional: False
+- DocstringReturns
+  args: ['returns', 'Measurement']
+  description: 'New Measurement object.'
+  type_name: 'Measurement'
+  is_generator: False
+=== detect
+google
+=== compose google
+Get a RenderableWith where the widths are <= width.
+
+Args:
+    width (int): Maximum desired width.
+
+Returns:
+    Measurement: New Measurement object.

@@ -1,0 +1,23 @@
+# requests 2.34.2 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Dict-like iteritems() that returns an iterator of name-value tuples
+        from the jar.
+
+        .. seealso:: iterkeys() and itervalues().
+        
+=== parse rest
+short_description: 'Dict-like iteritems() that returns an iterator of name-value tuples'
+long_description: |
+  from the jar.
+  
+  .. seealso:: iterkeys() and itervalues().
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== detect
+rest
+=== compose rest
+Dict-like iteritems() that returns an iterator of name-value tuples
+from the jar.
+
+.. seealso:: iterkeys() and itervalues().

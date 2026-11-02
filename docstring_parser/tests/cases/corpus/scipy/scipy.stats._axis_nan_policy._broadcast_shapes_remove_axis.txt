@@ -1,0 +1,23 @@
+# scipy 1.18.1 (BSD-3-Clause), harvested by tools/harvest_corpus.py
+=== input
+
+    Broadcast shapes, dropping specified axes
+
+    Same as _broadcast_array_shapes_remove_axis, but given a sequence
+    of array shapes `shapes` instead of the arrays themselves.
+    
+=== parse numpydoc
+short_description: 'Broadcast shapes, dropping specified axes'
+long_description: |
+  Same as _broadcast_array_shapes_remove_axis, but given a sequence
+  of array shapes `shapes` instead of the arrays themselves.
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== detect
+rest
+=== compose numpydoc
+Broadcast shapes, dropping specified axes
+
+Same as _broadcast_array_shapes_remove_axis, but given a sequence
+of array shapes `shapes` instead of the arrays themselves.

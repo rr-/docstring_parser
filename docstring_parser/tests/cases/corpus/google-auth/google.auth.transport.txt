@@ -1,0 +1,40 @@
+# google-auth 2.62.0 (Apache-2.0), harvested by tools/harvest_corpus.py
+=== input
+Transport - HTTP client library support.
+
+:mod:`google.auth` is designed to work with various HTTP client libraries such
+as urllib3 and requests. In order to work across these libraries with different
+interfaces some abstraction is needed.
+
+This module provides two interfaces that are implemented by transport adapters
+to support HTTP libraries. :class:`Request` defines the interface expected by
+:mod:`google.auth` to make requests. :class:`Response` defines the interface
+for the return value of :class:`Request`.
+
+=== parse google
+short_description: 'Transport - HTTP client library support.'
+long_description: |
+  :mod:`google.auth` is designed to work with various HTTP client libraries such
+  as urllib3 and requests. In order to work across these libraries with different
+  interfaces some abstraction is needed.
+  
+  This module provides two interfaces that are implemented by transport adapters
+  to support HTTP libraries. :class:`Request` defines the interface expected by
+  :mod:`google.auth` to make requests. :class:`Response` defines the interface
+  for the return value of :class:`Request`.
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+=== detect
+rest
+=== compose google
+Transport - HTTP client library support.
+
+:mod:`google.auth` is designed to work with various HTTP client libraries such
+as urllib3 and requests. In order to work across these libraries with different
+interfaces some abstraction is needed.
+
+This module provides two interfaces that are implemented by transport adapters
+to support HTTP libraries. :class:`Request` defines the interface expected by
+:mod:`google.auth` to make requests. :class:`Response` defines the interface
+for the return value of :class:`Request`.

@@ -1,0 +1,40 @@
+# twisted 26.10.0 (MIT), harvested by tools/harvest_corpus.py
+=== input
+A cache is a local representation of a remote L{Cacheable} object.
+
+    This represents the last known state of this object.  It may
+    also have methods invoked on it -- in order to update caches,
+    the cached class generates a L{pb.RemoteReference} to this object as
+    it is originally sent.
+
+    Much like copy, I will be invoked with no arguments.  Do not
+    implement a constructor that requires arguments in one of my
+    subclasses.
+    
+=== parse epydoc
+short_description: 'A cache is a local representation of a remote L{Cacheable} object.'
+long_description: |
+  This represents the last known state of this object.  It may
+  also have methods invoked on it -- in order to update caches,
+  the cached class generates a L{pb.RemoteReference} to this object as
+  it is originally sent.
+  
+  Much like copy, I will be invoked with no arguments.  Do not
+  implement a constructor that requires arguments in one of my
+  subclasses.
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+=== detect
+rest
+=== compose epydoc
+A cache is a local representation of a remote L{Cacheable} object.
+
+This represents the last known state of this object.  It may
+also have methods invoked on it -- in order to update caches,
+the cached class generates a L{pb.RemoteReference} to this object as
+it is originally sent.
+
+Much like copy, I will be invoked with no arguments.  Do not
+implement a constructor that requires arguments in one of my
+subclasses.
