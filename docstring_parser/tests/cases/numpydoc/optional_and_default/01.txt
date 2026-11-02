@@ -1,0 +1,49 @@
+# Test that "optional" leaves the type wherever the default is.
+=== input
+Short.
+
+Parameters
+----------
+a : int, optional, default 1
+    A.
+b : int, default 2, optional
+    B.
+c : {'x', 'y'}, optional, default None
+    C.
+=== parse numpydoc
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  args: ['param', 'a']
+  description: 'A.'
+  arg_name: 'a'
+  type_name: 'int'
+  is_optional: True
+  default: '1'
+- DocstringParam
+  args: ['param', 'b']
+  description: 'B.'
+  arg_name: 'b'
+  type_name: 'int'
+  is_optional: True
+  default: '2'
+- DocstringParam
+  args: ['param', 'c']
+  description: 'C.'
+  arg_name: 'c'
+  type_name: "{'x', 'y'}"
+  is_optional: True
+  default: 'None'
+=== compose numpydoc
+Short.
+
+Parameters
+----------
+a : int, default=1
+    A.
+b : int, default=2
+    B.
+c : {'x', 'y'}, optional
+    C.

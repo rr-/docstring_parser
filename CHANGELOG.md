@@ -29,6 +29,7 @@
 - Google, Numpydoc: `compose()` writes ReST's `:ivar:`, `:var:` and `:cvar:` fields as named attributes instead of a nameless section
 - Numpydoc: Parse examples sections in linear time instead of quadratic
 - Numpydoc: Read a default from the description only after `default is`, `default:`, `default=` or `defaults to`, instead of taking the word after any `default`, as in `the default engine` or `by default only`
+- Numpydoc: Take `optional` out of a param's type also when it comes before the default, as in `int, optional, default 1`, instead of keeping it in the type and composing it twice
 - Google, Numpydoc: Match custom section titles literally, so titles with characters such as `?`, `+` or `(` work instead of being ignored or raising `re.error`
 
 # 0.18 (2026-04-14)

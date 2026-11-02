@@ -161,7 +161,7 @@ style: numpydoc
     Columns are partitioned in the order they are given.
     Must be None if path is not a string.
   arg_name: 'partition_cols'
-  type_name: 'str or list, optional'
+  type_name: 'str or list'
   is_optional: True
   default: 'None'
 - DocstringParam
@@ -252,7 +252,7 @@ index : bool, optional
     the RangeIndex will be stored as a range in the metadata so it
     doesn't require much space and is faster. Other indexes will
     be included as columns in the file output.
-partition_cols : str or list, optional, optional
+partition_cols : str or list, optional
     Column names by which to partition the dataset.
     Columns are partitioned in the order they are given.
     Must be None if path is not a string.
