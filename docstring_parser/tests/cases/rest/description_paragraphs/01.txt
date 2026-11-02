@@ -1,0 +1,66 @@
+# Test that a field's description keeps its paragraphs and nested indents.
+=== input
+Short.
+
+:param a: One.
+
+    Two.
+:param b: Values::
+
+        x
+        y
+:param c: First,
+        more.
+=== parse rest
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringParam
+  args: ['param', 'a']
+  description: |
+    One.
+    
+    Two.
+  arg_name: 'a'
+- DocstringParam
+  args: ['param', 'b']
+  description: |
+    Values::
+    
+    x
+    y
+  arg_name: 'b'
+- DocstringParam
+  args: ['param', 'c']
+  description: |
+    First,
+    more.
+  arg_name: 'c'
+=== compose rest
+Short.
+
+:param a: One.
+
+    Two.
+:param b: Values::
+
+    x
+    y
+:param c: First,
+    more.
+=== compose rest expanded
+Short.
+
+:param a:
+    One.
+
+    Two.
+:param b:
+    Values::
+
+    x
+    y
+:param c:
+    First,
+    more.

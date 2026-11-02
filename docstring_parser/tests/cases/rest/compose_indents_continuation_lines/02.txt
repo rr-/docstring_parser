@@ -14,10 +14,12 @@ style: rest
   args: ['param', 'a']
   description: |
     first paragraph
+    
     second paragraph
   arg_name: 'a'
 === compose rest
 Short.
 
 :param a: first paragraph
+
     second paragraph

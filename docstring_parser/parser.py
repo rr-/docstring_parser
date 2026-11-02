@@ -24,10 +24,7 @@ _STYLE_MAP = {
 # ``:field``, an Epydoc ``@field``, a Google title ending in a colon, or a
 # Numpydoc dashes underline or ``..`` directive.
 _FIELD_LINE = re.compile(
-    r"^[^\S\n]*[:@]"
-    r"|:[^\S\n]*$"
-    r"|^[^\S\n]*-+[^\S\n]*$"
-    r"|^[^\S\n]*\.\.",
+    r"^[^\S\n]*[:@]" r"|:[^\S\n]*$" r"|^[^\S\n]*-+[^\S\n]*$" r"|^[^\S\n]*\.\.",
     flags=re.M,
 )
 

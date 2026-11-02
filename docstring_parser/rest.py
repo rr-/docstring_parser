@@ -2,6 +2,7 @@
 
 import inspect
 import re
+import textwrap
 import typing as T
 
 from .common import (
@@ -19,6 +20,7 @@ from .common import (
     DocstringStyle,
     ParseError,
     RenderingStyle,
+    continuation_indented,
     normalize_line_endings,
 )
 
@@ -165,8 +167,10 @@ def parse(text: T.Optional[str]) -> Docstring:
         desc = desc_chunk.strip()
 
         if "\n" in desc:
+            # Dedent every continuation line alike, keeping blank lines and
+            # indents relative to each other, as Google does.
             first_line, rest = desc.split("\n", 1)
-            desc = first_line + "\n" + inspect.cleandoc(rest)
+            desc = first_line + "\n" + textwrap.dedent(rest)
 
         # Add special handling for :type a: typename
         if len(args) == 2 and args[0] == "type":
@@ -240,7 +244,9 @@ def compose(
         # is not read back as a field of its own.
         (first, *rest) = desc.splitlines()
         rest = [indent + line if line else "" for line in rest]
-        if rendering_style == RenderingStyle.EXPANDED:
+        if rendering_style == RenderingStyle.EXPANDED or (
+            continuation_indented(desc)
+        ):
             return "\n".join(["\n" + indent + first] + rest)
         return "\n".join([" " + first] + rest)
 
