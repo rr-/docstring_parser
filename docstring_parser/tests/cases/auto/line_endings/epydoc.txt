@@ -1,0 +1,21 @@
+# Test that other line endings parse the same as newlines.
+=== input
+Short.
+
+            @param a: first
+            @return: result
+            
+=== parse epydoc
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringParam
+  args: ['param', 'a']
+  description: 'first'
+  arg_name: 'a'
+  is_optional: False
+- DocstringReturns
+  args: ['return']
+  description: 'result'
+  is_generator: False

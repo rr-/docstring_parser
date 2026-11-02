@@ -1,0 +1,23 @@
+# Test that other line endings parse the same as newlines.
+=== input
+Short.
+
+            Args:
+                a: first
+
+            Returns:
+                result
+            
+=== parse google
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'a']
+  description: 'first'
+  arg_name: 'a'
+- DocstringReturns
+  args: ['returns']
+  description: 'result'
+  is_generator: False
