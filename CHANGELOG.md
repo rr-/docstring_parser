@@ -19,6 +19,7 @@
 - ReST, Epydoc: `compose()` writes each param with the field name of its kind, such as `:keyword:`, `:attribute:` or `@ivar`, instead of turning them all into `:param:` or `@param`
 - Google, Numpydoc: Reuse the default parser between `parse()` calls instead of building a new one each time, making parsing about 30–50% faster
 - General: Parse docstrings with `\r\n` or `\r` line endings the same as with `\n`, on every Python version
+- General: Dedent docstrings the same way on every Python version; from 3.13, `inspect.cleandoc` treated a blank line holding a tab or a form feed as text and dedented nothing
 - General: Strip the short description, which kept leading spaces when a later line was indented less than it
 - General: `ParseError` messages quote at most the first 60 characters of the text they point at, instead of the whole chunk
 - General: Auto-detection parses a docstring with no fields or sections once instead of four times, making it about 47% faster

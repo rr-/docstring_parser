@@ -1,6 +1,5 @@
 """Google-style docstring parsing."""
 
-import inspect
 import re
 import textwrap
 import typing as T
@@ -22,6 +21,7 @@ from .common import (
     DocstringStyle,
     ParseError,
     RenderingStyle,
+    cleandoc,
     continuation_indented,
     excerpt,
     meta_as_attribute,
@@ -275,7 +275,7 @@ class GoogleParser:
             text = "\n" + text
 
         # Clean according to PEP-0257
-        text = inspect.cleandoc(text)
+        text = cleandoc(text)
 
         # Find first title and split on its position
         match = self.titles_re.search(text)
@@ -340,7 +340,7 @@ class GoogleParser:
                 SectionType.SINGULAR,
                 SectionType.SINGULAR_OR_MULTIPLE,
             ]:
-                part = inspect.cleandoc(chunk)
+                part = cleandoc(chunk)
                 ret.meta.append(self._build_meta(part, title))
                 continue
 

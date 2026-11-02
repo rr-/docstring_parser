@@ -1,0 +1,80 @@
+# Test that a blank line holding only a form feed doesn't stop the dedent.
+=== input
+Sum.
+
+    :param a: x
+
+    Args:
+        a: x
+
+    @param a: x
+
+    Parameters
+    ----------
+    a
+        x
+=== parse rest
+short_description: 'Sum.'
+long_description: |
+  Args:
+      a: x
+  
+  @param a: x
+  
+  Parameters
+  ----------
+  a
+      x
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringParam
+  args: ['param', 'a']
+  description: 'x'
+  arg_name: 'a'
+=== parse google
+short_description: 'Sum.'
+long_description: ':param a: x'
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringParam
+  args: ['param', 'a']
+  description: 'x'
+  arg_name: 'a'
+=== parse epydoc
+short_description: 'Sum.'
+long_description: |
+  :param a: x
+  
+  Args:
+      a: x
+blank_after_short_description: True
+blank_after_long_description: True
+style: epydoc
+- DocstringParam
+  args: ['param', 'a']
+  description: |
+    x
+    Parameters
+    ----------
+    a
+        x
+  arg_name: 'a'
+  is_optional: False
+=== parse numpydoc
+short_description: 'Sum.'
+long_description: |
+  :param a: x
+  
+  Args:
+      a: x
+  
+  @param a: x
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  args: ['param', 'a']
+  description: 'x'
+  arg_name: 'a'
