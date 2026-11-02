@@ -23,6 +23,7 @@ from .common import (
     ParseError,
     RenderingStyle,
     continuation_indented,
+    excerpt,
     meta_as_attribute,
     normalize_line_endings,
 )
@@ -163,7 +164,7 @@ class GoogleParser:
             return self._build_single_meta(section, text)
 
         if ":" not in text:
-            raise ParseError(f"Expected a colon in {text!r}.")
+            raise ParseError(f"Expected a colon in {excerpt(text)!r}.")
 
         # Split spec and description
         before, desc = text.split(":", 1)
@@ -329,7 +330,9 @@ class GoogleParser:
             # Determine indent
             indent_match = re.search(r"^\s*", chunk)
             if not indent_match:
-                raise ParseError(f'Can\'t infer indent from "{chunk}"')
+                raise ParseError(
+                    f'Can\'t infer indent from "{excerpt(chunk)}"'
+                )
             indent = indent_match.group()
 
             # Check for singular elements
@@ -345,7 +348,9 @@ class GoogleParser:
             _re = "^" + indent + r"(?=\S)"
             c_matches = list(re.finditer(_re, chunk, flags=re.M))
             if not c_matches:
-                raise ParseError(f'No specification for "{title}": "{chunk}"')
+                raise ParseError(
+                    f'No specification for "{title}": "{excerpt(chunk)}"'
+                )
             c_splits = []
             for j in range(len(c_matches) - 1):
                 c_splits.append((c_matches[j].end(), c_matches[j + 1].start()))

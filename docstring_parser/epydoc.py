@@ -16,6 +16,7 @@ from .common import (
     DocstringStyle,
     ParseError,
     RenderingStyle,
+    excerpt,
     normalize_line_endings,
 )
 
@@ -87,7 +88,9 @@ def parse(text: T.Optional[str]) -> Docstring:
             or meta_match
         )
         if not match:
-            raise ParseError(f'Error parsing meta information near "{chunk}".')
+            raise ParseError(
+                f'Error parsing meta information near "{excerpt(chunk)}".'
+            )
 
         desc_chunk = chunk[match.end() :]
         if param_match:
@@ -127,7 +130,7 @@ def parse(text: T.Optional[str]) -> Docstring:
                 "ytype",
             ]:
                 raise ParseError(
-                    f'Error parsing meta information near "{chunk}".'
+                    f'Error parsing meta information near "{excerpt(chunk)}".'
                 )
 
         desc = desc_chunk.strip()
