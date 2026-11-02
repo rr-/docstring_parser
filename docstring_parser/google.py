@@ -22,6 +22,7 @@ from .common import (
     DocstringStyle,
     ParseError,
     RenderingStyle,
+    continuation_indented,
     meta_as_attribute,
     normalize_line_endings,
 )
@@ -362,12 +363,6 @@ def parse(text: T.Optional[str]) -> Docstring:
     return _default_parser.parse(text)
 
 
-def _continuation_indented(text: str) -> bool:
-    """Tell whether every non-blank line after the first is indented."""
-    rest = [line for line in text.splitlines()[1:] if line.strip()]
-    return bool(rest) and all(line[0].isspace() for line in rest)
-
-
 def compose(
     docstring: Docstring,
     rendering_style: RenderingStyle = RenderingStyle.COMPACT,
@@ -428,7 +423,7 @@ def compose(
         # head with them.
         if one.description and (
             rendering_style == RenderingStyle.EXPANDED
-            or _continuation_indented(one.description)
+            or continuation_indented(one.description)
         ):
             body = f"\n{indent}{indent}".join(
                 [head] + one.description.splitlines()

@@ -30,6 +30,17 @@ def normalize_line_endings(text: str) -> str:
     return text.replace("\r\n", "\n").replace("\r", "\n")
 
 
+def continuation_indented(text: str) -> bool:
+    """Tell whether every non-blank line after the first is indented.
+
+    Composed after a field's head, such lines read back as the field's
+    continuation indent, losing their indent relative to the first line,
+    so the description has to start on a line of its own.
+    """
+    rest = [line for line in text.splitlines()[1:] if line.strip()]
+    return bool(rest) and all(line[0].isspace() for line in rest)
+
+
 class ParseError(RuntimeError):
     """Base class for all parsing related errors."""
 

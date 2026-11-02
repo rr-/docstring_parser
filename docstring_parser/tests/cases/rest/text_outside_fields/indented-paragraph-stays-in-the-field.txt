@@ -15,6 +15,7 @@ style: rest
   args: ['param', 'a']
   description: |
     A.
+    
     More about a.
   arg_name: 'a'
 - DocstringParam

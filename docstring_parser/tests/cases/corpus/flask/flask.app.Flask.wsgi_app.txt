@@ -48,7 +48,7 @@ style: rest
     `__call__` so that middlewares can be applied without
     losing a reference to the app object. Instead of doing this::
     
-    app = MyMiddleware(app)
+        app = MyMiddleware(app)
 - DocstringParam
   args: ['param', 'environ']
   description: 'A WSGI environment.'
@@ -81,7 +81,7 @@ can continue to call methods on it.
 :meth: `__call__` so that middlewares can be applied without
     losing a reference to the app object. Instead of doing this::
 
-    app = MyMiddleware(app)
+        app = MyMiddleware(app)
 :param environ: A WSGI environment.
 :param start_response: A callable accepting a status code,
     a list of headers, and an optional exception context to
