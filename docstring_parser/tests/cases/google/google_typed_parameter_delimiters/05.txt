@@ -15,5 +15,5 @@ style: google
   args: ['param', 'value (int))']
   description: 'description'
   arg_name: 'value'
-  type_name: 'int)'
+  type_name: 'int'
   is_optional: False

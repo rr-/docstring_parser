@@ -12,7 +12,7 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'value (int) trailingextra\n(more)']
+  args: ['param', 'value (int) trailing extra (more)']
   description: 'description'
   arg_name: 'value'
   type_name: 'int'

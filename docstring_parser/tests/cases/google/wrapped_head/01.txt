@@ -1,0 +1,30 @@
+# Test that an item head wrapped over two lines keeps its words apart.
+=== input
+Short.
+
+Args:
+    x more
+        The value: here
+    y (Dict[str,
+        int]): there
+=== parse google
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  args: ['param', 'x more The value']
+  description: 'here'
+  arg_name: 'x more The value'
+- DocstringParam
+  args: ['param', 'y (Dict[str, int])']
+  description: 'there'
+  arg_name: 'y'
+  type_name: 'Dict[str, int]'
+  is_optional: False
+=== compose google
+Short.
+
+Args:
+    x more The value: here
+    y (Dict[str, int]): there
