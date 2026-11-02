@@ -11,6 +11,7 @@
 - ReST: Raise `ParseError` instead of `IndexError` for a field with no name
 - ReST: `compose()` indents continuation lines in compact mode, so one starting with a role such as `:class:` is no longer read back as a new field
 - ReST: `compose()` writes a type with a space or a colon in it, such as `float or tuple`, as a `:type:` or `:rtype:` field of its own, instead of a field name that fails to parse
+- ReST: End a `:type:` or `:rtype:` field at the next unindented line, which goes to the long description instead of into the type
 - Epydoc: Match fields only at their header, so field-like text in a description no longer replaces it and a header missing its colon no longer stalls the parser (thanks to @akshitkhokhani)
 - Google, Numpydoc: Reuse the default parser between `parse()` calls instead of building a new one each time, making parsing about 30–50% faster
 - General: Parse docstrings with `\r\n` or `\r` line endings the same as with `\n`, on every Python version

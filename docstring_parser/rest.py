@@ -146,6 +146,13 @@ def parse(text: T.Optional[str]) -> Docstring:
         chunk = match.group(0)
         if not chunk:
             continue
+        # A type is a single value, so an unindented line after it ends the
+        # field rather than continuing the type.
+        if re.match(r":r?type\b", chunk):
+            unindented = re.search(r"\n(?=[^ \t\n])", chunk)
+            if unindented:
+                loose_chunks.append(chunk[unindented.end() :])
+                chunk = chunk[: unindented.start()]
         try:
             args_chunk, desc_chunk = chunk.lstrip(":").split(":", 1)
         except ValueError as ex:

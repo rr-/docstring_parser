@@ -1,0 +1,38 @@
+# Test that text right after a :type: or :rtype: field isn't part of the type.
+=== input
+Short.
+
+:param a: A.
+:type a: int
+About a.
+:returns: x
+:rtype: int
+More text.
+=== parse rest
+short_description: 'Short.'
+long_description: |
+  About a.
+  
+  More text.
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringParam
+  args: ['param', 'a']
+  description: 'A.'
+  arg_name: 'a'
+  type_name: 'int'
+- DocstringReturns
+  args: ['returns']
+  description: 'x'
+  type_name: 'int'
+  is_generator: False
+=== compose rest
+Short.
+
+About a.
+
+More text.
+
+:param int a: A.
+:returns int: x
