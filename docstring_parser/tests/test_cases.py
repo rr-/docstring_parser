@@ -28,16 +28,6 @@ UNSTABLE_COMPOSE = {
     "corpus/pydantic/pydantic.fields.Field.txt": (
         "google: an indented block in a description loses its indent"
     ),
-    "corpus/requests/requests.adapters.BaseAdapter.send.txt": (
-        "rest: the composed param fields fail to parse"
-    ),
-    "corpus/requests/requests.adapters."
-    "HTTPAdapter.build_connection_pool_key_attributes.txt": (
-        "rest: the composed param fields fail to parse"
-    ),
-    "corpus/requests/requests.api.request.txt": (
-        "rest: the composed param fields fail to parse"
-    ),
     "corpus/scipy/scipy.signal._filter_design.sosfreqz.txt": (
         "numpydoc: a leading space in the short description is kept once"
     ),
