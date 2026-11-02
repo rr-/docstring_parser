@@ -59,9 +59,9 @@ The value of this exception will be a str() representation of the remote
 value.
 
 @type remoteType: C{str}
-@param remoteType: The full import path of the exception class which was
+@ivar remoteType: The full import path of the exception class which was
     raised on the remote end.
 @type remoteTraceback: C{str}
-@param remoteTraceback: The remote traceback.
+@ivar remoteTraceback: The remote traceback.
 @note: It's not possible to include the remoteTraceback if this exception is
     thrown into a generator. It must be accessed as an attribute.

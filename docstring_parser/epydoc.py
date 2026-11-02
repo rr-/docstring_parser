@@ -214,6 +214,18 @@ def parse(text: T.Optional[str]) -> Docstring:
     return ret
 
 
+def _param_key(meta: DocstringParam) -> str:
+    """Return the field name that keeps a param's kind, such as ``ivar``."""
+    key = meta.args[0] if meta.args else "param"
+    if key in {"param", "keyword", "ivar", "cvar", "var"}:
+        return key
+    if key == "attribute":
+        return "ivar"
+    if key == "key":
+        return "keyword"
+    return "param"
+
+
 def compose(
     docstring: Docstring,
     rendering_style: RenderingStyle = RenderingStyle.COMPACT,
@@ -263,7 +275,7 @@ def compose(
                 text = f"@type {meta.arg_name}:"
                 text += process_desc(type_name, True)
                 parts.append(text)
-            text = f"@param {meta.arg_name}:" + process_desc(
+            text = f"@{_param_key(meta)} {meta.arg_name}:" + process_desc(
                 meta.description, False
             )
             parts.append(text)

@@ -23,5 +23,5 @@ epydoc
 === compose epydoc
 DNS protocol mixin shared by UDP and TCP implementations.
 
-@param _reactor: A L{IReactorTime} and L{IReactorUDP} provider which will
+@ivar _reactor: A L{IReactorTime} and L{IReactorUDP} provider which will
     be used to issue DNS queries and manage request timeouts.

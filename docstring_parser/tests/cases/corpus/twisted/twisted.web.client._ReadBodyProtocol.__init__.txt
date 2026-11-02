@@ -34,7 +34,7 @@ style: epydoc
 === detect
 epydoc
 === compose epydoc
-@param status: L{int}
+@ivar status: L{int}
 @type message: L{bytes}
 @param message: Message of L{IResponse}
 @type deferred: L{Deferred} firing with L{bytes}

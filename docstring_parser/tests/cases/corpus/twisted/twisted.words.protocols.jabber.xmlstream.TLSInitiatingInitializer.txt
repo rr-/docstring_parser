@@ -41,4 +41,4 @@ set the C{wanted} attribute to False instead of removing it from the list
 of initializers, so a proper exception L{TLSRequired} can be raised.
 
 @type wanted: C{bool}
-@param wanted: indicates if TLS negotiation is wanted.
+@ivar wanted: indicates if TLS negotiation is wanted.

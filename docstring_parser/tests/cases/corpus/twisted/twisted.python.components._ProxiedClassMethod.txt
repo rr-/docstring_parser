@@ -50,11 +50,11 @@ epydoc
 A proxied class method.
 
 @type methodName: L{str}
-@param methodName: the name of the method which this should invoke when
+@ivar methodName: the name of the method which this should invoke when
     called.
 @type __name__: L{str}
-@param __name__: The name of the method being proxied (the same as
+@ivar __name__: The name of the method being proxied (the same as
     C{methodName}).
 @type originalAttribute: L{str}
-@param originalAttribute: name of the attribute of the proxy where the
+@ivar originalAttribute: name of the attribute of the proxy where the
     original object is stored.

@@ -6,6 +6,7 @@ import textwrap
 import typing as T
 
 from .common import (
+    ATTRIBUTE_FIELD_KEYWORDS,
     DEPRECATION_KEYWORDS,
     PARAM_KEYWORDS,
     RAISES_KEYWORDS,
@@ -223,6 +224,16 @@ def _fits_inline(type_name: T.Optional[str]) -> bool:
     return not type_name or not re.search(r"[\s:]", type_name)
 
 
+def _param_key(meta: DocstringParam) -> str:
+    """Return the field name that keeps a param's kind, such as ``key``."""
+    key = meta.args[0] if meta.args else "param"
+    if key in PARAM_KEYWORDS:
+        return key
+    if key in ATTRIBUTE_FIELD_KEYWORDS:
+        return "attribute"
+    return "param"
+
+
 def compose(
     docstring: Docstring,
     rendering_style: RenderingStyle = RenderingStyle.COMPACT,
@@ -273,13 +284,13 @@ def compose(
             if rendering_style == RenderingStyle.EXPANDED or not _fits_inline(
                 meta.type_name
             ):
-                text = f":param {meta.arg_name}:"
+                text = f":{_param_key(meta)} {meta.arg_name}:"
                 text += process_desc(meta.description)
                 parts.append(text)
                 if type_text[:-1]:
                     parts.append(f":type {meta.arg_name}:{type_text[:-1]}")
             else:
-                text = f":param{type_text}{meta.arg_name}:"
+                text = f":{_param_key(meta)}{type_text}{meta.arg_name}:"
                 text += process_desc(meta.description)
                 parts.append(text)
         elif isinstance(meta, DocstringReturns):
