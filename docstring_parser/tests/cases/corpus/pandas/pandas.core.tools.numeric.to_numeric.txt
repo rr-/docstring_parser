@@ -218,7 +218,6 @@ style: numpydoc
   arg_name: 'dtype_backend'
   type_name: "{'numpy_nullable', 'pyarrow'}"
   is_optional: False
-  default: 'behavior'
 - DocstringReturns
   args: ['returns']
   description: |
@@ -383,7 +382,7 @@ downcast : str, optional
     the dtype it is to be cast to, so if none of the dtypes
     checked satisfy that specification, no downcasting will be
     performed on the data.
-dtype_backend : {'numpy_nullable', 'pyarrow'}, default=behavior
+dtype_backend : {'numpy_nullable', 'pyarrow'}
     Back-end data type applied to the result
     (still experimental). If not specified, the default behavior
     is to not use nullable data types. If specified, the behavior

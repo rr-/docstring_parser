@@ -172,7 +172,6 @@ style: numpydoc
   arg_name: 'rcond'
   type_name: 'float'
   is_optional: True
-  default: 'value'
 - DocstringParam
   args: ['param', 'full']
   description: |
@@ -193,7 +192,6 @@ style: numpydoc
   arg_name: 'w'
   type_name: 'array_like, shape (`M`,)'
   is_optional: True
-  default: 'value'
 - DocstringReturns
   args: ['returns']
   description: |
@@ -303,7 +301,7 @@ deg : int or 1-D array_like
     all terms up to and including the `deg`'th term are included in the
     fit. For NumPy versions >= 1.11.0 a list of integers specifying the
     degrees of the terms to include may be used instead.
-rcond : float, default=value
+rcond : float, optional
     Relative condition number of the fit. Singular values smaller than
     this relative to the largest singular value will be ignored. The
     default value is ``len(x)*eps``, where eps is the relative precision of
@@ -312,7 +310,7 @@ full : bool, optional
     Switch determining nature of return value. When it is False (the
     default) just the coefficients are returned, when True diagnostic
     information from the singular value decomposition is also returned.
-w : array_like, shape (`M`,), default=value
+w : array_like, shape (`M`,), optional
     Weights. If not None, the weight ``w[i]`` applies to the unsquared
     residual ``y[i] - y_hat[i]`` at ``x[i]``. Ideally the weights are
     chosen so that the errors of the products ``w[i]*y[i]`` all have the

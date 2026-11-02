@@ -33,7 +33,6 @@ style: numpydoc
   arg_name: 'default'
   type_name: 'str'
   is_optional: False
-  default: 'name'
 - DocstringRaises
   args: ['raises', 'TypeError']
   description: 'if names not str or list-like'
@@ -47,7 +46,7 @@ Parameters
 ----------
 names : int, str or 1-dimensional list, optional
     Index names to set.
-default : str, default=name
+default : str
     Default name of index.
 
 Raises

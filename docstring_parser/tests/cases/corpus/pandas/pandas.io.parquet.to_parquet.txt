@@ -140,7 +140,6 @@ style: numpydoc
   arg_name: 'compression'
   type_name: "{'snappy', 'gzip', 'brotli', 'lz4', 'zstd', None},"
   is_optional: False
-  default: "'snappy'"
 - DocstringParam
   args: ['param', 'index']
   description: |
@@ -242,7 +241,7 @@ engine : {'auto', 'pyarrow', 'fastparquet'}, default='auto'
         The ``'fastparquet'`` and ``'auto'`` engine options are
         deprecated. Use ``'pyarrow'`` or do not pass ``engine``
         to use the default.
-compression : {'snappy', 'gzip', 'brotli', 'lz4', 'zstd', None},, default='snappy'
+compression : {'snappy', 'gzip', 'brotli', 'lz4', 'zstd', None},
     default 'snappy'. Name of the compression to use. Use ``None``
     for no compression.
 index : bool, optional

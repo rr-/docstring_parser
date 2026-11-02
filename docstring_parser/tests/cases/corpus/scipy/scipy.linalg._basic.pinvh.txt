@@ -90,7 +90,6 @@ style: numpydoc
   arg_name: 'atol'
   type_name: 'float'
   is_optional: True
-  default: 'value'
 - DocstringParam
   args: ['param', 'rtol']
   description: |
@@ -101,7 +100,6 @@ style: numpydoc
   arg_name: 'rtol'
   type_name: 'float'
   is_optional: True
-  default: 'value'
 - DocstringParam
   args: ['param', 'lower']
   description: |
@@ -177,11 +175,11 @@ Parameters
 ----------
 a : (N, N) array_like
     Real symmetric or complex hermetian matrix to be pseudo-inverted
-atol : float, default=value
+atol : float, optional
     Absolute threshold term, default value is 0.
     
     .. versionadded:: 1.7.0
-rtol : float, default=value
+rtol : float, optional
     Relative threshold term, default value is ``N * eps`` where
     ``eps`` is the machine precision value of the datatype of ``a``.
     

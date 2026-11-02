@@ -91,7 +91,6 @@ style: numpydoc
   arg_name: 'method'
   type_name: "{'auto', 'asymptotic', 'exact'}"
   is_optional: True
-  default: 'and'
 - DocstringParam
   args: ['param', 'alternative']
   description: |
@@ -139,7 +138,7 @@ use_ties : {True, False}, optional
 use_missing : {False, True}, optional
     Whether missing data should be allocated a rank of 0 (False) or the
     average rank (True)
-method : {'auto', 'asymptotic', 'exact'}, default=and
+method : {'auto', 'asymptotic', 'exact'}, optional
     Defines which method is used to calculate the p-value [1]_.
     'asymptotic' uses a normal approximation valid for large samples.
     'exact' computes the exact p-value, but can only be used if no ties

@@ -58,7 +58,6 @@ style: numpydoc
   arg_name: 'classes'
   type_name: 'str or list-like'
   is_optional: False
-  default: '"dataframe"'
 - DocstringParam
   args: ['param', 'notebook']
   description: 'Whether the generated HTML is for IPython Notebook.'
@@ -78,7 +77,6 @@ style: numpydoc
   arg_name: 'border'
   type_name: 'int or bool'
   is_optional: False
-  default: 'value'
 - DocstringParam
   args: ['param', 'table_id']
   description: 'A css id is included in the opening `<table>` tag if specified.'
@@ -105,12 +103,12 @@ buf : str, path object, file-like object, or None, optional
     returned as a string.
 encoding : str, default=“utf-8”
     Set character encoding.
-classes : str or list-like, default="dataframe"
+classes : str or list-like
     classes to include in the `class` attribute of the opening
     ``<table>`` tag, in addition to the default "dataframe".
 notebook : {True, False}, optional, default=False
     Whether the generated HTML is for IPython Notebook.
-border : int or bool, default=value
+border : int or bool
     When an integer value is provided, it sets the border attribute in
     the opening tag, specifying the thickness of the border.
     If ``False`` or ``0`` is passed, the border attribute will not

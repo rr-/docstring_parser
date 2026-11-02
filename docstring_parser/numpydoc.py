@@ -54,9 +54,11 @@ PARAM_DEFAULT_REGEX = re.compile(
 
 # If the default value isn't specified in the type declaration,
 # it might be in the description. There isn't any formal grammar for this
-# in numpydoc, but we can make some educated guesses.
+# in numpydoc, but we can make some educated guesses. A bare "default"
+# followed by a word is left out, since prose such as "the default engine"
+# or "by default only" reads the same.
 PARAM_DEFAULT_REGEX_IN_DESC = re.compile(
-    r"(?<!\S)[Dd]efault(?:s to |(?:\s*(?:is|[=:])\s*|\s+))(?P<value>(?:['\"]).*?(?:['\"])|[\w\-\.]*\w)"  # noqa: E501
+    r"(?<!\S)[Dd]efault(?:s to |\s*(?:is|[=:])\s*)(?P<value>(?:['\"]).*?(?:['\"])|[\w\-\.]*\w)"  # noqa: E501
 )
 
 RETURN_KEY_REGEX = re.compile(r"^(?:(?P<name>.*?)\s*:\s*)?(?P<type>.*?)$")

@@ -277,7 +277,6 @@ style: numpydoc
   arg_name: 't'
   type_name: 'array_like'
   is_optional: True
-  default: 'is'
 - DocstringParam
   args: ['param', 'axis']
   description: |
@@ -302,7 +301,6 @@ style: numpydoc
   arg_name: 'window'
   type_name: 'array_like, callable, str, float, or tuple'
   is_optional: True
-  default: 'is'
 - DocstringParam
   args: ['param', 'domain']
   description: |
@@ -580,7 +578,7 @@ x : array_like
 num : int
     The number of samples of the resampled output signal. It may be larger or
     smaller than ``n_x``.
-t : array_like, default=is
+t : array_like, optional
     If `t` is not ``None``, then the timestamps of the resampled signal are also
     returned. `t` must contain at least the first two timestamps of the input
     signal `x` (all others are ignored). The timestamps of the output signal are
@@ -589,7 +587,7 @@ t : array_like, default=is
 axis : int, default=0
     The time/frequency axis of `x` along which the resampling take place.
     The Default is 0.
-window : array_like, callable, str, float, or tuple, default=is
+window : array_like, callable, str, float, or tuple, optional
     If not ``None``, it specifies a filter in the Fourier domain, which is applied
     before resampling. I.e., the FFT ``X`` of `x` is calculated by
     ``X = W * fft(x, axis=axis)``. ``W`` may be interpreted as a spectral windowing

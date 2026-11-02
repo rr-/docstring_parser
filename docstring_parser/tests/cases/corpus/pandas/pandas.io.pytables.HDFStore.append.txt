@@ -205,7 +205,6 @@ style: numpydoc
   arg_name: 'nan_rep'
   type_name: 'str'
   is_optional: True
-  default: 'a'
 - DocstringParam
   args: ['param', 'chunksize']
   description: 'Number of rows to write in each chunk.'
@@ -332,7 +331,7 @@ min_itemsize : int, dict, or None
     If dict, specific columns reserve 'min_itemsize' bytes per stored value.
     Strings are stored as encoded bytes. Since some characters require multiple
     bytes, required size may be larger than string length.
-nan_rep : str, default=a
+nan_rep : str, optional
     String used on disk to represent missing values in string columns.
     By default a sentinel that collides with no value in the column is
     used, so a literal ``"nan"`` round-trips unchanged; when this is

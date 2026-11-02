@@ -19,12 +19,6 @@ CASE_PATHS = sorted(CASES_DIR.rglob("*.txt"))
 # Cases whose composed docstring does not come back the same after another
 # parse and compose, and why.
 UNSTABLE_COMPOSE = {
-    "corpus/pandas/pandas.core.computation.eval.eval.txt": (
-        "numpydoc: an optional type with a default repeats 'optional'"
-    ),
-    "corpus/pandas/pandas.io.pytables.HDFStore.append.txt": (
-        "numpydoc: 'default' in the description becomes a default value"
-    ),
     "corpus/pydantic/pydantic.fields.Field.txt": (
         "google: an indented block in a description loses its indent"
     ),

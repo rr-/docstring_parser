@@ -143,7 +143,6 @@ style: numpydoc
   arg_name: 'seed'
   type_name: '{None, int, np.random.RandomState, np.random.Generator}'
   is_optional: True
-  default: 'is'
 - DocstringParam
   args: ['param', 'Methods']
   arg_name: 'Methods'
@@ -287,7 +286,7 @@ Parameters
 ----------
 mu, lmbda, a, b : array_like
     Shape parameters of the distribution. See notes.
-seed : {None, int, np.random.RandomState, np.random.Generator}, default=is
+seed : {None, int, np.random.RandomState, np.random.Generator}, optional
     Used for drawing random variates.
     If `seed` is `None`, the `~np.random.RandomState` singleton is used.
     If `seed` is an int, a new ``RandomState`` instance is used, seeded
