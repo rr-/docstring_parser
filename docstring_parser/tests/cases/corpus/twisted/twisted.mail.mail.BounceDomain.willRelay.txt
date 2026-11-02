@@ -19,13 +19,13 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: epydoc
 - DocstringParam
-  args: ['type', 'user']
+  args: ['param', 'user']
   description: 'The destination address.'
   arg_name: 'user'
   type_name: 'L{Address}'
   is_optional: False
 - DocstringParam
-  args: ['type', 'protocol']
+  args: ['param', 'protocol']
   description: |
     The protocol over which the message to be relayed is
     being received.

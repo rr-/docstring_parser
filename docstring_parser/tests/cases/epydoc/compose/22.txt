@@ -37,13 +37,13 @@ style: epydoc
   type_name: 'str'
   is_optional: True
 - DocstringParam
-  args: ['type', 'message']
+  args: ['param', 'message']
   description: "description 4, defaults to 'hello'"
   arg_name: 'message'
   type_name: 'str'
   is_optional: True
 - DocstringParam
-  args: ['type', 'multiline']
+  args: ['param', 'multiline']
   description: |
     long description 5,
     defaults to 'bye'

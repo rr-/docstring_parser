@@ -27,13 +27,13 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: epydoc
 - DocstringParam
-  args: ['type', 'password']
+  args: ['param', 'password']
   description: 'A password.'
   arg_name: 'password'
   type_name: 'L{bytes}'
   is_optional: False
 - DocstringParam
-  args: ['type', 'words']
+  args: ['param', 'words']
   description: 'Other parts of the password split by spaces.'
   arg_name: 'words'
   type_name: 'L{tuple} of L{bytes}'

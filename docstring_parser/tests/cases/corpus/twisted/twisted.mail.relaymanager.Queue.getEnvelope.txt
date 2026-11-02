@@ -16,7 +16,7 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: epydoc
 - DocstringParam
-  args: ['type', 'message']
+  args: ['param', 'message']
   description: 'The base filename of a message.'
   arg_name: 'message'
   type_name: 'L{bytes}'

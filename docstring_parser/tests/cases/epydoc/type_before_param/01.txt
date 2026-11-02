@@ -1,0 +1,25 @@
+# Test that a @type field before its @param or @ivar doesn't become the kind.
+=== input
+Short.
+
+@type a: int
+@param a: A.
+@type i: str
+@ivar i: I.
+=== parse epydoc
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringParam
+  args: ['param', 'a']
+  description: 'A.'
+  arg_name: 'a'
+  type_name: 'int'
+  is_optional: False
+- DocstringParam
+  args: ['ivar', 'i']
+  description: 'I.'
+  arg_name: 'i'
+  type_name: 'str'
+  is_optional: False
