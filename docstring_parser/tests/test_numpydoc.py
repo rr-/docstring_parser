@@ -395,6 +395,19 @@ def test_parse_follows_default_sections(
     assert parse(text).meta[0].args == ["meta"]
 
 
+def test_parse_follows_section_title_changes(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """Test that parse picks up a section's title changed in place."""
+    section = Section("Meta", "meta")
+    monkeypatch.setattr(
+        numpydoc, "DEFAULT_SECTIONS", [*numpydoc.DEFAULT_SECTIONS, section]
+    )
+    assert parse("Short.\n\nMeta\n----\nasd").meta[0].args == ["meta"]
+    section.title = "Data"
+    assert parse("Short.\n\nData\n----\nasd").meta[0].args == ["meta"]
+
+
 def test_compose_deprecation_layout() -> None:
     """Test that a deprecation is set off and has no trailing spaces."""
     docstring = parse(

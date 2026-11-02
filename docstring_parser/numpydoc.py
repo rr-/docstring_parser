@@ -425,7 +425,7 @@ class NumpydocParser:
 
 
 _default_parser: T.Optional[NumpydocParser] = None
-_default_parser_sections: T.Tuple[Section, ...] = ()
+_default_parser_sections: T.Tuple[T.List[Section], T.List[str]] = ([], [])
 
 
 def parse(text: T.Optional[str]) -> Docstring:
@@ -435,8 +435,11 @@ def parse(text: T.Optional[str]) -> Docstring:
     """
     global _default_parser, _default_parser_sections  # noqa: PLW0603
     # Building a parser compiles its title regex, so reuse one until
-    # DEFAULT_SECTIONS changes.
-    sections = tuple(DEFAULT_SECTIONS)
+    # DEFAULT_SECTIONS changes: a section added, removed or replaced, or a
+    # title changed in place. Replacing title_pattern on a Section class
+    # goes unnoticed until DEFAULT_SECTIONS changes, since checking every
+    # pattern would cost more than the reuse saves.
+    sections = (list(DEFAULT_SECTIONS), [s.title for s in DEFAULT_SECTIONS])
     if _default_parser is None or sections != _default_parser_sections:
         _default_parser = NumpydocParser()
         _default_parser_sections = sections
