@@ -41,7 +41,7 @@ epydoc
 L{Resolver} implements recursive lookup starting from a specified list of
 root servers.
 
-@param hints: See C{hints} parameter of L{__init__}
-@param _maximumQueries: See C{maximumQueries} parameter of L{__init__}
-@param _reactor: See C{reactor} parameter of L{__init__}
-@param _resolverFactory: See C{resolverFactory} parameter of L{__init__}
+@ivar hints: See C{hints} parameter of L{__init__}
+@ivar _maximumQueries: See C{maximumQueries} parameter of L{__init__}
+@ivar _reactor: See C{reactor} parameter of L{__init__}
+@ivar _resolverFactory: See C{resolverFactory} parameter of L{__init__}

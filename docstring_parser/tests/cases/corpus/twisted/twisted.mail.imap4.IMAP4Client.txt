@@ -22,5 +22,5 @@ epydoc
 === compose epydoc
 IMAP4 client protocol implementation
 
-@param state: A string representing the state the connection is currently
+@ivar state: A string representing the state the connection is currently
     in.

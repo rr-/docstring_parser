@@ -1,0 +1,50 @@
+# Test that composing keeps the field name that says what kind a param is.
+=== input
+Short.
+
+:param a: A.
+:keyword k: K.
+:attribute t: T.
+:key y: Y.
+:arg g: G.
+=== parse rest
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringParam
+  args: ['param', 'a']
+  description: 'A.'
+  arg_name: 'a'
+- DocstringParam
+  args: ['keyword', 'k']
+  description: 'K.'
+  arg_name: 'k'
+- DocstringParam
+  args: ['attribute', 't']
+  description: 'T.'
+  arg_name: 't'
+- DocstringParam
+  args: ['key', 'y']
+  description: 'Y.'
+  arg_name: 'y'
+- DocstringParam
+  args: ['arg', 'g']
+  description: 'G.'
+  arg_name: 'g'
+=== compose rest
+Short.
+
+:param a: A.
+:keyword k: K.
+:attribute t: T.
+:key y: Y.
+:arg g: G.
+=== convert rest epydoc
+Short.
+
+@param a: A.
+@keyword k: K.
+@ivar t: T.
+@keyword y: Y.
+@param g: G.

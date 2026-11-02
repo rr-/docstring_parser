@@ -25,5 +25,5 @@ epydoc
 === compose epydoc
 An endpoint for child processes
 
-@param _spawnProcess: A hook used for testing the spawning of child process.
+@ivar _spawnProcess: A hook used for testing the spawning of child process.
 @since: 13.1

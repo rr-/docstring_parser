@@ -40,6 +40,6 @@ All positional and keyword arguments passed to create this factory are
 passed on as-is to the protocol.
 
 @type args: C{tuple}.
-@param args: Positional arguments passed to the protocol upon instantiation.
+@ivar args: Positional arguments passed to the protocol upon instantiation.
 @type kwargs: C{dict}.
-@param kwargs: Keyword arguments passed to the protocol upon instantiation.
+@ivar kwargs: Keyword arguments passed to the protocol upon instantiation.
