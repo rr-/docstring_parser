@@ -43,7 +43,7 @@ style: google
   args: ['param', 'multiline (str?)']
   description: |
     long description 5,
-    defaults to 'bye'
+        defaults to 'bye'
   arg_name: 'multiline'
   type_name: 'str'
   is_optional: True
@@ -61,4 +61,4 @@ Args:
         description 4, defaults to 'hello'
     multiline (str, optional):
         long description 5,
-        defaults to 'bye'
+            defaults to 'bye'

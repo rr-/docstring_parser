@@ -43,7 +43,7 @@ style: google
   args: ['param', 'multiline (str?)']
   description: |
     long description 5,
-    defaults to 'bye'
+        defaults to 'bye'
   arg_name: 'multiline'
   type_name: 'str'
   is_optional: True
@@ -55,5 +55,6 @@ Args:
     priority (int): description 2
     sender (str, optional): description 3
     message (str, optional): description 4, defaults to 'hello'
-    multiline (str, optional): long description 5,
-        defaults to 'bye'
+    multiline (str, optional):
+        long description 5,
+            defaults to 'bye'

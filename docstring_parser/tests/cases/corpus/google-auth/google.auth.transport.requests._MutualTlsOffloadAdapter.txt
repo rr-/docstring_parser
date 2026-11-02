@@ -32,12 +32,12 @@ style: google
     the path to a enterprise cert JSON
     file. The file should contain the following field:
     
-    {
-        "libs": {
-            "signer_library": "...",
-            "offload_library": "..."
+        {
+            "libs": {
+                "signer_library": "...",
+                "offload_library": "..."
+            }
         }
-    }
   arg_name: 'enterprise_cert_file_path'
   type_name: 'str'
   is_optional: False
@@ -61,12 +61,12 @@ Args:
     enterprise_cert_file_path (str): the path to a enterprise cert JSON
         file. The file should contain the following field:
         
-        {
-            "libs": {
-                "signer_library": "...",
-                "offload_library": "..."
+            {
+                "libs": {
+                    "signer_library": "...",
+                    "offload_library": "..."
+                }
             }
-        }
 
 Raises:
     ImportError: if certifi is not installed

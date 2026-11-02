@@ -19,9 +19,6 @@ CASE_PATHS = sorted(CASES_DIR.rglob("*.txt"))
 # Cases whose composed docstring does not come back the same after another
 # parse and compose, and why.
 UNSTABLE_COMPOSE = {
-    "corpus/pydantic/pydantic.fields.Field.txt": (
-        "google: an indented block in a description loses its indent"
-    ),
     "google/examples/01.txt": (
         "google: an example titled like a section is composed as one"
     ),
