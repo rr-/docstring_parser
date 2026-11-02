@@ -184,6 +184,16 @@
         
 
         
+            <div class="itemName"><code><a href="#_join_wrapped" class="internal-link" title="docstring_parser.google._join_wrapped">_join<wbr></wbr>_wrapped</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="#_split_typed_arg" class="internal-link" title="docstring_parser.google._split_typed_arg">_split<wbr></wbr>_typed<wbr></wbr>_arg</a></code>
             </div>
         
@@ -531,7 +541,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <a href="https://github.com/rr-/docstring_parser/tree/d616a1585e997eb438a70fbcc23209ae35bae8f3/docstring_parser/google.py" class="sourceLink">(source)</a>
+          <a href="https://github.com/rr-/docstring_parser/tree/4815a6957cb36b67cbf1507b64d594c205eb16d6/docstring_parser/google.py" class="sourceLink">(source)</a>
         </div>
 
         <div class="moduleDocstring">
@@ -585,8 +595,13 @@
   </tr><tr class="function private">
     
     <td>Function</td>
+    <td><code><a href="#_join_wrapped" class="internal-link" title="docstring_parser.google._join_wrapped">_join<wbr></wbr>_wrapped</a></code></td>
+    <td>Join the lines of a wrapped item head into one line.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
     <td><code><a href="#_split_typed_arg" class="internal-link" title="docstring_parser.google._split_typed_arg">_split<wbr></wbr>_typed<wbr></wbr>_arg</a></code></td>
-    <td>Split a parameter name and type without backtracking over delimiters.</td>
+    <td>Split a parameter name and the type in parentheses after it.</td>
   </tr><tr class="variable private">
     
     <td>Variable</td>
@@ -618,7 +633,7 @@
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">compose</span><span class="function-signature long-signature">(<span class="rst-sig-param">docstring: <code>Docstring</code>, </span><span class="rst-sig-param">rendering_style: <code>RenderingStyle</code> = RenderingStyle.COMPACT, </span><span class="rst-sig-param">indent: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code> = <span class="rst-variable-quote">'</span><span class="rst-variable-string">    </span><span class="rst-variable-quote">'</span></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/d616a1585e997eb438a70fbcc23209ae35bae8f3/docstring_parser/google.py#L352">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/4815a6957cb36b67cbf1507b64d594c205eb16d6/docstring_parser/google.py#L384">
       
       (source)
     </a>
@@ -645,7 +660,7 @@
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">parse</span><span class="function-signature">(<span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></span>) -&gt; <code>Docstring</code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/d616a1585e997eb438a70fbcc23209ae35bae8f3/docstring_parser/google.py#L337">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/4815a6957cb36b67cbf1507b64d594c205eb16d6/docstring_parser/google.py#L369">
       
       (source)
     </a>
@@ -671,7 +686,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">DEFAULT_SECTIONS</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/d616a1585e997eb438a70fbcc23209ae35bae8f3/docstring_parser/google.py#L53">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/4815a6957cb36b67cbf1507b64d594c205eb16d6/docstring_parser/google.py#L56">
       
       (source)
     </a>
@@ -705,7 +720,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">GOOGLE_ARG_DESC_REGEX</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/d616a1585e997eb438a70fbcc23209ae35bae8f3/docstring_parser/google.py#L46">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/4815a6957cb36b67cbf1507b64d594c205eb16d6/docstring_parser/google.py#L49">
       
       (source)
     </a>
@@ -732,7 +747,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">MULTIPLE_PATTERN</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/d616a1585e997eb438a70fbcc23209ae35bae8f3/docstring_parser/google.py#L47">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/4815a6957cb36b67cbf1507b64d594c205eb16d6/docstring_parser/google.py#L50">
       
       (source)
     </a>
@@ -750,6 +765,36 @@
 </div><div class="basefunction private">
   
   
+  <a name="docstring_parser.google._join_wrapped">
+    
+  </a>
+  <a name="_join_wrapped">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">_join_wrapped</span><span class="function-signature">(<span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/4815a6957cb36b67cbf1507b64d594c205eb16d6/docstring_parser/google.py#L72">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_join_wrapped" title="docstring_parser.google._join_wrapped">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Join the lines of a wrapped item head into one line.</p>
+<p>Lines are joined with a space, as wrapped prose and types are written,
+except right inside brackets: <tt class="rst-docutils rst-literal">List[</tt> and <tt class="rst-docutils rst-literal">int]</tt> give <tt class="rst-docutils rst-literal">List[int]</tt>.</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
   <a name="docstring_parser.google._split_typed_arg">
     
   </a>
@@ -760,7 +805,7 @@
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">_split_typed_arg</span><span class="function-signature">(<span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#tuple" class="intersphinx-link">tuple</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>] | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/d616a1585e997eb438a70fbcc23209ae35bae8f3/docstring_parser/google.py#L69">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/4815a6957cb36b67cbf1507b64d594c205eb16d6/docstring_parser/google.py#L90">
       
       (source)
     </a>
@@ -772,7 +817,10 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Split a parameter name and type without backtracking over delimiters.</p></div>
+    <div><p>Split a parameter name and the type in parentheses after it.</p>
+<p>The type ends at the parenthesis matching the opening one, found in a
+single pass, so anything after it is ignored.</p>
+</div>
   </div>
 </div><div class="basevariable private">
   
@@ -786,7 +834,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">_default_parser</span>: <code><a href="docstring_parser.google.GoogleParser.html" class="internal-link" title="docstring_parser.google.GoogleParser">GoogleParser</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/d616a1585e997eb438a70fbcc23209ae35bae8f3/docstring_parser/google.py#L333">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/4815a6957cb36b67cbf1507b64d594c205eb16d6/docstring_parser/google.py#L365">
       
       (source)
     </a>
@@ -813,7 +861,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">_default_parser_sections</span>: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#tuple" class="intersphinx-link">tuple</a>[<wbr></wbr><a href="docstring_parser.google.Section.html" class="internal-link" title="docstring_parser.google.Section">Section</a>, <wbr></wbr><span class="rst-variable-ellipsis">...</span>]</code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/d616a1585e997eb438a70fbcc23209ae35bae8f3/docstring_parser/google.py#L334">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/4815a6957cb36b67cbf1507b64d594c205eb16d6/docstring_parser/google.py#L366">
       
       (source)
     </a>
@@ -840,7 +888,7 @@
   <div class="container-fluid">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    25.10.1 at 2026-11-02 09:51:23.
+    25.10.1 at 2026-11-02 14:55:07.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

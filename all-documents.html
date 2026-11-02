@@ -228,6 +228,30 @@
             <div class="kind">Function</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary">Turn Windows and old Mac line endings into plain newlines.</div>
+          </li><li id="docstring_parser.common.cleandoc">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.common<wbr></wbr>.cleandoc</div>
+            <div class="url">docstring_parser.common.html#cleandoc</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Dedent a docstring as <tt class="rst-docutils rst-literal">inspect.cleandoc</tt> did before Python 3.13.</div>
+          </li><li id="docstring_parser.common.continuation_indented">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.common<wbr></wbr>.continuation<wbr></wbr>_indented</div>
+            <div class="url">docstring_parser.common.html#continuation_indented</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Tell whether every non-blank line after the first is indented.</div>
+          </li><li id="docstring_parser.common.excerpt">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.common<wbr></wbr>.excerpt</div>
+            <div class="url">docstring_parser.common.html#excerpt</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Shorten text quoted in an error message to its first characters.</div>
           </li><li id="docstring_parser.common.DocstringExample">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.common<wbr></wbr>.<wbr></wbr>Docstring<wbr></wbr>Example</div>
@@ -684,6 +708,14 @@
             <div class="kind">Function</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary">Parse the epydoc-style docstring into its components.</div>
+          </li><li id="docstring_parser.epydoc._param_key">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.epydoc<wbr></wbr>._param<wbr></wbr>_key</div>
+            <div class="url">docstring_parser.epydoc.html#_param_key</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary">Return the field name that keeps a param's kind, such as <tt class="rst-docutils rst-literal">ivar</tt>.</div>
           </li><li id="docstring_parser.epydoc.compose">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.epydoc<wbr></wbr>.compose</div>
@@ -756,6 +788,14 @@
             <div class="kind">Constant</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.google._join_wrapped">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.google<wbr></wbr>._join<wbr></wbr>_wrapped</div>
+            <div class="url">docstring_parser.google.html#_join_wrapped</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary">Join the lines of a wrapped item head into one line.</div>
           </li><li id="docstring_parser.google._split_typed_arg">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.google<wbr></wbr>._split<wbr></wbr>_typed<wbr></wbr>_arg</div>
@@ -763,7 +803,7 @@
             <div class="type">Function</div>
             <div class="kind">Function</div>
             <div class="privacy">PRIVATE</div>
-            <div class="summary">Split a parameter name and type without backtracking over delimiters.</div>
+            <div class="summary">Split a parameter name and the type in parentheses after it.</div>
           </li><li id="docstring_parser.google.GoogleParser">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.google<wbr></wbr>.<wbr></wbr>Google<wbr></wbr>Parser</div>
@@ -1260,6 +1300,22 @@
             <div class="kind">Function</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary">Parse the ReST-style docstring into its components.</div>
+          </li><li id="docstring_parser.rest._fits_inline">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.rest<wbr></wbr>._fits<wbr></wbr>_inline</div>
+            <div class="url">docstring_parser.rest.html#_fits_inline</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary">Tell whether a type can go inside a field name, as in <tt class="rst-docutils rst-literal">:param int a:</tt>.</div>
+          </li><li id="docstring_parser.rest._param_key">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.rest<wbr></wbr>._param<wbr></wbr>_key</div>
+            <div class="url">docstring_parser.rest.html#_param_key</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary">Return the field name that keeps a param's kind, such as <tt class="rst-docutils rst-literal">key</tt>.</div>
           </li><li id="docstring_parser.rest.compose">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.rest<wbr></wbr>.compose</div>

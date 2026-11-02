@@ -155,6 +155,16 @@
             </div>
         
 
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_param_key" class="internal-link" title="docstring_parser.epydoc._param_key">_param<wbr></wbr>_key</a></code>
+            </div>
+        
+
     </li>
 </ul> 
 
@@ -445,7 +455,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <a href="https://github.com/rr-/docstring_parser/tree/d616a1585e997eb438a70fbcc23209ae35bae8f3/docstring_parser/epydoc.py" class="sourceLink">(source)</a>
+          <a href="https://github.com/rr-/docstring_parser/tree/4815a6957cb36b67cbf1507b64d594c205eb16d6/docstring_parser/epydoc.py" class="sourceLink">(source)</a>
         </div>
 
         <div class="moduleDocstring">
@@ -476,6 +486,11 @@
     <td>Function</td>
     <td><code><a href="#_clean_str" class="internal-link" title="docstring_parser.epydoc._clean_str">_clean<wbr></wbr>_str</a></code></td>
     <td><span class="rst-undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_param_key" class="internal-link" title="docstring_parser.epydoc._param_key">_param<wbr></wbr>_key</a></code></td>
+    <td>Return the field name that keeps a param's kind, such as <tt class="rst-docutils rst-literal">ivar</tt>.</td>
   </tr>
 </table>
           
@@ -497,7 +512,7 @@
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">compose</span><span class="function-signature long-signature">(<span class="rst-sig-param">docstring: <code>Docstring</code>, </span><span class="rst-sig-param">rendering_style: <code>RenderingStyle</code> = RenderingStyle.COMPACT, </span><span class="rst-sig-param">indent: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code> = <span class="rst-variable-quote">'</span><span class="rst-variable-string">    </span><span class="rst-variable-quote">'</span></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/d616a1585e997eb438a70fbcc23209ae35bae8f3/docstring_parser/epydoc.py#L213">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/4815a6957cb36b67cbf1507b64d594c205eb16d6/docstring_parser/epydoc.py#L232">
       
       (source)
     </a>
@@ -524,7 +539,7 @@
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">parse</span><span class="function-signature">(<span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></span>) -&gt; <code>Docstring</code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/d616a1585e997eb438a70fbcc23209ae35bae8f3/docstring_parser/epydoc.py#L30">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/4815a6957cb36b67cbf1507b64d594c205eb16d6/docstring_parser/epydoc.py#L31">
       
       (source)
     </a>
@@ -551,7 +566,7 @@
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">_clean_str</span><span class="function-signature">(<span class="rst-sig-param">string: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/d616a1585e997eb438a70fbcc23209ae35bae8f3/docstring_parser/epydoc.py#L23">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/4815a6957cb36b67cbf1507b64d594c205eb16d6/docstring_parser/epydoc.py#L24">
       
       (source)
     </a>
@@ -565,6 +580,33 @@
     
     <div><p class="undocumented">Undocumented</p></div>
   </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="docstring_parser.epydoc._param_key">
+    
+  </a>
+  <a name="_param_key">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">_param_key</span><span class="function-signature">(<span class="rst-sig-param">meta: <code>DocstringParam</code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/4815a6957cb36b67cbf1507b64d594c205eb16d6/docstring_parser/epydoc.py#L220">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_param_key" title="docstring_parser.epydoc._param_key">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return the field name that keeps a param's kind, such as <tt class="rst-docutils rst-literal">ivar</tt>.</p></div>
+  </div>
 </div>
         </div>
       
@@ -577,7 +619,7 @@
   <div class="container-fluid">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    25.10.1 at 2026-11-02 09:51:23.
+    25.10.1 at 2026-11-02 14:55:07.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 
