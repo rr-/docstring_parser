@@ -203,6 +203,15 @@ def parse(text: T.Optional[str]) -> Docstring:
     return ret
 
 
+def _fits_inline(type_name: T.Optional[str]) -> bool:
+    """Tell whether a type can go inside a field name, as in ``:param int a:``.
+
+    A type with a space or a colon in it would read back as more arguments
+    or end the field name early, so it needs a ``:type:`` field of its own.
+    """
+    return not type_name or not re.search(r"[\s:]", type_name)
+
+
 def compose(
     docstring: Docstring,
     rendering_style: RenderingStyle = RenderingStyle.COMPACT,
@@ -248,7 +257,9 @@ def compose(
                 )
             else:
                 type_text = " "
-            if rendering_style == RenderingStyle.EXPANDED:
+            if rendering_style == RenderingStyle.EXPANDED or not _fits_inline(
+                meta.type_name
+            ):
                 text = f":param {meta.arg_name}:"
                 text += process_desc(meta.description)
                 parts.append(text)
@@ -262,7 +273,9 @@ def compose(
             type_text = f" {meta.type_name}" if meta.type_name else ""
             key = "yields" if meta.is_generator else "returns"
 
-            if rendering_style == RenderingStyle.EXPANDED:
+            if rendering_style == RenderingStyle.EXPANDED or not _fits_inline(
+                meta.type_name
+            ):
                 if meta.description:
                     text = f":{key}:"
                     text += process_desc(meta.description)

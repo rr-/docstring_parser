@@ -137,7 +137,8 @@ example, if one wishes to use a custom :py:class:`ssl.SSLContext` one
 must both set ``"ssl_context"`` and based on what else they require,
 alter the other keys to ensure the desired behaviour.
 
-:param :class:`~requests.models.PreparedRequest` request: The PreparedRequest being sent over the connection.
+:param request: The PreparedRequest being sent over the connection.
+:type request: :class:`~requests.models.PreparedRequest`
 :param verify: Either a boolean, in which case it controls whether
     we verify the server's TLS certificate, or a string, in which case it
     must be a path to a CA bundle to use.
