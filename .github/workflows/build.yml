@@ -29,6 +29,26 @@ jobs:
     - name: Run tests
       run: uv run --locked --no-default-groups --group test pytest
 
+  bench:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.8", "3.14"]
+    steps:
+    - uses: actions/checkout@v6
+      with:
+        fetch-depth: 0
+    - name: Set up uv with Python ${{ matrix.python-version }}
+      uses: astral-sh/setup-uv@v10.3.2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Compare speed with the base commit
+      run: >-
+        uv run --locked --no-default-groups --group test
+        python tools/bench.py --base ${{ github.event.pull_request.base.sha }}
+
   style:
     runs-on: ubuntu-latest
     steps:
