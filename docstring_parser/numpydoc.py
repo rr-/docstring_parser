@@ -8,6 +8,8 @@ import re
 import typing as T
 from textwrap import dedent
 
+from ._lines import Lines
+from ._text import append_loose, clean_str, split_description
 from .common import (
     Docstring,
     DocstringDeprecated,
@@ -20,7 +22,6 @@ from .common import (
     RenderingStyle,
     cleandoc,
     meta_as_attribute,
-    normalize_line_endings,
 )
 
 
@@ -28,13 +29,6 @@ def _pairwise(iterable: T.Iterable, end=None) -> T.Iterable:
     left, right = itertools.tee(iterable)
     next(right, None)
     return itertools.zip_longest(left, right, fillvalue=end)
-
-
-def _clean_str(string: str) -> T.Optional[str]:
-    string = string.strip()
-    if len(string) > 0:
-        return string
-    return None
 
 
 KV_REGEX = re.compile(r"^[^\s].*$", flags=re.M)
@@ -94,7 +88,7 @@ class Section:
         :param text: section body text. Should be cleaned with
                      ``inspect.cleandoc`` before parsing.
         """
-        yield DocstringMeta([self.key], description=_clean_str(text))
+        yield DocstringMeta([self.key], description=clean_str(text))
 
 
 class _KVSection(Section):
@@ -174,7 +168,7 @@ class ParamSection(_KVSection):
 
         return DocstringParam(
             args=[self.key, arg_name],
-            description=_clean_str(value),
+            description=clean_str(value),
             arg_name=arg_name,
             type_name=type_name,
             is_optional=is_optional,
@@ -193,7 +187,7 @@ class RaisesSection(_KVSection):
     def _parse_item(self, key: str, value: str) -> DocstringRaises:
         return DocstringRaises(
             args=[self.key, key],
-            description=_clean_str(value),
+            description=clean_str(value),
             type_name=key if len(key) > 0 else None,
         )
 
@@ -221,7 +215,7 @@ class ReturnsSection(_KVSection):
 
         return DocstringReturns(
             args=[self.key],
-            description=_clean_str(value),
+            description=clean_str(value),
             type_name=type_name,
             is_generator=self.is_generator,
             return_name=return_name,
@@ -256,8 +250,8 @@ class DeprecationSection(_SphinxSection):
 
         yield DocstringDeprecated(
             args=[self.key],
-            description=_clean_str(cleandoc(desc)),
-            version=_clean_str(version),
+            description=clean_str(cleandoc(desc)),
+            version=clean_str(version),
         )
 
 
@@ -372,7 +366,7 @@ class NumpydocParser:
             return ret
 
         # Clean according to PEP-0257
-        text = cleandoc(normalize_line_endings(text))
+        text = Lines(text).text
 
         # Find first title and split on its position
         match = self.titles_re.search(text)
@@ -383,16 +377,7 @@ class NumpydocParser:
             desc_chunk = text
             meta_chunk = ""
 
-        # Break description into short and long parts
-        parts = desc_chunk.split("\n", 1)
-        ret.short_description = parts[0].strip() or None
-        if len(parts) > 1:
-            long_desc_chunk = parts[1] or ""
-            ret.blank_after_short_description = long_desc_chunk.startswith(
-                "\n"
-            )
-            ret.blank_after_long_description = long_desc_chunk.endswith("\n\n")
-            ret.long_description = long_desc_chunk.strip() or None
+        split_description(ret, desc_chunk)
 
         # Text after a directive's body, which goes to the long description.
         loose_chunks = []
@@ -407,17 +392,10 @@ class NumpydocParser:
             chunk = meta_chunk[start:end]
             if isinstance(factory, _SphinxSection):
                 chunk, loose = _split_directive(chunk)
-                if loose.strip():
-                    loose_chunks.append(loose.strip())
+                loose_chunks.append(loose)
             ret.meta.extend(factory.parse(chunk))
 
-        if loose_chunks:
-            loose_text = "\n\n".join(loose_chunks)
-            ret.long_description = (
-                f"{ret.long_description}\n\n{loose_text}"
-                if ret.long_description
-                else loose_text
-            )
+        append_loose(ret, loose_chunks, blank_around=False)
 
         return ret
 

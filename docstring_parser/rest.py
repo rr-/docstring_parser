@@ -4,6 +4,8 @@ import re
 import textwrap
 import typing as T
 
+from ._lines import Lines
+from ._text import append_loose, split_description
 from .common import (
     ATTRIBUTE_FIELD_KEYWORDS,
     DEPRECATION_KEYWORDS,
@@ -20,10 +22,8 @@ from .common import (
     DocstringStyle,
     ParseError,
     RenderingStyle,
-    cleandoc,
     continuation_indented,
     excerpt,
-    normalize_line_endings,
 )
 
 
@@ -113,7 +113,7 @@ def parse(text: T.Optional[str]) -> Docstring:
     if not text:
         return ret
 
-    text = cleandoc(normalize_line_endings(text))
+    text = Lines(text).text
     match = re.search("^:", text, flags=re.M)
     if match:
         desc_chunk = text[: match.start()]
@@ -122,13 +122,7 @@ def parse(text: T.Optional[str]) -> Docstring:
         desc_chunk = text
         meta_chunk = ""
 
-    parts = desc_chunk.split("\n", 1)
-    ret.short_description = parts[0].strip() or None
-    if len(parts) > 1:
-        long_desc_chunk = parts[1] or ""
-        ret.blank_after_short_description = long_desc_chunk.startswith("\n")
-        ret.blank_after_long_description = long_desc_chunk.endswith("\n\n")
-        ret.long_description = long_desc_chunk.strip() or None
+    split_description(ret, desc_chunk)
 
     types = {}
     rtypes = {}
@@ -185,17 +179,7 @@ def parse(text: T.Optional[str]) -> Docstring:
             ret.meta.append(_build_meta(args, desc))
     loose_chunks.append(meta_chunk[loose_start:])
 
-    loose_text = "\n\n".join(
-        part.strip() for part in loose_chunks if part.strip()
-    )
-    if loose_text:
-        ret.long_description = (
-            f"{ret.long_description}\n\n{loose_text}"
-            if ret.long_description
-            else loose_text
-        )
-        ret.blank_after_short_description = True
-        ret.blank_after_long_description = True
+    append_loose(ret, loose_chunks, blank_around=True)
 
     for meta in ret.meta:
         if isinstance(meta, DocstringParam):

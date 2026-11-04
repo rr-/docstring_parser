@@ -6,6 +6,8 @@
 import re
 import typing as T
 
+from ._lines import Lines
+from ._text import clean_str, split_description
 from .common import (
     Docstring,
     DocstringMeta,
@@ -17,15 +19,7 @@ from .common import (
     RenderingStyle,
     cleandoc,
     excerpt,
-    normalize_line_endings,
 )
-
-
-def _clean_str(string: str) -> T.Optional[str]:
-    string = string.strip()
-    if len(string) > 0:
-        return string
-    return None
 
 
 def parse(text: T.Optional[str]) -> Docstring:
@@ -37,7 +31,7 @@ def parse(text: T.Optional[str]) -> Docstring:
     if not text:
         return ret
 
-    text = cleandoc(normalize_line_endings(text))
+    text = Lines(text).text
     match = re.search("^@", text, flags=re.M)
     if match:
         desc_chunk = text[: match.start()]
@@ -46,13 +40,7 @@ def parse(text: T.Optional[str]) -> Docstring:
         desc_chunk = text
         meta_chunk = ""
 
-    parts = desc_chunk.split("\n", 1)
-    ret.short_description = parts[0].strip() or None
-    if len(parts) > 1:
-        long_desc_chunk = parts[1] or ""
-        ret.blank_after_short_description = long_desc_chunk.startswith("\n")
-        ret.blank_after_long_description = long_desc_chunk.endswith("\n\n")
-        ret.long_description = long_desc_chunk.strip() or None
+    split_description(ret, desc_chunk)
 
     param_pattern = re.compile(
         r"(param|keyword|type)(\s+[_A-z][_A-z0-9]*\??):"
@@ -112,7 +100,7 @@ def parse(text: T.Optional[str]) -> Docstring:
         else:
             base = "meta"
             key: str = match.group(1)
-            token = _clean_str(match.group(2).strip())
+            token = clean_str(match.group(2).strip())
             args = [] if token is None else re.split(r"\s+", token)
 
             # Make sure we didn't match some existing keyword in an incorrect

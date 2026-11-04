@@ -6,6 +6,8 @@ import typing as T
 from collections import namedtuple
 from enum import IntEnum
 
+from ._lines import Lines
+from ._text import split_description
 from .common import (
     EXAMPLES_KEYWORDS,
     PARAM_KEYWORDS,
@@ -25,7 +27,6 @@ from .common import (
     continuation_indented,
     excerpt,
     meta_as_attribute,
-    normalize_line_endings,
 )
 
 
@@ -266,16 +267,14 @@ class GoogleParser:
         ret = Docstring(style=DocstringStyle.GOOGLE)
         if not text:
             return ret
-        text = normalize_line_endings(text)
+        lines = Lines(text)
 
-        # A title on the first line has no summary before it. Push it below
-        # one so that cleandoc dedents it with its entries instead of stripping
-        # only the first line and leaving the entries flush with the title.
-        if self.titles_re.match(text.lstrip()):
-            text = "\n" + text
-
-        # Clean according to PEP-0257
-        text = cleandoc(text)
+        # A title on the first line has no summary before it. Dedent it with
+        # its entries, instead of stripping only the first line and leaving
+        # the entries flush with the title.
+        if self.titles_re.match(lines.raw.lstrip()):
+            lines = lines.with_lead()
+        text = lines.text
 
         # Find first title and split on its position
         match = self.titles_re.search(text)
@@ -286,16 +285,7 @@ class GoogleParser:
             desc_chunk = text
             meta_chunk = ""
 
-        # Break description into short and long parts
-        parts = desc_chunk.split("\n", 1)
-        ret.short_description = parts[0].strip() or None
-        if len(parts) > 1:
-            long_desc_chunk = parts[1] or ""
-            ret.blank_after_short_description = long_desc_chunk.startswith(
-                "\n"
-            )
-            ret.blank_after_long_description = long_desc_chunk.endswith("\n\n")
-            ret.long_description = long_desc_chunk.strip() or None
+        split_description(ret, desc_chunk)
 
         # Split by sections determined by titles
         matches = list(self.titles_re.finditer(meta_chunk))
