@@ -9,6 +9,7 @@ the case files, the standard library's docstrings and generated ones.
 """
 
 import argparse
+import collections
 import importlib
 import random
 import sys
@@ -209,6 +210,13 @@ def main() -> int:
                 differ.append((origin, text, keys, old, new))
 
     print(f"{len(named)} docstrings, {len(differ)} differ from {args.base}")
+    counts = collections.Counter(
+        key.rsplit(" ", 1)[0] if key.startswith("compose") else key
+        for _origin, _text, keys, _old, _new in differ
+        for key in keys
+    )
+    for key, count in sorted(counts.items()):
+        print(f"  {key}: {count}")
     for origin, text, keys, old, new in differ[: args.show]:
         print(f"\n--- {origin} input {text!r}")
         for key in keys[:3]:
