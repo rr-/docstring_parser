@@ -8,6 +8,7 @@ import re
 import typing as T
 from textwrap import dedent
 
+from ._compose import SectionTable, kind_of, sections
 from ._lines import Lines
 from ._text import append_loose, clean_str, split_description
 from .common import (
@@ -22,7 +23,6 @@ from .common import (
     Kind,
     RenderingStyle,
     cleandoc,
-    meta_as_attribute,
 )
 
 
@@ -435,6 +435,23 @@ def parse(text: T.Optional[str]) -> Docstring:
     return _default_parser.parse(text)
 
 
+# The sections compose writes items in, in order, and the kinds each takes.
+# Keyword params, which Numpydoc has no section for, go with the others
+# rather than being dropped.
+_COMPOSE_SECTIONS = SectionTable(
+    (
+        ("Parameters", {Kind.PARAM, Kind.KEYWORD}),
+        ("Attributes", {Kind.ATTRIBUTE}),
+        ("Returns", {Kind.RETURNS}),
+        ("Yields", {Kind.YIELDS}),
+        ("Receives", {Kind.RECEIVES}),
+        ("Other Parameters", {Kind.OTHER_PARAM}),
+        ("Raises", {Kind.RAISES}),
+        ("Warns", {Kind.WARNS}),
+    )
+)
+
+
 def compose(
     docstring: Docstring,
     rendering_style: RenderingStyle = RenderingStyle.COMPACT,
@@ -520,74 +537,9 @@ def compose(
         if docstring.blank_after_long_description:
             blank_line()
 
-    # Params of any other kind, such as ReST's :keyword:, go with the
-    # parameters rather than being dropped.
-    process_sect(
-        "Parameters",
-        [
-            item
-            for item in docstring.params or []
-            if item.args[0] not in {"attribute", "other_param", "receives"}
-        ],
-    )
-
-    process_sect(
-        "Attributes",
-        [
-            item
-            for item in docstring.params or []
-            if item.args[0] == "attribute"
-        ]
-        + [m for m in map(meta_as_attribute, docstring.meta) if m],
-    )
-
-    process_sect(
-        "Returns",
-        [
-            item
-            for item in docstring.many_returns or []
-            if not item.is_generator
-        ],
-    )
-
-    process_sect(
-        "Yields",
-        [item for item in docstring.many_returns or [] if item.is_generator],
-    )
-
-    if docstring.returns and not docstring.many_returns:
-        ret = docstring.returns
-        parts.append("Yields" if ret else "Returns")
-        parts.append("-" * len(parts[-1]))
-        process_one(ret)
-
-    process_sect(
-        "Receives",
-        [
-            item
-            for item in docstring.params or []
-            if item.args[0] == "receives"
-        ],
-    )
-
-    process_sect(
-        "Other Parameters",
-        [
-            item
-            for item in docstring.params or []
-            if item.args[0] == "other_param"
-        ],
-    )
-
-    process_sect(
-        "Raises",
-        [item for item in docstring.raises or [] if item.args[0] == "raises"],
-    )
-
-    process_sect(
-        "Warns",
-        [item for item in docstring.raises or [] if item.args[0] == "warns"],
-    )
+    found, rest = sections(docstring, _COMPOSE_SECTIONS)
+    for title, items in found:
+        process_sect(title, items)
 
     if len(docstring.examples) > 0:
         blank_line()
@@ -599,17 +551,8 @@ def compose(
             if example.description:
                 parts.append(example.description)
 
-    for meta in docstring.meta:
-        if isinstance(
-            meta,
-            (
-                DocstringDeprecated,
-                DocstringParam,
-                DocstringReturns,
-                DocstringRaises,
-                DocstringExample,
-            ),
-        ) or meta_as_attribute(meta):
+    for meta in rest:
+        if kind_of(meta) in {Kind.DEPRECATION, Kind.EXAMPLES}:
             continue  # Already handled
 
         # Use the section's own title, e.g. "See Also" for see_also.

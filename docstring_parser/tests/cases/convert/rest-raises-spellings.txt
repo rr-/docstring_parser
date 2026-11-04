@@ -1,0 +1,25 @@
+# Test that every ReST spelling of raises survives Numpydoc.
+=== input
+Short.
+
+:raises ValueError: Bad value.
+:raise KeyError: Bad key.
+:except TypeError: Bad type.
+=== convert rest numpydoc
+Short.
+
+Raises
+------
+ValueError
+    Bad value.
+KeyError
+    Bad key.
+TypeError
+    Bad type.
+=== convert rest google
+Short.
+
+Raises:
+    ValueError: Bad value.
+    KeyError: Bad key.
+    TypeError: Bad type.
