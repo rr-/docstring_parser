@@ -23,6 +23,10 @@ harvest:
 bench base="origin/main" *args:
     uv run python tools/bench.py --base {{base}} {{args}}
 
+# List the docstrings whose output differs from a base commit
+parity base="origin/main" *args:
+    uv run python tools/parity.py --base {{base}} {{args}}
+
 # Run every prek hook on the whole tree, fixing what ruff can
 lint:
     uv run prek run --all-files
