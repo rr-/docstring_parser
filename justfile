@@ -19,6 +19,10 @@ harvest:
     uv run --no-project --python 3.14 python tools/harvest_corpus.py
     just update-cases
 
+# Compare parse and compose speed against a base commit
+bench base="origin/main" *args:
+    uv run python tools/bench.py --base {{base}} {{args}}
+
 # Run every prek hook on the whole tree, fixing what ruff can
 lint:
     uv run prek run --all-files
