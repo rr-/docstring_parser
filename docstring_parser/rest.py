@@ -4,10 +4,10 @@ import re
 import textwrap
 import typing as T
 
+from ._compose import description_lines, field_name
 from ._lines import Lines
 from ._text import append_loose, split_description
 from .common import (
-    ATTRIBUTE_FIELD_KEYWORDS,
     DEPRECATION_KEYWORDS,
     PARAM_KEYWORDS,
     RAISES_KEYWORDS,
@@ -220,14 +220,12 @@ def _fits_inline(type_name: T.Optional[str]) -> bool:
     return not type_name or not re.search(r"[\s:]", type_name)
 
 
+_PARAM_FIELD_OF_KIND = {Kind.ATTRIBUTE: "attribute"}
+
+
 def _param_key(meta: DocstringParam) -> str:
     """Return the field name that keeps a param's kind, such as ``key``."""
-    key = meta.args[0] if meta.args else "param"
-    if key in PARAM_KEYWORDS:
-        return key
-    if key in ATTRIBUTE_FIELD_KEYWORDS:
-        return "attribute"
-    return "param"
+    return field_name(meta, PARAM_KEYWORDS, _PARAM_FIELD_OF_KIND)
 
 
 def compose(
@@ -257,15 +255,7 @@ def compose(
             return "\n".join(["\n" + indent + first] + rest)
         return "\n".join([" " + first] + rest)
 
-    parts: T.List[str] = []
-    if docstring.short_description:
-        parts.append(docstring.short_description)
-    if docstring.blank_after_short_description:
-        parts.append("")
-    if docstring.long_description:
-        parts.append(docstring.long_description)
-    if docstring.blank_after_long_description:
-        parts.append("")
+    parts = description_lines(docstring)
 
     for meta in docstring.meta:
         if isinstance(meta, DocstringParam):

@@ -6,6 +6,7 @@
 import re
 import typing as T
 
+from ._compose import description_lines, field_name
 from ._lines import Lines
 from ._text import clean_str, split_description
 from .common import (
@@ -216,16 +217,13 @@ def parse(text: T.Optional[str]) -> Docstring:
     return ret
 
 
+_OWN_PARAM_FIELDS = frozenset({"param", "keyword", "ivar", "cvar", "var"})
+_PARAM_FIELD_OF_KIND = {Kind.ATTRIBUTE: "ivar", Kind.KEYWORD: "keyword"}
+
+
 def _param_key(meta: DocstringParam) -> str:
     """Return the field name that keeps a param's kind, such as ``ivar``."""
-    key = meta.args[0] if meta.args else "param"
-    if key in {"param", "keyword", "ivar", "cvar", "var"}:
-        return key
-    if key == "attribute":
-        return "ivar"
-    if key == "key":
-        return "keyword"
-    return "param"
+    return field_name(meta, _OWN_PARAM_FIELDS, _PARAM_FIELD_OF_KIND)
 
 
 def compose(
@@ -256,15 +254,7 @@ def compose(
         (first, *rest) = desc.splitlines()
         return "\n".join([" " + first] + [indent + line for line in rest])
 
-    parts: T.List[str] = []
-    if docstring.short_description:
-        parts.append(docstring.short_description)
-    if docstring.blank_after_short_description:
-        parts.append("")
-    if docstring.long_description:
-        parts.append(docstring.long_description)
-    if docstring.blank_after_long_description:
-        parts.append("")
+    parts = description_lines(docstring)
 
     for meta in docstring.meta:
         if isinstance(meta, DocstringParam):
