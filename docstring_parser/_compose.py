@@ -69,6 +69,21 @@ def sections(
     ], rest
 
 
+def field_name(
+    meta: DocstringMeta, own: T.AbstractSet[str], by_kind: T.Dict[Kind, str]
+) -> str:
+    """Return the field name a param is written with in a style.
+
+    :param own: the keys the style writes as they are
+    :param by_kind: the style's field name for each kind of param, where
+        the param's own key is not one of them; ``param`` otherwise
+    """
+    key = meta.args[0] if meta.args else "param"
+    if key in own:
+        return key
+    return by_kind.get(kind_of(meta), "param")
+
+
 def description_lines(docstring: Docstring) -> T.List[str]:
     """The short and long description, each followed by a blank if asked."""
     parts = []
