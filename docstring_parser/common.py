@@ -3,6 +3,9 @@
 import enum
 import typing as T
 
+# Kept here for code that imported them from this module.
+from ._lines import cleandoc, normalize_line_endings  # noqa: F401
+
 PARAM_KEYWORDS = {
     "param",
     "parameter",
@@ -17,43 +20,6 @@ DEPRECATION_KEYWORDS = {"deprecation", "deprecated"}
 RETURNS_KEYWORDS = {"return", "returns"}
 YIELDS_KEYWORDS = {"yield", "yields"}
 EXAMPLES_KEYWORDS = {"example", "examples"}
-
-
-def normalize_line_endings(text: str) -> str:
-    """Turn Windows and old Mac line endings into plain newlines.
-
-    ``inspect.cleandoc`` splits lines on ``\\n`` only, so a ``\\r`` stays at
-    the end of each line. From Python 3.13 on it measures indentation by
-    stripping spaces only, so a blank line holding just ``\\r`` counts as
-    unindented text and nothing gets dedented.
-    """
-    return text.replace("\r\n", "\n").replace("\r", "\n")
-
-
-def cleandoc(text: str) -> str:
-    """Dedent a docstring as ``inspect.cleandoc`` did before Python 3.13.
-
-    From 3.13 on, ``inspect.cleandoc`` measures indentation by stripping
-    spaces only, so a blank line holding a tab or a form feed counts as
-    text with no indent and nothing gets dedented. Here every line holding
-    only whitespace counts as blank, on every version.
-    """
-    lines = text.expandtabs().split("\n")
-    margin = None
-    for line in lines[1:]:
-        content = len(line.lstrip())
-        if content:
-            indent = len(line) - content
-            margin = indent if margin is None else min(margin, indent)
-    lines[0] = lines[0].lstrip()
-    if margin is not None:
-        lines[1:] = [line[margin:] for line in lines[1:]]
-    while lines and not lines[-1]:
-        lines.pop()
-    start = 0
-    while start < len(lines) and not lines[start]:
-        start += 1
-    return "\n".join(lines[start:])
 
 
 def continuation_indented(text: str) -> bool:
