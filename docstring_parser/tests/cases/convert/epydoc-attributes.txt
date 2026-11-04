@@ -1,0 +1,31 @@
+# Test that Epydoc's attributes go to an attributes section, not params.
+=== input
+Short.
+
+@param x: The x.
+@ivar a: The a.
+@type a: int
+@cvar b: The b.
+=== convert epydoc google
+Short.
+
+Args:
+    x: The x.
+
+Attributes:
+    a (int): The a.
+    b: The b.
+=== convert epydoc numpydoc
+Short.
+
+Parameters
+----------
+x
+    The x.
+
+Attributes
+----------
+a : int
+    The a.
+b
+    The b.

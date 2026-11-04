@@ -6,6 +6,7 @@ import typing as T
 from collections import namedtuple
 from enum import IntEnum
 
+from ._compose import SectionTable, description_lines, sections
 from ._lines import Lines
 from ._text import split_description
 from .common import (
@@ -27,7 +28,6 @@ from .common import (
     cleandoc,
     continuation_indented,
     excerpt,
-    meta_as_attribute,
 )
 
 
@@ -381,6 +381,20 @@ def parse(text: T.Optional[str]) -> Docstring:
     return _default_parser.parse(text)
 
 
+# The sections compose writes items in, in order, and the kinds each takes.
+# Google has no sections of its own for keyword, other or received params,
+# so they go with the others rather than being dropped.
+_COMPOSE_SECTIONS = SectionTable(
+    (
+        ("Args:", {Kind.PARAM, Kind.KEYWORD, Kind.OTHER_PARAM, Kind.RECEIVES}),
+        ("Attributes:", {Kind.ATTRIBUTE}),
+        ("Returns:", {Kind.RETURNS}),
+        ("Yields:", {Kind.YIELDS}),
+        ("Raises:", {Kind.RAISES, Kind.WARNS}),
+    )
+)
+
+
 def compose(
     docstring: Docstring,
     rendering_style: RenderingStyle = RenderingStyle.COMPACT,
@@ -461,53 +475,12 @@ def compose(
                 process_one(arg)
             parts.append("")
 
-    parts: T.List[str] = []
-    if docstring.short_description:
-        parts.append(docstring.short_description)
-    if docstring.blank_after_short_description:
-        parts.append("")
+    parts = description_lines(docstring)
+    found, rest = sections(docstring, _COMPOSE_SECTIONS)
+    for title, items in found:
+        process_sect(title, items)
 
-    if docstring.long_description:
-        parts.append(docstring.long_description)
-    if docstring.blank_after_long_description:
-        parts.append("")
-
-    # Google has no sections of its own for keyword, other or received
-    # params, so they go with the others rather than being dropped.
-    process_sect(
-        "Args:",
-        [p for p in docstring.params or [] if p.args[0] != "attribute"],
-    )
-
-    attributes = [m for m in map(meta_as_attribute, docstring.meta) if m]
-    process_sect(
-        "Attributes:",
-        [p for p in docstring.params or [] if p.args[0] == "attribute"]
-        + attributes,
-    )
-
-    process_sect(
-        "Returns:",
-        [p for p in docstring.many_returns or [] if not p.is_generator],
-    )
-
-    process_sect(
-        "Yields:", [p for p in docstring.many_returns or [] if p.is_generator]
-    )
-
-    process_sect("Raises:", docstring.raises or [])
-
-    if docstring.returns and not docstring.many_returns:
-        ret = docstring.returns
-        parts.append("Yields:" if ret else "Returns:")
-        parts.append("-" * len(parts[-1]))
-        process_one(ret)
-
-    for meta in docstring.meta:
-        if isinstance(
-            meta, (DocstringParam, DocstringReturns, DocstringRaises)
-        ) or meta_as_attribute(meta):
-            continue  # Already handled
+    for meta in rest:
         parts.append(meta.args[0].replace("_", "").title() + ":")
         if meta.description:
             lines = [indent + line for line in meta.description.splitlines()]
