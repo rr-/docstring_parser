@@ -8,7 +8,7 @@ from enum import IntEnum
 
 from ._compose import SectionTable, description_lines, sections
 from ._lines import Lines
-from ._text import split_description
+from ._text import append_loose, split_description
 from .common import (
     EXAMPLES_KEYWORDS,
     PARAM_KEYWORDS,
@@ -393,19 +393,23 @@ class GoogleParser:
         # A list rather than a dict, so that a section whose title appears
         # twice keeps both of its chunks.
         chunks: T.List[T.Tuple[str, str]] = []
+        # Unindented text after a section, which goes to the long
+        # description instead of being dropped.
+        loose: T.List[str] = []
         for j, (start, end) in enumerate(splits):
             title = _title(matches[j])
             if title not in self.sections:
                 continue
 
-            # Clear Any Unknown Meta
-            # Ref: https://github.com/rr-/docstring_parser/issues/29
+            # An unindented line ends the section, as in issue #29.
             meta_details = meta_chunk[start:end]
             unknown_meta = re.search(r"\n\S", meta_details)
             if unknown_meta is not None:
+                loose.append(meta_details[unknown_meta.start() :])
                 meta_details = meta_details[: unknown_meta.start()]
 
             chunks.append((title, meta_details.strip("\n")))
+        append_loose(ret, loose, blank_around=True)
         if not chunks:
             return ret
 

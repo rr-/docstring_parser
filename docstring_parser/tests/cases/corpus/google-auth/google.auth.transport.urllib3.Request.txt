@@ -40,6 +40,8 @@ long_description: |
       request = google.auth.transport.urllib3.Request(http)
   
       credentials.refresh(request)
+  
+  .. automethod:: __call__
 blank_after_short_description: True
 blank_after_long_description: True
 style: google
@@ -71,6 +73,8 @@ This class can be useful if you want to manually refresh a
     request = google.auth.transport.urllib3.Request(http)
 
     credentials.refresh(request)
+
+.. automethod:: __call__
 
 Args:
     http (urllib3.PoolManager): An instance of a urllib3 class that implements

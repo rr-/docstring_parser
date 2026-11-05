@@ -20,6 +20,12 @@ short_description: 'Short desc'
 long_description: |
   Unknown 0:
       title0: content0
+  
+  Unknown1:
+      title1: content1
+  
+  Unknown2:
+      title2: content2
 blank_after_short_description: True
 blank_after_long_description: True
 style: google
