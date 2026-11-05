@@ -53,6 +53,7 @@
 - General: `SectionSpec(bare=True)` recognises a title alone on its line, with no colon in Google or underline in Numpydoc, and `SectionSpec(parse_item=...)` gets each item's meta, already split into its name, type and description, to change it or replace it
 - General: The keyword sets in `docstring_parser.common`, such as `PARAM_KEYWORDS`, are read once on import; changing them afterwards no longer changes how fields and sections parse, which `sections` does instead
 - Google, Numpydoc: **Breaking:** Remove customising parsing through parser internals, which `SectionSpec` replaces: `GoogleParser.titles_re`, `_build_meta`, `_build_single_meta` and `_build_multi_meta`, and Numpydoc's `Section.title_pattern`, `Section.parse` and `KV_REGEX` are gone or private, and overriding `_parse_item` is no longer supported
+- ReST, Numpydoc: Text after the fields of a docstring with no description of its own becomes the short and long description, as if written before the fields, instead of a long description with no short one, which `compose()` started with an empty line
 
 # 0.18 (2026-04-14)
 

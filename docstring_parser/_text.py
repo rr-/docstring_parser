@@ -36,6 +36,11 @@ def append_loose(
     loose = "\n\n".join(part.strip() for part in chunks if part.strip())
     if not loose:
         return
+    if ret.short_description is None and ret.long_description is None:
+        # With nothing before the fields, the text is the description, as
+        # if written before them.
+        split_description(ret, loose + "\n\n" if blank_around else loose)
+        return
     ret.long_description = (
         f"{ret.long_description}\n\n{loose}" if ret.long_description else loose
     )
