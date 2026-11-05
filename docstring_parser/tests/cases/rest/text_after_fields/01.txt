@@ -1,0 +1,25 @@
+# Test that text after the fields of a docstring with no description
+# becomes its description, as if written before the fields.
+=== input
+:param x: The x.
+
+Some summary.
+
+More about it.
+=== parse rest
+short_description: 'Some summary.'
+long_description: 'More about it.'
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringParam
+  description: 'The x.'
+  kind: param
+  key: 'param'
+  arg_name: 'x'
+=== compose rest
+Some summary.
+
+More about it.
+
+:param x: The x.
