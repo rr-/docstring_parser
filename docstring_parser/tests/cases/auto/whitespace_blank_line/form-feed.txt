@@ -35,7 +35,15 @@ style: rest
   arg_name: 'a'
 === parse google
 short_description: 'Sum.'
-long_description: ':param a: x'
+long_description: |
+  :param a: x
+  
+  @param a: x
+  
+  Parameters
+  ----------
+  a
+      x
 blank_after_short_description: True
 blank_after_long_description: True
 style: google

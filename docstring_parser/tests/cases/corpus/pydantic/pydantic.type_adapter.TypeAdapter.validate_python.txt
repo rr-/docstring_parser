@@ -36,6 +36,10 @@ long_description: |
   If you record validations with [Logfire](../integrations/logfire.md), the complete object and trace
   context are retained alongside the error — `TypeAdapter` validations are captured the same way as
   model validations (see [Troubleshooting validation errors](../errors/troubleshooting.md)).
+  
+  !!! note
+      When using `TypeAdapter` with a Pydantic `dataclass`, the use of the `from_attributes`
+      argument is not supported.
 blank_after_short_description: True
 blank_after_long_description: True
 style: google
@@ -100,6 +104,10 @@ A [`ValidationError`][pydantic_core.ValidationError] reports the rejected locati
 If you record validations with [Logfire](../integrations/logfire.md), the complete object and trace
 context are retained alongside the error — `TypeAdapter` validations are captured the same way as
 model validations (see [Troubleshooting validation errors](../errors/troubleshooting.md)).
+
+!!! note
+    When using `TypeAdapter` with a Pydantic `dataclass`, the use of the `from_attributes`
+    argument is not supported.
 
 Args:
     object: The Python object to validate against the model.

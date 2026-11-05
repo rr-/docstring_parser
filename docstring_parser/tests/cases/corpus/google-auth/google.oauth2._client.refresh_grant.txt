@@ -33,7 +33,10 @@ Implements the OAuth 2.0 refresh token grant.
     
 === parse google
 short_description: 'Implements the OAuth 2.0 refresh token grant.'
-long_description: 'For more details, see `rfc678 section 6`_.'
+long_description: |
+  For more details, see `rfc678 section 6`_.
+  
+  .. _rfc6748 section 6: https://tools.ietf.org/html/rfc6749#section-6
 blank_after_short_description: True
 blank_after_long_description: True
 style: google
@@ -125,6 +128,8 @@ google
 Implements the OAuth 2.0 refresh token grant.
 
 For more details, see `rfc678 section 6`_.
+
+.. _rfc6748 section 6: https://tools.ietf.org/html/rfc6749#section-6
 
 Args:
     request (google.auth.transport.Request): A callable used to make

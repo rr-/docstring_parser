@@ -103,7 +103,37 @@ long_description: |
           ```
   
   A wrapper around Decimal that adds validation.
-blank_after_short_description: False
+  
+  ```python
+  from decimal import Decimal
+  
+  from pydantic import BaseModel, ValidationError, condecimal
+  
+  class ConstrainedExample(BaseModel):
+      constrained_decimal: condecimal(gt=Decimal('1.0'))
+  
+  m = ConstrainedExample(constrained_decimal=Decimal('1.1'))
+  print(repr(m))
+  #> ConstrainedExample(constrained_decimal=Decimal('1.1'))
+  
+  try:
+      ConstrainedExample(constrained_decimal=Decimal('0.9'))
+  except ValidationError as e:
+      print(e.errors())
+      '''
+      [
+          {
+              'type': 'greater_than',
+              'loc': ('constrained_decimal',),
+              'msg': 'Input should be greater than 1.0',
+              'input': Decimal('0.9'),
+              'ctx': {'gt': Decimal('1.0')},
+              'url': 'https://errors.pydantic.dev/2/v/greater_than',
+          }
+      ]
+      '''
+  ```
+blank_after_short_description: True
 blank_after_long_description: True
 style: google
 - DocstringParam
@@ -164,6 +194,7 @@ style: google
 google
 === compose google
 !!! warning "Discouraged"
+
 This function is **discouraged** in favor of using
     [`Annotated`](https://docs.python.org/3/library/typing.html#typing.Annotated) with
     [`Field`][pydantic.fields.Field] instead.
@@ -192,6 +223,36 @@ This function is **discouraged** in favor of using
         ```
 
 A wrapper around Decimal that adds validation.
+
+```python
+from decimal import Decimal
+
+from pydantic import BaseModel, ValidationError, condecimal
+
+class ConstrainedExample(BaseModel):
+    constrained_decimal: condecimal(gt=Decimal('1.0'))
+
+m = ConstrainedExample(constrained_decimal=Decimal('1.1'))
+print(repr(m))
+#> ConstrainedExample(constrained_decimal=Decimal('1.1'))
+
+try:
+    ConstrainedExample(constrained_decimal=Decimal('0.9'))
+except ValidationError as e:
+    print(e.errors())
+    '''
+    [
+        {
+            'type': 'greater_than',
+            'loc': ('constrained_decimal',),
+            'msg': 'Input should be greater than 1.0',
+            'input': Decimal('0.9'),
+            'ctx': {'gt': Decimal('1.0')},
+            'url': 'https://errors.pydantic.dev/2/v/greater_than',
+        }
+    ]
+    '''
+```
 
 Args:
     strict: Whether to validate the value in strict mode. Defaults to `None`.
