@@ -20,4 +20,5 @@ blank_after_long_description: True
 style: numpydoc
 - DocstringParam
   args: ['param', 'asd']
+  kind: param
   arg_name: 'asd'

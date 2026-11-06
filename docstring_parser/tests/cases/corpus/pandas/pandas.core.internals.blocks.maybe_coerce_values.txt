@@ -23,11 +23,13 @@ blank_after_long_description: True
 style: numpydoc
 - DocstringParam
   args: ['param', 'values']
+  kind: param
   arg_name: 'values'
   type_name: 'np.ndarray or ExtensionArray'
   is_optional: False
 - DocstringReturns
   args: ['returns']
+  kind: returns
   type_name: 'np.ndarray or ExtensionArray'
   is_generator: False
   return_name: 'values'

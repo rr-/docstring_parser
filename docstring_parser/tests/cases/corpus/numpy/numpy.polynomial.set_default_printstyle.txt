@@ -49,6 +49,7 @@ style: numpydoc
   description: |
     Format string for default printing style. Must be either 'ascii' or
     'unicode'.
+  kind: param
   arg_name: 'style'
   type_name: 'str'
   is_optional: False
@@ -58,9 +59,11 @@ style: numpydoc
     The default format depends on the platform: 'unicode' is used on
     Unix-based systems and 'ascii' on Windows. This determination is based on
     default font support for the unicode superscript and subscript ranges.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: '1.0 + 2.0·x + 3.0·x²'
+  kind: examples
   snippet: |
     >>> p = np.polynomial.Polynomial([1, 2, 3])
     >>> c = np.polynomial.Chebyshev([1, 2, 3])
@@ -69,20 +72,24 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: '1.0 + 2.0·T₁(x) + 3.0·T₂(x)'
+  kind: examples
   snippet: '>>> print(c)'
 - DocstringExample
   args: ['examples']
   description: '1.0 + 2.0 x + 3.0 x**2'
+  kind: examples
   snippet: |
     >>> np.polynomial.set_default_printstyle('ascii')
     >>> print(p)
 - DocstringExample
   args: ['examples']
   description: '1.0 + 2.0 T_1(x) + 3.0 T_2(x)'
+  kind: examples
   snippet: '>>> print(c)'
 - DocstringExample
   args: ['examples']
   description: '1.0 + 2.0·x + 3.0·x²'
+  kind: examples
   snippet: |
     >>> # Formatting supersedes all class/package-level defaults
     >>> print(f"{p:unicode}")

@@ -13,9 +13,11 @@ style: rest
 - DocstringParam
   args: ['param', 'headers']
   description: 'dictionary to extract encoding from.'
+  kind: param
   arg_name: 'headers'
 - DocstringReturns
   args: []
+  kind: returns
   type_name: 'str'
   is_generator: False
 === detect

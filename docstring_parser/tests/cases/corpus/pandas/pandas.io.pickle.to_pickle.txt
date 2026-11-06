@@ -85,6 +85,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'obj']
   description: 'Any python object.'
+  kind: param
   arg_name: 'obj'
   type_name: 'any object'
   is_optional: False
@@ -98,6 +99,7 @@ style: numpydoc
     Certain URL schemes may require additional packages. For example, S3
     URLs require the ``s3fs`` library. See
     :ref:`install.optional_dependencies` for a full list.
+  kind: param
   arg_name: 'filepath_or_buffer'
   type_name: 'str, path object, or file-like object'
   is_optional: False
@@ -118,6 +120,7 @@ style: numpydoc
     As an example, the following could be passed for faster compression
     and to create a reproducible gzip archive:
     ``compression={'method': 'gzip', 'compresslevel': 1, 'mtime': 1}``.
+  kind: param
   arg_name: 'compression'
   type_name: 'str or dict'
   is_optional: True
@@ -129,6 +132,7 @@ style: numpydoc
     default ``pickle.HIGHEST_PROTOCOL`` (see [1]_). A negative value for
     the protocol parameter is equivalent to setting its value to
     ``pickle.HIGHEST_PROTOCOL``.
+  kind: param
   arg_name: 'protocol'
   type_name: 'int'
   is_optional: False
@@ -145,6 +149,7 @@ style: numpydoc
     highlight=storage_options#reading-writing-remote-files>`_.
     
     .. [1] https://docs.python.org/3/library/pickle.html
+  kind: param
   arg_name: 'storage_options'
   type_name: 'dict'
   is_optional: True
@@ -155,11 +160,13 @@ style: numpydoc
     DataFrame.to_hdf : Write DataFrame to an HDF5 file.
     DataFrame.to_sql : Write DataFrame to a SQL database.
     DataFrame.to_parquet : Write a DataFrame to the binary parquet format.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
     ...     {"foo": range(5), "bar": range(5, 10)}
     ... )  # doctest: +SKIP
+  kind: examples
   snippet: '>>> original_df = pd.DataFrame('
 - DocstringExample
   args: ['examples']
@@ -170,10 +177,12 @@ style: numpydoc
     2    2    7
     3    3    8
     4    4    9
+  kind: examples
   snippet: '>>> original_df  # doctest: +SKIP'
 - DocstringExample
   args: ['examples']
   description: ''
+  kind: examples
   snippet: '>>> pd.to_pickle(original_df, "./dummy.pkl")  # doctest: +SKIP'
 - DocstringExample
   args: ['examples']
@@ -184,6 +193,7 @@ style: numpydoc
     2    2    7
     3    3    8
     4    4    9
+  kind: examples
   snippet: |
     >>> unpickled_df = pd.read_pickle("./dummy.pkl")  # doctest: +SKIP
     >>> unpickled_df  # doctest: +SKIP

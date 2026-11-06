@@ -21,22 +21,27 @@ style: google
 - DocstringParam
   args: ['param', 'obj']
   description: 'The configuration object.'
+  kind: param
   arg_name: 'obj'
 - DocstringParam
   args: ['param', 'env']
   description: "Whether to merge with the parsed environment, ``None`` to use the parser's default."
+  kind: param
   arg_name: 'env'
 - DocstringParam
   args: ['param', 'defaults']
   description: "Whether to merge with the parser's defaults."
+  kind: param
   arg_name: 'defaults'
 - DocstringReturns
   args: ['returns']
   description: 'A config object with all parsed values.'
+  kind: returns
   is_generator: False
 - DocstringRaises
   args: ['raises', 'ArgumentError']
   description: 'If the parsing fails and ``exit_on_error=False``.'
+  kind: raises
   type_name: 'ArgumentError'
 === detect
 google

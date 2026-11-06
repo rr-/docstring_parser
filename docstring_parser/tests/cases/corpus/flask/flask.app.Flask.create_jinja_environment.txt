@@ -29,6 +29,7 @@ style: rest
   description: |
     `jinja_options` after this will have no effect. Also adds
     Flask-related globals and filters to the environment.
+  kind: text
 === detect
 rest
 === compose rest

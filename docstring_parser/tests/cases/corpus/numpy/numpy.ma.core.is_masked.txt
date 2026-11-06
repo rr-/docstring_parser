@@ -56,12 +56,14 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'x']
   description: 'Array to check for masked values.'
+  kind: param
   arg_name: 'x'
   type_name: 'array_like'
   is_optional: False
 - DocstringReturns
   args: ['returns']
   description: 'True if `x` is a MaskedArray with masked values, False otherwise.'
+  kind: returns
   type_name: 'bool'
   is_generator: False
   return_name: 'result'
@@ -71,6 +73,7 @@ style: numpydoc
     masked_array(data=[--, 1, --, 2, 3],
                  mask=[ True, False,  True, False, False],
            fill_value=0)
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> import numpy.ma as ma
@@ -79,6 +82,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: 'True'
+  kind: examples
   snippet: '>>> ma.is_masked(x)'
 - DocstringExample
   args: ['examples']
@@ -86,6 +90,7 @@ style: numpydoc
     masked_array(data=[0, 1, 0, 2, 3],
                  mask=False,
            fill_value=42)
+  kind: examples
   snippet: |
     >>> x = ma.masked_equal([0, 1, 0, 2, 3], 42)
     >>> x
@@ -96,16 +101,19 @@ style: numpydoc
     
     Always returns False if `x` isn't a MaskedArray.
     
+  kind: examples
   snippet: '>>> ma.is_masked(x)'
 - DocstringExample
   args: ['examples']
   description: 'False'
+  kind: examples
   snippet: |
     >>> x = [False, True, False]
     >>> ma.is_masked(x)
 - DocstringExample
   args: ['examples']
   description: 'False'
+  kind: examples
   snippet: |
     >>> x = 'a string'
     >>> ma.is_masked(x)

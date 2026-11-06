@@ -113,18 +113,21 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'h']
   description: '1-D FIR (finite-impulse response) filter coefficients.'
+  kind: param
   arg_name: 'h'
   type_name: 'array_like'
   is_optional: False
 - DocstringParam
   args: ['param', 'x']
   description: 'Input signal array.'
+  kind: param
   arg_name: 'x'
   type_name: 'array_like'
   is_optional: False
 - DocstringParam
   args: ['param', 'up']
   description: 'Upsampling rate. Default is 1.'
+  kind: param
   arg_name: 'up'
   type_name: 'int'
   is_optional: True
@@ -132,6 +135,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'down']
   description: 'Downsampling rate. Default is 1.'
+  kind: param
   arg_name: 'down'
   type_name: 'int'
   is_optional: True
@@ -142,6 +146,7 @@ style: numpydoc
     The axis of the input data array along which to apply the
     linear filter. The filter is applied to each subarray along
     this axis. Default is -1.
+  kind: param
   arg_name: 'axis'
   type_name: 'int'
   is_optional: True
@@ -159,6 +164,7 @@ style: numpydoc
     first and last points along the ``axis``.
     
     .. versionadded:: 1.4.0
+  kind: param
   arg_name: 'mode'
   type_name: 'str'
   is_optional: True
@@ -168,6 +174,7 @@ style: numpydoc
     The constant value to use when ``mode == "constant"``.
     
     .. versionadded:: 1.4.0
+  kind: param
   arg_name: 'cval'
   type_name: 'float'
   is_optional: True
@@ -177,6 +184,7 @@ style: numpydoc
     The output signal array. Dimensions will be the same as `x` except
     for along `axis`, which will change size according to the `h`,
     `up`,  and `down` parameters.
+  kind: returns
   type_name: 'ndarray'
   is_generator: False
   return_name: 'y'
@@ -192,19 +200,23 @@ style: numpydoc
     O(N/P).
     
     .. versionadded:: 0.18
+  kind: text
 - DocstringMeta
   args: ['references']
   description: |
     .. [1] P. P. Vaidyanathan, Multirate Systems and Filter Banks,
            Prentice Hall, 1993.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
     Simple operations:
     
+  kind: examples
 - DocstringExample
   args: ['examples']
   description: 'array([ 1.,  2.,  3.,  2.,  1.])'
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> from scipy.signal import upfirdn
@@ -212,18 +224,22 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: 'array([ 1.,  0.,  0.,  2.,  0.,  0.,  3.])'
+  kind: examples
   snippet: '>>> upfirdn([1], [1, 2, 3], 3)  # upsampling with zeros insertion'
 - DocstringExample
   args: ['examples']
   description: 'array([ 1.,  1.,  1.,  2.,  2.,  2.,  3.,  3.,  3.])'
+  kind: examples
   snippet: '>>> upfirdn([1, 1, 1], [1, 2, 3], 3)  # upsampling with sample-and-hold'
 - DocstringExample
   args: ['examples']
   description: 'array([ 0.5,  1. ,  1. ,  1. ,  1. ,  1. ,  0.5])'
+  kind: examples
   snippet: '>>> upfirdn([.5, 1, .5], [1, 1, 1], 2)  # linear interpolation'
 - DocstringExample
   args: ['examples']
   description: 'array([ 0.,  3.,  6.,  9.])'
+  kind: examples
   snippet: '>>> upfirdn([1], np.arange(10), 1, 3)  # decimation by 3'
 - DocstringExample
   args: ['examples']
@@ -232,6 +248,7 @@ style: numpydoc
     
     Apply a single filter to multiple signals:
     
+  kind: examples
   snippet: '>>> upfirdn([.5, 1, .5], np.arange(10), 2, 3)  # linear interp, rate 2/3'
 - DocstringExample
   args: ['examples']
@@ -243,6 +260,7 @@ style: numpydoc
     
     Apply along the last dimension of ``x``:
     
+  kind: examples
   snippet: |
     >>> x = np.reshape(np.arange(8), (4, 2))
     >>> x
@@ -256,6 +274,7 @@ style: numpydoc
     
     Apply along the 0th dimension of ``x``:
     
+  kind: examples
   snippet: |
     >>> h = [1, 1]
     >>> upfirdn(h, x, 2)
@@ -270,6 +289,7 @@ style: numpydoc
            [ 4.,  5.],
            [ 6.,  7.],
            [ 6.,  7.]])
+  kind: examples
   snippet: '>>> upfirdn(h, x, 2, axis=0)'
 === detect
 numpydoc

@@ -15,5 +15,6 @@ style: numpydoc
 - DocstringReturns
   args: ['yields']
   description: 'description'
+  kind: yields
   type_name: 'int'
   is_generator: True

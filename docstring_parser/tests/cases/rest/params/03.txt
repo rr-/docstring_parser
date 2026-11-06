@@ -15,11 +15,13 @@ style: rest
 - DocstringParam
   args: ['param', 'a']
   description: 'description a'
+  kind: param
   arg_name: 'a'
   type_name: 'int'
 - DocstringParam
   args: ['param', 'int', 'b']
   description: 'description b'
+  kind: param
   arg_name: 'b'
   type_name: 'int'
   is_optional: False

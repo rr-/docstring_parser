@@ -13,5 +13,6 @@ style: epydoc
 - DocstringReturns
   args: ['return']
   description: 'description'
+  kind: returns
   type_name: 'int'
   is_generator: False

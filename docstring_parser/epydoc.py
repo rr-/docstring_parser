@@ -15,11 +15,20 @@ from .common import (
     DocstringRaises,
     DocstringReturns,
     DocstringStyle,
+    Kind,
     ParseError,
     RenderingStyle,
     cleandoc,
     excerpt,
 )
+
+# The kinds of param that Epydoc fields other than ``@param`` give.
+_PARAM_KINDS = {
+    "keyword": Kind.KEYWORD,
+    "ivar": Kind.ATTRIBUTE,
+    "cvar": Kind.ATTRIBUTE,
+    "var": Kind.ATTRIBUTE,
+}
 
 
 def parse(text: T.Optional[str]) -> Docstring:
@@ -165,13 +174,15 @@ def parse(text: T.Optional[str]) -> Docstring:
             match = re.match(r".*defaults to (.+)", desc, flags=re.DOTALL)
             default = match.group(1).rstrip(".") if match else None
 
+            param_key = info.get("key", key)
             meta_item = DocstringParam(
-                args=[info.get("key", key), arg_name],
+                args=[param_key, arg_name],
                 description=info.get("description"),
                 arg_name=arg_name,
                 type_name=type_name,
                 is_optional=is_optional,
                 default=default,
+                kind=_PARAM_KINDS.get(param_key, Kind.PARAM),
             )
             is_done[arg_name] = True
         elif base == "return" and not is_done.get("return", False):

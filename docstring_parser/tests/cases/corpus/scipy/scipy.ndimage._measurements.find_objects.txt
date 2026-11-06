@@ -72,6 +72,7 @@ style: numpydoc
   description: |
     Array containing objects defined by different labels. Labels with
     value 0 are ignored.
+  kind: param
   arg_name: 'input'
   type_name: 'ndarray of ints'
   is_optional: False
@@ -80,6 +81,7 @@ style: numpydoc
   description: |
     Maximum label to be searched for in `input`. If max_label is not
     given, the positions of all objects are returned.
+  kind: param
   arg_name: 'max_label'
   type_name: 'int'
   is_optional: True
@@ -91,17 +93,20 @@ style: numpydoc
     parallelepiped that contains the object. If a number is missing,
     None is returned instead of a slice. The label ``l`` corresponds to
     the index ``l-1`` in the returned list.
+  kind: returns
   type_name: 'list of tuples'
   is_generator: False
   return_name: 'object_slices'
 - DocstringMeta
   args: ['see_also']
   description: 'label, center_of_mass'
+  kind: text
 - DocstringMeta
   args: ['notes']
   description: |
     This function is very useful for isolating a volume of interest inside
     a 3-D array, that cannot be "seen through".
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
@@ -111,6 +116,7 @@ style: numpydoc
            [0, 0, 1, 1, 0, 0],
            [0, 0, 0, 0, 1, 0],
            [0, 0, 0, 0, 0, 0]])
+  kind: examples
   snippet: |
     >>> from scipy import ndimage
     >>> import numpy as np
@@ -126,16 +132,19 @@ style: numpydoc
     [(slice(2, 5, None), slice(2, 5, None)),
      (slice(0, 2, None), slice(0, 3, None)),
      (slice(0, 1, None), slice(5, 6, None))]
+  kind: examples
   snippet: '>>> ndimage.find_objects(a)'
 - DocstringExample
   args: ['examples']
   description: '[(slice(2, 5, None), slice(2, 5, None)), (slice(0, 2, None), slice(0, 3, None))]'
+  kind: examples
   snippet: '>>> ndimage.find_objects(a, max_label=2)'
 - DocstringExample
   args: ['examples']
   description: |
     [(slice(2, 5, None), slice(2, 5, None)), None]
     
+  kind: examples
   snippet: '>>> ndimage.find_objects(a == 1, max_label=2)'
 - DocstringExample
   args: ['examples']
@@ -143,6 +152,7 @@ style: numpydoc
     array([[1, 1, 0],
            [1, 1, 0],
            [0, 0, 1]])
+  kind: examples
   snippet: |
     >>> loc = ndimage.find_objects(a)[0]
     >>> a[loc]

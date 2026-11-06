@@ -32,6 +32,7 @@ style: google
   description: |
     The maximum amount of retries that should happen.
     The default value is 3 attempts.
+  kind: param
   arg_name: 'total_attempts Optional[int]'
 - DocstringParam
   args: ['param', 'initial_wait_seconds Optional[int]']
@@ -39,6 +40,7 @@ style: google
     The amount of time to sleep in the first backoff. This parameter
     should be in seconds.
     The default value is 1 second.
+  kind: param
   arg_name: 'initial_wait_seconds Optional[int]'
 - DocstringParam
   args: ['param', 'randomization_factor Optional[float]']
@@ -47,6 +49,7 @@ style: google
     a value of 0.1 will introduce a jitter range of 10% to the
     current backoff period.
     The default value is 0.1.
+  kind: param
   arg_name: 'randomization_factor Optional[float]'
 - DocstringParam
   args: ['param', 'multiplier Optional[float]']
@@ -56,6 +59,7 @@ style: google
     on each attempt. If the initial_wait is 1.0 it would look like
     this sequence [1.0, 2.0, 4.0, 8.0].
     The default value is 2.0.
+  kind: param
   arg_name: 'multiplier Optional[float]'
 === detect
 google

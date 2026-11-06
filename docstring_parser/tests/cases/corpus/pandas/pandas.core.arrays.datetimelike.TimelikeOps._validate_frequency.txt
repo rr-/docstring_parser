@@ -20,12 +20,14 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'index']
   description: 'The index on which to determine if the given frequency is valid'
+  kind: param
   arg_name: 'index'
   type_name: 'DatetimeIndex or TimedeltaIndex'
   is_optional: False
 - DocstringParam
   args: ['param', 'freq']
   description: 'The frequency to validate'
+  kind: param
   arg_name: 'freq'
   type_name: 'DateOffset'
   is_optional: False

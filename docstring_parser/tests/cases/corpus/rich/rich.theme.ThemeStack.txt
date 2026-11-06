@@ -13,6 +13,7 @@ style: google
 - DocstringParam
   args: ['param', 'theme (Theme)']
   description: 'A theme instance'
+  kind: param
   arg_name: 'theme'
   type_name: 'Theme'
   is_optional: False

@@ -12,6 +12,7 @@ style: google
 - DocstringReturns
   args: ['returns']
   description: 'The value: with a colon.'
+  kind: returns
   is_generator: False
 === compose google
 Short.

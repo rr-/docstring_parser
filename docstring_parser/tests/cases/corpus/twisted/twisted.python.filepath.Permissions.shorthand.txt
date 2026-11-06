@@ -19,6 +19,7 @@ style: epydoc
 - DocstringReturns
   args: ['return']
   description: 'The shorthand string.'
+  kind: returns
   type_name: 'L{str}'
   is_generator: False
 === detect

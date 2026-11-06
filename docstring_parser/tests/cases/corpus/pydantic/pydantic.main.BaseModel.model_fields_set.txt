@@ -16,6 +16,7 @@ style: google
   description: |
     A set of strings representing the fields that have been set,
     i.e. that were not filled from defaults.
+  kind: returns
   is_generator: False
 === detect
 google

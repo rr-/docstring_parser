@@ -17,12 +17,14 @@ style: numpydoc
 - DocstringReturns
   args: ['returns']
   description: 'description for a'
+  kind: returns
   type_name: 'int'
   is_generator: False
   return_name: 'a'
 - DocstringReturns
   args: ['returns']
   description: 'description for b'
+  kind: returns
   type_name: 'str'
   is_generator: False
   return_name: 'b'

@@ -12,6 +12,7 @@ style: google
 - DocstringParam
   args: ['param', 'value) (int)']
   description: 'description'
+  kind: param
   arg_name: 'value)'
   type_name: 'int'
   is_optional: False

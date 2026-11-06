@@ -45,13 +45,16 @@ style: rest
 - DocstringMeta
   args: ['func']
   description: '`dump_header` function.'
+  kind: text
 - DocstringParam
   args: ['param', 'value']
   description: 'a string with a list header.'
+  kind: param
   arg_name: 'value'
 - DocstringReturns
   args: ['return']
   description: ':class:`list`'
+  kind: returns
   type_name: 'list'
   is_generator: False
 === detect

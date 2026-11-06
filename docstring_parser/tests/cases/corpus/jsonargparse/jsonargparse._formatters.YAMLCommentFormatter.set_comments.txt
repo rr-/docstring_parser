@@ -17,22 +17,27 @@ style: google
 - DocstringParam
   args: ['param', 'cfg']
   description: 'The ruamel.yaml object.'
+  kind: param
   arg_name: 'cfg'
 - DocstringParam
   args: ['param', 'parser']
   description: 'The parser from which help content is obtained.'
+  kind: param
   arg_name: 'parser'
 - DocstringParam
   args: ['param', 'group_titles']
   description: 'Map of parser keys to the title of the group they belong to.'
+  kind: param
   arg_name: 'group_titles'
 - DocstringParam
   args: ['param', 'prefix']
   description: 'The parser key that corresponds to the given config object.'
+  kind: param
   arg_name: 'prefix'
 - DocstringParam
   args: ['param', 'depth']
   description: 'The nested level of the keys of the config object.'
+  kind: param
   arg_name: 'depth'
 === detect
 google

@@ -28,6 +28,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'm']
   description: 'Find the derivative of order `m`.'
+  kind: param
   arg_name: 'm'
   type_name: 'non-negative int'
   is_optional: False
@@ -36,6 +37,7 @@ style: numpydoc
   description: |
     A new series representing the derivative. The domain is the same
     as the domain of the differentiated series.
+  kind: returns
   type_name: 'series'
   is_generator: False
   return_name: 'new_series'

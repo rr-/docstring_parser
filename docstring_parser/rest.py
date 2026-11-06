@@ -20,11 +20,19 @@ from .common import (
     DocstringRaises,
     DocstringReturns,
     DocstringStyle,
+    Kind,
     ParseError,
     RenderingStyle,
     continuation_indented,
     excerpt,
 )
+
+# The kinds of param that ReST fields other than ``:param:`` give.
+_PARAM_KINDS = {
+    "key": Kind.KEYWORD,
+    "keyword": Kind.KEYWORD,
+    "attribute": Kind.ATTRIBUTE,
+}
 
 
 def _build_meta(args: T.List[str], desc: str) -> DocstringMeta:
@@ -57,6 +65,7 @@ def _build_meta(args: T.List[str], desc: str) -> DocstringMeta:
             type_name=type_name,
             is_optional=is_optional,
             default=default,
+            kind=_PARAM_KINDS.get(key, Kind.PARAM),
         )
 
     if key in RETURNS_KEYWORDS | YIELDS_KEYWORDS:

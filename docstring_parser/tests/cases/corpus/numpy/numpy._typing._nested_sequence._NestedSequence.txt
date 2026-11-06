@@ -47,11 +47,13 @@ style: numpydoc
   description: |
     `_NestedSequence` currently does not work in combination with typevars,
     *e.g.* ``def func(a: _NestedSequence[T]) -> T: ...``.
+  kind: text
 - DocstringMeta
   args: ['see_also']
   description: |
     collections.abc.Sequence
         ABCs for read-only and mutable :term:`sequences`.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
@@ -76,6 +78,7 @@ style: numpydoc
         ...     # note:     b: numpy.dtype[numpy.floating[numpy._typing._64Bit]]
         ...     # note:     c: numpy.dtype[numpy.floating[numpy._typing._64Bit]]
         ...     # note:     d: numpy.dtype[numpy.floating[numpy._typing._64Bit]]
+  kind: examples
 === detect
 numpydoc
 === compose numpydoc

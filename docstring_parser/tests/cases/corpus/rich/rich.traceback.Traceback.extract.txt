@@ -25,24 +25,28 @@ style: google
 - DocstringParam
   args: ['param', 'exc_type (Type[BaseException])']
   description: 'Exception type.'
+  kind: param
   arg_name: 'exc_type'
   type_name: 'Type[BaseException]'
   is_optional: False
 - DocstringParam
   args: ['param', 'exc_value (BaseException)']
   description: 'Exception value.'
+  kind: param
   arg_name: 'exc_value'
   type_name: 'BaseException'
   is_optional: False
 - DocstringParam
   args: ['param', 'traceback (TracebackType)']
   description: 'Python Traceback object.'
+  kind: param
   arg_name: 'traceback'
   type_name: 'TracebackType'
   is_optional: False
 - DocstringParam
   args: ['param', 'show_locals (bool, optional)']
   description: 'Enable display of local variables. Defaults to False.'
+  kind: param
   arg_name: 'show_locals'
   type_name: 'bool'
   is_optional: True
@@ -52,12 +56,14 @@ style: google
   description: |
     Maximum length of containers before abbreviating, or None for no abbreviation.
     Defaults to 10.
+  kind: param
   arg_name: 'locals_max_length'
   type_name: 'int'
   is_optional: True
 - DocstringParam
   args: ['param', 'locals_max_string (int, optional)']
   description: 'Maximum length of string before truncating, or None to disable. Defaults to 80.'
+  kind: param
   arg_name: 'locals_max_string'
   type_name: 'int'
   is_optional: True
@@ -65,6 +71,7 @@ style: google
 - DocstringParam
   args: ['param', 'locals_max_depth (int, optional)']
   description: 'Maximum depths of locals before truncating, or None to disable. Defaults to None.'
+  kind: param
   arg_name: 'locals_max_depth'
   type_name: 'int'
   is_optional: True
@@ -72,6 +79,7 @@ style: google
 - DocstringParam
   args: ['param', 'locals_hide_dunder (bool, optional)']
   description: 'Hide locals prefixed with double underscore. Defaults to True.'
+  kind: param
   arg_name: 'locals_hide_dunder'
   type_name: 'bool'
   is_optional: True
@@ -79,6 +87,7 @@ style: google
 - DocstringParam
   args: ['param', 'locals_hide_sunder (bool, optional)']
   description: 'Hide locals prefixed with single underscore. Defaults to False.'
+  kind: param
   arg_name: 'locals_hide_sunder'
   type_name: 'bool'
   is_optional: True
@@ -86,6 +95,7 @@ style: google
 - DocstringReturns
   args: ['returns', 'Trace']
   description: 'A Trace instance which you can use to construct a `Traceback`.'
+  kind: returns
   type_name: 'Trace'
   is_generator: False
 === detect

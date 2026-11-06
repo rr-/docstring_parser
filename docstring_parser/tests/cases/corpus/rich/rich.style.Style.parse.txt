@@ -19,16 +19,19 @@ style: google
 - DocstringParam
   args: ['param', 'style_definition (str)']
   description: 'A string containing a style.'
+  kind: param
   arg_name: 'style_definition'
   type_name: 'str'
   is_optional: False
 - DocstringRaises
   args: ['raises', 'errors.StyleSyntaxError']
   description: 'If the style definition syntax is invalid.'
+  kind: raises
   type_name: 'errors.StyleSyntaxError'
 - DocstringReturns
   args: ['returns', '`Style`']
   description: 'A Style instance.'
+  kind: returns
   type_name: '`Style`'
   is_generator: False
 === detect

@@ -19,14 +19,17 @@ style: google
 - DocstringParam
   args: ['param', 'value']
   description: 'The input value to parse.'
+  kind: param
   arg_name: 'value'
 - DocstringReturns
   args: ['returns']
   description: 'The parsed value as a float, or `None` if the value was None or equal 1.'
+  kind: returns
   is_generator: False
 - DocstringRaises
   args: ['raises', 'PydanticCustomError']
   description: 'If the input value cannot be successfully parsed as a float in the expected range.'
+  kind: raises
   type_name: 'PydanticCustomError'
 === detect
 google

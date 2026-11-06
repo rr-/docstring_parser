@@ -18,6 +18,7 @@ style: google
   description: |
     The most similar Box that doesn't use header-specific box characters.
     If the current Box already satisfies this criterion, then it's returned.
+  kind: returns
   type_name: 'Box'
   is_generator: False
 === detect

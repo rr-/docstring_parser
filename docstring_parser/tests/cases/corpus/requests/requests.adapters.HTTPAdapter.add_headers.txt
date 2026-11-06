@@ -25,13 +25,16 @@ style: rest
 - DocstringMeta
   args: ['class']
   description: '`HTTPAdapter <requests.adapters.HTTPAdapter>`.'
+  kind: text
 - DocstringParam
   args: ['param', 'request']
   description: 'The :class:`PreparedRequest <PreparedRequest>` to add headers to.'
+  kind: param
   arg_name: 'request'
 - DocstringParam
   args: ['param', 'kwargs']
   description: 'The keyword arguments from the call to send().'
+  kind: param
   arg_name: 'kwargs'
 === detect
 rest

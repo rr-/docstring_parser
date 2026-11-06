@@ -16,10 +16,12 @@ style: google
 - DocstringParam
   args: ['param', 'key']
   description: 'The key where the nested namespace is created.'
+  kind: param
   arg_name: 'key'
 - DocstringReturns
   args: ['returns']
   description: 'The created nested namespace.'
+  kind: returns
   is_generator: False
 === detect
 google

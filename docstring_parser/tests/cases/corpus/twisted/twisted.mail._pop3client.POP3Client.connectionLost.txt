@@ -24,6 +24,7 @@ style: epydoc
 - DocstringParam
   args: ['param', 'reason']
   description: 'The reason the connection was terminated.'
+  kind: param
   arg_name: 'reason'
   type_name: 'L{Failure <twisted.python.failure.Failure>}'
   is_optional: False

@@ -21,6 +21,7 @@ from .common import (
     DocstringRaises,
     DocstringReturns,
     DocstringStyle,
+    Kind,
     ParseError,
     RenderingStyle,
     cleandoc,
@@ -115,6 +116,14 @@ def _split_typed_arg(text: str) -> T.Optional[T.Tuple[str, str]]:
     if not type_name:
         return None
     return name, type_name
+
+
+# The kinds of param that section keys other than ``param`` give.
+_PARAM_KINDS = {
+    "key": Kind.KEYWORD,
+    "keyword": Kind.KEYWORD,
+    "attribute": Kind.ATTRIBUTE,
+}
 
 
 class GoogleParser:
@@ -236,6 +245,7 @@ class GoogleParser:
                 type_name=type_name,
                 is_optional=is_optional,
                 default=default,
+                kind=_PARAM_KINDS.get(section.key, Kind.PARAM),
             )
         if section.key in RETURNS_KEYWORDS | YIELDS_KEYWORDS:
             return DocstringReturns(

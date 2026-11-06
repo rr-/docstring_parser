@@ -30,18 +30,21 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'col']
   description: 'The name of the column.'
+  kind: param
   arg_name: 'col'
   type_name: 'str'
   is_optional: False
 - DocstringParam
   args: ['param', 'na_values']
   description: 'The object listing the NaN values as strings.'
+  kind: param
   arg_name: 'na_values'
   type_name: 'array-like, dict'
   is_optional: False
 - DocstringParam
   args: ['param', 'na_fvalues']
   description: 'The object listing the NaN values as floats.'
+  kind: param
   arg_name: 'na_fvalues'
   type_name: 'array-like, dict'
   is_optional: False
@@ -50,6 +53,7 @@ style: numpydoc
   description: |
     If `na_values` is a dict, and the column is not mapped in the
     dictionary, whether to return the default NaN values or the empty set.
+  kind: param
   arg_name: 'keep_default_na'
   type_name: 'bool'
   is_optional: False
@@ -58,6 +62,7 @@ style: numpydoc
   description: |
     1) na_values : the string NaN values for that column.
     2) na_fvalues : the float NaN values for that column.
+  kind: returns
   type_name: 'A length-two tuple composed of'
   is_generator: False
   return_name: 'nan_tuple'

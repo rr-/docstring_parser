@@ -18,18 +18,22 @@ style: google
 - DocstringParam
   args: ['param', 'text']
   description: 'String to adjust.'
+  kind: param
   arg_name: 'text'
 - DocstringParam
   args: ['param', 'total']
   description: 'Desired size in cells.'
+  kind: param
   arg_name: 'total'
 - DocstringParam
   args: ['param', 'unicode_version']
   description: 'Unicode version.'
+  kind: param
   arg_name: 'unicode_version'
 - DocstringReturns
   args: ['returns']
   description: 'A string with cell size equal to total.'
+  kind: returns
   is_generator: False
 === detect
 google

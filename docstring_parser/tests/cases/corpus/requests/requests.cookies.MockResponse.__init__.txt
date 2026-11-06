@@ -12,6 +12,7 @@ style: rest
 - DocstringParam
   args: ['param', 'headers']
   description: 'a httplib.HTTPMessage or analogous carrying the headers'
+  kind: param
   arg_name: 'headers'
 === detect
 rest

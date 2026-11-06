@@ -29,38 +29,47 @@ style: google
 - DocstringParam
   args: ['param', 'env_prefix']
   description: 'Prefix for environment variables. ``True`` to derive from ``prog``.'
+  kind: param
   arg_name: 'env_prefix'
 - DocstringParam
   args: ['param', 'formatter_class']
   description: 'Class for printing help messages.'
+  kind: param
   arg_name: 'formatter_class'
 - DocstringParam
   args: ['param', 'logger']
   description: 'Logger to use or configuration for logger.'
+  kind: param
   arg_name: 'logger'
 - DocstringParam
   args: ['param', 'version']
   description: 'Program version which will be printed by the ``--version`` argument.'
+  kind: param
   arg_name: 'version'
 - DocstringParam
   args: ['param', 'print_config']
   description: 'Name for print config argument, ``%s`` is replaced by config dest, set ``None`` to disable.'
+  kind: param
   arg_name: 'print_config'
 - DocstringParam
   args: ['param', 'parser_mode']
   description: 'Mode for parsing values: ``yaml``, ``json``, ``jsonnet`` or added via :func:`.set_loader`.'
+  kind: param
   arg_name: 'parser_mode'
 - DocstringParam
   args: ['param', 'dump_header']
   description: 'Header to include as comment when dumping a config object.'
+  kind: param
   arg_name: 'dump_header'
 - DocstringParam
   args: ['param', 'default_config_files']
   description: "Default config file locations, e.g. ``['~/.config/myapp/*.yaml']``."
+  kind: param
   arg_name: 'default_config_files'
 - DocstringParam
   args: ['param', 'default_env']
   description: 'Set the default value on whether to parse environment variables.'
+  kind: param
   arg_name: 'default_env'
 === detect
 google

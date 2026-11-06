@@ -23,6 +23,7 @@ style: epydoc
 - DocstringParam
   args: ['param', 'name']
   description: 'DNS name to resolve.'
+  kind: param
   arg_name: 'name'
   is_optional: False
 - DocstringParam
@@ -30,6 +31,7 @@ style: epydoc
   description: |
     Number of seconds after which to reissue the query.
     When the last timeout expires, the query is considered failed.
+  kind: param
   arg_name: 'timeout'
   is_optional: False
 - DocstringReturns
@@ -42,6 +44,7 @@ style: epydoc
     information.  The L{Deferred} may instead fail with one of the
     exceptions defined in L{twisted.names.error} or with
     C{NotImplementedError}.
+  kind: returns
   is_generator: False
 === detect
 epydoc

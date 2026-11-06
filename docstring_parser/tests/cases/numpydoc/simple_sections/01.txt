@@ -37,12 +37,15 @@ style: numpydoc
   description: |
     something : some thing you can also see
     actually, anything can go in this section
+  kind: text
 - DocstringMeta
   args: ['warnings']
   description: 'Here be dragons'
+  kind: text
 - DocstringMeta
   args: ['notes']
   description: 'None of this is real'
+  kind: text
 - DocstringMeta
   args: ['references']
   description: |
@@ -54,3 +57,4 @@ style: numpydoc
        modelling of the Highland Haggis using object-oriented, fuzzy-logic
        and neural-network techniques," Computers & Geosciences, vol. 22,
        pp. 585-588, 1996.
+  kind: text

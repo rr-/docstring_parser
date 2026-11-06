@@ -68,6 +68,7 @@ style: numpydoc
   description: |
     Number of periods (or increments) to shift by,
     can be positive or negative.
+  kind: param
   arg_name: 'periods'
   type_name: 'int'
   is_optional: True
@@ -78,27 +79,32 @@ style: numpydoc
     Frequency increment to shift by.
     If None, the index is shifted by its own `freq` attribute.
     Offset aliases are valid strings, e.g., 'D', 'W', 'M' etc.
+  kind: param
   arg_name: 'freq'
   type_name: 'pandas.DateOffset, pandas.Timedelta or str'
   is_optional: True
 - DocstringReturns
   args: ['returns']
   description: 'Shifted index.'
+  kind: returns
   type_name: 'pandas.Index'
   is_generator: False
 - DocstringMeta
   args: ['see_also']
   description: 'Series.shift : Shift values of Series.'
+  kind: text
 - DocstringMeta
   args: ['notes']
   description: |
     This method is only implemented for datetime-like index classes,
     i.e., DatetimeIndex, PeriodIndex and TimedeltaIndex.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
     Put the first 5 month starts of 2011 into an index.
     
+  kind: examples
 - DocstringExample
   args: ['examples']
   description: |
@@ -108,6 +114,7 @@ style: numpydoc
     
     Shift the index by 10 days.
     
+  kind: examples
   snippet: |
     >>> month_starts = pd.date_range("1/1/2011", periods=5, freq="MS")
     >>> month_starts
@@ -121,6 +128,7 @@ style: numpydoc
     The default value of `freq` is the `freq` attribute of the index,
     which is 'MS' (month start) in this example.
     
+  kind: examples
   snippet: '>>> month_starts.shift(10, freq="D")'
 - DocstringExample
   args: ['examples']
@@ -128,6 +136,7 @@ style: numpydoc
     DatetimeIndex(['2011-11-01', '2011-12-01', '2012-01-01', '2012-02-01',
                    '2012-03-01'],
                   dtype='datetime64[us]', freq='MS')
+  kind: examples
   snippet: '>>> month_starts.shift(10)'
 === detect
 numpydoc

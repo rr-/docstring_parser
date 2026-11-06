@@ -88,18 +88,21 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'element']
   description: 'Input argument, can be of any type and shape.'
+  kind: param
   arg_name: 'element'
   type_name: 'any'
   is_optional: False
 - DocstringReturns
   args: ['returns']
   description: 'True if `element` is a scalar type, False if it is not.'
+  kind: returns
   type_name: 'bool'
   is_generator: False
   return_name: 'val'
 - DocstringMeta
   args: ['see_also']
   description: 'ndim : Get the number of dimensions of an array'
+  kind: text
 - DocstringMeta
   args: ['notes']
   description: |
@@ -134,33 +137,39 @@ style: numpydoc
     | `list`, `tuple`, and other         | ``False``     | ``False``         |
     | sequence objects                   |               |                   |
     +------------------------------------+---------------+-------------------+
+  kind: text
 - DocstringExample
   args: ['examples']
   description: ''
+  kind: examples
   snippet: '>>> import numpy as np'
 - DocstringExample
   args: ['examples']
   description: |
     True
     
+  kind: examples
   snippet: '>>> np.isscalar(3.1)'
 - DocstringExample
   args: ['examples']
   description: |
     False
     
+  kind: examples
   snippet: '>>> np.isscalar(np.array(3.1))'
 - DocstringExample
   args: ['examples']
   description: |
     False
     
+  kind: examples
   snippet: '>>> np.isscalar([3.1])'
 - DocstringExample
   args: ['examples']
   description: |
     True
     
+  kind: examples
   snippet: '>>> np.isscalar(False)'
 - DocstringExample
   args: ['examples']
@@ -169,16 +178,19 @@ style: numpydoc
     
     NumPy supports PEP 3141 numbers:
     
+  kind: examples
   snippet: ">>> np.isscalar('numpy')"
 - DocstringExample
   args: ['examples']
   description: 'True'
+  kind: examples
   snippet: |
     >>> from fractions import Fraction
     >>> np.isscalar(Fraction(5, 17))
 - DocstringExample
   args: ['examples']
   description: 'True'
+  kind: examples
   snippet: |
     >>> from numbers import Number
     >>> np.isscalar(Number())

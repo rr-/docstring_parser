@@ -25,12 +25,15 @@ style: google
     1
         2
     3
+  kind: param
   arg_name: 'spam'
 - DocstringRaises
   args: ['raises', 'bla']
   description: 'herp'
+  kind: raises
   type_name: 'bla'
 - DocstringRaises
   args: ['raises', 'yay']
   description: 'derp'
+  kind: raises
   type_name: 'yay'

@@ -16,12 +16,14 @@ style: google
 - DocstringParam
   args: ['param', 'title (str)']
   description: 'The new title of the console window.'
+  kind: param
   arg_name: 'title'
   type_name: 'str'
   is_optional: False
 - DocstringReturns
   args: ['returns', 'bool']
   description: 'True if the function succeeds, otherwise False.'
+  kind: returns
   type_name: 'bool'
   is_generator: False
 === detect

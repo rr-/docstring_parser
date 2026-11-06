@@ -26,6 +26,7 @@ style: epydoc
 - DocstringParam
   args: ['ivar', 'wanted']
   description: 'indicates if TLS negotiation is wanted.'
+  kind: attribute
   arg_name: 'wanted'
   type_name: 'C{bool}'
   is_optional: False

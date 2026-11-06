@@ -63,12 +63,14 @@ style: numpydoc
   description: |
     Number of points in the output window. If zero, an empty array
     is returned. An exception is thrown when it is negative.
+  kind: param
   arg_name: 'M'
   type_name: 'int'
   is_optional: False
 - DocstringParam
   args: ['param', 'std']
   description: 'The standard deviation, sigma.'
+  kind: param
   arg_name: 'std'
   type_name: 'float'
   is_optional: False
@@ -78,17 +80,20 @@ style: numpydoc
     When True (default), generates a symmetric window, for use in filter
     design.
     When False, generates a periodic window, for use in spectral analysis.
+  kind: param
   arg_name: 'sym'
   type_name: 'bool'
   is_optional: True
 - DocstringParam
   args: ['param', '%(xp_device_snippet)s']
+  kind: param
   arg_name: '%(xp_device_snippet)s'
 - DocstringReturns
   args: ['returns']
   description: |
     The window, with the maximum value normalized to 1 (though the value 1
     does not appear if `M` is even and `sym` is True).
+  kind: returns
   type_name: 'ndarray'
   is_generator: False
   return_name: 'w'
@@ -98,14 +103,17 @@ style: numpydoc
     The Gaussian window is defined as
     
     .. math::  w(n) = e^{ -\frac{1}{2}\left(\frac{n}{\sigma}\right)^2 }
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
     Plot the window and its frequency response:
     
+  kind: examples
 - DocstringExample
   args: ['examples']
   description: ''
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> from scipy import signal
@@ -114,6 +122,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: ''
+  kind: examples
   snippet: |
     >>> window = signal.windows.gaussian(51, std=7)
     >>> plt.plot(window)
@@ -123,6 +132,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: ''
+  kind: examples
   snippet: |
     >>> plt.figure()
     >>> A = fft(window, 2048) / (len(window)/2.0)

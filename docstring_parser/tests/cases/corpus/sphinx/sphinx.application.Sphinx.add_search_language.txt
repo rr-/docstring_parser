@@ -25,9 +25,11 @@ style: rest
     `sphinx.search.SearchLanguage`, as a support language for
     building the HTML full-text search index.  The class must have a *lang*
     attribute that indicates the language it should be used for.  See
+  kind: text
 - DocstringMeta
   args: ['confval']
   description: '`html_search_language`.'
+  kind: text
 === detect
 rest
 === compose rest

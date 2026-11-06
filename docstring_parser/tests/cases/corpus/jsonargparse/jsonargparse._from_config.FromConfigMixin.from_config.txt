@@ -14,10 +14,12 @@ style: google
 - DocstringParam
   args: ['param', 'config']
   description: 'Path to a config file or a dict with config values.'
+  kind: param
   arg_name: 'config'
 - DocstringParam
   args: ['param', 'instantiators']
   description: 'Custom instantiators, see :meth:`.ArgumentParser.instantiate`.'
+  kind: param
   arg_name: 'instantiators'
 === detect
 google

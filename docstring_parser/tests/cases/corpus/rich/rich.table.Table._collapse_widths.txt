@@ -18,24 +18,28 @@ style: google
 - DocstringParam
   args: ['param', 'widths (List[int])']
   description: 'List of widths.'
+  kind: param
   arg_name: 'widths'
   type_name: 'List[int]'
   is_optional: False
 - DocstringParam
   args: ['param', 'wrapable (List[bool])']
   description: 'List of booleans that indicate if a column may shrink.'
+  kind: param
   arg_name: 'wrapable'
   type_name: 'List[bool]'
   is_optional: False
 - DocstringParam
   args: ['param', 'max_width (int)']
   description: 'Maximum width to reduce to.'
+  kind: param
   arg_name: 'max_width'
   type_name: 'int'
   is_optional: False
 - DocstringReturns
   args: ['returns', 'List[int]']
   description: 'A new list of widths.'
+  kind: returns
   type_name: 'List[int]'
   is_generator: False
 === detect

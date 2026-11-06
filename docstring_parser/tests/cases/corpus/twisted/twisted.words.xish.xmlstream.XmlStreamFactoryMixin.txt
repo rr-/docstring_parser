@@ -22,12 +22,14 @@ style: epydoc
 - DocstringParam
   args: ['ivar', 'args']
   description: 'Positional arguments passed to the protocol upon instantiation.'
+  kind: attribute
   arg_name: 'args'
   type_name: 'C{tuple}.'
   is_optional: False
 - DocstringParam
   args: ['ivar', 'kwargs']
   description: 'Keyword arguments passed to the protocol upon instantiation.'
+  kind: attribute
   arg_name: 'kwargs'
   type_name: 'C{dict}.'
   is_optional: False

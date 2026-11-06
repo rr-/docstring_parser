@@ -12,6 +12,7 @@ style: google
 - DocstringReturns
   args: ['yields']
   description: 'The value.'
+  kind: yields
   is_generator: True
 === compose google
 Short.

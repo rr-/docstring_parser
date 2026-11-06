@@ -20,17 +20,20 @@ style: google
 - DocstringParam
   args: ['param', 'name (str)']
   description: 'The name of a style or a style definition.'
+  kind: param
   arg_name: 'name'
   type_name: 'str'
   is_optional: False
 - DocstringReturns
   args: ['returns', 'Style']
   description: 'A Style object.'
+  kind: returns
   type_name: 'Style'
   is_generator: False
 - DocstringRaises
   args: ['raises', 'MissingStyle']
   description: 'If no style could be parsed from name.'
+  kind: raises
   type_name: 'MissingStyle'
 === detect
 google

@@ -13,6 +13,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'arg4']
   description: 'The fourth arg.'
+  kind: param
   arg_name: 'arg4'
   type_name: 'int'
   is_optional: True

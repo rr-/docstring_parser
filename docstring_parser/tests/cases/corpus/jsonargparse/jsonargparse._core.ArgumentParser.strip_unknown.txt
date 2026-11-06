@@ -16,10 +16,12 @@ style: google
 - DocstringParam
   args: ['param', 'namespace']
   description: 'The configuration object to strip.'
+  kind: param
   arg_name: 'namespace'
 - DocstringReturns
   args: ['returns']
   description: 'The stripped configuration object.'
+  kind: returns
   is_generator: False
 === detect
 google

@@ -12,6 +12,7 @@ style: epydoc
 - DocstringRaises
   args: ['raise']
   description: 'description'
+  kind: raises
 === compose epydoc
 Short description
 @raise: description

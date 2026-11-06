@@ -23,6 +23,7 @@ style: google
 - DocstringParam
   args: ['param', 'cert_config_path (str)']
   description: 'The path to the certificate configuration file.'
+  kind: param
   arg_name: 'cert_config_path'
   type_name: 'str'
   is_optional: False
@@ -31,21 +32,25 @@ style: google
   description: |
     The path to the certificate file, or None if not found
     in the config.
+  kind: returns
   type_name: 'Optional[str]'
   is_generator: False
 - DocstringRaises
   args: ['raises', 'IOError']
   description: 'If the certificate config file cannot be read.'
+  kind: raises
   type_name: 'IOError'
 - DocstringRaises
   args: ['raises', 'ValueError']
   description: 'If the certificate config file contains invalid JSON.'
+  kind: raises
   type_name: 'ValueError'
 - DocstringRaises
   args: ['raises', 'KeyError']
   description: |
     If the certificate config file does not contain the
     expected structure.
+  kind: raises
   type_name: 'KeyError'
 === detect
 google

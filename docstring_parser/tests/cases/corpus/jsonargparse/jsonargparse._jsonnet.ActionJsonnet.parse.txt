@@ -21,22 +21,27 @@ style: google
 - DocstringParam
   args: ['param', 'jsonnet']
   description: 'Either a path to a Jsonnet file or the Jsonnet content.'
+  kind: param
   arg_name: 'jsonnet'
 - DocstringParam
   args: ['param', 'ext_vars']
   description: 'External variables. Values can be strings or any other basic type.'
+  kind: param
   arg_name: 'ext_vars'
 - DocstringParam
   args: ['param', 'with_meta']
   description: 'Whether to include metadata in config object.'
+  kind: param
   arg_name: 'with_meta'
 - DocstringReturns
   args: ['returns']
   description: 'The parsed Jsonnet object.'
+  kind: returns
   is_generator: False
 - DocstringRaises
   args: ['raises', 'TypeError']
   description: 'If the input is neither a path to an existent file nor a Jsonnet.'
+  kind: raises
   type_name: 'TypeError'
 === detect
 google

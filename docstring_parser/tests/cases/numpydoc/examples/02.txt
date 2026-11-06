@@ -12,4 +12,5 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: ''
+  kind: examples
   snippet: '>>> test'

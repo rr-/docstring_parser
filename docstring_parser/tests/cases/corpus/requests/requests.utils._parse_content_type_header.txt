@@ -14,12 +14,14 @@ style: rest
 - DocstringParam
   args: ['param', 'header']
   description: 'string'
+  kind: param
   arg_name: 'header'
 - DocstringReturns
   args: ['return']
   description: |
     tuple containing content type and dictionary of
     parameters.
+  kind: returns
   is_generator: False
 === detect
 rest

@@ -18,11 +18,13 @@ style: epydoc
   description: |
     The request in response to which this method is being
     invoked.
+  kind: param
   arg_name: 'request'
   is_optional: False
 - DocstringReturns
   args: ['return']
   description: 'An object which can be flattened.'
+  kind: returns
   is_generator: False
 === detect
 epydoc

@@ -16,6 +16,7 @@ style: google
   description: |
     app id that can be asserted with in addition to rpid.
     https://www.w3.org/TR/webauthn-3/#sctn-appid-extension
+  kind: param
   arg_name: 'appid'
 === detect
 google

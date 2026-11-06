@@ -20,13 +20,16 @@ style: rest
 - DocstringMeta
   args: ['attr']
   description: '`ensure_ascii`, and :attr:`sort_keys` attributes.'
+  kind: text
 - DocstringParam
   args: ['param', 'obj']
   description: 'The data to serialize.'
+  kind: param
   arg_name: 'obj'
 - DocstringParam
   args: ['param', 'kwargs']
   description: 'Passed to :func:`json.dumps`.'
+  kind: param
   arg_name: 'kwargs'
 === detect
 rest

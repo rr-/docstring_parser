@@ -42,24 +42,29 @@ style: google
 - DocstringParam
   args: ['param', 'object']
   description: 'The Python object to validate against the model.'
+  kind: param
   arg_name: 'object'
 - DocstringParam
   args: ['param', 'strict']
   description: 'Whether to strictly check types.'
+  kind: param
   arg_name: 'strict'
 - DocstringParam
   args: ['param', 'extra']
   description: |
     Whether to ignore, allow, or forbid extra data during model validation.
     See the [`extra` configuration value][pydantic.ConfigDict.extra] for details.
+  kind: param
   arg_name: 'extra'
 - DocstringParam
   args: ['param', 'from_attributes']
   description: 'Whether to extract data from object attributes.'
+  kind: param
   arg_name: 'from_attributes'
 - DocstringParam
   args: ['param', 'context']
   description: 'Additional context to pass to the validator.'
+  kind: param
   arg_name: 'context'
 - DocstringParam
   args: ['param', 'experimental_allow_partial']
@@ -69,18 +74,22 @@ style: google
     * False / 'off': Default behavior, no partial validation.
     * True / 'on': Enable partial validation.
     * 'trailing-strings': Enable partial validation and allow trailing strings in the input.
+  kind: param
   arg_name: 'experimental_allow_partial'
 - DocstringParam
   args: ['param', 'by_alias']
   description: "Whether to use the field's alias when validating against the provided input data."
+  kind: param
   arg_name: 'by_alias'
 - DocstringParam
   args: ['param', 'by_name']
   description: "Whether to use the field's name when validating against the provided input data."
+  kind: param
   arg_name: 'by_name'
 - DocstringReturns
   args: ['returns']
   description: 'The validated object.'
+  kind: returns
   is_generator: False
 === detect
 google

@@ -31,6 +31,7 @@ style: rest
 - DocstringParam
   args: ['param', 'a']
   description: 'x'
+  kind: param
   arg_name: 'a'
 === parse google
 short_description: 'Sum.'
@@ -41,6 +42,7 @@ style: google
 - DocstringParam
   args: ['param', 'a']
   description: 'x'
+  kind: param
   arg_name: 'a'
 === parse epydoc
 short_description: 'Sum.'
@@ -60,6 +62,7 @@ style: epydoc
     ----------
     a
         x
+  kind: param
   arg_name: 'a'
   is_optional: False
 === parse numpydoc
@@ -77,4 +80,5 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'a']
   description: 'x'
+  kind: param
   arg_name: 'a'

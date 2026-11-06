@@ -81,6 +81,7 @@ style: rest
 - DocstringParam
   args: ['param', 'request']
   description: 'The PreparedRequest being sent over the connection.'
+  kind: param
   arg_name: 'request'
   type_name: ':class:`~requests.models.PreparedRequest`'
 - DocstringParam
@@ -89,6 +90,7 @@ style: rest
     Either a boolean, in which case it controls whether
     we verify the server's TLS certificate, or a string, in which case it
     must be a path to a CA bundle to use.
+  kind: param
   arg_name: 'verify'
 - DocstringParam
   args: ['param', 'cert']
@@ -98,6 +100,7 @@ style: rest
     the path to a file which holds both certificate and key) or a
     tuple of length 2 with the certificate file path and key file
     path.
+  kind: param
   arg_name: 'cert'
 - DocstringReturns
   args: ['returns']
@@ -105,6 +108,7 @@ style: rest
     A tuple of two dictionaries. The first is the "host parameters"
     portion of the Pool Key including scheme, hostname, and port. The
     second is a dictionary of SSLContext related parameters.
+  kind: returns
   is_generator: False
 === detect
 rest

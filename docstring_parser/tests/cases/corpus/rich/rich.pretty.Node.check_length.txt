@@ -17,18 +17,21 @@ style: google
 - DocstringParam
   args: ['param', 'start_length (int)']
   description: 'Starting length of the line (indent, prefix, suffix).'
+  kind: param
   arg_name: 'start_length'
   type_name: 'int'
   is_optional: False
 - DocstringParam
   args: ['param', 'max_length (int)']
   description: 'Maximum length.'
+  kind: param
   arg_name: 'max_length'
   type_name: 'int'
   is_optional: False
 - DocstringReturns
   args: ['returns', 'bool']
   description: 'True if the node can be rendered within max length, otherwise False.'
+  kind: returns
   type_name: 'bool'
   is_generator: False
 === detect

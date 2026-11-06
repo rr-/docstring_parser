@@ -13,9 +13,11 @@ style: epydoc
 - DocstringParam
   args: ['param', 'a']
   description: 'first'
+  kind: param
   arg_name: 'a'
   is_optional: False
 - DocstringReturns
   args: ['return']
   description: 'result'
+  kind: returns
   is_generator: False

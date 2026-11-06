@@ -15,4 +15,5 @@ style: numpydoc
 - DocstringRaises
   args: ['raises', 'ValueError']
   description: 'description'
+  kind: raises
   type_name: 'ValueError'

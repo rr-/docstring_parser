@@ -23,11 +23,13 @@ style: rest
 - DocstringParam
   args: ['param', 'url']
   description: 'a url'
+  kind: param
   arg_name: 'url'
   type_name: '``str``'
 - DocstringReturns
   args: ['return']
   description: '*url* with password removed'
+  kind: returns
   type_name: '``str``'
   is_generator: False
 === detect

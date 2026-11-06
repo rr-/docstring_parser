@@ -13,6 +13,7 @@ style: google
 - DocstringParam
   args: ['param', 'suffix (str)']
   description: 'Suffix to remove.'
+  kind: param
   arg_name: 'suffix'
   type_name: 'str'
   is_optional: False

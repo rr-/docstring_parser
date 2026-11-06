@@ -13,6 +13,7 @@ style: google
 - DocstringParam
   args: ['param', 'hook (RenderHook)']
   description: 'Render hook instance.'
+  kind: param
   arg_name: 'hook'
   type_name: 'RenderHook'
   is_optional: False

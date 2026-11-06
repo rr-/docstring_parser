@@ -8,3 +8,4 @@ style: rest
 - DocstringDeprecated
   args: ['deprecation']
   description: 'this function will be removed'
+  kind: deprecation

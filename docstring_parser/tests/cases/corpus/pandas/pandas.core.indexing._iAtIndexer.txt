@@ -55,6 +55,7 @@ style: numpydoc
 - DocstringRaises
   args: ['raises', 'IndexError']
   description: 'When integer position is out of bounds.'
+  kind: raises
   type_name: 'IndexError'
 - DocstringMeta
   args: ['see_also']
@@ -62,6 +63,7 @@ style: numpydoc
     DataFrame.at : Access a single value for a row/column label pair.
     DataFrame.loc : Access a group of rows and columns by label(s).
     DataFrame.iloc : Access a group of rows and columns by integer position(s).
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
@@ -72,6 +74,7 @@ style: numpydoc
     
     Get value at specified row/column pair
     
+  kind: examples
   snippet: |
     >>> df = pd.DataFrame([[0, 2, 3], [0, 4, 1], [10, 20, 30]], columns=["A", "B", "C"])
     >>> df
@@ -82,6 +85,7 @@ style: numpydoc
     
     Set value at specified row/column pair
     
+  kind: examples
   snippet: '>>> df.iat[1, 2]'
 - DocstringExample
   args: ['examples']
@@ -90,12 +94,14 @@ style: numpydoc
     
     Get value within a series
     
+  kind: examples
   snippet: |
     >>> df.iat[1, 2] = 10
     >>> df.iat[1, 2]
 - DocstringExample
   args: ['examples']
   description: '2'
+  kind: examples
   snippet: '>>> df.loc[0].iat[1]'
 === detect
 numpydoc

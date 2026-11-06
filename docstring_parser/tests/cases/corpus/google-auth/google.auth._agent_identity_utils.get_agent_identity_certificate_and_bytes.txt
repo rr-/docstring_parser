@@ -24,6 +24,7 @@ style: google
     A tuple
     of (parsed certificate object, certificate bytes) if found and not
     opted out, otherwise (None, None).
+  kind: returns
   type_name: 'Tuple[Optional[cryptography.x509.Certificate], Optional[bytes]]'
   is_generator: False
 === detect

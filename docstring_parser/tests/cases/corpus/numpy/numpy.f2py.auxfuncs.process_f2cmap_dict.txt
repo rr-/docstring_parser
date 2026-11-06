@@ -56,6 +56,7 @@ style: numpydoc
     It should be a dictionary of dictionaries where the main keys represent
     Fortran types and the nested dictionaries map Fortran type specifiers
     to corresponding C types.
+  kind: param
   arg_name: 'f2cmap_all'
   type_name: 'dict'
   is_optional: False
@@ -66,6 +67,7 @@ style: numpydoc
     The structure should be similar to `f2cmap_all`, with keys representing
     Fortran types and values being dictionaries of type specifiers and their
     C type equivalents.
+  kind: param
   arg_name: 'new_map'
   type_name: 'dict'
   is_optional: False
@@ -75,12 +77,14 @@ style: numpydoc
     A dictionary used for validating the C types in `new_map`. It maps C
     types to corresponding Python types and is used to ensure that the C
     types specified in `new_map` are valid.
+  kind: param
   arg_name: 'c2py_map'
   type_name: 'dict'
   is_optional: False
 - DocstringParam
   args: ['param', 'verbose']
   description: 'A flag used to provide information about the types mapped'
+  kind: param
   arg_name: 'verbose'
   type_name: 'boolean'
   is_optional: False
@@ -89,6 +93,7 @@ style: numpydoc
   description: |
     The updated Fortran-to-C type mapping dictionary and a list of
     successfully mapped C types.
+  kind: returns
   type_name: 'tuple of (dict, list)'
   is_generator: False
 === detect

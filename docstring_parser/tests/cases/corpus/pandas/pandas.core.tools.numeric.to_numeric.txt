@@ -165,6 +165,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'arg']
   description: 'Argument to be converted.'
+  kind: param
   arg_name: 'arg'
   type_name: 'scalar, list, tuple, 1-d array, Index, or Series'
   is_optional: False
@@ -173,6 +174,7 @@ style: numpydoc
   description: |
     - If 'raise', then invalid parsing will raise an exception.
     - If 'coerce', then invalid parsing will be set as NaN.
+  kind: param
   arg_name: 'errors'
   type_name: "{'raise', 'coerce'}"
   is_optional: True
@@ -199,6 +201,7 @@ style: numpydoc
     the dtype it is to be cast to, so if none of the dtypes
     checked satisfy that specification, no downcasting will be
     performed on the data.
+  kind: param
   arg_name: 'downcast'
   type_name: 'str'
   is_optional: True
@@ -215,6 +218,7 @@ style: numpydoc
     * ``"pyarrow"``: returns with pyarrow-backed nullable object
     
     .. versionadded:: 2.0
+  kind: param
   arg_name: 'dtype_backend'
   type_name: "{'numpy_nullable', 'pyarrow'}"
   is_optional: False
@@ -233,17 +237,20 @@ style: numpydoc
     (or ``pd.NA`` if ``dtype_backend`` is not the default).
     If ``errors='raise'`` (default),
     a :exc:`ValueError` is raised for invalid values.
+  kind: returns
   type_name: 'scalar, Series, Index, numpy.ndarray, or ExtensionArray'
   is_generator: False
 - DocstringRaises
   args: ['raises', 'ValueError']
   description: "If the input contains non-numeric values and `errors='raise'`."
+  kind: raises
   type_name: 'ValueError'
 - DocstringRaises
   args: ['raises', 'TypeError']
   description: |
     If the input is not list-like, 1D, or scalar convertible to numeric,
     such as nested lists or unsupported input types (e.g., dict).
+  kind: raises
   type_name: 'TypeError'
 - DocstringMeta
   args: ['see_also']
@@ -253,11 +260,13 @@ style: numpydoc
     to_timedelta : Convert argument to timedelta.
     numpy.ndarray.astype : Cast a numpy array to a specified type.
     DataFrame.convert_dtypes : Convert dtypes.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
     Take separate series and convert to numeric, coercing when told to
     
+  kind: examples
 - DocstringExample
   args: ['examples']
   description: |
@@ -265,6 +274,7 @@ style: numpydoc
     1    2.0
     2   -3.0
     dtype: float64
+  kind: examples
   snippet: |
     >>> s = pd.Series(["1.0", "2", -3])
     >>> pd.to_numeric(s)
@@ -275,6 +285,7 @@ style: numpydoc
     1    2.0
     2   -3.0
     dtype: float32
+  kind: examples
   snippet: '>>> pd.to_numeric(s, downcast="float")'
 - DocstringExample
   args: ['examples']
@@ -283,6 +294,7 @@ style: numpydoc
     1    2
     2   -3
     dtype: int8
+  kind: examples
   snippet: '>>> pd.to_numeric(s, downcast="signed")'
 - DocstringExample
   args: ['examples']
@@ -295,6 +307,7 @@ style: numpydoc
     
     Downcasting of nullable integer and floating dtypes is supported:
     
+  kind: examples
   snippet: |
     >>> s = pd.Series(["apple", "1.0", "2", -3])
     >>> pd.to_numeric(s, errors="coerce")
@@ -305,6 +318,7 @@ style: numpydoc
     1    2
     2    3
     dtype: Int8
+  kind: examples
   snippet: |
     >>> s = pd.Series([1, 2, 3], dtype="Int64")
     >>> pd.to_numeric(s, downcast="integer")
@@ -318,12 +332,14 @@ style: numpydoc
     
     Scalar input returns a scalar:
     
+  kind: examples
   snippet: |
     >>> s = pd.Series([1.0, 2.1, 3.0], dtype="Float64")
     >>> pd.to_numeric(s, downcast="float")
 - DocstringExample
   args: ['examples']
   description: 'np.int64(42)'
+  kind: examples
   snippet: '>>> pd.to_numeric("42")'
 - DocstringExample
   args: ['examples']
@@ -332,10 +348,12 @@ style: numpydoc
     
     Index input returns an Index:
     
+  kind: examples
   snippet: '>>> pd.to_numeric("3.14")'
 - DocstringExample
   args: ['examples']
   description: "Index([1, 2, 3], dtype='int64')"
+  kind: examples
   snippet: '>>> pd.to_numeric(pd.Index(["1", "2", "3"]))'
 === detect
 numpydoc

@@ -39,6 +39,7 @@ style: numpydoc
   description: |
     Laguerre coefficients in order of increasing degree, i.e,
     ``(1, 2, 3)`` gives ``1*L_0(x) + 2*L_1(X) + 3*L_2(x)``.
+  kind: param
   arg_name: 'coef'
   type_name: 'array_like'
   is_optional: False
@@ -48,12 +49,14 @@ style: numpydoc
     Domain to use. The interval ``[domain[0], domain[1]]`` is mapped
     to the interval ``[window[0], window[1]]`` by shifting and scaling.
     The default value is [0., 1.].
+  kind: param
   arg_name: 'domain'
   type_name: '(2,) array_like'
   is_optional: True
 - DocstringParam
   args: ['param', 'window']
   description: 'Window, see `domain` for its use. The default value is [0., 1.].'
+  kind: param
   arg_name: 'window'
   type_name: '(2,) array_like'
   is_optional: True
@@ -65,6 +68,7 @@ style: numpydoc
     The symbol must be a valid Python identifier. Default value is 'x'.
     
     .. versionadded:: 1.24
+  kind: param
   arg_name: 'symbol'
   type_name: 'str'
   is_optional: True

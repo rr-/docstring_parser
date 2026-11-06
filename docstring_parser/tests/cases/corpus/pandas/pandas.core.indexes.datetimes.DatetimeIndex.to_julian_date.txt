@@ -34,14 +34,17 @@ style: numpydoc
 - DocstringReturns
   args: ['returns']
   description: 'Float values that represent each date in Julian Calendar.'
+  kind: returns
   type_name: 'ndarray or Index'
   is_generator: False
 - DocstringMeta
   args: ['see_also']
   description: 'Timestamp.to_julian_date : Equivalent method on ``Timestamp`` objects.'
+  kind: text
 - DocstringExample
   args: ['examples']
   description: "Index([2461995.5375, 2461995.5875], dtype='float64')"
+  kind: examples
   snippet: |
     >>> idx = pd.DatetimeIndex(["2028-08-12 00:54", "2028-08-12 02:06"])
     >>> idx.to_julian_date()

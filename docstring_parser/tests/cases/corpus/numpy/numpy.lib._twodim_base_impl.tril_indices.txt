@@ -87,12 +87,14 @@ style: numpydoc
   description: |
     The row dimension of the arrays for which the returned
     indices will be valid.
+  kind: param
   arg_name: 'n'
   type_name: 'int'
   is_optional: False
 - DocstringParam
   args: ['param', 'k']
   description: 'Diagonal offset (see `tril` for details).'
+  kind: param
   arg_name: 'k'
   type_name: 'int'
   is_optional: True
@@ -102,6 +104,7 @@ style: numpydoc
     The column dimension of the arrays for which the returned
     arrays will be valid.
     By default `m` is taken equal to `n`.
+  kind: param
   arg_name: 'm'
   type_name: 'int'
   is_optional: True
@@ -111,29 +114,35 @@ style: numpydoc
     The row and column indices, respectively. The row indices are sorted
     in non-decreasing order, and the corresponding column indices are
     strictly increasing for each row.
+  kind: returns
   type_name: 'tuple of arrays'
   is_generator: False
   return_name: 'inds'
 - DocstringReturns
   args: ['returns']
+  kind: returns
   type_name: 'See also'
   is_generator: False
 - DocstringReturns
   args: ['returns']
+  kind: returns
   type_name: '--------'
   is_generator: False
 - DocstringReturns
   args: ['returns']
+  kind: returns
   type_name: 'similar function, for upper-triangular.'
   is_generator: False
   return_name: 'triu_indices'
 - DocstringReturns
   args: ['returns']
+  kind: returns
   type_name: 'generic function accepting an arbitrary mask function.'
   is_generator: False
   return_name: 'mask_indices'
 - DocstringReturns
   args: ['returns']
+  kind: returns
   type_name: 'tril, triu'
   is_generator: False
 - DocstringExample
@@ -144,6 +153,7 @@ style: numpydoc
     lower triangular part starting at the main diagonal, and one starting two
     diagonals further right:
     
+  kind: examples
   snippet: '>>> import numpy as np'
 - DocstringExample
   args: ['examples']
@@ -154,6 +164,7 @@ style: numpydoc
     column indices (second array) are strictly increasing for each row.
     Here is how they can be used with a sample array:
     
+  kind: examples
   snippet: |
     >>> il1 = np.tril_indices(4)
     >>> il1
@@ -167,6 +178,7 @@ style: numpydoc
     
     Both for indexing:
     
+  kind: examples
   snippet: |
     >>> a = np.arange(16).reshape(4, 4)
     >>> a
@@ -177,6 +189,7 @@ style: numpydoc
     
     And for assigning values:
     
+  kind: examples
   snippet: '>>> a[il1]'
 - DocstringExample
   args: ['examples']
@@ -188,6 +201,7 @@ style: numpydoc
     
     These cover almost the whole array (two diagonals right of the main one):
     
+  kind: examples
   snippet: |
     >>> a[il1] = -1
     >>> a
@@ -198,6 +212,7 @@ style: numpydoc
            [-10, -10, -10, -10],
            [-10, -10, -10, -10],
            [-10, -10, -10, -10]])
+  kind: examples
   snippet: |
     >>> il2 = np.tril_indices(4, 2)
     >>> a[il2] = -10

@@ -16,12 +16,14 @@ style: google
 - DocstringParam
   args: ['param', 'width (List[int])']
   description: 'Widths of columns.'
+  kind: param
   arg_name: 'width'
   type_name: 'List[int]'
   is_optional: False
 - DocstringReturns
   args: ['returns', 'str']
   description: 'A string of box characters.'
+  kind: returns
   type_name: 'str'
   is_generator: False
 === detect

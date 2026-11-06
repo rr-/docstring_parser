@@ -32,6 +32,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'A']
   description: 'Matrix whose nonzero elements are desired.'
+  kind: param
   arg_name: 'A'
   type_name: 'dense or sparse array or matrix'
   is_optional: False
@@ -40,6 +41,7 @@ style: numpydoc
   description: |
     I,J, and V contain the row indices, column indices, and values
     of the nonzero entries.
+  kind: returns
   type_name: 'tuple of arrays'
   is_generator: False
   return_name: '(I,J,V)'
@@ -49,6 +51,7 @@ style: numpydoc
     (array([0, 0, 1], dtype=int32),
      array([0, 1, 2], dtype=int32),
      array([ 7.,  8.,  9.]))
+  kind: examples
   snippet: |
     >>> from scipy.sparse import csr_array, find
     >>> A = csr_array([[7.0, 8.0, 0],[0, 0, 9.0]])

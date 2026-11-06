@@ -15,4 +15,5 @@ style: numpydoc
 - DocstringRaises
   args: ['warns', 'UserWarning']
   description: 'description'
+  kind: warns
   type_name: 'UserWarning'

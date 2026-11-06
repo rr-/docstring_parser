@@ -21,12 +21,14 @@ style: rest
 - DocstringParam
   args: ['param', 'name']
   description: 'Name of attribute to get.'
+  kind: param
   arg_name: 'name'
 - DocstringParam
   args: ['param', 'default']
   description: |
     Value to set and return if the attribute is not
     present.
+  kind: param
   arg_name: 'default'
 === detect
 rest

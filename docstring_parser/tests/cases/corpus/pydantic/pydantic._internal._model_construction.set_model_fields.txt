@@ -16,18 +16,22 @@ style: google
 - DocstringParam
   args: ['param', 'cls']
   description: 'BaseModel or dataclass.'
+  kind: param
   arg_name: 'cls'
 - DocstringParam
   args: ['param', 'config_wrapper']
   description: 'The config wrapper instance.'
+  kind: param
   arg_name: 'config_wrapper'
 - DocstringParam
   args: ['param', 'ns_resolver']
   description: 'Namespace resolver to use when getting model annotations.'
+  kind: param
   arg_name: 'ns_resolver'
 - DocstringParam
   args: ['param', 'namespace_info']
   description: 'The result of inspecting the class namespace before the class was created.'
+  kind: param
   arg_name: 'namespace_info'
 === detect
 google

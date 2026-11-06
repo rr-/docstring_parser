@@ -16,10 +16,12 @@ style: google
 - DocstringParam
   args: ['param', 'cls']
   description: 'The class to create the Pydantic dataclass from.'
+  kind: param
   arg_name: 'cls'
 - DocstringReturns
   args: ['returns']
   description: 'A Pydantic dataclass.'
+  kind: returns
   is_generator: False
 === detect
 google

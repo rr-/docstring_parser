@@ -24,12 +24,14 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'ndim']
   description: 'Number of variables in the polynomial.'
+  kind: param
   arg_name: 'ndim'
   type_name: 'int'
   is_optional: False
 - DocstringParam
   args: ['param', 'degree']
   description: 'Degree of the polynomial.'
+  kind: param
   arg_name: 'degree'
   type_name: 'int'
   is_optional: False
@@ -38,6 +40,7 @@ style: numpydoc
   description: |
     Array where each row contains the powers for each variable in a
     monomial.
+  kind: returns
   type_name: '(nmonos, ndim) int ndarray'
   is_generator: False
 === detect

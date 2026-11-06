@@ -27,18 +27,21 @@ style: google
 - DocstringParam
   args: ['param', 'code (str)']
   description: 'Code to highlight.'
+  kind: param
   arg_name: 'code'
   type_name: 'str'
   is_optional: False
 - DocstringParam
   args: ['param', 'lexer (Lexer | str)']
   description: 'Lexer to use (see https://pygments.org/docs/lexers/)'
+  kind: param
   arg_name: 'lexer'
   type_name: 'Lexer | str'
   is_optional: False
 - DocstringParam
   args: ['param', 'theme (str, optional)']
   description: 'Color theme, aka Pygments style (see https://pygments.org/docs/styles/#getting-a-list-of-available-styles). Defaults to "monokai".'
+  kind: param
   arg_name: 'theme'
   type_name: 'str'
   is_optional: True
@@ -46,6 +49,7 @@ style: google
 - DocstringParam
   args: ['param', 'dedent (bool, optional)']
   description: 'Enable stripping of initial whitespace. Defaults to False.'
+  kind: param
   arg_name: 'dedent'
   type_name: 'bool'
   is_optional: True
@@ -53,6 +57,7 @@ style: google
 - DocstringParam
   args: ['param', 'line_numbers (bool, optional)']
   description: 'Enable rendering of line numbers. Defaults to False.'
+  kind: param
   arg_name: 'line_numbers'
   type_name: 'bool'
   is_optional: True
@@ -60,6 +65,7 @@ style: google
 - DocstringParam
   args: ['param', 'start_line (int, optional)']
   description: 'Starting number for line numbers. Defaults to 1.'
+  kind: param
   arg_name: 'start_line'
   type_name: 'int'
   is_optional: True
@@ -69,22 +75,26 @@ style: google
   description: |
     If given should be a tuple of the start and end line to render.
     A value of None in the tuple indicates the range is open in that direction.
+  kind: param
   arg_name: 'line_range'
   type_name: 'Tuple[int | None, int | None]'
   is_optional: True
 - DocstringParam
   args: ['param', 'highlight_lines (Set[int])']
   description: 'A set of line numbers to highlight.'
+  kind: param
   arg_name: 'highlight_lines'
   type_name: 'Set[int]'
   is_optional: False
 - DocstringParam
   args: ['param', 'code_width']
   description: 'Width of code to render (not including line numbers), or ``None`` to use all available width.'
+  kind: param
   arg_name: 'code_width'
 - DocstringParam
   args: ['param', 'tab_size (int, optional)']
   description: 'Size of tabs. Defaults to 4.'
+  kind: param
   arg_name: 'tab_size'
   type_name: 'int'
   is_optional: True
@@ -92,12 +102,14 @@ style: google
 - DocstringParam
   args: ['param', 'word_wrap (bool, optional)']
   description: 'Enable word wrapping.'
+  kind: param
   arg_name: 'word_wrap'
   type_name: 'bool'
   is_optional: True
 - DocstringParam
   args: ['param', 'background_color (str, optional)']
   description: 'Optional background color, or None to use theme color. Defaults to None.'
+  kind: param
   arg_name: 'background_color'
   type_name: 'str'
   is_optional: True
@@ -105,6 +117,7 @@ style: google
 - DocstringParam
   args: ['param', 'indent_guides (bool, optional)']
   description: 'Show indent guides. Defaults to False.'
+  kind: param
   arg_name: 'indent_guides'
   type_name: 'bool'
   is_optional: True
@@ -112,6 +125,7 @@ style: google
 - DocstringParam
   args: ['param', 'padding (PaddingDimensions)']
   description: 'Padding to apply around the syntax. Defaults to 0 (no padding).'
+  kind: param
   arg_name: 'padding'
   type_name: 'PaddingDimensions'
   is_optional: False

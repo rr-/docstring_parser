@@ -17,14 +17,17 @@ style: google
 - DocstringParam
   args: ['param', 'yes_prefix']
   description: 'Prefix for yes option.'
+  kind: param
   arg_name: 'yes_prefix'
 - DocstringParam
   args: ['param', 'no_prefix']
   description: 'Prefix for no option.'
+  kind: param
   arg_name: 'no_prefix'
 - DocstringRaises
   args: ['raises', 'ValueError']
   description: 'If a parameter is invalid.'
+  kind: raises
   type_name: 'ValueError'
 === detect
 google

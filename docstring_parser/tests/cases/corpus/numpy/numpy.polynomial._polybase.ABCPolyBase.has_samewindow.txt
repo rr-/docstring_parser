@@ -21,12 +21,14 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'other']
   description: 'The other class must have the ``window`` attribute.'
+  kind: param
   arg_name: 'other'
   type_name: 'class instance'
   is_optional: False
 - DocstringReturns
   args: ['returns']
   description: 'True if the windows are the same, False otherwise.'
+  kind: returns
   type_name: 'boolean'
   is_generator: False
   return_name: 'bool'

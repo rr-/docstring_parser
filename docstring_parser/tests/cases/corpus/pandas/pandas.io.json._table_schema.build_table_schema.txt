@@ -71,12 +71,14 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'data']
   description: 'The input data for which the table schema is to be created.'
+  kind: param
   arg_name: 'data'
   type_name: 'Series or DataFrame'
   is_optional: False
 - DocstringParam
   args: ['param', 'index']
   description: 'Whether to include ``data.index`` in the schema.'
+  kind: param
   arg_name: 'index'
   type_name: 'bool'
   is_optional: True
@@ -87,6 +89,7 @@ style: numpydoc
     Column names to designate as the primary key.
     The default `None` will set `'primaryKey'` to the index
     level or levels if the index is unique.
+  kind: param
   arg_name: 'primary_key'
   type_name: 'bool or None'
   is_optional: True
@@ -97,6 +100,7 @@ style: numpydoc
     Whether to include a field `pandas_version` with the version
     of pandas that last revised the table schema. This version
     can be different from the installed pandas version.
+  kind: param
   arg_name: 'version'
   type_name: 'bool'
   is_optional: True
@@ -104,6 +108,7 @@ style: numpydoc
 - DocstringReturns
   args: ['returns']
   description: 'A dictionary representing the Table schema.'
+  kind: returns
   type_name: 'dict'
   is_generator: False
 - DocstringMeta
@@ -111,6 +116,7 @@ style: numpydoc
   description: |
     DataFrame.to_json : Convert the object to a JSON string.
     read_json : Convert a JSON string to pandas object.
+  kind: text
 - DocstringMeta
   args: ['notes']
   description: |
@@ -123,6 +129,7 @@ style: numpydoc
     Categoricals are converted to the `any` dtype, and use the `enum` field
     constraint to list the allowed values. The `ordered` attribute is included
     in an `ordered` field.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
@@ -130,12 +137,14 @@ style: numpydoc
     ...      'B': ['a', 'b', 'c'],
     ...      'C': pd.date_range('2016-01-01', freq='D', periods=3),
     ...      }, index=pd.Index(range(3), name='idx'))
+  kind: examples
   snippet: |
     >>> from pandas.io.json._table_schema import build_table_schema
     >>> df = pd.DataFrame(
 - DocstringExample
   args: ['examples']
   description: "{'fields': [{'name': 'idx', 'type': 'integer'}, {'name': 'A', 'type': 'integer'}, {'name': 'B', 'type': 'string', 'extDtype': 'str'}, {'name': 'C', 'type': 'datetime'}], 'primaryKey': ['idx'], 'pandas_version': '1.4.0'}"
+  kind: examples
   snippet: '>>> build_table_schema(df)'
 === detect
 numpydoc

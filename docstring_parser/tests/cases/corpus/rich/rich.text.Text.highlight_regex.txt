@@ -21,6 +21,7 @@ style: google
 - DocstringParam
   args: ['param', 're_highlight (Union[re.Pattern, str])']
   description: 'A regular expression object or string.'
+  kind: param
   arg_name: 're_highlight'
   type_name: 'Union[re.Pattern, str]'
   is_optional: False
@@ -29,18 +30,21 @@ style: google
   description: |
     Optional style to apply to whole match, or a callable
     which accepts the matched text and returns a style. Defaults to None.
+  kind: param
   arg_name: 'style'
   type_name: 'Union[GetStyleCallable, StyleType]'
   is_optional: False
 - DocstringParam
   args: ['param', 'style_prefix (str, optional)']
   description: 'Optional prefix to add to style group names.'
+  kind: param
   arg_name: 'style_prefix'
   type_name: 'str'
   is_optional: True
 - DocstringReturns
   args: ['returns', 'int']
   description: 'Number of regex matches'
+  kind: returns
   type_name: 'int'
   is_generator: False
 === detect

@@ -55,6 +55,7 @@ style: numpydoc
     parameters.
     
     %(after_notes)s
+  kind: text
 - DocstringMeta
   args: ['references']
   description: |
@@ -63,6 +64,7 @@ style: numpydoc
            Statistician) 43, no. 1 (1994): 139-53. :doi:`10.2307/2348939`.
     
     %(example)s
+  kind: text
 === detect
 rest
 === compose numpydoc

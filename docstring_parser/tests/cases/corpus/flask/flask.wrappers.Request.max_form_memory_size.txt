@@ -33,6 +33,7 @@ style: rest
   description: |
     `~werkzeug.exceptions.RequestEntityTooLarge` error is raised. If it
     is set to ``None``, no limit is enforced at the Flask application level.
+  kind: text
 === detect
 rest
 === compose rest

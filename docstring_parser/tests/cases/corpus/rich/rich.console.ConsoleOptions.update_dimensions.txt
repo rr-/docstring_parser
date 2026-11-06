@@ -17,18 +17,21 @@ style: google
 - DocstringParam
   args: ['param', 'width (int)']
   description: 'New width (sets both min_width and max_width).'
+  kind: param
   arg_name: 'width'
   type_name: 'int'
   is_optional: False
 - DocstringParam
   args: ['param', 'height (int)']
   description: 'New height.'
+  kind: param
   arg_name: 'height'
   type_name: 'int'
   is_optional: False
 - DocstringReturns
   args: ['returns', '~ConsoleOptions']
   description: 'New console options instance.'
+  kind: returns
   type_name: '~ConsoleOptions'
   is_generator: False
 === detect

@@ -65,18 +65,21 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'n']
   description: 'Order of Bessel function'
+  kind: param
   arg_name: 'n'
   type_name: 'int'
   is_optional: False
 - DocstringParam
   args: ['param', 'nt']
   description: 'Number of zeros to return'
+  kind: param
   arg_name: 'nt'
   type_name: 'int'
   is_optional: False
 - DocstringReturns
   args: ['returns']
   description: 'First `nt` zeros of the Bessel function.'
+  kind: returns
   type_name: 'ndarray'
   is_generator: False
 - DocstringMeta
@@ -84,17 +87,20 @@ style: numpydoc
   description: |
     yn: Bessel function of the second kind for integer order
     yv: Bessel function of the second kind for real order
+  kind: text
 - DocstringMeta
   args: ['references']
   description: |
     .. [1] Zhang, Shanjie and Jin, Jianming. "Computation of Special
            Functions", John Wiley and Sons, 1996, chapter 5.
            https://people.sc.fsu.edu/~jburkardt/f77_src/special_functions/special_functions.html
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
     Compute the first four roots of :math:`Y_2`.
     
+  kind: examples
 - DocstringExample
   args: ['examples']
   description: |
@@ -102,12 +108,14 @@ style: numpydoc
     
     Plot :math:`Y_2` and its first four roots.
     
+  kind: examples
   snippet: |
     >>> from scipy.special import yn_zeros
     >>> yn_zeros(2, 4)
 - DocstringExample
   args: ['examples']
   description: "...            label='Roots', zorder=5)"
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> import matplotlib.pyplot as plt
@@ -122,6 +130,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: ''
+  kind: examples
   snippet: |
     >>> ax.set_ylim(-0.4, 0.4)
     >>> ax.set_xlim(xmin, xmax)

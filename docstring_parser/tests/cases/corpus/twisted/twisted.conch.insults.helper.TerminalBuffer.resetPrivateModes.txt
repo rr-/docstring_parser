@@ -14,9 +14,11 @@ style: epydoc
 - DocstringMeta
   args: ['see']
   description: 'L{setPrivateModes}'
+  kind: text
 - DocstringMeta
   args: ['see']
   description: 'L{insults.ITerminalTransport.resetPrivateModes}'
+  kind: text
 === detect
 epydoc
 === compose epydoc

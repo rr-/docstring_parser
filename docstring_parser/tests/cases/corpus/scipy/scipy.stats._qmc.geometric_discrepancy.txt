@@ -106,6 +106,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'sample']
   description: 'The sample to compute the discrepancy from.'
+  kind: param
   arg_name: 'sample'
   type_name: 'array_like (n, d)'
   is_optional: False
@@ -114,6 +115,7 @@ style: numpydoc
   description: |
     The method to use. One of ``mindist`` for minimum distance (default)
     or ``mst`` for minimum spanning tree.
+  kind: param
   arg_name: 'method'
   type_name: '{"mindist", "mst"}'
   is_optional: True
@@ -123,18 +125,21 @@ style: numpydoc
     The distance metric to use. See the documentation
     for `scipy.spatial.distance.pdist` for the available metrics and
     the default.
+  kind: param
   arg_name: 'metric'
   type_name: 'str or callable'
   is_optional: True
 - DocstringReturns
   args: ['returns']
   description: 'Discrepancy (higher values correspond to greater sample uniformity).'
+  kind: returns
   type_name: 'float'
   is_generator: False
   return_name: 'discrepancy'
 - DocstringMeta
   args: ['see_also']
   description: 'discrepancy'
+  kind: text
 - DocstringMeta
   args: ['notes']
   description: |
@@ -156,18 +161,21 @@ style: numpydoc
     with higher mean and lower standard deviation being preferable (see [1]_
     for a brief discussion). This function currently only calculates the mean
     edge length.
+  kind: text
 - DocstringMeta
   args: ['references']
   description: |
     .. [1] Franco J. et al. "Minimum Spanning Tree: A new approach to assess the quality
        of the design of computer experiments." Chemometrics and Intelligent Laboratory
        Systems, 97 (2), pp. 164-169, 2009.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
     Calculate the quality of the sample using the minimum euclidean distance
     (the defaults):
     
+  kind: examples
 - DocstringExample
   args: ['examples']
   description: |
@@ -176,6 +184,7 @@ style: numpydoc
     Calculate the quality using the mean edge length in the minimum
     spanning tree:
     
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> from scipy.stats import qmc
@@ -190,10 +199,12 @@ style: numpydoc
     Display the minimum spanning tree and the points with
     the smallest distance:
     
+  kind: examples
   snippet: ">>> qmc.geometric_discrepancy(sample, method='mst')"
 - DocstringExample
   args: ['examples']
   description: '...            xlim=[0, 1], ylim=[0, 1])'
+  kind: examples
   snippet: |
     >>> import matplotlib.pyplot as plt
     >>> from matplotlib.lines import Line2D
@@ -210,6 +221,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: "...     ax.plot(sample[edge, 0], sample[edge, 1], c='k')"
+  kind: examples
   snippet: '>>> for edge in edges:'
 - DocstringExample
   args: ['examples']
@@ -219,6 +231,7 @@ style: numpydoc
     ...     Line2D([0], [0], marker='o', lw=0, markerfacecolor='w', markeredgecolor='r',
     ...            label='Minimum point-to-point distance'),
     ... ]
+  kind: examples
   snippet: |
     >>> ax.scatter(sample[:, 0], sample[:, 1])
     >>> ax.add_patch(plt.Circle(sample[min_idx[0]], min_dist, color='red', fill=False))
@@ -226,6 +239,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: ''
+  kind: examples
   snippet: |
     >>> ax.legend(handles=markers, loc='center left', bbox_to_anchor=(1, 0.5));
     >>> plt.show()

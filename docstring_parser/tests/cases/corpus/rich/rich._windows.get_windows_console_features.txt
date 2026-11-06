@@ -13,6 +13,7 @@ style: google
 - DocstringReturns
   args: ['returns', 'WindowsConsoleFeatures']
   description: 'An instance of WindowsConsoleFeatures.'
+  kind: returns
   type_name: 'WindowsConsoleFeatures'
   is_generator: False
 === detect

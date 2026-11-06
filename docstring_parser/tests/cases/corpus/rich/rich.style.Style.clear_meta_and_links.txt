@@ -13,6 +13,7 @@ style: google
 - DocstringReturns
   args: ['returns', 'Style']
   description: 'New style object.'
+  kind: returns
   type_name: 'Style'
   is_generator: False
 === detect

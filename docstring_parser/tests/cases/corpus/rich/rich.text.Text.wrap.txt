@@ -21,18 +21,21 @@ style: google
 - DocstringParam
   args: ['param', 'console (Console)']
   description: 'Console instance.'
+  kind: param
   arg_name: 'console'
   type_name: 'Console'
   is_optional: False
 - DocstringParam
   args: ['param', 'width (int)']
   description: 'Number of cells available per line.'
+  kind: param
   arg_name: 'width'
   type_name: 'int'
   is_optional: False
 - DocstringParam
   args: ['param', 'justify (str, optional)']
   description: 'Justify method: "default", "left", "center", "full", "right". Defaults to "default".'
+  kind: param
   arg_name: 'justify'
   type_name: 'str'
   is_optional: True
@@ -40,6 +43,7 @@ style: google
 - DocstringParam
   args: ['param', 'overflow (str, optional)']
   description: 'Overflow method: "crop", "fold", or "ellipsis". Defaults to None.'
+  kind: param
   arg_name: 'overflow'
   type_name: 'str'
   is_optional: True
@@ -47,6 +51,7 @@ style: google
 - DocstringParam
   args: ['param', 'tab_size (int, optional)']
   description: 'Default tab size. Defaults to 8.'
+  kind: param
   arg_name: 'tab_size'
   type_name: 'int'
   is_optional: True
@@ -54,12 +59,14 @@ style: google
 - DocstringParam
   args: ['param', 'no_wrap (bool, optional)']
   description: 'Disable wrapping, Defaults to False.'
+  kind: param
   arg_name: 'no_wrap'
   type_name: 'bool'
   is_optional: True
 - DocstringReturns
   args: ['returns', 'Lines']
   description: 'Number of lines.'
+  kind: returns
   type_name: 'Lines'
   is_generator: False
 === detect

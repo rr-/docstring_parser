@@ -169,6 +169,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'input']
   description: 'Input'
+  kind: param
   arg_name: 'input'
   type_name: 'array_like'
   is_optional: False
@@ -177,6 +178,7 @@ style: numpydoc
   description: |
     'cityblock' and 'manhattan' are also valid, and map to 'taxicab'.
     The default is 'euclidean'.
+  kind: param
   arg_name: 'metric'
   type_name: "{'euclidean', 'taxicab', 'chessboard'}"
   is_optional: True
@@ -188,6 +190,7 @@ style: numpydoc
     Spacing of elements along each dimension. If a sequence, must be of
     length equal to the input rank; if a single number, this is used for
     all axes. If not specified, a grid spacing of unity is implied.
+  kind: param
   arg_name: 'sampling'
   type_name: 'float, or sequence of float'
   is_optional: True
@@ -196,6 +199,7 @@ style: numpydoc
   description: |
     Whether to calculate the distance transform.
     Default is True.
+  kind: param
   arg_name: 'return_distances'
   type_name: 'bool'
   is_optional: True
@@ -205,6 +209,7 @@ style: numpydoc
   description: |
     Whether to calculate the feature transform.
     Default is False.
+  kind: param
   arg_name: 'return_indices'
   type_name: 'bool'
   is_optional: True
@@ -217,6 +222,7 @@ style: numpydoc
     `return_distances` must be True.
     It must be the same shape as `input`, and of type float64 if `metric`
     is 'euclidean', uint32 otherwise.
+  kind: param
   arg_name: 'distances'
   type_name: 'ndarray'
   is_optional: True
@@ -227,6 +233,7 @@ style: numpydoc
     returning it.
     `return_indices` must be True.
     Its shape must be ``(input.ndim,) + input.shape``.
+  kind: param
   arg_name: 'indices'
   type_name: 'int32 ndarray'
   is_optional: True
@@ -236,6 +243,7 @@ style: numpydoc
     The calculated distance transform. Returned only when
     `return_distances` is True and `distances` is not supplied.
     It will have the same shape as the input array.
+  kind: returns
   type_name: 'ndarray, optional'
   is_generator: False
   return_name: 'distances'
@@ -247,6 +255,7 @@ style: numpydoc
     example.
     Returned only when `return_indices` is True and `indices` is not
     supplied.
+  kind: returns
   type_name: 'int32 ndarray, optional'
   is_generator: False
   return_name: 'indices'
@@ -256,12 +265,14 @@ style: numpydoc
     distance_transform_cdt : Faster distance transform for taxicab and
                              chessboard metrics
     distance_transform_edt : Faster distance transform for euclidean metric
+  kind: text
 - DocstringMeta
   args: ['notes']
   description: |
     This function employs a slow brute force algorithm. See also the
     function `distance_transform_cdt` for more efficient taxicab [1]_ and
     chessboard algorithms [2]_.
+  kind: text
 - DocstringMeta
   args: ['references']
   description: |
@@ -269,17 +280,20 @@ style: numpydoc
            https://en.wikipedia.org/wiki/Taxicab_geometry
     .. [2] Chessboard distance. Wikipedia, 2023.
            https://en.wikipedia.org/wiki/Chebyshev_distance
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
     Import the necessary modules.
     
+  kind: examples
 - DocstringExample
   args: ['examples']
   description: |
     
     First, we create a toy binary image.
     
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> from scipy.ndimage import distance_transform_bf
@@ -294,6 +308,7 @@ style: numpydoc
     ...     circle_shape = np.sqrt(circle) < radius
     ...     image[circle_shape] = fillvalue
     ...     return image
+  kind: examples
   snippet: '>>> def add_circle(center_x, center_y, radius, image, fillvalue=1):'
 - DocstringExample
   args: ['examples']
@@ -301,6 +316,7 @@ style: numpydoc
     
     Next, we set up the figure.
     
+  kind: examples
   snippet: |
     >>> image = np.zeros((100, 100), dtype=np.uint8)
     >>> image[35:65, 20:80] = 1
@@ -314,6 +330,7 @@ style: numpydoc
     ...                  label_mode="1", share_all=True,
     ...                  cbar_location="right", cbar_mode="each",
     ...                  cbar_size="7%", cbar_pad="2%")
+  kind: examples
   snippet: |
     >>> fig = plt.figure(figsize=(8, 8))  # set up the figure structure
     >>> grid = ImageGrid(fig, 111, nrows_ncols=(2, 2), axes_pad=(0.4, 0.3),
@@ -324,6 +341,7 @@ style: numpydoc
     
     The top left image is the original binary image.
     
+  kind: examples
   snippet: '>>> for ax in grid:'
 - DocstringExample
   args: ['examples']
@@ -335,6 +353,7 @@ style: numpydoc
     and ``chessboard``. The top right image contains the distance transform
     based on the ``euclidean`` metric.
     
+  kind: examples
   snippet: |
     >>> binary_image = grid[0].imshow(image, cmap='gray')
     >>> cbar_binary_image = grid.cbar_axes[0].colorbar(binary_image)
@@ -343,6 +362,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: "...                                      cmap='gray')"
+  kind: examples
   snippet: |
     >>> distance_transform_euclidean = distance_transform_bf(image)
     >>> euclidean_transform = grid[1].imshow(distance_transform_euclidean,
@@ -353,6 +373,7 @@ style: numpydoc
     The lower left image contains the distance transform using the ``taxicab``
     metric.
     
+  kind: examples
   snippet: |
     >>> cbar_euclidean = grid.cbar_axes[1].colorbar(euclidean_transform)
     >>> colorbar_ticks = [0, 10, 20]
@@ -361,10 +382,12 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: "...                                                    metric='taxicab')"
+  kind: examples
   snippet: '>>> distance_transform_taxicab = distance_transform_bf(image,'
 - DocstringExample
   args: ['examples']
   description: "...                                         cmap='gray')"
+  kind: examples
   snippet: '>>> taxicab_transformation = grid[2].imshow(distance_transform_taxicab,'
 - DocstringExample
   args: ['examples']
@@ -373,6 +396,7 @@ style: numpydoc
     Finally, the lower right image contains the distance transform using the
     ``chessboard`` metric.
     
+  kind: examples
   snippet: |
     >>> cbar_taxicab = grid.cbar_axes[2].colorbar(taxicab_transformation)
     >>> cbar_taxicab.set_ticks(colorbar_ticks)
@@ -380,14 +404,17 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: "...                                               metric='chessboard')"
+  kind: examples
   snippet: '>>> distance_transform_cb = distance_transform_bf(image,'
 - DocstringExample
   args: ['examples']
   description: "...                                            cmap='gray')"
+  kind: examples
   snippet: '>>> chessboard_transformation = grid[3].imshow(distance_transform_cb,'
 - DocstringExample
   args: ['examples']
   description: ''
+  kind: examples
   snippet: |
     >>> cbar_taxicab = grid.cbar_axes[3].colorbar(chessboard_transformation)
     >>> cbar_taxicab.set_ticks(colorbar_ticks)

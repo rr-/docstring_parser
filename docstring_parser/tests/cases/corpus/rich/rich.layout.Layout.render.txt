@@ -17,18 +17,21 @@ style: google
 - DocstringParam
   args: ['param', 'console (Console)']
   description: 'Console instance.'
+  kind: param
   arg_name: 'console'
   type_name: 'Console'
   is_optional: False
 - DocstringParam
   args: ['param', 'options (ConsoleOptions)']
   description: 'Console options.'
+  kind: param
   arg_name: 'options'
   type_name: 'ConsoleOptions'
   is_optional: False
 - DocstringReturns
   args: ['returns', 'RenderMap']
   description: 'A dict that maps Layout on to a tuple of Region, lines'
+  kind: returns
   type_name: 'RenderMap'
   is_generator: False
 === detect

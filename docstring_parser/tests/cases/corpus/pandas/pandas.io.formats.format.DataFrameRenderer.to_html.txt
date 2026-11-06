@@ -39,6 +39,7 @@ style: numpydoc
     String, path object (implementing ``os.PathLike[str]``), or file-like
     object implementing a string ``write()`` function. If None, the result is
     returned as a string.
+  kind: param
   arg_name: 'buf'
   type_name: 'str, path object, file-like object, or None'
   is_optional: True
@@ -46,6 +47,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'encoding']
   description: 'Set character encoding.'
+  kind: param
   arg_name: 'encoding'
   type_name: 'str'
   is_optional: True
@@ -55,12 +57,14 @@ style: numpydoc
   description: |
     classes to include in the `class` attribute of the opening
     ``<table>`` tag, in addition to the default "dataframe".
+  kind: param
   arg_name: 'classes'
   type_name: 'str or list-like'
   is_optional: False
 - DocstringParam
   args: ['param', 'notebook']
   description: 'Whether the generated HTML is for IPython Notebook.'
+  kind: param
   arg_name: 'notebook'
   type_name: '{True, False}'
   is_optional: True
@@ -74,18 +78,21 @@ style: numpydoc
     be present in the ``<table>`` tag.
     The default value for this parameter is governed by
     ``pd.options.display.html.border``.
+  kind: param
   arg_name: 'border'
   type_name: 'int or bool'
   is_optional: False
 - DocstringParam
   args: ['param', 'table_id']
   description: 'A css id is included in the opening `<table>` tag if specified.'
+  kind: param
   arg_name: 'table_id'
   type_name: 'str'
   is_optional: True
 - DocstringParam
   args: ['param', 'render_links']
   description: 'Convert URLs to HTML links.'
+  kind: param
   arg_name: 'render_links'
   type_name: 'bool'
   is_optional: True

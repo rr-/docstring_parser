@@ -14,6 +14,7 @@ style: google
 - DocstringParam
   args: ['param', '*layouts (Union[Layout, RenderableType])']
   description: 'Positional arguments should be renderables or (sub) Layout instances.'
+  kind: param
   arg_name: '*layouts'
   type_name: 'Union[Layout, RenderableType]'
   is_optional: False

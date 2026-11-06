@@ -14,6 +14,7 @@ style: rest
 - DocstringMeta
   args: ['meth']
   description: '`!write`.'
+  kind: text
 === detect
 rest
 === compose rest

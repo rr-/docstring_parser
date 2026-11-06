@@ -17,6 +17,7 @@ style: epydoc
 - DocstringReturns
   args: ['return']
   description: 'The string representation.'
+  kind: returns
   type_name: 'C{str}'
   is_generator: False
 === detect

@@ -13,6 +13,7 @@ style: epydoc
 - DocstringReturns
   args: ['return']
   description: 'a 2-tuple of (host, port).'
+  kind: returns
   is_generator: False
 === detect
 epydoc

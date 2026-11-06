@@ -19,6 +19,7 @@ style: rest
 - DocstringReturns
   args: ['return']
   description: 'Always returns ``True``.'
+  kind: returns
   is_generator: False
 === detect
 rest

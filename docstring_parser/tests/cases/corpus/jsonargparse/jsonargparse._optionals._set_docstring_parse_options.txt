@@ -14,12 +14,14 @@ style: google
 - DocstringParam
   args: ['param', 'style (docstring_parser.DocstringStyle)']
   description: 'The docstring style to expect.'
+  kind: param
   arg_name: 'style'
   type_name: 'docstring_parser.DocstringStyle'
   is_optional: False
 - DocstringParam
   args: ['param', 'attribute_docstrings']
   description: 'Whether to parse attribute docstrings (slower).'
+  kind: param
   arg_name: 'attribute_docstrings'
 === detect
 google

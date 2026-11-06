@@ -26,6 +26,7 @@ style: rest
     `PreparedRequest <PreparedRequest>` object. Any subsequent calls
     to ``prepare_cookies`` will have no actual effect, unless the "Cookie"
     header is removed beforehand.
+  kind: text
 === detect
 rest
 === compose rest

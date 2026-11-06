@@ -327,6 +327,7 @@ style: numpydoc
     alternatives, is described in the
     :doc:`"npy-format" NEP <neps:nep-0001-npy-format>`, however details have
     evolved with time and this document is more current.
+  kind: text
 === detect
 rest
 === compose numpydoc

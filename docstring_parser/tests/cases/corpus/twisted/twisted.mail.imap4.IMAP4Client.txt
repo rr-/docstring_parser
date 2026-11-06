@@ -15,6 +15,7 @@ style: epydoc
   description: |
     A string representing the state the connection is currently
     in.
+  kind: attribute
   arg_name: 'state'
   is_optional: False
 === detect

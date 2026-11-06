@@ -19,16 +19,19 @@ blank_after_long_description: False
 style: numpydoc
 - DocstringParam
   args: ['param', 'arr']
+  kind: param
   arg_name: 'arr'
   type_name: 'np.ndarray or ExtensionArray'
   is_optional: False
 - DocstringParam
   args: ['param', 'element']
+  kind: param
   arg_name: 'element'
   type_name: 'Any'
   is_optional: False
 - DocstringReturns
   args: ['returns']
+  kind: returns
   type_name: 'bool'
   is_generator: False
 === detect

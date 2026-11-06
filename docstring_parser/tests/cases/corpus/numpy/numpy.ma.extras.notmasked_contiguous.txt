@@ -66,6 +66,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'a']
   description: 'The input array.'
+  kind: param
   arg_name: 'a'
   type_name: 'array_like'
   is_optional: False
@@ -75,6 +76,7 @@ style: numpydoc
     Axis along which to perform the operation.
     If None (default), applies to a flattened version of the array, and this
     is the same as `flatnotmasked_contiguous`.
+  kind: param
   arg_name: 'axis'
   type_name: 'int'
   is_optional: True
@@ -85,6 +87,7 @@ style: numpydoc
     in the array.
     
     If the input is 2d and axis is specified, the result is a list of lists.
+  kind: returns
   type_name: 'list'
   is_generator: False
   return_name: 'endpoints'
@@ -93,9 +96,11 @@ style: numpydoc
   description: |
     flatnotmasked_edges, flatnotmasked_contiguous, notmasked_edges
     clump_masked, clump_unmasked
+  kind: text
 - DocstringMeta
   args: ['notes']
   description: 'Only accepts 2-D arrays at most.'
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
@@ -107,6 +112,7 @@ style: numpydoc
             [ True,  True,  True, False],
             [False,  True,  True, False]],
       fill_value=999999)
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> a = np.arange(12).reshape((3, 4))
@@ -119,22 +125,26 @@ style: numpydoc
   description: |
     array([ 0,  2,  3,  7, 8, 11])
     
+  kind: examples
   snippet: '>>> np.array(ma[~ma.mask])'
 - DocstringExample
   args: ['examples']
   description: |
     [slice(0, 1, None), slice(2, 4, None), slice(7, 9, None), slice(11, 12, None)]
     
+  kind: examples
   snippet: '>>> np.ma.notmasked_contiguous(ma)'
 - DocstringExample
   args: ['examples']
   description: |
     [[slice(0, 1, None), slice(2, 3, None)], [], [slice(0, 1, None)], [slice(0, 3, None)]]
     
+  kind: examples
   snippet: '>>> np.ma.notmasked_contiguous(ma, axis=0)'
 - DocstringExample
   args: ['examples']
   description: '[[slice(0, 1, None), slice(2, 4, None)], [slice(3, 4, None)], [slice(0, 1, None), slice(3, 4, None)]]'
+  kind: examples
   snippet: '>>> np.ma.notmasked_contiguous(ma, axis=1)'
 === detect
 numpydoc

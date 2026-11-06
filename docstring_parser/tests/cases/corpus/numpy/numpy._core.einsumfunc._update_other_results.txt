@@ -32,6 +32,7 @@ style: numpydoc
   description: |
     List of contraction results produced by
     ``_parse_possible_contraction``.
+  kind: param
   arg_name: 'results'
   type_name: 'list'
   is_optional: False
@@ -40,6 +41,7 @@ style: numpydoc
   description: |
     The best contraction of ``results`` i.e. the one that
     will be performed.
+  kind: param
   arg_name: 'best'
   type_name: 'list'
   is_optional: False
@@ -48,6 +50,7 @@ style: numpydoc
   description: |
     The list of modified results, updated with outcome of
     ``best`` contraction.
+  kind: returns
   type_name: 'list'
   is_generator: False
   return_name: 'mod_results'

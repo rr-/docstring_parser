@@ -13,6 +13,7 @@ style: google
 - DocstringParam
   args: ['param', 'title (str)']
   description: 'The new terminal window title'
+  kind: param
   arg_name: 'title'
   type_name: 'str'
   is_optional: False

@@ -15,7 +15,9 @@ style: google
 - DocstringExample
   args: ['examples']
   description: ''
+  kind: examples
 - DocstringRaises
   args: ['raises', 'IOError']
   description: 'some error'
+  kind: raises
   type_name: 'IOError'

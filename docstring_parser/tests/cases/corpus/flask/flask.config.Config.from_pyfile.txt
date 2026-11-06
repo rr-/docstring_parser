@@ -27,22 +27,26 @@ style: rest
 - DocstringMeta
   args: ['meth']
   description: '`from_object` function.'
+  kind: text
 - DocstringParam
   args: ['param', 'filename']
   description: |
     the filename of the config.  This can either be an
     absolute filename or a filename relative to the
     root path.
+  kind: param
   arg_name: 'filename'
 - DocstringParam
   args: ['param', 'silent']
   description: |
     set to ``True`` if you want silent failure for missing
     files.
+  kind: param
   arg_name: 'silent'
 - DocstringReturns
   args: ['return']
   description: '``True`` if the file was loaded successfully.'
+  kind: returns
   is_generator: False
 === detect
 rest

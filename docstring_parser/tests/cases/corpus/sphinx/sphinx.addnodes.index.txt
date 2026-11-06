@@ -29,6 +29,7 @@ style: rest
 - DocstringMeta
   args: ['rst']
   description: 'dir:`glossary` and https://github.com/sphinx-doc/sphinx/pull/2320.'
+  kind: text
 === detect
 rest
 === compose rest

@@ -12,11 +12,13 @@ style: epydoc
 - DocstringParam
   args: ['param', 'service']
   description: 'An email service.'
+  kind: param
   arg_name: 'service'
   is_optional: False
 - DocstringParam
   args: ['param', 'root']
   description: 'The maildir root directory.'
+  kind: param
   arg_name: 'root'
   is_optional: False
 === detect

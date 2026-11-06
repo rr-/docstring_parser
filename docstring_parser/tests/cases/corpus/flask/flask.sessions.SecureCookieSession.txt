@@ -19,6 +19,7 @@ style: rest
     `accessed` attributes. It cannot reliably track whether a
     session is new (vs. empty), so :attr:`new` remains hard coded to
     ``False``.
+  kind: text
 === detect
 rest
 === compose rest

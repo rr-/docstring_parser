@@ -51,12 +51,14 @@ blank_after_long_description: True
 style: numpydoc
 - DocstringParam
   args: ['param', 'unit']
+  kind: param
   arg_name: 'unit'
   type_name: "{'s', 'ms', 'us', 'ns'}"
   is_optional: False
 - DocstringParam
   args: ['param', 'round_ok']
   description: 'If False and the conversion requires rounding, raise ValueError.'
+  kind: param
   arg_name: 'round_ok'
   type_name: 'bool'
   is_optional: True
@@ -64,21 +66,25 @@ style: numpydoc
 - DocstringReturns
   args: ['returns']
   description: 'Converted to the specified unit.'
+  kind: returns
   type_name: 'same type as self'
   is_generator: False
 - DocstringMeta
   args: ['see_also']
   description: 'Timestamp.as_unit : Convert to the given unit.'
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
     For :class:`pandas.DatetimeIndex`:
     
+  kind: examples
 - DocstringExample
   args: ['examples']
   description: |
     DatetimeIndex(['2020-01-02 01:02:03.004005006'],
                   dtype='datetime64[ns]', freq=None)
+  kind: examples
   snippet: |
     >>> idx = pd.DatetimeIndex(["2020-01-02 01:02:03.004005006"])
     >>> idx
@@ -89,18 +95,21 @@ style: numpydoc
     
     For :class:`pandas.TimedeltaIndex`:
     
+  kind: examples
   snippet: '>>> idx.as_unit("s")'
 - DocstringExample
   args: ['examples']
   description: |
     TimedeltaIndex(['1 days 00:03:00.000002042'],
                     dtype='timedelta64[ns]', freq=None)
+  kind: examples
   snippet: |
     >>> tdelta_idx = pd.to_timedelta(["1 day 3 min 2 us 42 ns"])
     >>> tdelta_idx
 - DocstringExample
   args: ['examples']
   description: "TimedeltaIndex(['1 days 00:03:00'], dtype='timedelta64[s]', freq=None)"
+  kind: examples
   snippet: '>>> tdelta_idx.as_unit("s")'
 === detect
 numpydoc

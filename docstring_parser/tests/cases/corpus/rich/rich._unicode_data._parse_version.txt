@@ -19,14 +19,17 @@ style: google
 - DocstringParam
   args: ['param', 'version']
   description: 'A version string.'
+  kind: param
   arg_name: 'version'
 - DocstringRaises
   args: ['raises', 'ValueError']
   description: 'If the version string is invalid.'
+  kind: raises
   type_name: 'ValueError'
 - DocstringReturns
   args: ['returns']
   description: 'A tuple of 3 integers.'
+  kind: returns
   is_generator: False
 === detect
 google

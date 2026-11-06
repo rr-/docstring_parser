@@ -27,12 +27,14 @@ style: numpydoc
   description: |
     The function for which to define a masked version. Made available
     as ``_MaskedUnaryOperation.f``.
+  kind: param
   arg_name: 'mufunc'
   type_name: 'callable'
   is_optional: False
 - DocstringParam
   args: ['param', 'fill']
   description: 'Filling value, default is 0.'
+  kind: param
   arg_name: 'fill'
   type_name: 'scalar'
   is_optional: True
@@ -42,6 +44,7 @@ style: numpydoc
   description: |
     Domain for the function. Should be one of the ``_Domain*``
     classes. Default is None.
+  kind: param
   arg_name: 'domain'
   type_name: 'class instance'
   is_optional: False

@@ -162,12 +162,14 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'c']
   description: 'The coefficients of the circulant matrix.'
+  kind: param
   arg_name: 'c'
   type_name: 'array_like'
   is_optional: False
 - DocstringParam
   args: ['param', 'b']
   description: 'Right-hand side matrix in ``a x = b``.'
+  kind: param
   arg_name: 'b'
   type_name: 'array_like'
   is_optional: False
@@ -178,6 +180,7 @@ style: numpydoc
     handled.  If `singular` is "raise" and the circulant matrix is
     near singular, a `LinAlgError` is raised. If `singular` is
     "lstsq", the least squares solution is returned. Default is "raise".
+  kind: param
   arg_name: 'singular'
   type_name: 'str'
   is_optional: True
@@ -193,6 +196,7 @@ style: numpydoc
     
     where `abs_eigs` is the array of absolute values of the eigenvalues
     of the circulant matrix.
+  kind: param
   arg_name: 'tol'
   type_name: 'float'
   is_optional: True
@@ -202,6 +206,7 @@ style: numpydoc
     When `c` has dimension greater than 1, it is viewed as a collection
     of circulant vectors. In this case, `caxis` is the axis of `c` that
     holds the vectors of circulant coefficients.
+  kind: param
   arg_name: 'caxis'
   type_name: 'int'
   is_optional: False
@@ -211,6 +216,7 @@ style: numpydoc
     When `b` has dimension greater than 1, it is viewed as a collection
     of vectors. In this case, `baxis` is the axis of `b` that holds the
     right-hand side vectors.
+  kind: param
   arg_name: 'baxis'
   type_name: 'int'
   is_optional: False
@@ -220,22 +226,26 @@ style: numpydoc
     When `c` or `b` are multidimensional, the value returned by
     `solve_circulant` is multidimensional. In this case, `outaxis` is
     the axis of the result that holds the solution vectors.
+  kind: param
   arg_name: 'outaxis'
   type_name: 'int'
   is_optional: False
 - DocstringReturns
   args: ['returns']
   description: 'Solution to the system ``C x = b``.'
+  kind: returns
   type_name: 'ndarray'
   is_generator: False
   return_name: 'x'
 - DocstringRaises
   args: ['raises', 'LinAlgError']
   description: 'If the circulant matrix associated with `c` is near singular.'
+  kind: raises
   type_name: 'LinAlgError'
 - DocstringMeta
   args: ['see_also']
   description: 'circulant : circulant matrix'
+  kind: text
 - DocstringMeta
   args: ['notes']
   description: |
@@ -244,9 +254,11 @@ style: numpydoc
     where `solve` and `circulant` are from `scipy.linalg`.
     
     .. versionadded:: 0.16.0
+  kind: text
 - DocstringExample
   args: ['examples']
   description: ''
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> from scipy.linalg import solve_circulant, solve, circulant, lstsq
@@ -257,6 +269,7 @@ style: numpydoc
     
     Compare that result to solving the system with `scipy.linalg.solve`:
     
+  kind: examples
   snippet: |
     >>> c = np.array([2, 2, 4])
     >>> b = np.array([1, 2, 3])
@@ -268,6 +281,7 @@ style: numpydoc
     
     A singular example:
     
+  kind: examples
   snippet: '>>> solve(circulant(c), b)'
 - DocstringExample
   args: ['examples']
@@ -276,6 +290,7 @@ style: numpydoc
     Calling ``solve_circulant(c, b)`` will raise a `LinAlgError`.  For the
     least square solution, use the option ``singular='lstsq'``:
     
+  kind: examples
   snippet: |
     >>> c = np.array([1, 1, 0, 0])
     >>> b = np.array([1, 2, 3, 4])
@@ -286,6 +301,7 @@ style: numpydoc
     
     Compare to `scipy.linalg.lstsq`:
     
+  kind: examples
   snippet: ">>> solve_circulant(c, b, singular='lstsq')"
 - DocstringExample
   args: ['examples']
@@ -298,6 +314,7 @@ style: numpydoc
     with shape (2, 5), and three `b` vectors stored in an array with shape
     (3, 5).  For example,
     
+  kind: examples
   snippet: |
     >>> x, resid, rnk, s = lstsq(circulant(c), b)
     >>> x
@@ -318,12 +335,14 @@ style: numpydoc
     default `outaxis`, the result will have shape (5, 2, 3), so we'll use
     ``outaxis=-1`` to put the solution vectors in the last dimension.
     
+  kind: examples
   snippet: |
     >>> c = np.array([[1.5, 2, 3, 0, 0], [1, 1, 4, 3, 2]])
     >>> b = np.arange(15).reshape(-1, 5)
 - DocstringExample
   args: ['examples']
   description: '(2, 3, 5)'
+  kind: examples
   snippet: |
     >>> x = solve_circulant(c[:, np.newaxis, :], b, baxis=-1, outaxis=-1)
     >>> x.shape
@@ -339,12 +358,14 @@ style: numpydoc
     
     Check by solving one pair of `c` and `b` vectors (cf. ``x[1, 1, :]``):
     
+  kind: examples
   snippet: |
     >>> np.set_printoptions(precision=3)  # For compact output of numbers.
     >>> x
 - DocstringExample
   args: ['examples']
   description: 'array([ 0.856,  0.758,  1.149, -0.412,  0.831])'
+  kind: examples
   snippet: '>>> solve_circulant(c[1], b[1, :])'
 === detect
 numpydoc

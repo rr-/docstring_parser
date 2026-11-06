@@ -13,10 +13,12 @@ style: rest
 - DocstringParam
   args: ['param', 'url']
   description: 'The url being for the request'
+  kind: param
   arg_name: 'url'
 - DocstringParam
   args: ['param', 'proxies']
   description: 'A dictionary of schemes or schemes and hosts to proxy URLs'
+  kind: param
   arg_name: 'proxies'
 === detect
 rest

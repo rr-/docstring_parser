@@ -38,6 +38,7 @@ blank_after_long_description: True
 style: numpydoc
 - DocstringParam
   args: ['param', 'None']
+  kind: param
   arg_name: 'None'
 - DocstringExample
   args: ['examples']
@@ -50,6 +51,7 @@ style: numpydoc
         in solve
         raise LinAlgError('Singular matrix')
     numpy.linalg.LinAlgError: Singular matrix
+  kind: examples
   snippet: |
     >>> from numpy import linalg as LA
     >>> LA.inv(np.zeros((2,2)))

@@ -16,6 +16,7 @@ style: google
 - DocstringParam
   args: ['param', 'text (Text)']
   description: 'Text instance to apply the style to.'
+  kind: param
   arg_name: 'text'
   type_name: 'Text'
   is_optional: False

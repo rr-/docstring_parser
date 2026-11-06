@@ -25,6 +25,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: 'True'
+  kind: examples
   snippet: |
     >>> import pandas as pd
     >>>

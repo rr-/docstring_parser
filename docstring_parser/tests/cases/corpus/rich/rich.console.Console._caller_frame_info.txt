@@ -22,6 +22,7 @@ style: google
 - DocstringParam
   args: ['param', 'offset (int)']
   description: 'the caller offset within the current frame stack.'
+  kind: param
   arg_name: 'offset'
   type_name: 'int'
   is_optional: False
@@ -30,6 +31,7 @@ style: google
   description: |
     the callable to use to
     retrieve the current frame. Defaults to None, which will use ``inspect.currentframe()``.
+  kind: param
   arg_name: 'currentframe'
   type_name: 'Callable[[], Optional[FrameType]]'
   is_optional: True
@@ -38,11 +40,13 @@ style: google
   description: |
     A tuple containing the filename, the line number and
     the dictionary of local variables associated with the caller frame.
+  kind: returns
   type_name: 'Tuple[str, int, Dict[str, Any]]'
   is_generator: False
 - DocstringRaises
   args: ['raises', 'RuntimeError']
   description: 'If the stack offset is invalid.'
+  kind: raises
   type_name: 'RuntimeError'
 === detect
 google

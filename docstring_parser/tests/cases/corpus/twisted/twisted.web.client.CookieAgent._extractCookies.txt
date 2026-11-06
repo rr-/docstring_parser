@@ -16,6 +16,7 @@ style: epydoc
 - DocstringParam
   args: ['param', 'response']
   description: 'the Twisted Web response that we are processing.'
+  kind: param
   arg_name: 'response'
   is_optional: False
 - DocstringParam
@@ -23,6 +24,7 @@ style: epydoc
   description: |
     A L{_FakeStdlibRequest} wrapping our Twisted request,
     for L{CookieJar} to extract cookies from.
+  kind: param
   arg_name: 'request'
   is_optional: False
 === detect

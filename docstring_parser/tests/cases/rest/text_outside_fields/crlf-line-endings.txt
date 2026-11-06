@@ -19,4 +19,5 @@ style: rest
 - DocstringParam
   args: ['param', 'a']
   description: 'A.'
+  kind: param
   arg_name: 'a'

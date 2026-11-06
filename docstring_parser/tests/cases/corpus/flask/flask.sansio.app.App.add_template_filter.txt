@@ -14,11 +14,13 @@ style: rest
 - DocstringMeta
   args: ['meth']
   description: '`template_filter` decorator.'
+  kind: text
 - DocstringParam
   args: ['param', 'name']
   description: |
     the optional name of the filter, otherwise the
     function name will be used.
+  kind: param
   arg_name: 'name'
 === detect
 rest

@@ -104,6 +104,7 @@ style: numpydoc
     where ``x`` is a 1-D array with shape (n,) and ``args``
     is a tuple of the fixed parameters needed to completely
     specify the function.
+  kind: param
   arg_name: 'fun'
   type_name: 'callable'
   is_optional: False
@@ -112,6 +113,7 @@ style: numpydoc
   description: |
     Initial guess. Array of real elements of size (n,),
     where ``n`` is the number of independent variables.
+  kind: param
   arg_name: 'x0'
   type_name: 'ndarray, shape (n,)'
   is_optional: False
@@ -120,6 +122,7 @@ style: numpydoc
   description: |
     Extra arguments passed to the objective function and its
     derivatives (`fun`, `jac` and `hess` functions).
+  kind: param
   arg_name: 'args'
   type_name: 'tuple'
   is_optional: True
@@ -128,6 +131,7 @@ style: numpydoc
   description: |
     The present documentation is specific to ``method='powell'``, but other
     options are available. See documentation for `scipy.optimize.minimize`.
+  kind: param
   arg_name: 'method'
   type_name: 'str or callable'
   is_optional: True
@@ -150,6 +154,7 @@ style: numpydoc
     within the bounds. If `direc` is not full rank, then some parameters
     may not be optimized and the solution is not guaranteed to be within
     the bounds.
+  kind: param
   arg_name: 'bounds'
   type_name: 'sequence or `Bounds`'
   is_optional: True
@@ -166,6 +171,7 @@ style: numpydoc
         Set to True to print convergence messages.
     
     See method-specific options for ``method='powell'`` below.
+  kind: param
   arg_name: 'options'
   type_name: 'dict'
   is_optional: True
@@ -177,6 +183,7 @@ style: numpydoc
         callback(xk)
     
     where ``xk`` is the current parameter vector.
+  kind: param
   arg_name: 'callback'
   type_name: 'callable'
   is_optional: True
@@ -188,32 +195,38 @@ style: numpydoc
     Boolean flag indicating if the optimizer exited successfully and
     ``message`` which describes the cause of the termination. See
     `OptimizeResult` for a description of other attributes.
+  kind: returns
   type_name: 'OptimizeResult'
   is_generator: False
   return_name: 'res'
 - DocstringReturns
   args: ['returns']
+  kind: returns
   type_name: 'Options'
   is_generator: False
 - DocstringReturns
   args: ['returns']
+  kind: returns
   type_name: '-------'
   is_generator: False
 - DocstringReturns
   args: ['returns']
   description: 'Set to True to print convergence messages.'
+  kind: returns
   type_name: 'bool'
   is_generator: False
   return_name: 'disp'
 - DocstringReturns
   args: ['returns']
   description: 'Relative error in solution `xopt` acceptable for convergence.'
+  kind: returns
   type_name: 'float'
   is_generator: False
   return_name: 'xtol'
 - DocstringReturns
   args: ['returns']
   description: 'Relative error in ``fun(xopt)`` acceptable for convergence.'
+  kind: returns
   type_name: 'float'
   is_generator: False
   return_name: 'ftol'
@@ -225,12 +238,14 @@ style: numpydoc
     variables, if neither `maxiter` or `maxfev` is set. If both
     `maxiter` and `maxfev` are set, minimization will stop at the
     first reached.
+  kind: returns
   type_name: 'int'
   is_generator: False
   return_name: 'maxiter, maxfev'
 - DocstringReturns
   args: ['returns']
   description: 'Initial set of direction vectors for the Powell method.'
+  kind: returns
   type_name: 'ndarray'
   is_generator: False
   return_name: 'direc'
@@ -239,6 +254,7 @@ style: numpydoc
   description: |
     Set to True to return a list of the best solution at each of the
     iterations.
+  kind: returns
   type_name: 'bool, optional'
   is_generator: False
   return_name: 'return_all'

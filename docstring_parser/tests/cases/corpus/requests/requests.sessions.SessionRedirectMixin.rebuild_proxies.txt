@@ -26,6 +26,7 @@ blank_after_long_description: True
 style: rest
 - DocstringReturns
   args: []
+  kind: returns
   type_name: 'dict'
   is_generator: False
 === detect

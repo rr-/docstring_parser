@@ -51,12 +51,14 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'arr_or_dtype']
   description: 'The array or dtype to check.'
+  kind: param
   arg_name: 'arr_or_dtype'
   type_name: 'array-like or dtype'
   is_optional: False
 - DocstringReturns
   args: ['returns']
   description: 'Whether or not the array or dtype is of a real number dtype.'
+  kind: returns
   type_name: 'boolean'
   is_generator: False
 - DocstringMeta
@@ -65,31 +67,38 @@ style: numpydoc
     is_numeric_dtype : Check if a dtype is numeric.
     is_complex_dtype : Check if a dtype is complex.
     is_bool_dtype : Check if a dtype is boolean.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: 'True'
+  kind: examples
   snippet: |
     >>> from pandas.api.types import is_any_real_numeric_dtype
     >>> is_any_real_numeric_dtype(int)
 - DocstringExample
   args: ['examples']
   description: 'True'
+  kind: examples
   snippet: '>>> is_any_real_numeric_dtype(float)'
 - DocstringExample
   args: ['examples']
   description: 'False'
+  kind: examples
   snippet: '>>> is_any_real_numeric_dtype(object)'
 - DocstringExample
   args: ['examples']
   description: 'False'
+  kind: examples
   snippet: '>>> is_any_real_numeric_dtype(str)'
 - DocstringExample
   args: ['examples']
   description: 'False'
+  kind: examples
   snippet: '>>> is_any_real_numeric_dtype(complex(1, 2))'
 - DocstringExample
   args: ['examples']
   description: 'False'
+  kind: examples
   snippet: '>>> is_any_real_numeric_dtype(bool)'
 === detect
 numpydoc

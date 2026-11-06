@@ -12,6 +12,7 @@ style: rest
 - DocstringParam
   args: ['param', 'sphinx.application.Sphinx', 'app']
   description: 'Sphinx application object'
+  kind: param
   arg_name: 'app'
   type_name: 'sphinx.application.Sphinx'
   is_optional: False

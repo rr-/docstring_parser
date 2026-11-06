@@ -56,6 +56,7 @@ style: rest
   description: |
     `methods` is automatically set based on the methods defined on
     the class.
+  kind: text
 === detect
 rest
 === compose rest

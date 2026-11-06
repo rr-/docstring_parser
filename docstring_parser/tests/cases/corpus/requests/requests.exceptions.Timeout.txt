@@ -15,9 +15,11 @@ style: rest
 - DocstringMeta
   args: ['exc']
   description: '`~requests.exceptions.ConnectTimeout` and'
+  kind: text
 - DocstringMeta
   args: ['exc']
   description: '`~requests.exceptions.ReadTimeout` errors.'
+  kind: text
 === detect
 rest
 === compose rest

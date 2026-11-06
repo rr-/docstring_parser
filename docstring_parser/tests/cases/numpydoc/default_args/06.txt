@@ -13,6 +13,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'arg5']
   description: 'The fifth arg.'
+  kind: param
   arg_name: 'arg5'
   type_name: 'str'
   is_optional: True

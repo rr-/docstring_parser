@@ -25,19 +25,23 @@ style: rest
   description: |
     `instance_path`. Unlike :meth:`open_resource`, files in the
     instance folder can be opened for writing.
+  kind: text
 - DocstringParam
   args: ['param', 'resource']
   description: 'Path to the resource relative to :attr:`instance_path`.'
+  kind: param
   arg_name: 'resource'
 - DocstringParam
   args: ['param', 'mode']
   description: 'Open the file in this mode.'
+  kind: param
   arg_name: 'mode'
 - DocstringParam
   args: ['param', 'encoding']
   description: |
     Open the file with this encoding when opening in text
     mode. This is ignored when opening in binary mode.
+  kind: param
   arg_name: 'encoding'
 === detect
 rest

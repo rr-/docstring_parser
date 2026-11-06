@@ -14,12 +14,14 @@ style: google
 - DocstringParam
   args: ['param', 'text (str)']
   description: 'The text to write'
+  kind: param
   arg_name: 'text'
   type_name: 'str'
   is_optional: False
 - DocstringParam
   args: ['param', 'style (Style)']
   description: 'The style of the text'
+  kind: param
   arg_name: 'style'
   type_name: 'Style'
   is_optional: False

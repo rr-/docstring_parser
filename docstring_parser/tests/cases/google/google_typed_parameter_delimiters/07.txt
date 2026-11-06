@@ -12,6 +12,7 @@ style: google
 - DocstringParam
   args: ['param', 'value (constr(regex="(a|b)+"))']
   description: 'description'
+  kind: param
   arg_name: 'value'
   type_name: 'constr(regex="(a|b)+")'
   is_optional: False

@@ -22,18 +22,22 @@ style: google
 - DocstringParam
   args: ['param', 'value']
   description: 'The value to evaluate (will be converted to `NoneType` if `None`, and to a `ForwardRef` instance if a string).'
+  kind: param
   arg_name: 'value'
 - DocstringParam
   args: ['param', 'localns']
   description: 'The global namespace to use during annotation evaluation.'
+  kind: param
   arg_name: 'localns'
 - DocstringParam
   args: ['param', 'globalns']
   description: 'The local namespace to use during annotation evaluation.'
+  kind: param
   arg_name: 'globalns'
 - DocstringParam
   args: ['param', 'type_params']
   description: 'The type params belonging to the object being evaluated.'
+  kind: param
   arg_name: 'type_params'
 === detect
 google

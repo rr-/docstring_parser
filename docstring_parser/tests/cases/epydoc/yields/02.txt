@@ -12,4 +12,5 @@ style: epydoc
 - DocstringReturns
   args: ['yield']
   description: 'description'
+  kind: yields
   is_generator: True

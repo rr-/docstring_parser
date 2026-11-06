@@ -20,12 +20,14 @@ style: google
 - DocstringParam
   args: ['param', '_object (Any)']
   description: 'Object to pretty print.'
+  kind: param
   arg_name: '_object'
   type_name: 'Any'
   is_optional: False
 - DocstringParam
   args: ['param', 'console (Console, optional)']
   description: 'Console instance, or None to use default. Defaults to None.'
+  kind: param
   arg_name: 'console'
   type_name: 'Console'
   is_optional: True
@@ -35,12 +37,14 @@ style: google
   description: |
     Maximum length of containers before abbreviating, or None for no abbreviation.
     Defaults to None.
+  kind: param
   arg_name: 'max_length'
   type_name: 'int'
   is_optional: True
 - DocstringParam
   args: ['param', 'max_string (int, optional)']
   description: 'Maximum length of strings before truncating, or None to disable. Defaults to None.'
+  kind: param
   arg_name: 'max_string'
   type_name: 'int'
   is_optional: True
@@ -48,6 +52,7 @@ style: google
 - DocstringParam
   args: ['param', 'max_depth (int, optional)']
   description: 'Maximum depth for nested data structures, or None for unlimited depth. Defaults to None.'
+  kind: param
   arg_name: 'max_depth'
   type_name: 'int'
   is_optional: True
@@ -55,6 +60,7 @@ style: google
 - DocstringParam
   args: ['param', 'indent_guides (bool, optional)']
   description: 'Enable indentation guides. Defaults to True.'
+  kind: param
   arg_name: 'indent_guides'
   type_name: 'bool'
   is_optional: True
@@ -62,6 +68,7 @@ style: google
 - DocstringParam
   args: ['param', 'expand_all (bool, optional)']
   description: 'Expand all containers. Defaults to False.'
+  kind: param
   arg_name: 'expand_all'
   type_name: 'bool'
   is_optional: True

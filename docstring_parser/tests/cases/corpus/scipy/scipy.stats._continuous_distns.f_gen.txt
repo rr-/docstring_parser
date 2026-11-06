@@ -48,6 +48,7 @@ style: numpydoc
 - DocstringMeta
   args: ['see_also']
   description: 'ncf'
+  kind: text
 - DocstringMeta
   args: ['notes']
   description: |
@@ -73,6 +74,7 @@ style: numpydoc
     %(after_notes)s
     
     %(example)s
+  kind: text
 === detect
 rest
 === compose numpydoc

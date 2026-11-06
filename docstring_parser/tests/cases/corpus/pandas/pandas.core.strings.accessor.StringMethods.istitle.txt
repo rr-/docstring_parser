@@ -54,6 +54,7 @@ style: numpydoc
   description: |
     Series or Index of boolean values with the same length as the original
     Series/Index.
+  kind: returns
   type_name: 'Series or Index of bool'
   is_generator: False
 - DocstringMeta
@@ -68,6 +69,7 @@ style: numpydoc
     Series.str.islower : Check whether all characters are lowercase.
     Series.str.isascii : Check whether all characters are ascii.
     Series.str.isupper : Check whether all characters are uppercase.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
@@ -76,6 +78,7 @@ style: numpydoc
     assumed to be as any sequence of non-numeric characters separated by
     whitespace characters.
     
+  kind: examples
 - DocstringExample
   args: ['examples']
   description: |
@@ -84,6 +87,7 @@ style: numpydoc
     2    False
     3    False
     dtype: bool
+  kind: examples
   snippet: |
     >>> s5 = pd.Series(["leopard", "Golden Eagle", "SNAKE", ""])
     >>> s5.str.istitle()

@@ -56,12 +56,14 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'signal']
   description: 'A rank-1 array representing samples of a signal.'
+  kind: param
   arg_name: 'signal'
   type_name: 'ndarray'
   is_optional: False
 - DocstringParam
   args: ['param', 'lamb']
   description: 'Smoothing coefficient, default is 0.0.'
+  kind: param
   arg_name: 'lamb'
   type_name: 'float'
   is_optional: True
@@ -69,21 +71,25 @@ style: numpydoc
 - DocstringReturns
   args: ['returns']
   description: 'Cubic spline coefficients.'
+  kind: returns
   type_name: 'ndarray'
   is_generator: False
   return_name: 'c'
 - DocstringMeta
   args: ['see_also']
   description: 'cspline1d_eval : Evaluate a cubic spline at the new set of points.'
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
     We can filter a signal to reduce and smooth out high-frequency noise with
     a cubic spline:
     
+  kind: examples
 - DocstringExample
   args: ['examples']
   description: ''
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> import matplotlib.pyplot as plt

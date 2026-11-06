@@ -12,4 +12,5 @@ style: google
 - DocstringParam
   args: ['param', 'value ()']
   description: 'description'
+  kind: param
   arg_name: 'value ()'

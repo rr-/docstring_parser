@@ -29,6 +29,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'num_values']
   description: 'number of values that will be aggregated over'
+  kind: param
   arg_name: 'num_values'
   type_name: 'int'
   is_optional: True
@@ -36,6 +37,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'min_periods']
   description: 'min_periods passed from the top level rolling API'
+  kind: param
   arg_name: 'min_periods'
   type_name: 'int'
   is_optional: True
@@ -43,6 +45,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'center']
   description: 'center passed from the top level rolling API'
+  kind: param
   arg_name: 'center'
   type_name: 'bool'
   is_optional: True
@@ -50,6 +53,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'closed']
   description: 'closed passed from the top level rolling API'
+  kind: param
   arg_name: 'closed'
   type_name: 'str'
   is_optional: True
@@ -57,16 +61,19 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'step']
   description: 'step passed from the top level rolling API'
+  kind: param
   arg_name: 'step'
   type_name: 'int'
   is_optional: True
   default: 'None'
 - DocstringReturns
   args: ['returns']
+  kind: returns
   type_name: 'A tuple of ndarray[int64]s, indicating the boundaries of each'
   is_generator: False
 - DocstringReturns
   args: ['returns']
+  kind: returns
   type_name: 'window'
   is_generator: False
 === detect

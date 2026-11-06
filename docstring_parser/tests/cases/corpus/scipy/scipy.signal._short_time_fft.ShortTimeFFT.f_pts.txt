@@ -21,6 +21,7 @@ style: numpydoc
     f: Frequencies values of the STFT.
     mfft: Length of the input for FFT used.
     ShortTimeFFT: Class this property belongs to.
+  kind: text
 === detect
 numpydoc
 === compose numpydoc

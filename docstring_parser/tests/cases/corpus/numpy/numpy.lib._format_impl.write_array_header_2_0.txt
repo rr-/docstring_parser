@@ -18,6 +18,7 @@ blank_after_long_description: True
 style: numpydoc
 - DocstringParam
   args: ['param', 'fp']
+  kind: param
   arg_name: 'fp'
   type_name: 'filelike object'
   is_optional: False
@@ -26,6 +27,7 @@ style: numpydoc
   description: |
     This has the appropriate entries for writing its string
     representation to the header of the file.
+  kind: param
   arg_name: 'd'
   type_name: 'dict'
   is_optional: False

@@ -16,10 +16,12 @@ style: google
 - DocstringParam
   args: ['param', 'schema']
   description: 'The core schema.'
+  kind: param
   arg_name: 'schema'
 - DocstringReturns
   args: ['returns']
   description: 'The generated JSON schema.'
+  kind: returns
   is_generator: False
 === detect
 google

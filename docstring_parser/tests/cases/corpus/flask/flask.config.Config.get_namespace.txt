@@ -55,18 +55,21 @@ style: rest
 - DocstringParam
   args: ['param', 'namespace']
   description: 'a configuration namespace'
+  kind: param
   arg_name: 'namespace'
 - DocstringParam
   args: ['param', 'lowercase']
   description: |
     a flag indicating if the keys of the resulting
     dictionary should be lowercase
+  kind: param
   arg_name: 'lowercase'
 - DocstringParam
   args: ['param', 'trim_namespace']
   description: |
     a flag indicating if the keys of the resulting
     dictionary should not include the namespace
+  kind: param
   arg_name: 'trim_namespace'
 === detect
 rest

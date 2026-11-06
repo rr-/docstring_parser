@@ -46,18 +46,22 @@ style: google
 - DocstringParam
   args: ['param', 'instantiator']
   description: 'Function that instantiates a class.'
+  kind: param
   arg_name: 'instantiator'
 - DocstringParam
   args: ['param', 'class_type']
   description: 'The class type to instantiate.'
+  kind: param
   arg_name: 'class_type'
 - DocstringParam
   args: ['param', 'subclasses']
   description: 'Whether to instantiate subclasses of ``class_type``.'
+  kind: param
   arg_name: 'subclasses'
 - DocstringParam
   args: ['param', 'prepend']
   description: 'Whether to prepend the instantiator to the existing instantiators.'
+  kind: param
   arg_name: 'prepend'
 === detect
 google

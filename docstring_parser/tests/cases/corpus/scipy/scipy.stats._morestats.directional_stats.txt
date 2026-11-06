@@ -138,12 +138,14 @@ style: numpydoc
     input must correspond with the dimensionality of the vector space.
     When the input is exactly two dimensional, this means that each row
     of the data is a vector observation.
+  kind: param
   arg_name: 'samples'
   type_name: 'array_like'
   is_optional: False
 - DocstringParam
   args: ['param', 'axis']
   description: 'Axis along which the directional mean is computed.'
+  kind: param
   arg_name: 'axis'
   type_name: 'int'
   is_optional: True
@@ -154,6 +156,7 @@ style: numpydoc
     If True, normalize the input to ensure that each observation is a
     unit vector. It the observations are already unit vectors, consider
     setting this to False to avoid unnecessary computation.
+  kind: param
   arg_name: 'normalize'
   type_name: 'bool'
   is_optional: True
@@ -167,6 +170,7 @@ style: numpydoc
         Directional mean.
     mean_resultant_length : ndarray
         The mean resultant length [1]_.
+  kind: returns
   type_name: 'DirectionalStats'
   is_generator: False
   return_name: 'res'
@@ -175,6 +179,7 @@ style: numpydoc
   description: |
     circmean: circular mean; i.e. directional mean for 2D *angles*
     circvar: circular variance; i.e. directional variance for 2D *angles*
+  kind: text
 - DocstringMeta
   args: ['notes']
   description: |
@@ -197,6 +202,7 @@ style: numpydoc
     [2]_, and ``2 * (1 - R)`` [2]_. Rather than choosing one, this function
     returns ``R`` as attribute `mean_resultant_length` so the user can compute
     their preferred measure of dispersion.
+  kind: text
 - DocstringMeta
   args: ['references']
   description: |
@@ -204,9 +210,11 @@ style: numpydoc
        (p. 163). Wiley.
     
     .. [2] https://en.wikipedia.org/wiki/Directional_statistics
+  kind: text
 - DocstringExample
   args: ['examples']
   description: '...                  [6, -8]])  # second observation'
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> from scipy.stats import directional_stats
@@ -220,6 +228,7 @@ style: numpydoc
     by the magnitude of each observation. Furthermore, the result would not be
     a unit vector.
     
+  kind: examples
   snippet: |
     >>> dirstats = directional_stats(data)
     >>> dirstats.mean_direction
@@ -231,10 +240,12 @@ style: numpydoc
     An exemplary use case for `directional_stats` is to find a *meaningful*
     center for a set of observations on a sphere, e.g. geographical locations.
     
+  kind: examples
   snippet: '>>> data.mean(axis=0)'
 - DocstringExample
   args: ['examples']
   description: '...                  [0.8660254, -0.5, 0.]])'
+  kind: examples
   snippet: '>>> data = np.array([[0.8660254, 0.5, 0.],'
 - DocstringExample
   args: ['examples']
@@ -244,6 +255,7 @@ style: numpydoc
     The regular sample mean on the other hand yields a result which does not
     lie on the surface of the sphere.
     
+  kind: examples
   snippet: |
     >>> dirstats = directional_stats(data)
     >>> dirstats.mean_direction
@@ -258,10 +270,12 @@ style: numpydoc
     mean resultant length, we can calculate the directional variance of the
     vectors in the above example as:
     
+  kind: examples
   snippet: '>>> data.mean(axis=0)'
 - DocstringExample
   args: ['examples']
   description: '0.13397459716167093'
+  kind: examples
   snippet: '>>> 1 - dirstats.mean_resultant_length'
 === detect
 numpydoc

@@ -121,12 +121,14 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'a']
   description: 'First argument.'
+  kind: param
   arg_name: 'a'
   type_name: 'array_like'
   is_optional: False
 - DocstringParam
   args: ['param', 'b']
   description: 'Second argument.'
+  kind: param
   arg_name: 'b'
   type_name: 'array_like'
   is_optional: False
@@ -139,6 +141,7 @@ style: numpydoc
     for `dot(a,b)`. This is a performance feature. Therefore, if these
     conditions are not met, an exception is raised, instead of attempting
     to be flexible.
+  kind: param
   arg_name: 'out'
   type_name: 'ndarray'
   is_optional: True
@@ -149,6 +152,7 @@ style: numpydoc
     scalars or both 1-D arrays then a scalar is returned; otherwise
     an array is returned.
     If `out` is given, then it is returned.
+  kind: returns
   type_name: 'ndarray'
   is_generator: False
   return_name: 'output'
@@ -157,6 +161,7 @@ style: numpydoc
   description: |
     If the last dimension of `a` is not the same size as
     the second-to-last dimension of `b`.
+  kind: raises
   type_name: 'ValueError'
 - DocstringMeta
   args: ['see_also']
@@ -167,6 +172,7 @@ style: numpydoc
     einsum : Einstein summation convention.
     matmul : '@' operator as method with out parameter.
     linalg.multi_dot : Chained dot product.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
@@ -174,6 +180,7 @@ style: numpydoc
     
     Neither argument is complex-conjugated:
     
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> np.dot(3, 4)
@@ -184,6 +191,7 @@ style: numpydoc
     
     For 2-D arrays it is the matrix product:
     
+  kind: examples
   snippet: '>>> np.dot([2j, 3j], [2j, 3j])'
 - DocstringExample
   args: ['examples']
@@ -191,6 +199,7 @@ style: numpydoc
     array([[4, 1],
            [2, 2]])
     
+  kind: examples
   snippet: |
     >>> a = [[1, 0], [0, 1]]
     >>> b = [[4, 1], [2, 2]]
@@ -198,6 +207,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: '499128'
+  kind: examples
   snippet: |
     >>> a = np.arange(3*4*5*6).reshape((3,4,5,6))
     >>> b = np.arange(3*4*5*6)[::-1].reshape((5,4,6,3))
@@ -205,6 +215,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: '499128'
+  kind: examples
   snippet: '>>> sum(a[2,3,2,:] * b[1,2,:,2])'
 === detect
 numpydoc

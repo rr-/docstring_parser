@@ -15,18 +15,21 @@ style: google
 - DocstringParam
   args: ['param', 'align (AlignMethod)']
   description: 'One of "left", "center", or "right".'
+  kind: param
   arg_name: 'align'
   type_name: 'AlignMethod'
   is_optional: False
 - DocstringParam
   args: ['param', 'width (int)']
   description: 'Desired width.'
+  kind: param
   arg_name: 'width'
   type_name: 'int'
   is_optional: False
 - DocstringParam
   args: ['param', 'character (str, optional)']
   description: 'Character to pad with. Defaults to " ".'
+  kind: param
   arg_name: 'character'
   type_name: 'str'
   is_optional: True

@@ -22,22 +22,26 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'name']
   description: 'description 1'
+  kind: param
   arg_name: 'name'
 - DocstringParam
   args: ['param', 'priority']
   description: 'description 2'
+  kind: param
   arg_name: 'priority'
   type_name: 'int'
   is_optional: False
 - DocstringParam
   args: ['param', 'sender']
   description: 'description 3'
+  kind: param
   arg_name: 'sender'
   type_name: 'str'
   is_optional: True
 - DocstringParam
   args: ['param', 'ratio']
   description: 'description 4'
+  kind: param
   arg_name: 'ratio'
   type_name: 'Optional[float]'
   is_optional: True

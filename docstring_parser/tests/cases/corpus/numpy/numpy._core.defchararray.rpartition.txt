@@ -55,12 +55,14 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'a']
   description: 'Input array'
+  kind: param
   arg_name: 'a'
   type_name: 'array-like, with ``StringDType``, ``bytes_``, or ``str_`` dtype'
   is_optional: False
 - DocstringParam
   args: ['param', 'sep']
   description: 'Right-most separator to split each element in array.'
+  kind: param
   arg_name: 'sep'
   type_name: 'str or unicode'
   is_optional: False
@@ -70,18 +72,21 @@ style: numpydoc
     Output array of ``StringDType``, ``bytes_`` or ``str_`` dtype,
     depending on input types. The output array will have an extra
     dimension with 3 elements per input element.
+  kind: returns
   type_name: 'ndarray'
   is_generator: False
   return_name: 'out'
 - DocstringMeta
   args: ['see_also']
   description: 'str.rpartition'
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
     array([['aAaAa', 'A', ''],
        ['  a', 'A', '  '],
        ['abB', 'A', 'Bba']], dtype='<U5')
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> a = np.array(['aAaAaA', '  aA  ', 'abBABba'])

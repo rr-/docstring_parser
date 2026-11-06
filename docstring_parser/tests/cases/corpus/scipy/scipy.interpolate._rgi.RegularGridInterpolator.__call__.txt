@@ -64,6 +64,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'xi']
   description: 'The coordinates to evaluate the interpolator at.'
+  kind: param
   arg_name: 'xi'
   type_name: 'ndarray of shape (..., ndim)'
   is_optional: False
@@ -73,6 +74,7 @@ style: numpydoc
     The method of interpolation to perform. Supported are "linear",
     "nearest", "slinear", "cubic", "quintic" and "pchip". Default is
     the method chosen when the interpolator was created.
+  kind: param
   arg_name: 'method'
   type_name: 'str'
   is_optional: True
@@ -85,6 +87,7 @@ style: numpydoc
     Only allowed for methods "slinear", "cubic" and "quintic".
     
     .. versionadded:: 1.13
+  kind: param
   arg_name: 'nu'
   type_name: 'sequence of ints, length ndim'
   is_optional: True
@@ -93,6 +96,7 @@ style: numpydoc
   description: |
     Interpolated values at `xi`. See notes for behaviour when
     ``xi.ndim == 1``.
+  kind: returns
   type_name: 'ndarray, shape xi.shape[:-1] + values.shape[ndim:]'
   is_generator: False
   return_name: 'values_x'
@@ -102,14 +106,17 @@ style: numpydoc
     In the case that ``xi.ndim == 1`` a new axis is inserted into
     the 0 position of the returned array, values_x, so its shape is
     instead ``(1,) + values.shape[ndim:]``.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
     Here we define a nearest-neighbor interpolator of a simple function
     
+  kind: examples
 - DocstringExample
   args: ['examples']
   description: '...     return x**2 + y**2'
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> x, y = np.array([0, 1, 2]), np.array([1, 3, 7])
@@ -121,6 +128,7 @@ style: numpydoc
     By construction, the interpolator uses the nearest-neighbor
     interpolation
     
+  kind: examples
   snippet: |
     >>> data = f(*np.meshgrid(x, y, indexing='ij', sparse=True))
     >>> from scipy.interpolate import RegularGridInterpolator
@@ -133,10 +141,12 @@ style: numpydoc
     We can however evaluate the linear interpolant by overriding the
     `method` parameter
     
+  kind: examples
   snippet: '>>> interp([[1.5, 1.3], [0.3, 4.5]])'
 - DocstringExample
   args: ['examples']
   description: 'array([ 4.7, 24.3])'
+  kind: examples
   snippet: ">>> interp([[1.5, 1.3], [0.3, 4.5]], method='linear')"
 === detect
 numpydoc

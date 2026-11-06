@@ -48,6 +48,7 @@ style: google
   description: |
     An instance of a urllib3 class that implements
     the request interface (e.g. :class:`urllib3.PoolManager`).
+  kind: param
   arg_name: 'http'
   type_name: 'urllib3.PoolManager'
   is_optional: False

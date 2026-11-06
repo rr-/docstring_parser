@@ -17,9 +17,11 @@ style: google
 - DocstringExample
   args: ['examples']
   description: 'example: 1'
+  kind: examples
 - DocstringExample
   args: ['examples']
   description: |
     long example
     
     more here
+  kind: examples

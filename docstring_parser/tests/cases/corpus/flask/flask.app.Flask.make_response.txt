@@ -74,6 +74,7 @@ style: rest
 - DocstringMeta
   args: ['attr']
   description: '`response_class`.'
+  kind: text
 - DocstringParam
   args: ['param', 'rv']
   description: |
@@ -117,6 +118,7 @@ style: rest
     :func:`callable`
         The function is called as a WSGI application. The result is
         used to create a response object.
+  kind: param
   arg_name: 'rv'
 === detect
 rest

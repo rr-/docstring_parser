@@ -14,12 +14,14 @@ style: google
 - DocstringParam
   args: ['param', 'renderables (Iterable[RenderableType])']
   description: 'An iterable of renderable objects.'
+  kind: param
   arg_name: 'renderables'
   type_name: 'Iterable[RenderableType]'
   is_optional: False
 - DocstringParam
   args: ['param', 'fit (bool, optional)']
   description: 'Fit dimension of group to contents, or fill available space. Defaults to True.'
+  kind: param
   arg_name: 'fit'
   type_name: 'bool'
   is_optional: True

@@ -27,6 +27,7 @@ style: google
 - DocstringReturns
   args: ['returns']
   description: 'The rebuilt annotation.'
+  kind: returns
   is_generator: False
 === detect
 google

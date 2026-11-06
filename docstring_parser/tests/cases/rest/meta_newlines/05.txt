@@ -19,3 +19,4 @@ style: rest
 - DocstringMeta
   args: ['meta']
   description: 'asd'
+  kind: text

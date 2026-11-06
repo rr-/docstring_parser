@@ -24,6 +24,7 @@ style: google
   description: |
     if the environment
     configuration is invalid for mTLS.
+  kind: raises
   type_name: 'google.auth.exceptions.MutualTLSChannelError'
 === detect
 google

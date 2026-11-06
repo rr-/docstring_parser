@@ -12,11 +12,13 @@ style: epydoc
 - DocstringParam
   args: ['param', 'args']
   description: 'Arguments for L{SMTPFactory.__init__}'
+  kind: param
   arg_name: 'args'
   is_optional: False
 - DocstringMeta
   args: ['see']
   description: 'L{SMTPFactory.__init__}'
+  kind: text
 === detect
 epydoc
 === compose epydoc

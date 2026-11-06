@@ -318,6 +318,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'csgraph']
   description: 'compressed-sparse graph, with shape (N, N).'
+  kind: param
   arg_name: 'csgraph'
   type_name: 'array_like or sparse array or matrix, 2 dimensions'
   is_optional: False
@@ -326,6 +327,7 @@ style: numpydoc
   description: |
     If True, then compute symmetrically normalized Laplacian.
     Default: False.
+  kind: param
   arg_name: 'normed'
   type_name: 'bool'
   is_optional: True
@@ -335,6 +337,7 @@ style: numpydoc
   description: |
     If True, then also return an array related to vertex degrees.
     Default: False.
+  kind: param
   arg_name: 'return_diag'
   type_name: 'bool'
   is_optional: True
@@ -345,6 +348,7 @@ style: numpydoc
     If True, then use out-degree instead of in-degree.
     This distinction matters only if the graph is asymmetric.
     Default: False.
+  kind: param
   arg_name: 'use_out_degree'
   type_name: 'bool'
   is_optional: True
@@ -355,6 +359,7 @@ style: numpydoc
     If False, then change `csgraph` in place if possible,
     avoiding doubling the memory use.
     Default: True, for backward compatibility.
+  kind: param
   arg_name: 'copy'
   type_name: 'bool'
   is_optional: True
@@ -372,6 +377,7 @@ style: numpydoc
     Choosing 'function' or 'lo' always avoids doubling
     the memory use, ignoring `copy` value.
     Default: 'array', for backward compatibility.
+  kind: param
   arg_name: 'form'
   type_name: "'array', or 'function', or 'lo'"
   is_optional: False
@@ -385,6 +391,7 @@ style: numpydoc
     the output dtype is 'float' allowing accurate normalization,
     but dramatically increasing the memory use.
     Default: None, for backward compatibility.
+  kind: param
   arg_name: 'dtype'
   type_name: 'None or one of numeric numpy dtypes'
   is_optional: True
@@ -400,6 +407,7 @@ style: numpydoc
     sparse matrices unless the sparsity pattern is symmetric or
     `form` is 'function' or 'lo'.
     Default: False, for backward compatibility.
+  kind: param
   arg_name: 'symmetrized'
   type_name: 'bool'
   is_optional: True
@@ -411,6 +419,7 @@ style: numpydoc
     if the input was dense, or a sparse array otherwise, or
     the format of a function or `LinearOperator` if
     `form` equals 'function' or 'lo', respectively.
+  kind: returns
   type_name: 'ndarray, or sparse array or matrix, or `LinearOperator`'
   is_generator: False
   return_name: 'lap'
@@ -420,6 +429,7 @@ style: numpydoc
     The length-N main diagonal of the Laplacian matrix.
     For the normalized Laplacian, this is the array of square roots
     of vertex degrees or 1 if the degree is zero.
+  kind: returns
   type_name: 'ndarray, optional'
   is_generator: False
   return_name: 'diag'
@@ -453,15 +463,18 @@ style: numpydoc
     
     The normalization is symmetric, making the normalized Laplacian also
     symmetric if the input csgraph was symmetric.
+  kind: text
 - DocstringMeta
   args: ['references']
   description: '.. [1] Laplacian matrix. https://en.wikipedia.org/wiki/Laplacian_matrix'
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
     
     Our first illustration is the symmetric graph
     
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> from scipy.sparse import csgraph
@@ -475,6 +488,7 @@ style: numpydoc
     
     and its symmetric Laplacian matrix
     
+  kind: examples
   snippet: |
     >>> G = np.arange(4) * np.arange(4)[:, np.newaxis]
     >>> G
@@ -488,6 +502,7 @@ style: numpydoc
     
     The non-symmetric graph
     
+  kind: examples
   snippet: '>>> csgraph.laplacian(G)'
 - DocstringExample
   args: ['examples']
@@ -499,6 +514,7 @@ style: numpydoc
     has different row- and column sums, resulting in two varieties
     of the Laplacian matrix, using an in-degree, which is the default
     
+  kind: examples
   snippet: |
     >>> G = np.arange(9).reshape(3, 3)
     >>> G
@@ -511,6 +527,7 @@ style: numpydoc
     
     or alternatively an out-degree
     
+  kind: examples
   snippet: |
     >>> L_in_degree = csgraph.laplacian(G)
     >>> L_in_degree
@@ -523,6 +540,7 @@ style: numpydoc
     
     Constructing a symmetric Laplacian matrix, one can add the two as
     
+  kind: examples
   snippet: |
     >>> L_out_degree = csgraph.laplacian(G, use_out_degree=True)
     >>> L_out_degree
@@ -535,6 +553,7 @@ style: numpydoc
     
     or use the ``symmetrized=True`` option
     
+  kind: examples
   snippet: '>>> L_in_degree + L_out_degree.T'
 - DocstringExample
   args: ['examples']
@@ -545,6 +564,7 @@ style: numpydoc
     
     that is equivalent to symmetrizing the original graph
     
+  kind: examples
   snippet: '>>> csgraph.laplacian(G, symmetrized=True)'
 - DocstringExample
   args: ['examples']
@@ -557,6 +577,7 @@ style: numpydoc
     of the Laplacian matrix to be all unit, also scaling off-diagonal
     entries correspondingly. The normalization can be done manually, e.g.,
     
+  kind: examples
   snippet: '>>> csgraph.laplacian(G + G.T)'
 - DocstringExample
   args: ['examples']
@@ -564,6 +585,7 @@ style: numpydoc
     array([[ 2, -1, -1],
            [-1,  2, -1],
            [-1, -1,  2]])
+  kind: examples
   snippet: |
     >>> G = np.array([[0, 1, 1], [1, 0, 1], [1, 1, 0]])
     >>> L, d = csgraph.laplacian(G, return_diag=True)
@@ -571,10 +593,12 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: 'array([2, 2, 2])'
+  kind: examples
   snippet: '>>> d'
 - DocstringExample
   args: ['examples']
   description: 'array([1.41421356, 1.41421356, 1.41421356])'
+  kind: examples
   snippet: |
     >>> scaling = np.sqrt(d)
     >>> scaling
@@ -587,6 +611,7 @@ style: numpydoc
     
     Or using ``normed=True`` option
     
+  kind: examples
   snippet: '>>> (1/scaling)*L*(1/scaling)'
 - DocstringExample
   args: ['examples']
@@ -597,6 +622,7 @@ style: numpydoc
     
     which now instead of the diagonal returns the scaling coefficients
     
+  kind: examples
   snippet: |
     >>> L, d = csgraph.laplacian(G, return_diag=True, normed=True)
     >>> L
@@ -608,6 +634,7 @@ style: numpydoc
     Zero scaling coefficients are substituted with 1s, where scaling
     has thus no effect, e.g.,
     
+  kind: examples
   snippet: '>>> d'
 - DocstringExample
   args: ['examples']
@@ -615,6 +642,7 @@ style: numpydoc
     array([[0, 0, 0],
            [0, 0, 1],
            [0, 1, 0]])
+  kind: examples
   snippet: |
     >>> G = np.array([[0, 0, 0], [0, 0, 1], [0, 1, 0]])
     >>> G
@@ -624,6 +652,7 @@ style: numpydoc
     array([[ 0., -0., -0.],
            [-0.,  1., -1.],
            [-0., -1.,  1.]])
+  kind: examples
   snippet: |
     >>> L, d = csgraph.laplacian(G, return_diag=True, normed=True)
     >>> L
@@ -640,6 +669,7 @@ style: numpydoc
     array or matrix inferring its class, shape, format, and dtype from
     the input graph matrix:
     
+  kind: examples
   snippet: '>>> d'
 - DocstringExample
   args: ['examples']
@@ -647,6 +677,7 @@ style: numpydoc
     array([[0., 1., 1.],
            [1., 0., 1.],
            [1., 1., 0.]], dtype=float32)
+  kind: examples
   snippet: |
     >>> G = np.array([[0, 1, 1], [1, 0, 1], [1, 1, 0]]).astype(np.float32)
     >>> G
@@ -659,10 +690,12 @@ style: numpydoc
     
     but can alternatively be generated matrix-free as a LinearOperator:
     
+  kind: examples
   snippet: '>>> csgraph.laplacian(G)'
 - DocstringExample
   args: ['examples']
   description: '<3x3 _CustomLinearOperator with dtype=float32>'
+  kind: examples
   snippet: |
     >>> L = csgraph.laplacian(G, form="lo")
     >>> L
@@ -675,10 +708,12 @@ style: numpydoc
     
     or as a lambda-function:
     
+  kind: examples
   snippet: '>>> L(np.eye(3))'
 - DocstringExample
   args: ['examples']
   description: '<function _laplace.<locals>.<lambda> at 0x0000012AE6F5A598>'
+  kind: examples
   snippet: |
     >>> L = csgraph.laplacian(G, form="function")
     >>> L
@@ -695,6 +730,7 @@ style: numpydoc
     Our final example illustrates the latter
     for a noisy directed linear graph.
     
+  kind: examples
   snippet: '>>> L(np.eye(3))'
 - DocstringExample
   args: ['examples']
@@ -703,6 +739,7 @@ style: numpydoc
     Create a directed linear graph with ``N=35`` vertices
     using a sparse adjacency matrix ``G``:
     
+  kind: examples
   snippet: |
     >>> from scipy.sparse import diags_array, random_array
     >>> from scipy.sparse.linalg import lobpcg
@@ -712,6 +749,7 @@ style: numpydoc
     
     Fix a random seed ``rng`` and add a random sparse noise to the graph ``G``:
     
+  kind: examples
   snippet: |
     >>> N = 35
     >>> G = diags_array(np.ones(N - 1), offsets=1, format="csr")
@@ -721,6 +759,7 @@ style: numpydoc
     
     Set initial approximations for eigenvectors:
     
+  kind: examples
   snippet: |
     >>> rng = np.random.default_rng()
     >>> G += 1e-2 * random_array((N, N), density=0.1, rng=rng)
@@ -731,6 +770,7 @@ style: numpydoc
     The constant vector of ones is always a trivial eigenvector
     of the non-normalized Laplacian to be filtered out:
     
+  kind: examples
   snippet: '>>> X = rng.random((N, 2))'
 - DocstringExample
   args: ['examples']
@@ -749,6 +789,7 @@ style: numpydoc
     Since the sign in an eigenvector is not deterministic and can flip,
     we fix the sign of the first component to be always +1 in (4).
     
+  kind: examples
   snippet: '>>> Y = np.ones((N, 1))'
 - DocstringExample
   args: ['examples']
@@ -769,6 +810,7 @@ style: numpydoc
     while the balanced min-cut partitions the graph
     in the middle by deleting a single edge.
     Both determined partitions are optimal.
+  kind: examples
   snippet: '>>> for cut in ["max", "min"]:'
 === detect
 numpydoc

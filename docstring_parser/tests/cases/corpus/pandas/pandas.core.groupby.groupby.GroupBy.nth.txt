@@ -82,10 +82,12 @@ style: numpydoc
   description: |
     Index notation (``g.nth[n]``) is deprecated in favor of calling
     ``g.nth(n)`` and will be removed in a future version of pandas.
+  kind: deprecation
   version: '3.1.0'
 - DocstringReturns
   args: ['returns']
   description: 'N-th value within each group.'
+  kind: returns
   type_name: 'Series or DataFrame'
   is_generator: False
 - DocstringMeta
@@ -93,11 +95,13 @@ style: numpydoc
   description: |
     Series.nth : Apply function nth to a Series.
     DataFrame.nth : Apply function nth to each row or column of a DataFrame.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
     ...     {"A": [1, 1, 2, 1, 2], "B": [np.nan, 2, 3, 4, 5]}, columns=["A", "B"]
     ... )
+  kind: examples
   snippet: '>>> df = pd.DataFrame('
 - DocstringExample
   args: ['examples']
@@ -105,6 +109,7 @@ style: numpydoc
        A   B
     0  1 NaN
     2  2 3.0
+  kind: examples
   snippet: |
     >>> g = df.groupby("A")
     >>> g.nth(0)
@@ -114,6 +119,7 @@ style: numpydoc
        A   B
     1  1 2.0
     4  2 5.0
+  kind: examples
   snippet: '>>> g.nth(1)'
 - DocstringExample
   args: ['examples']
@@ -121,6 +127,7 @@ style: numpydoc
        A   B
     3  1 4.0
     4  2 5.0
+  kind: examples
   snippet: '>>> g.nth(-1)'
 - DocstringExample
   args: ['examples']
@@ -130,6 +137,7 @@ style: numpydoc
     1  1 2.0
     2  2 3.0
     4  2 5.0
+  kind: examples
   snippet: '>>> g.nth([0, 1])'
 - DocstringExample
   args: ['examples']
@@ -141,6 +149,7 @@ style: numpydoc
     
     Specifying `dropna` allows ignoring ``NaN`` values
     
+  kind: examples
   snippet: '>>> g.nth(slice(None, -1))'
 - DocstringExample
   args: ['examples']
@@ -152,6 +161,7 @@ style: numpydoc
     When the specified ``n`` is larger than any of the groups, an
     empty DataFrame is returned
     
+  kind: examples
   snippet: '>>> g.nth(0, dropna="any")'
 - DocstringExample
   args: ['examples']
@@ -159,6 +169,7 @@ style: numpydoc
     Empty DataFrame
     Columns: [A, B]
     Index: []
+  kind: examples
   snippet: '>>> g.nth(3, dropna="any")'
 === detect
 numpydoc

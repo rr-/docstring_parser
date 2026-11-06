@@ -26,10 +26,12 @@ style: rest
 - DocstringParam
   args: ['param', 'username']
   description: 'The username of the user.'
+  kind: param
   arg_name: 'username'
   type_name: 'str'
 - DocstringReturns
   args: ['return']
   description: 'A dictionary representing the created user.'
+  kind: returns
   type_name: 'dict'
   is_generator: False

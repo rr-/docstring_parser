@@ -16,6 +16,7 @@ style: rest
   description: |
     `~flask.Blueprint.make_setup_state` method and later passed
     to all register callback functions.
+  kind: text
 === detect
 rest
 === compose rest

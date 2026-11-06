@@ -14,6 +14,7 @@ style: epydoc
 - DocstringReturns
   args: ['return']
   description: 'All of the cleared buffered data.'
+  kind: returns
   type_name: 'C{bytes}'
   is_generator: False
 === detect

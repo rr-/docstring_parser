@@ -22,6 +22,7 @@ style: google
     An SSL context loaded with the default client
     certificate, or None if client certificates are not configured
     or available.
+  kind: returns
   type_name: 'ssl.SSLContext'
   is_generator: False
 - DocstringRaises
@@ -29,6 +30,7 @@ style: google
   description: |
     If the default client certificate
     or key is malformed.
+  kind: raises
   type_name: 'google.auth.exceptions.MutualTLSChannelError'
 === detect
 google

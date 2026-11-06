@@ -18,18 +18,21 @@ style: google
 - DocstringParam
   args: ['param', 'response (aiohttp.ClientResponse)']
   description: 'An instance of aiohttp.ClientResponse.'
+  kind: param
   arg_name: 'response'
   type_name: 'aiohttp.ClientResponse'
   is_optional: False
 - DocstringParam
   args: ['attribute', 'status_code (int)']
   description: 'The HTTP status code of the response.'
+  kind: attribute
   arg_name: 'status_code'
   type_name: 'int'
   is_optional: False
 - DocstringParam
   args: ['attribute', 'headers (Mapping[str, str])']
   description: 'The HTTP headers of the response.'
+  kind: attribute
   arg_name: 'headers'
   type_name: 'Mapping[str, str]'
   is_optional: False

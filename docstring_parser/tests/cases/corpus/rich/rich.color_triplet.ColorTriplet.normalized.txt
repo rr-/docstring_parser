@@ -13,6 +13,7 @@ style: google
 - DocstringReturns
   args: ['returns', 'Tuple[float, float, float]']
   description: 'A tuple of three normalized colour components.'
+  kind: returns
   type_name: 'Tuple[float, float, float]'
   is_generator: False
 === detect

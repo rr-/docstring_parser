@@ -71,6 +71,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'dates']
   description: 'The array of dates to process.'
+  kind: param
   arg_name: 'dates'
   type_name: 'array_like of datetime64[D]'
   is_optional: False
@@ -83,6 +84,7 @@ style: numpydoc
     like "Mon Tue Wed Thu Fri", made up of 3-character abbreviations for
     weekdays, optionally separated by white space. Valid abbreviations
     are: Mon Tue Wed Thu Fri Sat Sun
+  kind: param
   arg_name: 'weekmask'
   type_name: 'str or array_like of bool'
   is_optional: True
@@ -93,6 +95,7 @@ style: numpydoc
     specified in any order, and NaT (not-a-time) dates are ignored.
     This list is saved in a normalized form that is suited for
     fast calculations of valid days.
+  kind: param
   arg_name: 'holidays'
   type_name: 'array_like of datetime64[D]'
   is_optional: True
@@ -102,12 +105,14 @@ style: numpydoc
     A `busdaycalendar` object which specifies the valid days. If this
     parameter is provided, neither weekmask nor holidays may be
     provided.
+  kind: param
   arg_name: 'busdaycal'
   type_name: 'busdaycalendar'
   is_optional: True
 - DocstringParam
   args: ['param', 'out']
   description: 'If provided, this array is filled with the result.'
+  kind: param
   arg_name: 'out'
   type_name: 'array of bool'
   is_optional: True
@@ -116,6 +121,7 @@ style: numpydoc
   description: |
     An array with the same shape as ``dates``, containing True for
     each valid day, and False for each invalid day.
+  kind: returns
   type_name: 'array of bool'
   is_generator: False
   return_name: 'out'
@@ -125,12 +131,14 @@ style: numpydoc
     busdaycalendar : An object that specifies a custom set of valid days.
     busday_offset : Applies an offset counted in valid days.
     busday_count : Counts how many valid days are in a half-open date range.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
     ... np.is_busday(['2011-07-01', '2011-07-02', '2011-07-18'],
     ...                 holidays=['2011-07-01', '2011-07-04', '2011-07-17'])
     array([False, False,  True])
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> # The weekdays are Friday, Saturday, and Monday

@@ -61,94 +61,116 @@ style: google
 - DocstringParam
   args: ['attribute', 'annotation']
   description: 'The type annotation of the field.'
+  kind: attribute
   arg_name: 'annotation'
 - DocstringParam
   args: ['attribute', 'default']
   description: 'The default value of the field.'
+  kind: attribute
   arg_name: 'default'
 - DocstringParam
   args: ['attribute', 'default_factory']
   description: |
     A callable to generate the default value. The callable can either take 0 arguments
     (in which case it is called as is) or a single argument containing the already validated data.
+  kind: attribute
   arg_name: 'default_factory'
 - DocstringParam
   args: ['attribute', 'alias']
   description: 'The alias name of the field.'
+  kind: attribute
   arg_name: 'alias'
 - DocstringParam
   args: ['attribute', 'alias_priority']
   description: "The priority of the field's alias."
+  kind: attribute
   arg_name: 'alias_priority'
 - DocstringParam
   args: ['attribute', 'validation_alias']
   description: 'The validation alias of the field.'
+  kind: attribute
   arg_name: 'validation_alias'
 - DocstringParam
   args: ['attribute', 'serialization_alias']
   description: 'The serialization alias of the field.'
+  kind: attribute
   arg_name: 'serialization_alias'
 - DocstringParam
   args: ['attribute', 'title']
   description: 'The title of the field.'
+  kind: attribute
   arg_name: 'title'
 - DocstringParam
   args: ['attribute', 'field_title_generator']
   description: "A callable that takes a field's name and info and returns title for it."
+  kind: attribute
   arg_name: 'field_title_generator'
 - DocstringParam
   args: ['attribute', 'description']
   description: 'The description of the field.'
+  kind: attribute
   arg_name: 'description'
 - DocstringParam
   args: ['attribute', 'examples']
   description: 'List of examples of the field.'
+  kind: attribute
   arg_name: 'examples'
 - DocstringParam
   args: ['attribute', 'exclude']
   description: 'Whether to exclude the field from the model serialization.'
+  kind: attribute
   arg_name: 'exclude'
 - DocstringParam
   args: ['attribute', 'exclude_if']
   description: 'A callable that determines whether to exclude a field during serialization based on its value.'
+  kind: attribute
   arg_name: 'exclude_if'
 - DocstringParam
   args: ['attribute', 'discriminator']
   description: 'Field name or Discriminator for discriminating the type in a tagged union.'
+  kind: attribute
   arg_name: 'discriminator'
 - DocstringParam
   args: ['attribute', 'deprecated']
   description: |
     A deprecation message, an instance of `warnings.deprecated` or the `typing_extensions.deprecated` backport,
     or a boolean. If `True`, a default deprecation message will be emitted when accessing the field.
+  kind: attribute
   arg_name: 'deprecated'
 - DocstringParam
   args: ['attribute', 'json_schema_extra']
   description: 'A dict or callable to provide extra JSON schema properties.'
+  kind: attribute
   arg_name: 'json_schema_extra'
 - DocstringParam
   args: ['attribute', 'frozen']
   description: 'Whether the field is frozen.'
+  kind: attribute
   arg_name: 'frozen'
 - DocstringParam
   args: ['attribute', 'validate_default']
   description: 'Whether to validate the default value of the field.'
+  kind: attribute
   arg_name: 'validate_default'
 - DocstringParam
   args: ['attribute', 'repr']
   description: 'Whether to include the field in representation of the model.'
+  kind: attribute
   arg_name: 'repr'
 - DocstringParam
   args: ['attribute', 'init']
   description: 'Whether the field should be included in the constructor of the dataclass.'
+  kind: attribute
   arg_name: 'init'
 - DocstringParam
   args: ['attribute', 'init_var']
   description: 'Whether the field should _only_ be included in the constructor of the dataclass, and not stored.'
+  kind: attribute
   arg_name: 'init_var'
 - DocstringParam
   args: ['attribute', 'kw_only']
   description: 'Whether the field should be a keyword-only argument in the constructor of the dataclass.'
+  kind: attribute
   arg_name: 'kw_only'
 - DocstringParam
   args: ['attribute', 'metadata']
@@ -158,6 +180,7 @@ style: google
     * Type-specific constraints, such as `gt` or `min_length` (these are converted to metadata classes such as `annotated_types.Gt`).
     * Any other arbitrary object used within [`Annotated`][typing.Annotated] metadata
       (e.g. [custom types handlers](../concepts/types.md#as-an-annotation) or any object not recognized by Pydantic).
+  kind: attribute
   arg_name: 'metadata'
 === detect
 google

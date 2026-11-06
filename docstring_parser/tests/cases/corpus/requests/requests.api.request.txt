@@ -54,34 +54,41 @@ style: rest
 - DocstringParam
   args: ['param', 'method']
   description: 'method for the new :class:`Request` object: ``GET``, ``OPTIONS``, ``HEAD``, ``POST``, ``PUT``, ``PATCH``, or ``DELETE``.'
+  kind: param
   arg_name: 'method'
 - DocstringParam
   args: ['param', 'url']
   description: 'URL for the new :class:`Request` object.'
+  kind: param
   arg_name: 'url'
 - DocstringParam
   args: ['param', 'params']
   description: |
     (optional) Dictionary, list of tuples or bytes to send
     in the query string for the :class:`Request`.
+  kind: param
   arg_name: 'params'
 - DocstringParam
   args: ['param', 'data']
   description: |
     (optional) Dictionary, list of tuples, bytes, or file-like
     object to send in the body of the :class:`Request`.
+  kind: param
   arg_name: 'data'
 - DocstringParam
   args: ['param', 'json']
   description: '(optional) A JSON serializable Python object to send in the body of the :class:`Request`.'
+  kind: param
   arg_name: 'json'
 - DocstringParam
   args: ['param', 'headers']
   description: '(optional) Dictionary of HTTP Headers to send with the :class:`Request`.'
+  kind: param
   arg_name: 'headers'
 - DocstringParam
   args: ['param', 'cookies']
   description: '(optional) Dict or CookieJar object to send with the :class:`Request`.'
+  kind: param
   arg_name: 'cookies'
 - DocstringParam
   args: ['param', 'files']
@@ -91,10 +98,12 @@ style: rest
     or a 4-tuple ``('filename', fileobj, 'content_type', custom_headers)``, where ``'content_type'`` is a string
     defining the content type of the given file and ``custom_headers`` a dict-like object containing additional headers
     to add for the file.
+  kind: param
   arg_name: 'files'
 - DocstringParam
   args: ['param', 'auth']
   description: '(optional) Auth tuple to enable Basic/Digest/Custom HTTP Auth.'
+  kind: param
   arg_name: 'auth'
 - DocstringParam
   args: ['param', 'timeout']
@@ -102,16 +111,19 @@ style: rest
     (optional) How many seconds to wait for the server to send data
     before giving up, as a float, or a :ref:`(connect timeout, read
     timeout) <timeouts>` tuple.
+  kind: param
   arg_name: 'timeout'
   type_name: 'float or tuple'
 - DocstringParam
   args: ['param', 'allow_redirects']
   description: '(optional) Boolean. Enable/disable GET/OPTIONS/POST/PUT/PATCH/DELETE/HEAD redirection. Defaults to ``True``.'
+  kind: param
   arg_name: 'allow_redirects'
   type_name: 'bool'
 - DocstringParam
   args: ['param', 'proxies']
   description: '(optional) Dictionary mapping protocol to the URL of the proxy.'
+  kind: param
   arg_name: 'proxies'
 - DocstringParam
   args: ['param', 'verify']
@@ -119,18 +131,22 @@ style: rest
     (optional) Either a boolean, in which case it controls whether we verify
     the server's TLS certificate, or a string, in which case it must be a path
     to a CA bundle to use. Defaults to ``True``.
+  kind: param
   arg_name: 'verify'
 - DocstringParam
   args: ['param', 'stream']
   description: '(optional) if ``False``, the response content will be immediately downloaded.'
+  kind: param
   arg_name: 'stream'
 - DocstringParam
   args: ['param', 'cert']
   description: "(optional) if String, path to ssl client cert file (.pem). If Tuple, ('cert', 'key') pair."
+  kind: param
   arg_name: 'cert'
 - DocstringReturns
   args: ['return']
   description: ':class:`Response <Response>` object'
+  kind: returns
   type_name: 'requests.Response'
   is_generator: False
 === detect

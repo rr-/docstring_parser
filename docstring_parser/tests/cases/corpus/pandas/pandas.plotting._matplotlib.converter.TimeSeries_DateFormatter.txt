@@ -21,6 +21,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'freq']
   description: 'Valid frequency specifier.'
+  kind: param
   arg_name: 'freq'
   type_name: 'BaseOffset'
   is_optional: False
@@ -29,6 +30,7 @@ style: numpydoc
   description: |
     Whether the current formatter should apply to minor ticks (True) or
     major ticks (False).
+  kind: param
   arg_name: 'minor_locator'
   type_name: 'bool'
   is_optional: True
@@ -36,6 +38,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'dynamic_mode']
   description: 'Whether the formatter works in dynamic mode or not.'
+  kind: param
   arg_name: 'dynamic_mode'
   type_name: 'bool'
   is_optional: True

@@ -45,6 +45,7 @@ style: numpydoc
 - DocstringMeta
   args: ['see_also']
   description: 'gamma, halfgennorm, invgamma, weibull_min'
+  kind: text
 - DocstringMeta
   args: ['notes']
   description: |
@@ -63,6 +64,7 @@ style: numpydoc
     `gengamma`: ``halfgennorm(beta) = gengamma(a=1/beta, c=beta)``.
     
     %(after_notes)s
+  kind: text
 - DocstringMeta
   args: ['references']
   description: |
@@ -72,6 +74,7 @@ style: numpydoc
            https://en.wikipedia.org/wiki/Generalized_gamma_distribution
     
     %(example)s
+  kind: text
 === detect
 numpydoc
 === compose numpydoc

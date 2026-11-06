@@ -17,8 +17,10 @@ style: rest
     A.
     
     More about a.
+  kind: param
   arg_name: 'a'
 - DocstringParam
   args: ['param', 'b']
   description: 'B.'
+  kind: param
   arg_name: 'b'

@@ -13,6 +13,7 @@ style: google
 - DocstringReturns
   args: ['returns', 'int']
   description: 'A number of cells.'
+  kind: returns
   type_name: 'int'
   is_generator: False
 === detect

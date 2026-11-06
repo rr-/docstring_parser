@@ -15,14 +15,17 @@ style: rest
 - DocstringParam
   args: ['param', 'url']
   description: 'URL for the new :class:`Request` object.'
+  kind: param
   arg_name: 'url'
 - DocstringParam
   args: ['param', '\\*\\*kwargs']
   description: 'Optional arguments that ``request`` takes.'
+  kind: param
   arg_name: '\\*\\*kwargs'
 - DocstringReturns
   args: ['return']
   description: ':class:`Response <Response>` object'
+  kind: returns
   type_name: 'requests.Response'
   is_generator: False
 === detect

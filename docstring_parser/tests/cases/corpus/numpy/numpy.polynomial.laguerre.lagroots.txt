@@ -61,6 +61,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'c']
   description: '1-D array of coefficients.'
+  kind: param
   arg_name: 'c'
   type_name: '1-D array_like'
   is_optional: False
@@ -69,6 +70,7 @@ style: numpydoc
   description: |
     Array of the roots of the series. If all the roots are real,
     then `out` is also real, otherwise it is complex.
+  kind: returns
   type_name: 'ndarray'
   is_generator: False
   return_name: 'out'
@@ -80,6 +82,7 @@ style: numpydoc
     numpy.polynomial.chebyshev.chebroots
     numpy.polynomial.hermite.hermroots
     numpy.polynomial.hermite_e.hermeroots
+  kind: text
 - DocstringMeta
   args: ['notes']
   description: |
@@ -93,9 +96,11 @@ style: numpydoc
     
     The Laguerre series basis polynomials aren't powers of `x` so the
     results of this function may seem unintuitive.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: 'array([  2.,  -8.,  12.,  -6.])'
+  kind: examples
   snippet: |
     >>> from numpy.polynomial.laguerre import lagroots, lagfromroots
     >>> coef = lagfromroots([0, 1, 2])
@@ -103,6 +108,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: 'array([-4.4408921e-16,  1.0000000e+00,  2.0000000e+00])'
+  kind: examples
   snippet: '>>> lagroots(coef)'
 === detect
 numpydoc

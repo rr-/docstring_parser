@@ -24,15 +24,18 @@ style: numpydoc
   description: |
     Generalized universal function signature, e.g., ``(m,n),(n,p)->(m,p)``
     for ``np.matmul``.
+  kind: param
   arg_name: 'signature'
   type_name: 'string'
   is_optional: False
 - DocstringReturns
   args: ['returns']
+  kind: returns
   type_name: 'Tuple of input and output core dimensions parsed from the signature, each'
   is_generator: False
 - DocstringReturns
   args: ['returns']
+  kind: returns
   type_name: 'of the form List[Tuple[str, ...]].'
   is_generator: False
 === detect

@@ -21,11 +21,13 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'code']
   description: 'Frequency converting from'
+  kind: param
   arg_name: 'code'
   type_name: 'str or DateOffset'
   is_optional: False
 - DocstringReturns
   args: ['returns']
+  kind: returns
   type_name: 'str'
   is_generator: False
 === detect

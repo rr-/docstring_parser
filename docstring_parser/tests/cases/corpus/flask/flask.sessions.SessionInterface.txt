@@ -73,6 +73,7 @@ style: rest
   description: |
     `open_session` and :meth:`save_session`, the others have
     useful defaults which you don't need to change.
+  kind: text
 - DocstringMeta
   args: ['meth']
   description: |
@@ -80,6 +81,7 @@ style: rest
     if the session support cannot work because some requirement is not
     fulfilled.  The default :class:`NullSession` class that is created
     will complain that the secret key was not set.
+  kind: text
 === detect
 rest
 === compose rest

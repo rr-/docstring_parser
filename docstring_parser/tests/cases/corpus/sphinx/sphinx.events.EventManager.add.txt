@@ -15,6 +15,7 @@ style: rest
 - DocstringParam
   args: ['param', 'name']
   description: 'The name of the event.'
+  kind: param
   arg_name: 'name'
 === detect
 rest

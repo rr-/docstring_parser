@@ -96,12 +96,14 @@ style: numpydoc
   description: |
     Array (possibly multi-dimensional) of values for which to calculate
     ``sinc(x)``.
+  kind: param
   arg_name: 'x'
   type_name: 'ndarray'
   is_optional: False
 - DocstringReturns
   args: ['returns']
   description: '``sinc(x)``, which has the same shape as the input.'
+  kind: returns
   type_name: 'ndarray'
   is_generator: False
   return_name: 'out'
@@ -116,6 +118,7 @@ style: numpydoc
     
     For bandlimited interpolation of discrete-time signals, the ideal
     interpolation kernel is proportional to the sinc function.
+  kind: text
 - DocstringMeta
   args: ['references']
   description: |
@@ -123,6 +126,7 @@ style: numpydoc
            Resource. https://mathworld.wolfram.com/SincFunction.html
     .. [2] Wikipedia, "Sinc function",
            https://en.wikipedia.org/wiki/Sinc_function
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
@@ -141,6 +145,7 @@ style: numpydoc
             -5.84680802e-02,  -8.90384387e-02,  -8.40918587e-02,
             -4.92362781e-02,  -3.89804309e-17])
     
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> import matplotlib.pyplot as plt
@@ -149,22 +154,27 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: '[<matplotlib.lines.Line2D object at 0x...>]'
+  kind: examples
   snippet: '>>> plt.plot(x, np.sinc(x))'
 - DocstringExample
   args: ['examples']
   description: "Text(0.5, 1.0, 'Sinc Function')"
+  kind: examples
   snippet: '>>> plt.title("Sinc Function")'
 - DocstringExample
   args: ['examples']
   description: "Text(0, 0.5, 'Amplitude')"
+  kind: examples
   snippet: '>>> plt.ylabel("Amplitude")'
 - DocstringExample
   args: ['examples']
   description: "Text(0.5, 0, 'X')"
+  kind: examples
   snippet: '>>> plt.xlabel("X")'
 - DocstringExample
   args: ['examples']
   description: ''
+  kind: examples
   snippet: '>>> plt.show()'
 === detect
 numpydoc

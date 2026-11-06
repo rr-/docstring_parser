@@ -20,14 +20,17 @@ style: google
 - DocstringParam
   args: ['param', 'serializer']
   description: 'The serializer function to check.'
+  kind: param
   arg_name: 'serializer'
 - DocstringParam
   args: ['param', 'mode']
   description: "The serializer mode, either 'plain' or 'wrap'."
+  kind: param
   arg_name: 'mode'
 - DocstringReturns
   args: ['returns']
   description: '`info_arg` - whether the function expects an info argument.'
+  kind: returns
   is_generator: False
 === detect
 google

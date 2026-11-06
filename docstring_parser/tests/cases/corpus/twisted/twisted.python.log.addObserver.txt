@@ -16,9 +16,11 @@ style: epydoc
 - DocstringMeta
   args: ['see']
   description: 'L{LogPublisher.addObserver}'
+  kind: text
 - DocstringParam
   args: ['param', 'observer']
   description: 'a log observer'
+  kind: param
   arg_name: 'observer'
   type_name: 'L{callable}'
   is_optional: False

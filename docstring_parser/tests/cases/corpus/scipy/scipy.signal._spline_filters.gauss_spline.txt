@@ -51,12 +51,14 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'x']
   description: 'a knot vector'
+  kind: param
   arg_name: 'x'
   type_name: 'array_like'
   is_optional: False
 - DocstringParam
   args: ['param', 'n']
   description: 'The order of the spline. Must be non-negative, i.e., n >= 0'
+  kind: param
   arg_name: 'n'
   type_name: 'int'
   is_optional: False
@@ -65,6 +67,7 @@ style: numpydoc
   description: |
     B-spline basis function values approximated by a zero-mean Gaussian
     function.
+  kind: returns
   type_name: 'ndarray'
   is_generator: False
   return_name: 'res'
@@ -76,6 +79,7 @@ style: numpydoc
     for large `n` :
     
     .. math::  \frac{1}{\sqrt {2\pi\sigma^2}}exp(-\frac{x^2}{2\sigma})
+  kind: text
 - DocstringMeta
   args: ['references']
   description: |
@@ -84,15 +88,18 @@ style: numpydoc
        Sgallari F., Murli A., Paragios N. (eds) Scale Space and Variational
        Methods in Computer Vision. SSVM 2007. Lecture Notes in Computer
        Science, vol 4485. Springer, Berlin, Heidelberg.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
     We can calculate B-Spline basis functions approximated by a Gaussian
     distribution:
     
+  kind: examples
 - DocstringExample
   args: ['examples']
   description: 'array([0.15418033, 0.6909883, 0.15418033])  # may vary'
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> from scipy.signal import gauss_spline

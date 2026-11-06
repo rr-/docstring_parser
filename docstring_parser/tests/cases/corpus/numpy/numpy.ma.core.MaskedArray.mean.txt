@@ -42,12 +42,14 @@ style: numpydoc
     numpy.ndarray.mean : corresponding function for ndarrays
     numpy.mean : Equivalent function
     numpy.ma.average : Weighted average.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
     masked_array(data=[1, 2, --],
                  mask=[False, False,  True],
            fill_value=999999)
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> a = np.ma.array([1,2,3], mask=[False, False, True])
@@ -55,6 +57,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: '1.5'
+  kind: examples
   snippet: '>>> a.mean()'
 === detect
 numpydoc

@@ -16,6 +16,7 @@ style: epydoc
   description: |
     A L{IReactorTime} and L{IReactorUDP} provider which will
     be used to issue DNS queries and manage request timeouts.
+  kind: attribute
   arg_name: '_reactor'
   is_optional: False
 === detect

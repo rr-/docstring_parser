@@ -17,14 +17,17 @@ style: google
 - DocstringParam
   args: ['param', 'typehint']
   description: 'The type hint to use for parsing.'
+  kind: param
   arg_name: 'typehint'
 - DocstringParam
   args: ['param', 'enable_path']
   description: 'Whether to try to load parsed value from path.'
+  kind: param
   arg_name: 'enable_path'
 - DocstringRaises
   args: ['raises', 'ValueError']
   description: 'If a parameter is invalid.'
+  kind: raises
   type_name: 'ValueError'
 === detect
 google

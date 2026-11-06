@@ -29,16 +29,19 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'ndtype']
   description: 'Data-type of a structured array.'
+  kind: param
   arg_name: 'ndtype'
   type_name: 'dtype'
   is_optional: False
 - DocstringRaises
   args: ['raises', 'AttributeError']
   description: 'If `ndtype` does not have a `names` attribute.'
+  kind: raises
   type_name: 'AttributeError'
 - DocstringExample
   args: ['examples']
   description: 'False'
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> dt = np.dtype([('name', 'S4'), ('x', float), ('y', float)])

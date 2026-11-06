@@ -29,24 +29,28 @@ blank_after_long_description: True
 style: numpydoc
 - DocstringParam
   args: ['param', 'left']
+  kind: param
   arg_name: 'left'
   type_name: 'np.ndarray or ExtensionArray'
   is_optional: False
 - DocstringParam
   args: ['param', 'right']
   description: 'Cannot be a DataFrame or Index.  Series is *not* excluded.'
+  kind: param
   arg_name: 'right'
   type_name: 'object'
   is_optional: False
 - DocstringParam
   args: ['param', 'op']
   description: 'Or one of the reversed variants from roperator.'
+  kind: param
   arg_name: 'op'
   type_name: '{operator.add, operator.sub, ...}'
   is_optional: False
 - DocstringReturns
   args: ['returns']
   description: 'Or a 2-tuple of these in the case of divmod or rdivmod.'
+  kind: returns
   type_name: 'ndarray or ExtensionArray'
   is_generator: False
 === detect

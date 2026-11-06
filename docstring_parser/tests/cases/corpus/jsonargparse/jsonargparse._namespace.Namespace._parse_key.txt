@@ -22,6 +22,7 @@ style: google
 - DocstringParam
   args: ['param', 'key']
   description: 'The key that is being parsed.'
+  kind: param
   arg_name: 'key'
 - DocstringReturns
   args: ['returns']
@@ -30,10 +31,12 @@ style: google
     - The leaf key.
     - The parent namespace object.
     - The parent namespace key.
+  kind: returns
   is_generator: False
 - DocstringRaises
   args: ['raises', 'KeyError']
   description: 'When given invalid key.'
+  kind: raises
   type_name: 'KeyError'
 === detect
 google

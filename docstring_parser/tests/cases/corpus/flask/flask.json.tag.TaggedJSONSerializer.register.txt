@@ -23,12 +23,14 @@ style: rest
   description: |
     tag class to register. Will be instantiated with this
     serializer instance.
+  kind: param
   arg_name: 'tag_class'
 - DocstringParam
   args: ['param', 'force']
   description: |
     overwrite an existing tag. If false (default), a
     :exc:`KeyError` is raised.
+  kind: param
   arg_name: 'force'
 - DocstringParam
   args: ['param', 'index']
@@ -36,12 +38,14 @@ style: rest
     index to insert the new tag in the tag order. Useful when
     the new tag is a special case of an existing tag. If ``None``
     (default), the tag is appended to the end of the order.
+  kind: param
   arg_name: 'index'
 - DocstringRaises
   args: ['raise', 'KeyError']
   description: |
     if the tag key is already registered and ``force`` is
     not true.
+  kind: raises
   type_name: 'KeyError'
 === detect
 rest

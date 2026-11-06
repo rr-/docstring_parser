@@ -127,6 +127,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'mu, lmbda, a, b']
   description: 'Shape parameters of the distribution. See notes.'
+  kind: param
   arg_name: 'mu, lmbda, a, b'
   type_name: 'array_like'
   is_optional: False
@@ -140,40 +141,49 @@ style: numpydoc
     If `seed` is already a ``RandomState`` or ``Generator`` instance,
     then that object is used.
     Default is `None`.
+  kind: param
   arg_name: 'seed'
   type_name: '{None, int, np.random.RandomState, np.random.Generator}'
   is_optional: True
 - DocstringParam
   args: ['param', 'Methods']
+  kind: param
   arg_name: 'Methods'
 - DocstringParam
   args: ['param', '-------']
+  kind: param
   arg_name: '-------'
 - DocstringParam
   args: ['param', 'pdf(x, s2, mu=0, lmbda=1, a=1, b=1)']
   description: 'Probability density function.'
+  kind: param
   arg_name: 'pdf(x, s2, mu=0, lmbda=1, a=1, b=1)'
 - DocstringParam
   args: ['param', 'logpdf(x, s2, mu=0, lmbda=1, a=1, b=1)']
   description: 'Log of the probability density function.'
+  kind: param
   arg_name: 'logpdf(x, s2, mu=0, lmbda=1, a=1, b=1)'
 - DocstringParam
   args: ['param', 'mean(mu=0, lmbda=1, a=1, b=1)']
   description: 'Distribution mean.'
+  kind: param
   arg_name: 'mean(mu=0, lmbda=1, a=1, b=1)'
 - DocstringParam
   args: ['param', 'var(mu=0, lmbda=1, a=1, b=1)']
   description: 'Distribution variance.'
+  kind: param
   arg_name: 'var(mu=0, lmbda=1, a=1, b=1)'
 - DocstringParam
   args: ['param', 'rvs(mu=0, lmbda=1, a=1, b=1, size=None, random_state=None)']
   description: 'Draw random samples.'
+  kind: param
   arg_name: 'rvs(mu=0, lmbda=1, a=1, b=1, size=None, random_state=None)'
 - DocstringMeta
   args: ['see_also']
   description: |
     norm
     invgamma
+  kind: text
 - DocstringMeta
   args: ['notes']
   description: |
@@ -197,17 +207,20 @@ style: numpydoc
     respectively.
     
     .. versionadded:: 1.15
+  kind: text
 - DocstringMeta
   args: ['references']
   description: |
     .. [1] Normal-inverse-gamma distribution, Wikipedia,
            https://en.wikipedia.org/wiki/Normal-inverse-gamma_distribution
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
     Suppose we wish to investigate the relationship between the
     normal-inverse-gamma distribution and the inverse gamma distribution.
     
+  kind: examples
 - DocstringExample
   args: ['examples']
   description: |
@@ -215,6 +228,7 @@ style: numpydoc
     One approach is to compare the distribution of the `s2` elements of
     random variates against the PDF of an inverse gamma distribution.
     
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> from scipy import stats
@@ -230,6 +244,7 @@ style: numpydoc
     Similarly, we can compare the marginal distribution of `s2` against
     an inverse gamma distribution.
     
+  kind: examples
   snippet: |
     >>> _, s2 = norm_inv_gamma.rvs(size=10000, random_state=rng)
     >>> bins = np.linspace(s2.min(), s2.max(), 50)
@@ -246,6 +261,7 @@ style: numpydoc
     
     The sample mean is comparable to the mean of the distribution.
     
+  kind: examples
   snippet: |
     >>> from scipy.integrate import quad_vec
     >>> from scipy import integrate
@@ -255,6 +271,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: '(np.float64(-0.005254750127304425), np.float64(1.050438111436508))'
+  kind: examples
   snippet: |
     >>> x, s2 = norm_inv_gamma.rvs(size=10000, random_state=rng)
     >>> x.mean(), s2.mean()
@@ -265,14 +282,17 @@ style: numpydoc
     
     Similarly, for the variance:
     
+  kind: examples
   snippet: '>>> norm_inv_gamma.mean()'
 - DocstringExample
   args: ['examples']
   description: '(np.float64(1.0546150578185023), np.float64(0.061829865266330754))'
+  kind: examples
   snippet: '>>> x.var(ddof=1), s2.var(ddof=1)'
 - DocstringExample
   args: ['examples']
   description: '(np.float64(1.0526315789473684), np.float64(0.061557402277623886))'
+  kind: examples
   snippet: '>>> norm_inv_gamma.var()'
 === detect
 numpydoc

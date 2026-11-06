@@ -12,6 +12,7 @@ style: rest
 - DocstringParam
   args: ['param', 'content']
   description: 'bytestring to extract encodings from.'
+  kind: param
   arg_name: 'content'
 === detect
 rest

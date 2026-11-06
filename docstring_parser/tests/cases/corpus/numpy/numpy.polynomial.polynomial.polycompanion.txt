@@ -41,12 +41,14 @@ style: numpydoc
   description: |
     1-D array of polynomial coefficients ordered from low to high
     degree.
+  kind: param
   arg_name: 'c'
   type_name: 'array_like'
   is_optional: False
 - DocstringReturns
   args: ['returns']
   description: 'Companion matrix of dimensions (deg, deg).'
+  kind: returns
   type_name: 'ndarray'
   is_generator: False
   return_name: 'mat'
@@ -55,6 +57,7 @@ style: numpydoc
   description: |
     array([[ 0.        , -0.33333333],
            [ 1.        , -0.66666667]])
+  kind: examples
   snippet: |
     >>> from numpy.polynomial import polynomial as P
     >>> c = (1, 2, 3)

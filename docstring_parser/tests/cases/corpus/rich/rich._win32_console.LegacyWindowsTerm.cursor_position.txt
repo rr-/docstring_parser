@@ -13,6 +13,7 @@ style: google
 - DocstringReturns
   args: ['returns', 'WindowsCoordinates']
   description: 'The current cursor position.'
+  kind: returns
   type_name: 'WindowsCoordinates'
   is_generator: False
 === detect

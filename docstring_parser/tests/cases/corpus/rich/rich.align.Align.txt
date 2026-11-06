@@ -36,24 +36,28 @@ style: google
 - DocstringParam
   args: ['param', 'renderable (RenderableType)']
   description: 'A console renderable.'
+  kind: param
   arg_name: 'renderable'
   type_name: 'RenderableType'
   is_optional: False
 - DocstringParam
   args: ['param', 'align (AlignMethod)']
   description: 'One of "left", "center", or "right""'
+  kind: param
   arg_name: 'align'
   type_name: 'AlignMethod'
   is_optional: False
 - DocstringParam
   args: ['param', 'style (StyleType, optional)']
   description: 'An optional style to apply to the background.'
+  kind: param
   arg_name: 'style'
   type_name: 'StyleType'
   is_optional: True
 - DocstringParam
   args: ['param', 'vertical (Optional[VerticalAlignMethod], optional)']
   description: 'Optional vertical align, one of "top", "middle", or "bottom". Defaults to None.'
+  kind: param
   arg_name: 'vertical'
   type_name: 'Optional[VerticalAlignMethod]'
   is_optional: True
@@ -61,6 +65,7 @@ style: google
 - DocstringParam
   args: ['param', 'pad (bool, optional)']
   description: 'Pad the right with spaces. Defaults to True.'
+  kind: param
   arg_name: 'pad'
   type_name: 'bool'
   is_optional: True
@@ -68,6 +73,7 @@ style: google
 - DocstringParam
   args: ['param', 'width (int, optional)']
   description: 'Restrict contents to given width, or None to use default width. Defaults to None.'
+  kind: param
   arg_name: 'width'
   type_name: 'int'
   is_optional: True
@@ -75,6 +81,7 @@ style: google
 - DocstringParam
   args: ['param', 'height (int, optional)']
   description: 'Set height of align renderable, or None to fit to contents. Defaults to None.'
+  kind: param
   arg_name: 'height'
   type_name: 'int'
   is_optional: True
@@ -82,6 +89,7 @@ style: google
 - DocstringRaises
   args: ['raises', 'ValueError']
   description: 'if ``align`` is not one of the expected values.'
+  kind: raises
   type_name: 'ValueError'
 - DocstringExample
   args: ['examples']
@@ -98,6 +106,7 @@ style: google
     
     # Renders the panel centered in the terminal
     console.print(Align(p, align="center"))
+  kind: examples
 === detect
 google
 === compose google

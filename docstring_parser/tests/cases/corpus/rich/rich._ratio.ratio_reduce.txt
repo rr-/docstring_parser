@@ -19,30 +19,35 @@ style: google
 - DocstringParam
   args: ['param', 'total (int)']
   description: 'The total to divide.'
+  kind: param
   arg_name: 'total'
   type_name: 'int'
   is_optional: False
 - DocstringParam
   args: ['param', 'ratios (List[int])']
   description: 'A list of integer ratios.'
+  kind: param
   arg_name: 'ratios'
   type_name: 'List[int]'
   is_optional: False
 - DocstringParam
   args: ['param', 'maximums (List[int])']
   description: 'List of maximums values for each slot.'
+  kind: param
   arg_name: 'maximums'
   type_name: 'List[int]'
   is_optional: False
 - DocstringParam
   args: ['param', 'values (List[int])']
   description: 'List of values'
+  kind: param
   arg_name: 'values'
   type_name: 'List[int]'
   is_optional: False
 - DocstringReturns
   args: ['returns', 'List[int]']
   description: 'A list of integers guaranteed to sum to total.'
+  kind: returns
   type_name: 'List[int]'
   is_generator: False
 === detect

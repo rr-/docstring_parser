@@ -22,10 +22,12 @@ style: rest
 - DocstringParam
   args: ['param', 'source']
   description: 'The source code of the template to render.'
+  kind: param
   arg_name: 'source'
 - DocstringParam
   args: ['param', 'context']
   description: 'The variables to make available in the template.'
+  kind: param
   arg_name: 'context'
 === detect
 rest

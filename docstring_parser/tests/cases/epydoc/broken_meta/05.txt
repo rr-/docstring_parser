@@ -8,3 +8,4 @@ style: epydoc
 - DocstringMeta
   args: ['sthstrange']
   description: 'desc'
+  kind: text

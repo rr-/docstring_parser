@@ -72,6 +72,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'a']
   description: 'Input array.'
+  kind: param
   arg_name: 'a'
   type_name: 'array_like'
   is_optional: False
@@ -81,6 +82,7 @@ style: numpydoc
     Fraction of the most positive and most negative elements to remove.
     When the specified proportion does not result in an integer number of
     elements, the number of elements to trim is rounded down.
+  kind: param
   arg_name: 'proportiontocut'
   type_name: 'float'
   is_optional: False
@@ -89,6 +91,7 @@ style: numpydoc
   description: |
     Axis along which the trimmed means are computed.
     If None, compute over the raveled array.
+  kind: param
   arg_name: 'axis'
   type_name: 'int or None'
   is_optional: True
@@ -96,6 +99,7 @@ style: numpydoc
 - DocstringReturns
   args: ['returns']
   description: 'Mean of trimmed array.'
+  kind: returns
   type_name: 'ndarray'
   is_generator: False
   return_name: 'trim_mean'
@@ -104,6 +108,7 @@ style: numpydoc
   description: |
     trimboth : Remove a proportion of elements from each end of an array.
     tmean : Compute the mean after trimming values outside specified limits.
+  kind: text
 - DocstringMeta
   args: ['notes']
   description: |
@@ -114,6 +119,7 @@ style: numpydoc
         a = np.sort(a)
         m = int(proportiontocut * len(a))
         np.mean(a[m: len(a) - m])
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
@@ -122,6 +128,7 @@ style: numpydoc
     When the specified proportion does not result in an integer number of
     elements, the number of elements to trim is rounded down.
     
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> from scipy import stats
@@ -134,18 +141,22 @@ style: numpydoc
     
     Use `axis` to specify the axis along which the calculation is performed.
     
+  kind: examples
   snippet: '>>> stats.trim_mean(x, 0.24999) == np.mean(x)'
 - DocstringExample
   args: ['examples']
   description: '...       [10, 20, 30, 50]]'
+  kind: examples
   snippet: '>>> x2 = [[1, 2, 3, 5],'
 - DocstringExample
   args: ['examples']
   description: 'array([ 5.5, 11. , 16.5, 27.5])'
+  kind: examples
   snippet: '>>> stats.trim_mean(x2, 0.25)'
 - DocstringExample
   args: ['examples']
   description: 'array([ 2.5, 25. ])'
+  kind: examples
   snippet: '>>> stats.trim_mean(x2, 0.25, axis=1)'
 === detect
 numpydoc

@@ -47,18 +47,21 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'searchpath']
   description: 'Path or paths of directories containing the templates.'
+  kind: param
   arg_name: 'searchpath'
   type_name: 'str or list'
   is_optional: False
 - DocstringParam
   args: ['param', 'html_table']
   description: 'Name of your custom template to replace the html_table template.'
+  kind: param
   arg_name: 'html_table'
   type_name: 'str'
   is_optional: False
 - DocstringParam
   args: ['param', 'html_style']
   description: 'Name of your custom template to replace the html_style template.'
+  kind: param
   arg_name: 'html_style'
   type_name: 'str'
   is_optional: False
@@ -67,6 +70,7 @@ style: numpydoc
   description: |
     Has the correct ``env``, ``template_html``, ``template_html_table`` and
     ``template_html_style`` class attributes set.
+  kind: returns
   type_name: 'subclass of Styler'
   is_generator: False
   return_name: 'MyStyler'
@@ -75,12 +79,14 @@ style: numpydoc
   description: |
     Styler.export : Export the styles applied to the current Styler.
     Styler.use : Set the styles on the current Styler.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
     ...     "path/to/template",
     ...     "template.tpl",
     ... )  # doctest: +SKIP
+  kind: examples
   snippet: |
     >>> from pandas.io.formats.style import Styler
     >>> EasyStyler = Styler.from_custom_template(
@@ -90,6 +96,7 @@ style: numpydoc
     
     Please see:
     `Table Visualization <../../user_guide/style.ipynb>`_ for more examples.
+  kind: examples
   snippet: |
     >>> df = pd.DataFrame({"A": [1, 2]})
     >>> EasyStyler(df)  # doctest: +SKIP

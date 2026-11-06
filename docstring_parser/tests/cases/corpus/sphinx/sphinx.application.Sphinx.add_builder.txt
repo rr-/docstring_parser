@@ -20,12 +20,14 @@ style: rest
 - DocstringParam
   args: ['param', 'builder']
   description: 'A builder class'
+  kind: param
   arg_name: 'builder'
 - DocstringParam
   args: ['param', 'override']
   description: |
     If true, install the builder forcedly even if another builder
     is already installed as the same name
+  kind: param
   arg_name: 'override'
 === detect
 rest

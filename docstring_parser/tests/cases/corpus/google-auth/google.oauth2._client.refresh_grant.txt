@@ -42,6 +42,7 @@ style: google
   description: |
     A callable used to make
     HTTP requests.
+  kind: param
   arg_name: 'request'
   type_name: 'google.auth.transport.Request'
   is_optional: False
@@ -50,6 +51,7 @@ style: google
   description: |
     The OAuth 2.0 authorizations server's token endpoint
     URI.
+  kind: param
   arg_name: 'token_uri'
   type_name: 'str'
   is_optional: False
@@ -58,18 +60,21 @@ style: google
   description: |
     The refresh token to use to get a new access
     token.
+  kind: param
   arg_name: 'refresh_token'
   type_name: 'str'
   is_optional: False
 - DocstringParam
   args: ['param', 'client_id (str)']
   description: "The OAuth 2.0 application's client ID."
+  kind: param
   arg_name: 'client_id'
   type_name: 'str'
   is_optional: False
 - DocstringParam
   args: ['param', 'client_secret (str)']
   description: "The Oauth 2.0 appliaction's client secret."
+  kind: param
   arg_name: 'client_secret'
   type_name: 'str'
   is_optional: False
@@ -80,18 +85,21 @@ style: google
     scopes must be authorized for the refresh token. Useful if refresh
     token has a wild card scope (e.g.
     'https://www.googleapis.com/auth/any-api').
+  kind: param
   arg_name: 'scopes'
   type_name: 'Optional(Sequence[str])'
   is_optional: False
 - DocstringParam
   args: ['param', 'rapt_token (Optional(str))']
   description: 'The reauth Proof Token.'
+  kind: param
   arg_name: 'rapt_token'
   type_name: 'Optional(str)'
   is_optional: False
 - DocstringParam
   args: ['param', 'can_retry (bool)']
   description: 'Enable or disable request retry behavior.'
+  kind: param
   arg_name: 'can_retry'
   type_name: 'bool'
   is_optional: False
@@ -101,6 +109,7 @@ style: google
     The access
     token, new or current refresh token, expiration, and additional data
     returned by the token endpoint.
+  kind: returns
   type_name: 'Tuple[str, str, Optional[datetime], Mapping[str, str]]'
   is_generator: False
 - DocstringRaises
@@ -108,6 +117,7 @@ style: google
   description: |
     If the token endpoint returned
     an error.
+  kind: raises
   type_name: 'google.auth.exceptions.RefreshError'
 === detect
 google

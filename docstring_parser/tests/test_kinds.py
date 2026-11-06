@@ -1,0 +1,98 @@
+"""Tests for what kind of item each meta says it documents."""
+
+import pytest
+
+from docstring_parser import (
+    DocstringDeprecated,
+    DocstringMeta,
+    DocstringParam,
+    DocstringRaises,
+    DocstringReturns,
+    DocstringStyle,
+    ParseError,
+    parse,
+)
+from docstring_parser.common import (
+    PARAM_KINDS,
+    RAISES_KINDS,
+    DocstringExample,
+    Kind,
+)
+from docstring_parser.tests.cases import CASES_DIR, read_case
+
+STYLES = [
+    DocstringStyle.REST,
+    DocstringStyle.GOOGLE,
+    DocstringStyle.NUMPYDOC,
+    DocstringStyle.EPYDOC,
+]
+
+
+def _family(meta: DocstringMeta) -> frozenset:
+    if isinstance(meta, DocstringParam):
+        return PARAM_KINDS
+    if isinstance(meta, DocstringReturns):
+        return frozenset({Kind.YIELDS if meta.is_generator else Kind.RETURNS})
+    if isinstance(meta, DocstringRaises):
+        return RAISES_KINDS
+    if isinstance(meta, DocstringExample):
+        return frozenset({Kind.EXAMPLES})
+    if isinstance(meta, DocstringDeprecated):
+        return frozenset({Kind.DEPRECATION})
+    return frozenset({Kind.TEXT})
+
+
+@pytest.mark.parametrize("style", STYLES, ids=lambda s: s.name.lower())
+def test_kind_matches_class(style: DocstringStyle) -> None:
+    """Test that every parsed meta's kind is one its class allows."""
+    for path in sorted(CASES_DIR.rglob("*.txt")):
+        try:
+            docstring = parse(read_case(path).input, style)
+        except ParseError:
+            continue
+        for meta in docstring.meta:
+            assert meta.kind in _family(meta), path
+
+
+def test_kind_must_fit_class() -> None:
+    """Test that a param or raises cannot get a kind of another class."""
+    with pytest.raises(ValueError, match="param"):
+        DocstringParam(
+            ["param", "x"], None, "x", None, None, None, Kind.RAISES
+        )
+    with pytest.raises(ValueError, match="raises"):
+        DocstringRaises(["raises"], None, None, Kind.PARAM)
+
+
+@pytest.mark.parametrize(
+    ("style", "text", "kinds"),
+    [
+        (
+            DocstringStyle.REST,
+            ":param x: X.\n:keyword y: Y.\n:attribute z: Z.\n:ivar w: W.",
+            [Kind.PARAM, Kind.KEYWORD, Kind.ATTRIBUTE, Kind.TEXT],
+        ),
+        (
+            DocstringStyle.EPYDOC,
+            "@param x: X.\n@keyword y: Y.\n@ivar z: Z.\n@cvar w: W.",
+            [Kind.PARAM, Kind.KEYWORD, Kind.ATTRIBUTE, Kind.ATTRIBUTE],
+        ),
+        (
+            DocstringStyle.GOOGLE,
+            "S.\n\nArgs:\n    x: X.\n\nAttributes:\n    y: Y.\n\n"
+            "Yields:\n    int: Z.",
+            [Kind.PARAM, Kind.ATTRIBUTE, Kind.YIELDS],
+        ),
+        (
+            DocstringStyle.NUMPYDOC,
+            "S.\n\nOther Parameters\n----------------\nx\n    X.\n\n"
+            "Receives\n--------\ny\n    Y.\n\n"
+            "Warns\n-----\nUserWarning\n    W.",
+            [Kind.OTHER_PARAM, Kind.RECEIVES, Kind.WARNS],
+        ),
+    ],
+    ids=lambda v: v.name.lower() if isinstance(v, DocstringStyle) else "",
+)
+def test_sub_kinds(style: DocstringStyle, text: str, kinds: list) -> None:
+    """Test that each style tells the kinds of params and raises apart."""
+    assert [m.kind for m in parse(text, style).meta] == kinds

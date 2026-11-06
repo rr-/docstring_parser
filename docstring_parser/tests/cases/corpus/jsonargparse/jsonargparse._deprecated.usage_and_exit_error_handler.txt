@@ -14,10 +14,12 @@ style: google
 - DocstringParam
   args: ['param', 'parser']
   description: 'The parser object.'
+  kind: param
   arg_name: 'parser'
 - DocstringParam
   args: ['param', 'message']
   description: 'The message describing the error being handled.'
+  kind: param
   arg_name: 'message'
 === detect
 google

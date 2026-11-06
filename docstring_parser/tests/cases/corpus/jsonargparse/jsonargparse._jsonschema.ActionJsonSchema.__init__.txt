@@ -19,22 +19,27 @@ style: google
 - DocstringParam
   args: ['param', 'schema']
   description: 'Schema to validate values against.'
+  kind: param
   arg_name: 'schema'
 - DocstringParam
   args: ['param', 'sub_config']
   description: 'Whether to try to load JSON from path.'
+  kind: param
   arg_name: 'sub_config'
 - DocstringParam
   args: ['param', 'with_meta']
   description: 'Deprecated, to remove metadata use ``.clone(with_meta=False)``.'
+  kind: param
   arg_name: 'with_meta'
 - DocstringRaises
   args: ['raises', 'ValueError']
   description: 'If a parameter is invalid.'
+  kind: raises
   type_name: 'ValueError'
 - DocstringRaises
   args: ['raises', 'jsonschema.exceptions.SchemaError']
   description: 'If the schema is invalid.'
+  kind: raises
   type_name: 'jsonschema.exceptions.SchemaError'
 === detect
 google

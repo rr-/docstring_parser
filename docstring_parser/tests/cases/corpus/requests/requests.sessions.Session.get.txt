@@ -16,19 +16,23 @@ style: rest
 - DocstringParam
   args: ['param', 'url']
   description: 'URL for the new :class:`Request` object.'
+  kind: param
   arg_name: 'url'
 - DocstringParam
   args: ['param', 'params']
   description: |
     (optional) Dictionary, list of tuples or bytes to send
     in the query string for the :class:`Request`.
+  kind: param
   arg_name: 'params'
 - DocstringParam
   args: ['param', '\\*\\*kwargs']
   description: 'Optional arguments that ``request`` takes.'
+  kind: param
   arg_name: '\\*\\*kwargs'
 - DocstringReturns
   args: []
+  kind: returns
   type_name: 'requests.Response'
   is_generator: False
 === detect

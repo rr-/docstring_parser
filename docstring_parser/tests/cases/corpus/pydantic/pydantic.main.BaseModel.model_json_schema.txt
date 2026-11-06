@@ -33,10 +33,12 @@ style: google
     Whether to use field aliases as keys in the generated JSON Schema. If `None` (the default),
     aliases are used unless disabled by the configuration (i.e. `validate_by_alias=False` for validation
     schemas). An explicit value takes precedence over the configuration.
+  kind: param
   arg_name: 'by_alias'
 - DocstringParam
   args: ['param', 'ref_template']
   description: 'The reference template.'
+  kind: param
   arg_name: 'ref_template'
 - DocstringParam
   args: ['param', 'union_format']
@@ -49,20 +51,24 @@ style: google
     keyword as an array of strings, containing each type of the combination. If any of the schemas is not a primitive
     type (`string`, `boolean`, `null`, `integer` or `number`) or contains constraints/metadata, falls back to
     `any_of`.
+  kind: param
   arg_name: 'union_format'
 - DocstringParam
   args: ['param', 'schema_generator']
   description: |
     To override the logic used to generate the JSON schema, as a subclass of
     `GenerateJsonSchema` with your desired modifications
+  kind: param
   arg_name: 'schema_generator'
 - DocstringParam
   args: ['param', 'mode']
   description: 'The mode in which to generate the schema.'
+  kind: param
   arg_name: 'mode'
 - DocstringReturns
   args: ['returns']
   description: 'The JSON schema for the given model class.'
+  kind: returns
   is_generator: False
 === detect
 google

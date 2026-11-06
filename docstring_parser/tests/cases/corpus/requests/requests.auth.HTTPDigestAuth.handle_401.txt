@@ -12,6 +12,7 @@ blank_after_long_description: False
 style: rest
 - DocstringReturns
   args: []
+  kind: returns
   type_name: 'requests.Response'
   is_generator: False
 === detect

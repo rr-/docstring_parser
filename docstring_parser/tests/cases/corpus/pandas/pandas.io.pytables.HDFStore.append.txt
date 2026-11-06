@@ -111,12 +111,14 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'key']
   description: 'Key of object to append.'
+  kind: param
   arg_name: 'key'
   type_name: 'str'
   is_optional: False
 - DocstringParam
   args: ['param', 'value']
   description: 'Value of object to append.'
+  kind: param
   arg_name: 'value'
   type_name: '{Series, DataFrame}'
   is_optional: False
@@ -129,6 +131,7 @@ style: numpydoc
         Table format. Write as a PyTables Table structure which may perform
         worse but allow more flexible operations like searching / selecting
         subsets of the data.
+  kind: param
   arg_name: 'format'
   type_name: "'table' is the default"
   is_optional: False
@@ -139,6 +142,7 @@ style: numpydoc
     indexed (appendable) axis: ``[0]`` for the index (the default) or
     ``[1]`` for the columns. Ignored when appending to an existing
     table, which keeps the axes it was created with.
+  kind: param
   arg_name: 'axes'
   type_name: 'list'
   is_optional: True
@@ -146,6 +150,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'index']
   description: 'Write DataFrame index as a column.'
+  kind: param
   arg_name: 'index'
   type_name: 'bool'
   is_optional: True
@@ -153,6 +158,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'append']
   description: 'Append the input data to the existing.'
+  kind: param
   arg_name: 'append'
   type_name: 'bool'
   is_optional: True
@@ -163,6 +169,7 @@ style: numpydoc
     Compression library to use; None disables compression. See the
     ``complib`` parameter of :class:`HDFStore` for the full list of
     supported compressors.
+  kind: param
   arg_name: 'complib'
   type_name: "{'zlib', 'lzo', 'bzip2', 'blosc'}"
   is_optional: True
@@ -172,6 +179,7 @@ style: numpydoc
   description: |
     Specifies a compression level for data.
     A value of 0 or None disables compression.
+  kind: param
   arg_name: 'complevel'
   type_name: 'int, 0-9'
   is_optional: True
@@ -179,6 +187,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'columns']
   description: 'This parameter is currently not accepted, try data_columns.'
+  kind: param
   arg_name: 'columns'
   type_name: 'default None'
   is_optional: False
@@ -190,6 +199,7 @@ style: numpydoc
     If dict, specific columns reserve 'min_itemsize' bytes per stored value.
     Strings are stored as encoded bytes. Since some characters require multiple
     bytes, required size may be larger than string length.
+  kind: param
   arg_name: 'min_itemsize'
   type_name: 'int, dict, or None'
   is_optional: False
@@ -202,12 +212,14 @@ style: numpydoc
     passed, a value equal to it is read back as a missing value.
     Only used when the table is created; ignored on later appends,
     which reuse whatever the table already stores.
+  kind: param
   arg_name: 'nan_rep'
   type_name: 'str'
   is_optional: True
 - DocstringParam
   args: ['param', 'chunksize']
   description: 'Number of rows to write in each chunk.'
+  kind: param
   arg_name: 'chunksize'
   type_name: 'int'
   is_optional: True
@@ -215,6 +227,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'expectedrows']
   description: 'Expected TOTAL row size of this table.'
+  kind: param
   arg_name: 'expectedrows'
   type_name: 'int'
   is_optional: False
@@ -228,6 +241,7 @@ style: numpydoc
         The ``dropna`` keyword is deprecated and will be removed in a
         future version. Use :meth:`DataFrame.dropna` before writing
         instead.
+  kind: param
   arg_name: 'dropna'
   type_name: 'bool'
   is_optional: True
@@ -239,6 +253,7 @@ style: numpydoc
     queries, or True to use all columns. By default only the axes
     of the object are indexed. See `here
     <https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#query-via-data-columns>`__.
+  kind: param
   arg_name: 'data_columns'
   type_name: 'list of columns, or True'
   is_optional: True
@@ -246,6 +261,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'encoding']
   description: 'Provide an encoding for str.'
+  kind: param
   arg_name: 'encoding'
   type_name: 'default None'
   is_optional: False
@@ -257,6 +273,7 @@ style: numpydoc
     UnicodeEncodeError.  Other possible values are 'ignore', 'replace' and
     'xmlcharrefreplace' as well as any other name registered with
     codecs.register_error that can handle UnicodeEncodeErrors.
+  kind: param
   arg_name: 'errors'
   type_name: 'str'
   is_optional: True
@@ -264,6 +281,7 @@ style: numpydoc
 - DocstringMeta
   args: ['see_also']
   description: 'HDFStore.append_to_multiple : Append to multiple tables.'
+  kind: text
 - DocstringMeta
   args: ['notes']
   description: |
@@ -272,6 +290,7 @@ style: numpydoc
     
     Appending an empty ``DataFrame`` or ``Series`` is a no-op: the store
     is not modified and a ``UserWarning`` is emitted.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
@@ -280,6 +299,7 @@ style: numpydoc
     1  3  4
     0  5  6
     1  7  8
+  kind: examples
   snippet: |
     >>> df1 = pd.DataFrame([[1, 2], [3, 4]], columns=["A", "B"])
     >>> store = pd.HDFStore("store.h5", "w")  # doctest: +SKIP

@@ -18,6 +18,7 @@ style: epydoc
 - DocstringMeta
   args: ['since']
   description: '11.1'
+  kind: text
 === detect
 epydoc
 === compose epydoc

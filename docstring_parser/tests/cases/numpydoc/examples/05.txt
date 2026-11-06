@@ -17,6 +17,7 @@ style: numpydoc
   description: |
     desc1a
     desc1b
+  kind: examples
   snippet: |
     >>> test1a
     >>> test1b

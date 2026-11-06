@@ -13,5 +13,6 @@ style: numpydoc
 - DocstringReturns
   args: ['returns']
   description: 'A description: with a colon'
+  kind: returns
   type_name: 'Optional[Mapping[str, List[int]]]'
   is_generator: False

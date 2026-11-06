@@ -41,21 +41,25 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'x1, x2']
   description: 'Input arrays of the same shape.'
+  kind: param
   arg_name: 'x1, x2'
   type_name: 'array_like of str or unicode'
   is_optional: False
 - DocstringReturns
   args: ['returns']
   description: 'Output array of bools.'
+  kind: returns
   type_name: 'ndarray'
   is_generator: False
   return_name: 'out'
 - DocstringMeta
   args: ['see_also']
   description: 'equal, not_equal, greater_equal, greater, less'
+  kind: text
 - DocstringExample
   args: ['examples']
   description: 'array([ True,  True, False])'
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> x1 = np.array(['a', 'b', 'c'])

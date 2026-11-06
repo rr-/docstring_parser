@@ -14,6 +14,7 @@ style: google
 - DocstringReturns
   args: ['returns', 'bool']
   description: 'True if writing to a dumb terminal, otherwise False.'
+  kind: returns
   type_name: 'bool'
   is_generator: False
 === detect

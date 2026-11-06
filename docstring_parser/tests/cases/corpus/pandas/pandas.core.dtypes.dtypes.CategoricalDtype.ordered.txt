@@ -31,17 +31,20 @@ style: numpydoc
 - DocstringMeta
   args: ['see_also']
   description: 'categories : An Index containing the unique categories allowed.'
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
     True
     
+  kind: examples
   snippet: |
     >>> cat_type = pd.CategoricalDtype(categories=["a", "b"], ordered=True)
     >>> cat_type.ordered
 - DocstringExample
   args: ['examples']
   description: 'False'
+  kind: examples
   snippet: |
     >>> cat_type = pd.CategoricalDtype(categories=["a", "b"], ordered=False)
     >>> cat_type.ordered

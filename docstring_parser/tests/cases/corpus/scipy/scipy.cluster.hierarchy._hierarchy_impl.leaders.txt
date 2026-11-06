@@ -136,12 +136,14 @@ style: numpydoc
   description: |
     The hierarchical clustering encoded as a matrix. See
     `linkage` for more information.
+  kind: param
   arg_name: 'Z'
   type_name: 'ndarray'
   is_optional: False
 - DocstringParam
   args: ['param', 'T']
   description: 'The flat cluster assignment vector.'
+  kind: param
   arg_name: 'T'
   type_name: 'ndarray'
   is_optional: False
@@ -155,6 +157,7 @@ style: numpydoc
     leader of flat cluster with id M[j]. If ``i < n``, ``i``
     corresponds to an original observation, otherwise it
     corresponds to a non-singleton cluster.
+  kind: returns
   type_name: 'ndarray'
   is_generator: False
   return_name: 'L'
@@ -167,12 +170,14 @@ style: numpydoc
     
     For example: if ``L[3]=2`` and ``M[3]=8``, the flat cluster with
     id 8's leader is linkage node 2.
+  kind: returns
   type_name: 'ndarray'
   is_generator: False
   return_name: 'M'
 - DocstringMeta
   args: ['see_also']
   description: 'fcluster : for the creation of flat cluster assignments.'
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
@@ -180,6 +185,7 @@ style: numpydoc
     Given a linkage matrix ``Z`` - obtained after apply a clustering method
     to a dataset ``X`` - and a flat cluster assignment array ``T``:
     
+  kind: examples
   snippet: |
     >>> from scipy.cluster.hierarchy import ward, fcluster, leaders
     >>> from scipy.spatial.distance import pdist
@@ -190,6 +196,7 @@ style: numpydoc
     ...      [4, 0], [3, 0], [4, 1],
     ...      [4, 4], [3, 4], [4, 3]]
     
+  kind: examples
   snippet: '>>> X = [[0, 0], [0, 1], [1, 0],'
 - DocstringExample
   args: ['examples']
@@ -206,6 +213,7 @@ style: numpydoc
            [18.        , 19.        ,  5.77350269,  6.        ],
            [20.        , 21.        ,  8.16496581, 12.        ]])
     
+  kind: examples
   snippet: |
     >>> Z = ward(pdist(X))
     >>> Z
@@ -217,6 +225,7 @@ style: numpydoc
     `scipy.cluster.hierarchy.leaders` returns the indices of the nodes
     in the dendrogram that are the leaders of each flat cluster:
     
+  kind: examples
   snippet: |
     >>> T = fcluster(Z, 3, criterion='distance')
     >>> T
@@ -231,12 +240,14 @@ style: numpydoc
     `scipy.cluster.hierarchy.leaders` also returns the indices of
     the flat clusters in ``T``:
     
+  kind: examples
   snippet: |
     >>> L, M = leaders(Z, T)
     >>> L
 - DocstringExample
   args: ['examples']
   description: 'array([1, 2, 3, 4], dtype=int32)'
+  kind: examples
   snippet: '>>> M'
 - DocstringMeta
   args: ['notes']
@@ -244,6 +255,7 @@ style: numpydoc
     *Array API support (experimental):* This function returns arrays
     with data-dependent shape. In JAX, at the moment of writing this makes it
     impossible to execute it inside `@jax.jit`.
+  kind: text
 === detect
 numpydoc
 === compose numpydoc

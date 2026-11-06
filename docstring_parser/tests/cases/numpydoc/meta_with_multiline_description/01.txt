@@ -23,4 +23,5 @@ style: numpydoc
     1
         2
     3
+  kind: param
   arg_name: 'spam'

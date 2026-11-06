@@ -13,6 +13,7 @@ style: epydoc
   description: |
     An L{IAddress} this L{IListeningPort} should
     pretend to be listening on.
+  kind: param
   arg_name: 'hostAddress'
   is_optional: False
 === detect

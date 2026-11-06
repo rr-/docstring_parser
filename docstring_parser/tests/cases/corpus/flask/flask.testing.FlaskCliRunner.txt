@@ -13,6 +13,7 @@ style: rest
 - DocstringMeta
   args: ['meth']
   description: '`~flask.Flask.test_cli_runner`. See :ref:`testing-cli`.'
+  kind: text
 === detect
 rest
 === compose rest

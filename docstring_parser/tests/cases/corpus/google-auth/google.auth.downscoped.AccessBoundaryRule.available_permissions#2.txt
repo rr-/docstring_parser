@@ -17,16 +17,19 @@ style: google
 - DocstringParam
   args: ['param', 'value (Sequence[str])']
   description: 'The updated value of the available permissions.'
+  kind: param
   arg_name: 'value'
   type_name: 'Sequence[str]'
   is_optional: False
 - DocstringRaises
   args: ['raises', 'InvalidType']
   description: 'If the value is not a list of strings.'
+  kind: raises
   type_name: 'InvalidType'
 - DocstringRaises
   args: ['raises', 'InvalidValue']
   description: 'If the value is not valid.'
+  kind: raises
   type_name: 'InvalidValue'
 === detect
 google

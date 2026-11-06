@@ -23,18 +23,21 @@ style: google
 - DocstringParam
   args: ['param', 'arg1 (int)']
   description: 'The firsty arg'
+  kind: param
   arg_name: 'arg1'
   type_name: 'int'
   is_optional: False
 - DocstringParam
   args: ['param', 'arg2 (str)']
   description: 'The second arg'
+  kind: param
   arg_name: 'arg2'
   type_name: 'str'
   is_optional: False
 - DocstringParam
   args: ['param', 'arg3 (float, optional)']
   description: 'The third arg. Defaults to 1.0.'
+  kind: param
   arg_name: 'arg3'
   type_name: 'float'
   is_optional: True
@@ -42,6 +45,7 @@ style: google
 - DocstringParam
   args: ['param', 'arg4 (Optional[Dict[str, Any]], optional)']
   description: 'The last arg. Defaults to None.'
+  kind: param
   arg_name: 'arg4'
   type_name: 'Optional[Dict[str, Any]]'
   is_optional: True
@@ -49,6 +53,7 @@ style: google
 - DocstringParam
   args: ['param', 'arg5 (str, optional)']
   description: 'The fifth arg. Defaults to DEFAULT_ARG5.'
+  kind: param
   arg_name: 'arg5'
   type_name: 'str'
   is_optional: True
@@ -56,5 +61,6 @@ style: google
 - DocstringReturns
   args: ['returns', 'Mapping[str, Any]']
   description: 'The args packed in a mapping'
+  kind: returns
   type_name: 'Mapping[str, Any]'
   is_generator: False

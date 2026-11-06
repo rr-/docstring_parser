@@ -21,18 +21,21 @@ style: google
 - DocstringParam
   args: ['param', 'path (Union[str, PathLike[str]])']
   description: 'Path to write html file.'
+  kind: param
   arg_name: 'path'
   type_name: 'Union[str, PathLike[str]]'
   is_optional: False
 - DocstringParam
   args: ['param', 'theme (TerminalTheme, optional)']
   description: 'TerminalTheme object containing console colors.'
+  kind: param
   arg_name: 'theme'
   type_name: 'TerminalTheme'
   is_optional: True
 - DocstringParam
   args: ['param', 'clear (bool, optional)']
   description: 'Clear record buffer after exporting. Defaults to ``True``.'
+  kind: param
   arg_name: 'clear'
   type_name: 'bool'
   is_optional: True
@@ -42,6 +45,7 @@ style: google
   description: |
     Format string to render HTML. In addition to '{foreground}',
     '{background}', and '{code}', should contain '{stylesheet}' if inline_styles is ``False``.
+  kind: param
   arg_name: 'code_format'
   type_name: 'str'
   is_optional: True
@@ -51,6 +55,7 @@ style: google
     If ``True`` styles will be inlined in to spans, which makes files
     larger but easier to cut and paste markup. If ``False``, styles will be embedded in a style tag.
     Defaults to False.
+  kind: param
   arg_name: 'inline_styles'
   type_name: 'bool'
   is_optional: True

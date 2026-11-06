@@ -20,6 +20,7 @@ style: google
   description: |
     A callback which returns the default
     client certificate bytes and private key bytes, both in PEM format.
+  kind: returns
   type_name: 'Callable[[], [bytes, bytes]]'
   is_generator: False
 - DocstringRaises
@@ -27,6 +28,7 @@ style: google
   description: |
     If the default
     client SSL credentials don't exist or are malformed.
+  kind: raises
   type_name: 'google.auth.exceptions.MutualTLSChannelError'
 === detect
 google

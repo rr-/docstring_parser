@@ -83,6 +83,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'nt']
   description: 'Number of zeros to return'
+  kind: param
   arg_name: 'nt'
   type_name: 'int'
   is_optional: False
@@ -93,6 +94,7 @@ style: numpydoc
     the complex zeros with negative real part and positive imaginary part.
     Note that the complex conjugates of the latter are also zeros of the
     function, but are not returned by this routine.
+  kind: param
   arg_name: 'complex'
   type_name: 'bool'
   is_optional: True
@@ -100,12 +102,14 @@ style: numpydoc
 - DocstringReturns
   args: ['returns']
   description: 'Location of nth zero of Y1(z)'
+  kind: returns
   type_name: 'ndarray'
   is_generator: False
   return_name: 'z1n'
 - DocstringReturns
   args: ['returns']
   description: "Value of derivative Y1'(z1) for nth zero"
+  kind: returns
   type_name: 'ndarray'
   is_generator: False
   return_name: 'y1pz1n'
@@ -115,12 +119,14 @@ style: numpydoc
     .. [1] Zhang, Shanjie and Jin, Jianming. "Computation of Special
            Functions", John Wiley and Sons, 1996, chapter 5.
            https://people.sc.fsu.edu/~jburkardt/f77_src/special_functions/special_functions.html
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
     Compute the first 4 real roots and the derivatives at the roots of
     :math:`Y_1`:
     
+  kind: examples
 - DocstringExample
   args: ['examples']
   description: |
@@ -131,6 +137,7 @@ style: numpydoc
     
     Extract the real parts:
     
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> from scipy.special import y1_zeros
@@ -143,12 +150,14 @@ style: numpydoc
     
     Plot :math:`Y_1` and the first four computed roots.
     
+  kind: examples
   snippet: |
     >>> realzeros = zeros.real
     >>> realzeros
 - DocstringExample
   args: ['examples']
   description: "...            label=r'$Y_1$_zeros', zorder=5)"
+  kind: examples
   snippet: |
     >>> import matplotlib.pyplot as plt
     >>> from scipy.special import y1
@@ -167,6 +176,7 @@ style: numpydoc
     Compute the first 4 complex roots and the derivatives at the roots of
     :math:`Y_1` by setting ``complex=True``:
     
+  kind: examples
   snippet: |
     >>> ax.set_ylim(-0.5, 0.5)
     >>> ax.set_xlim(xmin, xmax)
@@ -179,6 +189,7 @@ style: numpydoc
              -7.01590368+0.55339305j, -10.17357383+0.55127339j]),
      array([-0.45952768+1.31710194j,  0.04830191-0.69251288j,
             -0.02012695+0.51864253j,  0.011614  -0.43203296j]))
+  kind: examples
   snippet: '>>> y1_zeros(4, True)'
 === detect
 numpydoc

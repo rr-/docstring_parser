@@ -14,10 +14,12 @@ style: google
 - DocstringParam
   args: ['param', 'text']
   description: 'The content to use for the comment.'
+  kind: param
   arg_name: 'text'
 - DocstringParam
   args: ['param', 'cfg']
   description: 'The ruamel.yaml object.'
+  kind: param
   arg_name: 'cfg'
 === detect
 google

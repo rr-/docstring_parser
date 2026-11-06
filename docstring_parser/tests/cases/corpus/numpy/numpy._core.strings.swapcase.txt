@@ -48,6 +48,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'a']
   description: 'Input array.'
+  kind: param
   arg_name: 'a'
   type_name: 'array-like, with ``StringDType``, ``bytes_``, or ``str_`` dtype'
   is_optional: False
@@ -56,17 +57,20 @@ style: numpydoc
   description: |
     Output array of ``StringDType``, ``bytes_`` or ``str_`` dtype,
     depending on input types
+  kind: returns
   type_name: 'ndarray'
   is_generator: False
   return_name: 'out'
 - DocstringMeta
   args: ['see_also']
   description: 'str.swapcase'
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
     array(['a1B c', '1b Ca', 'b Ca1', 'cA1b'],
         dtype='|S5')
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> c=np.array(['a1B c','1b Ca','b Ca1','cA1b'],'S5'); c
@@ -75,6 +79,7 @@ style: numpydoc
   description: |
     array(['A1b C', '1B cA', 'B cA1', 'Ca1B'],
         dtype='|S5')
+  kind: examples
   snippet: '>>> np.strings.swapcase(c)'
 === detect
 numpydoc

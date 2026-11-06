@@ -101,6 +101,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', '*samples']
   description: 'Arrays of sample data.  Need not be the same length.'
+  kind: param
   arg_name: '*samples'
   type_name: 'array_like'
   is_optional: False
@@ -109,6 +110,7 @@ style: numpydoc
   description: |
     Which statistics to use to center data points within each sample. Default
     is 'median'.
+  kind: param
   arg_name: 'center'
   type_name: "{'mean', 'median', 'trimmed'}"
   is_optional: True
@@ -119,6 +121,7 @@ style: numpydoc
     When `center` is 'trimmed', this gives the proportion of data points
     to cut from each end. (See `scipy.stats.trim_mean`.)
     Default is 0.05.
+  kind: param
   arg_name: 'proportiontocut'
   type_name: 'float'
   is_optional: True
@@ -130,6 +133,7 @@ style: numpydoc
     to compute the statistic. The statistic of each axis-slice (e.g. row)
     of the input will appear in a corresponding element of the output.
     If ``None``, the input will be raveled before computing the statistic.
+  kind: param
   arg_name: 'axis'
   type_name: 'int or tuple of ints'
   is_optional: True
@@ -137,12 +141,14 @@ style: numpydoc
 - DocstringReturns
   args: ['returns']
   description: 'The test statistic.'
+  kind: returns
   type_name: 'float'
   is_generator: False
   return_name: 'statistic'
 - DocstringReturns
   args: ['returns']
   description: 'The p-value for the hypothesis test.'
+  kind: returns
   type_name: 'float'
   is_generator: False
   return_name: 'pvalue'
@@ -152,6 +158,7 @@ style: numpydoc
     bartlett : A parametric test for equality of k variances in normal samples
     levene : A robust parametric test for equality of k variances
     :ref:`hypothesis_fligner` : Extended example
+  kind: text
 - DocstringMeta
   args: ['notes']
   description: |
@@ -164,6 +171,7 @@ style: numpydoc
     tests proposed by Fligner and Killeen (1976) and Levene (1960) appear to be
     superior in terms of robustness of departures from normality and power
     [3]_.
+  kind: text
 - DocstringMeta
   args: ['references']
   description: |
@@ -178,6 +186,7 @@ style: numpydoc
            comparative study of tests for homogeneity of variances, with
            applications to the outer continental shelf bidding data.
            Technometrics, 23(4), 351-361.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
@@ -185,6 +194,7 @@ style: numpydoc
     Test whether the lists `a`, `b` and `c` come from populations
     with equal variances.
     
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> from scipy import stats
@@ -199,6 +209,7 @@ style: numpydoc
     This is not surprising, given that the sample variance of `b` is much
     larger than that of `a` and `c`:
     
+  kind: examples
   snippet: |
     >>> a = [8.88, 9.12, 9.04, 8.98, 9.00, 9.08, 9.01, 8.85, 9.06, 8.99]
     >>> b = [8.88, 8.95, 9.29, 9.44, 9.15, 9.58, 8.36, 9.18, 8.67, 9.05]
@@ -211,6 +222,7 @@ style: numpydoc
     [0.007054444444444413, 0.13073888888888888, 0.008890000000000002]
     
     For a more detailed example, see :ref:`hypothesis_fligner`.
+  kind: examples
   snippet: '>>> [np.var(x, ddof=1) for x in [a, b, c]]'
 === detect
 numpydoc

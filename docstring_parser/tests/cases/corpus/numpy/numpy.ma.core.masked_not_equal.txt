@@ -34,9 +34,11 @@ style: numpydoc
 - DocstringMeta
   args: ['see_also']
   description: 'masked_where : Mask where a condition is met.'
+  kind: text
 - DocstringExample
   args: ['examples']
   description: 'array([0, 1, 2, 3])'
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> import numpy.ma as ma
@@ -48,6 +50,7 @@ style: numpydoc
     masked_array(data=[--, --, 2, --],
                  mask=[ True,  True, False,  True],
            fill_value=999999)
+  kind: examples
   snippet: '>>> ma.masked_not_equal(a, 2)'
 === detect
 numpydoc

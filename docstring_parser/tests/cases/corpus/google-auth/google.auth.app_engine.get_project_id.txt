@@ -16,11 +16,13 @@ style: google
 - DocstringReturns
   args: ['returns', 'str']
   description: 'The project ID'
+  kind: returns
   type_name: 'str'
   is_generator: False
 - DocstringRaises
   args: ['raises', 'google.auth.exceptions.OSError']
   description: 'If the App Engine APIs are unavailable.'
+  kind: raises
   type_name: 'google.auth.exceptions.OSError'
 === detect
 google

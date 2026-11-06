@@ -14,6 +14,7 @@ style: epydoc
 - DocstringParam
   args: ['param', 'name']
   description: 'The username with which to log in.'
+  kind: param
   arg_name: 'name'
   type_name: 'L{bytes}'
   is_optional: False

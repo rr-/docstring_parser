@@ -22,6 +22,7 @@ style: numpydoc
   description: |
     desc1a
     desc1b
+  kind: examples
   snippet: |
     >>> test1a
     >>> test1b
@@ -30,6 +31,7 @@ style: numpydoc
   description: |
     desc2a
     desc2b
+  kind: examples
   snippet: |
     >>> test2a
     >>> test2b
