@@ -1,0 +1,54 @@
+# Test a param type joined by commas, or and of.
+=== input
+Short.
+
+:param int or None x: X.
+:param list of str names: Names.
+:param int, optional n: N.
+=== parse rest
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringParam
+  description: 'X.'
+  kind: param
+  key: 'param'
+  arg_name: 'x'
+  type_name: 'int or None'
+  is_optional: False
+- DocstringParam
+  description: 'Names.'
+  kind: param
+  key: 'param'
+  arg_name: 'names'
+  type_name: 'list of str'
+  is_optional: False
+- DocstringParam
+  description: 'N.'
+  kind: param
+  key: 'param'
+  arg_name: 'n'
+  type_name: 'int'
+  is_optional: True
+  raw_type_name: 'int, optional'
+=== compose rest
+Short.
+
+:param x: X.
+:type x: int or None
+:param names: Names.
+:type names: list of str
+:param int? n: N.
+=== compose rest expanded
+Short.
+
+:param x:
+    X.
+:type x: int or None
+:param names:
+    Names.
+:type names: list of str
+:param n:
+    N.
+:type n: int?

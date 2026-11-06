@@ -1,0 +1,53 @@
+# Test a param type with spaces inside brackets.
+=== input
+Short.
+
+:param Dict[str, int] x: X.
+:param Callable[[int], str] f: F.
+:keyword Optional[int] k: K.
+=== parse rest
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringParam
+  description: 'X.'
+  kind: param
+  key: 'param'
+  arg_name: 'x'
+  type_name: 'Dict[str, int]'
+  is_optional: False
+- DocstringParam
+  description: 'F.'
+  kind: param
+  key: 'param'
+  arg_name: 'f'
+  type_name: 'Callable[[int], str]'
+  is_optional: False
+- DocstringParam
+  description: 'K.'
+  kind: keyword
+  key: 'keyword'
+  arg_name: 'k'
+  type_name: 'Optional[int]'
+  is_optional: False
+=== compose rest
+Short.
+
+:param x: X.
+:type x: Dict[str, int]
+:param f: F.
+:type f: Callable[[int], str]
+:keyword Optional[int] k: K.
+=== compose rest expanded
+Short.
+
+:param x:
+    X.
+:type x: Dict[str, int]
+:param f:
+    F.
+:type f: Callable[[int], str]
+:keyword k:
+    K.
+:type k: Optional[int]

@@ -62,18 +62,57 @@ def _field_table(
 _DEFAULT_TABLE = _field_table(None)
 
 
+# Words that join the words around them into one type, as in
+# ``int or None`` or ``list of str``.
+_TYPE_JOINERS = frozenset({"or", "of", "|"})
+
+
+def _join_type(words: T.List[str]) -> T.Optional[str]:
+    """Join the words of a field's head that make up one type.
+
+    A type can have spaces inside brackets, as in ``Dict[str, int]``,
+    after a comma, as in ``A, B``, and around ``or``, ``of`` and ``|``.
+    Other words in a row are no type, so the field cannot be read.
+
+    :returns: the type, or None if the words are not one
+    """
+    if len(words) == 1:
+        return words[0]
+    parts: T.List[str] = []
+    depth = 0
+    for word in words:
+        if depth > 0:
+            parts[-1] += " " + word
+        elif not parts or (
+            parts[-1].endswith(",")
+            or parts[-1] in _TYPE_JOINERS
+            or word in _TYPE_JOINERS
+        ):
+            parts.append(word)
+        else:
+            return None
+        for char in word:
+            if char in "([{":
+                depth += 1
+            elif char in ")]}":
+                depth -= 1
+                if depth < 0:
+                    return None
+    return " ".join(parts) if depth == 0 else None
+
+
 def _build_meta(args: T.List[str], desc: str, kind: Kind) -> DocstringMeta:
     key = args[0]
 
     if kind in PARAM_KINDS:
-        if len(args) not in (2, 3):
+        # The field's head is its key, maybe a type, and the param's name.
+        raw_type_name = _join_type(args[1:-1]) if len(args) > 2 else None
+        if len(args) < 2 or (len(args) > 2 and raw_type_name is None):
             raise ItemError(
                 "wrong-arguments",
                 f"Expected one or two arguments for a {key} keyword.",
             )
-        # The field's head is its key, maybe a type, and the param's name.
         arg_name = args[-1]
-        raw_type_name = args[1] if len(args) == 3 else None
         spec = type_spec(raw_type_name)
 
         default = spec.default
@@ -93,12 +132,12 @@ def _build_meta(args: T.List[str], desc: str, kind: Kind) -> DocstringMeta:
         )
 
     if kind in (Kind.RETURNS, Kind.YIELDS) or kind in RAISES_KINDS:
-        if len(args) > 2:
+        type_name = _join_type(args[1:]) if len(args) > 1 else None
+        if len(args) > 1 and type_name is None:
             raise ItemError(
                 "wrong-arguments",
                 f"Expected one or no arguments for a {key} keyword.",
             )
-        type_name = args[1] if len(args) == 2 else None
         if kind in RAISES_KINDS:
             return DocstringRaises(
                 description=desc, type_name=type_name, kind=kind, key=key
