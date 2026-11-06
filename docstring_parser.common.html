@@ -178,6 +178,16 @@
             </div>
         
 
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_repr" class="internal-link" title="docstring_parser.common._repr">_repr</a></code>
+            </div>
+        
+
     </li>
 </ul> 
 
@@ -284,6 +294,16 @@
 
         
             <div class="itemName"><code><a href="#YIELDS_KEYWORDS" class="internal-link" title="docstring_parser.common.YIELDS_KEYWORDS">YIELDS<wbr></wbr>_KEYWORDS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_META_FIELDS" class="internal-link" title="docstring_parser.common._META_FIELDS">_META<wbr></wbr>_FIELDS</a></code>
             </div>
         
 
@@ -671,7 +691,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <a href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/common.py" class="sourceLink">(source)</a>
+          <a href="https://github.com/rr-/docstring_parser/tree/9cd1397298227a9e5e0232c0eb863271ffc9b4d3/docstring_parser/common.py" class="sourceLink">(source)</a>
         </div>
 
         <div class="moduleDocstring">
@@ -757,6 +777,16 @@
     <td>Constant</td>
     <td><code><a href="#YIELDS_KEYWORDS" class="internal-link" title="docstring_parser.common.YIELDS_KEYWORDS">YIELDS<wbr></wbr>_KEYWORDS</a></code></td>
     <td><span class="rst-undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_repr" class="internal-link" title="docstring_parser.common._repr">_repr</a></code></td>
+    <td>Show an object as its class called with the fields it has set.</td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_META_FIELDS" class="internal-link" title="docstring_parser.common._META_FIELDS">_META<wbr></wbr>_FIELDS</a></code></td>
+    <td><span class="rst-undocumented">Undocumented</span></td>
   </tr>
 </table>
           
@@ -778,7 +808,7 @@
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">continuation_indented</span><span class="function-signature">(<span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/functions.html#bool" class="intersphinx-link">bool</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/common.py#L25">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/9cd1397298227a9e5e0232c0eb863271ffc9b4d3/docstring_parser/common.py#L25">
       
       (source)
     </a>
@@ -809,7 +839,7 @@ so the description has to start on a line of its own.</p>
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">excerpt</span><span class="function-signature">(<span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>, </span><span class="rst-sig-param">limit: <code><a href="https://docs.python.org/3/builtins/functions.html#int" class="intersphinx-link">int</a></code> = 60</span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/common.py#L36">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/9cd1397298227a9e5e0232c0eb863271ffc9b4d3/docstring_parser/common.py#L36">
       
       (source)
     </a>
@@ -836,7 +866,7 @@ so the description has to start on a line of its own.</p>
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">meta_as_attribute</span><span class="function-signature">(<span class="rst-sig-param">meta: <code><a href="docstring_parser.DocstringMeta.html" class="internal-link" title="docstring_parser.DocstringMeta">DocstringMeta</a></code></span>) -&gt; <code><a href="docstring_parser.DocstringParam.html" class="internal-link" title="docstring_parser.DocstringParam">DocstringParam</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/common.py#L249">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/9cd1397298227a9e5e0232c0eb863271ffc9b4d3/docstring_parser/common.py#L286">
       
       (source)
     </a>
@@ -863,7 +893,7 @@ so the description has to start on a line of its own.</p>
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">parse_error</span><span class="function-signature">(<span class="rst-sig-param">result: <code><a href="docstring_parser.ParseResult.html" class="internal-link" title="docstring_parser.ParseResult">ParseResult</a></code></span>) -&gt; <code><a href="docstring_parser.ParseError.html" class="internal-link" title="docstring_parser.ParseError">ParseError</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/common.py#L390">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/9cd1397298227a9e5e0232c0eb863271ffc9b4d3/docstring_parser/common.py#L440">
       
       (source)
     </a>
@@ -889,7 +919,7 @@ so the description has to start on a line of its own.</p>
   <div class="functionHeader">
     
     <span class="py-defname">ATTRIBUTE_FIELD_KEYWORDS</span>: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#set" class="intersphinx-link">set</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/common.py#L246">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/9cd1397298227a9e5e0232c0eb863271ffc9b4d3/docstring_parser/common.py#L283">
       
       (source)
     </a>
@@ -916,7 +946,7 @@ so the description has to start on a line of its own.</p>
   <div class="functionHeader">
     
     <span class="py-defname">DEPRECATION_KEYWORDS</span>: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#set" class="intersphinx-link">set</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/common.py#L19">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/9cd1397298227a9e5e0232c0eb863271ffc9b4d3/docstring_parser/common.py#L19">
       
       (source)
     </a>
@@ -943,7 +973,7 @@ so the description has to start on a line of its own.</p>
   <div class="functionHeader">
     
     <span class="py-defname">EXAMPLES_KEYWORDS</span>: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#set" class="intersphinx-link">set</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/common.py#L22">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/9cd1397298227a9e5e0232c0eb863271ffc9b4d3/docstring_parser/common.py#L22">
       
       (source)
     </a>
@@ -970,7 +1000,7 @@ so the description has to start on a line of its own.</p>
   <div class="functionHeader">
     
     <span class="py-defname">PARAM_KEYWORDS</span>: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#set" class="intersphinx-link">set</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/common.py#L9">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/9cd1397298227a9e5e0232c0eb863271ffc9b4d3/docstring_parser/common.py#L9">
       
       (source)
     </a>
@@ -997,7 +1027,7 @@ so the description has to start on a line of its own.</p>
   <div class="functionHeader">
     
     <span class="py-defname">PARAM_KINDS</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/common.py#L108">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/9cd1397298227a9e5e0232c0eb863271ffc9b4d3/docstring_parser/common.py#L108">
       
       (source)
     </a>
@@ -1028,7 +1058,7 @@ so the description has to start on a line of its own.</p>
   <div class="functionHeader">
     
     <span class="py-defname">RAISES_KEYWORDS</span>: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#set" class="intersphinx-link">set</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/common.py#L18">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/9cd1397298227a9e5e0232c0eb863271ffc9b4d3/docstring_parser/common.py#L18">
       
       (source)
     </a>
@@ -1055,7 +1085,7 @@ so the description has to start on a line of its own.</p>
   <div class="functionHeader">
     
     <span class="py-defname">RAISES_KINDS</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/common.py#L112">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/9cd1397298227a9e5e0232c0eb863271ffc9b4d3/docstring_parser/common.py#L112">
       
       (source)
     </a>
@@ -1082,7 +1112,7 @@ so the description has to start on a line of its own.</p>
   <div class="functionHeader">
     
     <span class="py-defname">RETURNS_KEYWORDS</span>: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#set" class="intersphinx-link">set</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/common.py#L20">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/9cd1397298227a9e5e0232c0eb863271ffc9b4d3/docstring_parser/common.py#L20">
       
       (source)
     </a>
@@ -1109,7 +1139,7 @@ so the description has to start on a line of its own.</p>
   <div class="functionHeader">
     
     <span class="py-defname">RETURNS_KINDS</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/common.py#L111">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/9cd1397298227a9e5e0232c0eb863271ffc9b4d3/docstring_parser/common.py#L111">
       
       (source)
     </a>
@@ -1136,7 +1166,7 @@ so the description has to start on a line of its own.</p>
   <div class="functionHeader">
     
     <span class="py-defname">YIELDS_KEYWORDS</span>: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#set" class="intersphinx-link">set</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/common.py#L21">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/9cd1397298227a9e5e0232c0eb863271ffc9b4d3/docstring_parser/common.py#L21">
       
       (source)
     </a>
@@ -1151,6 +1181,69 @@ so the description has to start on a line of its own.</p>
     <div><p class="undocumented">Undocumented</p></div>
     <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>set([<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">yield</span><span class="rst-variable-quote">'</span>, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">yields</span><span class="rst-variable-quote">'</span>])</code></pre></td></tr></table>
   </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="docstring_parser.common._repr">
+    
+  </a>
+  <a name="_repr">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">_repr</span><span class="function-signature">(<span class="rst-sig-param">obj: <code><a href="https://docs.python.org/3/library/typing.html#typing.Any" class="intersphinx-link">T.Any</a></code>, </span><span class="rst-sig-param">fields: <code><a href="https://docs.python.org/3/library/typing.html#typing.Iterable" class="intersphinx-link">T.Iterable</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/9cd1397298227a9e5e0232c0eb863271ffc9b4d3/docstring_parser/common.py#L115">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_repr" title="docstring_parser.common._repr">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Show an object as its class called with the fields it has set.</p>
+<p>A field holding None or False is left out, as most of them do.</p>
+</div>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="docstring_parser.common._META_FIELDS">
+    
+  </a>
+  <a name="_META_FIELDS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_META_FIELDS</span>: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#tuple" class="intersphinx-link">tuple</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><span class="rst-variable-ellipsis">...</span>]</code> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/9cd1397298227a9e5e0232c0eb863271ffc9b4d3/docstring_parser/common.py#L133">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_META_FIELDS" title="docstring_parser.common._META_FIELDS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">kind</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">key</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">name</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">arg_name</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">return_name</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">type_name</span><span class="rst-variable-quote">'</span>,
+ <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">is_optional</span><span class="rst-variable-quote">'</span>,
+<span class="rst-variable-ellipsis">...</span></code></pre></td></tr></table>
+  </div>
 </div>
         </div>
       
@@ -1163,7 +1256,7 @@ so the description has to start on a line of its own.</p>
   <div class="container-fluid">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    25.10.1 at 2026-11-06 15:37:32.
+    25.10.1 at 2026-11-06 16:03:58.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 
