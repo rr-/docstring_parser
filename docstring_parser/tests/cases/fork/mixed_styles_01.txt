@@ -1,0 +1,21 @@
+# From jsh9/docstring_parser_fork:
+# tests/test_google.py::test_docstring_size
+# tests/test_rest.py::test_docstring_size
+=== input
+Some text
+=== detect
+rest
+=== parse google
+short_description: 'Some text'
+blank_after_short_description: False
+blank_after_long_description: False
+style: google
+=== compose google
+Some text
+=== parse rest
+short_description: 'Some text'
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== compose rest
+Some text

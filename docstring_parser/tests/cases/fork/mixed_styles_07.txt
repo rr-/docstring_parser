@@ -1,0 +1,133 @@
+# From jsh9/docstring_parser_fork:
+# tests/test_google.py::test_docstring_size
+# tests/test_rest.py::test_docstring_size
+=== input
+
+                Short description.
+
+                This is a longer description.
+
+                Args:
+                    a (int): description
+                    b (int): description
+
+                Returns:
+                    int: The return value
+
+                Yields:
+                    str: The yielded value
+
+                Raises:
+                    ValueError: If something goes wrong.
+                    TypeError: If something else goes wrong.
+                    IOError: If something else goes wrong.
+                
+=== detect
+google
+=== parse google
+short_description: 'Short description.'
+long_description: 'This is a longer description.'
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringParam
+  description: 'description'
+  kind: param
+  key: 'param'
+  arg_name: 'a'
+  type_name: 'int'
+  is_optional: False
+- DocstringParam
+  description: 'description'
+  kind: param
+  key: 'param'
+  arg_name: 'b'
+  type_name: 'int'
+  is_optional: False
+- DocstringReturns
+  description: 'The return value'
+  kind: returns
+  key: 'returns'
+  type_name: 'int'
+  is_generator: False
+- DocstringReturns
+  description: 'The yielded value'
+  kind: yields
+  key: 'yields'
+  type_name: 'str'
+  is_generator: True
+- DocstringRaises
+  description: 'If something goes wrong.'
+  kind: raises
+  key: 'raises'
+  type_name: 'ValueError'
+- DocstringRaises
+  description: 'If something else goes wrong.'
+  kind: raises
+  key: 'raises'
+  type_name: 'TypeError'
+- DocstringRaises
+  description: 'If something else goes wrong.'
+  kind: raises
+  key: 'raises'
+  type_name: 'IOError'
+=== compose google
+Short description.
+
+This is a longer description.
+
+Args:
+    a (int): description
+    b (int): description
+
+Returns:
+    int: The return value
+
+Yields:
+    str: The yielded value
+
+Raises:
+    ValueError: If something goes wrong.
+    TypeError: If something else goes wrong.
+    IOError: If something else goes wrong.
+=== parse rest
+short_description: 'Short description.'
+long_description: |
+  This is a longer description.
+  
+  Args:
+      a (int): description
+      b (int): description
+  
+  Returns:
+      int: The return value
+  
+  Yields:
+      str: The yielded value
+  
+  Raises:
+      ValueError: If something goes wrong.
+      TypeError: If something else goes wrong.
+      IOError: If something else goes wrong.
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+=== compose rest
+Short description.
+
+This is a longer description.
+
+Args:
+    a (int): description
+    b (int): description
+
+Returns:
+    int: The return value
+
+Yields:
+    str: The yielded value
+
+Raises:
+    ValueError: If something goes wrong.
+    TypeError: If something else goes wrong.
+    IOError: If something else goes wrong.

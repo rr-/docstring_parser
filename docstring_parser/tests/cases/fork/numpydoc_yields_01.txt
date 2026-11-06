@@ -1,0 +1,40 @@
+# From jsh9/docstring_parser_fork:
+# tests/test_numpydoc.py::test_yields
+=== input
+
+        Short description
+        Yields
+        ------
+        int
+            description
+        str
+            another
+        
+=== detect
+numpydoc
+=== parse numpydoc
+short_description: 'Short description'
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+- DocstringReturns
+  description: 'description'
+  kind: yields
+  key: 'yields'
+  type_name: 'int'
+  is_generator: True
+- DocstringReturns
+  description: 'another'
+  kind: yields
+  key: 'yields'
+  type_name: 'str'
+  is_generator: True
+=== compose numpydoc
+Short description
+
+Yields
+------
+int
+    description
+str
+    another

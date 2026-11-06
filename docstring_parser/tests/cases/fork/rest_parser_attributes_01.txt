@@ -1,0 +1,26 @@
+# From jsh9/docstring_parser_fork:
+# tests/test_rest_attr_parser.py::test_parser_attributes
+=== input
+
+            My Class
+
+            :param name: My name
+            :type name: str
+            
+=== detect
+rest
+=== parse rest
+short_description: 'My Class'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringParam
+  description: 'My name'
+  kind: param
+  key: 'param'
+  arg_name: 'name'
+  type_name: 'str'
+=== compose rest
+My Class
+
+:param str name: My name

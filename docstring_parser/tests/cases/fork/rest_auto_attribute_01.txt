@@ -1,0 +1,91 @@
+# From jsh9/docstring_parser_fork:
+# tests/test_parser.py::test_rest
+=== input
+
+        Short description
+
+        Long description
+
+        Causing people to indent:
+
+            A lot sometimes
+
+        :param spam: spam desc
+        :param int bla: bla desc
+        :param str yay:
+
+        .. attribute :: hello
+            :type: bool
+            
+            hello world
+
+        :raises ValueError: exc desc
+        :returns tuple: ret desc
+        
+=== detect
+rest
+=== parse rest
+short_description: 'Short description'
+long_description: |
+  Long description
+  
+  Causing people to indent:
+  
+      A lot sometimes
+  
+  .. attribute :: hello
+      :type: bool
+      
+      hello world
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringParam
+  description: 'spam desc'
+  kind: param
+  key: 'param'
+  arg_name: 'spam'
+- DocstringParam
+  description: 'bla desc'
+  kind: param
+  key: 'param'
+  arg_name: 'bla'
+  type_name: 'int'
+  is_optional: False
+- DocstringParam
+  description: ''
+  kind: param
+  key: 'param'
+  arg_name: 'yay'
+  type_name: 'str'
+  is_optional: False
+- DocstringRaises
+  description: 'exc desc'
+  kind: raises
+  key: 'raises'
+  type_name: 'ValueError'
+- DocstringReturns
+  description: 'ret desc'
+  kind: returns
+  key: 'returns'
+  type_name: 'tuple'
+  is_generator: False
+=== compose rest
+Short description
+
+Long description
+
+Causing people to indent:
+
+    A lot sometimes
+
+.. attribute :: hello
+    :type: bool
+    
+    hello world
+
+:param spam: spam desc
+:param int bla: bla desc
+:param str yay:
+:raises ValueError : exc desc
+:returns tuple: ret desc

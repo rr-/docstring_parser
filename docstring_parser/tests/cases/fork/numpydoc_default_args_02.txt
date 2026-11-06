@@ -1,0 +1,28 @@
+# From jsh9/docstring_parser_fork:
+# tests/test_numpydoc.py::test_default_args
+=== input
+
+                Parameters
+                ----------
+                arg8 : int
+                    The eighth arg. Default is 3.
+                
+=== detect
+numpydoc
+=== parse numpydoc
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  description: 'The eighth arg. Default is 3.'
+  kind: param
+  key: 'param'
+  arg_name: 'arg8'
+  type_name: 'int'
+  is_optional: False
+  default: '3'
+=== compose numpydoc
+Parameters
+----------
+arg8 : int, default=3
+    The eighth arg. Default is 3.
