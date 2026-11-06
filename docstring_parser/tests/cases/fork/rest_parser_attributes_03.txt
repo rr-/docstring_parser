@@ -37,34 +37,33 @@
 rest
 === parse rest
 short_description: 'My Class'
-long_description: |
-  .. attribute :: attr_1
-      :type: str
-  
-  .. attribute :: attr_2
-      :type: bool
-  
-      Attr 2
-  
-  .. attribute :: attr_3
-  
-      Attr 3
-  
-  .. attribute :: attr_4
-  .. attribute :: attr_5
-  
-  .. attribute :: attr_6
-      :type: dict | list
-  
-      !
 blank_after_short_description: True
-blank_after_long_description: True
+blank_after_long_description: False
 style: rest
+- DocstringParam
+  description: ''
+  kind: attribute
+  key: 'attribute'
+  arg_name: 'attr_1'
+  type_name: 'str'
+  is_optional: False
+- DocstringParam
+  description: 'Attr 2'
+  kind: attribute
+  key: 'attribute'
+  arg_name: 'attr_2'
+  type_name: 'bool'
+  is_optional: False
 - DocstringParam
   description: 'A param called "bar"'
   kind: param
   key: 'param'
   arg_name: 'bar'
+- DocstringParam
+  description: 'Attr 3'
+  kind: attribute
+  key: 'attribute'
+  arg_name: 'attr_3'
 - DocstringParam
   description: 'A param called "goo"'
   kind: param
@@ -77,6 +76,16 @@ style: rest
   type_name: 'bool'
   is_optional: False
 - DocstringParam
+  description: ''
+  kind: attribute
+  key: 'attribute'
+  arg_name: 'attr_4'
+- DocstringParam
+  description: ''
+  kind: attribute
+  key: 'attribute'
+  arg_name: 'attr_5'
+- DocstringParam
   description: 'A param called "foo"'
   kind: param
   key: 'param'
@@ -86,6 +95,13 @@ style: rest
   key: 'type'
   arg_name: 'name'
   type_name: 'float'
+  is_optional: False
+- DocstringParam
+  description: '!'
+  kind: attribute
+  key: 'attribute'
+  arg_name: 'attr_6'
+  type_name: 'dict | list'
   is_optional: False
 - DocstringParam
   description: 'My name'
@@ -102,30 +118,17 @@ style: rest
 === compose rest
 My Class
 
-.. attribute :: attr_1
-    :type: str
-
-.. attribute :: attr_2
-    :type: bool
-
-    Attr 2
-
-.. attribute :: attr_3
-
-    Attr 3
-
-.. attribute :: attr_4
-.. attribute :: attr_5
-
-.. attribute :: attr_6
-    :type: dict | list
-
-    !
-
+:attribute str attr_1:
+:attribute bool attr_2: Attr 2
 :param bar: A param called "bar"
+:attribute attr_3: Attr 3
 :param goo: A param called "goo"
 :param bool name:
+:attribute attr_4:
+:attribute attr_5:
 :param foo: A param called "foo"
 :param float name:
+:attribute attr_6: !
+:type attr_6: dict | list
 :param float name: My name
 :param str name:

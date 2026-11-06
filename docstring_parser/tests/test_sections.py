@@ -185,6 +185,35 @@ def test_rest_field_left_out() -> None:
     assert docstring.meta[0].name == "ValueError"
 
 
+def test_rest_attribute_directive_left_out() -> None:
+    """Test that an attribute directive is text without an attribute field."""
+    docstring = parse(
+        "Short.\n\n.. attribute:: x\n   The x.\n\n:param a: A.\n",
+        DocstringStyle.REST,
+        sections=[SectionSpec("param", Kind.PARAM)],
+    )
+    assert docstring.long_description == ".. attribute:: x\n   The x."
+    assert docstring.params[0].arg_name == "a"
+
+
+def test_rest_attribute_directive_parse_item() -> None:
+    """Test that an attribute directive goes through its spec's hook."""
+    sections = [
+        SectionSpec(
+            "attribute",
+            Kind.ATTRIBUTE,
+            parse_item=lambda meta: setattr(meta, "description", "Seen."),
+        )
+    ]
+    docstring = parse(
+        "Short.\n\n.. attribute:: x\n   The x.\n",
+        DocstringStyle.REST,
+        sections=sections,
+    )
+    assert docstring.attrs[0].arg_name == "x"
+    assert docstring.attrs[0].description == "Seen."
+
+
 def test_epydoc_spec_field() -> None:
     """Test an Epydoc field of a kind of its own, with its type."""
     sections = [

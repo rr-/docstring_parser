@@ -81,7 +81,15 @@ class Lines:
     :ivar text: the dedented lines joined with newlines, for searching
     """
 
-    __slots__ = ("_lead", "_skipped", "_starts", "lines", "raw", "text")
+    __slots__ = (
+        "_lead",
+        "_map",
+        "_skipped",
+        "_starts",
+        "lines",
+        "raw",
+        "text",
+    )
 
     def __init__(self, text: str, lead: bool = False) -> None:
         """Normalise and dedent a docstring.
@@ -99,12 +107,38 @@ class Lines:
         self.text = "\n".join(self.lines)
         self._starts: T.Optional[T.List[int]] = None
         self._lead: T.Optional[Lines] = self if lead else None
+        # The index each line had before lines were cut out.
+        self._map: T.Optional[T.List[int]] = None
 
     def with_lead(self) -> "Lines":
         """The same docstring dedented as if it started on a new line."""
         if self._lead is None:
             self._lead = Lines(self.raw, lead=True)
         return self._lead
+
+    def without(self, cut: T.Sequence[T.Tuple[int, int]]) -> "Lines":
+        """The same docstring with ranges of lines cut out.
+
+        :param cut: the ranges of line indexes, each from its start to
+            before its end, in order
+        :returns: the lines left, whose :meth:`source_line` still tells
+            the line of the docstring as written
+        """
+        kept: T.List[int] = []
+        start = 0
+        for cut_start, cut_end in cut:
+            kept.extend(range(start, cut_start))
+            start = cut_end
+        kept.extend(range(start, len(self.lines)))
+        ret = Lines.__new__(Lines)
+        ret.raw = self.raw
+        ret.lines = [self.lines[index] for index in kept]
+        ret.text = "\n".join(ret.lines)
+        ret._skipped = self._skipped
+        ret._starts = None
+        ret._lead = None
+        ret._map = kept if self._map is None else [self._map[i] for i in kept]
+        return ret
 
     def line_at(self, offset: int) -> int:
         """Return the index of the line holding an offset into ``text``."""
@@ -118,7 +152,10 @@ class Lines:
     def source_line(self, offset: int) -> int:
         """Return the line of the docstring as written, from 1, holding an
         offset into ``text``."""
-        return self.line_at(offset) + self._skipped + 1
+        index = self.line_at(offset)
+        if self._map is not None:
+            index = self._map[index]
+        return index + self._skipped + 1
 
     def indent(self, index: int) -> int:
         """Return the indent of a line, or -1 if it holds only whitespace."""

@@ -1,0 +1,21 @@
+# Test that a directive with no name stays in the description.
+=== input
+Short.
+
+.. attribute::
+   Nothing.
+
+:param a: A.
+=== parse rest
+short_description: 'Short.'
+long_description: |
+  .. attribute::
+     Nothing.
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringParam
+  description: 'A.'
+  kind: param
+  key: 'param'
+  arg_name: 'a'

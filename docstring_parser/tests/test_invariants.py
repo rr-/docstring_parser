@@ -22,10 +22,12 @@ def _words(text: str) -> T.Set[str]:
 
 
 # Words a style reads as syntax rather than keeping: section titles, the
-# fields that only give a type, and the marks of an optional param's type.
+# fields that only give a type, the parts of a ReST attribute directive, and
+# the marks of an optional param's type.
 TYPE_MARKS = {"optional", "default"}
 SYNTAX = {
-    DocstringStyle.REST: {"type", "rtype", "ytype"} | TYPE_MARKS,
+    DocstringStyle.REST: {"type", "rtype", "ytype", "py", "value"}
+    | TYPE_MARKS,
     DocstringStyle.GOOGLE: {
         word for s in google.DEFAULT_SECTIONS for word in _words(s.title)
     }
