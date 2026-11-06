@@ -287,6 +287,8 @@ def _section_kind(section: Section) -> Kind:
 
 _DEPRECATED = directive_pattern([DEPRECATED])
 _UNINDENTED = re.compile(r"\n\S")
+# The colon that ends a line, before any trailing whitespace.
+_COLON_END = re.compile(r":[ \t\r\f\v]*$", flags=re.M)
 
 _SECTION_TYPE = {
     Layout.ITEMS: SectionType.MULTIPLE,
@@ -436,12 +438,30 @@ class Parser(BaseParser):
         self._titles_re = re.compile(
             "^" + titles + colon + "[ \t\r\f\v]*$", flags=re.M | re.I
         )
+        # Whether every title ends its line with a colon.
+        self._colon_ends = bool(colon)
         # Titles match in any case, as napoleon reads them, so each is
         # found by its lowercase too. The first declared of titles that
         # differ only in case wins.
         self._by_lower: T.Dict[str, str] = {}
         for title in self.sections:
             self._by_lower.setdefault(title.lower(), title)
+
+    def _find_titles(self, text: str) -> T.Iterator[T.Match[str]]:
+        """Find the titles in a text, as the title regex finds them."""
+        if not self._colon_ends:
+            return self._titles_re.finditer(text)
+        # Only a line that ends in a colon can be a title, and finding those
+        # first is much cheaper than trying every title at every line start,
+        # which the regex engine cannot skip when matching in any case.
+        return (
+            match
+            for match in (
+                self._titles_re.match(text, text.rfind("\n", 0, c.start()) + 1)
+                for c in _COLON_END.finditer(text)
+            )
+            if match is not None
+        )
 
     def _declared(self, title: str) -> T.Optional[str]:
         """Return the declared title a title as written stands for."""
@@ -579,7 +599,7 @@ class Parser(BaseParser):
         # Split by sections determined by titles
         matches = [
             match
-            for match in self._titles_re.finditer(text)
+            for match in self._find_titles(text)
             if _title(match) in self.sections or _after_blank(text, match)
         ]
         if not matches:
@@ -998,10 +1018,12 @@ def compose(
     # A summary such as "Note:" reads back as a title unless indented
     # further than an unindented line after it, as it was to be read as a
     # summary. Every default title ends in a colon, so only a summary
-    # whose first line does may read as one.
+    # whose first line does may read as one. Most have no colon at all,
+    # which is the cheaper test, so it comes first.
     short = docstring.short_description
     if (
         short
+        and ":" in short
         and short.partition("\n")[0].rstrip().endswith(":")
         and _parser(None)._titles_re.match(text)
         and _UNINDENTED.search(text) is not None
