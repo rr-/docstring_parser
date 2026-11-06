@@ -14,9 +14,10 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: google
 - DocstringReturns
-  description: 'dict[str, Any] | None: A description: with a colon'
+  description: 'A description: with a colon'
   kind: returns
   key: 'returns'
+  type_name: 'dict[str, Any] | None'
   is_generator: False
 === compose google
 Short description
