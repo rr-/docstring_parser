@@ -21,10 +21,11 @@
         input itself or a scalar NaN.
     
 === parse numpydoc
-short_description: 'Utility function to check median result from data for NaN values at the end'
-long_description: 'and return NaN in that case. Input result can also be a MaskedArray.'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  Utility function to check median result from data for NaN values at the end
+  and return NaN in that case. Input result can also be a MaskedArray.
+blank_after_short_description: True
+blank_after_long_description: False
 style: numpydoc
 - DocstringParam
   description: 'Sorted input data to median function'

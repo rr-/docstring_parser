@@ -6,8 +6,8 @@
     (starting from 1) and the second integer is the column index (starting from 0).
     
 === parse google
-short_description: 'A range to highlight in a Syntax object.'
-long_description: |
+short_description: |
+  A range to highlight in a Syntax object.
   `start` and `end` are 2-integers tuples, where the first integer is the line number
   (starting from 1) and the second integer is the column index (starting from 0).
 blank_after_short_description: False

@@ -19,9 +19,10 @@
                          buffer.
         
 === parse numpydoc
-short_description: 'Return a dictionary containing the underlying buffers.'
-long_description: |
+short_description: |
+  Return a dictionary containing the underlying buffers.
   The returned dictionary has the following contents:
+long_description: |
       - "data": a two-element tuple whose first element is a buffer
                 containing the data and whose second element is the data
                 buffer's associated dtype.

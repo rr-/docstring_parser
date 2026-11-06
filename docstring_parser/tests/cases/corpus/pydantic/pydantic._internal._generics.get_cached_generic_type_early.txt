@@ -17,11 +17,11 @@ The use of a two-stage cache lookup approach was necessary to have the highest p
     equal.
     
 === parse google
-short_description: 'The use of a two-stage cache lookup approach was necessary to have the highest performance possible for'
-long_description: |
+short_description: |
+  The use of a two-stage cache lookup approach was necessary to have the highest performance possible for
   repeated calls to `__class_getitem__` on generic types (which may happen in tighter loops during runtime),
   while still ensuring that certain alternative parametrizations ultimately resolve to the same type.
-  
+long_description: |
   As a concrete example, this approach was necessary to make Model[List[T]][int] equal to Model[List[int]].
   The approach could be modified to not use two different cache keys at different points, but the
   _early_cache_key is optimized to be as quick to compute as possible (for repeated-access speed), and the
@@ -33,7 +33,7 @@ long_description: |
   that Model[List[T]][int] is a different type than Model[List[T]][int]. Because we rely on subclass relationships
   during validation, I think it is worthwhile to ensure that types that are functionally equivalent are actually
   equal.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: google
 === detect

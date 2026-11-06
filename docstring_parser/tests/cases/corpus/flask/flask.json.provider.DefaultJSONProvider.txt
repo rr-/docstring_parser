@@ -13,10 +13,10 @@ Provide JSON operations using Python's built-in :mod:`json`
         method) will call the ``__html__`` method to get a string.
     
 === parse rest
-short_description: "Provide JSON operations using Python's built-in :mod:`json`"
-long_description: |
+short_description: |
+  Provide JSON operations using Python's built-in :mod:`json`
   library. Serializes the following additional data types:
-  
+long_description: |
   -   :class:`datetime.datetime` and :class:`datetime.date` are
       serialized to :rfc:`822` strings. This is the same as the HTTP
       date format.
@@ -25,7 +25,7 @@ long_description: |
       :func:`dataclasses.asdict`.
   -   :class:`~markupsafe.Markup` (or any object with a ``__html__``
       method) will call the ``__html__`` method to get a string.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

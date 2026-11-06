@@ -14,12 +14,12 @@ Calculates the signing key used to calculate the signature for
         str: The signing key bytes.
     
 === parse google
-short_description: 'Calculates the signing key used to calculate the signature for'
-long_description: |
+short_description: |
+  Calculates the signing key used to calculate the signature for
   AWS Signature Version 4 based on:
   https://docs.aws.amazon.com/general/latest/gr/sigv4-calculate-signature.html
-blank_after_short_description: False
-blank_after_long_description: True
+blank_after_short_description: True
+blank_after_long_description: False
 style: google
 - DocstringParam
   description: 'The AWS secret access key.'

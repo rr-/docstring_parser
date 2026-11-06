@@ -18,12 +18,12 @@ Generates the signed request for the provided HTTP request for calling
             Mapping[str, str]: The AWS signed request dictionary object.
         
 === parse google
-short_description: 'Generates the signed request for the provided HTTP request for calling'
-long_description: |
+short_description: |
+  Generates the signed request for the provided HTTP request for calling
   an AWS API. This follows the steps described at:
   https://docs.aws.amazon.com/general/latest/gr/sigv4_signing.html
-blank_after_short_description: False
-blank_after_long_description: True
+blank_after_short_description: True
+blank_after_long_description: False
 style: google
 - DocstringParam
   description: 'The AWS security credentials.'

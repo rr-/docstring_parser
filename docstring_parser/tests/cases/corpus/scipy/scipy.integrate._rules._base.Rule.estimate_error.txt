@@ -42,10 +42,10 @@
             of shape ``(output_dim_1, ..., output_dim_n)``.
         
 === parse numpydoc
-short_description: 'Estimate the error of the approximation for the integral of `f` in rectangular'
-long_description: |
+short_description: |
+  Estimate the error of the approximation for the integral of `f` in rectangular
   region described by corners `a` and `b`.
-  
+long_description: |
   If a subclass does not override this method, then a default error estimator is
   used. This estimates the error as ``|est - refined_est|`` where ``est`` is
   ``estimate(f, a, b)`` and ``refined_est`` is the sum of
@@ -54,7 +54,7 @@ long_description: |
   is equivalent to comparing the integral over an entire interval ``[a, b]`` to
   the sum of the integrals over the left and right subintervals, ``[a, (a+b)/2]``
   and ``[(a+b)/2, b]``.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam

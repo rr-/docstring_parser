@@ -5,8 +5,9 @@
     loss of precision, etc.)
     
 === parse numpydoc
-short_description: 'Enable special function errors (such as underflow, overflow,'
-long_description: 'loss of precision, etc.)'
+short_description: |
+  Enable special function errors (such as underflow, overflow,
+  loss of precision, etc.)
 blank_after_short_description: False
 blank_after_long_description: False
 style: numpydoc

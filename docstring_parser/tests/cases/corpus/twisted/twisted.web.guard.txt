@@ -5,8 +5,9 @@ Resource traversal integration with L{twisted.cred} to allow for
 authentication and authorization of HTTP requests.
 
 === parse epydoc
-short_description: 'Resource traversal integration with L{twisted.cred} to allow for'
-long_description: 'authentication and authorization of HTTP requests.'
+short_description: |
+  Resource traversal integration with L{twisted.cred} to allow for
+  authentication and authorization of HTTP requests.
 blank_after_short_description: False
 blank_after_long_description: False
 style: epydoc

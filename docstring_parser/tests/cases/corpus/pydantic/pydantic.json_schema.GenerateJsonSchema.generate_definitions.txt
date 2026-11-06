@@ -23,10 +23,11 @@ Generates JSON schema definitions from a list of core schemas, pairing the gener
             PydanticUserError: Raised if the JSON schema generator has already been used to generate a JSON schema.
         
 === parse google
-short_description: 'Generates JSON schema definitions from a list of core schemas, pairing the generated definitions with a'
-long_description: 'mapping that links the input keys to the definition references.'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  Generates JSON schema definitions from a list of core schemas, pairing the generated definitions with a
+  mapping that links the input keys to the definition references.
+blank_after_short_description: True
+blank_after_long_description: False
 style: google
 - DocstringParam
   description: |

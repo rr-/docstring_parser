@@ -8,13 +8,13 @@
         expanded.
         
 === parse numpydoc
-short_description: '_setitem_with_indexer is for setting values on a Series/DataFrame'
-long_description: |
+short_description: |
+  _setitem_with_indexer is for setting values on a Series/DataFrame
   using positional indexers.
-  
+long_description: |
   If the relevant keys are not present, the Series/DataFrame may be
   expanded.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 === detect

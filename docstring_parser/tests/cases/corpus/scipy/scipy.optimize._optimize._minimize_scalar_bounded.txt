@@ -21,10 +21,11 @@
 
     
 === parse numpydoc
-short_description: 'Options'
-long_description: |
+short_description: |
+  Options
   -------
   maxiter : int
+long_description: |
       Maximum number of iterations to perform.
   disp: int, optional
       If non-zero, print messages.

@@ -4,8 +4,9 @@ Returns True if the cookie should be secure.  This currently
         just returns the value of the ``SESSION_COOKIE_SECURE`` setting.
         
 === parse rest
-short_description: 'Returns True if the cookie should be secure.  This currently'
-long_description: 'just returns the value of the ``SESSION_COOKIE_SECURE`` setting.'
+short_description: |
+  Returns True if the cookie should be secure.  This currently
+  just returns the value of the ``SESSION_COOKIE_SECURE`` setting.
 blank_after_short_description: False
 blank_after_long_description: False
 style: rest

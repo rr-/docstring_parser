@@ -8,15 +8,15 @@ This function call blocks until a new text string exists on the
     a number of seconds that has elapsed without non-empty text being put on
     the clipboard.
 === parse numpydoc
-short_description: 'This function call blocks until a new text string exists on the'
-long_description: |
+short_description: |
+  This function call blocks until a new text string exists on the
   clipboard that is different from the text that was there when the function
   was first called. It returns this text.
-  
+long_description: |
   This function raises PyperclipTimeoutException if timeout was set to
   a number of seconds that has elapsed without non-empty text being put on
   the clipboard.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 === detect

@@ -10,10 +10,11 @@
 
         
 === parse numpydoc
-short_description: 'Return a string which is the concatenation of the strings in the'
-long_description: 'sequence `seq`.'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  Return a string which is the concatenation of the strings in the
+  sequence `seq`.
+blank_after_short_description: True
+blank_after_long_description: False
 style: numpydoc
 - DocstringMeta
   description: 'char.join'

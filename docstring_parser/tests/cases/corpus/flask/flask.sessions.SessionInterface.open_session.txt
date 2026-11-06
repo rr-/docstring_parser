@@ -12,10 +12,10 @@ This is called at the beginning of each request, after
         in this case.
         
 === parse rest
-short_description: 'This is called at the beginning of each request, after'
-long_description: |
+short_description: |
+  This is called at the beginning of each request, after
   pushing the request context, before matching the URL.
-  
+long_description: |
   This must return an object which implements a dictionary-like
   interface as well as the :class:`SessionMixin` interface.
   
@@ -23,7 +23,7 @@ long_description: |
   some way that is not immediately an error. The request
   context will fall back to using :meth:`make_null_session`
   in this case.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

@@ -4,8 +4,9 @@ Like string.capwords() but does not capitalize words that already
     contain a capital letter.
     
 === parse rest
-short_description: 'Like string.capwords() but does not capitalize words that already'
-long_description: 'contain a capital letter.'
+short_description: |
+  Like string.capwords() but does not capitalize words that already
+  contain a capital letter.
 blank_after_short_description: False
 blank_after_long_description: False
 style: rest

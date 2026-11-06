@@ -6,10 +6,11 @@ Verifies that header parts don't contain leading whitespace
     :param header: tuple, in the format (name, value).
     
 === parse rest
-short_description: "Verifies that header parts don't contain leading whitespace"
-long_description: 'reserved characters, or return characters.'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  Verifies that header parts don't contain leading whitespace
+  reserved characters, or return characters.
+blank_after_short_description: True
+blank_after_long_description: False
 style: rest
 - DocstringParam
   description: 'tuple, in the format (name, value).'

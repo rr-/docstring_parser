@@ -15,17 +15,17 @@ Serialize the given arguments as JSON, and return a
         :param kwargs: Treat as a dict to serialize.
         
 === parse rest
-short_description: 'Serialize the given arguments as JSON, and return a'
-long_description: |
+short_description: |
+  Serialize the given arguments as JSON, and return a
   :class:`~flask.Response` object with the ``application/json``
   mimetype.
-  
+long_description: |
   The :func:`~flask.json.jsonify` function calls this method for
   the current application.
   
   Either positional or keyword arguments can be given, not both.
   If no arguments are given, ``None`` is serialized.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringParam

@@ -4,8 +4,9 @@ Inserted to set the highlight language and line number options for
     subsequent code blocks.
     
 === parse rest
-short_description: 'Inserted to set the highlight language and line number options for'
-long_description: 'subsequent code blocks.'
+short_description: |
+  Inserted to set the highlight language and line number options for
+  subsequent code blocks.
 blank_after_short_description: False
 blank_after_long_description: False
 style: rest

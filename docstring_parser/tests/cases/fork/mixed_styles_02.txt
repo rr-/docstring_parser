@@ -7,8 +7,9 @@ Some more text
 === detect
 rest
 === parse google
-short_description: 'Some text'
-long_description: 'Some more text'
+short_description: |
+  Some text
+  Some more text
 blank_after_short_description: False
 blank_after_long_description: False
 style: google
@@ -16,8 +17,9 @@ style: google
 Some text
 Some more text
 === parse rest
-short_description: 'Some text'
-long_description: 'Some more text'
+short_description: |
+  Some text
+  Some more text
 blank_after_short_description: False
 blank_after_long_description: False
 style: rest

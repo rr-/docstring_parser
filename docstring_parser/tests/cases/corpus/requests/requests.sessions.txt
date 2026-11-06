@@ -8,13 +8,13 @@ This module provides a Session object to manage and persist settings across
 requests (cookies, auth, proxies).
 
 === parse rest
-short_description: 'requests.sessions'
-long_description: |
+short_description: |
+  requests.sessions
   ~~~~~~~~~~~~~~~~~
-  
+long_description: |
   This module provides a Session object to manage and persist settings across
   requests (cookies, auth, proxies).
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

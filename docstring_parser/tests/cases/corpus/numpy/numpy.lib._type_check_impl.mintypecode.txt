@@ -44,15 +44,15 @@
 
     
 === parse numpydoc
-short_description: 'Return the character for the minimum-size type to which given types can'
-long_description: |
+short_description: |
+  Return the character for the minimum-size type to which given types can
   be safely cast.
-  
+long_description: |
   The returned type character must represent the smallest size dtype such
   that an array of the returned type can handle the data from an array of
   all types in `typechars` (or if `typechars` is an array, then its
   dtype.char).
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam

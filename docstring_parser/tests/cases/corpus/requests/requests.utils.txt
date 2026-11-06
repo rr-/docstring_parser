@@ -8,13 +8,13 @@ This module provides utility functions that are used within Requests
 that are also useful for external consumption.
 
 === parse rest
-short_description: 'requests.utils'
-long_description: |
+short_description: |
+  requests.utils
   ~~~~~~~~~~~~~~
-  
+long_description: |
   This module provides utility functions that are used within Requests
   that are also useful for external consumption.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

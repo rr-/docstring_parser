@@ -12,12 +12,11 @@ Gets version of *url* with basic auth passwords obscured. This function
     :rtype: ``str``
     
 === parse rest
-short_description: 'Gets version of *url* with basic auth passwords obscured. This function'
-long_description: |
+short_description: |
+  Gets version of *url* with basic auth passwords obscured. This function
   returns results suitable for printing and logging.
-  
-  E.g.: https://user:12345@example.com => https://user@example.com
-blank_after_short_description: False
+long_description: 'E.g.: https://user:12345@example.com => https://user@example.com'
+blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringParam

@@ -5,8 +5,9 @@
         name. This will also allow the 'module' type.
         
 === parse epydoc
-short_description: 'SecurityOptions.allowModules(module, module, ...): allow modules by'
-long_description: "name. This will also allow the 'module' type."
+short_description: |
+  SecurityOptions.allowModules(module, module, ...): allow modules by
+  name. This will also allow the 'module' type.
 blank_after_short_description: False
 blank_after_long_description: False
 style: epydoc

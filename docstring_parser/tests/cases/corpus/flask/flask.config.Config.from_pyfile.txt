@@ -15,11 +15,11 @@ Updates the values in the config from a Python file.  This function
            `silent` parameter.
         
 === parse rest
-short_description: 'Updates the values in the config from a Python file.  This function'
-long_description: |
+short_description: |
+  Updates the values in the config from a Python file.  This function
   behaves as if the file was imported as module with the
   :meth:`from_object` function.
-  
+long_description: |
   .. versionadded:: 0.7
      `silent` parameter.
 blank_after_short_description: True
@@ -51,7 +51,6 @@ style: rest
 rest
 === compose rest
 Updates the values in the config from a Python file.  This function
-
 behaves as if the file was imported as module with the
 :meth:`from_object` function.
 

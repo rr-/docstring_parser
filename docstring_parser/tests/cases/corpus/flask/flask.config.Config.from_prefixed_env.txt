@@ -24,12 +24,12 @@ Load any environment variables that start with ``FLASK_``,
         .. versionadded:: 2.1
         
 === parse rest
-short_description: 'Load any environment variables that start with ``FLASK_``,'
-long_description: |
+short_description: |
+  Load any environment variables that start with ``FLASK_``,
   dropping the prefix from the env key for the config key. Values
   are passed through a loading function to attempt to convert them
   to more specific types than strings.
-  
+long_description: |
   Keys are loaded in :func:`sorted` order.
   
   The default loading function attempts to parse values as any
@@ -65,7 +65,6 @@ style: rest
 rest
 === compose rest
 Load any environment variables that start with ``FLASK_``,
-
 dropping the prefix from the env key for the config key. Values
 are passed through a loading function to attempt to convert them
 to more specific types than strings.

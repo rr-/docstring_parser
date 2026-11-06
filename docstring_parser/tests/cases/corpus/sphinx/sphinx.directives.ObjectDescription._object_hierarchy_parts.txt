@@ -9,15 +9,14 @@ Returns a tuple of strings, one entry for each part of the object's
         This method must not be used outwith table of contents generation.
         
 === parse rest
-short_description: "Returns a tuple of strings, one entry for each part of the object's"
-long_description: |
+short_description: |
+  Returns a tuple of strings, one entry for each part of the object's
   hierarchy (e.g. ``('module', 'submodule', 'Class', 'method')``). The
   returned tuple is used to properly nest children within parents in the
   table of contents, and can also be used within the
   :py:meth:`_toc_entry_name` method.
-  
-  This method must not be used outwith table of contents generation.
-blank_after_short_description: False
+long_description: 'This method must not be used outwith table of contents generation.'
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

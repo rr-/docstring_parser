@@ -5,8 +5,8 @@ Don't access ``hashlib.sha1`` until runtime. FIPS builds may not include
     developer can configure something else.
     
 === parse rest
-short_description: "Don't access ``hashlib.sha1`` until runtime. FIPS builds may not include"
-long_description: |
+short_description: |
+  Don't access ``hashlib.sha1`` until runtime. FIPS builds may not include
   SHA-1, in which case the import and use as a default would fail before the
   developer can configure something else.
 blank_after_short_description: False

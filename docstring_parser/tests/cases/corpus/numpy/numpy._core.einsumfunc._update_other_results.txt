@@ -20,12 +20,12 @@ Update the positions and provisional input_sets of ``results``
         ``best`` contraction.
     
 === parse numpydoc
-short_description: 'Update the positions and provisional input_sets of ``results``'
-long_description: |
+short_description: |
+  Update the positions and provisional input_sets of ``results``
   based on performing the contraction result ``best``. Remove any
   involving the tensors contracted.
-blank_after_short_description: False
-blank_after_long_description: True
+blank_after_short_description: True
+blank_after_long_description: False
 style: numpydoc
 - DocstringParam
   description: |

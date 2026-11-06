@@ -19,14 +19,14 @@
     TypeError : on inequality comparisons
     
 === parse numpydoc
-short_description: 'If a comparison has mismatched types and is not necessarily meaningful,'
-long_description: |
+short_description: |
+  If a comparison has mismatched types and is not necessarily meaningful,
   follow python3 conventions by:
-  
+long_description: |
       - returning all-False for equality
       - returning all-True for inequality
       - raising TypeError otherwise
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam

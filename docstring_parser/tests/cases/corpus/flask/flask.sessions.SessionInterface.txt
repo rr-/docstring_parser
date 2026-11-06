@@ -36,13 +36,13 @@ The basic interface you have to implement in order to replace the
     .. versionadded:: 0.8
     
 === parse rest
-short_description: 'The basic interface you have to implement in order to replace the'
-long_description: |
+short_description: |
+  The basic interface you have to implement in order to replace the
   default session interface which uses werkzeug's securecookie
   implementation.  The only methods you have to implement are
   :meth:`open_session` and :meth:`save_session`, the others have
   useful defaults which you don't need to change.
-  
+long_description: |
   The session object returned by the :meth:`open_session` method has to
   provide a dictionary like interface plus the properties and methods
   from the :class:`SessionMixin`.  We recommend just subclassing a dict
@@ -71,7 +71,7 @@ long_description: |
   begin and end processing.
   
   .. versionadded:: 0.8
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

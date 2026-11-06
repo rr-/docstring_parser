@@ -11,10 +11,11 @@
         @type keys: C{list} of C{str}
         
 === parse epydoc
-short_description: 'Return the list of files at given C{path}, adding C{keys} stat'
-long_description: 'informations if specified.'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  Return the list of files at given C{path}, adding C{keys} stat
+  informations if specified.
+blank_after_short_description: True
+blank_after_long_description: False
 style: epydoc
 - DocstringParam
   description: 'the directory or file to check.'

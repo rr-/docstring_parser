@@ -15,10 +15,11 @@
     @return: a 3-tuple of (plugin or name, arguments, keyword arguments)
     
 === parse epydoc
-short_description: 'Parse a strports description into a 2-tuple of arguments and keyword'
-long_description: 'values.'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  Parse a strports description into a 2-tuple of arguments and keyword
+  values.
+blank_after_short_description: True
+blank_after_long_description: False
 style: epydoc
 - DocstringParam
   description: |

@@ -12,15 +12,15 @@ Add any headers needed by the connection. As of v2.0 this does
         :param kwargs: The keyword arguments from the call to send().
         
 === parse rest
-short_description: 'Add any headers needed by the connection. As of v2.0 this does'
-long_description: |
+short_description: |
+  Add any headers needed by the connection. As of v2.0 this does
   nothing by default, but is left for overriding by users that subclass
   the :class:`HTTPAdapter <requests.adapters.HTTPAdapter>`.
-  
+long_description: |
   This should not be called from user code, and is only exposed for use
   when subclassing the
   :class:`HTTPAdapter <requests.adapters.HTTPAdapter>`.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringParam

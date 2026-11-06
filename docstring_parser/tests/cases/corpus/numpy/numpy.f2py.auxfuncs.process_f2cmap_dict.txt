@@ -38,15 +38,15 @@
         successfully mapped C types.
     
 === parse numpydoc
-short_description: 'Update the Fortran-to-C type mapping dictionary with new mappings and'
-long_description: |
+short_description: |
+  Update the Fortran-to-C type mapping dictionary with new mappings and
   return a list of successfully mapped C types.
-  
+long_description: |
   This function integrates a new mapping dictionary into an existing
   Fortran-to-C type mapping dictionary. It ensures that all keys are in
   lowercase and validates new entries against a given C-to-Python mapping
   dictionary. Redefinitions and invalid entries are reported with a warning.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam

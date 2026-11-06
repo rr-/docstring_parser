@@ -5,8 +5,8 @@ The session data associated with this request. Not available until
         the :data:`~flask.session` proxy, sets :attr:`.SessionMixin.accessed`.
         
 === parse rest
-short_description: 'The session data associated with this request. Not available until'
-long_description: |
+short_description: |
+  The session data associated with this request. Not available until
   this context has been pushed. Accessing this property, also accessed by
   the :data:`~flask.session` proxy, sets :attr:`.SessionMixin.accessed`.
 blank_after_short_description: False

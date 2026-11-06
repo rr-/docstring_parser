@@ -7,12 +7,11 @@ requests.structures
 Data structures that power Requests.
 
 === parse rest
-short_description: 'requests.structures'
-long_description: |
+short_description: |
+  requests.structures
   ~~~~~~~~~~~~~~~~~~~
-  
-  Data structures that power Requests.
-blank_after_short_description: False
+long_description: 'Data structures that power Requests.'
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

@@ -5,8 +5,8 @@ Prepare integrator for call: allocate memory, set flags, etc.
         has_jac - if user has supplied function for evaluating Jacobian.
         
 === parse numpydoc
-short_description: 'Prepare integrator for call: allocate memory, set flags, etc.'
-long_description: |
+short_description: |
+  Prepare integrator for call: allocate memory, set flags, etc.
   n - number of equations.
   has_jac - if user has supplied function for evaluating Jacobian.
 blank_after_short_description: False

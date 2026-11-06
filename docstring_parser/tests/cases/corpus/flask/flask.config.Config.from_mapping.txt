@@ -8,11 +8,10 @@ Updates the config like :meth:`update` ignoring items with
         .. versionadded:: 0.11
         
 === parse rest
-short_description: 'Updates the config like :meth:`update` ignoring items with'
-long_description: |
+short_description: |
+  Updates the config like :meth:`update` ignoring items with
   non-upper keys.
-  
-  .. versionadded:: 0.11
+long_description: '.. versionadded:: 0.11'
 blank_after_short_description: True
 blank_after_long_description: True
 style: rest
@@ -25,7 +24,6 @@ style: rest
 rest
 === compose rest
 Updates the config like :meth:`update` ignoring items with
-
 non-upper keys.
 
 .. versionadded:: 0.11

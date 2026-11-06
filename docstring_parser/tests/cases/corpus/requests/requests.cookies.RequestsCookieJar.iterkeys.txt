@@ -6,12 +6,11 @@ Dict-like iterkeys() that returns an iterator of names of cookies
         .. seealso:: itervalues() and iteritems().
         
 === parse rest
-short_description: 'Dict-like iterkeys() that returns an iterator of names of cookies'
-long_description: |
+short_description: |
+  Dict-like iterkeys() that returns an iterator of names of cookies
   from the jar.
-  
-  .. seealso:: itervalues() and iteritems().
-blank_after_short_description: False
+long_description: '.. seealso:: itervalues() and iteritems().'
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

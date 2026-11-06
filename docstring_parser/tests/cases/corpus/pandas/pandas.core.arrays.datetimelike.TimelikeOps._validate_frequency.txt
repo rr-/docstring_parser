@@ -12,10 +12,11 @@
             The frequency to validate
         
 === parse numpydoc
-short_description: 'Validate that a frequency is compatible with the values of a given'
-long_description: 'Datetime Array/Index or Timedelta Array/Index'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  Validate that a frequency is compatible with the values of a given
+  Datetime Array/Index or Timedelta Array/Index
+blank_after_short_description: True
+blank_after_long_description: False
 style: numpydoc
 - DocstringParam
   description: 'The index on which to determine if the given frequency is valid'

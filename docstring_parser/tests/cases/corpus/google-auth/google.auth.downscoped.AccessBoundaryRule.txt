@@ -5,8 +5,8 @@ Defines an access boundary rule which contains information on the resource that
     resource and an optional condition to further restrict permissions.
     
 === parse google
-short_description: 'Defines an access boundary rule which contains information on the resource that'
-long_description: |
+short_description: |
+  Defines an access boundary rule which contains information on the resource that
   the rule applies to, the upper bound of the permissions that are available on that
   resource and an optional condition to further restrict permissions.
 blank_after_short_description: False

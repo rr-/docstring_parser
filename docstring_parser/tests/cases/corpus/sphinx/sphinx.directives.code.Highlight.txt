@@ -4,8 +4,9 @@ Directive to set the highlighting language for code blocks, as well
     as the threshold for line numbers.
     
 === parse rest
-short_description: 'Directive to set the highlighting language for code blocks, as well'
-long_description: 'as the threshold for line numbers.'
+short_description: |
+  Directive to set the highlighting language for code blocks, as well
+  as the threshold for line numbers.
 blank_after_short_description: False
 blank_after_long_description: False
 style: rest

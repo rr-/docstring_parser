@@ -8,8 +8,8 @@
         L{TestCase} docstring for more details.
         
 === parse epydoc
-short_description: 'Returns the timeout value set on this test. Checks on the instance'
-long_description: |
+short_description: |
+  Returns the timeout value set on this test. Checks on the instance
   first, then the class, then the module, then packages. As soon as it
   finds something with a C{timeout} attribute, returns that. Returns
   L{util.DEFAULT_TIMEOUT_DURATION} if it cannot find anything. See

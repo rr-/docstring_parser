@@ -6,10 +6,10 @@
                 asd
             
 === parse google
-short_description: 'Short description'
-long_description: |
+short_description: |
+  Short description
   Meta:
-      asd
+long_description: '    asd'
 blank_after_short_description: False
 blank_after_long_description: False
 style: google

@@ -4,8 +4,9 @@ Like :meth:`teardown_request`, but after every request, not only those
         handled by the blueprint. Equivalent to :meth:`.Flask.teardown_request`.
         
 === parse rest
-short_description: 'Like :meth:`teardown_request`, but after every request, not only those'
-long_description: 'handled by the blueprint. Equivalent to :meth:`.Flask.teardown_request`.'
+short_description: |
+  Like :meth:`teardown_request`, but after every request, not only those
+  handled by the blueprint. Equivalent to :meth:`.Flask.teardown_request`.
 blank_after_short_description: False
 blank_after_long_description: False
 style: rest

@@ -9,14 +9,14 @@
     L{twisted.web.pages.notFound} instead.
     
 === parse epydoc
-short_description: 'L{_UnsafeNoResource}, publicly available via the deprecated alias'
-long_description: |
+short_description: |
+  L{_UnsafeNoResource}, publicly available via the deprecated alias
   C{NoResource}, is a specialization of L{_UnsafeErrorPage} which
   returns the HTTP response code I{NOT FOUND}.
-  
+long_description: |
   Deprecated in Twisted 22.10.0 because it permits HTML injection; use
   L{twisted.web.pages.notFound} instead.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: epydoc
 === detect

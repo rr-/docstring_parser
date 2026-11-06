@@ -4,8 +4,9 @@ There are two cookies that meet the criteria specified in the cookie jar.
     Use .get and .set and include domain and path args in order to be more specific.
     
 === parse rest
-short_description: 'There are two cookies that meet the criteria specified in the cookie jar.'
-long_description: 'Use .get and .set and include domain and path args in order to be more specific.'
+short_description: |
+  There are two cookies that meet the criteria specified in the cookie jar.
+  Use .get and .set and include domain and path args in order to be more specific.
 blank_after_short_description: False
 blank_after_long_description: False
 style: rest

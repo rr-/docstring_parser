@@ -18,15 +18,15 @@ Example credential_source for pluggable credential:
 }
 
 === parse google
-short_description: 'Pluggable Credentials.'
-long_description: |
+short_description: |
+  Pluggable Credentials.
   Pluggable Credentials are initialized using external_account arguments which
   are typically loaded from third-party executables. Unlike other
   credentials that can be initialized with a list of explicit arguments, secrets
   or credentials, external account clients use the environment and hints/guidelines
   provided by the external_account JSON file to retrieve credentials and exchange
   them for Google access tokens.
-  
+long_description: |
   Example credential_source for pluggable credential:
   {
       "executable": {
@@ -35,7 +35,7 @@ long_description: |
           "output_file": "/path/to/generated/cached/credentials"
       }
   }
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: google
 === detect

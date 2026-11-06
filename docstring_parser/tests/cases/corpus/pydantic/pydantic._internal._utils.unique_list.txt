@@ -5,8 +5,8 @@ Make a list unique while maintaining order.
     (e.g. model validator overridden in subclass).
     
 === parse google
-short_description: 'Make a list unique while maintaining order.'
-long_description: |
+short_description: |
+  Make a list unique while maintaining order.
   We update the list if another one with the same name is set
   (e.g. model validator overridden in subclass).
 blank_after_short_description: False

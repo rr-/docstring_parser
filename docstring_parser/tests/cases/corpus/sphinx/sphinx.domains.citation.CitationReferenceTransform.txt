@@ -4,8 +4,9 @@ Replace citation references by pending_xref nodes before the default
     docutils transform tries to resolve them.
     
 === parse rest
-short_description: 'Replace citation references by pending_xref nodes before the default'
-long_description: 'docutils transform tries to resolve them.'
+short_description: |
+  Replace citation references by pending_xref nodes before the default
+  docutils transform tries to resolve them.
 blank_after_short_description: False
 blank_after_long_description: False
 style: rest

@@ -9,8 +9,8 @@
         the underlying array.
         
 === parse numpydoc
-short_description: '(c_intp*self.ndim): A ctypes array of length self.ndim where'
-long_description: |
+short_description: |
+  (c_intp*self.ndim): A ctypes array of length self.ndim where
   the basetype is the C-integer corresponding to ``dtype('p')`` on this
   platform (see `~numpy.ctypeslib.c_intp`). This base-type could be
   `ctypes.c_int`, `ctypes.c_long`, or `ctypes.c_longlong` depending on

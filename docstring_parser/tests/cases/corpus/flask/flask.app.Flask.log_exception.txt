@@ -8,14 +8,13 @@ Logs an exception.  This is called by :meth:`handle_exception`
         .. versionadded:: 0.8
         
 === parse rest
-short_description: 'Logs an exception.  This is called by :meth:`handle_exception`'
-long_description: |
+short_description: |
+  Logs an exception.  This is called by :meth:`handle_exception`
   if debugging is disabled and right before the handler is called.
   The default implementation logs the exception as error on the
   :attr:`logger`.
-  
-  .. versionadded:: 0.8
-blank_after_short_description: False
+long_description: '.. versionadded:: 0.8'
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

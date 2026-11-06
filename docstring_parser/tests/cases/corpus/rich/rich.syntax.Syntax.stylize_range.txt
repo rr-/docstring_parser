@@ -11,10 +11,11 @@
             style_before (bool): Apply the style before any existing styles.
         
 === parse google
-short_description: "Adds a custom style on a part of the code, that will be applied to the syntax display when it's rendered."
-long_description: 'Line numbers are 1-based, while column indexes are 0-based.'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  Adds a custom style on a part of the code, that will be applied to the syntax display when it's rendered.
+  Line numbers are 1-based, while column indexes are 0-based.
+blank_after_short_description: True
+blank_after_long_description: False
 style: google
 - DocstringParam
   description: 'The style to apply.'

@@ -14,10 +14,11 @@ Retrieves the current input mode of a console's input buffer
             https://docs.microsoft.com/en-us/windows/console/getconsolemode#parameters
     
 === parse google
-short_description: "Retrieves the current input mode of a console's input buffer"
-long_description: 'or the current output mode of a console screen buffer.'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  Retrieves the current input mode of a console's input buffer
+  or the current output mode of a console screen buffer.
+blank_after_short_description: True
+blank_after_long_description: False
 style: google
 - DocstringParam
   description: 'A handle to the console input buffer or the console screen buffer.'

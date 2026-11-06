@@ -10,10 +10,11 @@ Checks if the given URL corresponds to an mTLS (Google APIs or Cloud Run)
         bool: True if the URL targets an mTLS or PSC endpoint, False otherwise.
     
 === parse google
-short_description: 'Checks if the given URL corresponds to an mTLS (Google APIs or Cloud Run)'
-long_description: 'or Private Service Connect (PSC) endpoint.'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  Checks if the given URL corresponds to an mTLS (Google APIs or Cloud Run)
+  or Private Service Connect (PSC) endpoint.
+blank_after_short_description: True
+blank_after_long_description: False
 style: google
 - DocstringParam
   description: 'The request URL.'

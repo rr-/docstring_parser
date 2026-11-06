@@ -8,14 +8,13 @@ This is called to figure out if an error should be ignored
         .. versionadded:: 0.10
         
 === parse rest
-short_description: 'This is called to figure out if an error should be ignored'
-long_description: |
+short_description: |
+  This is called to figure out if an error should be ignored
   or not as far as the teardown system is concerned.  If this
   function returns ``True`` then the teardown handlers will not be
   passed the error.
-  
-  .. versionadded:: 0.10
-blank_after_short_description: False
+long_description: '.. versionadded:: 0.10'
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

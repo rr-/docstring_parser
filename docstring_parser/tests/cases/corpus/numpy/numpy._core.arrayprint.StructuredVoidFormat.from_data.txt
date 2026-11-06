@@ -6,8 +6,8 @@
         the signature of __init__.
         
 === parse numpydoc
-short_description: 'This is a second way to initialize StructuredVoidFormat,'
-long_description: |
+short_description: |
+  This is a second way to initialize StructuredVoidFormat,
   using the raw data as input. Added to avoid changing
   the signature of __init__.
 blank_after_short_description: False

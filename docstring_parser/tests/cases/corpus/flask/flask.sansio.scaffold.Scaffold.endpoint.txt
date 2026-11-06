@@ -16,11 +16,11 @@ Decorate a view function to register it for the given
             function.
         
 === parse rest
-short_description: 'Decorate a view function to register it for the given'
-long_description: |
+short_description: |
+  Decorate a view function to register it for the given
   endpoint. Used if a rule is added without a ``view_func`` with
   :meth:`add_url_rule`.
-  
+long_description: |
   .. code-block:: python
   
       app.add_url_rule("/ex", endpoint="example")
@@ -28,7 +28,7 @@ long_description: |
       @app.endpoint("example")
       def example():
           ...
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringParam

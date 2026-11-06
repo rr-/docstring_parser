@@ -4,8 +4,9 @@ Parse a line number spec (such as "1,2,4-6") and return a list of
     wanted line numbers.
     
 === parse rest
-short_description: 'Parse a line number spec (such as "1,2,4-6") and return a list of'
-long_description: 'wanted line numbers.'
+short_description: |
+  Parse a line number spec (such as "1,2,4-6") and return a list of
+  wanted line numbers.
 blank_after_short_description: False
 blank_after_long_description: False
 style: rest

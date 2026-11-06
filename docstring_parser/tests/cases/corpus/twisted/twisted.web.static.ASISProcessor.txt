@@ -5,8 +5,9 @@
     headers.  Inspired by Apache's mod_asis.
     
 === parse epydoc
-short_description: 'Serve files exactly as responses without generating a status-line or any'
-long_description: "headers.  Inspired by Apache's mod_asis."
+short_description: |
+  Serve files exactly as responses without generating a status-line or any
+  headers.  Inspired by Apache's mod_asis.
 blank_after_short_description: False
 blank_after_long_description: False
 style: epydoc

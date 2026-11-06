@@ -10,13 +10,13 @@ Builds a :class:`Response <requests.Response>` object from a urllib3
         :rtype: requests.Response
         
 === parse rest
-short_description: 'Builds a :class:`Response <requests.Response>` object from a urllib3'
-long_description: |
+short_description: |
+  Builds a :class:`Response <requests.Response>` object from a urllib3
   response. This should not be called from user code, and is only exposed
   for use when subclassing the
   :class:`HTTPAdapter <requests.adapters.HTTPAdapter>`
-blank_after_short_description: False
-blank_after_long_description: True
+blank_after_short_description: True
+blank_after_long_description: False
 style: rest
 - DocstringParam
   description: 'The :class:`PreparedRequest <PreparedRequest>` used to generate the response.'

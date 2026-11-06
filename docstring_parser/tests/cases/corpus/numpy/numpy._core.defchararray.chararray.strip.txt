@@ -10,10 +10,11 @@
 
         
 === parse numpydoc
-short_description: 'For each element in `self`, return a copy with the leading and'
-long_description: 'trailing characters removed.'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  For each element in `self`, return a copy with the leading and
+  trailing characters removed.
+blank_after_short_description: True
+blank_after_long_description: False
 style: numpydoc
 - DocstringMeta
   description: 'char.strip'

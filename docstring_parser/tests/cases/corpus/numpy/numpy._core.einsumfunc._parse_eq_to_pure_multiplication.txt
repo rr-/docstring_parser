@@ -9,14 +9,14 @@ If there are no contracted indices, then we can directly transpose and
 
     
 === parse numpydoc
-short_description: 'If there are no contracted indices, then we can directly transpose and'
-long_description: |
+short_description: |
+  If there are no contracted indices, then we can directly transpose and
   insert singleton dimensions into ``a`` and ``b`` such that (broadcast)
   elementwise multiplication performs the einsum.
-  
+long_description: |
   No need to cache this as it is within the cached
   ``_parse_eq_to_batch_matmul``.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 === detect

@@ -11,18 +11,36 @@ def clean_str(string: str) -> T.Optional[str]:
     return string.strip() or None
 
 
+# The lines after the first that go on with the first paragraph, each with
+# its newline: up to a blank line, or an indented one, which starts a block.
+_PARAGRAPH_LINES = re.compile(r"(?:\S[^\n]*(?:\n|\Z))*")
+
+
 def split_description(ret: Docstring, text: str) -> None:
     """Set the short and long description from the text before any field.
 
-    The short description is the first line, and the long description is
-    everything after it. Its lines keep their indent in the dedented
-    docstring, the first one too, which stripping it would lose.
+    The short description is the first paragraph: every line up to the
+    first blank or indented one, which an indented block would start. The
+    long description is everything after it. Its lines keep their indent
+    in the dedented docstring, the first one too, which stripping it would
+    lose.
     """
-    parts = text.split("\n", 1)
-    ret.short_description = parts[0].strip() or None
-    if len(parts) > 1:
-        rest = parts[1]
-        ret.blank_after_short_description = rest.startswith("\n")
+    first, newline, rest = text.partition("\n")
+    if newline and first.strip():
+        match = _PARAGRAPH_LINES.match(rest)
+        more = match.end() if match else 0
+        if more:
+            # More lines of the first paragraph.
+            first += "\n" + rest[:more].rstrip("\n")
+            newline = "\n" if rest[more - 1] == "\n" else ""
+            rest = rest[more:]
+    ret.short_description = first.strip() or None
+    if newline:
+        # A line of whitespace before more text ends the first paragraph as
+        # an empty one does.
+        ret.blank_after_short_description = rest.startswith("\n") or bool(
+            rest.strip() and not rest.partition("\n")[0].strip()
+        )
         ret.blank_after_long_description = rest.endswith("\n\n")
         long = rest.strip()
         lead = rest[: len(rest) - len(rest.lstrip())]

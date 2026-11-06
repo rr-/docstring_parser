@@ -6,8 +6,8 @@ Returns the path for which the cookie should be valid.  The
         uses ``/`` if it's ``None``.
         
 === parse rest
-short_description: 'Returns the path for which the cookie should be valid.  The'
-long_description: |
+short_description: |
+  Returns the path for which the cookie should be valid.  The
   default implementation uses the value from the ``SESSION_COOKIE_PATH``
   config var if it's set, and falls back to ``APPLICATION_ROOT`` or
   uses ``/`` if it's ``None``.

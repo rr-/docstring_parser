@@ -5,8 +5,9 @@
     imported.
     
 === parse epydoc
-short_description: "The object associated with the given name doesn't exist and it can't be"
-long_description: 'imported.'
+short_description: |
+  The object associated with the given name doesn't exist and it can't be
+  imported.
 blank_after_short_description: False
 blank_after_long_description: False
 style: epydoc

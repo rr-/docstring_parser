@@ -9,12 +9,11 @@ Check that extensions mentioned in :confval:`needs_extensions` satisfy the versi
     :confval:`needs_extension` is unknown or older than the required version.
     
 === parse rest
-short_description: 'Check that extensions mentioned in :confval:`needs_extensions` satisfy the version'
-long_description: |
+short_description: |
+  Check that extensions mentioned in :confval:`needs_extensions` satisfy the version
   requirement, and warn if an extension is not loaded.
-  
-  Warns if an extension in :confval:`needs_extension` is not loaded.
-blank_after_short_description: False
+long_description: 'Warns if an extension in :confval:`needs_extension` is not loaded.'
+blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringRaises

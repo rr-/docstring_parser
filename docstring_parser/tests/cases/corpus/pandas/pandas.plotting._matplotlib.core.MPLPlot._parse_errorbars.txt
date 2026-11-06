@@ -19,10 +19,10 @@
         should be in an ``Mx2xN`` array.
         
 === parse numpydoc
-short_description: 'Look for error keyword arguments and return the actual errorbar data'
-long_description: |
+short_description: |
+  Look for error keyword arguments and return the actual errorbar data
   or return the error DataFrame/dict
-  
+long_description: |
   Error bars can be specified in several ways:
       Series: the user provides a pandas.Series object of the same
               length as the data
@@ -36,7 +36,7 @@ long_description: |
   ``2xN`` array should be provided indicating lower and upper (or left
   and right) errors. For an ``MxN`` :class:`DataFrame`, asymmetrical errors
   should be in an ``Mx2xN`` array.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 === detect

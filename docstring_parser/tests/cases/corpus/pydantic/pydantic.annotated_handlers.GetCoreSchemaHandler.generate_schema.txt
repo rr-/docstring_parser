@@ -13,14 +13,14 @@ Generate a schema unrelated to the current context.
             CoreSchema: The `pydantic-core` CoreSchema generated.
         
 === parse google
-short_description: 'Generate a schema unrelated to the current context.'
-long_description: |
+short_description: |
+  Generate a schema unrelated to the current context.
   Use this function if e.g. you are handling schema generation for a sequence
   and want to generate a schema for its items.
   Otherwise, you may end up doing something like applying a `min_length` constraint
   that was intended for the sequence itself to its items!
-blank_after_short_description: False
-blank_after_long_description: True
+blank_after_short_description: True
+blank_after_long_description: False
 style: google
 - DocstringParam
   description: 'The input type.'

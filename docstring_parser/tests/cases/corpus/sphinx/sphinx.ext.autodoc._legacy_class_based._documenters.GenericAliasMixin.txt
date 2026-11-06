@@ -4,8 +4,9 @@ Mixin for DataDocumenter and AttributeDocumenter to provide the feature for
     supporting GenericAliases.
     
 === parse rest
-short_description: 'Mixin for DataDocumenter and AttributeDocumenter to provide the feature for'
-long_description: 'supporting GenericAliases.'
+short_description: |
+  Mixin for DataDocumenter and AttributeDocumenter to provide the feature for
+  supporting GenericAliases.
 blank_after_short_description: False
 blank_after_long_description: False
 style: rest

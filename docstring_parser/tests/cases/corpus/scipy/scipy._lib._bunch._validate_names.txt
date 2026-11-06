@@ -6,8 +6,8 @@
     among field_names + extra_field_names.
     
 === parse numpydoc
-short_description: 'Ensure that all the given names are valid Python identifiers that'
-long_description: |
+short_description: |
+  Ensure that all the given names are valid Python identifiers that
   do not start with '_'.  Also check that there are no duplicates
   among field_names + extra_field_names.
 blank_after_short_description: False

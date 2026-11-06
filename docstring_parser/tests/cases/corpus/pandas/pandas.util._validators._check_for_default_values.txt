@@ -8,13 +8,13 @@
     checked that arg_val_dict.keys() is a subset of compat_args
     
 === parse numpydoc
-short_description: 'Check that the keys in `arg_val_dict` are mapped to their'
-long_description: |
+short_description: |
+  Check that the keys in `arg_val_dict` are mapped to their
   default values as specified in `compat_args`.
-  
+long_description: |
   Note that this function is to be called only when it has been
   checked that arg_val_dict.keys() is a subset of compat_args
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 === detect
