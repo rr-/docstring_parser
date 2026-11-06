@@ -94,3 +94,27 @@ def test_kind_must_fit_class() -> None:
 def test_sub_kinds(style: DocstringStyle, text: str, kinds: list) -> None:
     """Test that each style tells the kinds of params and raises apart."""
     assert [m.kind for m in parse(text, style).meta] == kinds
+
+
+@pytest.mark.parametrize(
+    ("style", "text"),
+    [
+        (DocstringStyle.REST, ":param x: X.\n:attribute y: Y."),
+        (DocstringStyle.EPYDOC, "@param x: X.\n@ivar y: Y."),
+        (
+            DocstringStyle.GOOGLE,
+            "S.\n\nArgs:\n    x: X.\n\nAttributes:\n    y: Y.",
+        ),
+        (
+            DocstringStyle.NUMPYDOC,
+            "S.\n\nParameters\n----------\nx\n    X.\n\n"
+            "Attributes\n----------\ny\n    Y.",
+        ),
+    ],
+    ids=lambda v: v.name.lower() if isinstance(v, DocstringStyle) else "",
+)
+def test_params_leave_out_attributes(style: DocstringStyle, text: str) -> None:
+    """Test that params and attrs each list their own items."""
+    docstring = parse(text, style)
+    assert [p.arg_name for p in docstring.params] == ["x"]
+    assert [a.arg_name for a in docstring.attrs] == ["y"]
