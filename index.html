@@ -195,6 +195,16 @@
         
 
         
+            <div class="itemName"><code><a href="docstring_parser.sections.html" class="internal-link" title="docstring_parser.sections">sections</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="docstring_parser.util.html" class="internal-link" title="docstring_parser.util">util</a></code>
             </div>
         
@@ -413,7 +423,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <a href="https://github.com/rr-/docstring_parser/tree/0ded151e55bc018c873f84fa94fcaf6282dc5399/docstring_parser/__init__.py" class="sourceLink">(source)</a>
+          <a href="https://github.com/rr-/docstring_parser/tree/1c7a902cbf5194f9b42738065e19d7e47a22660d/docstring_parser/__init__.py" class="sourceLink">(source)</a>
         </div>
 
         <div class="moduleDocstring">
@@ -459,6 +469,11 @@
     <td>Module</td>
     <td><code><a href="docstring_parser.rest.html" class="internal-link" title="docstring_parser.rest">rest</a></code></td>
     <td>ReST-style docstring parsing.</td>
+  </tr><tr class="module">
+    
+    <td>Module</td>
+    <td><code><a href="docstring_parser.sections.html" class="internal-link" title="docstring_parser.sections">sections</a></code></td>
+    <td>Declare the sections, or fields, that a docstring style recognises.</td>
   </tr><tr class="module">
     
     <td>Module</td>
@@ -569,7 +584,7 @@
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">combine_docstrings</span><span class="function-signature long-signature">(<span class="rst-sig-param">*others: <code>_Func</code>, </span><span class="rst-sig-param">exclude: <code>T.Iterable[<wbr></wbr><a href="https://docs.python.org/3/builtins/functions.html#type" class="intersphinx-link">type</a>[<wbr></wbr><a href="docstring_parser.DocstringMeta.html" class="internal-link" title="docstring_parser.DocstringMeta">DocstringMeta</a>]]</code> = (), </span><span class="rst-sig-param">style: <code><a href="docstring_parser.DocstringStyle.html" class="internal-link" title="docstring_parser.DocstringStyle">DocstringStyle</a></code> = <a href="docstring_parser.DocstringStyle.html#AUTO" class="internal-link" title="docstring_parser.DocstringStyle.AUTO">DocstringStyle.AUTO</a>, </span><span class="rst-sig-param">rendering_style: <code><a href="docstring_parser.RenderingStyle.html" class="internal-link" title="docstring_parser.RenderingStyle">RenderingStyle</a></code> = <a href="docstring_parser.RenderingStyle.html#COMPACT" class="internal-link" title="docstring_parser.RenderingStyle.COMPACT">RenderingStyle.COMPACT</a></span>) -&gt; <code>_Func</code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/0ded151e55bc018c873f84fa94fcaf6282dc5399/docstring_parser/util.py#L22">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/1c7a902cbf5194f9b42738065e19d7e47a22660d/docstring_parser/util.py#L22">
       
       (source)
     </a>
@@ -652,7 +667,7 @@ from the decorated function.</td></tr><tr><td class="fieldArgContainer"><span cl
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">compose</span><span class="function-signature long-signature">(<span class="rst-sig-param">docstring: <code><a href="docstring_parser.Docstring.html" class="internal-link" title="docstring_parser.Docstring">Docstring</a></code>, </span><span class="rst-sig-param">style: <code><a href="docstring_parser.DocstringStyle.html" class="internal-link" title="docstring_parser.DocstringStyle">DocstringStyle</a></code> = <a href="docstring_parser.DocstringStyle.html#AUTO" class="internal-link" title="docstring_parser.DocstringStyle.AUTO">DocstringStyle.AUTO</a>, </span><span class="rst-sig-param">rendering_style: <code><a href="docstring_parser.RenderingStyle.html" class="internal-link" title="docstring_parser.RenderingStyle">RenderingStyle</a></code> = <a href="docstring_parser.RenderingStyle.html#COMPACT" class="internal-link" title="docstring_parser.RenderingStyle.COMPACT">RenderingStyle.COMPACT</a>, </span><span class="rst-sig-param">indent: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code> = <span class="rst-variable-quote">'</span><span class="rst-variable-string">    </span><span class="rst-variable-quote">'</span></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/0ded151e55bc018c873f84fa94fcaf6282dc5399/docstring_parser/parser.py#L118">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/1c7a902cbf5194f9b42738065e19d7e47a22660d/docstring_parser/parser.py#L141">
       
       (source)
     </a>
@@ -678,8 +693,8 @@ from the decorated function.</td></tr><tr><td class="fieldArgContainer"><span cl
   <div class="functionHeader">
     
     
-    <span class="py-keyword">def</span>&#160;<span class="py-defname">parse</span><span class="function-signature">(<span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code>, </span><span class="rst-sig-param">style: <code><a href="docstring_parser.DocstringStyle.html" class="internal-link" title="docstring_parser.DocstringStyle">DocstringStyle</a></code> = <a href="docstring_parser.DocstringStyle.html#AUTO" class="internal-link" title="docstring_parser.DocstringStyle.AUTO">DocstringStyle.AUTO</a></span>) -&gt; <code><a href="docstring_parser.Docstring.html" class="internal-link" title="docstring_parser.Docstring">Docstring</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/0ded151e55bc018c873f84fa94fcaf6282dc5399/docstring_parser/parser.py#L55">
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">parse</span><span class="function-signature long-signature">(<span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code>, </span><span class="rst-sig-param">style: <code><a href="docstring_parser.DocstringStyle.html" class="internal-link" title="docstring_parser.DocstringStyle">DocstringStyle</a></code> = <a href="docstring_parser.DocstringStyle.html#AUTO" class="internal-link" title="docstring_parser.DocstringStyle.AUTO">DocstringStyle.AUTO</a>, </span><span class="rst-sig-param">sections: <code>T.Sequence[<wbr></wbr>SectionSpec] | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></span>) -&gt; <code><a href="docstring_parser.Docstring.html" class="internal-link" title="docstring_parser.Docstring">Docstring</a></code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/1c7a902cbf5194f9b42738065e19d7e47a22660d/docstring_parser/parser.py#L68">
       
       (source)
     </a>
@@ -691,7 +706,9 @@ from the decorated function.</td></tr><tr><td class="fieldArgContainer"><span cl
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Parse the docstring into its components.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">text:</span><code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc">docstring text to parse</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">style:</span><code><a href="docstring_parser.DocstringStyle.html" class="internal-link" title="docstring_parser.DocstringStyle">DocstringStyle</a></code></td><td class="fieldArgDesc">docstring style</td></tr></table><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="docstring_parser.Docstring.html" class="internal-link" title="docstring_parser.Docstring">Docstring</a></code></td><td class="fieldArgDesc">parsed docstring representation</td></tr></table></div>
+    <div><p>Parse the docstring into its components.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">text:</span><code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc">docstring text to parse</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">style:</span><code><a href="docstring_parser.DocstringStyle.html" class="internal-link" title="docstring_parser.DocstringStyle">DocstringStyle</a></code></td><td class="fieldArgDesc">docstring style</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">sections:</span><code>T.Sequence[<wbr></wbr>SectionSpec] | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc">the sections, or fields, to recognise instead of the
+style's own, as described in <code><a href="docstring_parser.sections.html" class="internal-link">docstring_parser.sections</a></code>; in
+auto mode, every style recognises them</td></tr></table><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="docstring_parser.Docstring.html" class="internal-link" title="docstring_parser.Docstring">Docstring</a></code></td><td class="fieldArgDesc">parsed docstring representation</td></tr></table></div>
   </div>
 </div><div class="basefunction">
   
@@ -705,8 +722,8 @@ from the decorated function.</td></tr><tr><td class="fieldArgContainer"><span cl
   <div class="functionHeader">
     
     
-    <span class="py-keyword">def</span>&#160;<span class="py-defname">parse_from_object</span><span class="function-signature">(<span class="rst-sig-param">obj: <code>T.Any</code>, </span><span class="rst-sig-param">style: <code><a href="docstring_parser.DocstringStyle.html" class="internal-link" title="docstring_parser.DocstringStyle">DocstringStyle</a></code> = <a href="docstring_parser.DocstringStyle.html#AUTO" class="internal-link" title="docstring_parser.DocstringStyle.AUTO">DocstringStyle.AUTO</a></span>) -&gt; <code><a href="docstring_parser.Docstring.html" class="internal-link" title="docstring_parser.Docstring">Docstring</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/0ded151e55bc018c873f84fa94fcaf6282dc5399/docstring_parser/parser.py#L87">
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">parse_from_object</span><span class="function-signature long-signature">(<span class="rst-sig-param">obj: <code>T.Any</code>, </span><span class="rst-sig-param">style: <code><a href="docstring_parser.DocstringStyle.html" class="internal-link" title="docstring_parser.DocstringStyle">DocstringStyle</a></code> = <a href="docstring_parser.DocstringStyle.html#AUTO" class="internal-link" title="docstring_parser.DocstringStyle.AUTO">DocstringStyle.AUTO</a>, </span><span class="rst-sig-param">sections: <code>T.Sequence[<wbr></wbr>SectionSpec] | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></span>) -&gt; <code><a href="docstring_parser.Docstring.html" class="internal-link" title="docstring_parser.Docstring">Docstring</a></code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/1c7a902cbf5194f9b42738065e19d7e47a22660d/docstring_parser/parser.py#L107">
       
       (source)
     </a>
@@ -729,7 +746,8 @@ supported.</p>
 not its inherited classes. This is a design decision. Separate calls to
 this function should be performed to get attribute docstrings of parent
 classes.</p>
-<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">obj:</span><code>T.Any</code></td><td class="fieldArgDesc">object from which to parse the docstring(s)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">style:</span><code><a href="docstring_parser.DocstringStyle.html" class="internal-link" title="docstring_parser.DocstringStyle">DocstringStyle</a></code></td><td class="fieldArgDesc">docstring style</td></tr></table><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="docstring_parser.Docstring.html" class="internal-link" title="docstring_parser.Docstring">Docstring</a></code></td><td class="fieldArgDesc">parsed docstring representation</td></tr></table></div>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">obj:</span><code>T.Any</code></td><td class="fieldArgDesc">object from which to parse the docstring(s)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">style:</span><code><a href="docstring_parser.DocstringStyle.html" class="internal-link" title="docstring_parser.DocstringStyle">DocstringStyle</a></code></td><td class="fieldArgDesc">docstring style</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">sections:</span><code>T.Sequence[<wbr></wbr>SectionSpec] | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc">the sections, or fields, to recognise instead of the
+style's own</td></tr></table><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="docstring_parser.Docstring.html" class="internal-link" title="docstring_parser.Docstring">Docstring</a></code></td><td class="fieldArgDesc">parsed docstring representation</td></tr></table></div>
   </div>
 </div>
         </div>
@@ -743,7 +761,7 @@ classes.</p>
   <div class="container-fluid">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    25.10.1 at 2026-11-06 09:59:26.
+    25.10.1 at 2026-11-06 10:22:02.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 
