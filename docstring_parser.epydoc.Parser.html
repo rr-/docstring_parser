@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>docstring_parser.epydoc.Parser</title>
+    <meta name="generator" content="pydoctor 25.10.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+    
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a> <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="apidocs-help-button" title="Help" href="apidocs-help.html"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 10px;">
+          <p>For more information on the search, visit the <a href="apidocs-help.html#rst-search">help page</a>.</p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="docstring_parser.epydoc.Parser.html" class="internal-link" title="This class"><wbr></wbr>Parser</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="docstring_parser.epydoc.Parser.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#parse" class="internal-link" title="docstring_parser.epydoc.Parser.parse">parse</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#name" class="internal-link" title="docstring_parser.epydoc.Parser.name">name</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_table" class="internal-link" title="docstring_parser.epydoc.Parser._table">_table</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="docstring_parser.epydoc.html" class="internal-link" title="The parent of this class">epydoc</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.epydoc.Parser.html" class="internal-link" title="docstring_parser.epydoc.Parser"><wbr></wbr>Parser</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.epydoc.html#compose" class="internal-link" title="docstring_parser.epydoc.compose">compose</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.epydoc.html#default_sections" class="internal-link" title="docstring_parser.epydoc.default_sections">default<wbr></wbr>_sections</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.epydoc.html#parse" class="internal-link" title="docstring_parser.epydoc.parse">parse</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.epydoc.html#_base" class="internal-link" title="docstring_parser.epydoc._base">_base</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.epydoc.html#_field_table" class="internal-link" title="docstring_parser.epydoc._field_table">_field<wbr></wbr>_table</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.epydoc.html#_param_key" class="internal-link" title="docstring_parser.epydoc._param_key">_param<wbr></wbr>_key</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.epydoc.html#_DEFAULT_PARSER" class="internal-link" title="docstring_parser.epydoc._DEFAULT_PARSER">_DEFAULT<wbr></wbr>_PARSER</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.epydoc.html#_DEFAULT_TABLE" class="internal-link" title="docstring_parser.epydoc._DEFAULT_TABLE">_DEFAULT<wbr></wbr>_TABLE</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.epydoc.html#_DEFAULTS_TO" class="internal-link" title="docstring_parser.epydoc._DEFAULTS_TO">_DEFAULTS<wbr></wbr>_TO</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.epydoc.html#_FIELD" class="internal-link" title="docstring_parser.epydoc._FIELD">_FIELD</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.epydoc.html#_FIELD_START" class="internal-link" title="docstring_parser.epydoc._FIELD_START">_FIELD<wbr></wbr>_START</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.epydoc.html#_HEADER" class="internal-link" title="docstring_parser.epydoc._HEADER">_HEADER</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.epydoc.html#_OWN_PARAM_FIELDS" class="internal-link" title="docstring_parser.epydoc._OWN_PARAM_FIELDS">_OWN<wbr></wbr>_PARAM<wbr></wbr>_FIELDS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.epydoc.html#_PARAM_FIELD_OF_KIND" class="internal-link" title="docstring_parser.epydoc._PARAM_FIELD_OF_KIND">_PARAM<wbr></wbr>_FIELD<wbr></wbr>_OF<wbr></wbr>_KIND</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.epydoc.html#_TYPE_FIELDS" class="internal-link" title="docstring_parser.epydoc._TYPE_FIELDS">_TYPE<wbr></wbr>_FIELDS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.epydoc.html#_Field" class="internal-link" title="docstring_parser.epydoc._Field">_<wbr></wbr>Field</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.epydoc.html#_parsers" class="internal-link" title="docstring_parser.epydoc._parsers">_parsers</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapse-sidebar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <main class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">docstring_parser</a></code><wbr></wbr>.<code><a href="docstring_parser.epydoc.html" class="internal-link" title="docstring_parser.epydoc">epydoc</a></code><wbr></wbr>.<code><a href="docstring_parser.epydoc.Parser.html" class="internal-link" title="docstring_parser.epydoc.Parser">Parser</a></code></code></h1>
+          <div id="show-private">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">Parser</span>(BaseParser): <a href="https://github.com/rr-/docstring_parser/tree/b04034bbfe2fc0728d202a1bb01ca5d5be0aac24/docstring_parser/epydoc.py#L90" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="docstring_parser.epydoc.Parser.__init__">Parser(sections)</a></code></p><p><a href="classIndex.html#docstring_parser.epydoc.Parser">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Parser for Epydoc-style docstrings.</p></div>
+        </div>
+
+        <div id="split-tables">
+          <table class="children sortable" id="id17">
+  
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="docstring_parser.epydoc.Parser.__init__">__init__</a></code></td>
+    <td>Set up the parser.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#parse" class="internal-link" title="docstring_parser.epydoc.Parser.parse">parse</a></code></td>
+    <td>Parse a docstring into its components.</td>
+  </tr><tr class="classvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#name" class="internal-link" title="docstring_parser.epydoc.Parser.name">name</a></code></td>
+    <td><span class="rst-undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_table" class="internal-link" title="docstring_parser.epydoc.Parser._table">_table</a></code></td>
+    <td><span class="rst-undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="child-list">
+          <div class="basemethod">
+  
+  
+  <a name="docstring_parser.epydoc.Parser.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">__init__</span><span class="function-signature">(<span class="rst-sig-param"><span class="rst-undocumented">self</span>, </span><span class="rst-sig-param">sections: <code><a href="https://docs.python.org/3/library/typing.html#typing.Sequence" class="intersphinx-link">T.Sequence</a>[<wbr></wbr><a href="docstring_parser.sections.SectionSpec.html" class="internal-link" title="docstring_parser.sections.SectionSpec">SectionSpec</a>] | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></span>):</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/b04034bbfe2fc0728d202a1bb01ca5d5be0aac24/docstring_parser/epydoc.py#L95">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#__init__" title="docstring_parser.epydoc.Parser.__init__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Set up the parser.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">sections:</span><code><a href="https://docs.python.org/3/library/typing.html#typing.Sequence" class="intersphinx-link">T.Sequence</a>[<wbr></wbr><a href="docstring_parser.sections.SectionSpec.html" class="internal-link" title="docstring_parser.sections.SectionSpec">SectionSpec</a>] | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc">the fields to recognise, instead of the default
+ones; each meta's <tt class="rst-docutils rst-literal">key</tt> is the name its field is written with</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="docstring_parser.epydoc.Parser.parse">
+    
+  </a>
+  <a name="parse">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">parse</span><span class="function-signature">(<span class="rst-sig-param"><span class="rst-undocumented">self</span>, </span><span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></span>) -&gt; <code>Docstring</code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/b04034bbfe2fc0728d202a1bb01ca5d5be0aac24/docstring_parser/epydoc.py#L107">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#parse" title="docstring_parser.epydoc.Parser.parse">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Parse a docstring into its components.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>Docstring</code></td><td class="fieldArgDesc">parsed docstring</td></tr></table></div>
+  </div>
+</div><div class="baseclassvariable">
+  
+  
+  <a name="docstring_parser.epydoc.Parser.name">
+    
+  </a>
+  <a name="name">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">name</span>: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/b04034bbfe2fc0728d202a1bb01ca5d5be0aac24/docstring_parser/epydoc.py#L93">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#name" title="docstring_parser.epydoc.Parser.name">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="docstring_parser.epydoc.Parser._table">
+    
+  </a>
+  <a name="_table">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_table</span> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/b04034bbfe2fc0728d202a1bb01ca5d5be0aac24/docstring_parser/epydoc.py#L103">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_table" title="docstring_parser.epydoc.Parser._table">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </main>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container-fluid">
+    <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    25.10.1 at 2026-11-06 12:42:06.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>
