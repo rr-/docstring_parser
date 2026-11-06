@@ -61,38 +61,55 @@ style: numpydoc
   kind: text
   key: 'notes'
 - DocstringExample
-  description: '1.0 + 2.0·x + 3.0·x²'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> p = np.polynomial.Polynomial([1, 2, 3])'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> c = np.polynomial.Chebyshev([1, 2, 3])'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: ">>> np.polynomial.set_default_printstyle('unicode')"
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> p = np.polynomial.Polynomial([1, 2, 3])
-    >>> c = np.polynomial.Chebyshev([1, 2, 3])
-    >>> np.polynomial.set_default_printstyle('unicode')
     >>> print(p)
+    1.0 + 2.0·x + 3.0·x²
 - DocstringExample
-  description: '1.0 + 2.0·T₁(x) + 3.0·T₂(x)'
-  kind: examples
-  key: 'examples'
-  snippet: '>>> print(c)'
-- DocstringExample
-  description: '1.0 + 2.0 x + 3.0 x**2'
   kind: examples
   key: 'examples'
   snippet: |
-    >>> np.polynomial.set_default_printstyle('ascii')
+    >>> print(c)
+    1.0 + 2.0·T₁(x) + 3.0·T₂(x)
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: ">>> np.polynomial.set_default_printstyle('ascii')"
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
     >>> print(p)
+    1.0 + 2.0 x + 3.0 x**2
 - DocstringExample
-  description: '1.0 + 2.0 T_1(x) + 3.0 T_2(x)'
-  kind: examples
-  key: 'examples'
-  snippet: '>>> print(c)'
-- DocstringExample
-  description: '1.0 + 2.0·x + 3.0·x²'
   kind: examples
   key: 'examples'
   snippet: |
-    >>> # Formatting supersedes all class/package-level defaults
+    >>> print(c)
+    1.0 + 2.0 T_1(x) + 3.0 T_2(x)
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> # Formatting supersedes all class/package-level defaults'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
     >>> print(f"{p:unicode}")
+    1.0 + 2.0·x + 3.0·x²
 === detect
 numpydoc
 === compose numpydoc

@@ -13,11 +13,11 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringExample
-  description: |
-    >>> if Confirm.ask("Continue"):
-    run_job()
   kind: examples
   key: 'examples'
+  snippet: |
+    >>> if Confirm.ask("Continue"):
+    run_job()
 === detect
 google
 === compose google

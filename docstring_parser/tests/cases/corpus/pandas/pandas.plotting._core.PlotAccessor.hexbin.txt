@@ -190,14 +190,26 @@ style: numpydoc
     
     .. plot::
         :context: close-figs
-    
-        >>> n = 10000
-        >>> rng = np.random.default_rng(42)
+  kind: examples
+  key: 'examples'
+  snippet: '    >>> n = 10000'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '    >>> rng = np.random.default_rng(42)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
         >>> df = pd.DataFrame(
         ...     {"x": rng.standard_normal(n), "y": rng.standard_normal(n)}
         ... )
-        >>> ax = df.plot.hexbin(x="x", y="y", gridsize=20)
-    
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '    >>> ax = df.plot.hexbin(x="x", y="y", gridsize=20)'
+- DocstringExample
+  description: |
     The next example uses `C` and `np.sum` as `reduce_C_function`.
     Note that `'observations'` values ranges from 1 to 5 but the result
     plot shows values up to more than 25. This is because of the
@@ -205,9 +217,17 @@ style: numpydoc
     
     .. plot::
         :context: close-figs
-    
-        >>> n = 500
-        >>> rng = np.random.default_rng(42)
+  kind: examples
+  key: 'examples'
+  snippet: '    >>> n = 500'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '    >>> rng = np.random.default_rng(42)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
         >>> df = pd.DataFrame(
         ...     {
         ...         "coord_x": rng.uniform(-3, 3, size=n),
@@ -215,6 +235,10 @@ style: numpydoc
         ...         "observations": rng.integers(1, 5, size=n),
         ...     }
         ... )
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
         >>> ax = df.plot.hexbin(
         ...     x="coord_x",
         ...     y="coord_y",
@@ -223,8 +247,6 @@ style: numpydoc
         ...     gridsize=10,
         ...     cmap="viridis",
         ... )
-  kind: examples
-  key: 'examples'
 === detect
 numpydoc
 === compose numpydoc

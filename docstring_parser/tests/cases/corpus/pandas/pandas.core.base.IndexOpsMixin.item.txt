@@ -61,23 +61,26 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: |
-    1
-    
-    For an index:
-    
   kind: examples
   key: 'examples'
-  snippet: |
-    >>> s = pd.Series([1])
-    >>> s.item()
+  snippet: '>>> s = pd.Series([1])'
 - DocstringExample
-  description: "'a'"
   kind: examples
   key: 'examples'
   snippet: |
-    >>> s = pd.Series([1], index=["a"])
+    >>> s.item()
+    1
+- DocstringExample
+  description: 'For an index:'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> s = pd.Series([1], index=["a"])'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
     >>> s.index.item()
+    'a'
 === detect
 numpydoc
 === compose numpydoc

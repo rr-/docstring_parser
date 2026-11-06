@@ -69,32 +69,39 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: 'False'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from pandas.api.types import is_datetime64_dtype'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> from pandas.api.types import is_datetime64_dtype
     >>> is_datetime64_dtype(object)
+    False
 - DocstringExample
-  description: 'True'
   kind: examples
   key: 'examples'
-  snippet: '>>> is_datetime64_dtype(np.datetime64)'
+  snippet: |
+    >>> is_datetime64_dtype(np.datetime64)
+    True
 - DocstringExample
-  description: 'False'
   kind: examples
   key: 'examples'
-  snippet: '>>> is_datetime64_dtype(np.array([], dtype=int))'
+  snippet: |
+    >>> is_datetime64_dtype(np.array([], dtype=int))
+    False
 - DocstringExample
-  description: 'True'
   kind: examples
   key: 'examples'
-  snippet: '>>> is_datetime64_dtype(np.array([], dtype=np.datetime64))'
+  snippet: |
+    >>> is_datetime64_dtype(np.array([], dtype=np.datetime64))
+    True
 - DocstringExample
-  description: 'False'
   kind: examples
   key: 'examples'
-  snippet: '>>> is_datetime64_dtype([1, 2, 3])'
+  snippet: |
+    >>> is_datetime64_dtype([1, 2, 3])
+    False
 === detect
 numpydoc
 === compose numpydoc

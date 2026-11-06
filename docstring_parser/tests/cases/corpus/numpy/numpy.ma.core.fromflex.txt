@@ -90,20 +90,35 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> x = np.ma.array(np.arange(9).reshape(3, 3), mask=[0] + [1, 0] * 4)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> rec = x.toflex()'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> rec
     array([[(0, False), (1,  True), (2, False)],
            [(3,  True), (4, False), (5,  True)],
            [(6, False), (7,  True), (8, False)]],
           dtype=[('_data', '<i8'), ('_mask', '?')])
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> x2 = np.ma.fromflex(rec)'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import numpy as np
-    >>> x = np.ma.array(np.arange(9).reshape(3, 3), mask=[0] + [1, 0] * 4)
-    >>> rec = x.toflex()
-    >>> rec
-- DocstringExample
-  description: |
+    >>> x2
     masked_array(
       data=[[0, --, 2],
             [--, 4, --],
@@ -112,27 +127,32 @@ style: numpydoc
             [ True, False,  True],
             [False,  True, False]],
       fill_value=999999)
-    
-    Extra fields can be present in the structured array but are discarded:
-    
+- DocstringExample
+  description: 'Extra fields can be present in the structured array but are discarded:'
+  kind: examples
+  key: 'examples'
+  snippet: ">>> dt = [('_data', '<i4'), ('_mask', '|b1'), ('field3', '<f4')]"
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> rec2 = np.zeros((2, 2), dtype=dt)'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> x2 = np.ma.fromflex(rec)
-    >>> x2
-- DocstringExample
-  description: |
+    >>> rec2
     array([[(0, False, 0.), (0, False, 0.)],
            [(0, False, 0.), (0, False, 0.)]],
           dtype=[('_data', '<i4'), ('_mask', '?'), ('field3', '<f4')])
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> y = np.ma.fromflex(rec2)'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> dt = [('_data', '<i4'), ('_mask', '|b1'), ('field3', '<f4')]
-    >>> rec2 = np.zeros((2, 2), dtype=dt)
-    >>> rec2
-- DocstringExample
-  description: |
+    >>> y
     masked_array(
       data=[[0, 0],
             [0, 0]],
@@ -140,11 +160,6 @@ style: numpydoc
             [False, False]],
       fill_value=np.int64(999999),
       dtype=int32)
-  kind: examples
-  key: 'examples'
-  snippet: |
-    >>> y = np.ma.fromflex(rec2)
-    >>> y
 === detect
 numpydoc
 === compose numpydoc

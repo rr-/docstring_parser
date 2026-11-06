@@ -154,35 +154,57 @@ style: numpydoc
   kind: text
   key: 'notes'
 - DocstringExample
-  description: 'True'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from scipy import linalg'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> rng = np.random.default_rng()'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> a = rng.standard_normal((6, 9))'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> r, q = linalg.rq(a)'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import numpy as np
-    >>> from scipy import linalg
-    >>> rng = np.random.default_rng()
-    >>> a = rng.standard_normal((6, 9))
-    >>> r, q = linalg.rq(a)
     >>> np.allclose(a, r @ q)
+    True
 - DocstringExample
-  description: '((6, 9), (9, 9))'
-  kind: examples
-  key: 'examples'
-  snippet: '>>> r.shape, q.shape'
-- DocstringExample
-  description: 'True'
   kind: examples
   key: 'examples'
   snippet: |
-    >>> r2 = linalg.rq(a, mode='r')
+    >>> r.shape, q.shape
+    ((6, 9), (9, 9))
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: ">>> r2 = linalg.rq(a, mode='r')"
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
     >>> np.allclose(r, r2)
+    True
 - DocstringExample
-  description: '((6, 6), (6, 9))'
+  kind: examples
+  key: 'examples'
+  snippet: ">>> r3, q3 = linalg.rq(a, mode='economic')"
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> r3, q3 = linalg.rq(a, mode='economic')
     >>> r3.shape, q3.shape
+    ((6, 6), (6, 9))
 === detect
 numpydoc
 === compose numpydoc

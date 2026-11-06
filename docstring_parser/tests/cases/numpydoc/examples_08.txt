@@ -18,20 +18,24 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: numpydoc
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: '>>> test1a'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> test1b
     desc1a
     desc1b
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> test2a'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> test1a
-    >>> test1b
-- DocstringExample
-  description: |
+    >>> test2b
     desc2a
     desc2b
-  kind: examples
-  key: 'examples'
-  snippet: |
-    >>> test2a
-    >>> test2b

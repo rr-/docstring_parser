@@ -175,49 +175,58 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: |
-    12
-    
-    Neither argument is complex-conjugated:
-    
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import numpy as np
     >>> np.dot(3, 4)
+    12
 - DocstringExample
-  description: |
-    (-13+0j)
-    
-    For 2-D arrays it is the matrix product:
-    
+  description: 'Neither argument is complex-conjugated:'
   kind: examples
   key: 'examples'
-  snippet: '>>> np.dot([2j, 3j], [2j, 3j])'
+  snippet: |
+    >>> np.dot([2j, 3j], [2j, 3j])
+    (-13+0j)
 - DocstringExample
-  description: |
+  description: 'For 2-D arrays it is the matrix product:'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> a = [[1, 0], [0, 1]]'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> b = [[4, 1], [2, 2]]'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> np.dot(a, b)
     array([[4, 1],
            [2, 2]])
-    
-  kind: examples
-  key: 'examples'
-  snippet: |
-    >>> a = [[1, 0], [0, 1]]
-    >>> b = [[4, 1], [2, 2]]
-    >>> np.dot(a, b)
 - DocstringExample
-  description: '499128'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> a = np.arange(3*4*5*6).reshape((3,4,5,6))'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> b = np.arange(3*4*5*6)[::-1].reshape((5,4,6,3))'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> a = np.arange(3*4*5*6).reshape((3,4,5,6))
-    >>> b = np.arange(3*4*5*6)[::-1].reshape((5,4,6,3))
     >>> np.dot(a, b)[2,3,2,1,2,2]
+    499128
 - DocstringExample
-  description: '499128'
   kind: examples
   key: 'examples'
-  snippet: '>>> sum(a[2,3,2,:] * b[1,2,:,2])'
+  snippet: |
+    >>> sum(a[2,3,2,:] * b[1,2,:,2])
+    499128
 === detect
 numpydoc
 === compose numpydoc
@@ -292,7 +301,6 @@ For 2-D arrays it is the matrix product:
 >>> np.dot(a, b)
 array([[4, 1],
        [2, 2]])
-
 >>> a = np.arange(3*4*5*6).reshape((3,4,5,6))
 >>> b = np.arange(3*4*5*6)[::-1].reshape((5,4,6,3))
 >>> np.dot(a, b)[2,3,2,1,2,2]

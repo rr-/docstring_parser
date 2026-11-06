@@ -78,14 +78,23 @@ style: numpydoc
   kind: text
   key: 'notes'
 - DocstringExample
-  description: 'array([  6.5,  12. ,  12. ,   4. ,   1.5])'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from numpy.polynomial import chebyshev as C'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> c1 = (1,2,3)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> c2 = (3,2,1)'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> from numpy.polynomial import chebyshev as C
-    >>> c1 = (1,2,3)
-    >>> c2 = (3,2,1)
     >>> C.chebmul(c1,c2) # multiplication requires "reprojection"
+    array([  6.5,  12. ,  12. ,   4. ,   1.5])
 === detect
 numpydoc
 === compose numpydoc

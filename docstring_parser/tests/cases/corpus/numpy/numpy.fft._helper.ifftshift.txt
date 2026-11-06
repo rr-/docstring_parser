@@ -68,24 +68,29 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: |
-    array([[ 0.,  1.,  2.],
-           [ 3.,  4., -4.],
-           [-3., -2., -1.]])
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> freqs = np.fft.fftfreq(9, d=1./9).reshape(3, 3)'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import numpy as np
-    >>> freqs = np.fft.fftfreq(9, d=1./9).reshape(3, 3)
     >>> freqs
-- DocstringExample
-  description: |
     array([[ 0.,  1.,  2.],
            [ 3.,  4., -4.],
            [-3., -2., -1.]])
+- DocstringExample
   kind: examples
   key: 'examples'
-  snippet: '>>> np.fft.ifftshift(np.fft.fftshift(freqs))'
+  snippet: |
+    >>> np.fft.ifftshift(np.fft.fftshift(freqs))
+    array([[ 0.,  1.,  2.],
+           [ 3.,  4., -4.],
+           [-3., -2., -1.]])
 === detect
 numpydoc
 === compose numpydoc

@@ -98,30 +98,59 @@ style: numpydoc
   type_name: 'np.recarray'
   is_generator: False
 - DocstringExample
-  description: "... byteorder='<')"
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from tempfile import TemporaryFile'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: ">>> a = np.empty(10,dtype='f8,i4,S5')"
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: ">>> a[5] = (0.5,10,'abcde')"
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>>'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> fd=TemporaryFile()'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: ">>> a = a.view(a.dtype.newbyteorder('<'))"
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> a.tofile(fd)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>>'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> _ = fd.seek(0)'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> from tempfile import TemporaryFile
-    >>> a = np.empty(10,dtype='f8,i4,S5')
-    >>> a[5] = (0.5,10,'abcde')
-    >>>
-    >>> fd=TemporaryFile()
-    >>> a = a.view(a.dtype.newbyteorder('<'))
-    >>> a.tofile(fd)
-    >>>
-    >>> _ = fd.seek(0)
     >>> r=np.rec.fromfile(fd, formats='f8,i4,S5', shape=10,
+    ... byteorder='<')
 - DocstringExample
-  description: "(0.5, 10, b'abcde')"
   kind: examples
   key: 'examples'
-  snippet: '>>> print(r[5])'
+  snippet: |
+    >>> print(r[5])
+    (0.5, 10, b'abcde')
 - DocstringExample
-  description: '(10,)'
   kind: examples
   key: 'examples'
-  snippet: '>>> r.shape'
+  snippet: |
+    >>> r.shape
+    (10,)
 === detect
 numpydoc
 === compose numpydoc

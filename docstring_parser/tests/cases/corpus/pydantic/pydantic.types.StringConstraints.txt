@@ -116,8 +116,8 @@ Attributes:
 Examples:
     ```python
     from typing import Annotated
-    
+
     from pydantic.types import StringConstraints
-    
+
     ConstrainedStr = Annotated[str, StringConstraints(min_length=1, max_length=10)]
     ```

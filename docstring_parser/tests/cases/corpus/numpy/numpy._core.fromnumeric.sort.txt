@@ -319,59 +319,67 @@ style: numpydoc
   kind: text
   key: 'notes'
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> a = np.array([[1,4],[3,1]])'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> np.sort(a)                # sort along the last axis
     array([[1, 4],
            [1, 3]])
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import numpy as np
-    >>> a = np.array([[1,4],[3,1]])
-    >>> np.sort(a)                # sort along the last axis
+    >>> np.sort(a, axis=None)     # sort the flattened array
+    array([1, 1, 3, 4])
 - DocstringExample
-  description: 'array([1, 1, 3, 4])'
   kind: examples
   key: 'examples'
-  snippet: '>>> np.sort(a, axis=None)     # sort the flattened array'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> np.sort(a, axis=0)        # sort along the first axis
     array([[1, 1],
            [3, 4]])
-    
+- DocstringExample
+  description: |
     Use the `order` keyword to specify a field to use when sorting a
     structured array:
-    
   kind: examples
   key: 'examples'
-  snippet: '>>> np.sort(a, axis=0)        # sort along the first axis'
+  snippet: ">>> dtype = [('name', 'S10'), ('height', float), ('age', int)]"
 - DocstringExample
-  description: "...           ('Galahad', 1.7, 38)]"
   kind: examples
   key: 'examples'
   snippet: |
-    >>> dtype = [('name', 'S10'), ('height', float), ('age', int)]
     >>> values = [('Arthur', 1.8, 41), ('Lancelot', 1.9, 38),
+    ...           ('Galahad', 1.7, 38)]
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: '>>> a = np.array(values, dtype=dtype)       # create a structured array'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> np.sort(a, order='height')                        # doctest: +SKIP
     array([('Galahad', 1.7, 38), ('Arthur', 1.8, 41),
            ('Lancelot', 1.8999999999999999, 38)],
           dtype=[('name', '|S10'), ('height', '<f8'), ('age', '<i4')])
-    
-    Sort by age, then height if ages are equal:
-    
+- DocstringExample
+  description: 'Sort by age, then height if ages are equal:'
   kind: examples
   key: 'examples'
   snippet: |
-    >>> a = np.array(values, dtype=dtype)       # create a structured array
-    >>> np.sort(a, order='height')                        # doctest: +SKIP
-- DocstringExample
-  description: |
+    >>> np.sort(a, order=['age', 'height'])               # doctest: +SKIP
     array([('Galahad', 1.7, 38), ('Lancelot', 1.8999999999999999, 38),
            ('Arthur', 1.8, 41)],
           dtype=[('name', '|S10'), ('height', '<f8'), ('age', '<i4')])
-  kind: examples
-  key: 'examples'
-  snippet: ">>> np.sort(a, order=['age', 'height'])               # doctest: +SKIP"
 === detect
 numpydoc
 === compose numpydoc

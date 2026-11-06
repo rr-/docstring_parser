@@ -82,26 +82,22 @@ style: numpydoc
   kind: text
   key: 'notes'
 - DocstringExample
-  description: |
-    We set the printing precision so the example can be auto-tested:
-    
-  kind: examples
-  key: 'examples'
-- DocstringExample
-  description: ''
+  description: 'We set the printing precision so the example can be auto-tested:'
   kind: examples
   key: 'examples'
   snippet: '>>> np.set_printoptions(precision=4)'
 - DocstringExample
-  description: '3.0'
   kind: examples
   key: 'examples'
-  snippet: '>>> np.emath.log2(8)'
+  snippet: |
+    >>> np.emath.log2(8)
+    3.0
 - DocstringExample
-  description: 'array([2.+4.5324j, 3.+4.5324j, 3.+0.j    ])'
   kind: examples
   key: 'examples'
-  snippet: '>>> np.emath.log2([-4, -8, 8])'
+  snippet: |
+    >>> np.emath.log2([-4, -8, 8])
+    array([2.+4.5324j, 3.+4.5324j, 3.+0.j    ])
 === detect
 numpydoc
 === compose numpydoc

@@ -10,6 +10,7 @@ from docstring_parser.google import (
     GoogleParser,
     Section,
     SectionType,
+    compose,
     parse,
 )
 
@@ -237,3 +238,25 @@ def test_raises_sphinx_type_head() -> None:
     )
     assert docstring.raises[0].type_name == "~pkg.Error"
     assert docstring.raises[0].description == "If it fails."
+
+
+def test_examples_split_as_doctest_reads_them() -> None:
+    """Test that each example is its text, then its snippet and output."""
+    text = (
+        "Short.\n\n"
+        "Examples:\n"
+        "    To print a number:\n\n"
+        "    >>> for i in range(1):\n"
+        "    ...     print(i)\n"
+        "    0\n\n"
+        "    Then more.\n"
+    )
+    docstring = parse(text)
+    assert len(docstring.examples) == 2
+    assert docstring.examples[0].description == "To print a number:"
+    assert docstring.examples[0].snippet == (
+        ">>> for i in range(1):\n...     print(i)\n0"
+    )
+    assert docstring.examples[1].description == "Then more."
+    assert docstring.examples[1].snippet is None
+    assert compose(docstring) == text.rstrip("\n")

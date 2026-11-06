@@ -237,82 +237,104 @@ style: numpydoc
   kind: text
   key: 'notes'
 - DocstringExample
-  description: |
-    
-    A t distribution with small degrees of freedom:
-    
   kind: examples
   key: 'examples'
-  snippet: |
-    >>> import numpy as np
-    >>> from scipy import stats
-    >>> import matplotlib.pyplot as plt
-    >>> nsample = 100
-    >>> rng = np.random.default_rng()
+  snippet: '>>> import numpy as np'
 - DocstringExample
-  description: |
-    
-    A t distribution with larger degrees of freedom:
-    
   kind: examples
   key: 'examples'
-  snippet: |
-    >>> ax1 = plt.subplot(221)
-    >>> x = stats.t.rvs(3, size=nsample, random_state=rng)
-    >>> res = stats.probplot(x, plot=plt)
+  snippet: '>>> from scipy import stats'
 - DocstringExample
-  description: |
-    
-    A mixture of two normal distributions with broadcasting:
-    
   kind: examples
   key: 'examples'
-  snippet: |
-    >>> ax2 = plt.subplot(222)
-    >>> x = stats.t.rvs(25, size=nsample, random_state=rng)
-    >>> res = stats.probplot(x, plot=plt)
+  snippet: '>>> import matplotlib.pyplot as plt'
 - DocstringExample
-  description: '...                    size=(nsample//2,2), random_state=rng).ravel()'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> nsample = 100'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> rng = np.random.default_rng()'
+- DocstringExample
+  description: 'A t distribution with small degrees of freedom:'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> ax1 = plt.subplot(221)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> x = stats.t.rvs(3, size=nsample, random_state=rng)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> res = stats.probplot(x, plot=plt)'
+- DocstringExample
+  description: 'A t distribution with larger degrees of freedom:'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> ax2 = plt.subplot(222)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> x = stats.t.rvs(25, size=nsample, random_state=rng)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> res = stats.probplot(x, plot=plt)'
+- DocstringExample
+  description: 'A mixture of two normal distributions with broadcasting:'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> ax3 = plt.subplot(223)'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> ax3 = plt.subplot(223)
     >>> x = stats.norm.rvs(loc=[0,5], scale=[1,1.5],
+    ...                    size=(nsample//2,2), random_state=rng).ravel()
 - DocstringExample
-  description: |
-    
-    A standard normal distribution:
-    
+  kind: examples
+  key: 'examples'
+  snippet: '>>> res = stats.probplot(x, plot=plt)'
+- DocstringExample
+  description: 'A standard normal distribution:'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> ax4 = plt.subplot(224)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> x = stats.norm.rvs(loc=0, scale=1, size=nsample, random_state=rng)'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: '>>> res = stats.probplot(x, plot=plt)'
 - DocstringExample
   description: |
-    
     Produce a new figure with a loggamma distribution, using the ``dist`` and
     ``sparams`` keywords:
-    
   kind: examples
   key: 'examples'
-  snippet: |
-    >>> ax4 = plt.subplot(224)
-    >>> x = stats.norm.rvs(loc=0, scale=1, size=nsample, random_state=rng)
-    >>> res = stats.probplot(x, plot=plt)
+  snippet: '>>> fig = plt.figure()'
 - DocstringExample
-  description: |
-    
-    Show the results with Matplotlib:
-    
   kind: examples
   key: 'examples'
-  snippet: |
-    >>> fig = plt.figure()
-    >>> ax = fig.add_subplot(111)
-    >>> x = stats.loggamma.rvs(c=2.5, size=500, random_state=rng)
-    >>> res = stats.probplot(x, dist=stats.loggamma, sparams=(2.5,), plot=ax)
-    >>> ax.set_title("Probplot for loggamma dist with shape parameter 2.5")
+  snippet: '>>> ax = fig.add_subplot(111)'
 - DocstringExample
-  description: ''
+  kind: examples
+  key: 'examples'
+  snippet: '>>> x = stats.loggamma.rvs(c=2.5, size=500, random_state=rng)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> res = stats.probplot(x, dist=stats.loggamma, sparams=(2.5,), plot=ax)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> ax.set_title("Probplot for loggamma dist with shape parameter 2.5")'
+- DocstringExample
+  description: 'Show the results with Matplotlib:'
   kind: examples
   key: 'examples'
   snippet: '>>> plt.show()'

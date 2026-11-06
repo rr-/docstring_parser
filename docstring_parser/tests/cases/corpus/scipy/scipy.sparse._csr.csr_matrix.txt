@@ -285,85 +285,123 @@ style: numpydoc
   kind: text
   key: 'notes'
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from scipy.sparse import csr_matrix'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> csr_matrix((3, 4), dtype=np.int8).toarray()
     array([[0, 0, 0, 0],
            [0, 0, 0, 0],
            [0, 0, 0, 0]], dtype=int8)
-    
-  kind: examples
-  key: 'examples'
-  snippet: |
-    >>> import numpy as np
-    >>> from scipy.sparse import csr_matrix
-    >>> csr_matrix((3, 4), dtype=np.int8).toarray()
 - DocstringExample
-  description: |
-    array([[1, 0, 2],
-           [0, 0, 3],
-           [4, 5, 6]])
-    
+  kind: examples
+  key: 'examples'
+  snippet: '>>> row = np.array([0, 0, 1, 2, 2, 2])'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> col = np.array([0, 2, 2, 0, 1, 2])'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> data = np.array([1, 2, 3, 4, 5, 6])'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> row = np.array([0, 0, 1, 2, 2, 2])
-    >>> col = np.array([0, 2, 2, 0, 1, 2])
-    >>> data = np.array([1, 2, 3, 4, 5, 6])
     >>> csr_matrix((data, (row, col)), shape=(3, 3)).toarray()
-- DocstringExample
-  description: |
     array([[1, 0, 2],
            [0, 0, 3],
            [4, 5, 6]])
-    
-    Duplicate entries are summed together:
-    
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> indptr = np.array([0, 2, 3, 6])'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> indices = np.array([0, 2, 2, 0, 1, 2])'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> data = np.array([1, 2, 3, 4, 5, 6])'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> indptr = np.array([0, 2, 3, 6])
-    >>> indices = np.array([0, 2, 2, 0, 1, 2])
-    >>> data = np.array([1, 2, 3, 4, 5, 6])
     >>> csr_matrix((data, indices, indptr), shape=(3, 3)).toarray()
+    array([[1, 0, 2],
+           [0, 0, 3],
+           [4, 5, 6]])
 - DocstringExample
-  description: |
+  description: 'Duplicate entries are summed together:'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> row = np.array([0, 1, 2, 0])'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> col = np.array([0, 1, 1, 0])'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> data = np.array([1, 2, 4, 8])'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> csr_matrix((data, (row, col)), shape=(3, 3)).toarray()
     array([[9, 0, 0],
            [0, 2, 0],
            [0, 4, 0]])
-    
+- DocstringExample
+  description: |
     As an example of how to construct a CSR matrix incrementally,
     the following snippet builds a term-document matrix from texts:
-    
+  kind: examples
+  key: 'examples'
+  snippet: '>>> docs = [["hello", "world", "hello"], ["goodbye", "cruel", "world"]]'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> indptr = [0]'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> indices = []'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> data = []'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> vocabulary = {}'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> row = np.array([0, 1, 2, 0])
-    >>> col = np.array([0, 1, 1, 0])
-    >>> data = np.array([1, 2, 4, 8])
-    >>> csr_matrix((data, (row, col)), shape=(3, 3)).toarray()
-- DocstringExample
-  description: |
+    >>> for d in docs:
     ...     for term in d:
     ...         index = vocabulary.setdefault(term, len(vocabulary))
     ...         indices.append(index)
     ...         data.append(1)
     ...     indptr.append(len(indices))
     ...
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> docs = [["hello", "world", "hello"], ["goodbye", "cruel", "world"]]
-    >>> indptr = [0]
-    >>> indices = []
-    >>> data = []
-    >>> vocabulary = {}
-    >>> for d in docs:
-- DocstringExample
-  description: |
+    >>> csr_matrix((data, indices, indptr), dtype=int).toarray()
     array([[2, 1, 0, 0],
            [0, 1, 1, 1]])
-  kind: examples
-  key: 'examples'
-  snippet: '>>> csr_matrix((data, indices, indptr), dtype=int).toarray()'
 === detect
 numpydoc
 === compose numpydoc
@@ -437,7 +475,6 @@ Examples
 array([[0, 0, 0, 0],
        [0, 0, 0, 0],
        [0, 0, 0, 0]], dtype=int8)
-
 >>> row = np.array([0, 0, 1, 2, 2, 2])
 >>> col = np.array([0, 2, 2, 0, 1, 2])
 >>> data = np.array([1, 2, 3, 4, 5, 6])
@@ -445,7 +482,6 @@ array([[0, 0, 0, 0],
 array([[1, 0, 2],
        [0, 0, 3],
        [4, 5, 6]])
-
 >>> indptr = np.array([0, 2, 3, 6])
 >>> indices = np.array([0, 2, 2, 0, 1, 2])
 >>> data = np.array([1, 2, 3, 4, 5, 6])

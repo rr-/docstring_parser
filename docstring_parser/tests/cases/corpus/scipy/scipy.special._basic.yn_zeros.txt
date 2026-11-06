@@ -96,46 +96,75 @@ style: numpydoc
   kind: text
   key: 'references'
 - DocstringExample
-  description: |
-    Compute the first four roots of :math:`Y_2`.
-    
+  description: 'Compute the first four roots of :math:`Y_2`.'
   kind: examples
   key: 'examples'
+  snippet: '>>> from scipy.special import yn_zeros'
 - DocstringExample
-  description: |
-    array([ 3.38424177,  6.79380751, 10.02347798, 13.20998671])
-    
-    Plot :math:`Y_2` and its first four roots.
-    
   kind: examples
   key: 'examples'
   snippet: |
-    >>> from scipy.special import yn_zeros
     >>> yn_zeros(2, 4)
+    array([ 3.38424177,  6.79380751, 10.02347798, 13.20998671])
 - DocstringExample
-  description: "...            label='Roots', zorder=5)"
+  description: 'Plot :math:`Y_2` and its first four roots.'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import matplotlib.pyplot as plt'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from scipy.special import yn, yn_zeros'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> xmin = 2'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> xmax = 15'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> x = np.linspace(xmin, xmax, 500)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> fig, ax = plt.subplots()'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: ">>> ax.hlines(0, xmin, xmax, color='k')"
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: ">>> ax.plot(x, yn(2, x), label=r'$Y_2$')"
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import numpy as np
-    >>> import matplotlib.pyplot as plt
-    >>> from scipy.special import yn, yn_zeros
-    >>> xmin = 2
-    >>> xmax = 15
-    >>> x = np.linspace(xmin, xmax, 500)
-    >>> fig, ax = plt.subplots()
-    >>> ax.hlines(0, xmin, xmax, color='k')
-    >>> ax.plot(x, yn(2, x), label=r'$Y_2$')
     >>> ax.scatter(yn_zeros(2, 4), np.zeros((4, )), s=30, c='r',
+    ...            label='Roots', zorder=5)
 - DocstringExample
-  description: ''
   kind: examples
   key: 'examples'
-  snippet: |
-    >>> ax.set_ylim(-0.4, 0.4)
-    >>> ax.set_xlim(xmin, xmax)
-    >>> plt.legend()
-    >>> plt.show()
+  snippet: '>>> ax.set_ylim(-0.4, 0.4)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> ax.set_xlim(xmin, xmax)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> plt.legend()'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> plt.show()'
 === detect
 numpydoc
 === compose numpydoc

@@ -396,22 +396,19 @@ style: numpydoc
     the combination of `start`, `end` and `periods`.
     
     Specify `start` and `end`, with the default daily frequency.
-    
   kind: examples
   key: 'examples'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> pd.date_range(start="1/1/2018", end="1/08/2018")
     DatetimeIndex(['2018-01-01', '2018-01-02', '2018-01-03', '2018-01-04',
                    '2018-01-05', '2018-01-06', '2018-01-07', '2018-01-08'],
                   dtype='datetime64[us]', freq='D')
-    
-    Specify timezone-aware `start` and `end`, with the default daily frequency.
-    
+- DocstringExample
+  description: 'Specify timezone-aware `start` and `end`, with the default daily frequency.'
   kind: examples
   key: 'examples'
-  snippet: '>>> pd.date_range(start="1/1/2018", end="1/08/2018")'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> pd.date_range(
     ...     start=pd.to_datetime("1/1/2018").tz_localize("Europe/Berlin"),
     ...     end=pd.to_datetime("1/08/2018").tz_localize("Europe/Berlin"),
     ... )
@@ -420,145 +417,123 @@ style: numpydoc
                    '2018-01-05 00:00:00+01:00', '2018-01-06 00:00:00+01:00',
                    '2018-01-07 00:00:00+01:00', '2018-01-08 00:00:00+01:00'],
                   dtype='datetime64[us, Europe/Berlin]', freq='D')
-    
-    Specify `start` and `periods`, the number of periods (days).
-    
+- DocstringExample
+  description: 'Specify `start` and `periods`, the number of periods (days).'
   kind: examples
   key: 'examples'
-  snippet: '>>> pd.date_range('
-- DocstringExample
-  description: |
+  snippet: |
+    >>> pd.date_range(start="1/1/2018", periods=8)
     DatetimeIndex(['2018-01-01', '2018-01-02', '2018-01-03', '2018-01-04',
                    '2018-01-05', '2018-01-06', '2018-01-07', '2018-01-08'],
                   dtype='datetime64[us]', freq='D')
-    
-    Specify `end` and `periods`, the number of periods (days).
-    
+- DocstringExample
+  description: 'Specify `end` and `periods`, the number of periods (days).'
   kind: examples
   key: 'examples'
-  snippet: '>>> pd.date_range(start="1/1/2018", periods=8)'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> pd.date_range(end="1/1/2018", periods=8)
     DatetimeIndex(['2017-12-25', '2017-12-26', '2017-12-27', '2017-12-28',
                    '2017-12-29', '2017-12-30', '2017-12-31', '2018-01-01'],
                   dtype='datetime64[us]', freq='D')
-    
-    Specify `start`, `end`, and `periods`; the frequency is generated
-    automatically (linearly spaced).
-    
-  kind: examples
-  key: 'examples'
-  snippet: '>>> pd.date_range(end="1/1/2018", periods=8)'
 - DocstringExample
   description: |
+    Specify `start`, `end`, and `periods`; the frequency is generated
+    automatically (linearly spaced).
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> pd.date_range(start="2018-04-24", end="2018-04-27", periods=3)
     DatetimeIndex(['2018-04-24 00:00:00', '2018-04-25 12:00:00',
                    '2018-04-27 00:00:00'],
                   dtype='datetime64[us]', freq=None)
-    
+- DocstringExample
+  description: |
     **Other Parameters**
     
     Changed the `freq` (frequency) to ``'ME'`` (month end frequency).
-    
   kind: examples
   key: 'examples'
-  snippet: '>>> pd.date_range(start="2018-04-24", end="2018-04-27", periods=3)'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> pd.date_range(start="1/1/2018", periods=5, freq="ME")
     DatetimeIndex(['2018-01-31', '2018-02-28', '2018-03-31', '2018-04-30',
                    '2018-05-31'],
                   dtype='datetime64[us]', freq='ME')
-    
-    Multiples are allowed
-    
+- DocstringExample
+  description: 'Multiples are allowed'
   kind: examples
   key: 'examples'
-  snippet: '>>> pd.date_range(start="1/1/2018", periods=5, freq="ME")'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> pd.date_range(start="1/1/2018", periods=5, freq="3ME")
     DatetimeIndex(['2018-01-31', '2018-04-30', '2018-07-31', '2018-10-31',
                    '2019-01-31'],
                   dtype='datetime64[us]', freq='3ME')
-    
-    `freq` can also be specified as an Offset object.
-    
+- DocstringExample
+  description: '`freq` can also be specified as an Offset object.'
   kind: examples
   key: 'examples'
-  snippet: '>>> pd.date_range(start="1/1/2018", periods=5, freq="3ME")'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> pd.date_range(start="1/1/2018", periods=5, freq=pd.offsets.MonthEnd(3))
     DatetimeIndex(['2018-01-31', '2018-04-30', '2018-07-31', '2018-10-31',
                    '2019-01-31'],
                   dtype='datetime64[us]', freq='3ME')
-    
+- DocstringExample
+  description: |
     Use :class:`pandas.DateOffset` for calendar steps that are not anchored to
     the start or end of a period.
-    
   kind: examples
   key: 'examples'
-  snippet: '>>> pd.date_range(start="1/1/2018", periods=5, freq=pd.offsets.MonthEnd(3))'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> pd.date_range(end="2017-03-12", periods=3, freq=pd.DateOffset(years=1))
     DatetimeIndex(['2015-03-12', '2016-03-12', '2017-03-12'],
                   dtype='datetime64[us]', freq='<DateOffset: years=1>')
-    
-    Specify `tz` to set the timezone.
-    
+- DocstringExample
+  description: 'Specify `tz` to set the timezone.'
   kind: examples
   key: 'examples'
-  snippet: '>>> pd.date_range(end="2017-03-12", periods=3, freq=pd.DateOffset(years=1))'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> pd.date_range(start="1/1/2018", periods=5, tz="Asia/Tokyo")
     DatetimeIndex(['2018-01-01 00:00:00+09:00', '2018-01-02 00:00:00+09:00',
                    '2018-01-03 00:00:00+09:00', '2018-01-04 00:00:00+09:00',
                    '2018-01-05 00:00:00+09:00'],
                   dtype='datetime64[us, Asia/Tokyo]', freq='D')
-    
+- DocstringExample
+  description: |
     `inclusive` controls whether to include `start` and `end` that are on the
     boundary. The default, "both", includes boundary points on either end.
-    
   kind: examples
   key: 'examples'
-  snippet: '>>> pd.date_range(start="1/1/2018", periods=5, tz="Asia/Tokyo")'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> pd.date_range(start="2017-01-01", end="2017-01-04", inclusive="both")
     DatetimeIndex(['2017-01-01', '2017-01-02', '2017-01-03', '2017-01-04'],
                   dtype='datetime64[us]', freq='D')
-    
-    Use ``inclusive='left'`` to exclude `end` if it falls on the boundary.
-    
+- DocstringExample
+  description: "Use ``inclusive='left'`` to exclude `end` if it falls on the boundary."
   kind: examples
   key: 'examples'
-  snippet: '>>> pd.date_range(start="2017-01-01", end="2017-01-04", inclusive="both")'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> pd.date_range(start="2017-01-01", end="2017-01-04", inclusive="left")
     DatetimeIndex(['2017-01-01', '2017-01-02', '2017-01-03'],
                   dtype='datetime64[us]', freq='D')
-    
+- DocstringExample
+  description: |
     Use ``inclusive='right'`` to exclude `start` if it falls on the boundary, and
     similarly ``inclusive='neither'`` will exclude both `start` and `end`.
-    
   kind: examples
   key: 'examples'
-  snippet: '>>> pd.date_range(start="2017-01-01", end="2017-01-04", inclusive="left")'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> pd.date_range(start="2017-01-01", end="2017-01-04", inclusive="right")
     DatetimeIndex(['2017-01-02', '2017-01-03', '2017-01-04'],
                   dtype='datetime64[us]', freq='D')
-    
-    **Specify a unit**
-    
+- DocstringExample
+  description: '**Specify a unit**'
   kind: examples
   key: 'examples'
-  snippet: '>>> pd.date_range(start="2017-01-01", end="2017-01-04", inclusive="right")'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> pd.date_range(start="2017-01-01", periods=10, freq="100YS", unit="s")
     DatetimeIndex(['2017-01-01', '2117-01-01', '2217-01-01', '2317-01-01',
                    '2417-01-01', '2517-01-01', '2617-01-01', '2717-01-01',
                    '2817-01-01', '2917-01-01'],
                   dtype='datetime64[s]', freq='100YS-JAN')
-  kind: examples
-  key: 'examples'
-  snippet: '>>> pd.date_range(start="2017-01-01", periods=10, freq="100YS", unit="s")'
 === detect
 numpydoc
 === compose numpydoc

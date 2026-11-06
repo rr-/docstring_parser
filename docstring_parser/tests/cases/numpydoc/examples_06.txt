@@ -13,12 +13,14 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: numpydoc
 - DocstringExample
-  description: 'desc1'
   kind: examples
   key: 'examples'
-  snippet: '>>> test1'
+  snippet: |
+    >>> test1
+    desc1
 - DocstringExample
-  description: 'desc2'
   kind: examples
   key: 'examples'
-  snippet: '>>> test2'
+  snippet: |
+    >>> test2
+    desc2

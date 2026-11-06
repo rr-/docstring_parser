@@ -166,28 +166,33 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> # Number of weekdays in January 2011
     ... np.busday_count('2011-01', '2011-02')
     21
-  kind: examples
-  key: 'examples'
-  snippet: |
-    >>> import numpy as np
-    >>> # Number of weekdays in January 2011
 - DocstringExample
-  description: '260'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> # Number of weekdays in 2011'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> # Number of weekdays in 2011
     >>> np.busday_count('2011', '2012')
+    260
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> # Number of Saturdays in 2011
     ... np.busday_count('2011', '2012', weekmask='Sat')
     53
-  kind: examples
-  key: 'examples'
-  snippet: '>>> # Number of Saturdays in 2011'
 === detect
 numpydoc
 === compose numpydoc

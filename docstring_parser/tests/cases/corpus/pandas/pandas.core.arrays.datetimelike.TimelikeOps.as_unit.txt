@@ -75,43 +75,41 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: |
-    For :class:`pandas.DatetimeIndex`:
-    
+  description: 'For :class:`pandas.DatetimeIndex`:'
   kind: examples
   key: 'examples'
+  snippet: '>>> idx = pd.DatetimeIndex(["2020-01-02 01:02:03.004005006"])'
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> idx
     DatetimeIndex(['2020-01-02 01:02:03.004005006'],
                   dtype='datetime64[ns]', freq=None)
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> idx = pd.DatetimeIndex(["2020-01-02 01:02:03.004005006"])
-    >>> idx
-- DocstringExample
-  description: |
+    >>> idx.as_unit("s")
     DatetimeIndex(['2020-01-02 01:02:03'], dtype='datetime64[s]', freq=None)
-    
-    For :class:`pandas.TimedeltaIndex`:
-    
+- DocstringExample
+  description: 'For :class:`pandas.TimedeltaIndex`:'
   kind: examples
   key: 'examples'
-  snippet: '>>> idx.as_unit("s")'
+  snippet: '>>> tdelta_idx = pd.to_timedelta(["1 day 3 min 2 us 42 ns"])'
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> tdelta_idx
     TimedeltaIndex(['1 days 00:03:00.000002042'],
                     dtype='timedelta64[ns]', freq=None)
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> tdelta_idx = pd.to_timedelta(["1 day 3 min 2 us 42 ns"])
-    >>> tdelta_idx
-- DocstringExample
-  description: "TimedeltaIndex(['1 days 00:03:00'], dtype='timedelta64[s]', freq=None)"
-  kind: examples
-  key: 'examples'
-  snippet: '>>> tdelta_idx.as_unit("s")'
+    >>> tdelta_idx.as_unit("s")
+    TimedeltaIndex(['1 days 00:03:00'], dtype='timedelta64[s]', freq=None)
 === detect
 numpydoc
 === compose numpydoc

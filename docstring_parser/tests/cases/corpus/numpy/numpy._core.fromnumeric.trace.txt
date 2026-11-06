@@ -135,28 +135,35 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: '3.0'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import numpy as np
     >>> np.trace(np.eye(3))
+    3.0
 - DocstringExample
-  description: |
-    array([6, 8])
-    
+  kind: examples
+  key: 'examples'
+  snippet: '>>> a = np.arange(8).reshape((2,2,2))'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> a = np.arange(8).reshape((2,2,2))
     >>> np.trace(a)
+    array([6, 8])
 - DocstringExample
-  description: '(2, 3)'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> a = np.arange(24).reshape((2,2,2,3))'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> a = np.arange(24).reshape((2,2,2,3))
     >>> np.trace(a).shape
+    (2, 3)
 === detect
 numpydoc
 === compose numpydoc
@@ -205,7 +212,6 @@ Examples
 >>> a = np.arange(8).reshape((2,2,2))
 >>> np.trace(a)
 array([6, 8])
-
 >>> a = np.arange(24).reshape((2,2,2,3))
 >>> np.trace(a).shape
 (2, 3)

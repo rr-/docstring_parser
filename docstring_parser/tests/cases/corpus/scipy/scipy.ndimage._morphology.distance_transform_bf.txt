@@ -288,144 +288,184 @@ style: numpydoc
   kind: text
   key: 'references'
 - DocstringExample
-  description: |
-    Import the necessary modules.
-    
+  description: 'Import the necessary modules.'
   kind: examples
   key: 'examples'
+  snippet: '>>> import numpy as np'
 - DocstringExample
-  description: |
-    
-    First, we create a toy binary image.
-    
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from scipy.ndimage import distance_transform_bf'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import matplotlib.pyplot as plt'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from mpl_toolkits.axes_grid1 import ImageGrid'
+- DocstringExample
+  description: 'First, we create a toy binary image.'
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import numpy as np
-    >>> from scipy.ndimage import distance_transform_bf
-    >>> import matplotlib.pyplot as plt
-    >>> from mpl_toolkits.axes_grid1 import ImageGrid
-- DocstringExample
-  description: |
+    >>> def add_circle(center_x, center_y, radius, image, fillvalue=1):
     ...     # fill circular area with 1
     ...     xx, yy = np.mgrid[:image.shape[0], :image.shape[1]]
     ...     circle = (xx - center_x) ** 2 + (yy - center_y) ** 2
     ...     circle_shape = np.sqrt(circle) < radius
     ...     image[circle_shape] = fillvalue
     ...     return image
+- DocstringExample
   kind: examples
   key: 'examples'
-  snippet: '>>> def add_circle(center_x, center_y, radius, image, fillvalue=1):'
+  snippet: '>>> image = np.zeros((100, 100), dtype=np.uint8)'
 - DocstringExample
-  description: |
-    
-    Next, we set up the figure.
-    
+  kind: examples
+  key: 'examples'
+  snippet: '>>> image[35:65, 20:80] = 1'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> image = add_circle(28, 65, 10, image)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> image = add_circle(37, 30, 10, image)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> image = add_circle(70, 45, 20, image)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> image = add_circle(45, 80, 10, image)'
+- DocstringExample
+  description: 'Next, we set up the figure.'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> fig = plt.figure(figsize=(8, 8))  # set up the figure structure'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> image = np.zeros((100, 100), dtype=np.uint8)
-    >>> image[35:65, 20:80] = 1
-    >>> image = add_circle(28, 65, 10, image)
-    >>> image = add_circle(37, 30, 10, image)
-    >>> image = add_circle(70, 45, 20, image)
-    >>> image = add_circle(45, 80, 10, image)
-- DocstringExample
-  description: |
+    >>> grid = ImageGrid(fig, 111, nrows_ncols=(2, 2), axes_pad=(0.4, 0.3),
     ...                  label_mode="1", share_all=True,
     ...                  cbar_location="right", cbar_mode="each",
     ...                  cbar_size="7%", cbar_pad="2%")
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> fig = plt.figure(figsize=(8, 8))  # set up the figure structure
-    >>> grid = ImageGrid(fig, 111, nrows_ncols=(2, 2), axes_pad=(0.4, 0.3),
-- DocstringExample
-  description: |
+    >>> for ax in grid:
     ...     ax.axis('off')  # remove axes from images
-    
-    The top left image is the original binary image.
-    
+- DocstringExample
+  description: 'The top left image is the original binary image.'
   kind: examples
   key: 'examples'
-  snippet: '>>> for ax in grid:'
+  snippet: ">>> binary_image = grid[0].imshow(image, cmap='gray')"
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> cbar_binary_image = grid.cbar_axes[0].colorbar(binary_image)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> cbar_binary_image.set_ticks([0, 1])'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> grid[0].set_title("Binary image: foreground in white")'
 - DocstringExample
   description: |
-    
     The distance transform calculates the distance between foreground pixels
     and the image background according to a distance metric. Available metrics
     in `distance_transform_bf` are: ``euclidean`` (default), ``taxicab``
     and ``chessboard``. The top right image contains the distance transform
     based on the ``euclidean`` metric.
-    
   kind: examples
   key: 'examples'
-  snippet: |
-    >>> binary_image = grid[0].imshow(image, cmap='gray')
-    >>> cbar_binary_image = grid.cbar_axes[0].colorbar(binary_image)
-    >>> cbar_binary_image.set_ticks([0, 1])
-    >>> grid[0].set_title("Binary image: foreground in white")
+  snippet: '>>> distance_transform_euclidean = distance_transform_bf(image)'
 - DocstringExample
-  description: "...                                      cmap='gray')"
   kind: examples
   key: 'examples'
   snippet: |
-    >>> distance_transform_euclidean = distance_transform_bf(image)
     >>> euclidean_transform = grid[1].imshow(distance_transform_euclidean,
+    ...                                      cmap='gray')
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> cbar_euclidean = grid.cbar_axes[1].colorbar(euclidean_transform)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> colorbar_ticks = [0, 10, 20]'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> cbar_euclidean.set_ticks(colorbar_ticks)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> grid[1].set_title("Euclidean distance")'
 - DocstringExample
   description: |
-    
     The lower left image contains the distance transform using the ``taxicab``
     metric.
-    
   kind: examples
   key: 'examples'
   snippet: |
-    >>> cbar_euclidean = grid.cbar_axes[1].colorbar(euclidean_transform)
-    >>> colorbar_ticks = [0, 10, 20]
-    >>> cbar_euclidean.set_ticks(colorbar_ticks)
-    >>> grid[1].set_title("Euclidean distance")
+    >>> distance_transform_taxicab = distance_transform_bf(image,
+    ...                                                    metric='taxicab')
 - DocstringExample
-  description: "...                                                    metric='taxicab')"
   kind: examples
   key: 'examples'
-  snippet: '>>> distance_transform_taxicab = distance_transform_bf(image,'
+  snippet: |
+    >>> taxicab_transformation = grid[2].imshow(distance_transform_taxicab,
+    ...                                         cmap='gray')
 - DocstringExample
-  description: "...                                         cmap='gray')"
   kind: examples
   key: 'examples'
-  snippet: '>>> taxicab_transformation = grid[2].imshow(distance_transform_taxicab,'
+  snippet: '>>> cbar_taxicab = grid.cbar_axes[2].colorbar(taxicab_transformation)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> cbar_taxicab.set_ticks(colorbar_ticks)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> grid[2].set_title("Taxicab distance")'
 - DocstringExample
   description: |
-    
     Finally, the lower right image contains the distance transform using the
     ``chessboard`` metric.
-    
   kind: examples
   key: 'examples'
   snippet: |
-    >>> cbar_taxicab = grid.cbar_axes[2].colorbar(taxicab_transformation)
-    >>> cbar_taxicab.set_ticks(colorbar_ticks)
-    >>> grid[2].set_title("Taxicab distance")
+    >>> distance_transform_cb = distance_transform_bf(image,
+    ...                                               metric='chessboard')
 - DocstringExample
-  description: "...                                               metric='chessboard')"
-  kind: examples
-  key: 'examples'
-  snippet: '>>> distance_transform_cb = distance_transform_bf(image,'
-- DocstringExample
-  description: "...                                            cmap='gray')"
-  kind: examples
-  key: 'examples'
-  snippet: '>>> chessboard_transformation = grid[3].imshow(distance_transform_cb,'
-- DocstringExample
-  description: ''
   kind: examples
   key: 'examples'
   snippet: |
-    >>> cbar_taxicab = grid.cbar_axes[3].colorbar(chessboard_transformation)
-    >>> cbar_taxicab.set_ticks(colorbar_ticks)
-    >>> grid[3].set_title("Chessboard distance")
-    >>> plt.show()
+    >>> chessboard_transformation = grid[3].imshow(distance_transform_cb,
+    ...                                            cmap='gray')
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> cbar_taxicab = grid.cbar_axes[3].colorbar(chessboard_transformation)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> cbar_taxicab.set_ticks(colorbar_ticks)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> grid[3].set_title("Chessboard distance")'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> plt.show()'
 === detect
 numpydoc
 === compose numpydoc

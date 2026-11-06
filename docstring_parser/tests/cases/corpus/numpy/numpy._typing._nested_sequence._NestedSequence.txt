@@ -55,21 +55,44 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: |
-    .. code-block:: python
-    
-        >>> from typing import TYPE_CHECKING
-        >>> import numpy as np
-        >>> from numpy._typing import _NestedSequence
-    
+  description: '.. code-block:: python'
+  kind: examples
+  key: 'examples'
+  snippet: '    >>> from typing import TYPE_CHECKING'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '    >>> import numpy as np'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '    >>> from numpy._typing import _NestedSequence'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
         >>> def get_dtype(seq: _NestedSequence[float]) -> np.dtype[np.float64]:
         ...     return np.asarray(seq).dtype
-    
-        >>> a = get_dtype([1.0])
-        >>> b = get_dtype([[1.0]])
-        >>> c = get_dtype([[[1.0]]])
-        >>> d = get_dtype([[[[1.0]]]])
-    
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '    >>> a = get_dtype([1.0])'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '    >>> b = get_dtype([[1.0]])'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '    >>> c = get_dtype([[[1.0]]])'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '    >>> d = get_dtype([[[[1.0]]]])'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
         >>> if TYPE_CHECKING:
         ...     reveal_locals()
         ...     # note: Revealed local types are:
@@ -77,8 +100,6 @@ style: numpydoc
         ...     # note:     b: numpy.dtype[numpy.floating[numpy._typing._64Bit]]
         ...     # note:     c: numpy.dtype[numpy.floating[numpy._typing._64Bit]]
         ...     # note:     d: numpy.dtype[numpy.floating[numpy._typing._64Bit]]
-  kind: examples
-  key: 'examples'
 === detect
 numpydoc
 === compose numpydoc
@@ -91,15 +112,12 @@ Examples
     >>> from typing import TYPE_CHECKING
     >>> import numpy as np
     >>> from numpy._typing import _NestedSequence
-
     >>> def get_dtype(seq: _NestedSequence[float]) -> np.dtype[np.float64]:
     ...     return np.asarray(seq).dtype
-
     >>> a = get_dtype([1.0])
     >>> b = get_dtype([[1.0]])
     >>> c = get_dtype([[[1.0]]])
     >>> d = get_dtype([[[[1.0]]]])
-
     >>> if TYPE_CHECKING:
     ...     reveal_locals()
     ...     # note: Revealed local types are:

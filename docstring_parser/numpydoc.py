@@ -8,7 +8,7 @@ import re
 import typing as T
 from textwrap import dedent
 
-from ._compose import SectionTable, kind_of, sections
+from ._compose import SectionTable, examples_text, kind_of, sections
 from ._lines import Lines
 from ._text import (
     DEFAULT_IN_DESCRIPTION,
@@ -18,6 +18,7 @@ from ._text import (
     clean_str,
     param_spec,
     split_description,
+    split_examples,
 )
 from .common import (
     BaseParser,
@@ -337,23 +338,11 @@ class ExamplesSection(Section):
         :param text: section body text. Should be cleaned with
                      ``inspect.cleandoc`` before parsing.
         """
-        lines = dedent(text).strip().splitlines()
-        # Walk an index instead of popping from the front, which is
-        # quadratic in the number of lines.
-        i = 0
-        while i < len(lines):
-            snippet_lines = []
-            description_lines = []
-            while i < len(lines) and lines[i].startswith(">>>"):
-                snippet_lines.append(lines[i])
-                i += 1
-            while i < len(lines) and not lines[i].startswith(">>>"):
-                description_lines.append(lines[i])
-                i += 1
+        for example in split_examples(dedent(text).strip()):
             yield DocstringExample(
                 key=self.key,
-                snippet="\n".join(snippet_lines) if snippet_lines else None,
-                description="\n".join(description_lines),
+                snippet=example.snippet,
+                description=example.description,
             )
 
 
@@ -718,11 +707,7 @@ def compose(
         blank_line()
         parts.append("Examples")
         parts.append("--------")
-        for example in docstring.examples:
-            if example.snippet:
-                parts.append(example.snippet)
-            if example.description:
-                parts.append(example.description)
+        parts.append(examples_text(docstring.examples))
 
     for meta in rest:
         if kind_of(meta) in {Kind.DEPRECATION, Kind.EXAMPLES}:

@@ -53,15 +53,20 @@ style: numpydoc
   is_generator: False
   return_name: 'mat'
 - DocstringExample
-  description: |
-    array([[ 0.        , -0.33333333],
-           [ 1.        , -0.66666667]])
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from numpy.polynomial import polynomial as P'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> c = (1, 2, 3)'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> from numpy.polynomial import polynomial as P
-    >>> c = (1, 2, 3)
     >>> P.polycompanion(c)
+    array([[ 0.        , -0.33333333],
+           [ 1.        , -0.66666667]])
 === detect
 numpydoc
 === compose numpydoc

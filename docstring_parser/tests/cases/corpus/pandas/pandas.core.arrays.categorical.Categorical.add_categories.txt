@@ -79,22 +79,23 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: |
-    ['c', 'b', 'c']
-    Categories (2, str): ['b', 'c']
-    
+  kind: examples
+  key: 'examples'
+  snippet: '>>> c = pd.Categorical(["c", "b", "c"])'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> c = pd.Categorical(["c", "b", "c"])
     >>> c
-- DocstringExample
-  description: |
     ['c', 'b', 'c']
-    Categories (4, str): ['b', 'c', 'd', 'a']
+    Categories (2, str): ['b', 'c']
+- DocstringExample
   kind: examples
   key: 'examples'
-  snippet: '>>> c.add_categories(["d", "a"])'
+  snippet: |
+    >>> c.add_categories(["d", "a"])
+    ['c', 'b', 'c']
+    Categories (4, str): ['b', 'c', 'd', 'a']
 === detect
 numpydoc
 === compose numpydoc
@@ -125,7 +126,6 @@ Examples
 >>> c
 ['c', 'b', 'c']
 Categories (2, str): ['b', 'c']
-
 >>> c.add_categories(["d", "a"])
 ['c', 'b', 'c']
 Categories (4, str): ['b', 'c', 'd', 'a']

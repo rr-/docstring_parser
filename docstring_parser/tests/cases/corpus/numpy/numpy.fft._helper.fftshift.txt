@@ -80,40 +80,46 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: 'array([ 0.,  1.,  2., ..., -3., -2., -1.])'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> freqs = np.fft.fftfreq(10, 0.1)'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import numpy as np
-    >>> freqs = np.fft.fftfreq(10, 0.1)
     >>> freqs
+    array([ 0.,  1.,  2., ..., -3., -2., -1.])
 - DocstringExample
-  description: |
-    array([-5., -4., -3., -2., -1.,  0.,  1.,  2.,  3.,  4.])
-    
-    Shift the zero-frequency component only along the second axis:
-    
   kind: examples
   key: 'examples'
-  snippet: '>>> np.fft.fftshift(freqs)'
+  snippet: |
+    >>> np.fft.fftshift(freqs)
+    array([-5., -4., -3., -2., -1.,  0.,  1.,  2.,  3.,  4.])
 - DocstringExample
-  description: |
+  description: 'Shift the zero-frequency component only along the second axis:'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> freqs = np.fft.fftfreq(9, d=1./9).reshape(3, 3)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> freqs
     array([[ 0.,  1.,  2.],
            [ 3.,  4., -4.],
            [-3., -2., -1.]])
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> freqs = np.fft.fftfreq(9, d=1./9).reshape(3, 3)
-    >>> freqs
-- DocstringExample
-  description: |
+    >>> np.fft.fftshift(freqs, axes=(1,))
     array([[ 2.,  0.,  1.],
            [-4.,  3.,  4.],
            [-1., -3., -2.]])
-  kind: examples
-  key: 'examples'
-  snippet: '>>> np.fft.fftshift(freqs, axes=(1,))'
 === detect
 numpydoc
 === compose numpydoc

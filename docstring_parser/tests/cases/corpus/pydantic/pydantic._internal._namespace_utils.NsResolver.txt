@@ -221,16 +221,16 @@ Examples:
     ns_resolver = NsResolver(
         parent_namespace={'fallback': 1},
     )
-    
+
     class Sub:
         m: 'Model'
-    
+
     class Model:
         some_local = 1
         sub: Sub
-    
+
     ns_resolver = NsResolver()
-    
+
     # This is roughly what happens when we build a core schema for `Model`:
     with ns_resolver.push(Model):
         ns_resolver.types_namespace
@@ -238,7 +238,7 @@ Examples:
         # First thing to notice here, the model being pushed is added to the locals.
         # Because `NsResolver` is being used during the model definition, it is not
         # yet added to the globals. This is useful when resolving self-referencing annotations.
-    
+
         with ns_resolver.push(Sub):
             ns_resolver.types_namespace
             #> NamespacesTuple({'Sub': Sub}, {'Sub': Sub, 'Model': Model})

@@ -70,19 +70,29 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: 'True'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import io'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from pandas.api.types import is_file_like'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> buffer = io.StringIO("data")'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import io
-    >>> from pandas.api.types import is_file_like
-    >>> buffer = io.StringIO("data")
     >>> is_file_like(buffer)
+    True
 - DocstringExample
-  description: 'False'
   kind: examples
   key: 'examples'
-  snippet: '>>> is_file_like([1, 2, 3])'
+  snippet: |
+    >>> is_file_like([1, 2, 3])
+    False
 === detect
 numpydoc
 === compose numpydoc

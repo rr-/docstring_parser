@@ -109,54 +109,76 @@ style: numpydoc
   kind: text
   key: 'notes'
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from scipy import ndimage'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> a = np.zeros((6,6), dtype=int)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> a[2:4, 2:4] = 1'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> a[4, 4] = 1'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> a[:2, :3] = 2'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> a[0, 5] = 3'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> a
     array([[2, 2, 2, 0, 0, 3],
            [2, 2, 2, 0, 0, 0],
            [0, 0, 1, 1, 0, 0],
            [0, 0, 1, 1, 0, 0],
            [0, 0, 0, 0, 1, 0],
            [0, 0, 0, 0, 0, 0]])
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> from scipy import ndimage
-    >>> import numpy as np
-    >>> a = np.zeros((6,6), dtype=int)
-    >>> a[2:4, 2:4] = 1
-    >>> a[4, 4] = 1
-    >>> a[:2, :3] = 2
-    >>> a[0, 5] = 3
-    >>> a
-- DocstringExample
-  description: |
+    >>> ndimage.find_objects(a)
     [(slice(2, 5, None), slice(2, 5, None)),
      (slice(0, 2, None), slice(0, 3, None)),
      (slice(0, 1, None), slice(5, 6, None))]
-  kind: examples
-  key: 'examples'
-  snippet: '>>> ndimage.find_objects(a)'
 - DocstringExample
-  description: '[(slice(2, 5, None), slice(2, 5, None)), (slice(0, 2, None), slice(0, 3, None))]'
-  kind: examples
-  key: 'examples'
-  snippet: '>>> ndimage.find_objects(a, max_label=2)'
-- DocstringExample
-  description: |
-    [(slice(2, 5, None), slice(2, 5, None)), None]
-    
-  kind: examples
-  key: 'examples'
-  snippet: '>>> ndimage.find_objects(a == 1, max_label=2)'
-- DocstringExample
-  description: |
-    array([[1, 1, 0],
-           [1, 1, 0],
-           [0, 0, 1]])
   kind: examples
   key: 'examples'
   snippet: |
-    >>> loc = ndimage.find_objects(a)[0]
+    >>> ndimage.find_objects(a, max_label=2)
+    [(slice(2, 5, None), slice(2, 5, None)), (slice(0, 2, None), slice(0, 3, None))]
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> ndimage.find_objects(a == 1, max_label=2)
+    [(slice(2, 5, None), slice(2, 5, None)), None]
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> loc = ndimage.find_objects(a)[0]'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
     >>> a[loc]
+    array([[1, 1, 0],
+           [1, 1, 0],
+           [0, 0, 1]])
 === detect
 numpydoc
 === compose numpydoc
@@ -204,7 +226,6 @@ array([[2, 2, 2, 0, 0, 3],
 [(slice(2, 5, None), slice(2, 5, None)), (slice(0, 2, None), slice(0, 3, None))]
 >>> ndimage.find_objects(a == 1, max_label=2)
 [(slice(2, 5, None), slice(2, 5, None)), None]
-
 >>> loc = ndimage.find_objects(a)[0]
 >>> a[loc]
 array([[1, 1, 0],

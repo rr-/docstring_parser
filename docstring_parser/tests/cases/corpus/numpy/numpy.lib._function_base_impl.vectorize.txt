@@ -280,157 +280,173 @@ style: numpydoc
   kind: text
   key: 'references'
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> def myfunc(a, b):
     ...     "Return a-b if a>b, otherwise return a+b"
     ...     if a > b:
     ...         return a - b
     ...     else:
     ...         return a + b
-    
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> vfunc = np.vectorize(myfunc)'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import numpy as np
-    >>> def myfunc(a, b):
+    >>> vfunc([1, 2, 3, 4], 2)
+    array([3, 4, 1, 2])
 - DocstringExample
   description: |
-    array([3, 4, 1, 2])
-    
     The docstring is taken from the input function to `vectorize` unless it
     is specified:
-    
   kind: examples
   key: 'examples'
   snippet: |
-    >>> vfunc = np.vectorize(myfunc)
-    >>> vfunc([1, 2, 3, 4], 2)
+    >>> vfunc.__doc__
+    'Return a-b if a>b, otherwise return a+b'
 - DocstringExample
-  description: "'Return a-b if a>b, otherwise return a+b'"
   kind: examples
   key: 'examples'
-  snippet: '>>> vfunc.__doc__'
+  snippet: ">>> vfunc = np.vectorize(myfunc, doc='Vectorized `myfunc`')"
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> vfunc.__doc__
+    'Vectorized `myfunc`'
 - DocstringExample
   description: |
-    'Vectorized `myfunc`'
-    
     The output type is determined by evaluating the first element of the input,
     unless it is specified:
-    
   kind: examples
   key: 'examples'
-  snippet: |
-    >>> vfunc = np.vectorize(myfunc, doc='Vectorized `myfunc`')
-    >>> vfunc.__doc__
+  snippet: '>>> out = vfunc([1, 2, 3, 4], 2)'
 - DocstringExample
-  description: "<class 'numpy.int64'>"
   kind: examples
   key: 'examples'
   snippet: |
-    >>> out = vfunc([1, 2, 3, 4], 2)
     >>> type(out[0])
+    <class 'numpy.int64'>
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> vfunc = np.vectorize(myfunc, otypes=[float])'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> out = vfunc([1, 2, 3, 4], 2)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> type(out[0])
+    <class 'numpy.float64'>
 - DocstringExample
   description: |
-    <class 'numpy.float64'>
-    
     The `excluded` argument can be used to prevent vectorizing over certain
     arguments.  This can be useful for array-like arguments of a fixed length
     such as the coefficients for a polynomial as in `polyval`:
-    
   kind: examples
   key: 'examples'
   snippet: |
-    >>> vfunc = np.vectorize(myfunc, otypes=[float])
-    >>> out = vfunc([1, 2, 3, 4], 2)
-    >>> type(out[0])
-- DocstringExample
-  description: |
+    >>> def mypolyval(p, x):
     ...     _p = list(p)
     ...     res = _p.pop(0)
     ...     while _p:
     ...         res = res*x + _p.pop(0)
     ...     return res
-    
+- DocstringExample
+  description: |
     Here, we exclude the zeroth argument from vectorization whether it is
     passed by position or keyword.
-    
   kind: examples
   key: 'examples'
-  snippet: '>>> def mypolyval(p, x):'
+  snippet: ">>> vpolyval = np.vectorize(mypolyval, excluded={0, 'p'})"
 - DocstringExample
-  description: 'array([3, 6])'
   kind: examples
   key: 'examples'
   snippet: |
-    >>> vpolyval = np.vectorize(mypolyval, excluded={0, 'p'})
     >>> vpolyval([1, 2, 3], x=[0, 1])
+    array([3, 6])
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> vpolyval(p=[1, 2, 3], x=[0, 1])
+    array([3, 6])
 - DocstringExample
   description: |
-    array([3, 6])
-    
     The `signature` argument allows for vectorizing functions that act on
     non-scalar arrays of fixed length. For example, you can use it for a
     vectorized calculation of Pearson correlation coefficient and its p-value:
-    
   kind: examples
   key: 'examples'
-  snippet: '>>> vpolyval(p=[1, 2, 3], x=[0, 1])'
+  snippet: '>>> import scipy.stats'
 - DocstringExample
-  description: "...                 signature='(n),(n)->(),()')"
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import scipy.stats
     >>> pearsonr = np.vectorize(scipy.stats.pearsonr,
+    ...                 signature='(n),(n)->(),()')
 - DocstringExample
-  description: |
-    (array([ 1., -1.]), array([ 0.,  0.]))
-    
-    Or for a vectorized convolution:
-    
   kind: examples
   key: 'examples'
-  snippet: '>>> pearsonr([[0, 1, 2, 3]], [[1, 2, 3, 4], [4, 3, 2, 1]])'
+  snippet: |
+    >>> pearsonr([[0, 1, 2, 3]], [[1, 2, 3, 4], [4, 3, 2, 1]])
+    (array([ 1., -1.]), array([ 0.,  0.]))
 - DocstringExample
-  description: |
+  description: 'Or for a vectorized convolution:'
+  kind: examples
+  key: 'examples'
+  snippet: ">>> convolve = np.vectorize(np.convolve, signature='(n),(m)->(k)')"
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> convolve(np.eye(4), [1, 2, 1])
     array([[1., 2., 1., 0., 0., 0.],
            [0., 1., 2., 1., 0., 0.],
            [0., 0., 1., 2., 1., 0.],
            [0., 0., 0., 1., 2., 1.]])
-    
+- DocstringExample
+  description: |
     Decorator syntax is supported.  The decorator can be called as
     a function to provide keyword arguments:
-    
   kind: examples
   key: 'examples'
   snippet: |
-    >>> convolve = np.vectorize(np.convolve, signature='(n),(m)->(k)')
-    >>> convolve(np.eye(4), [1, 2, 1])
-- DocstringExample
-  description: |
+    >>> @np.vectorize
     ... def identity(x):
     ...     return x
     ...
+- DocstringExample
   kind: examples
   key: 'examples'
-  snippet: '>>> @np.vectorize'
+  snippet: |
+    >>> identity([0, 1, 2])
+    array([0, 1, 2])
 - DocstringExample
-  description: 'array([0, 1, 2])'
   kind: examples
   key: 'examples'
-  snippet: '>>> identity([0, 1, 2])'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> @np.vectorize(otypes=[float])
     ... def as_float(x):
     ...     return x
     ...
-  kind: examples
-  key: 'examples'
-  snippet: '>>> @np.vectorize(otypes=[float])'
 - DocstringExample
-  description: 'array([0., 1., 2.])'
   kind: examples
   key: 'examples'
-  snippet: '>>> as_float([0, 1, 2])'
+  snippet: |
+    >>> as_float([0, 1, 2])
+    array([0., 1., 2.])
 === detect
 numpydoc
 === compose numpydoc
@@ -490,7 +506,6 @@ Examples
 ...         return a - b
 ...     else:
 ...         return a + b
-
 >>> vfunc = np.vectorize(myfunc)
 >>> vfunc([1, 2, 3, 4], 2)
 array([3, 4, 1, 2])

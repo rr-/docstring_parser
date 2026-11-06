@@ -95,12 +95,15 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: "'D'"
+  kind: examples
+  key: 'examples'
+  snippet: '>>> idx = pd.date_range(start="2020/12/01", end="2020/12/30", periods=30)'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> idx = pd.date_range(start="2020/12/01", end="2020/12/30", periods=30)
     >>> pd.infer_freq(idx)  # doctest: +SKIP
+    'D'
 === detect
 numpydoc
 === compose numpydoc

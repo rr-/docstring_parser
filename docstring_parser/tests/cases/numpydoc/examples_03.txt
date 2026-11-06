@@ -11,9 +11,10 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: numpydoc
 - DocstringExample
-  description: ''
   kind: examples
   key: 'examples'
-  snippet: |
-    >>> testa
-    >>> testb
+  snippet: '>>> testa'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> testb'

@@ -42,7 +42,14 @@ style: numpydoc
   arg_name: 'None'
   is_optional: False
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from numpy import linalg as LA'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> LA.inv(np.zeros((2,2)))
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
       File "...linalg.py", line 350,
@@ -51,11 +58,6 @@ style: numpydoc
         in solve
         raise LinAlgError('Singular matrix')
     numpy.linalg.LinAlgError: Singular matrix
-  kind: examples
-  key: 'examples'
-  snippet: |
-    >>> from numpy import linalg as LA
-    >>> LA.inv(np.zeros((2,2)))
 === detect
 numpydoc
 === compose numpydoc

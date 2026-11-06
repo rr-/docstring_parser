@@ -60,16 +60,23 @@ style: google
   type_name: 'str'
   is_generator: False
 - DocstringExample
-  description: |
-    >>> url = 'http://example.com?a=1'
+  kind: examples
+  key: 'examples'
+  snippet: ">>> url = 'http://example.com?a=1'"
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
     >>> update_query(url, {'a': '2'})
     http://example.com?a=2
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
     >>> update_query(url, {'b': '3'})
     http://example.com?a=1&b=3
     >> update_query(url, {'b': '3'}, remove=['a'])
     http://example.com?b=3
-  kind: examples
-  key: 'examples'
 === detect
 google
 === compose google

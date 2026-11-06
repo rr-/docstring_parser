@@ -52,17 +52,24 @@ style: numpydoc
   description: |
     .. plot::
             :context: close-figs
-    
-             >>> rng = np.random.default_rng(42)
+  kind: examples
+  key: 'examples'
+  snippet: '         >>> rng = np.random.default_rng(42)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
              >>> df = pd.DataFrame(
              ...     {"A": rng.standard_normal(10), "B": rng.standard_normal(10)},
              ...     index=pd.date_range("1/1/2000", freq="4MS", periods=10),
              ... )
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
              >>> with pd.plotting.plot_params.use("x_compat", True):
              ...     _ = df["A"].plot(color="r")
              ...     _ = df["B"].plot(color="g")
-  kind: examples
-  key: 'examples'
 === detect
 numpydoc
 === compose numpydoc

@@ -171,64 +171,57 @@ style: numpydoc
   kind: text
   key: 'notes'
 - DocstringExample
-  description: |
-    
-    Align the differences on columns
-    
+  kind: examples
+  key: 'examples'
+  snippet: '>>> s1 = pd.Series(["a", "b", "c", "d", "e"])'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> s2 = pd.Series(["a", "a", "c", "b", "e"])'
+- DocstringExample
+  description: 'Align the differences on columns'
   kind: examples
   key: 'examples'
   snippet: |
-    >>> s1 = pd.Series(["a", "b", "c", "d", "e"])
-    >>> s2 = pd.Series(["a", "a", "c", "b", "e"])
-- DocstringExample
-  description: |
+    >>> s1.compare(s2)
       self other
     1    b     a
     3    d     b
-    
-    Stack the differences on indices
-    
+- DocstringExample
+  description: 'Stack the differences on indices'
   kind: examples
   key: 'examples'
-  snippet: '>>> s1.compare(s2)'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> s1.compare(s2, align_axis=0)
     1  self     b
        other    a
     3  self     d
        other    b
     dtype: str
-    
-    Keep all original rows
-    
+- DocstringExample
+  description: 'Keep all original rows'
   kind: examples
   key: 'examples'
-  snippet: '>>> s1.compare(s2, align_axis=0)'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> s1.compare(s2, keep_shape=True)
       self other
     0  NaN   NaN
     1    b     a
     2  NaN   NaN
     3    d     b
     4  NaN   NaN
-    
-    Keep all original rows and also all original values
-    
+- DocstringExample
+  description: 'Keep all original rows and also all original values'
   kind: examples
   key: 'examples'
-  snippet: '>>> s1.compare(s2, keep_shape=True)'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> s1.compare(s2, keep_shape=True, keep_equal=True)
       self other
     0    a     a
     1    b     a
     2    c     c
     3    d     b
     4    e     e
-  kind: examples
-  key: 'examples'
-  snippet: '>>> s1.compare(s2, keep_shape=True, keep_equal=True)'
 === detect
 numpydoc
 === compose numpydoc

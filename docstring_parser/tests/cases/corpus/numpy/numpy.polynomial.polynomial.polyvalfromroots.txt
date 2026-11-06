@@ -144,51 +144,61 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: '0.0'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from numpy.polynomial.polynomial import polyvalfromroots'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> from numpy.polynomial.polynomial import polyvalfromroots
     >>> polyvalfromroots(1, [1, 2, 3])
+    0.0
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: '>>> a = np.arange(4).reshape(2, 2)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> a
     array([[0, 1],
            [2, 3]])
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> a = np.arange(4).reshape(2, 2)
-    >>> a
-- DocstringExample
-  description: |
+    >>> polyvalfromroots(a, [-1, 0, 1])
     array([[-0.,   0.],
            [ 6.,  24.]])
+- DocstringExample
   kind: examples
   key: 'examples'
-  snippet: '>>> polyvalfromroots(a, [-1, 0, 1])'
+  snippet: '>>> r = np.arange(-2, 2).reshape(2,2)  # multidimensional coefficients'
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> r # each column of r defines one polynomial
     array([[-2, -1],
            [ 0,  1]])
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> b = [-2, 1]'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> r = np.arange(-2, 2).reshape(2,2)  # multidimensional coefficients
-    >>> r # each column of r defines one polynomial
-- DocstringExample
-  description: |
+    >>> polyvalfromroots(b, r, tensor=True)
     array([[-0.,  3.],
            [ 3., 0.]])
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> b = [-2, 1]
-    >>> polyvalfromroots(b, r, tensor=True)
-- DocstringExample
-  description: 'array([-0.,  0.])'
-  kind: examples
-  key: 'examples'
-  snippet: '>>> polyvalfromroots(b, r, tensor=False)'
+    >>> polyvalfromroots(b, r, tensor=False)
+    array([-0.,  0.])
 === detect
 numpydoc
 === compose numpydoc

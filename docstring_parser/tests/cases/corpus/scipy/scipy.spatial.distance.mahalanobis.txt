@@ -81,23 +81,31 @@ style: numpydoc
   is_generator: False
   return_name: 'mahalanobis'
 - DocstringExample
-  description: '1.0'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from scipy.spatial import distance'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> iv = [[1, 0.5, 0.5], [0.5, 1, 0.5], [0.5, 0.5, 1]]'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> from scipy.spatial import distance
-    >>> iv = [[1, 0.5, 0.5], [0.5, 1, 0.5], [0.5, 0.5, 1]]
     >>> distance.mahalanobis([1, 0, 0], [0, 1, 0], iv)
+    1.0
 - DocstringExample
-  description: '1.0'
   kind: examples
   key: 'examples'
-  snippet: '>>> distance.mahalanobis([0, 2, 0], [0, 1, 0], iv)'
+  snippet: |
+    >>> distance.mahalanobis([0, 2, 0], [0, 1, 0], iv)
+    1.0
 - DocstringExample
-  description: '1.7320508075688772'
   kind: examples
   key: 'examples'
-  snippet: '>>> distance.mahalanobis([2, 0, 0], [0, 1, 0], iv)'
+  snippet: |
+    >>> distance.mahalanobis([2, 0, 0], [0, 1, 0], iv)
+    1.7320508075688772
 === detect
 numpydoc
 === compose numpydoc

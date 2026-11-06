@@ -6,12 +6,19 @@ import typing as T
 from collections import namedtuple
 from enum import IntEnum
 
-from ._compose import SectionTable, description_lines, sections
+from ._compose import (
+    SectionTable,
+    description_lines,
+    examples_text,
+    sections,
+)
 from ._lines import Lines
 from ._text import (
+    Example,
     append_loose,
     param_spec,
     split_description,
+    split_examples,
 )
 from .common import (
     EXAMPLES_KEYWORDS,
@@ -509,6 +516,23 @@ class Parser(BaseParser):
                 SectionType.SINGULAR_OR_MULTIPLE,
             ]:
                 part = cleandoc(chunk)
+                section = self.sections[title]
+                if _section_kind(section) is Kind.EXAMPLES:
+                    # One meta per example, as doctest reads them. A
+                    # section with nothing in it still gives one, empty.
+                    examples = split_examples(part) or [
+                        Example(description=part, snippet=None)
+                    ]
+                    for example in examples:
+                        meta = DocstringExample(
+                            snippet=example.snippet,
+                            description=example.description,
+                            key=section.key,
+                        )
+                        if isinstance(section, _SpecSection):
+                            meta = apply(section.spec, meta)
+                        ret.meta.append(meta)
+                    continue
                 self._add_meta(
                     ret, part, title, problems, loose, lines, offset
                 )
@@ -743,10 +767,21 @@ def compose(
     for title, items in found:
         process_sect(title, items)
 
+    examples_done = False
     for meta in rest:
+        if isinstance(meta, DocstringExample):
+            # Every example goes in one section, where the first one is.
+            if examples_done:
+                continue
+            examples_done = True
+            body = examples_text(docstring.examples)
+        else:
+            body = meta.description or ""
         parts.append((meta.key or "").replace("_", "").title() + ":")
-        if meta.description:
-            lines = [indent + line for line in meta.description.splitlines()]
+        if body:
+            lines = [
+                indent + line if line else "" for line in body.splitlines()
+            ]
             parts.append("\n".join(lines))
         parts.append("")
 

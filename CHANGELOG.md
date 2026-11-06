@@ -7,6 +7,7 @@
 - General: **Breaking:** Leave yields out of `Docstring.returns` and `many_returns`; read them from the new `yields` and `many_yields`
 - General: **Breaking:** Make `is_optional` of a parsed param always a bool, `False` instead of `None` when it has no type
 - Google, Numpydoc: **Breaking:** Remove customising parsing by overriding internals such as `titles_re`, `title_pattern`, `_build_meta` and `KV_REGEX`; use `SectionSpec` instead
+- Google, Numpydoc: **Breaking:** Split examples as doctest reads them: an example's `description` is the text before its snippet, and its `snippet` holds the `>>>` lines, their `...` continuations and the expected output; text after the last snippet is an example with no snippet
 - General: Parse docstrings with `\r\n` or `\r` line endings the same as with `\n`, on every Python version
 - General: Dedent docstrings the same way on every Python version; from 3.13, `inspect.cleandoc` dedented nothing after a blank line holding a tab or form feed
 - General: Strip the short description, which kept leading spaces when a later line was indented less than it
@@ -53,6 +54,7 @@
 - Google: Keep the words after a param's type, as in `x (int) more:`, as its new `extra`, instead of dropping them
 - Google: Keep the text after a section, such as an example or an unknown section, in the long description instead of dropping it
 - Google: Read a `Raises:` item that is a type alone, such as `ValueError`, and a `Raises:` section of plain prose as one raises with no type, instead of raising `ParseError`
+- Google: Compose blank lines inside a section such as Examples without trailing spaces
 - Numpydoc: Fix the type of `NumpydocParser`'s `sections` argument, which takes a list of sections
 - Numpydoc: Compose sections such as See Also with their own titles and underlines, instead of e.g. `Seealso`
 - Numpydoc: Stop adding a blank line on every round trip of a docstring without a long description

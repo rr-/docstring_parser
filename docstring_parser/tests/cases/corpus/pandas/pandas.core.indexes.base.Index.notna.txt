@@ -68,38 +68,40 @@ style: numpydoc
   description: |
     Show which entries in an Index are not NA. The result is an
     array.
-    
   kind: examples
   key: 'examples'
+  snippet: '>>> idx = pd.Index([5.2, 6.0, np.nan])'
 - DocstringExample
-  description: "Index([5.2, 6.0, nan], dtype='float64')"
   kind: examples
   key: 'examples'
   snippet: |
-    >>> idx = pd.Index([5.2, 6.0, np.nan])
     >>> idx
+    Index([5.2, 6.0, nan], dtype='float64')
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> idx.notna()
+    array([ True,  True, False])
 - DocstringExample
   description: |
-    array([ True,  True, False])
-    
     Empty strings are not considered NA values. None is considered a NA
     value.
-    
   kind: examples
   key: 'examples'
-  snippet: '>>> idx.notna()'
+  snippet: '>>> idx = pd.Index(["black", "", "red", None])'
 - DocstringExample
-  description: "Index(['black', '', 'red', nan], dtype='str')"
   kind: examples
   key: 'examples'
   snippet: |
-    >>> idx = pd.Index(["black", "", "red", None])
     >>> idx
+    Index(['black', '', 'red', nan], dtype='str')
 - DocstringExample
-  description: 'array([ True,  True,  True, False])'
   kind: examples
   key: 'examples'
-  snippet: '>>> idx.notna()'
+  snippet: |
+    >>> idx.notna()
+    array([ True,  True,  True, False])
 === detect
 numpydoc
 === compose numpydoc

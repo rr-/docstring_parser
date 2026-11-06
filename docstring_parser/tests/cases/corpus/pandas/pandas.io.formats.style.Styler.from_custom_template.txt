@@ -81,25 +81,31 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: |
-    ...     "path/to/template",
-    ...     "template.tpl",
-    ... )  # doctest: +SKIP
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from pandas.io.formats.style import Styler'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> from pandas.io.formats.style import Styler
     >>> EasyStyler = Styler.from_custom_template(
+    ...     "path/to/template",
+    ...     "template.tpl",
+    ... )  # doctest: +SKIP
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> df = pd.DataFrame({"A": [1, 2]})'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> EasyStyler(df)  # doctest: +SKIP'
 - DocstringExample
   description: |
-    
     Please see:
     `Table Visualization <../../user_guide/style.ipynb>`_ for more examples.
   kind: examples
   key: 'examples'
-  snippet: |
-    >>> df = pd.DataFrame({"A": [1, 2]})
-    >>> EasyStyler(df)  # doctest: +SKIP
 === detect
 numpydoc
 === compose numpydoc

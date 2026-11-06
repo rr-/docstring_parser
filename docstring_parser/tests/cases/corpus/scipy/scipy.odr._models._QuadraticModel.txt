@@ -40,24 +40,40 @@ style: numpydoc
   key: 'deprecation'
   version: '1.17.0'
 - DocstringExample
-  description: |
-    We can calculate orthogonal distance regression with a quadratic model:
-    
+  description: 'We can calculate orthogonal distance regression with a quadratic model:'
   kind: examples
   key: 'examples'
+  snippet: '>>> from scipy import odr'
 - DocstringExample
-  description: '[1. 2. 3.]'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> x = np.linspace(0.0, 5.0)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> y = 1.0 * x ** 2 + 2.0 * x + 3.0'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> data = odr.Data(x, y)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> odr_obj = odr.ODR(data, odr.quadratic)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> output = odr_obj.run()'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> from scipy import odr
-    >>> import numpy as np
-    >>> x = np.linspace(0.0, 5.0)
-    >>> y = 1.0 * x ** 2 + 2.0 * x + 3.0
-    >>> data = odr.Data(x, y)
-    >>> odr_obj = odr.ODR(data, odr.quadratic)
-    >>> output = odr_obj.run()
     >>> print(output.beta)
+    [1. 2. 3.]
 === detect
 numpydoc
 === compose numpydoc

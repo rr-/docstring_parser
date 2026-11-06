@@ -114,14 +114,17 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: |
-    ...     [(0, 1, 2), ("green", "purple")], names=["number", "color"]
-    ... )
   kind: examples
   key: 'examples'
-  snippet: '>>> idx = pd.MultiIndex.from_product('
+  snippet: |
+    >>> idx = pd.MultiIndex.from_product(
+    ...     [(0, 1, 2), ("green", "purple")], names=["number", "color"]
+    ... )
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> idx
     MultiIndex([(0,  'green'),
                 (0, 'purple'),
                 (1,  'green'),
@@ -129,40 +132,34 @@ style: numpydoc
                 (2,  'green'),
                 (2, 'purple')],
                names=['number', 'color'])
+- DocstringExample
   kind: examples
   key: 'examples'
-  snippet: '>>> idx'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> idx.drop([(1, "green"), (2, "purple")])
     MultiIndex([(0,  'green'),
                 (0, 'purple'),
                 (1, 'purple'),
                 (2,  'green')],
                names=['number', 'color'])
-    
-    We can also drop from a specific level.
-    
+- DocstringExample
+  description: 'We can also drop from a specific level.'
   kind: examples
   key: 'examples'
-  snippet: '>>> idx.drop([(1, "green"), (2, "purple")])'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> idx.drop("green", level="color")
     MultiIndex([(0, 'purple'),
                 (1, 'purple'),
                 (2, 'purple')],
                names=['number', 'color'])
-    
+- DocstringExample
   kind: examples
   key: 'examples'
-  snippet: '>>> idx.drop("green", level="color")'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> idx.drop([1, 2], level=0)
     MultiIndex([(0,  'green'),
                 (0, 'purple')],
                names=['number', 'color'])
-  kind: examples
-  key: 'examples'
-  snippet: '>>> idx.drop([1, 2], level=0)'
 === detect
 numpydoc
 === compose numpydoc
@@ -215,7 +212,6 @@ MultiIndex([(0, 'purple'),
             (1, 'purple'),
             (2, 'purple')],
            names=['number', 'color'])
-
 >>> idx.drop([1, 2], level=0)
 MultiIndex([(0,  'green'),
             (0, 'purple')],

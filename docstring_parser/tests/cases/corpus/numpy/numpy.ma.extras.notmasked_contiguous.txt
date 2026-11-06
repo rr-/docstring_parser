@@ -103,7 +103,30 @@ style: numpydoc
   kind: text
   key: 'notes'
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> a = np.arange(12).reshape((3, 4))'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> mask = np.zeros_like(a)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> mask[1:, :-1] = 1; mask[0, 1] = 1; mask[-1, 0] = 0'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> ma = np.ma.array(a, mask=mask)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> ma
     masked_array(
       data=[[0, --, 2, 3],
             [--, --, --, 7],
@@ -112,41 +135,30 @@ style: numpydoc
             [ True,  True,  True, False],
             [False,  True,  True, False]],
       fill_value=999999)
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import numpy as np
-    >>> a = np.arange(12).reshape((3, 4))
-    >>> mask = np.zeros_like(a)
-    >>> mask[1:, :-1] = 1; mask[0, 1] = 1; mask[-1, 0] = 0
-    >>> ma = np.ma.array(a, mask=mask)
-    >>> ma
-- DocstringExample
-  description: |
+    >>> np.array(ma[~ma.mask])
     array([ 0,  2,  3,  7, 8, 11])
-    
+- DocstringExample
   kind: examples
   key: 'examples'
-  snippet: '>>> np.array(ma[~ma.mask])'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> np.ma.notmasked_contiguous(ma)
     [slice(0, 1, None), slice(2, 4, None), slice(7, 9, None), slice(11, 12, None)]
-    
+- DocstringExample
   kind: examples
   key: 'examples'
-  snippet: '>>> np.ma.notmasked_contiguous(ma)'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> np.ma.notmasked_contiguous(ma, axis=0)
     [[slice(0, 1, None), slice(2, 3, None)], [], [slice(0, 1, None)], [slice(0, 3, None)]]
-    
-  kind: examples
-  key: 'examples'
-  snippet: '>>> np.ma.notmasked_contiguous(ma, axis=0)'
 - DocstringExample
-  description: '[[slice(0, 1, None), slice(2, 4, None)], [slice(3, 4, None)], [slice(0, 1, None), slice(3, 4, None)]]'
   kind: examples
   key: 'examples'
-  snippet: '>>> np.ma.notmasked_contiguous(ma, axis=1)'
+  snippet: |
+    >>> np.ma.notmasked_contiguous(ma, axis=1)
+    [[slice(0, 1, None), slice(2, 4, None)], [slice(3, 4, None)], [slice(0, 1, None), slice(3, 4, None)]]
 === detect
 numpydoc
 === compose numpydoc
@@ -187,13 +199,10 @@ masked_array(
   fill_value=999999)
 >>> np.array(ma[~ma.mask])
 array([ 0,  2,  3,  7, 8, 11])
-
 >>> np.ma.notmasked_contiguous(ma)
 [slice(0, 1, None), slice(2, 4, None), slice(7, 9, None), slice(11, 12, None)]
-
 >>> np.ma.notmasked_contiguous(ma, axis=0)
 [[slice(0, 1, None), slice(2, 3, None)], [], [slice(0, 1, None)], [slice(0, 3, None)]]
-
 >>> np.ma.notmasked_contiguous(ma, axis=1)
 [[slice(0, 1, None), slice(2, 4, None)], [slice(3, 4, None)], [slice(0, 1, None), slice(3, 4, None)]]
 

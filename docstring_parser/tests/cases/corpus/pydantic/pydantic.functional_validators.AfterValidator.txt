@@ -105,17 +105,17 @@ Attributes:
 Examples:
     ```python
     from typing import Annotated
-    
+
     from pydantic import AfterValidator, BaseModel, ValidationError
-    
+
     MyInt = Annotated[int, AfterValidator(lambda v: v + 1)]
-    
+
     class Model(BaseModel):
         a: MyInt
-    
+
     print(Model(a=1).a)
     #> 2
-    
+
     try:
         Model(a='a')
     except ValidationError as e:

@@ -69,37 +69,45 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: 'True'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from pandas.api.types import is_any_real_numeric_dtype'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> from pandas.api.types import is_any_real_numeric_dtype
     >>> is_any_real_numeric_dtype(int)
+    True
 - DocstringExample
-  description: 'True'
   kind: examples
   key: 'examples'
-  snippet: '>>> is_any_real_numeric_dtype(float)'
+  snippet: |
+    >>> is_any_real_numeric_dtype(float)
+    True
 - DocstringExample
-  description: 'False'
   kind: examples
   key: 'examples'
-  snippet: '>>> is_any_real_numeric_dtype(object)'
+  snippet: |
+    >>> is_any_real_numeric_dtype(object)
+    False
 - DocstringExample
-  description: 'False'
   kind: examples
   key: 'examples'
-  snippet: '>>> is_any_real_numeric_dtype(str)'
+  snippet: |
+    >>> is_any_real_numeric_dtype(str)
+    False
 - DocstringExample
-  description: 'False'
   kind: examples
   key: 'examples'
-  snippet: '>>> is_any_real_numeric_dtype(complex(1, 2))'
+  snippet: |
+    >>> is_any_real_numeric_dtype(complex(1, 2))
+    False
 - DocstringExample
-  description: 'False'
   kind: examples
   key: 'examples'
-  snippet: '>>> is_any_real_numeric_dtype(bool)'
+  snippet: |
+    >>> is_any_real_numeric_dtype(bool)
+    False
 === detect
 numpydoc
 === compose numpydoc

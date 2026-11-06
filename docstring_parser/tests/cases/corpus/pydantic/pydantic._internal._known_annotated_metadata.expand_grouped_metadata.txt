@@ -60,9 +60,9 @@ Returns:
 Examples:
     ```python
     from annotated_types import Ge, Len
-    
+
     from pydantic._internal._known_annotated_metadata import expand_grouped_metadata
-    
+
     print(list(expand_grouped_metadata([Ge(4), Len(5)])))
     #> [Ge(ge=4), MinLen(min_length=5)]
     ```

@@ -44,21 +44,27 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: |
-    masked_array(data=[1, 2, --],
-                 mask=[False, False,  True],
-           fill_value=999999)
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> a = np.ma.array([1,2,3], mask=[False, False, True])'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import numpy as np
-    >>> a = np.ma.array([1,2,3], mask=[False, False, True])
     >>> a
+    masked_array(data=[1, 2, --],
+                 mask=[False, False,  True],
+           fill_value=999999)
 - DocstringExample
-  description: '1.5'
   kind: examples
   key: 'examples'
-  snippet: '>>> a.mean()'
+  snippet: |
+    >>> a.mean()
+    1.5
 === detect
 numpydoc
 === compose numpydoc

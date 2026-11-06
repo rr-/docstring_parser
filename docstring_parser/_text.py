@@ -203,3 +203,65 @@ def param_spec(
     return TypeSpec(
         type_name=spec.type_name, is_optional=True, default=default
     )
+
+
+class Example(T.NamedTuple):
+    """One example of an examples section, as doctest reads it."""
+
+    #: The text that introduces it, or None.
+    description: T.Optional[str]
+    #: The ``>>>`` lines with their ``...`` continuations and expected
+    #: output, or None for text after the last snippet.
+    snippet: T.Optional[str]
+
+
+def _intro(lines: T.List[str]) -> T.Optional[str]:
+    """Join the lines of an example's text, without blank lines around."""
+    text = "\n".join(lines).strip("\n")
+    return text if text.strip() else None
+
+
+def split_examples(text: str) -> T.List[Example]:
+    """Split an examples section into examples, the way doctest reads it.
+
+    A snippet is a ``>>>`` line, the ``...`` lines that continue it, and
+    its expected output: the lines up to a blank line or the next ``>>>``
+    line. The text before a snippet introduces it, and text after the last
+    snippet is an example of its own, with no snippet.
+    """
+    lines = text.split("\n")
+    examples: T.List[Example] = []
+    intro: T.List[str] = []
+    i = 0
+    count = len(lines)
+    while i < count:
+        line = lines[i]
+        source = line.lstrip()
+        if not source.startswith(">>>"):
+            intro.append(line)
+            i += 1
+            continue
+        # The continuations and output are indented at least as the
+        # prompt, as doctest wants.
+        indent = line[: len(line) - len(source)]
+        start = i
+        i += 1
+        while (
+            i < count
+            and lines[i].startswith(indent)
+            and lines[i].lstrip().startswith("...")
+        ):
+            i += 1
+        while (
+            i < count
+            and lines[i].strip()
+            and lines[i].startswith(indent)
+            and not lines[i].lstrip().startswith(">>>")
+        ):
+            i += 1
+        examples.append(Example(_intro(intro), "\n".join(lines[start:i])))
+        intro = []
+    description = _intro(intro)
+    if description is not None:
+        examples.append(Example(description, None))
+    return examples

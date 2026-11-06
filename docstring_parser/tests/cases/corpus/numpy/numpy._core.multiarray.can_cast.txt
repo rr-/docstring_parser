@@ -115,45 +115,46 @@ style: numpydoc
   key: 'see_also'
   title: 'See also'
 - DocstringExample
-  description: |
-    Basic examples
-    
+  description: 'Basic examples'
   kind: examples
   key: 'examples'
+  snippet: '>>> import numpy as np'
 - DocstringExample
-  description: 'True'
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import numpy as np
     >>> np.can_cast(np.int32, np.int64)
+    True
 - DocstringExample
-  description: 'True'
   kind: examples
   key: 'examples'
-  snippet: '>>> np.can_cast(np.float64, complex)'
+  snippet: |
+    >>> np.can_cast(np.float64, complex)
+    True
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> np.can_cast(complex, float)
     False
-    
-  kind: examples
-  key: 'examples'
-  snippet: '>>> np.can_cast(complex, float)'
 - DocstringExample
-  description: 'True'
   kind: examples
   key: 'examples'
-  snippet: ">>> np.can_cast('i8', 'f8')"
+  snippet: |
+    >>> np.can_cast('i8', 'f8')
+    True
 - DocstringExample
-  description: 'False'
   kind: examples
   key: 'examples'
-  snippet: ">>> np.can_cast('i8', 'f4')"
+  snippet: |
+    >>> np.can_cast('i8', 'f4')
+    False
 - DocstringExample
-  description: 'False'
   kind: examples
   key: 'examples'
-  snippet: ">>> np.can_cast('i4', 'S4')"
+  snippet: |
+    >>> np.can_cast('i4', 'S4')
+    False
 === detect
 numpydoc
 === compose numpydoc
@@ -194,7 +195,6 @@ True
 True
 >>> np.can_cast(complex, float)
 False
-
 >>> np.can_cast('i8', 'f8')
 True
 >>> np.can_cast('i8', 'f4')

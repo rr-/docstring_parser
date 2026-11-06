@@ -64,17 +64,21 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: '3.0'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from numpy.polynomial.hermite import hermline, hermval'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> from numpy.polynomial.hermite import hermline, hermval
     >>> hermval(0,hermline(3, 2))
+    3.0
 - DocstringExample
-  description: '5.0'
   kind: examples
   key: 'examples'
-  snippet: '>>> hermval(1,hermline(3, 2))'
+  snippet: |
+    >>> hermval(1,hermline(3, 2))
+    5.0
 === detect
 numpydoc
 === compose numpydoc

@@ -251,38 +251,46 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: '>>> idx = pd.date_range("1/1/2000", periods=4, freq="min")'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> df = pd.DataFrame(data=4 * [range(2)], index=idx, columns=["a", "b"])'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> df.iloc[2, 0] = 5'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> df
                         a  b
     2000-01-01 00:00:00  0  1
     2000-01-01 00:01:00  0  1
     2000-01-01 00:02:00  5  1
     2000-01-01 00:03:00  0  1
-    
+- DocstringExample
+  description: |
     Downsample the DataFrame into 3 minute bins and sum the values of
     the timestamps falling into a bin.
-    
   kind: examples
   key: 'examples'
   snippet: |
-    >>> idx = pd.date_range("1/1/2000", periods=4, freq="min")
-    >>> df = pd.DataFrame(data=4 * [range(2)], index=idx, columns=["a", "b"])
-    >>> df.iloc[2, 0] = 5
-    >>> df
-- DocstringExample
-  description: |
+    >>> df.groupby("a").resample("3min").sum()
                              b
     a
     0   2000-01-01 00:00:00  2
         2000-01-01 00:03:00  1
     5   2000-01-01 00:00:00  1
-    
-    Upsample the series into 30 second bins.
-    
+- DocstringExample
+  description: 'Upsample the series into 30 second bins.'
   kind: examples
   key: 'examples'
-  snippet: '>>> df.groupby("a").resample("3min").sum()'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> df.groupby("a").resample("30s").sum()
                         b
     a
     0   2000-01-01 00:00:00  1
@@ -293,50 +301,43 @@ style: numpydoc
         2000-01-01 00:02:30  0
         2000-01-01 00:03:00  1
     5   2000-01-01 00:02:00  1
-    
-    Resample by month. Values are assigned to the month of the period.
-    
+- DocstringExample
+  description: 'Resample by month. Values are assigned to the month of the period.'
   kind: examples
   key: 'examples'
-  snippet: '>>> df.groupby("a").resample("30s").sum()'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> df.groupby("a").resample("ME").sum()
                 b
     a
     0   2000-01-31  3
     5   2000-01-31  1
-    
-    Downsample the series into 3 minute bins as above, but close the right
-    side of the bin interval.
-    
-  kind: examples
-  key: 'examples'
-  snippet: '>>> df.groupby("a").resample("ME").sum()'
 - DocstringExample
   description: |
+    Downsample the series into 3 minute bins as above, but close the right
+    side of the bin interval.
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> (df.groupby("a").resample("3min", closed="right").sum())
                              b
     a
     0   1999-12-31 23:57:00  1
         2000-01-01 00:00:00  2
     5   2000-01-01 00:00:00  1
-    
+- DocstringExample
+  description: |
     Downsample the series into 3 minute bins and close the right side of
     the bin interval, but label each bin using the right edge instead of
     the left.
-    
   kind: examples
   key: 'examples'
-  snippet: '>>> (df.groupby("a").resample("3min", closed="right").sum())'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> (df.groupby("a").resample("3min", closed="right", label="right").sum())
                              b
     a
     0   2000-01-01 00:00:00  1
         2000-01-01 00:03:00  2
     5   2000-01-01 00:03:00  1
-  kind: examples
-  key: 'examples'
-  snippet: '>>> (df.groupby("a").resample("3min", closed="right", label="right").sum())'
 === detect
 numpydoc
 === compose numpydoc

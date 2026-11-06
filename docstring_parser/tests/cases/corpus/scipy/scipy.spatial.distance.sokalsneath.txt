@@ -91,27 +91,33 @@ style: numpydoc
   is_generator: False
   return_name: 'sokalsneath'
 - DocstringExample
-  description: '1.0'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from scipy.spatial import distance'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> from scipy.spatial import distance
     >>> distance.sokalsneath([1, 0, 0], [0, 1, 0])
+    1.0
 - DocstringExample
-  description: '0.66666666666666663'
   kind: examples
   key: 'examples'
-  snippet: '>>> distance.sokalsneath([1, 0, 0], [1, 1, 0])'
+  snippet: |
+    >>> distance.sokalsneath([1, 0, 0], [1, 1, 0])
+    0.66666666666666663
 - DocstringExample
-  description: '0.0'
   kind: examples
   key: 'examples'
-  snippet: '>>> distance.sokalsneath([1, 0, 0], [2, 1, 0])'
+  snippet: |
+    >>> distance.sokalsneath([1, 0, 0], [2, 1, 0])
+    0.0
 - DocstringExample
-  description: '-2.0'
   kind: examples
   key: 'examples'
-  snippet: '>>> distance.sokalsneath([1, 0, 0], [3, 1, 0])'
+  snippet: |
+    >>> distance.sokalsneath([1, 0, 0], [3, 1, 0])
+    -2.0
 === detect
 numpydoc
 === compose numpydoc

@@ -276,93 +276,91 @@ style: numpydoc
     When only the mandatory `f_obs` argument is given, it is assumed that the
     expected frequencies are uniform and given by the mean of the observed
     frequencies:
-    
   kind: examples
   key: 'examples'
+  snippet: '>>> import numpy as np'
 - DocstringExample
-  description: |
-    Power_divergenceResult(statistic=2.0, pvalue=0.84914503608460956)
-    
-    The optional `f_exp` argument gives the expected frequencies.
-    
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from scipy.stats import chisquare'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import numpy as np
-    >>> from scipy.stats import chisquare
     >>> chisquare([16, 18, 16, 14, 12, 12])
+    Power_divergenceResult(statistic=2.0, pvalue=0.84914503608460956)
 - DocstringExample
-  description: |
-    Power_divergenceResult(statistic=3.5, pvalue=0.62338762774958223)
-    
-    When `f_obs` is 2-D, by default the test is applied to each column.
-    
-  kind: examples
-  key: 'examples'
-  snippet: '>>> chisquare([16, 18, 16, 14, 12, 12], f_exp=[16, 16, 16, 16, 16, 8])'
-- DocstringExample
-  description: '(6, 2)'
+  description: 'The optional `f_exp` argument gives the expected frequencies.'
   kind: examples
   key: 'examples'
   snippet: |
-    >>> obs = np.array([[16, 18, 16, 14, 12, 12], [32, 24, 16, 28, 20, 24]]).T
+    >>> chisquare([16, 18, 16, 14, 12, 12], f_exp=[16, 16, 16, 16, 16, 8])
+    Power_divergenceResult(statistic=3.5, pvalue=0.62338762774958223)
+- DocstringExample
+  description: 'When `f_obs` is 2-D, by default the test is applied to each column.'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> obs = np.array([[16, 18, 16, 14, 12, 12], [32, 24, 16, 28, 20, 24]]).T'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
     >>> obs.shape
+    (6, 2)
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> chisquare(obs)
+    Power_divergenceResult(statistic=array([2.        , 6.66666667]), pvalue=array([0.84914504, 0.24663415]))
 - DocstringExample
   description: |
-    Power_divergenceResult(statistic=array([2.        , 6.66666667]), pvalue=array([0.84914504, 0.24663415]))
-    
     By setting ``axis=None``, the test is applied to all data in the array,
     which is equivalent to applying the test to the flattened array.
-    
   kind: examples
   key: 'examples'
-  snippet: '>>> chisquare(obs)'
+  snippet: |
+    >>> chisquare(obs, axis=None)
+    Power_divergenceResult(statistic=23.31034482758621, pvalue=0.015975692534127565)
 - DocstringExample
-  description: 'Power_divergenceResult(statistic=23.31034482758621, pvalue=0.015975692534127565)'
   kind: examples
   key: 'examples'
-  snippet: '>>> chisquare(obs, axis=None)'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> chisquare(obs.ravel())
     Power_divergenceResult(statistic=23.310344827586206, pvalue=0.01597569253412758)
-    
-    `ddof` is the change to make to the default degrees of freedom.
-    
+- DocstringExample
+  description: '`ddof` is the change to make to the default degrees of freedom.'
   kind: examples
   key: 'examples'
-  snippet: '>>> chisquare(obs.ravel())'
+  snippet: |
+    >>> chisquare([16, 18, 16, 14, 12, 12], ddof=1)
+    Power_divergenceResult(statistic=2.0, pvalue=0.7357588823428847)
 - DocstringExample
   description: |
-    Power_divergenceResult(statistic=2.0, pvalue=0.7357588823428847)
-    
     The calculation of the p-values is done by broadcasting the
     chi-squared statistic with `ddof`.
-    
   kind: examples
   key: 'examples'
-  snippet: '>>> chisquare([16, 18, 16, 14, 12, 12], ddof=1)'
+  snippet: |
+    >>> chisquare([16, 18, 16, 14, 12, 12], ddof=[0, 1, 2])
+    Power_divergenceResult(statistic=2.0, pvalue=array([0.84914504, 0.73575888, 0.5724067 ]))
 - DocstringExample
   description: |
-    Power_divergenceResult(statistic=2.0, pvalue=array([0.84914504, 0.73575888, 0.5724067 ]))
-    
     `f_obs` and `f_exp` are also broadcast.  In the following, `f_obs` has
     shape (6,) and `f_exp` has shape (2, 6), so the result of broadcasting
     `f_obs` and `f_exp` has shape (2, 6).  To compute the desired chi-squared
     statistics, we use ``axis=1``:
-    
   kind: examples
   key: 'examples'
-  snippet: '>>> chisquare([16, 18, 16, 14, 12, 12], ddof=[0, 1, 2])'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> chisquare([16, 18, 16, 14, 12, 12],
     ...           f_exp=[[16, 16, 16, 16, 16, 8], [8, 20, 20, 16, 12, 12]],
     ...           axis=1)
     Power_divergenceResult(statistic=array([3.5 , 9.25]), pvalue=array([0.62338763, 0.09949846]))
-    
-    For a more detailed example, see :ref:`hypothesis_chisquare`.
+- DocstringExample
+  description: 'For a more detailed example, see :ref:`hypothesis_chisquare`.'
   kind: examples
   key: 'examples'
-  snippet: '>>> chisquare([16, 18, 16, 14, 12, 12],'
 === detect
 numpydoc
 === compose numpydoc

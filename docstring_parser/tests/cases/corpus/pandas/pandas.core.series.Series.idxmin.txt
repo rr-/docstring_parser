@@ -120,23 +120,25 @@ style: numpydoc
   kind: text
   key: 'notes'
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: '>>> s = pd.Series(data=[1, None, 4, 1], index=["A", "B", "C", "D"])'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> s
     A    1.0
     B    NaN
     C    4.0
     D    1.0
     dtype: float64
-    
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> s = pd.Series(data=[1, None, 4, 1], index=["A", "B", "C", "D"])
-    >>> s
-- DocstringExample
-  description: "'A'"
-  kind: examples
-  key: 'examples'
-  snippet: '>>> s.idxmin()'
+    >>> s.idxmin()
+    'A'
 === detect
 numpydoc
 === compose numpydoc
@@ -176,7 +178,6 @@ B    NaN
 C    4.0
 D    1.0
 dtype: float64
-
 >>> s.idxmin()
 'A'
 
