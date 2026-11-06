@@ -10,7 +10,7 @@ from ._compose import (
     SectionTable,
     description_lines,
     examples_text,
-    sections,
+    section_runs,
 )
 from ._lines import Lines
 from ._text import (
@@ -684,9 +684,9 @@ def compose(
         head = ""
 
         if isinstance(one, DocstringRaises):
-            if one.type_name and not one.description:
+            if one.type_name and one.description is None:
                 # A type alone reads back with no description, where a
-                # colon after it would give an empty one.
+                # colon after it gives an empty one.
                 parts.append(indent + one.type_name)
                 return
             if (
@@ -726,15 +726,15 @@ def compose(
             isinstance(one, DocstringReturns)
             and not head
             and not one.type_name
-            and one.description
         ):
-            # A return with neither name nor type is just its description;
-            # a colon before it would be read back as text.
-            parts.append(
-                "\n".join(
-                    indent + line for line in one.description.splitlines()
+            # A return with neither name nor type is just its description,
+            # if any; a colon before it would be read back as text.
+            if one.description:
+                parts.append(
+                    "\n".join(
+                        indent + line for line in one.description.splitlines()
+                    )
                 )
-            )
             return
 
         if one.type_name and head:
@@ -772,17 +772,17 @@ def compose(
             parts.append("")
 
     parts = description_lines(docstring)
-    found, rest = sections(docstring, _COMPOSE_SECTIONS)
-    for title, items in found:
-        process_sect(title, items)
-
     # Examples in a row share a section. One with no snippet is the text
     # after a section's last snippet, so it ends its section: written with
     # the next ones, it would read back as part of their text. An empty
-    # one comes from an empty section, and is a section of its own.
+    # one comes from an empty section, and is a section of its own. Each
+    # return is a section of its own, which reads back as one item.
     group: T.List[DocstringExample] = []
-    for meta in rest:
-        if isinstance(meta, DocstringExample):
+    for title, items in section_runs(
+        docstring, _COMPOSE_SECTIONS, alone=RETURNS_KINDS
+    ):
+        meta = items[0]
+        if title is None and isinstance(meta, DocstringExample):
             if not meta.snippet and not meta.description and group:
                 _write_section(
                     parts, indent, group[0].key, examples_text(group)
@@ -794,7 +794,9 @@ def compose(
         if group:
             _write_section(parts, indent, group[0].key, examples_text(group))
             group = []
-        if not isinstance(meta, DocstringExample):
+        if title is not None:
+            process_sect(title, items)
+        elif not isinstance(meta, DocstringExample):
             _write_section(parts, indent, meta.key, meta.description or "")
     if group:
         _write_section(parts, indent, group[0].key, examples_text(group))

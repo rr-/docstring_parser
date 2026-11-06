@@ -48,9 +48,9 @@ or the current output mode of a console screen buffer.
 Args:
     std_handle (wintypes.HANDLE): A handle to the console input buffer or the console screen buffer.
 
+Raises:
+    LegacyWindowsError: If any error occurs while calling the Windows console API.
+
 Returns:
     int: Value representing the current console mode as documented at
         https://docs.microsoft.com/en-us/windows/console/getconsolemode#parameters
-
-Raises:
-    LegacyWindowsError: If any error occurs while calling the Windows console API.

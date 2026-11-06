@@ -40,8 +40,8 @@ Parse a version string into a tuple of 3 integers.
 Args:
     version: A version string.
 
-Returns:
-    A tuple of 3 integers.
-
 Raises:
     ValueError: If the version string is invalid.
+
+Returns:
+    A tuple of 3 integers.
