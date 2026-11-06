@@ -1,5 +1,6 @@
 """Text rules that every style shares."""
 
+import re
 import typing as T
 
 from .common import Docstring
@@ -47,3 +48,40 @@ def append_loose(
     if blank_around:
         ret.blank_after_short_description = True
         ret.blank_after_long_description = True
+
+
+OPTIONAL_REGEX = re.compile(r"(?P<type>.*?)(?:, optional|\(optional\))$")
+
+# A default given in the type, as in:
+#
+#   copy : bool, default True
+#   copy : bool, default=True
+#   copy : bool, default: True
+#
+DEFAULT_REGEX = re.compile(
+    r"(?P<type>.*?)(?:, default|\(default\))(?: | |=| = |= |: |)*(?P<value>.*)$"  # noqa: E501
+)
+
+
+def type_spec(type_name: str) -> T.Tuple[str, bool, T.Optional[str]]:
+    """Split the marks of an optional param, and its default, off its type.
+
+    A param is optional when its type ends with ``?``, ``, optional`` or
+    ``(optional)``, or names a default with ``, default`` followed by the
+    value. The same rule holds in every style.
+
+    :returns: the type, whether the param is optional, and its default
+    """
+    if type_name.endswith("?"):
+        return type_name[:-1], True, None
+    is_optional = False
+    default = None
+    # "optional" may come before the default or after it.
+    for regex in (OPTIONAL_REGEX, DEFAULT_REGEX, OPTIONAL_REGEX):
+        match = regex.match(type_name)
+        if match is not None:
+            type_name = match.group("type").rstrip()
+            is_optional = True
+            if regex is DEFAULT_REGEX:
+                default = match.group("value")
+    return type_name, is_optional, default

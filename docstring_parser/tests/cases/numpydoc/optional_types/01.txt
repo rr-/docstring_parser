@@ -1,0 +1,40 @@
+# Test that a type marks its param optional, or gives its default, the
+# same way in every style.
+=== input
+Short.
+
+Parameters
+----------
+x : int, optional
+    The x.
+y : str?
+    The y.
+z : float, default 1.0
+    The z.
+=== parse numpydoc
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  description: 'The x.'
+  kind: param
+  key: 'param'
+  arg_name: 'x'
+  type_name: 'int'
+  is_optional: True
+- DocstringParam
+  description: 'The y.'
+  kind: param
+  key: 'param'
+  arg_name: 'y'
+  type_name: 'str'
+  is_optional: True
+- DocstringParam
+  description: 'The z.'
+  kind: param
+  key: 'param'
+  arg_name: 'z'
+  type_name: 'float'
+  is_optional: True
+  default: '1.0'

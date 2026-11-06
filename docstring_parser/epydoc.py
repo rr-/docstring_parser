@@ -8,7 +8,7 @@ import typing as T
 
 from ._compose import description_lines, field_name, field_text
 from ._lines import Lines
-from ._text import split_description
+from ._text import split_description, type_spec
 from .common import (
     PARAM_KINDS,
     RAISES_KINDS,
@@ -29,6 +29,7 @@ from .common import (
 from .sections import SectionSpec, apply
 
 _FIELD_START = re.compile("^@", flags=re.M)
+_DEFAULTS_TO = re.compile(r".*defaults to (.+)", flags=re.DOTALL)
 _FIELD = re.compile(r"(^@.*?)(?=^@|\Z)", flags=re.S | re.M)
 # A field's header: its name, then the names it is about, then a colon.
 _HEADER = re.compile(r"([_A-z][_A-z0-9]*)((?:\s+[_A-z][_A-z0-9]*\??)*):")
@@ -189,14 +190,14 @@ def parse(
             (arg_name,) = args
             type_name = info.get("type_name")
 
-            if type_name and type_name.endswith("?"):
-                is_optional = True
-                type_name = type_name[:-1]
-            else:
-                is_optional = False
+            is_optional = False
+            default = None
+            if type_name:
+                type_name, is_optional, default = type_spec(type_name)
 
-            match = re.match(r".*defaults to (.+)", desc, flags=re.DOTALL)
-            default = match.group(1).rstrip(".") if match else None
+            match = None if default else _DEFAULTS_TO.match(desc)
+            if match:
+                default = match.group(1).rstrip(".")
 
             param_key = info.get("key", key)
             meta_item = DocstringParam(
