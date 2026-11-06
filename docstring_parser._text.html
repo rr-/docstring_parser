@@ -164,6 +164,26 @@
         
 
         
+            <div class="itemName"><code><a href="#default_in" class="internal-link" title="docstring_parser._text.default_in">default<wbr></wbr>_in</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#param_spec" class="internal-link" title="docstring_parser._text.param_spec">param<wbr></wbr>_spec</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="#split_description" class="internal-link" title="docstring_parser._text.split_description">split<wbr></wbr>_description</a></code>
             </div>
         
@@ -175,6 +195,26 @@
 
         
             <div class="itemName"><code><a href="#type_spec" class="internal-link" title="docstring_parser._text.type_spec">type<wbr></wbr>_spec</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_split_commas" class="internal-link" title="docstring_parser._text._split_commas">_split<wbr></wbr>_commas</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_strip_backticks" class="internal-link" title="docstring_parser._text._strip_backticks">_strip<wbr></wbr>_backticks</a></code>
             </div>
         
 
@@ -193,6 +233,16 @@
         
 
         
+            <div class="itemName"><code><a href="#DEFAULT_IN_DESCRIPTION" class="internal-link" title="docstring_parser._text.DEFAULT_IN_DESCRIPTION">DEFAULT<wbr></wbr>_IN<wbr></wbr>_DESCRIPTION</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="#DEFAULT_REGEX" class="internal-link" title="docstring_parser._text.DEFAULT_REGEX">DEFAULT<wbr></wbr>_REGEX</a></code>
             </div>
         
@@ -204,6 +254,46 @@
 
         
             <div class="itemName"><code><a href="#OPTIONAL_REGEX" class="internal-link" title="docstring_parser._text.OPTIONAL_REGEX">OPTIONAL<wbr></wbr>_REGEX</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_CLOSING" class="internal-link" title="docstring_parser._text._CLOSING">_CLOSING</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_DEFAULT_PART" class="internal-link" title="docstring_parser._text._DEFAULT_PART">_DEFAULT<wbr></wbr>_PART</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_OPTIONAL" class="internal-link" title="docstring_parser._text._OPTIONAL">_OPTIONAL</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_OPTIONAL_SUFFIX" class="internal-link" title="docstring_parser._text._OPTIONAL_SUFFIX">_OPTIONAL<wbr></wbr>_SUFFIX</a></code>
             </div>
         
 
@@ -591,7 +681,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <a href="https://github.com/rr-/docstring_parser/tree/24246b0294b963c12a66f7f62894c792d8e48248/docstring_parser/_text.py" class="sourceLink">(source)</a>
+          <a href="https://github.com/rr-/docstring_parser/tree/ffd2d1cc043f29a6a656116328a3542c8ca9f384/docstring_parser/_text.py" class="sourceLink">(source)</a>
         </div>
 
         <div class="moduleDocstring">
@@ -620,6 +710,16 @@
   </tr><tr class="function">
     
     <td>Function</td>
+    <td><code><a href="#default_in" class="internal-link" title="docstring_parser._text.default_in">default<wbr></wbr>_in</a></code></td>
+    <td>Find the default that a description states, if any.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#param_spec" class="internal-link" title="docstring_parser._text.param_spec">param<wbr></wbr>_spec</a></code></td>
+    <td>Read a param's type, with its default from the type or else from its description. A param with a default is optional.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
     <td><code><a href="#split_description" class="internal-link" title="docstring_parser._text.split_description">split<wbr></wbr>_description</a></code></td>
     <td>Set the short and long description from the text before any field.</td>
   </tr><tr class="function">
@@ -630,12 +730,47 @@
   </tr><tr class="constant">
     
     <td>Constant</td>
+    <td><code><a href="#DEFAULT_IN_DESCRIPTION" class="internal-link" title="docstring_parser._text.DEFAULT_IN_DESCRIPTION">DEFAULT<wbr></wbr>_IN<wbr></wbr>_DESCRIPTION</a></code></td>
+    <td><span class="rst-undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
     <td><code><a href="#DEFAULT_REGEX" class="internal-link" title="docstring_parser._text.DEFAULT_REGEX">DEFAULT<wbr></wbr>_REGEX</a></code></td>
     <td><span class="rst-undocumented">Undocumented</span></td>
   </tr><tr class="constant">
     
     <td>Constant</td>
     <td><code><a href="#OPTIONAL_REGEX" class="internal-link" title="docstring_parser._text.OPTIONAL_REGEX">OPTIONAL<wbr></wbr>_REGEX</a></code></td>
+    <td><span class="rst-undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_split_commas" class="internal-link" title="docstring_parser._text._split_commas">_split<wbr></wbr>_commas</a></code></td>
+    <td>Split a type on the commas outside brackets and quotes.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_strip_backticks" class="internal-link" title="docstring_parser._text._strip_backticks">_strip<wbr></wbr>_backticks</a></code></td>
+    <td><span class="rst-undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_CLOSING" class="internal-link" title="docstring_parser._text._CLOSING">_CLOSING</a></code></td>
+    <td><span class="rst-undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_DEFAULT_PART" class="internal-link" title="docstring_parser._text._DEFAULT_PART">_DEFAULT<wbr></wbr>_PART</a></code></td>
+    <td><span class="rst-undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_OPTIONAL" class="internal-link" title="docstring_parser._text._OPTIONAL">_OPTIONAL</a></code></td>
+    <td><span class="rst-undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_OPTIONAL_SUFFIX" class="internal-link" title="docstring_parser._text._OPTIONAL_SUFFIX">_OPTIONAL<wbr></wbr>_SUFFIX</a></code></td>
     <td><span class="rst-undocumented">Undocumented</span></td>
   </tr>
 </table>
@@ -658,7 +793,7 @@
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">append_loose</span><span class="function-signature">(<span class="rst-sig-param">ret: <code>Docstring</code>, </span><span class="rst-sig-param">chunks: <code><a href="https://docs.python.org/3/library/typing.html#typing.Iterable" class="intersphinx-link">T.Iterable</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code>, </span><span class="rst-sig-param">blank_around: <code><a href="https://docs.python.org/3/builtins/functions.html#bool" class="intersphinx-link">bool</a></code></span>):</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/24246b0294b963c12a66f7f62894c792d8e48248/docstring_parser/_text.py#L29">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/ffd2d1cc043f29a6a656116328a3542c8ca9f384/docstring_parser/_text.py#L29">
       
       (source)
     </a>
@@ -685,7 +820,7 @@
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">clean_str</span><span class="function-signature">(<span class="rst-sig-param">string: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/24246b0294b963c12a66f7f62894c792d8e48248/docstring_parser/_text.py#L9">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/ffd2d1cc043f29a6a656116328a3542c8ca9f384/docstring_parser/_text.py#L9">
       
       (source)
     </a>
@@ -702,6 +837,61 @@
 </div><div class="basefunction">
   
   
+  <a name="docstring_parser._text.default_in">
+    
+  </a>
+  <a name="default_in">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">default_in</span><span class="function-signature">(<span class="rst-sig-param">description: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/ffd2d1cc043f29a6a656116328a3542c8ca9f384/docstring_parser/_text.py#L182">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#default_in" title="docstring_parser._text.default_in">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Find the default that a description states, if any.</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="docstring_parser._text.param_spec">
+    
+  </a>
+  <a name="param_spec">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">param_spec</span><span class="function-signature">(<span class="rst-sig-param">type_name: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code>, </span><span class="rst-sig-param">description: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></span>) -&gt; <code><a href="docstring_parser._text.TypeSpec.html" class="internal-link" title="docstring_parser._text.TypeSpec">TypeSpec</a></code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/ffd2d1cc043f29a6a656116328a3542c8ca9f384/docstring_parser/_text.py#L192">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#param_spec" title="docstring_parser._text.param_spec">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Read a param's type, with its default from the type or else from
+its description. A param with a default is optional.</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
   <a name="docstring_parser._text.split_description">
     
   </a>
@@ -712,7 +902,7 @@
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">split_description</span><span class="function-signature">(<span class="rst-sig-param">ret: <code>Docstring</code>, </span><span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></span>):</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/24246b0294b963c12a66f7f62894c792d8e48248/docstring_parser/_text.py#L14">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/ffd2d1cc043f29a6a656116328a3542c8ca9f384/docstring_parser/_text.py#L14">
       
       (source)
     </a>
@@ -742,7 +932,7 @@ everything after it.</p>
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">type_spec</span><span class="function-signature">(<span class="rst-sig-param">type_name: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></span>) -&gt; <code><a href="docstring_parser._text.TypeSpec.html" class="internal-link" title="docstring_parser._text.TypeSpec">TypeSpec</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/24246b0294b963c12a66f7f62894c792d8e48248/docstring_parser/_text.py#L74">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/ffd2d1cc043f29a6a656116328a3542c8ca9f384/docstring_parser/_text.py#L117">
       
       (source)
     </a>
@@ -755,11 +945,49 @@ everything after it.</p>
   <div class="docstring functionBody">
     
     <div><p>Split the marks of an optional param, and its default, off its type.</p>
-<p>A param is optional when its type ends with <tt class="rst-docutils rst-literal">?</tt>, <tt class="rst-docutils rst-literal">, optional</tt> or
-<tt class="rst-docutils rst-literal">(optional)</tt>, or names a default with <tt class="rst-docutils rst-literal">, default</tt> followed by the
-value. The same rule holds in every style. A param with no type at all
-is neither optional nor not.</p>
+<p>The type is split on the commas outside brackets and quotes:</p>
+<ul class="rst-simple">
+<li>A part <tt class="rst-docutils rst-literal">optional</tt>, in any case or emphasized as <tt class="rst-docutils rst-literal">*optional*</tt>, a
+part ending in <tt class="rst-docutils rst-literal">(optional)</tt> and a part ending in <tt class="rst-docutils rst-literal">?</tt> mark the
+param optional.</li>
+<li>A part <tt class="rst-docutils rst-literal">default 1</tt>, <tt class="rst-docutils rst-literal">default=1</tt>, <tt class="rst-docutils rst-literal">default: 1</tt>, <tt class="rst-docutils rst-literal">default is
+1</tt>, <tt class="rst-docutils rst-literal">defaults to 1</tt> or <tt class="rst-docutils rst-literal">defaults 1</tt> gives the default, without
+backticks around it, and makes the param optional too.</li>
+<li>The other parts are the type.</li>
+</ul>
+<p>The same rule holds in every style.</p>
 </div>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="docstring_parser._text.DEFAULT_IN_DESCRIPTION">
+    
+  </a>
+  <a name="DEFAULT_IN_DESCRIPTION">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DEFAULT_IN_DESCRIPTION</span> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/ffd2d1cc043f29a6a656116328a3542c8ca9f384/docstring_parser/_text.py#L169">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#DEFAULT_IN_DESCRIPTION" title="docstring_parser._text.DEFAULT_IN_DESCRIPTION">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="https://docs.python.org/3/library/re.html#re.compile" class="intersphinx-link">re.compile</a>(r<span class="rst-variable-quote">'</span><span class="rst-re-group">(?&lt;!</span>\w<span class="rst-re-group">)</span><span class="rst-re-group">(?:</span>defaults\s<span class="rst-re-op">+</span>to<span class="rst-re-op">|</span>\s<span class="rst-re-op">+</span><span class="rst-re-group">(?:</span>value\s<span class="rst-re-op">+</span><span class="rst-re-group">)</span><span class="rst-re-op">?</span>is<span class="rst-re-op">|</span>:<span class="rst-re-op">|</span>\s<span class="rst-re-op">*</span>=<span class="rst-re-group">)</span>\s<span class="rst-re-op">*</span><span class="rst-re-group">(?P&lt;</span><span class="rst-re-ref">value</span><span class="rst-re-group">&gt;</span>``<span class="rst-re-group">[</span><span class="rst-re-op">^</span><span class="rst-variable-linewrap">↵</span>
+`\n<span class="rst-re-group">]</span><span class="rst-re-op">+</span>``<span class="rst-re-op">|</span>`<span class="rst-re-group">[</span><span class="rst-re-op">^</span>`\n<span class="rst-re-group">]</span><span class="rst-re-op">+</span>`<span class="rst-re-op">|</span>\'<span class="rst-re-group">[</span><span class="rst-re-op">^</span>\'\n<span class="rst-re-group">]</span><span class="rst-re-op">*</span>\'<span class="rst-re-op">|</span>"<span class="rst-re-group">[</span><span class="rst-re-op">^</span>"\n<span class="rst-re-group">]</span><span class="rst-re-op">*</span>"<span class="rst-re-op">|</span>\(<span class="rst-re-group">[</span><span class="rst-re-op">^</span>\(\)\n<span class="rst-re-group">]</span><span class="rst-re-op">*</span>\)<span class="rst-re-op">|</span>\[<span class="rst-re-group">[</span><span class="rst-re-op">^</span>\[\]\n<span class="rst-re-group">]</span><span class="rst-re-op">*</span>\]<span class="rst-re-op">|</span>\{<span class="rst-re-group">[</span><span class="rst-re-op">^</span>\{\}\<span class="rst-variable-linewrap">↵</span>
+n<span class="rst-re-group">]</span><span class="rst-re-op">*</span>\}<span class="rst-re-op">|</span><span class="rst-re-group">[</span>-\+<span class="rst-re-group">]</span><span class="rst-re-op">?</span><span class="rst-re-group">[</span>\w\.<span class="rst-re-group">]</span><span class="rst-re-op">*</span>\w<span class="rst-re-group">(?:</span>\(<span class="rst-re-group">[</span><span class="rst-re-op">^</span>\(\)\n<span class="rst-re-group">]</span><span class="rst-re-op">*</span>\)<span class="rst-re-group">)</span><span class="rst-re-op">?</span><span class="rst-re-group">)</span><span class="rst-re-group">(?=</span>\s<span class="rst-re-op">*</span><span class="rst-re-group">(?:</span><span class="rst-re-group">[</span>\.,;\)<span class="rst-re-group">]</span><span class="rst-re-op">|</span>$<span class="rst-re-group">)</span><span class="rst-re-op">|</span>\s<span class="rst-re-op">+</span><span class="rst-re-group">(?:</span>\(<span class="rst-re-op">|</span><span class="rst-re-group">(?:</span>if<span class="rst-re-op">|</span>whe<span class="rst-variable-linewrap">↵</span>
+n<span class="rst-re-op">|</span>unless<span class="rst-re-group">)</span>\b<span class="rst-re-group">)</span><span class="rst-re-group">)</span><span class="rst-variable-quote">'</span>,
+           (<a href="https://docs.python.org/3/library/re.html#re.I" class="intersphinx-link">re.I</a> | <a href="https://docs.python.org/3/library/re.html#re.M" class="intersphinx-link">re.M</a>))</code></pre></td></tr></table>
   </div>
 </div><div class="baseconstant">
   
@@ -773,7 +1001,7 @@ is neither optional nor not.</p>
   <div class="functionHeader">
     
     <span class="py-defname">DEFAULT_REGEX</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/24246b0294b963c12a66f7f62894c792d8e48248/docstring_parser/_text.py#L61">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/ffd2d1cc043f29a6a656116328a3542c8ca9f384/docstring_parser/_text.py#L61">
       
       (source)
     </a>
@@ -801,7 +1029,7 @@ is neither optional nor not.</p>
   <div class="functionHeader">
     
     <span class="py-defname">OPTIONAL_REGEX</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/24246b0294b963c12a66f7f62894c792d8e48248/docstring_parser/_text.py#L53">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/ffd2d1cc043f29a6a656116328a3542c8ca9f384/docstring_parser/_text.py#L53">
       
       (source)
     </a>
@@ -816,6 +1044,171 @@ is neither optional nor not.</p>
     <div><p class="undocumented">Undocumented</p></div>
     <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="https://docs.python.org/3/library/re.html#re.compile" class="intersphinx-link">re.compile</a>(r<span class="rst-variable-quote">'</span><span class="rst-re-group">(?P&lt;</span><span class="rst-re-ref">type</span><span class="rst-re-group">&gt;</span>.<span class="rst-re-op">*?</span><span class="rst-re-group">)</span><span class="rst-re-group">(?:</span>, optional<span class="rst-re-op">|</span>\(optional\)<span class="rst-re-group">)</span>$<span class="rst-variable-quote">'</span>)</code></pre></td></tr></table>
   </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="docstring_parser._text._split_commas">
+    
+  </a>
+  <a name="_split_commas">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">_split_commas</span><span class="function-signature">(<span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/ffd2d1cc043f29a6a656116328a3542c8ca9f384/docstring_parser/_text.py#L77">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_split_commas" title="docstring_parser._text._split_commas">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Split a type on the commas outside brackets and quotes.</p></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="docstring_parser._text._strip_backticks">
+    
+  </a>
+  <a name="_strip_backticks">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">_strip_backticks</span><span class="function-signature">(<span class="rst-sig-param">value: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/ffd2d1cc043f29a6a656116328a3542c8ca9f384/docstring_parser/_text.py#L113">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_strip_backticks" title="docstring_parser._text._strip_backticks">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="docstring_parser._text._CLOSING">
+    
+  </a>
+  <a name="_CLOSING">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_CLOSING</span>: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#dict" class="intersphinx-link">dict</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/ffd2d1cc043f29a6a656116328a3542c8ca9f384/docstring_parser/_text.py#L74">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_CLOSING" title="docstring_parser._text._CLOSING">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>{<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">(</span><span class="rst-variable-quote">'</span>: <span class="rst-variable-quote">'</span><span class="rst-variable-string">)</span><span class="rst-variable-quote">'</span>, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">[</span><span class="rst-variable-quote">'</span>: <span class="rst-variable-quote">'</span><span class="rst-variable-string">]</span><span class="rst-variable-quote">'</span>, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">{</span><span class="rst-variable-quote">'</span>: <span class="rst-variable-quote">'</span><span class="rst-variable-string">}</span><span class="rst-variable-quote">'</span>}</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="docstring_parser._text._DEFAULT_PART">
+    
+  </a>
+  <a name="_DEFAULT_PART">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_DEFAULT_PART</span> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/ffd2d1cc043f29a6a656116328a3542c8ca9f384/docstring_parser/_text.py#L105">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_DEFAULT_PART" title="docstring_parser._text._DEFAULT_PART">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="https://docs.python.org/3/library/re.html#re.compile" class="intersphinx-link">re.compile</a>(r<span class="rst-variable-quote">'</span>defaults<span class="rst-re-op">?</span><span class="rst-re-group">(?:</span>\s<span class="rst-re-op">*</span><span class="rst-re-group">[</span>=:<span class="rst-re-group">]</span>\s<span class="rst-re-op">*</span><span class="rst-re-op">|</span>\s<span class="rst-re-op">+</span><span class="rst-re-group">(?:</span>is\s<span class="rst-re-op">+</span><span class="rst-re-op">|</span>to\s<span class="rst-re-op">+</span><span class="rst-re-group">)</span><span class="rst-re-op">?</span><span class="rst-re-group">)</span><span class="rst-re-group">(?P&lt;</span><span class="rst-re-ref">value</span><span class="rst-re-group">&gt;</span>\S.<span class="rst-re-op">*</span><span class="rst-re-group">)</span><span class="rst-variable-quote">'</span>,
+           (<a href="https://docs.python.org/3/library/re.html#re.I" class="intersphinx-link">re.I</a> | <a href="https://docs.python.org/3/library/re.html#re.S" class="intersphinx-link">re.S</a>))</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="docstring_parser._text._OPTIONAL">
+    
+  </a>
+  <a name="_OPTIONAL">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_OPTIONAL</span> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/ffd2d1cc043f29a6a656116328a3542c8ca9f384/docstring_parser/_text.py#L101">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_OPTIONAL" title="docstring_parser._text._OPTIONAL">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="https://docs.python.org/3/library/re.html#re.compile" class="intersphinx-link">re.compile</a>(r<span class="rst-variable-quote">'</span>\*<span class="rst-re-op">?</span>optional\*<span class="rst-re-op">?</span><span class="rst-variable-quote">'</span>,
+           <a href="https://docs.python.org/3/library/re.html#re.I" class="intersphinx-link">re.I</a>)</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="docstring_parser._text._OPTIONAL_SUFFIX">
+    
+  </a>
+  <a name="_OPTIONAL_SUFFIX">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_OPTIONAL_SUFFIX</span> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/ffd2d1cc043f29a6a656116328a3542c8ca9f384/docstring_parser/_text.py#L110">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_OPTIONAL_SUFFIX" title="docstring_parser._text._OPTIONAL_SUFFIX">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="https://docs.python.org/3/library/re.html#re.compile" class="intersphinx-link">re.compile</a>(r<span class="rst-variable-quote">'</span>\s<span class="rst-re-op">*</span>\(optional\)$<span class="rst-variable-quote">'</span>,
+           <a href="https://docs.python.org/3/library/re.html#re.I" class="intersphinx-link">re.I</a>)</code></pre></td></tr></table>
+  </div>
 </div>
         </div>
       
@@ -828,7 +1221,7 @@ is neither optional nor not.</p>
   <div class="container-fluid">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    25.10.1 at 2026-11-06 17:34:54.
+    25.10.1 at 2026-11-06 17:37:46.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 
