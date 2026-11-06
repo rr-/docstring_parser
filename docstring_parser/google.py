@@ -655,6 +655,17 @@ _COMPOSE_SECTIONS = SectionTable(
 )
 
 
+def _write_section(
+    parts: T.List[str], indent: str, key: T.Optional[str], body: str
+) -> None:
+    """Write a section of text, titled by its key."""
+    parts.append((key or "").replace("_", "").title() + ":")
+    if body:
+        lines = [indent + line if line else "" for line in body.splitlines()]
+        parts.append("\n".join(lines))
+    parts.append("")
+
+
 def compose(
     docstring: Docstring,
     rendering_style: RenderingStyle = RenderingStyle.COMPACT,
@@ -767,15 +778,6 @@ def compose(
     for title, items in found:
         process_sect(title, items)
 
-    def write_section(key: T.Optional[str], body: str) -> None:
-        parts.append((key or "").replace("_", "").title() + ":")
-        if body:
-            lines = [
-                indent + line if line else "" for line in body.splitlines()
-            ]
-            parts.append("\n".join(lines))
-        parts.append("")
-
     # Examples in a row share a section. One with no snippet is the text
     # after a section's last snippet, so it ends its section: written with
     # the next ones, it would read back as part of their text. An empty
@@ -784,18 +786,20 @@ def compose(
     for meta in rest:
         if isinstance(meta, DocstringExample):
             if not meta.snippet and not meta.description and group:
-                write_section(group[0].key, examples_text(group))
+                _write_section(
+                    parts, indent, group[0].key, examples_text(group)
+                )
                 group = []
             group.append(meta)
             if meta.snippet:
                 continue
         if group:
-            write_section(group[0].key, examples_text(group))
+            _write_section(parts, indent, group[0].key, examples_text(group))
             group = []
         if not isinstance(meta, DocstringExample):
-            write_section(meta.key, meta.description or "")
+            _write_section(parts, indent, meta.key, meta.description or "")
     if group:
-        write_section(group[0].key, examples_text(group))
+        _write_section(parts, indent, group[0].key, examples_text(group))
 
     while parts and not parts[-1]:
         parts.pop()
