@@ -526,6 +526,22 @@ _PARAM_FIELD_OF_KIND = {Kind.ATTRIBUTE: "attribute"}
 _OWN_PARAM_FIELDS = frozenset(PARAM_KEYWORDS | ATTRIBUTE_FIELD_KEYWORDS)
 
 
+def _attribute_directive(meta: DocstringParam, indent: str) -> str:
+    """Compose an attribute as a directive, with its type and value."""
+    lines = [f".. attribute:: {meta.arg_name}"]
+    type_name = meta.raw_type_name or meta.type_name
+    if type_name:
+        lines.append(f"{indent}:type: {type_name}")
+    lines.append(f"{indent}:value: {meta.default}")
+    if meta.description:
+        lines.append("")
+        lines.extend(
+            indent + line if line else ""
+            for line in meta.description.split("\n")
+        )
+    return "\n".join(lines)
+
+
 def _type_field(indent: str, head: str, type_name: str) -> str:
     """Compose a type field, whose lines after the first are indented, as
     an unindented line ends it."""
@@ -594,7 +610,16 @@ def compose(
                     if meta.is_optional
                     else meta.type_name
                 )
-            if meta.description is None and type_name:
+            if (
+                meta.kind is Kind.ATTRIBUTE
+                and meta.default is not None
+                and param_spec(type_name, meta.description).default
+                != meta.default
+            ):
+                # Only the directive gives an attribute a default of its
+                # own, as its value.
+                parts.append(_attribute_directive(meta, indent))
+            elif meta.description is None and type_name:
                 # A type field alone, which reads back as a param with no
                 # description.
                 parts.append(

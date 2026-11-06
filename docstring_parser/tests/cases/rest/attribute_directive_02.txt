@@ -57,7 +57,11 @@ Short.
 
 Long.
 
-:attribute int? x: :no-index:
+.. attribute:: x
+    :type: int, optional
+    :value: 3
+
+    :no-index:
 
     X is
     great.
