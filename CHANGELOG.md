@@ -28,6 +28,7 @@
 - ReST: Keep a `:type x:` field that no other field describes as a param, and an `:rtype name:` as a return, instead of dropping them
 - ReST: Compose a return value's name as `:returns:` followed by `:rtype name:`, and read it back, instead of dropping it
 - Google: Parse PEP 604 union types (e.g. `int | str`) in return sections (thanks to @binggao1230)
+- Google: Parse a union return or yield type whose members have brackets or dots, such as `dict[str, int] | None`, instead of keeping the whole line as the description
 - Google: Avoid regex backtracking when parsing parameter types
 - Google: Parse docstrings that open with a section title (thanks to @HardMax71)
 - Google: Compose a return with no type as just its description, instead of prefixing it with a colon that grew on every round trip

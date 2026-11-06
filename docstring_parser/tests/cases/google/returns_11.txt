@@ -1,0 +1,19 @@
+# Test parsing a union return type with a nested subscript and a dotted name.
+=== input
+
+        Returns:
+            Callable[[int], str] | np.ndarray: the callback or its table
+        
+=== parse google
+blank_after_short_description: False
+blank_after_long_description: False
+style: google
+- DocstringReturns
+  description: 'the callback or its table'
+  kind: returns
+  key: 'returns'
+  type_name: 'Callable[[int], str] | np.ndarray'
+  is_generator: False
+=== compose google
+Returns:
+    Callable[[int], str] | np.ndarray: the callback or its table

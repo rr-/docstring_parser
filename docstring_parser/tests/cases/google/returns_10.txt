@@ -1,0 +1,19 @@
+# Test parsing a union return type whose members have brackets.
+=== input
+
+        Returns:
+            dict[str, int] | None: the mapping, if any
+        
+=== parse google
+blank_after_short_description: False
+blank_after_long_description: False
+style: google
+- DocstringReturns
+  description: 'the mapping, if any'
+  kind: returns
+  key: 'returns'
+  type_name: 'dict[str, int] | None'
+  is_generator: False
+=== compose google
+Returns:
+    dict[str, int] | None: the mapping, if any
