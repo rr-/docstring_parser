@@ -7,11 +7,16 @@ import pytest
 
 from docstring_parser import (
     DocstringStyle,
+    ParseError,
+    RenderingStyle,
+    compose,
     google,
     numpydoc,
+    parse,
     try_parse,
 )
 from docstring_parser.tests.cases import CASES_DIR, dump, read_case
+from docstring_parser.tests.generated import generated_inputs
 
 CASES = sorted(CASES_DIR.rglob("*.txt"))
 WORD = re.compile(r"\w+")
@@ -57,3 +62,98 @@ def test_no_text_is_dropped(style: DocstringStyle) -> None:
         docstring = try_parse(text, style).docstring
         lost = _words(text) - _words(dump(docstring)) - SYNTAX[style]
         assert not lost, f"{path.relative_to(CASES_DIR)} loses {sorted(lost)}"
+
+
+STYLES = list(SYNTAX)
+
+
+def _round_trips(text: str, style: DocstringStyle) -> T.List[str]:
+    """Return the renderings in which a docstring parsed with no problems
+    does not read back as it was parsed."""
+    result = try_parse(text, style)
+    if result.problems:
+        return []
+    expected = dump(result.docstring)
+    failed = []
+    for rendering in RenderingStyle:
+        composed = compose(result.docstring, style, rendering)
+        try:
+            actual = dump(parse(composed, style))
+        except ParseError as ex:
+            actual = str(ex)
+        if actual != expected:
+            failed.append(rendering.name.lower())
+    return failed
+
+
+# Case inputs that cannot read back the same, and why.
+SEVERAL_TYPES = "several type fields name one param, so another one types it"
+NAMED_TYPE = "a named type alone right after a return names that return"
+CASE_EXCLUSIONS = {
+    ("fork/rest_parser_attributes_03.txt", DocstringStyle.REST): SEVERAL_TYPES,
+    ("rest/type_only_01.txt", DocstringStyle.REST): NAMED_TYPE,
+}
+
+
+@pytest.mark.parametrize("style", STYLES, ids=lambda s: s.name.lower())
+def test_compose_round_trips(style: DocstringStyle) -> None:
+    """Test that every case input parsed with no problems composes, in
+    every rendering, to text that parses back the same."""
+    for path in CASES:
+        name = str(path.relative_to(CASES_DIR))
+        if (name, style) in CASE_EXCLUSIONS:
+            continue
+        failed = _round_trips(read_case(path).input, style)
+        assert not failed, f"{name} changes in {failed}"
+
+
+def test_compose_round_trip_exclusions_still_fail() -> None:
+    """Test that every excluded case input still fails to round trip, so
+    that one fixed leaves the list."""
+    for name, style in CASE_EXCLUSIONS:
+        text = read_case(CASES_DIR / name).input
+        assert _round_trips(text, style), f"{name} round trips now"
+
+
+# Generated docstrings that cannot read back the same, and why, by their
+# index among the first GENERATED.
+SUMMARY = "an indented first line reads as a field or title once flush"
+BODY = "a body's first line is dedented apart from its other lines"
+BLANK = "a line holding only a form feed or vertical tab is emptied"
+DIRECTIVE = "a directive's body holds the directive itself"
+GENERATED = 2000
+GENERATED_EXCLUSIONS = {
+    (166, DocstringStyle.GOOGLE): BODY,
+    (345, DocstringStyle.GOOGLE): BLANK,
+    (378, DocstringStyle.GOOGLE): BODY,
+    (555, DocstringStyle.REST): SUMMARY,
+    (637, DocstringStyle.REST): SUMMARY,
+    (672, DocstringStyle.REST): SUMMARY,
+    (764, DocstringStyle.NUMPYDOC): SUMMARY,
+    (835, DocstringStyle.EPYDOC): SUMMARY,
+    (852, DocstringStyle.REST): SUMMARY,
+    (996, DocstringStyle.GOOGLE): BLANK,
+    (1253, DocstringStyle.NUMPYDOC): BODY,
+    (1408, DocstringStyle.NUMPYDOC): SUMMARY,
+    (1507, DocstringStyle.GOOGLE): BODY,
+    (1541, DocstringStyle.REST): SUMMARY,
+    (1572, DocstringStyle.EPYDOC): SUMMARY,
+    (1733, DocstringStyle.EPYDOC): SUMMARY,
+    (1774, DocstringStyle.REST): SUMMARY,
+    (1856, DocstringStyle.GOOGLE): SUMMARY,
+    (1943, DocstringStyle.NUMPYDOC): DIRECTIVE,
+    (1971, DocstringStyle.GOOGLE): BLANK,
+}
+
+
+def test_generated_round_trips() -> None:
+    """Test that generated docstrings parsed with no problems compose to
+    text that parses back the same, but for the known exclusions, which
+    must still fail."""
+    failing = set()
+    for index, text in enumerate(generated_inputs(GENERATED)):
+        for style in STYLES:
+            if _round_trips(text, style):
+                failing.add((index, style))
+    assert failing - set(GENERATED_EXCLUSIONS) == set()
+    assert set(GENERATED_EXCLUSIONS) - failing == set()
