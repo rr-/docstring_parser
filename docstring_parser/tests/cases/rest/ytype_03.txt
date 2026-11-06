@@ -1,0 +1,23 @@
+# Test that a yield type field names the yield before it.
+=== input
+Short description.
+
+:yields: Each value.
+:ytype value: int
+=== parse rest
+short_description: 'Short description.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringReturns
+  description: 'Each value.'
+  kind: yields
+  key: 'yields'
+  type_name: 'int'
+  is_generator: True
+  return_name: 'value'
+=== compose rest
+Short description.
+
+:yields: Each value.
+:ytype value: int

@@ -1,0 +1,34 @@
+# Test that a return type and a yield type each type their own field.
+=== input
+Short description.
+
+:returns: The result.
+:yields: Each value.
+:rtype: str
+:ytype: int
+=== parse rest
+short_description: 'Short description.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringReturns
+  description: 'The result.'
+  kind: returns
+  key: 'returns'
+  type_name: 'str'
+  is_generator: False
+- DocstringReturns
+  description: 'Each value.'
+  kind: yields
+  key: 'yields'
+  type_name: 'int'
+  is_generator: True
+=== compose rest expanded
+Short description.
+
+:returns:
+    The result.
+:rtype: str
+:yields:
+    Each value.
+:ytype: int

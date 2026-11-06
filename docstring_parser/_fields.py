@@ -29,7 +29,10 @@ def _take(
 
 
 def assign_types(
-    metas: T.List[DocstringMeta], types: ParamTypes, rtypes: ReturnTypes
+    metas: T.List[DocstringMeta],
+    types: ParamTypes,
+    rtypes: ReturnTypes,
+    ytypes: T.Optional[ReturnTypes] = None,
 ) -> None:
     """Give params and returns the types their type fields give.
 
@@ -37,9 +40,13 @@ def assign_types(
     metas left, so one type field types every meta of its name. A type no
     meta takes is a meta of its own, where its field is, and types left
     over at one place keep their order.
+
+    :param ytypes: types that only yields take; a yields of a name with
+        none takes from ``rtypes``
     """
-    if not types and not rtypes:
+    if not types and not rtypes and not ytypes:
         return
+    ytypes = ytypes or {}
     taken: T.Dict[T.Any, int] = {}
     for meta in metas:
         if isinstance(meta, DocstringParam):
@@ -53,7 +60,10 @@ def assign_types(
                     meta.default = meta.default or spec.default
         elif isinstance(meta, DocstringReturns):
             name = meta.return_name
-            text = _take(taken, rtypes.get(name, []), (False, name))
+            if meta.is_generator and name in ytypes:
+                text = _take(taken, ytypes[name], (None, name))
+            else:
+                text = _take(taken, rtypes.get(name, []), (False, name))
             if text is not None and not meta.type_name:
                 meta.type_name = text
 
@@ -70,12 +80,13 @@ def assign_types(
                 key="type",
             )
             extra.append((at, param))
-    for rname, found_r in rtypes.items():
-        for text, at, kind, key in found_r[taken.get((False, rname), 0) :]:
-            returns = DocstringReturns(
-                None, text, kind is Kind.YIELDS, return_name=rname, key=key
-            )
-            extra.append((at, returns))
+    for tag, table in ((False, rtypes), (None, ytypes)):
+        for rname, found_r in table.items():
+            for text, at, kind, key in found_r[taken.get((tag, rname), 0) :]:
+                returns = DocstringReturns(
+                    None, text, kind is Kind.YIELDS, return_name=rname, key=key
+                )
+                extra.append((at, returns))
     if not extra:
         return
     # Each goes before the meta read after its field, and those of one
