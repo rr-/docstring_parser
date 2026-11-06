@@ -152,6 +152,7 @@ def parse(
     split_description(ret, desc_chunk)
 
     types = {}
+    type_at: T.Dict[str, int] = {}
     rtypes = {}
     # Text between or after the fields, such as an example block, which
     # goes to the long description instead of being dropped.
@@ -200,6 +201,7 @@ def parse(
         # Add special handling for :type a: typename
         if len(args) == 2 and args[0] == "type":
             types[args[1]] = desc
+            type_at.setdefault(args[1], len(ret.meta))
         elif len(args) in [1, 2] and args[0] == "rtype":
             rtypes[None if len(args) == 1 else args[1]] = desc
         else:
@@ -210,8 +212,11 @@ def parse(
 
     append_loose(ret, loose_chunks, blank_around=True)
 
+    has_returns = False
+    typed = set()
     for meta in ret.meta:
         if isinstance(meta, DocstringParam):
+            typed.add(meta.arg_name)
             if not meta.type_name and meta.arg_name in types:
                 meta.type_name, is_optional, default = type_spec(
                     types[meta.arg_name]
@@ -221,9 +226,28 @@ def parse(
                     meta.default = meta.default or default
         elif isinstance(meta, DocstringReturns):
             meta.type_name = meta.type_name or rtypes.get(meta.return_name)
+            has_returns = True
 
-    if not any(isinstance(m, DocstringReturns) for m in ret.meta) and rtypes:
-        for return_name, type_name in rtypes.items():
+    # A type for a name no field describes is a param of its own, where
+    # its type field is.
+    for name in sorted(set(types) - typed, key=type_at.__getitem__)[::-1]:
+        type_name, is_optional, default = type_spec(types[name])
+        ret.meta.insert(
+            type_at[name],
+            DocstringParam(
+                None,
+                arg_name=name,
+                type_name=type_name,
+                is_optional=is_optional,
+                default=default,
+                key="type",
+            ),
+        )
+
+    # Returns take the type without a name, and a type for a return value
+    # with a name is a return of its own.
+    for return_name, type_name in rtypes.items():
+        if not has_returns or return_name is not None:
             ret.meta.append(
                 DocstringReturns(
                     type_name=type_name,

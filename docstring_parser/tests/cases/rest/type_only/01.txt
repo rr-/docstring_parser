@@ -1,0 +1,42 @@
+# Test that a type field for a name no other field describes is kept as a
+# param, and a type for a named return value as a return.
+=== input
+Short.
+
+:param y: The y.
+:type x: str, optional
+:returns: The sum.
+:rtype total: int
+=== parse rest
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringParam
+  description: 'The y.'
+  kind: param
+  key: 'param'
+  arg_name: 'y'
+- DocstringParam
+  kind: param
+  key: 'type'
+  arg_name: 'x'
+  type_name: 'str'
+  is_optional: True
+- DocstringReturns
+  description: 'The sum.'
+  kind: returns
+  key: 'returns'
+  is_generator: False
+- DocstringReturns
+  kind: returns
+  type_name: 'int'
+  is_generator: False
+  return_name: 'total'
+=== compose rest
+Short.
+
+:param y: The y.
+:param str? x:
+:returns: The sum.
+:returns int:

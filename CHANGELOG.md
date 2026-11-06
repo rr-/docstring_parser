@@ -59,6 +59,7 @@
 - ReST, Epydoc: A param type such as `int, optional`, `int (optional)` or `int, default 1` makes the param optional and gives its default, as in Numpydoc, also in a `:type:` field, where `int?` did not work either
 - Google: A param type ending in `(optional)` or naming a default, as in `x (int, default 1)`, makes the param optional and gives its default
 - Numpydoc: A param type ending in `?` makes the param optional, and `int (optional)` gives the type `int` without a trailing space
+- ReST: Keep a `:type x:` field for a name that no other field describes as a param, as Epydoc does, and an `:rtype name:` field for a named return value as a return also next to `:returns:`, instead of dropping them
 
 # 0.18 (2026-04-14)
 
