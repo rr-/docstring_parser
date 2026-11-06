@@ -39,11 +39,34 @@ def excerpt(text: str, limit: int = 60) -> str:
 
 
 class Problem(T.NamedTuple):
-    """Something in a docstring that could not be parsed."""
+    """Something in a docstring that could not be parsed.
+
+    Its ``code`` names what is wrong, and stays the same from one version
+    to the next, while the message may change:
+
+    ``bad-field``
+        A ReST or Epydoc field that cannot be read, such as ``:param x``
+        with no colon after its head, or ``:: text`` with no name.
+    ``wrong-arguments``
+        A field with too many or too few words in its head, such as
+        ``:param a b c d:`` or ``:returns int str:``.
+    ``mixed-returns-and-yields``
+        An Epydoc docstring with both ``@return`` and ``@yield`` fields.
+    ``missing-colon``
+        A Google item with no colon between its head and its description,
+        in a section that takes several items, such as ``Args:``.
+    ``missing-name``
+        A Google section of params that holds text and no named item.
+    ``no-items``
+        A Google section whose items cannot be told apart by their
+        indent.
+    """
 
     #: The line it is on, from 1, in the docstring as written.
     line: int
-    #: What is wrong.
+    #: What is wrong, as one of the codes above.
+    code: str
+    #: What is wrong, for people to read.
     message: str
 
 
@@ -64,6 +87,16 @@ class ParseError(RuntimeError):
         super().__init__(message)
         self.problems: T.List[Problem] = problems or []
         self.result = result
+
+
+class ItemError(ParseError):
+    """An item of a docstring that cannot be parsed, with the code of its
+    problem."""
+
+    def __init__(self, code: str, message: str) -> None:
+        """Initialize self."""
+        super().__init__(message)
+        self.code = code
 
 
 class DocstringStyle(str, enum.Enum):

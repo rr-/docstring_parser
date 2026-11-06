@@ -27,8 +27,8 @@ from .common import (
     DocstringRaises,
     DocstringReturns,
     DocstringStyle,
+    ItemError,
     Kind,
-    ParseError,
     ParseResult,
     Problem,
     RenderingStyle,
@@ -246,7 +246,7 @@ def _single_meta(section: Section, desc: str) -> DocstringMeta:
     if kind is Kind.DEPRECATION:
         return DocstringDeprecated(desc, version=None, key=section.key)
     if kind in PARAM_KINDS:
-        raise ParseError("Expected paramenter name.")
+        raise ItemError("missing-name", "Expected paramenter name.")
     return DocstringMeta(desc, section.key)
 
 
@@ -353,7 +353,9 @@ class Parser(BaseParser):
             return _single_meta(section, text)
 
         if ":" not in text:
-            raise ParseError(f"Expected a colon in {excerpt(text)!r}.")
+            raise ItemError(
+                "missing-colon", f"Expected a colon in {excerpt(text)!r}."
+            )
 
         # Split spec and description
         before, desc = text.split(":", 1)
@@ -468,6 +470,7 @@ class Parser(BaseParser):
                 problems.append(
                     Problem(
                         lines.source_line(offset),
+                        "no-items",
                         f'No specification for "{title}": "{excerpt(chunk)}"',
                     )
                 )
@@ -503,8 +506,10 @@ class Parser(BaseParser):
         read."""
         try:
             ret.meta.append(self._meta(part, title))
-        except ParseError as ex:
-            problems.append(Problem(lines.source_line(offset), str(ex)))
+        except ItemError as ex:
+            problems.append(
+                Problem(lines.source_line(offset), ex.code, str(ex))
+            )
             loose.append(part)
 
 

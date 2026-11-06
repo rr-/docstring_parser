@@ -21,8 +21,8 @@ from .common import (
     DocstringRaises,
     DocstringReturns,
     DocstringStyle,
+    ItemError,
     Kind,
-    ParseError,
     ParseResult,
     Problem,
     RenderingStyle,
@@ -67,8 +67,9 @@ def _build_meta(args: T.List[str], desc: str, kind: Kind) -> DocstringMeta:
 
     if kind in PARAM_KINDS:
         if len(args) not in (2, 3):
-            raise ParseError(
-                f"Expected one or two arguments for a {key} keyword."
+            raise ItemError(
+                "wrong-arguments",
+                f"Expected one or two arguments for a {key} keyword.",
             )
         # The field's head is its key, maybe a type, and the param's name.
         arg_name = args[-1]
@@ -93,8 +94,9 @@ def _build_meta(args: T.List[str], desc: str, kind: Kind) -> DocstringMeta:
 
     if kind in (Kind.RETURNS, Kind.YIELDS) or kind in RAISES_KINDS:
         if len(args) > 2:
-            raise ParseError(
-                f"Expected one or no arguments for a {key} keyword."
+            raise ItemError(
+                "wrong-arguments",
+                f"Expected one or no arguments for a {key} keyword.",
             )
         type_name = args[1] if len(args) == 2 else None
         if kind in RAISES_KINDS:
@@ -320,6 +322,7 @@ class Parser(BaseParser):
                 problems.append(
                     Problem(
                         lines.source_line(at),
+                        "bad-field",
                         "Error parsing meta information near "
                         f'"{excerpt(chunk)}".',
                     )
@@ -368,8 +371,10 @@ class Parser(BaseParser):
                 kind = spec.kind if spec else Kind.TEXT
                 try:
                     meta = _build_meta(args, desc, kind)
-                except ParseError as ex:
-                    problems.append(Problem(lines.source_line(at), str(ex)))
+                except ItemError as ex:
+                    problems.append(
+                        Problem(lines.source_line(at), ex.code, str(ex))
+                    )
                     loose_chunks.append(chunk)
                     after_item = False
                     continue

@@ -1,5 +1,8 @@
 """Tests for parsing what can be parsed, and telling what cannot."""
 
+import random
+import re
+
 import pytest
 
 from docstring_parser import (
@@ -14,6 +17,7 @@ from docstring_parser import (
     rest,
     try_parse,
 )
+from docstring_parser._lines import Lines
 from docstring_parser.tests.cases import CASES_DIR, dump, read_case
 
 CASES = sorted(CASES_DIR.rglob("*.txt"))
@@ -43,7 +47,11 @@ def test_rest_problems() -> None:
         DocstringStyle.REST,
     )
     assert result.problems == [
-        Problem(6, 'Error parsing meta information near ":bad\n".')
+        Problem(
+            line=6,
+            code="bad-field",
+            message='Error parsing meta information near ":bad\n".',
+        )
     ]
     assert result.docstring.params[0].arg_name == "x"
     assert result.docstring.returns is not None
@@ -57,7 +65,11 @@ def test_google_problems() -> None:
         "Short.\n\nArgs:\n    x: X.\n    no colon here\n    y: Y.\n"
     )
     assert result.problems == [
-        Problem(5, "Expected a colon in 'no colon here'.")
+        Problem(
+            line=5,
+            code="missing-colon",
+            message="Expected a colon in 'no colon here'.",
+        )
     ]
     assert result.docstring.params[0].arg_name == "x"
     assert result.docstring.params[1].arg_name == "y"
@@ -67,7 +79,11 @@ def test_google_problems() -> None:
 def test_google_problem_line_with_title_first() -> None:
     """Test the line of a problem in a docstring that opens with a title."""
     result = google.try_parse("Args:\n    x: X.\n    y\n")
-    assert result.problems == [Problem(3, "Expected a colon in 'y'.")]
+    assert result.problems == [
+        Problem(
+            line=3, code="missing-colon", message="Expected a colon in 'y'."
+        )
+    ]
 
 
 def test_epydoc_problems() -> None:
@@ -77,9 +93,16 @@ def test_epydoc_problems() -> None:
     )
     assert result.problems == [
         Problem(
-            4, 'Error parsing meta information near "@param: nameless\n".'
+            line=4,
+            code="wrong-arguments",
+            message="Error parsing meta information near "
+            '"@param: nameless\n".',
         ),
-        Problem(6, 'Error parsing meta information for "return".'),
+        Problem(
+            line=6,
+            code="mixed-returns-and-yields",
+            message='Error parsing meta information for "return".',
+        ),
     ]
     assert result.docstring.params[0].arg_name == "x"
     assert result.docstring.returns is not None
@@ -107,8 +130,16 @@ def test_parse_error_carries_every_problem() -> None:
         'Error parsing meta information near ":bad\n". (and 1 more)'
     )
     assert info.value.problems == [
-        Problem(4, 'Error parsing meta information near ":bad\n".'),
-        Problem(5, "Expected one or two arguments for a param keyword."),
+        Problem(
+            line=4,
+            code="bad-field",
+            message='Error parsing meta information near ":bad\n".',
+        ),
+        Problem(
+            line=5,
+            code="wrong-arguments",
+            message="Expected one or two arguments for a param keyword.",
+        ),
     ]
     assert info.value.result is not None
     assert info.value.result.docstring.params[0].arg_name == "x"
@@ -138,3 +169,42 @@ def test_empty_text_has_no_problems() -> None:
     for style in DocstringStyle:
         assert try_parse("", style).problems == []
         assert try_parse(None, style).problems == []
+
+
+_MUTATIONS = [":", "@", "\n", " ", "\t", "\r", "\f", "-", "----\n", ".. ", "("]
+_MUTATIONS += [")", "|", "Args:", "Returns:\n", "Parameters\n----------\n"]
+_MUTATIONS += [":param", ":param x:", ":rtype:", "@param", "@yield:", "x"]
+
+
+def _mutate(rnd: random.Random, text: str) -> str:
+    chars = list(text)
+    for _ in range(rnd.randint(1, 4)):
+        pos = rnd.randint(0, len(chars))
+        if rnd.random() < 0.6:
+            chars[pos:pos] = rnd.choice(_MUTATIONS)
+        else:
+            del chars[pos : pos + rnd.randint(1, 8)]
+    return "".join(chars)
+
+
+@pytest.mark.parametrize("style", list(DocstringStyle), ids=lambda s: s.name)
+def test_only_problems_or_parse_error(style: DocstringStyle) -> None:
+    """Test that a broken docstring gives problems, or a ParseError from
+    parse, and nothing else."""
+    rnd = random.Random(0)
+    codes = set(
+        re.findall(r"^    ``([a-z-]+)``$", Problem.__doc__ or "", re.M)
+    )
+    for path in CASES:
+        text = _mutate(rnd, read_case(path).input)
+        result = try_parse(text, style)
+        last_line = len(Lines(text).raw.split("\n"))
+        for problem in result.problems:
+            assert problem.code in codes, (path, problem)
+            assert 1 <= problem.line <= last_line, (path, problem)
+        try:
+            parse(text, style)
+        except ParseError as ex:
+            assert ex.problems == result.problems, path
+        else:
+            assert result.problems == [], path
