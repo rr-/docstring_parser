@@ -44,10 +44,12 @@ def _dedent(text: str) -> T.Tuple[T.List[str], int]:
     lines[0] = lines[0].lstrip()
     if margin:
         lines[1:] = [line[margin:] for line in lines[1:]]
-    while lines and not lines[-1]:
+    # A line holding only whitespace longer than the margin, such as a tab
+    # or a form feed, is blank too.
+    while lines and not lines[-1].strip():
         lines.pop()
     start = 0
-    while start < len(lines) and not lines[start]:
+    while start < len(lines) and not lines[start].strip():
         start += 1
     return (lines[start:] if start else lines), start
 

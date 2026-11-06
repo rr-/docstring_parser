@@ -1,0 +1,29 @@
+# Test that lines holding only a tab or a form feed before and after the
+# text are cut like blank ones, instead of hiding the summary.
+=== input
+
+	
+    Sum.
+
+    Args:
+        a: x
+
+=== parse google
+short_description: 'Sum.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  description: 'x'
+  kind: param
+  key: 'param'
+  arg_name: 'a'
+  is_optional: False
+=== parse rest
+short_description: 'Sum.'
+long_description: |
+  Args:
+      a: x
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
