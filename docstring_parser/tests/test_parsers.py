@@ -9,6 +9,7 @@ from docstring_parser import (
     DocstringStyle,
     ParseError,
     auto,
+    compose,
     epydoc,
     google,
     numpydoc,
@@ -41,7 +42,7 @@ def test_parser_parses_as_parse(style: DocstringStyle, given: bool) -> None:
     sections = default_sections(style) if given else None
     parser = PARSERS[style](sections)
     assert isinstance(parser, BaseParser)
-    assert parser.name == style.name.lower()
+    assert parser.name == style
     for text in INPUTS:
         assert _result(lambda: parser.parse(text)) == _result(
             lambda: parse(text, style, sections=sections)
@@ -51,7 +52,7 @@ def test_parser_parses_as_parse(style: DocstringStyle, given: bool) -> None:
 def test_auto_parser_parses_as_parse() -> None:
     """Test that AutoParser gives what parse() gives in auto mode."""
     parser = auto.Parser()
-    assert parser.name == "auto"
+    assert parser.name == DocstringStyle.AUTO
     for text in INPUTS:
         assert _result(lambda: parser.parse(text)) == _result(
             lambda: parse(text)
@@ -75,6 +76,26 @@ def test_parse_reuses_parsers_for_sections() -> None:
     parsers = rest._parsers.parsers()
     parse(":param x: X.", DocstringStyle.REST, sections=sections)
     assert rest._parsers.parsers() == parsers
+
+
+def test_style_by_name_or_parser() -> None:
+    """Test that parse() and compose() take a style's name or parser."""
+    text = "Short.\n\n:param x: The x."
+    assert DocstringStyle.REST == "rest"
+    by_enum = dump(parse(text, DocstringStyle.REST))
+    assert dump(parse(text, "rest")) == by_enum
+    assert dump(parse(text, rest.Parser())) == by_enum
+    docstring = parse(text)
+    assert compose(docstring, "google") == compose(
+        docstring, DocstringStyle.GOOGLE
+    )
+    assert compose(docstring, google.Parser()) == compose(docstring, "google")
+
+
+def test_parser_has_its_sections() -> None:
+    """Test that parse() takes no sections next to a parser."""
+    with pytest.raises(ValueError, match="sections"):
+        parse("Short.", rest.Parser(), sections=[])
 
 
 def test_old_parser_names() -> None:
