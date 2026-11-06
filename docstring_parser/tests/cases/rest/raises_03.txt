@@ -14,3 +14,6 @@ style: rest
   kind: raises
   key: 'raises'
   type_name: 'ValueError'
+=== compose rest
+Short description
+:raises ValueError: description

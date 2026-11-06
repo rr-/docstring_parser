@@ -85,5 +85,5 @@ Causing people to indent:
 :param int bla: bla desc
 :param str yay:
 :attribute bool hello: hello world
-:raises ValueError : exc desc
+:raises ValueError: exc desc
 :returns tuple: ret desc

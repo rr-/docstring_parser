@@ -23,13 +23,13 @@ style: rest
 === compose rest
 Short.
 
-:raises ValueError, TypeError : If bad.
+:raises ValueError, TypeError: If bad.
 :returns: The counts.
 :rtype: Dict[str, int]
 === compose rest expanded
 Short.
 
-:raises ValueError, TypeError :
+:raises ValueError, TypeError:
     If bad.
 :returns:
     The counts.

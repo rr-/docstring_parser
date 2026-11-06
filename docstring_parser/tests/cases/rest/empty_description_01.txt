@@ -31,6 +31,6 @@ style: rest
 Short.
 
 :param x:
-:raises ValueError :
+:raises ValueError:
 :returns:
 :note:
