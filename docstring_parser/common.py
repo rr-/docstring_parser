@@ -356,8 +356,23 @@ class Docstring:
 
     @property
     def params(self) -> T.List[DocstringParam]:
-        """Return a list of information on function params."""
-        return [item for item in self.meta if isinstance(item, DocstringParam)]
+        """Return a list of information on function params, without the
+        attributes."""
+        return [
+            item
+            for item in self.meta
+            if isinstance(item, DocstringParam)
+            and item.kind is not Kind.ATTRIBUTE
+        ]
+
+    @property
+    def attrs(self) -> T.List[DocstringParam]:
+        """Return a list of information on attributes."""
+        return [
+            item
+            for item in self.meta
+            if isinstance(item, DocstringParam) and item.kind is Kind.ATTRIBUTE
+        ]
 
     @property
     def raises(self) -> T.List[DocstringRaises]:

@@ -110,7 +110,7 @@ def add_attribute_docstrings(
     :param docstring: Docstring object where found attributes are added
     :returns: list with names of added attributes
     """
-    params = set(p.arg_name for p in docstring.params)
+    params = set(p.arg_name for p in [*docstring.params, *docstring.attrs])
     for arg_name, (description, type_name, default) in (
         AttributeDocstrings().get_attr_docs(obj).items()
     ):
