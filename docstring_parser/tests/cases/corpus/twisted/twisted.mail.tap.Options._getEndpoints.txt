@@ -58,7 +58,7 @@ style: epydoc
     The endpoints for the specified service as configured by the
     command line parameters.
   kind: returns
-  key: 'rtype'
+  key: 'return'
   type_name: |
     L{list} of L{IStreamServerEndpoint
     <twisted.internet.interfaces.IStreamServerEndpoint>} provider

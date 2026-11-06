@@ -26,7 +26,7 @@ style: epydoc
 - DocstringReturns
   description: 'Plain text without any control sequences.'
   kind: returns
-  key: 'rtype'
+  key: 'return'
   type_name: 'C{str}'
   is_generator: False
 - DocstringMeta
