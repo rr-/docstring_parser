@@ -12,10 +12,14 @@ from ._text import split_description
 from .common import (
     EXAMPLES_KEYWORDS,
     PARAM_KEYWORDS,
+    PARAM_KINDS,
     RAISES_KEYWORDS,
+    RAISES_KINDS,
     RETURNS_KEYWORDS,
+    RETURNS_KINDS,
     YIELDS_KEYWORDS,
     Docstring,
+    DocstringDeprecated,
     DocstringExample,
     DocstringMeta,
     DocstringParam,
@@ -29,6 +33,7 @@ from .common import (
     continuation_indented,
     excerpt,
 )
+from .sections import Layout, SectionSpec, apply
 
 
 class SectionType(IntEnum):
@@ -118,19 +123,66 @@ def _split_typed_arg(text: str) -> T.Optional[T.Tuple[str, str, str]]:
     return name, type_name, text[closing + 1 :].strip()
 
 
-# The kinds of param that section keys other than ``param`` give.
-_PARAM_KINDS = {
-    "key": Kind.KEYWORD,
-    "keyword": Kind.KEYWORD,
-    "attribute": Kind.ATTRIBUTE,
+# The kind of a section given as a Section, by its key. Google has no
+# deprecation items, so a section keyed as one is plain text.
+_KIND_OF_KEY = {
+    key: kind
+    for keys, kind in (
+        (PARAM_KEYWORDS, Kind.PARAM),
+        (RETURNS_KEYWORDS, Kind.RETURNS),
+        (YIELDS_KEYWORDS, Kind.YIELDS),
+        (RAISES_KEYWORDS, Kind.RAISES),
+        (EXAMPLES_KEYWORDS, Kind.EXAMPLES),
+    )
+    for key in keys
 }
+_KIND_OF_KEY.update(
+    {"key": Kind.KEYWORD, "keyword": Kind.KEYWORD, "attribute": Kind.ATTRIBUTE}
+)
+
+
+class _SpecSection(Section):
+    """A section made from a SectionSpec, which it keeps as ``spec``."""
+
+    spec: SectionSpec
+
+
+def _section_kind(section: Section) -> Kind:
+    if isinstance(section, _SpecSection):
+        return section.spec.kind
+    return _KIND_OF_KEY.get(section.key, Kind.TEXT)
+
+
+_SECTION_TYPE = {
+    Layout.ITEMS: SectionType.MULTIPLE,
+    Layout.BLOCK: SectionType.SINGULAR,
+    Layout.ITEM_OR_BLOCK: SectionType.SINGULAR_OR_MULTIPLE,
+}
+_LAYOUT = {v: k for k, v in _SECTION_TYPE.items()}
+
+
+def _title(match: T.Match[str]) -> str:
+    """Return the title a match of a title regex found."""
+    return next(group for group in match.groups() if group is not None)
+
+
+def default_sections() -> T.List[SectionSpec]:
+    """Return the sections Google recognises when given none."""
+    return [
+        SectionSpec(
+            s.title, _section_kind(s), key=s.key, layout=_LAYOUT[s.type]
+        )
+        for s in DEFAULT_SECTIONS
+    ]
 
 
 class GoogleParser:
     """Parser for Google-style docstrings."""
 
     def __init__(
-        self, sections: T.Optional[T.List[Section]] = None, title_colon=True
+        self,
+        sections: T.Optional[T.Sequence[T.Union[Section, SectionSpec]]] = None,
+        title_colon=True,
     ):
         """Setup sections.
 
@@ -139,22 +191,33 @@ class GoogleParser:
         """
         if not sections:
             sections = DEFAULT_SECTIONS
-        self.sections = {s.title: s for s in sections}
+        self.sections: T.Dict[str, Section] = {}
+        for section in sections:
+            self._add(section)
         self.title_colon = title_colon
         self._setup()
 
     def _setup(self):
-        if self.title_colon:
-            colon = ":"
-        else:
+        colon = ":" if self.title_colon else ""
+        bare = [
+            t
+            for t, s in self.sections.items()
+            if colon and isinstance(s, _SpecSection) and s.spec.bare
+        ]
+        titles = "|".join(
+            f"({re.escape(t)})" for t in self.sections if t not in bare
+        )
+        if bare:
+            titles = (
+                f"(?:({titles}){colon}|("
+                + "|".join(re.escape(t) for t in bare)
+                + "))"
+            )
             colon = ""
+        else:
+            titles = f"({titles})"
         self.titles_re = re.compile(
-            "^("
-            + "|".join(f"({re.escape(t)})" for t in self.sections)
-            + ")"
-            + colon
-            + "[ \t\r\f\v]*$",
-            flags=re.M,
+            "^" + titles + colon + "[ \t\r\f\v]*$", flags=re.M
         )
 
     def _build_meta(self, text: str, title: str) -> DocstringMeta:
@@ -196,22 +259,25 @@ class GoogleParser:
 
     @staticmethod
     def _build_single_meta(section: Section, desc: str) -> DocstringMeta:
-        if section.key in RETURNS_KEYWORDS | YIELDS_KEYWORDS:
+        kind = _section_kind(section)
+        if kind in RETURNS_KINDS:
             return DocstringReturns(
                 key=section.key,
                 description=desc,
                 type_name=None,
-                is_generator=section.key in YIELDS_KEYWORDS,
+                is_generator=kind is Kind.YIELDS,
             )
-        if section.key in RAISES_KEYWORDS:
+        if kind in RAISES_KINDS:
             return DocstringRaises(
-                description=desc, type_name=None, key=section.key
+                description=desc, type_name=None, kind=kind, key=section.key
             )
-        if section.key in EXAMPLES_KEYWORDS:
+        if kind is Kind.EXAMPLES:
             return DocstringExample(
                 snippet=None, description=desc, key=section.key
             )
-        if section.key in PARAM_KEYWORDS:
+        if kind is Kind.DEPRECATION:
+            return DocstringDeprecated(desc, version=None, key=section.key)
+        if kind in PARAM_KINDS:
             raise ParseError("Expected paramenter name.")
         return DocstringMeta(desc, section.key)
 
@@ -219,7 +285,8 @@ class GoogleParser:
     def _build_multi_meta(
         section: Section, before: str, desc: str
     ) -> DocstringMeta:
-        if section.key in PARAM_KEYWORDS:
+        kind = _section_kind(section)
+        if kind in PARAM_KINDS:
             typed_arg = _split_typed_arg(before)
             if typed_arg:
                 arg_name, type_name, extra = typed_arg
@@ -245,31 +312,48 @@ class GoogleParser:
                 type_name=type_name,
                 is_optional=is_optional,
                 default=default,
-                kind=_PARAM_KINDS.get(section.key, Kind.PARAM),
+                kind=kind,
             )
             param.extra = extra or None
             return param
-        if section.key in RETURNS_KEYWORDS | YIELDS_KEYWORDS:
+        if kind in RETURNS_KINDS:
             return DocstringReturns(
                 key=section.key,
                 description=desc,
                 type_name=before,
-                is_generator=section.key in YIELDS_KEYWORDS,
+                is_generator=kind is Kind.YIELDS,
             )
-        if section.key in RAISES_KEYWORDS:
+        if kind in RAISES_KINDS:
             return DocstringRaises(
-                description=desc, type_name=before, key=section.key
+                description=desc, type_name=before, kind=kind, key=section.key
             )
         return DocstringMeta(desc, section.key, before)
 
-    def add_section(self, section: Section):
+    def add_section(self, section: T.Union[Section, SectionSpec]):
         """Add or replace a section.
 
         :param section: The new section.
         """
-
-        self.sections[section.title] = section
+        self._add(section)
         self._setup()
+
+    def _add(self, section: T.Union[Section, SectionSpec]) -> None:
+        if not isinstance(section, SectionSpec):
+            self.sections[section.title] = section
+            return
+        for title in section.titles:
+            one = _SpecSection(
+                title, section.key, _SECTION_TYPE[section.layout]
+            )
+            one.spec = section
+            self.sections[title] = one
+
+    def _meta(self, text: str, title: str) -> DocstringMeta:
+        section = self.sections[title]
+        meta = self._build_meta(text, title)
+        if isinstance(section, _SpecSection):
+            return apply(section.spec, meta)
+        return meta
 
     def parse(self, text: T.Optional[str]) -> Docstring:
         """Parse the Google-style docstring into its components.
@@ -312,7 +396,7 @@ class GoogleParser:
         # twice keeps both of its chunks.
         chunks: T.List[T.Tuple[str, str]] = []
         for j, (start, end) in enumerate(splits):
-            title = matches[j].group(1)
+            title = _title(matches[j])
             if title not in self.sections:
                 continue
 
@@ -343,7 +427,7 @@ class GoogleParser:
                 SectionType.SINGULAR_OR_MULTIPLE,
             ]:
                 part = cleandoc(chunk)
-                ret.meta.append(self._build_meta(part, title))
+                ret.meta.append(self._meta(part, title))
                 continue
 
             # Split based on lines which have exactly that indent
@@ -359,28 +443,33 @@ class GoogleParser:
             c_splits.append((c_matches[-1].end(), len(chunk)))
             for j, (start, end) in enumerate(c_splits):
                 part = chunk[start:end].strip("\n")
-                ret.meta.append(self._build_meta(part, title))
+                ret.meta.append(self._meta(part, title))
 
         return ret
 
 
-_default_parser: T.Optional[GoogleParser] = None
-_default_parser_sections: T.Tuple[Section, ...] = ()
+_parsers: T.Dict[T.Tuple[T.Any, ...], GoogleParser] = {}
 
 
-def parse(text: T.Optional[str]) -> Docstring:
+def parse(
+    text: T.Optional[str],
+    sections: T.Optional[T.Sequence[T.Union[Section, SectionSpec]]] = None,
+) -> Docstring:
     """Parse the Google-style docstring into its components.
 
+    :param sections: the sections to recognise, instead of
+        ``DEFAULT_SECTIONS``
     :returns: parsed docstring
     """
-    global _default_parser, _default_parser_sections  # noqa: PLW0603
-    # Building a parser compiles its title regex, so reuse one until
-    # DEFAULT_SECTIONS changes.
-    sections = tuple(DEFAULT_SECTIONS)
-    if _default_parser is None or sections != _default_parser_sections:
-        _default_parser = GoogleParser()
-        _default_parser_sections = sections
-    return _default_parser.parse(text)
+    # Building a parser compiles its title regex, so reuse one for the same
+    # sections, including DEFAULT_SECTIONS until it changes.
+    key = tuple(sections or DEFAULT_SECTIONS)
+    parser = _parsers.get(key)
+    if parser is None:
+        if len(_parsers) >= 16:
+            _parsers.clear()
+        parser = _parsers[key] = GoogleParser(list(key))
+    return parser.parse(text)
 
 
 # The sections compose writes items in, in order, and the kinds each takes.

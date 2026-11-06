@@ -8,9 +8,13 @@ import typing as T
 
 from ._compose import description_lines, field_name, field_text
 from ._lines import Lines
-from ._text import clean_str, split_description
+from ._text import split_description
 from .common import (
+    PARAM_KINDS,
+    RAISES_KINDS,
     Docstring,
+    DocstringDeprecated,
+    DocstringExample,
     DocstringMeta,
     DocstringParam,
     DocstringRaises,
@@ -22,27 +26,82 @@ from .common import (
     cleandoc,
     excerpt,
 )
+from .sections import SectionSpec, apply
 
-# The kinds of param that Epydoc fields other than ``@param`` give.
-_PARAM_KINDS = {
-    "keyword": Kind.KEYWORD,
-    "ivar": Kind.ATTRIBUTE,
-    "cvar": Kind.ATTRIBUTE,
-    "var": Kind.ATTRIBUTE,
+_FIELD_START = re.compile("^@", flags=re.M)
+_FIELD = re.compile(r"(^@.*?)(?=^@|\Z)", flags=re.S | re.M)
+# A field's header: its name, then the names it is about, then a colon.
+_HEADER = re.compile(r"([_A-z][_A-z0-9]*)((?:\s+[_A-z][_A-z0-9]*\??)*):")
+
+# The fields that give the type of a param, a return value or a yield,
+# which are not items of their own.
+_TYPE_FIELDS = {
+    "type": ("param", Kind.PARAM),
+    "rtype": ("return", Kind.RETURNS),
+    "ytype": ("return", Kind.YIELDS),
+}
+
+# A field as read: how it combines with others, its name, the names it is
+# about, its text, its kind and the spec it was recognised by.
+_Field = T.Tuple[str, str, T.List[str], str, Kind, T.Optional[SectionSpec]]
+
+
+def _base(
+    spec: T.Optional[SectionSpec], args: T.List[str]
+) -> T.Tuple[str, Kind]:
+    """Tell how a field combines with others, and its kind."""
+    if spec is None:
+        return "meta", Kind.TEXT
+    kind = spec.kind
+    if kind in PARAM_KINDS:
+        return "param", kind
+    if kind in (Kind.RETURNS, Kind.YIELDS):
+        return "return", kind
+    if kind in RAISES_KINDS:
+        # A raises field names one exception at most; one naming more is
+        # plain text.
+        return ("raise", kind) if len(args) <= 1 else ("meta", Kind.TEXT)
+    return "meta", kind
+
+
+def default_sections() -> T.List[SectionSpec]:
+    """Return the fields Epydoc recognises when given none."""
+    return [
+        SectionSpec("param", Kind.PARAM),
+        SectionSpec("keyword", Kind.KEYWORD),
+        SectionSpec(("ivar", "cvar", "var"), Kind.ATTRIBUTE),
+        SectionSpec("return", Kind.RETURNS),
+        SectionSpec("yield", Kind.YIELDS),
+        SectionSpec("raise", Kind.RAISES),
+    ]
+
+
+_DEFAULT_TABLE = {
+    name: spec for spec in default_sections() for name in spec.titles
 }
 
 
-def parse(text: T.Optional[str]) -> Docstring:
+def parse(
+    text: T.Optional[str],
+    sections: T.Optional[T.Sequence[SectionSpec]] = None,
+) -> Docstring:
     """Parse the epydoc-style docstring into its components.
 
+    :param sections: the fields to recognise, instead of the default ones;
+        each meta's ``key`` is the name its field is written with
     :returns: parsed docstring
     """
+    table = (
+        _DEFAULT_TABLE
+        if sections is None
+        else {name: spec for spec in sections for name in spec.titles}
+    )
     ret = Docstring(style=DocstringStyle.EPYDOC)
     if not text:
         return ret
 
     text = Lines(text).text
-    match = re.search("^@", text, flags=re.M)
+    match = _FIELD_START.search(text)
     if match:
         desc_chunk = text[: match.start()]
         meta_chunk = text[match.start() :]
@@ -52,116 +111,65 @@ def parse(text: T.Optional[str]) -> Docstring:
 
     split_description(ret, desc_chunk)
 
-    param_pattern = re.compile(
-        r"(param|keyword|type)(\s+[_A-z][_A-z0-9]*\??):"
-    )
-    attribute_pattern = re.compile(r"(ivar|cvar|var)(\s+[_A-z][_A-z0-9]*\??):")
-    raise_pattern = re.compile(r"(raise)(\s+[_A-z][_A-z0-9]*\??)?:")
-    return_pattern = re.compile(r"(return|rtype|yield|ytype):")
-    meta_pattern = re.compile(
-        r"([_A-z][_A-z0-9]+)((\s+[_A-z][_A-z0-9]*\??)*):"
-    )
-
     # tokenize
-    stream: T.List[T.Tuple[str, str, T.List[str], str]] = []
-    for match in re.finditer(
-        r"(^@.*?)(?=^@|\Z)", meta_chunk, flags=re.S | re.M
-    ):
+    stream: T.List[_Field] = []
+    for match in _FIELD.finditer(meta_chunk):
         chunk = match.group(0)
         if not chunk:
             continue
 
         # Each chunk starts with @; description text is not a field header.
-        param_match = param_pattern.match(chunk, 1)
-        attribute_match = attribute_pattern.match(chunk, 1)
-        raise_match = raise_pattern.match(chunk, 1)
-        return_match = return_pattern.match(chunk, 1)
-        meta_match = meta_pattern.match(chunk, 1)
-
-        match = (
-            param_match
-            or attribute_match
-            or raise_match
-            or return_match
-            or meta_match
-        )
-        if not match:
+        header = _HEADER.match(chunk, 1)
+        if not header:
+            raise ParseError(
+                f'Error parsing meta information near "{excerpt(chunk)}".'
+            )
+        key = header.group(1)
+        args = header.group(2).split()
+        spec = table.get(key)
+        base, kind = _TYPE_FIELDS.get(key) or _base(spec, args)
+        if (
+            (base == "param" and len(args) != 1)
+            or (base == "return" and args)
+            or (base == "meta" and spec is None and len(key) < 2)
+        ):
             raise ParseError(
                 f'Error parsing meta information near "{excerpt(chunk)}".'
             )
 
-        desc_chunk = chunk[match.end() :]
-        if param_match:
-            base = "param"
-            key: str = match.group(1)
-            args = [match.group(2).strip()]
-        elif attribute_match:
-            base = "attribute"
-            key: str = match.group(1)
-            args = [match.group(2).strip()]
-        elif raise_match:
-            base = "raise"
-            key: str = match.group(1)
-            args = [] if match.group(2) is None else [match.group(2).strip()]
-        elif return_match:
-            base = "return"
-            key: str = match.group(1)
-            args = []
-        else:
-            base = "meta"
-            key: str = match.group(1)
-            token = clean_str(match.group(2).strip())
-            args = [] if token is None else re.split(r"\s+", token)
-
-            # Make sure we didn't match some existing keyword in an incorrect
-            # way here:
-            if key in [
-                "param",
-                "ivar",
-                "cvar",
-                "var",
-                "keyword",
-                "type",
-                "return",
-                "rtype",
-                "yield",
-                "ytype",
-            ]:
-                raise ParseError(
-                    f'Error parsing meta information near "{excerpt(chunk)}".'
-                )
-
-        desc = desc_chunk.strip()
+        desc = chunk[header.end() :].strip()
         if "\n" in desc:
             first_line, rest = desc.split("\n", 1)
             desc = first_line + "\n" + cleandoc(rest)
-        stream.append((base, key, args, desc))
+        stream.append((base, key, args, desc, kind, spec))
 
     # Combine type_name, arg_name, and description information
     params: T.Dict[str, T.Dict[str, T.Any]] = {}
-    for base, key, args, desc in stream:
-        if base not in ["param", "attribute", "return"]:
+    for base, key, args, desc, kind, spec in stream:
+        if base not in ["param", "return"]:
             continue  # nothing to do
 
         (arg_name,) = args or ("return",)
         info = params.setdefault(arg_name, {})
-        info_key = "type_name" if "type" in key else "description"
+        info_key = "type_name" if key in _TYPE_FIELDS else "description"
         info[info_key] = desc
         if info_key == "description":
             # The field that says what kind of param this is, even when a
             # @type field for it comes first.
             info["key"] = key
+            info["kind"] = kind
+            info["spec"] = spec
 
         if base == "return":
-            is_generator = key in {"ytype", "yield"}
+            is_generator = kind is Kind.YIELDS
             if info.setdefault("is_generator", is_generator) != is_generator:
                 raise ParseError(
                     f'Error parsing meta information for "{arg_name}".'
                 )
 
     is_done: T.Dict[str, bool] = {}
-    for base, key, args, desc in stream:
-        if base in ["param", "attribute"] and not is_done.get(args[0], False):
+    for base, key, args, desc, kind, spec in stream:
+        if base == "param" and not is_done.get(args[0], False):
             (arg_name,) = args
             info = params[arg_name]
             type_name = info.get("type_name")
@@ -183,8 +191,9 @@ def parse(text: T.Optional[str]) -> Docstring:
                 type_name=type_name,
                 is_optional=is_optional,
                 default=default,
-                kind=_PARAM_KINDS.get(param_key, Kind.PARAM),
+                kind=info.get("kind", Kind.PARAM),
             )
+            spec = info.get("spec")
             is_done[arg_name] = True
         elif base == "return" and not is_done.get("return", False):
             info = params["return"]
@@ -194,6 +203,7 @@ def parse(text: T.Optional[str]) -> Docstring:
                 type_name=info.get("type_name"),
                 is_generator=info.get("is_generator", False),
             )
+            spec = info.get("spec")
             is_done["return"] = True
         elif base == "raise":
             (type_name,) = args or (None,)
@@ -201,7 +211,14 @@ def parse(text: T.Optional[str]) -> Docstring:
                 key=key,
                 description=desc,
                 type_name=type_name,
+                kind=kind,
             )
+        elif kind is Kind.EXAMPLES:
+            meta_item = DocstringExample(
+                snippet=None, description=desc, key=key
+            )
+        elif kind is Kind.DEPRECATION:
+            meta_item = DocstringDeprecated(desc, version=None, key=key)
         elif base == "meta":
             meta_item = DocstringMeta(
                 key=key,
@@ -213,7 +230,7 @@ def parse(text: T.Optional[str]) -> Docstring:
             assert is_done.get(key, False)
             continue  # don't append
 
-        ret.meta.append(meta_item)
+        ret.meta.append(apply(spec, meta_item))
 
     return ret
 

@@ -37,6 +37,60 @@ Example usage:
 
 Read [API Documentation](https://rr-.github.io/docstring_parser/).
 
+# Custom sections
+
+Every style recognises a list of sections, or for ReST and Epydoc, fields.
+A `SectionSpec` declares one: the titles that start it, the kind of items in
+it and, optionally, the key each item records. Pass a
+list as `sections` to `parse()`, to `parse_from_object()` or to a style's
+parser. It replaces the style's own list, which `default_sections(style)`
+returns, so start from that to add to it:
+
+```python
+>>> from docstring_parser import DocstringStyle, parse
+>>> from docstring_parser.sections import Kind, SectionSpec, default_sections
+>>>
+>>> sections = [
+...     *default_sections(DocstringStyle.GOOGLE),
+...     SectionSpec(("Keyword Args", "Kwargs"), Kind.KEYWORD),
+...     SectionSpec("C++ Notes", Kind.TEXT),
+... ]
+>>> docstring = parse(
+...     '''
+...     Short description
+...
+...     Kwargs:
+...         timeout (float): seconds to wait
+...     ''',
+...     sections=sections,
+... )
+>>> param = docstring.params[0]
+>>> param.kind, param.key, param.arg_name, param.type_name
+(<Kind.KEYWORD: 2>, 'keyword', 'timeout', 'float')
+```
+
+- Titles are matched as written, so they may hold any characters, such as
+  `C++ Notes` or `Args (old)`. List every spelling to accept, such as
+  `ARGS` next to `Args`.
+- `bare=True` marks a title that stands alone on its line: with no colon
+  after it in Google, or no underline below it in Numpydoc.
+- In ReST and Epydoc, titles are field names: `SectionSpec("input",
+  Kind.PARAM)` reads `:input x:` and `@input x:` as params.
+- `parse_item` is a function that gets the meta of each item of the section,
+  already split into its name, type and description. It may change the meta
+  and return None, or return the meta to use instead.
+
+These replace the ways parsers used to be customised, which a later release
+removes:
+
+| Instead of | Use |
+| --- | --- |
+| overriding `GoogleParser._setup` to set `titles_re` | `SectionSpec` titles, with `bare=True` for titles with no colon |
+| overriding `numpydoc.Section.title_pattern` | `SectionSpec` titles, with `bare=True` for titles with no underline |
+| replacing `numpydoc.KV_REGEX` | `parse_item` |
+| overriding `GoogleParser._build_meta` or `numpydoc._KVSection._parse_item` | `parse_item` |
+| changing `google.DEFAULT_SECTIONS` or `numpydoc.DEFAULT_SECTIONS` | passing `sections` |
+
 # Installation
 
 Installation using pip

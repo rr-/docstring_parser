@@ -164,9 +164,9 @@ for result in (parse(doc), parse_from_object(tool)):
 def test_parse_reuses_default_parser() -> None:
     """Test that parse builds the default parser once."""
     google.parse("Short.")
-    parser = google._default_parser
+    parsers = list(google._parsers.values())
     google.parse("Short.\n\nArgs:\n    a: A.")
-    assert google._default_parser is parser
+    assert list(google._parsers.values()) == parsers
 
 
 def test_parse_follows_default_sections(

@@ -8,13 +8,12 @@ from ._compose import description_lines, field_name, field_text
 from ._lines import Lines
 from ._text import append_loose, split_description
 from .common import (
-    DEPRECATION_KEYWORDS,
     PARAM_KEYWORDS,
-    RAISES_KEYWORDS,
-    RETURNS_KEYWORDS,
-    YIELDS_KEYWORDS,
+    PARAM_KINDS,
+    RAISES_KINDS,
     Docstring,
     DocstringDeprecated,
+    DocstringExample,
     DocstringMeta,
     DocstringParam,
     DocstringRaises,
@@ -26,19 +25,43 @@ from .common import (
     continuation_indented,
     excerpt,
 )
+from .sections import SectionSpec, apply
 
-# The kinds of param that ReST fields other than ``:param:`` give.
-_PARAM_KINDS = {
-    "key": Kind.KEYWORD,
-    "keyword": Kind.KEYWORD,
-    "attribute": Kind.ATTRIBUTE,
-}
+# The fields ReST recognises by default, by the kind of item each gives.
+# ReST has no example fields of its own.
+_DEFAULT_FIELDS = (
+    (Kind.PARAM, ("param", "parameter", "arg", "argument")),
+    (Kind.KEYWORD, ("key", "keyword")),
+    (Kind.ATTRIBUTE, ("attribute",)),
+    (Kind.RETURNS, ("returns", "return")),
+    (Kind.YIELDS, ("yields", "yield")),
+    (Kind.RAISES, ("raises", "raise", "except", "exception")),
+    (Kind.DEPRECATION, ("deprecation", "deprecated")),
+)
 
 
-def _build_meta(args: T.List[str], desc: str) -> DocstringMeta:
+def default_sections() -> T.List[SectionSpec]:
+    """Return the fields ReST recognises when given none."""
+    return [SectionSpec(names, kind) for kind, names in _DEFAULT_FIELDS]
+
+
+def _field_table(
+    sections: T.Optional[T.Sequence[SectionSpec]],
+) -> T.Dict[str, SectionSpec]:
+    return {
+        name: spec
+        for spec in (default_sections() if sections is None else sections)
+        for name in spec.titles
+    }
+
+
+_DEFAULT_TABLE = _field_table(None)
+
+
+def _build_meta(args: T.List[str], desc: str, kind: Kind) -> DocstringMeta:
     key = args[0]
 
-    if key in PARAM_KEYWORDS:
+    if kind in PARAM_KINDS:
         if len(args) == 3:
             key, type_name, arg_name = args
             if type_name.endswith("?"):
@@ -55,7 +78,7 @@ def _build_meta(args: T.List[str], desc: str) -> DocstringMeta:
                 f"Expected one or two arguments for a {key} keyword."
             )
 
-        match = re.match(r".*defaults to (.+)", desc, flags=re.DOTALL)
+        match = _DEFAULTS_TO.match(desc)
         default = match.group(1).rstrip(".") if match else None
 
         return DocstringParam(
@@ -65,57 +88,57 @@ def _build_meta(args: T.List[str], desc: str) -> DocstringMeta:
             type_name=type_name,
             is_optional=is_optional,
             default=default,
-            kind=_PARAM_KINDS.get(key, Kind.PARAM),
+            kind=kind,
         )
 
-    if key in RETURNS_KEYWORDS | YIELDS_KEYWORDS:
-        if len(args) == 2:
-            type_name = args[1]
-        elif len(args) == 1:
-            type_name = None
-        else:
+    if kind in (Kind.RETURNS, Kind.YIELDS) or kind in RAISES_KINDS:
+        if len(args) > 2:
             raise ParseError(
                 f"Expected one or no arguments for a {key} keyword."
             )
-
+        type_name = args[1] if len(args) == 2 else None
+        if kind in RAISES_KINDS:
+            return DocstringRaises(
+                description=desc, type_name=type_name, kind=kind, key=key
+            )
         return DocstringReturns(
             key=key,
             description=desc,
             type_name=type_name,
-            is_generator=key in YIELDS_KEYWORDS,
+            is_generator=kind is Kind.YIELDS,
         )
 
-    if key in DEPRECATION_KEYWORDS:
-        match = re.search(
-            r"^(?P<version>v?((?:\d+)(?:\.[0-9a-z\.]+))) (?P<desc>.+)",
-            desc,
-            flags=re.I,
-        )
+    if kind is Kind.DEPRECATION:
+        match = _VERSION.search(desc)
         return DocstringDeprecated(
             key=key,
             version=match.group("version") if match else None,
             description=match.group("desc") if match else desc,
         )
 
-    if key in RAISES_KEYWORDS:
-        if len(args) == 2:
-            type_name = args[1]
-        elif len(args) == 1:
-            type_name = None
-        else:
-            raise ParseError(
-                f"Expected one or no arguments for a {key} keyword."
-            )
-        return DocstringRaises(description=desc, type_name=type_name, key=key)
+    if kind is Kind.EXAMPLES:
+        return DocstringExample(snippet=None, description=desc, key=key)
 
     return DocstringMeta(desc, key, " ".join(args[1:]) or None)
 
 
-def parse(text: T.Optional[str]) -> Docstring:
+_DEFAULTS_TO = re.compile(r".*defaults to (.+)", flags=re.DOTALL)
+_VERSION = re.compile(
+    r"^(?P<version>v?((?:\d+)(?:\.[0-9a-z\.]+))) (?P<desc>.+)", flags=re.I
+)
+
+
+def parse(
+    text: T.Optional[str],
+    sections: T.Optional[T.Sequence[SectionSpec]] = None,
+) -> Docstring:
     """Parse the ReST-style docstring into its components.
 
+    :param sections: the fields to recognise, instead of the default ones;
+        each meta's ``key`` is the name its field is written with
     :returns: parsed docstring
     """
+    table = _DEFAULT_TABLE if sections is None else _field_table(sections)
     ret = Docstring(style=DocstringStyle.REST)
     if not text:
         return ret
@@ -183,7 +206,9 @@ def parse(text: T.Optional[str]) -> Docstring:
         elif len(args) in [1, 2] and args[0] == "rtype":
             rtypes[None if len(args) == 1 else args[1]] = desc
         else:
-            ret.meta.append(_build_meta(args, desc))
+            spec = table.get(args[0])
+            kind = spec.kind if spec else Kind.TEXT
+            ret.meta.append(apply(spec, _build_meta(args, desc, kind)))
     loose_chunks.append(meta_chunk[loose_start:])
 
     append_loose(ret, loose_chunks, blank_around=True)

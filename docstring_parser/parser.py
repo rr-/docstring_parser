@@ -12,6 +12,7 @@ from docstring_parser.common import (
     ParseError,
     RenderingStyle,
 )
+from docstring_parser.sections import SectionSpec
 
 _STYLE_MAP = {
     DocstringStyle.REST: rest,
@@ -52,26 +53,45 @@ def _has_no_fields(text: str) -> bool:
     return _FIELD_LINE.search(text) is None
 
 
+def _parse_in(
+    module: T.Any,
+    text: T.Optional[str],
+    sections: T.Optional[T.Sequence[SectionSpec]],
+) -> Docstring:
+    # A style's parse is called as before when no sections are given, so
+    # code that wraps it keeps working.
+    if sections is None:
+        return module.parse(text)
+    return module.parse(text, sections)
+
+
 def parse(
-    text: T.Optional[str], style: DocstringStyle = DocstringStyle.AUTO
+    text: T.Optional[str],
+    style: DocstringStyle = DocstringStyle.AUTO,
+    sections: T.Optional[T.Sequence[SectionSpec]] = None,
 ) -> Docstring:
     """Parse the docstring into its components.
 
     :param text: docstring text to parse
     :param style: docstring style
+    :param sections: the sections, or fields, to recognise instead of the
+        style's own, as described in :mod:`docstring_parser.sections`; in
+        auto mode, every style recognises them
     :returns: parsed docstring representation
     """
     if style != DocstringStyle.AUTO:
-        return _STYLE_MAP[style].parse(text)
+        return _parse_in(_STYLE_MAP[style], text, sections)
 
-    if not text or _has_no_fields(text):
-        return rest.parse(text)
+    if not text or (
+        not any(spec.bare for spec in sections or ()) and _has_no_fields(text)
+    ):
+        return _parse_in(rest, text, sections)
 
     exc: T.Optional[Exception] = None
     rets = []
     for module in _STYLE_MAP.values():
         try:
-            ret = module.parse(text)
+            ret = _parse_in(module, text, sections)
         except ParseError as ex:
             exc = ex
         else:
@@ -87,6 +107,7 @@ def parse(
 def parse_from_object(
     obj: T.Any,
     style: DocstringStyle = DocstringStyle.AUTO,
+    sections: T.Optional[T.Sequence[SectionSpec]] = None,
 ) -> Docstring:
     """Parse the object's docstring(s) into its components.
 
@@ -105,9 +126,11 @@ def parse_from_object(
 
     :param obj: object from which to parse the docstring(s)
     :param style: docstring style
+    :param sections: the sections, or fields, to recognise instead of the
+        style's own
     :returns: parsed docstring representation
     """
-    docstring = parse(obj.__doc__, style=style)
+    docstring = parse(obj.__doc__, style=style, sections=sections)
 
     if inspect.isclass(obj) or inspect.ismodule(obj):
         add_attribute_docstrings(obj, docstring)

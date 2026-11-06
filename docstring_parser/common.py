@@ -80,6 +80,7 @@ class Kind(enum.IntEnum):
 PARAM_KINDS = frozenset(
     {Kind.PARAM, Kind.KEYWORD, Kind.OTHER_PARAM, Kind.RECEIVES, Kind.ATTRIBUTE}
 )
+RETURNS_KINDS = frozenset({Kind.RETURNS, Kind.YIELDS})
 RAISES_KINDS = frozenset({Kind.RAISES, Kind.WARNS})
 
 

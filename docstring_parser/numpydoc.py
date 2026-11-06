@@ -24,6 +24,7 @@ from .common import (
     RenderingStyle,
     cleandoc,
 )
+from .sections import SectionSpec, apply
 
 
 def _pairwise(iterable: T.Iterable, end=None) -> T.Iterable:
@@ -79,6 +80,9 @@ class Section:
                 is the ``key`` of the parsed ``DocstringMeta``.
     """
 
+    # The spec the section was made from, if any, which decides its kind.
+    _spec: T.Optional[SectionSpec] = None
+
     def __init__(self, title: str, key: str) -> None:
         self.title = title
         self.key = key
@@ -90,6 +94,8 @@ class Section:
         This pattern will match this instance's ``title`` attribute in
         an anonymous group.
         """
+        if self._spec is not None and self._spec.bare:
+            return rf"^({re.escape(self.title)})[ \t]*$"
         dashes = "-" * len(self.title)
         return rf"^({re.escape(self.title)})\s*?\n{dashes}\s*$"
 
@@ -184,7 +190,9 @@ class ParamSection(_KVSection):
             type_name=type_name,
             is_optional=is_optional,
             default=default,
-            kind=_PARAM_KINDS.get(self.key, Kind.PARAM),
+            kind=self._spec.kind
+            if self._spec
+            else _PARAM_KINDS.get(self.key, Kind.PARAM),
         )
 
 
@@ -201,7 +209,11 @@ class RaisesSection(_KVSection):
             key=self.key,
             description=clean_str(value),
             type_name=key if len(key) > 0 else None,
-            kind=Kind.WARNS if self.key == "warns" else Kind.RAISES,
+            kind=self._spec.kind
+            if self._spec
+            else Kind.WARNS
+            if self.key == "warns"
+            else Kind.RAISES,
         )
 
 
@@ -342,16 +354,75 @@ DEFAULT_SECTIONS = [
 ]
 
 
+def _section_kind(section: Section) -> Kind:
+    if section._spec is not None:
+        return section._spec.kind
+    if isinstance(section, ParamSection):
+        return _PARAM_KINDS.get(section.key, Kind.PARAM)
+    if isinstance(section, RaisesSection):
+        return Kind.WARNS if section.key == "warns" else Kind.RAISES
+    if isinstance(section, ReturnsSection):
+        return Kind.YIELDS if section.is_generator else Kind.RETURNS
+    if isinstance(section, ExamplesSection):
+        return Kind.EXAMPLES
+    if isinstance(section, DeprecationSection):
+        return Kind.DEPRECATION
+    return Kind.TEXT
+
+
+# The section class that reads each kind of item.
+_SECTION_CLASS = {
+    Kind.PARAM: ParamSection,
+    Kind.KEYWORD: ParamSection,
+    Kind.OTHER_PARAM: ParamSection,
+    Kind.RECEIVES: ParamSection,
+    Kind.ATTRIBUTE: ParamSection,
+    Kind.RETURNS: ReturnsSection,
+    Kind.YIELDS: YieldsSection,
+    Kind.RAISES: RaisesSection,
+    Kind.WARNS: RaisesSection,
+    Kind.EXAMPLES: ExamplesSection,
+    Kind.DEPRECATION: DeprecationSection,
+    Kind.TEXT: Section,
+}
+
+
+def _from_spec(section: T.Union[Section, SectionSpec]) -> T.List[Section]:
+    """Return a section as it is, or a spec as one section per title."""
+    if not isinstance(section, SectionSpec):
+        return [section]
+    out = []
+    for title in section.titles:
+        one = _SECTION_CLASS[section.kind](title, section.key)
+        one._spec = section
+        out.append(one)
+    return out
+
+
+def default_sections() -> T.List[SectionSpec]:
+    """Return the sections Numpydoc recognises when given none."""
+    return [
+        SectionSpec(s.title, _section_kind(s), key=s.key)
+        for s in DEFAULT_SECTIONS
+    ]
+
+
 class NumpydocParser:
     """Parser for numpydoc-style docstrings."""
 
-    def __init__(self, sections: T.Optional[T.List[Section]] = None):
+    def __init__(
+        self,
+        sections: T.Optional[T.Sequence[T.Union[Section, SectionSpec]]] = None,
+    ):
         """Setup sections.
 
         :param sections: Recognized sections or None to defaults.
         """
         sections = sections or DEFAULT_SECTIONS
-        self.sections = {s.title: s for s in sections}
+        self.sections: T.Dict[str, Section] = {}
+        for section in sections:
+            for one in _from_spec(section):
+                self.sections[one.title] = one
         self._setup()
 
     def _setup(self):
@@ -360,13 +431,14 @@ class NumpydocParser:
             flags=re.M,
         )
 
-    def add_section(self, section: Section):
+    def add_section(self, section: T.Union[Section, SectionSpec]):
         """Add or replace a section.
 
         :param section: The new section.
         """
 
-        self.sections[section.title] = section
+        for one in _from_spec(section):
+            self.sections[one.title] = one
         self._setup()
 
     def parse(self, text: T.Optional[str]) -> Docstring:
@@ -406,7 +478,8 @@ class NumpydocParser:
             if isinstance(factory, _SphinxSection):
                 chunk, loose = _split_directive(chunk)
                 loose_chunks.append(loose)
-            ret.meta.extend(factory.parse(chunk))
+            spec = factory._spec
+            ret.meta.extend(apply(spec, meta) for meta in factory.parse(chunk))
 
         append_loose(ret, loose_chunks, blank_around=False)
 
@@ -417,21 +490,37 @@ _default_parser: T.Optional[NumpydocParser] = None
 _default_parser_sections: T.Tuple[T.List[Section], T.List[str]] = ([], [])
 
 
-def parse(text: T.Optional[str]) -> Docstring:
+_parsers: T.Dict[T.Tuple[T.Any, ...], NumpydocParser] = {}
+
+
+def parse(
+    text: T.Optional[str],
+    sections: T.Optional[T.Sequence[T.Union[Section, SectionSpec]]] = None,
+) -> Docstring:
     """Parse the numpy-style docstring into its components.
 
+    :param sections: the sections to recognise, instead of
+        ``DEFAULT_SECTIONS``
     :returns: parsed docstring
     """
     global _default_parser, _default_parser_sections  # noqa: PLW0603
+    if sections:
+        key = (*sections, *(getattr(s, "title", None) for s in sections))
+        parser = _parsers.get(key)
+        if parser is None:
+            if len(_parsers) >= 16:
+                _parsers.clear()
+            parser = _parsers[key] = NumpydocParser(sections)
+        return parser.parse(text)
     # Building a parser compiles its title regex, so reuse one until
     # DEFAULT_SECTIONS changes: a section added, removed or replaced, or a
     # title changed in place. Replacing title_pattern on a Section class
     # goes unnoticed until DEFAULT_SECTIONS changes, since checking every
     # pattern would cost more than the reuse saves.
-    sections = (list(DEFAULT_SECTIONS), [s.title for s in DEFAULT_SECTIONS])
-    if _default_parser is None or sections != _default_parser_sections:
+    current = (list(DEFAULT_SECTIONS), [s.title for s in DEFAULT_SECTIONS])
+    if _default_parser is None or current != _default_parser_sections:
         _default_parser = NumpydocParser()
-        _default_parser_sections = sections
+        _default_parser_sections = current
     return _default_parser.parse(text)
 
 
