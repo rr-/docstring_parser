@@ -80,15 +80,15 @@ returns, so start from that to add to it:
   already split into its name, type and description. It may change the meta
   and return None, or return the meta to use instead.
 
-These replace the ways parsers used to be customised, which a later release
-removes:
+These replace the ways parsers used to be customised. The attributes and
+methods those used are gone or private now, and may change in any release:
 
 | Instead of | Use |
 | --- | --- |
 | overriding `GoogleParser._setup` to set `titles_re` | `SectionSpec` titles, with `bare=True` for titles with no colon |
 | overriding `numpydoc.Section.title_pattern` | `SectionSpec` titles, with `bare=True` for titles with no underline |
 | replacing `numpydoc.KV_REGEX` | `parse_item` |
-| overriding `GoogleParser._build_meta` or `numpydoc._KVSection._parse_item` | `parse_item` |
+| overriding `GoogleParser._build_meta`, `numpydoc.Section.parse` or `numpydoc._KVSection._parse_item` | `parse_item` |
 | changing `google.DEFAULT_SECTIONS` or `numpydoc.DEFAULT_SECTIONS` | passing `sections` |
 
 # Installation

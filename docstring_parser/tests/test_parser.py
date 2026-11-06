@@ -79,23 +79,3 @@ def test_auto_parses_every_style_for_field_lines(
         )
     parse(f"Short.\n\n{line}")
     assert len(calls) == 3
-
-
-def test_auto_parses_every_style_for_custom_numpydoc_titles(
-    monkeypatch: pytest.MonkeyPatch,
-) -> None:
-    """Test that a custom Numpydoc title pattern turns the shortcut off."""
-
-    class StarSection(numpydoc.Section):
-        @property
-        def title_pattern(self) -> str:
-            return r"^\*\*(Stars)\*\*$"
-
-    monkeypatch.setattr(
-        numpydoc,
-        "DEFAULT_SECTIONS",
-        [*numpydoc.DEFAULT_SECTIONS, StarSection("Stars", "stars")],
-    )
-    docstring = parse("Short.\n\n**Stars**\nfive")
-    assert docstring.style == DocstringStyle.NUMPYDOC
-    assert docstring.meta[0].key == "stars"

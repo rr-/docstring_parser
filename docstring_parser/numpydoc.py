@@ -33,7 +33,7 @@ def _pairwise(iterable: T.Iterable, end=None) -> T.Iterable:
     return itertools.zip_longest(left, right, fillvalue=end)
 
 
-KV_REGEX = re.compile(r"^[^\s].*$", flags=re.M)
+_KV_REGEX = re.compile(r"^[^\s].*$", flags=re.M)
 PARAM_KEY_REGEX = re.compile(r"^(?P<name>.*?)(?:\s*:\s*(?P<type>.*?))?$")
 PARAM_OPTIONAL_REGEX = re.compile(r"(?P<type>.*?)(?:, optional|\(optional\))$")
 
@@ -88,7 +88,7 @@ class Section:
         self.key = key
 
     @property
-    def title_pattern(self) -> str:
+    def _title_pattern(self) -> str:
         """Regular expression pattern matching this section's header.
 
         This pattern will match this instance's ``title`` attribute in
@@ -99,7 +99,7 @@ class Section:
         dashes = "-" * len(self.title)
         return rf"^({re.escape(self.title)})\s*?\n{dashes}\s*$"
 
-    def parse(self, text: str) -> T.Iterable[DocstringMeta]:
+    def _parse(self, text: str) -> T.Iterable[DocstringMeta]:
         """Parse ``DocstringMeta`` objects from the body of this section.
 
         :param text: section body text. Should be cleaned with
@@ -122,8 +122,8 @@ class _KVSection(Section):
     def _parse_item(self, key: str, value: str) -> DocstringMeta:
         raise NotImplementedError
 
-    def parse(self, text: str) -> T.Iterable[DocstringMeta]:
-        for match, next_match in _pairwise(KV_REGEX.finditer(text)):
+    def _parse(self, text: str) -> T.Iterable[DocstringMeta]:
+        for match, next_match in _pairwise(_KV_REGEX.finditer(text)):
             start = match.end()
             end = next_match.start() if next_match is not None else None
             value = text[start:end]
@@ -139,7 +139,7 @@ class _SphinxSection(Section):
     """
 
     @property
-    def title_pattern(self) -> str:
+    def _title_pattern(self) -> str:
         return rf"^\.\.\s*({re.escape(self.title)})\s*::"
 
 
@@ -270,7 +270,7 @@ def _split_directive(text: str) -> T.Tuple[str, str]:
 class DeprecationSection(_SphinxSection):
     """Parser for numpydoc "deprecation warning" sections."""
 
-    def parse(self, text: str) -> T.Iterable[DocstringDeprecated]:
+    def _parse(self, text: str) -> T.Iterable[DocstringDeprecated]:
         version, _, desc = text.partition("\n")
 
         yield DocstringDeprecated(
@@ -293,7 +293,7 @@ class ExamplesSection(Section):
                 [ 6586976, 22740995]])
     """
 
-    def parse(self, text: str) -> T.Iterable[DocstringMeta]:
+    def _parse(self, text: str) -> T.Iterable[DocstringMeta]:
         """Parse ``DocstringExample`` objects from the body of this section.
 
         :param text: section body text. Should be cleaned with
@@ -426,8 +426,8 @@ class NumpydocParser:
         self._setup()
 
     def _setup(self):
-        self.titles_re = re.compile(
-            r"|".join(s.title_pattern for s in self.sections.values()),
+        self._titles_re = re.compile(
+            r"|".join(s._title_pattern for s in self.sections.values()),
             flags=re.M,
         )
 
@@ -454,7 +454,7 @@ class NumpydocParser:
         text = Lines(text).text
 
         # Find first title and split on its position
-        match = self.titles_re.search(text)
+        match = self._titles_re.search(text)
         if match:
             desc_chunk = text[: match.start()]
             meta_chunk = text[match.start() :]
@@ -466,7 +466,9 @@ class NumpydocParser:
 
         # Text after a directive's body, which goes to the long description.
         loose_chunks = []
-        for match, nextmatch in _pairwise(self.titles_re.finditer(meta_chunk)):
+        for match, nextmatch in _pairwise(
+            self._titles_re.finditer(meta_chunk)
+        ):
             title = next(g for g in match.groups() if g is not None)
             factory = self.sections[title]
 
@@ -479,7 +481,9 @@ class NumpydocParser:
                 chunk, loose = _split_directive(chunk)
                 loose_chunks.append(loose)
             spec = factory._spec
-            ret.meta.extend(apply(spec, meta) for meta in factory.parse(chunk))
+            ret.meta.extend(
+                apply(spec, meta) for meta in factory._parse(chunk)
+            )
 
         append_loose(ret, loose_chunks, blank_around=False)
 
@@ -514,9 +518,7 @@ def parse(
         return parser.parse(text)
     # Building a parser compiles its title regex, so reuse one until
     # DEFAULT_SECTIONS changes: a section added, removed or replaced, or a
-    # title changed in place. Replacing title_pattern on a Section class
-    # goes unnoticed until DEFAULT_SECTIONS changes, since checking every
-    # pattern would cost more than the reuse saves.
+    # title changed in place.
     current = (list(DEFAULT_SECTIONS), [s.title for s in DEFAULT_SECTIONS])
     if _default_parser is None or current != _default_parser_sections:
         _default_parser = NumpydocParser()

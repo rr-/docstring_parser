@@ -176,6 +176,76 @@ def default_sections() -> T.List[SectionSpec]:
     ]
 
 
+def _single_meta(section: Section, desc: str) -> DocstringMeta:
+    kind = _section_kind(section)
+    if kind in RETURNS_KINDS:
+        return DocstringReturns(
+            key=section.key,
+            description=desc,
+            type_name=None,
+            is_generator=kind is Kind.YIELDS,
+        )
+    if kind in RAISES_KINDS:
+        return DocstringRaises(
+            description=desc, type_name=None, kind=kind, key=section.key
+        )
+    if kind is Kind.EXAMPLES:
+        return DocstringExample(
+            snippet=None, description=desc, key=section.key
+        )
+    if kind is Kind.DEPRECATION:
+        return DocstringDeprecated(desc, version=None, key=section.key)
+    if kind in PARAM_KINDS:
+        raise ParseError("Expected paramenter name.")
+    return DocstringMeta(desc, section.key)
+
+
+def _multi_meta(section: Section, before: str, desc: str) -> DocstringMeta:
+    kind = _section_kind(section)
+    if kind in PARAM_KINDS:
+        typed_arg = _split_typed_arg(before)
+        if typed_arg:
+            arg_name, type_name, extra = typed_arg
+            if type_name.endswith(", optional"):
+                is_optional = True
+                type_name = type_name[:-10]
+            elif type_name.endswith("?"):
+                is_optional = True
+                type_name = type_name[:-1]
+            else:
+                is_optional = False
+        else:
+            arg_name, type_name, extra = before, None, ""
+            is_optional = None
+
+        match = GOOGLE_ARG_DESC_REGEX.match(desc)
+        default = match.group(1) if match else None
+
+        param = DocstringParam(
+            key=section.key,
+            description=desc,
+            arg_name=arg_name,
+            type_name=type_name,
+            is_optional=is_optional,
+            default=default,
+            kind=kind,
+        )
+        param.extra = extra or None
+        return param
+    if kind in RETURNS_KINDS:
+        return DocstringReturns(
+            key=section.key,
+            description=desc,
+            type_name=before,
+            is_generator=kind is Kind.YIELDS,
+        )
+    if kind in RAISES_KINDS:
+        return DocstringRaises(
+            description=desc, type_name=before, kind=kind, key=section.key
+        )
+    return DocstringMeta(desc, section.key, before)
+
+
 class GoogleParser:
     """Parser for Google-style docstrings."""
 
@@ -216,11 +286,11 @@ class GoogleParser:
             colon = ""
         else:
             titles = f"({titles})"
-        self.titles_re = re.compile(
+        self._titles_re = re.compile(
             "^" + titles + colon + "[ \t\r\f\v]*$", flags=re.M
         )
 
-    def _build_meta(self, text: str, title: str) -> DocstringMeta:
+    def _meta_of(self, text: str, title: str) -> DocstringMeta:
         """Build docstring element.
 
         :param text: docstring element text
@@ -234,7 +304,7 @@ class GoogleParser:
             section.type == SectionType.SINGULAR_OR_MULTIPLE
             and not MULTIPLE_PATTERN.match(text)
         ) or section.type == SectionType.SINGULAR:
-            return self._build_single_meta(section, text)
+            return _single_meta(section, text)
 
         if ":" not in text:
             raise ParseError(f"Expected a colon in {excerpt(text)!r}.")
@@ -255,79 +325,7 @@ class GoogleParser:
                 desc = first_line + "\n" + textwrap.dedent(rest)
             desc = desc.strip("\n")
 
-        return self._build_multi_meta(section, before, desc)
-
-    @staticmethod
-    def _build_single_meta(section: Section, desc: str) -> DocstringMeta:
-        kind = _section_kind(section)
-        if kind in RETURNS_KINDS:
-            return DocstringReturns(
-                key=section.key,
-                description=desc,
-                type_name=None,
-                is_generator=kind is Kind.YIELDS,
-            )
-        if kind in RAISES_KINDS:
-            return DocstringRaises(
-                description=desc, type_name=None, kind=kind, key=section.key
-            )
-        if kind is Kind.EXAMPLES:
-            return DocstringExample(
-                snippet=None, description=desc, key=section.key
-            )
-        if kind is Kind.DEPRECATION:
-            return DocstringDeprecated(desc, version=None, key=section.key)
-        if kind in PARAM_KINDS:
-            raise ParseError("Expected paramenter name.")
-        return DocstringMeta(desc, section.key)
-
-    @staticmethod
-    def _build_multi_meta(
-        section: Section, before: str, desc: str
-    ) -> DocstringMeta:
-        kind = _section_kind(section)
-        if kind in PARAM_KINDS:
-            typed_arg = _split_typed_arg(before)
-            if typed_arg:
-                arg_name, type_name, extra = typed_arg
-                if type_name.endswith(", optional"):
-                    is_optional = True
-                    type_name = type_name[:-10]
-                elif type_name.endswith("?"):
-                    is_optional = True
-                    type_name = type_name[:-1]
-                else:
-                    is_optional = False
-            else:
-                arg_name, type_name, extra = before, None, ""
-                is_optional = None
-
-            match = GOOGLE_ARG_DESC_REGEX.match(desc)
-            default = match.group(1) if match else None
-
-            param = DocstringParam(
-                key=section.key,
-                description=desc,
-                arg_name=arg_name,
-                type_name=type_name,
-                is_optional=is_optional,
-                default=default,
-                kind=kind,
-            )
-            param.extra = extra or None
-            return param
-        if kind in RETURNS_KINDS:
-            return DocstringReturns(
-                key=section.key,
-                description=desc,
-                type_name=before,
-                is_generator=kind is Kind.YIELDS,
-            )
-        if kind in RAISES_KINDS:
-            return DocstringRaises(
-                description=desc, type_name=before, kind=kind, key=section.key
-            )
-        return DocstringMeta(desc, section.key, before)
+        return _multi_meta(section, before, desc)
 
     def add_section(self, section: T.Union[Section, SectionSpec]):
         """Add or replace a section.
@@ -350,7 +348,7 @@ class GoogleParser:
 
     def _meta(self, text: str, title: str) -> DocstringMeta:
         section = self.sections[title]
-        meta = self._build_meta(text, title)
+        meta = self._meta_of(text, title)
         if isinstance(section, _SpecSection):
             return apply(section.spec, meta)
         return meta
@@ -368,12 +366,12 @@ class GoogleParser:
         # A title on the first line has no summary before it. Dedent it with
         # its entries, instead of stripping only the first line and leaving
         # the entries flush with the title.
-        if self.titles_re.match(lines.raw.lstrip()):
+        if self._titles_re.match(lines.raw.lstrip()):
             lines = lines.with_lead()
         text = lines.text
 
         # Find first title and split on its position
-        match = self.titles_re.search(text)
+        match = self._titles_re.search(text)
         if match:
             desc_chunk = text[: match.start()]
             meta_chunk = text[match.start() :]
@@ -384,7 +382,7 @@ class GoogleParser:
         split_description(ret, desc_chunk)
 
         # Split by sections determined by titles
-        matches = list(self.titles_re.finditer(meta_chunk))
+        matches = list(self._titles_re.finditer(meta_chunk))
         if not matches:
             return ret
         splits = []
