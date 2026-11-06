@@ -48,8 +48,11 @@ description, and lists a problem for each part, with its line:
 >>> result.docstring.params[0].arg_name
 'x'
 >>> result.problems
-[Problem(line=5, message="Expected a colon in 'no colon here'.")]
+[Problem(line=5, code='missing-colon', message="Expected a colon in 'no colon here'.")]
 ```
+
+A problem's `code` names what is wrong and stays the same between versions,
+while its message may change. The `Problem` class documents every code.
 
 Read [API Documentation](https://rr-.github.io/docstring_parser/).
 

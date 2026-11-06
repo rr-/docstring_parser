@@ -141,15 +141,20 @@ class Parser(BaseParser):
             args = header.group(2).split() if header else []
             spec = table.get(key)
             base, kind = _TYPE_FIELDS.get(key) or _base(spec, args)
-            if (
-                not header
-                or (base == "param" and len(args) != 1)
-                or (base == "return" and args)
-                or (base == "meta" and spec is None and len(key) < 2)
+            code = ""
+            if header is None or (
+                base == "meta" and spec is None and len(key) < 2
             ):
+                code = "bad-field"
+            elif (base == "param" and len(args) != 1) or (
+                base == "return" and args
+            ):
+                code = "wrong-arguments"
+            if header is None or code:
                 problems.append(
                     Problem(
                         lines.source_line(at),
+                        code,
                         "Error parsing meta information near "
                         f'"{excerpt(chunk)}".',
                     )
@@ -162,6 +167,7 @@ class Parser(BaseParser):
                     problems.append(
                         Problem(
                             lines.source_line(at),
+                            "mixed-returns-and-yields",
                             'Error parsing meta information for "return".',
                         )
                     )
