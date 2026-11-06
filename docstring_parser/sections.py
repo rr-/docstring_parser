@@ -71,7 +71,8 @@ ParseItem = T.Callable[[DocstringMeta], T.Optional[DocstringMeta]]
 class SectionSpec:
     """A section, or a field, that a docstring style recognises.
 
-    :ivar titles: the titles that start the section, matched exactly
+    :ivar titles: the titles that start the section, matched exactly, but
+        in any case in Google and Numpydoc
     :ivar kind: what the section's items document
     :ivar key: the first element of each item's ``args``
     :ivar layout: how the section's body is laid out, in Google

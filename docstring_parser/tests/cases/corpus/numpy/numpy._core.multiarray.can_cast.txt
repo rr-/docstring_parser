@@ -113,7 +113,6 @@ style: numpydoc
   description: 'dtype, result_type'
   kind: text
   key: 'see_also'
-  title: 'See also'
 - DocstringExample
   description: 'Basic examples'
   kind: examples
@@ -190,7 +189,7 @@ Notes
    This function does not support Python scalars anymore and does not
    apply any value-based logic for 0-D arrays and NumPy scalars.
 
-See also
+See Also
 --------
 dtype, result_type
 

@@ -263,6 +263,17 @@ def _title(match: T.Match[str]) -> str:
     return next(group for group in match.groups() if group is not None)
 
 
+def _after_blank(text: str, match: T.Match[str]) -> bool:
+    """Tell whether a title starts the text or follows a blank line.
+
+    A title written in another case than declared starts a section only
+    there, so that prose such as ``For`` and ``example:`` on the next line
+    stays prose.
+    """
+    start = match.start()
+    return start < 2 or text.startswith("\n\n", start - 2)
+
+
 def default_sections() -> T.List[SectionSpec]:
     """Return the sections Google recognises when given none."""
     return [
@@ -376,8 +387,20 @@ class Parser(BaseParser):
         else:
             titles = f"({titles})"
         self._titles_re = re.compile(
-            "^" + titles + colon + "[ \t\r\f\v]*$", flags=re.M
+            "^" + titles + colon + "[ \t\r\f\v]*$", flags=re.M | re.I
         )
+        # Titles match in any case, as napoleon reads them, so each is
+        # found by its lowercase too. The first declared of titles that
+        # differ only in case wins.
+        self._by_lower: T.Dict[str, str] = {}
+        for title in self.sections:
+            self._by_lower.setdefault(title.lower(), title)
+
+    def _declared(self, title: str) -> T.Optional[str]:
+        """Return the declared title a title as written stands for."""
+        if title in self.sections:
+            return title
+        return self._by_lower.get(title.lower())
 
     def _meta_of(self, text: str, title: str) -> DocstringMeta:
         """Build docstring element.
@@ -507,7 +530,11 @@ class Parser(BaseParser):
         text = lines.text
 
         # Split by sections determined by titles
-        matches = list(self._titles_re.finditer(text))
+        matches = [
+            match
+            for match in self._titles_re.finditer(text)
+            if _title(match) in self.sections or _after_blank(text, match)
+        ]
         if not matches:
             if deprecations and text.endswith("\n"):
                 # A blank line set the description off from the directives
@@ -527,8 +554,8 @@ class Parser(BaseParser):
         loose: T.List[str] = []
         problems: T.List[Problem] = []
         for match, end in zip(matches, ends):
-            title = _title(match)
-            if title not in self.sections:
+            title = self._declared(_title(match))
+            if title is None:
                 continue
 
             # An unindented line ends the section, as in issue #29.

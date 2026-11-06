@@ -1,0 +1,43 @@
+# Test that section titles match in any case.
+=== input
+Short.
+
+PARAMETERS
+----------
+x : int
+    The x.
+
+returns
+-------
+int
+    The sum.
+=== parse numpydoc
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  description: 'The x.'
+  kind: param
+  key: 'param'
+  arg_name: 'x'
+  type_name: 'int'
+  is_optional: False
+- DocstringReturns
+  description: 'The sum.'
+  kind: returns
+  key: 'returns'
+  type_name: 'int'
+  is_generator: False
+=== compose numpydoc
+Short.
+
+Parameters
+----------
+x : int
+    The x.
+
+Returns
+-------
+int
+    The sum.

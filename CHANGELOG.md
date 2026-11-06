@@ -105,6 +105,7 @@
 - Google, Numpydoc: Compose ReST's `:ivar:`, `:var:` and `:cvar:` fields as named attributes instead of a nameless section
 - Google, Numpydoc: Match custom section titles literally, so titles with characters such as `?`, `+` or `(` work instead of being ignored or raising `re.error`
 - Google, Numpydoc: Compose Epydoc's `@ivar`, `@cvar` and `@var` fields as attributes, instead of as params
+- Google, Numpydoc: Match section titles in any case, such as `ARGS:` or `returns`
 
 # 0.18 (2026-04-14)
 
