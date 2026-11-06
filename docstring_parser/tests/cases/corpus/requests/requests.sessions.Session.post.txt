@@ -54,4 +54,4 @@ Sends a POST request. Returns :class:`Response` object.
     object to send in the body of the :class:`Request`.
 :param json: (optional) json to send in the body of the :class:`Request`.
 :param \*\*kwargs: Optional arguments that ``request`` takes.
-:returns requests.Response:
+:rtype: requests.Response

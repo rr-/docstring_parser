@@ -46,4 +46,4 @@ Sends a GET request. Returns :class:`Response` object.
 :param params: (optional) Dictionary, list of tuples or bytes to send
     in the query string for the :class:`Request`.
 :param \*\*kwargs: Optional arguments that ``request`` takes.
-:returns requests.Response:
+:rtype: requests.Response

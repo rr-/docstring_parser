@@ -77,4 +77,4 @@ To create a header from the :class:`list` again, use the
 :func:`dump_header` function.
 
 :param value: a string with a list header.
-:returns list: :class:`list`
+:return list: :class:`list`

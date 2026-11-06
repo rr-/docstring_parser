@@ -18,4 +18,4 @@ rest
 === compose rest
 Send a given PreparedRequest.
 
-:returns requests.Response:
+:rtype: requests.Response

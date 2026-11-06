@@ -40,8 +40,6 @@ style: rest
 Short.
 
 :param y: The y.
-:param x:
 :type x: str, optional
 :returns: The sum.
-:returns:
 :rtype total: int

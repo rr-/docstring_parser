@@ -64,4 +64,4 @@ used elsewhere in Requests.
 :raises KeyError : if cookie is not found
 :raises CookieConflictError : if there are multiple cookies
     that match name and optionally domain and path
-:returns: cookie.value
+:return: cookie.value

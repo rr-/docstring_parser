@@ -21,4 +21,4 @@ rest
 Un-escape any percent-escape sequences in a URI that are unreserved
 characters. This leaves all reserved, illegal and non-ASCII bytes encoded.
 
-:returns str:
+:rtype: str

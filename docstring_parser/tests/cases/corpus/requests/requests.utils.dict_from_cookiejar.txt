@@ -26,4 +26,4 @@ rest
 Returns a key/value dictionary from a CookieJar.
 
 :param cj: CookieJar object to extract cookies from.
-:returns dict:
+:rtype: dict

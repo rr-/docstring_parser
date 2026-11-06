@@ -30,4 +30,4 @@ non-upper keys.
 
 .. versionadded:: 0.11
 
-:returns: Always returns ``True``.
+:return: Always returns ``True``.

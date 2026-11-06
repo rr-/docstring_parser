@@ -30,5 +30,5 @@ rest
 Returns content type and parameters from given header.
 
 :param header: string
-:returns: tuple containing content type and dictionary of
+:return: tuple containing content type and dictionary of
     parameters.

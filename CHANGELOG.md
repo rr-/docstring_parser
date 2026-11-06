@@ -48,6 +48,9 @@
 - ReST: Read a line starting with a role, such as ``:meth:`run` does stuff.``, as text of the description or of the field before it, instead of a field named `meth`; as in docutils, a field's closing colon must be followed by whitespace or the end of the line
 - ReST: Keep every line of a `:deprecated:` field that starts with a version, instead of only its first
 - ReST: Keep a type field for a param or return that has a type already, as in `:param int x:` followed by `:type x: str`, as an item of its own instead of dropping it
+- ReST: Compose a param or return that only a type field gives as that field alone, instead of adding an empty `:param:` or `:returns:` field that reads back with an empty description
+- ReST: Compose returns, yields and raises with the field name they were read from, such as `:return:` or `:raise:`, instead of `:returns:` and `:raises:` for all
+- ReST: Compose the version of a deprecation instead of dropping it, and indent the lines after the first of a type, which an unindented line ended
 - Google: Parse PEP 604 union types (e.g. `int | str`) in return sections (thanks to @binggao1230)
 - Google: Parse a union return or yield type whose members have brackets or dots, such as `dict[str, int] | None`, instead of keeping the whole line as the description
 - Google: Avoid regex backtracking when parsing parameter types

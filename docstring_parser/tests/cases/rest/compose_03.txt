@@ -46,6 +46,6 @@ Long description.
 :param bar:
     another description
 :type bar: int
-:returns:
+:return:
     a return
 :rtype: float

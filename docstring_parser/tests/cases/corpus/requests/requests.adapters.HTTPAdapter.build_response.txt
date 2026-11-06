@@ -44,4 +44,4 @@ for use when subclassing the
 
 :param req: The :class:`PreparedRequest <PreparedRequest>` used to generate the response.
 :param resp: The urllib3 response object.
-:returns requests.Response:
+:rtype: requests.Response

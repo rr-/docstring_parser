@@ -33,4 +33,4 @@ This does not use the real unquoting but what browsers are actually
 using for quoting.
 
 :param value: the header value to unquote.
-:returns str:
+:rtype: str

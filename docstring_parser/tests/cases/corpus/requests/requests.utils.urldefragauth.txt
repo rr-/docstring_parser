@@ -19,4 +19,4 @@ rest
 === compose rest
 Given a url remove the fragment and the authentication part.
 
-:returns str:
+:rtype: str

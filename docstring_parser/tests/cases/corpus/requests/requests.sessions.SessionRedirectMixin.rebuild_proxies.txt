@@ -40,4 +40,4 @@ redirect).
 This method also replaces the Proxy-Authorization header where
 necessary.
 
-:returns dict:
+:rtype: dict

@@ -14,5 +14,5 @@ style: rest
   key: 'deprecated'
   version: '1.1.0'
 === compose rest
-:deprecated: this function will be removed
+:deprecated: 1.1.0 this function will be removed
     in a later release.

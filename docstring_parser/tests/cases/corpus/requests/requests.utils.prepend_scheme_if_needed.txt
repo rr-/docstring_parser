@@ -21,4 +21,4 @@ rest
 Given a URL that may or may not have a scheme, prepend the given scheme.
 Does not replace a present scheme with the one provided as an argument.
 
-:returns str:
+:rtype: str
