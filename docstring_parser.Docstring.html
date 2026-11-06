@@ -220,6 +220,16 @@
         
 
         
+            <div class="itemName"><code><a href="#attrs" class="internal-link" title="docstring_parser.Docstring.attrs">attrs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="#deprecation" class="internal-link" title="docstring_parser.Docstring.deprecation">deprecation</a></code>
             </div>
         
@@ -668,7 +678,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">Docstring</span>: <a href="https://github.com/rr-/docstring_parser/tree/9cd1397298227a9e5e0232c0eb863271ffc9b4d3/docstring_parser/common.py#L310" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="docstring_parser.Docstring.__init__">Docstring(style)</a></code></p><p><a href="classIndex.html#docstring_parser.Docstring">View In Hierarchy</a></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">Docstring</span>: <a href="https://github.com/rr-/docstring_parser/tree/da40dd8cfc9b08559c36dfda51071995852781b4/docstring_parser/common.py#L310" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="docstring_parser.Docstring.__init__">Docstring(style)</a></code></p><p><a href="classIndex.html#docstring_parser.Docstring">View In Hierarchy</a></p>
         </div>
 
         <div class="moduleDocstring">
@@ -722,6 +732,11 @@
   </tr><tr class="property">
     
     <td>Property</td>
+    <td><code><a href="#attrs" class="internal-link" title="docstring_parser.Docstring.attrs">attrs</a></code></td>
+    <td>Return a list of information on attributes.</td>
+  </tr><tr class="property">
+    
+    <td>Property</td>
     <td><code><a href="#deprecation" class="internal-link" title="docstring_parser.Docstring.deprecation">deprecation</a></code></td>
     <td>Return a single information on function deprecation notes.</td>
   </tr><tr class="property">
@@ -743,7 +758,7 @@
     
     <td>Property</td>
     <td><code><a href="#params" class="internal-link" title="docstring_parser.Docstring.params">params</a></code></td>
-    <td>Return a list of information on function params.</td>
+    <td>Return a list of information on function params, without the attributes.</td>
   </tr><tr class="property">
     
     <td>Property</td>
@@ -775,7 +790,7 @@
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">__init__</span><span class="function-signature">(<span class="rst-sig-param"><span class="rst-undocumented">self</span>, </span><span class="rst-sig-param">style=<a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></span>):</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/9cd1397298227a9e5e0232c0eb863271ffc9b4d3/docstring_parser/common.py#L313">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/da40dd8cfc9b08559c36dfda51071995852781b4/docstring_parser/common.py#L313">
       
       (source)
     </a>
@@ -802,7 +817,7 @@
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">__repr__</span><span class="function-signature">(<span class="rst-sig-param"><span class="rst-undocumented">self</span></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/9cd1397298227a9e5e0232c0eb863271ffc9b4d3/docstring_parser/common.py#L325">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/da40dd8cfc9b08559c36dfda51071995852781b4/docstring_parser/common.py#L325">
       
       (source)
     </a>
@@ -828,7 +843,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">blank_after_long_description</span>: <code><a href="https://docs.python.org/3/builtins/functions.html#bool" class="intersphinx-link">bool</a></code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/9cd1397298227a9e5e0232c0eb863271ffc9b4d3/docstring_parser/common.py#L321">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/da40dd8cfc9b08559c36dfda51071995852781b4/docstring_parser/common.py#L321">
       
       (source)
     </a>
@@ -855,7 +870,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">blank_after_short_description</span>: <code><a href="https://docs.python.org/3/builtins/functions.html#bool" class="intersphinx-link">bool</a></code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/9cd1397298227a9e5e0232c0eb863271ffc9b4d3/docstring_parser/common.py#L320">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/da40dd8cfc9b08559c36dfda51071995852781b4/docstring_parser/common.py#L320">
       
       (source)
     </a>
@@ -882,7 +897,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">long_description</span>: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/9cd1397298227a9e5e0232c0eb863271ffc9b4d3/docstring_parser/common.py#L319">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/da40dd8cfc9b08559c36dfda51071995852781b4/docstring_parser/common.py#L319">
       
       (source)
     </a>
@@ -909,7 +924,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">meta</span>: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="docstring_parser.DocstringMeta.html" class="internal-link" title="docstring_parser.DocstringMeta">DocstringMeta</a>]</code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/9cd1397298227a9e5e0232c0eb863271ffc9b4d3/docstring_parser/common.py#L322">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/da40dd8cfc9b08559c36dfda51071995852781b4/docstring_parser/common.py#L322">
       
       (source)
     </a>
@@ -936,7 +951,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">short_description</span>: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/9cd1397298227a9e5e0232c0eb863271ffc9b4d3/docstring_parser/common.py#L318">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/da40dd8cfc9b08559c36dfda51071995852781b4/docstring_parser/common.py#L318">
       
       (source)
     </a>
@@ -963,7 +978,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">style</span>: <code><a href="docstring_parser.DocstringStyle.html" class="internal-link" title="docstring_parser.DocstringStyle">DocstringStyle</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/9cd1397298227a9e5e0232c0eb863271ffc9b4d3/docstring_parser/common.py#L323">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/da40dd8cfc9b08559c36dfda51071995852781b4/docstring_parser/common.py#L323">
       
       (source)
     </a>
@@ -981,6 +996,33 @@
 </div><div class="baseproperty">
   
   
+  <a name="docstring_parser.Docstring.attrs">
+    
+  </a>
+  <a name="attrs">
+    
+  </a>
+  <div class="functionHeader">
+    <div><span class="decorator">@<a href="https://docs.python.org/3/builtins/functions.html#property" class="intersphinx-link">property</a><br /></span></div>
+    <span class="py-defname">attrs</span>: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="docstring_parser.DocstringParam.html" class="internal-link" title="docstring_parser.DocstringParam">DocstringParam</a>]</code> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/da40dd8cfc9b08559c36dfda51071995852781b4/docstring_parser/common.py#L368">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#attrs" title="docstring_parser.Docstring.attrs">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>Return a list of information on attributes.</p></div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
   <a name="docstring_parser.Docstring.deprecation">
     
   </a>
@@ -990,7 +1032,7 @@
   <div class="functionHeader">
     <div><span class="decorator">@<a href="https://docs.python.org/3/builtins/functions.html#property" class="intersphinx-link">property</a><br /></span></div>
     <span class="py-defname">deprecation</span>: <code><a href="docstring_parser.DocstringDeprecated.html" class="internal-link" title="docstring_parser.DocstringDeprecated">DocstringDeprecated</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/9cd1397298227a9e5e0232c0eb863271ffc9b4d3/docstring_parser/common.py#L389">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/da40dd8cfc9b08559c36dfda51071995852781b4/docstring_parser/common.py#L404">
       
       (source)
     </a>
@@ -1017,7 +1059,7 @@
   <div class="functionHeader">
     <div><span class="decorator">@<a href="https://docs.python.org/3/builtins/functions.html#property" class="intersphinx-link">property</a><br /></span></div>
     <span class="py-defname">description</span>: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/9cd1397298227a9e5e0232c0eb863271ffc9b4d3/docstring_parser/common.py#L338">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/da40dd8cfc9b08559c36dfda51071995852781b4/docstring_parser/common.py#L338">
       
       (source)
     </a>
@@ -1046,7 +1088,7 @@
   <div class="functionHeader">
     <div><span class="decorator">@<a href="https://docs.python.org/3/builtins/functions.html#property" class="intersphinx-link">property</a><br /></span></div>
     <span class="py-defname">examples</span>: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr>DocstringExample]</code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/9cd1397298227a9e5e0232c0eb863271ffc9b4d3/docstring_parser/common.py#L397">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/da40dd8cfc9b08559c36dfda51071995852781b4/docstring_parser/common.py#L412">
       
       (source)
     </a>
@@ -1073,7 +1115,7 @@
   <div class="functionHeader">
     <div><span class="decorator">@<a href="https://docs.python.org/3/builtins/functions.html#property" class="intersphinx-link">property</a><br /></span></div>
     <span class="py-defname">many_returns</span>: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="docstring_parser.DocstringReturns.html" class="internal-link" title="docstring_parser.DocstringReturns">DocstringReturns</a>]</code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/9cd1397298227a9e5e0232c0eb863271ffc9b4d3/docstring_parser/common.py#L382">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/da40dd8cfc9b08559c36dfda51071995852781b4/docstring_parser/common.py#L397">
       
       (source)
     </a>
@@ -1100,7 +1142,7 @@
   <div class="functionHeader">
     <div><span class="decorator">@<a href="https://docs.python.org/3/builtins/functions.html#property" class="intersphinx-link">property</a><br /></span></div>
     <span class="py-defname">params</span>: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="docstring_parser.DocstringParam.html" class="internal-link" title="docstring_parser.DocstringParam">DocstringParam</a>]</code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/9cd1397298227a9e5e0232c0eb863271ffc9b4d3/docstring_parser/common.py#L357">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/da40dd8cfc9b08559c36dfda51071995852781b4/docstring_parser/common.py#L357">
       
       (source)
     </a>
@@ -1112,7 +1154,8 @@
   </div>
   <div class="functionBody">
     
-    <div><p>Return a list of information on function params.</p></div>
+    <div><p>Return a list of information on function params, without the
+attributes.</p></div>
     
   </div>
 </div><div class="baseproperty">
@@ -1127,7 +1170,7 @@
   <div class="functionHeader">
     <div><span class="decorator">@<a href="https://docs.python.org/3/builtins/functions.html#property" class="intersphinx-link">property</a><br /></span></div>
     <span class="py-defname">raises</span>: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="docstring_parser.DocstringRaises.html" class="internal-link" title="docstring_parser.DocstringRaises">DocstringRaises</a>]</code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/9cd1397298227a9e5e0232c0eb863271ffc9b4d3/docstring_parser/common.py#L362">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/da40dd8cfc9b08559c36dfda51071995852781b4/docstring_parser/common.py#L377">
       
       (source)
     </a>
@@ -1155,7 +1198,7 @@ may raise.</p></div>
   <div class="functionHeader">
     <div><span class="decorator">@<a href="https://docs.python.org/3/builtins/functions.html#property" class="intersphinx-link">property</a><br /></span></div>
     <span class="py-defname">returns</span>: <code><a href="docstring_parser.DocstringReturns.html" class="internal-link" title="docstring_parser.DocstringReturns">DocstringReturns</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/9cd1397298227a9e5e0232c0eb863271ffc9b4d3/docstring_parser/common.py#L371">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/da40dd8cfc9b08559c36dfda51071995852781b4/docstring_parser/common.py#L386">
       
       (source)
     </a>
@@ -1184,7 +1227,7 @@ may raise.</p></div>
   <div class="container-fluid">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    25.10.1 at 2026-11-06 16:03:58.
+    25.10.1 at 2026-11-06 16:04:35.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 
