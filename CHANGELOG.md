@@ -11,6 +11,7 @@
 - General: Quote at most the first 60 characters of the text a `ParseError` points at, instead of the whole chunk
 - General: Parse a docstring with no fields or sections once in auto-detection instead of four times, making it about 47% faster
 - General: Raise `ValueError` instead of `KeyError` from `compose()` when the docstring has no style and none is given
+- General: Stop `combine_docstrings` from taking an attribute named like a param as that param
 - General: Give every meta a `kind`, a `Kind` that tells what it documents, such as a keyword param or a warning
 - General: Compose items into sections by their `kind`, so a meta made by hand needs `kind=` for a sub-kind such as `Kind.ATTRIBUTE`
 - General: Add `docstring_parser.sections`, where a `SectionSpec` declares a section or field for any style; pass a list as `sections` to `parse()` or a parser, starting from `default_sections(style)`
