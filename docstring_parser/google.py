@@ -29,8 +29,10 @@ from ._text import (
     Example,
     append_loose,
     param_spec,
+    renamed,
     split_description,
     split_examples,
+    split_names,
 )
 from .common import (
     EXAMPLES_KEYWORDS,
@@ -664,12 +666,19 @@ class Parser(BaseParser):
             return apply(section.spec, meta)
         return meta
 
-    def _meta(self, text: str, title: str) -> DocstringMeta:
+    def _metas(self, text: str, title: str) -> T.List[DocstringMeta]:
+        """Build an item's metas: one per name for a param whose head
+        lists several, as in ``x, y (int): text``."""
         section = self.sections[title]
         meta = self._meta_of(text, title)
+        metas: T.List[DocstringMeta] = [meta]
+        if type(meta) is DocstringParam:
+            names = split_names(meta.arg_name)
+            if names is not None:
+                metas = [renamed(meta, name) for name in names]
         if isinstance(section, _SpecSection):
-            return apply(section.spec, meta)
-        return meta
+            return [apply(section.spec, meta) for meta in metas]
+        return metas
 
     def try_parse(self, text: T.Optional[str]) -> ParseResult:
         """Parse what can be parsed of a docstring, and tell what cannot."""
@@ -853,7 +862,7 @@ class Parser(BaseParser):
         """Add an item's meta, or its text and a problem if it cannot be
         read."""
         try:
-            ret.meta.append(self._meta(part, title))
+            ret.meta.extend(self._metas(part, title))
         except ItemError as ex:
             problems.append(
                 Problem(lines.source_line(offset), ex.code, str(ex))

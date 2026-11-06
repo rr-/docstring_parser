@@ -54,7 +54,16 @@ style: numpydoc
     high.
   kind: param
   key: 'param'
-  arg_name: 'c1, c2'
+  arg_name: 'c1'
+  type_name: 'array_like'
+  is_optional: False
+- DocstringParam
+  description: |
+    1-D arrays of Chebyshev series coefficients ordered from low to
+    high.
+  kind: param
+  key: 'param'
+  arg_name: 'c2'
   type_name: 'array_like'
   is_optional: False
 - DocstringReturns
@@ -108,7 +117,10 @@ e.g., [1,2,3] represents the series ``T_0 + 2*T_1 + 3*T_2``.
 
 Parameters
 ----------
-c1, c2 : array_like
+c1 : array_like
+    1-D arrays of Chebyshev series coefficients ordered from low to
+    high.
+c2 : array_like
     1-D arrays of Chebyshev series coefficients ordered from low to
     high.
 

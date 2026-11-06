@@ -51,7 +51,16 @@ style: numpydoc
     high.
   kind: param
   key: 'param'
-  arg_name: 'c1, c2'
+  arg_name: 'c1'
+  type_name: 'array_like'
+  is_optional: False
+- DocstringParam
+  description: |
+    1-D arrays of Hermite series coefficients ordered from low to
+    high.
+  kind: param
+  key: 'param'
+  arg_name: 'c2'
   type_name: 'array_like'
   is_optional: False
 - DocstringReturns
@@ -96,7 +105,10 @@ sequences of coefficients are from lowest order term to highest, i.e.,
 
 Parameters
 ----------
-c1, c2 : array_like
+c1 : array_like
+    1-D arrays of Hermite series coefficients ordered from low to
+    high.
+c2 : array_like
     1-D arrays of Hermite series coefficients ordered from low to
     high.
 

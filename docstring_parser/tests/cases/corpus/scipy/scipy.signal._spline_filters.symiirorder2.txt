@@ -63,7 +63,14 @@ style: numpydoc
   description: 'Parameters in the transfer function.'
   kind: param
   key: 'param'
-  arg_name: 'r, omega'
+  arg_name: 'r'
+  type_name: 'float'
+  is_optional: False
+- DocstringParam
+  description: 'Parameters in the transfer function.'
+  kind: param
+  key: 'param'
+  arg_name: 'omega'
   type_name: 'float'
   is_optional: False
 - DocstringParam
@@ -105,7 +112,9 @@ Parameters
 ----------
 input : ndarray
     The input signal.
-r, omega : float
+r : float
+    Parameters in the transfer function.
+omega : float
     Parameters in the transfer function.
 precision : float
     Specifies the precision for calculating initial conditions

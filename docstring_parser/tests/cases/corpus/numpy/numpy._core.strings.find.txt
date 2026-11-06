@@ -57,7 +57,14 @@ style: numpydoc
   description: 'The range to look in, interpreted as in slice notation.'
   kind: param
   key: 'param'
-  arg_name: 'start, end'
+  arg_name: 'start'
+  type_name: 'array_like, with any integer dtype'
+  is_optional: False
+- DocstringParam
+  description: 'The range to look in, interpreted as in slice notation.'
+  kind: param
+  key: 'param'
+  arg_name: 'end'
   type_name: 'array_like, with any integer dtype'
   is_optional: False
 - DocstringReturns
@@ -98,7 +105,9 @@ Parameters
 a : array_like, with ``StringDType``, ``bytes_`` or ``str_`` dtype
 sub : array_like, with ``bytes_`` or ``str_`` dtype
     The substring to search for.
-start, end : array_like, with any integer dtype
+start : array_like, with any integer dtype
+    The range to look in, interpreted as in slice notation.
+end : array_like, with any integer dtype
     The range to look in, interpreted as in slice notation.
 
 Returns

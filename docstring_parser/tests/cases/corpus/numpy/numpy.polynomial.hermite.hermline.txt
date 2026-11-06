@@ -42,7 +42,14 @@ style: numpydoc
   description: 'The specified line is given by ``off + scl*x``.'
   kind: param
   key: 'param'
-  arg_name: 'off, scl'
+  arg_name: 'off'
+  type_name: 'scalars'
+  is_optional: False
+- DocstringParam
+  description: 'The specified line is given by ``off + scl*x``.'
+  kind: param
+  key: 'param'
+  arg_name: 'scl'
   type_name: 'scalars'
   is_optional: False
 - DocstringReturns
@@ -88,7 +95,9 @@ Hermite series whose graph is a straight line.
 
 Parameters
 ----------
-off, scl : scalars
+off : scalars
+    The specified line is given by ``off + scl*x``.
+scl : scalars
     The specified line is given by ``off + scl*x``.
 
 Returns

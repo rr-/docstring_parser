@@ -89,7 +89,16 @@ style: numpydoc
     See :ref:`gotchas.numpy_kwargs` for more.
   kind: param
   key: 'param'
-  arg_name: '*args, **kwargs'
+  arg_name: '*args'
+  is_optional: False
+- DocstringParam
+  description: |
+    Additional arguments and keywords have no effect but might be
+    accepted for compatibility with NumPy.
+    See :ref:`gotchas.numpy_kwargs` for more.
+  kind: param
+  key: 'param'
+  arg_name: '**kwargs'
   is_optional: False
 - DocstringReturns
   description: 'Label of the minimum value.'
@@ -156,7 +165,11 @@ axis : {0 or 'index'}
 skipna : bool, default True
     Exclude NA/null values. If the entire Series is NA, or if ``skipna=False``
     and there is an NA value, this method will raise a ``ValueError``.
-*args, **kwargs
+*args
+    Additional arguments and keywords have no effect but might be
+    accepted for compatibility with NumPy.
+    See :ref:`gotchas.numpy_kwargs` for more.
+**kwargs
     Additional arguments and keywords have no effect but might be
     accepted for compatibility with NumPy.
     See :ref:`gotchas.numpy_kwargs` for more.

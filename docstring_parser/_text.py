@@ -1,14 +1,36 @@
 """Text rules that every style shares."""
 
+import copy as _copy
 import re
 import typing as T
 
-from .common import Docstring
+from .common import Docstring, DocstringParam
 
 
 def clean_str(string: str) -> T.Optional[str]:
     """Strip a string, giving None if nothing is left."""
     return string.strip() or None
+
+
+# Several names in one item head, as in ``x, y`` or ``*args, **kwargs``.
+_NAME = r"\*{0,2}[A-Za-z_]\w*"
+_NAMES = re.compile(rf"{_NAME}(?:[ \t]*,[ \t]*{_NAME})+")
+_NAME_SEPARATOR = re.compile(r"[ \t]*,[ \t]*")
+
+
+def split_names(name: T.Optional[str]) -> T.Optional[T.List[str]]:
+    """Split an item head that lists several names, giving None for one
+    that does not."""
+    if not name or "," not in name or not _NAMES.fullmatch(name):
+        return None
+    return _NAME_SEPARATOR.split(name)
+
+
+def renamed(param: DocstringParam, name: str) -> DocstringParam:
+    """Copy a param under another name."""
+    copy = _copy.copy(param)
+    copy.arg_name = name
+    return copy
 
 
 # The lines after the first that go on with the first paragraph, each with

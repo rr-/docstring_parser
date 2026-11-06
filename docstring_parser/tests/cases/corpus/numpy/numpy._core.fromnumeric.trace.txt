@@ -94,7 +94,18 @@ style: numpydoc
     axes of `a`.
   kind: param
   key: 'param'
-  arg_name: 'axis1, axis2'
+  arg_name: 'axis1'
+  type_name: 'int'
+  is_optional: True
+  raw_type_name: 'int, optional'
+- DocstringParam
+  description: |
+    Axes to be used as the first and second axis of the 2-D sub-arrays
+    from which the diagonals should be taken. Defaults are the first two
+    axes of `a`.
+  kind: param
+  key: 'param'
+  arg_name: 'axis2'
   type_name: 'int'
   is_optional: True
   raw_type_name: 'int, optional'
@@ -185,7 +196,11 @@ a : array_like
 offset : int, optional
     Offset of the diagonal from the main diagonal. Can be both positive
     and negative. Defaults to 0.
-axis1, axis2 : int, optional
+axis1 : int, optional
+    Axes to be used as the first and second axis of the 2-D sub-arrays
+    from which the diagonals should be taken. Defaults are the first two
+    axes of `a`.
+axis2 : int, optional
     Axes to be used as the first and second axis of the 2-D sub-arrays
     from which the diagonals should be taken. Defaults are the first two
     axes of `a`.

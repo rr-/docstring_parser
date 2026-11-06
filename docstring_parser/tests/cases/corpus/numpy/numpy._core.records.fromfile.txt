@@ -88,7 +88,47 @@ style: numpydoc
     detailed documentation
   kind: param
   key: 'param'
-  arg_name: 'formats, names, titles, aligned, byteorder'
+  arg_name: 'formats'
+  type_name: ''
+  is_optional: False
+- DocstringParam
+  description: |
+    If `dtype` is ``None``, these arguments are passed to
+    `numpy.format_parser` to construct a dtype. See that function for
+    detailed documentation
+  kind: param
+  key: 'param'
+  arg_name: 'names'
+  type_name: ''
+  is_optional: False
+- DocstringParam
+  description: |
+    If `dtype` is ``None``, these arguments are passed to
+    `numpy.format_parser` to construct a dtype. See that function for
+    detailed documentation
+  kind: param
+  key: 'param'
+  arg_name: 'titles'
+  type_name: ''
+  is_optional: False
+- DocstringParam
+  description: |
+    If `dtype` is ``None``, these arguments are passed to
+    `numpy.format_parser` to construct a dtype. See that function for
+    detailed documentation
+  kind: param
+  key: 'param'
+  arg_name: 'aligned'
+  type_name: ''
+  is_optional: False
+- DocstringParam
+  description: |
+    If `dtype` is ``None``, these arguments are passed to
+    `numpy.format_parser` to construct a dtype. See that function for
+    detailed documentation
+  kind: param
+  key: 'param'
+  arg_name: 'byteorder'
   type_name: ''
   is_optional: False
 - DocstringReturns
@@ -168,7 +208,23 @@ shape : int or tuple of ints, optional
     shape of each array.
 offset : int, optional
     Position in the file to start reading from.
-formats, names, titles, aligned, byteorder : 
+formats : 
+    If `dtype` is ``None``, these arguments are passed to
+    `numpy.format_parser` to construct a dtype. See that function for
+    detailed documentation
+names : 
+    If `dtype` is ``None``, these arguments are passed to
+    `numpy.format_parser` to construct a dtype. See that function for
+    detailed documentation
+titles : 
+    If `dtype` is ``None``, these arguments are passed to
+    `numpy.format_parser` to construct a dtype. See that function for
+    detailed documentation
+aligned : 
+    If `dtype` is ``None``, these arguments are passed to
+    `numpy.format_parser` to construct a dtype. See that function for
+    detailed documentation
+byteorder : 
     If `dtype` is ``None``, these arguments are passed to
     `numpy.format_parser` to construct a dtype. See that function for
     detailed documentation

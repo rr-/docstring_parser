@@ -128,7 +128,28 @@ style: numpydoc
   description: 'Shape parameters of the distribution. See notes.'
   kind: param
   key: 'param'
-  arg_name: 'mu, lmbda, a, b'
+  arg_name: 'mu'
+  type_name: 'array_like'
+  is_optional: False
+- DocstringParam
+  description: 'Shape parameters of the distribution. See notes.'
+  kind: param
+  key: 'param'
+  arg_name: 'lmbda'
+  type_name: 'array_like'
+  is_optional: False
+- DocstringParam
+  description: 'Shape parameters of the distribution. See notes.'
+  kind: param
+  key: 'param'
+  arg_name: 'a'
+  type_name: 'array_like'
+  is_optional: False
+- DocstringParam
+  description: 'Shape parameters of the distribution. See notes.'
+  kind: param
+  key: 'param'
+  arg_name: 'b'
   type_name: 'array_like'
   is_optional: False
 - DocstringParam
@@ -332,7 +353,13 @@ distribution with unknown mean and variance.
 
 Parameters
 ----------
-mu, lmbda, a, b : array_like
+mu : array_like
+    Shape parameters of the distribution. See notes.
+lmbda : array_like
+    Shape parameters of the distribution. See notes.
+a : array_like
+    Shape parameters of the distribution. See notes.
+b : array_like
     Shape parameters of the distribution. See notes.
 seed : {None, int, np.random.RandomState, np.random.Generator}, optional
     Used for drawing random variates.

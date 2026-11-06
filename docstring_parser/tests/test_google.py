@@ -355,3 +355,25 @@ def test_sentence_before_return_colon_is_no_type(head: str) -> None:
     assert docstring.returns is not None
     assert docstring.returns.type_name is None
     assert docstring.returns.description == f"{head}: a number."
+
+
+def test_several_names_give_one_param_each() -> None:
+    """Test that a head listing several names gives each the same type and
+    description, and composes to text that reads back the same."""
+    docstring = parse(
+        "Short.\n\nArgs:\n    x, y (int): A point.\n    *args, **kwargs: Rest."
+    )
+    names = [param.arg_name for param in docstring.params]
+    assert names == ["x", "y", "*args", "**kwargs"]
+    assert docstring.params[1].type_name == "int"
+    assert docstring.params[1].description == "A point."
+    assert docstring.params[3].description == "Rest."
+    again = parse(compose(docstring))
+    assert [param.arg_name for param in again.params] == names
+    assert again.params[1].type_name == "int"
+
+
+def test_name_with_comma_and_no_list_stays_one_param() -> None:
+    """Test that a head with a comma that lists no names is one param."""
+    docstring = parse("Short.\n\nArgs:\n    x, or else (int): Text.")
+    assert [param.arg_name for param in docstring.params] == ["x, or else"]

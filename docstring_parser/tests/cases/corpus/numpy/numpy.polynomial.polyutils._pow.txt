@@ -35,7 +35,13 @@ style: numpydoc
   description: 'See the ``<type>pow`` functions for more detail'
   kind: param
   key: 'param'
-  arg_name: 'pow, maxpower'
+  arg_name: 'pow'
+  is_optional: False
+- DocstringParam
+  description: 'See the ``<type>pow`` functions for more detail'
+  kind: param
+  key: 'param'
+  arg_name: 'maxpower'
   is_optional: False
 === detect
 numpydoc
@@ -48,5 +54,7 @@ mul_f : function(array_like, array_like) -> ndarray
     The ``<type>mul`` function, such as ``polymul``
 c : array_like
     1-D array of array of series coefficients
-pow, maxpower
+pow
+    See the ``<type>pow`` functions for more detail
+maxpower
     See the ``<type>pow`` functions for more detail
