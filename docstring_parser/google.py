@@ -767,23 +767,35 @@ def compose(
     for title, items in found:
         process_sect(title, items)
 
-    examples_done = False
-    for meta in rest:
-        if isinstance(meta, DocstringExample):
-            # Every example goes in one section, where the first one is.
-            if examples_done:
-                continue
-            examples_done = True
-            body = examples_text(docstring.examples)
-        else:
-            body = meta.description or ""
-        parts.append((meta.key or "").replace("_", "").title() + ":")
+    def write_section(key: T.Optional[str], body: str) -> None:
+        parts.append((key or "").replace("_", "").title() + ":")
         if body:
             lines = [
                 indent + line if line else "" for line in body.splitlines()
             ]
             parts.append("\n".join(lines))
         parts.append("")
+
+    # Examples in a row share a section. One with no snippet is the text
+    # after a section's last snippet, so it ends its section: written with
+    # the next ones, it would read back as part of their text. An empty
+    # one comes from an empty section, and is a section of its own.
+    group: T.List[DocstringExample] = []
+    for meta in rest:
+        if isinstance(meta, DocstringExample):
+            if not meta.snippet and not meta.description and group:
+                write_section(group[0].key, examples_text(group))
+                group = []
+            group.append(meta)
+            if meta.snippet:
+                continue
+        if group:
+            write_section(group[0].key, examples_text(group))
+            group = []
+        if not isinstance(meta, DocstringExample):
+            write_section(meta.key, meta.description or "")
+    if group:
+        write_section(group[0].key, examples_text(group))
 
     while parts and not parts[-1]:
         parts.pop()
