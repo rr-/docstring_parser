@@ -78,7 +78,29 @@ style: numpydoc
     arrays.
   kind: param
   key: 'param'
-  arg_name: 'x, y, z'
+  arg_name: 'x'
+  type_name: 'array_like'
+  is_optional: False
+- DocstringParam
+  description: |
+    Arrays of point coordinates, all of the same shape. The dtypes will
+    be converted to either float64 or complex128 depending on whether
+    any of the elements are complex. Scalars are converted to 1-D
+    arrays.
+  kind: param
+  key: 'param'
+  arg_name: 'y'
+  type_name: 'array_like'
+  is_optional: False
+- DocstringParam
+  description: |
+    Arrays of point coordinates, all of the same shape. The dtypes will
+    be converted to either float64 or complex128 depending on whether
+    any of the elements are complex. Scalars are converted to 1-D
+    arrays.
+  kind: param
+  key: 'param'
+  arg_name: 'z'
   type_name: 'array_like'
   is_optional: False
 - DocstringParam
@@ -131,7 +153,17 @@ series of the same degrees and sample points.
 
 Parameters
 ----------
-x, y, z : array_like
+x : array_like
+    Arrays of point coordinates, all of the same shape. The dtypes will
+    be converted to either float64 or complex128 depending on whether
+    any of the elements are complex. Scalars are converted to 1-D
+    arrays.
+y : array_like
+    Arrays of point coordinates, all of the same shape. The dtypes will
+    be converted to either float64 or complex128 depending on whether
+    any of the elements are complex. Scalars are converted to 1-D
+    arrays.
+z : array_like
     Arrays of point coordinates, all of the same shape. The dtypes will
     be converted to either float64 or complex128 depending on whether
     any of the elements are complex. Scalars are converted to 1-D

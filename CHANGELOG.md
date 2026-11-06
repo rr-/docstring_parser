@@ -111,6 +111,7 @@
 - Google, Numpydoc: Compose Epydoc's `@ivar`, `@cvar` and `@var` fields as attributes, instead of as params
 - Google, Numpydoc: Match section titles in any case, such as `ARGS:` or `returns`
 - Google, Numpydoc: Read napoleon's other sections, such as `Keyword Args`, `Note` and `Todo` (thanks to @BrianPugh)
+- Google, Numpydoc: Give each name in `x, y : int` its own param
 
 # 0.18 (2026-04-14)
 

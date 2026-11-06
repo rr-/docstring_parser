@@ -28,8 +28,10 @@ from ._text import (
     append_loose,
     clean_str,
     param_spec,
+    renamed,
     split_description,
     split_examples,
+    split_names,
 )
 from .common import (
     BaseParser,
@@ -242,6 +244,17 @@ class ParamSection(_KVSection):
             descriptions can also span...
             ... multiple lines
     """
+
+    def _parse(self, text: str) -> T.Iterable[DocstringMeta]:
+        # One param per name of a head that lists several, as in
+        # ``x, y : int``.
+        for meta in super()._parse(text):
+            param = T.cast(DocstringParam, meta)
+            names = split_names(param.arg_name)
+            if names is None:
+                yield param
+            else:
+                yield from (renamed(param, name) for name in names)
 
     def _parse_item(self, key: str, value: str) -> DocstringParam:
         # The key is a single line, which the pattern always matches.

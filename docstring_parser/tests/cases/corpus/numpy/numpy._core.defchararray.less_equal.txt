@@ -42,7 +42,14 @@ style: numpydoc
   description: 'Input arrays of the same shape.'
   kind: param
   key: 'param'
-  arg_name: 'x1, x2'
+  arg_name: 'x1'
+  type_name: 'array_like of str or unicode'
+  is_optional: False
+- DocstringParam
+  description: 'Input arrays of the same shape.'
+  kind: param
+  key: 'param'
+  arg_name: 'x2'
   type_name: 'array_like of str or unicode'
   is_optional: False
 - DocstringReturns
@@ -82,7 +89,9 @@ behavior is provided for backward-compatibility with numarray.
 
 Parameters
 ----------
-x1, x2 : array_like of str or unicode
+x1 : array_like of str or unicode
+    Input arrays of the same shape.
+x2 : array_like of str or unicode
     Input arrays of the same shape.
 
 Returns

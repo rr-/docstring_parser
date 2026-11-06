@@ -36,7 +36,13 @@ style: numpydoc
   description: 'Forwarded arguments from `histogram`.'
   kind: param
   key: 'param'
-  arg_name: 'bins, range'
+  arg_name: 'bins'
+  is_optional: False
+- DocstringParam
+  description: 'Forwarded arguments from `histogram`.'
+  kind: param
+  key: 'param'
+  arg_name: 'range'
   is_optional: False
 - DocstringParam
   description: 'Ravelled weights array, or None'
@@ -71,7 +77,9 @@ Parameters
 ----------
 a : ndarray
     Ravelled data array
-bins, range
+bins
+    Forwarded arguments from `histogram`.
+range
     Forwarded arguments from `histogram`.
 weights : ndarray, optional
     Ravelled weights array, or None

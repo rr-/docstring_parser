@@ -464,3 +464,25 @@ def test_examples_split_as_doctest_reads_them() -> None:
     assert docstring.examples[2].description == "Then more."
     assert docstring.examples[2].snippet is None
     assert compose(docstring) == text
+
+
+def test_several_names_give_one_param_each() -> None:
+    """Test that a head listing several names gives each the same type and
+    description, and composes to text that reads back the same."""
+    docstring = parse(
+        "Short.\n\n"
+        "Parameters\n"
+        "----------\n"
+        "x, y : int\n"
+        "    A point.\n"
+        "*args, **kwargs\n"
+        "    Rest."
+    )
+    names = [param.arg_name for param in docstring.params]
+    assert names == ["x", "y", "*args", "**kwargs"]
+    assert docstring.params[1].type_name == "int"
+    assert docstring.params[1].description == "A point."
+    assert docstring.params[3].description == "Rest."
+    again = parse(compose(docstring))
+    assert [param.arg_name for param in again.params] == names
+    assert again.params[1].type_name == "int"
