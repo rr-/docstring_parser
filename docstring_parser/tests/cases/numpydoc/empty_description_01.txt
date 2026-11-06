@@ -1,0 +1,36 @@
+# Test that items with nothing under them have no description.
+=== input
+Short.
+
+Parameters
+----------
+x : int
+
+Raises
+------
+ValueError
+=== parse numpydoc
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  kind: param
+  key: 'param'
+  arg_name: 'x'
+  type_name: 'int'
+  is_optional: False
+- DocstringRaises
+  kind: raises
+  key: 'raises'
+  type_name: 'ValueError'
+=== compose numpydoc
+Short.
+
+Parameters
+----------
+x : int
+
+Raises
+------
+ValueError

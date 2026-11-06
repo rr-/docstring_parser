@@ -41,7 +41,6 @@ style: rest
   arg_name: 'a'
   is_optional: False
 - DocstringParam
-  description: ''
   kind: attribute
   key: 'attribute'
   arg_name: 'y'

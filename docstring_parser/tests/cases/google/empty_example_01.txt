@@ -13,7 +13,6 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringExample
-  description: ''
   kind: examples
   key: 'examples'
 - DocstringRaises

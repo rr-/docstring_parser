@@ -1,0 +1,36 @@
+# Test that items with nothing after their colon have no description.
+=== input
+Short.
+
+@param x:
+@raise ValueError:
+@return:
+@note:
+=== parse epydoc
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringParam
+  kind: param
+  key: 'param'
+  arg_name: 'x'
+  is_optional: False
+- DocstringRaises
+  kind: raises
+  key: 'raise'
+  type_name: 'ValueError'
+- DocstringReturns
+  kind: returns
+  key: 'return'
+  is_generator: False
+- DocstringMeta
+  kind: text
+  key: 'note'
+=== compose epydoc
+Short.
+
+@param x:
+@raise ValueError:
+@return:
+@note:

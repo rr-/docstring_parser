@@ -34,7 +34,6 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringParam
-  description: ''
   kind: attribute
   key: 'attribute'
   arg_name: 'attr_1'
@@ -54,13 +53,11 @@ style: rest
   arg_name: 'attr_3'
   is_optional: False
 - DocstringParam
-  description: ''
   kind: attribute
   key: 'attribute'
   arg_name: 'attr_4'
   is_optional: False
 - DocstringParam
-  description: ''
   kind: attribute
   key: 'attribute'
   arg_name: 'attr_5'

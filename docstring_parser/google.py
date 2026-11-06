@@ -691,9 +691,13 @@ def compose(
         head = ""
 
         if isinstance(one, DocstringRaises):
-            if one.type_name and one.description is None:
-                # A type alone reads back with no description, where a
-                # colon after it gives an empty one.
+            if (
+                one.type_name
+                and one.description is None
+                and one.type_name == one.type_name.rstrip()
+            ):
+                # A type alone reads back with no description, as does one
+                # with a colon after it, which keeps the spaces before it.
                 parts.append(indent + one.type_name)
                 return
             if (
