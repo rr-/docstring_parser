@@ -14,6 +14,7 @@ blank_after_long_description: False
 style: numpydoc
 - DocstringParam
   args: ['param', 'val']
+  kind: param
   arg_name: 'val'
   type_name: 'object'
   is_optional: False

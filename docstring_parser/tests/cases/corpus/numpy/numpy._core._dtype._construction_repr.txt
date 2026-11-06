@@ -42,6 +42,7 @@ style: numpydoc
   description: |
     If true, this creates a shorter repr using 'kind' and 'itemsize',
     instead of the longer type name.
+  kind: param
   arg_name: 'short'
   type_name: 'bool'
   is_optional: False
@@ -58,6 +59,7 @@ style: numpydoc
     flag is not part of first dtype constructor parameter. This
     mode is intended for a full 'repr', where the 'align=True' is
     provided as the second parameter.
+  kind: param
   arg_name: 'include_align'
   type_name: 'bool'
   is_optional: False

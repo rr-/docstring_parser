@@ -67,6 +67,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'axis']
   description: 'Unused. Parameter needed for compatibility with DataFrame.'
+  kind: param
   arg_name: 'axis'
   type_name: "{0 or 'index'}"
   is_optional: False
@@ -75,6 +76,7 @@ style: numpydoc
   description: |
     Exclude NA/null values. If the entire Series is NA, or if ``skipna=False``
     and there is an NA value, this method will raise a ``ValueError``.
+  kind: param
   arg_name: 'skipna'
   type_name: 'bool'
   is_optional: True
@@ -85,15 +87,18 @@ style: numpydoc
     Additional arguments and keywords have no effect but might be
     accepted for compatibility with NumPy.
     See :ref:`gotchas.numpy_kwargs` for more.
+  kind: param
   arg_name: '*args, **kwargs'
 - DocstringReturns
   args: ['returns']
   description: 'Label of the minimum value.'
+  kind: returns
   type_name: 'Index'
   is_generator: False
 - DocstringRaises
   args: ['raises', 'ValueError']
   description: 'If the Series is empty.'
+  kind: raises
   type_name: 'ValueError'
 - DocstringMeta
   args: ['see_also']
@@ -104,12 +109,14 @@ style: numpydoc
         over requested axis.
     Series.idxmax : Return index *label* of the first occurrence
         of maximum of values.
+  kind: text
 - DocstringMeta
   args: ['notes']
   description: |
     This method is the Series version of ``ndarray.argmin``. This method
     returns the label of the minimum, while ``ndarray.argmin`` returns
     the position. To get the position, use ``series.values.argmin()``.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
@@ -119,12 +126,14 @@ style: numpydoc
     D    1.0
     dtype: float64
     
+  kind: examples
   snippet: |
     >>> s = pd.Series(data=[1, None, 4, 1], index=["A", "B", "C", "D"])
     >>> s
 - DocstringExample
   args: ['examples']
   description: "'A'"
+  kind: examples
   snippet: '>>> s.idxmin()'
 === detect
 numpydoc

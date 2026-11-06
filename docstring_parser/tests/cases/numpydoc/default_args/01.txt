@@ -13,6 +13,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'arg1']
   description: 'The first arg'
+  kind: param
   arg_name: 'arg1'
   type_name: 'int'
   is_optional: False

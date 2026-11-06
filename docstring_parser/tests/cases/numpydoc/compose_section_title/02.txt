@@ -13,6 +13,7 @@ style: numpydoc
 - DocstringMeta
   args: ['notes']
   description: 'Some text.'
+  kind: text
 === compose numpydoc
 Short.
 

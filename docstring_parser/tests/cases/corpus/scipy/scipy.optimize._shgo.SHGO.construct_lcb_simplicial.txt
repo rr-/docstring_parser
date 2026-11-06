@@ -23,6 +23,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'v_min']
   description: 'The minimizer vertex'
+  kind: param
   arg_name: 'v_min'
   type_name: 'Vertex object'
   is_optional: False
@@ -31,6 +32,7 @@ style: numpydoc
   description: |
     List of size dimension with length-2 list of bounds for each
     dimension.
+  kind: returns
   type_name: 'list of lists'
   is_generator: False
   return_name: 'cbounds'

@@ -22,5 +22,6 @@ style: numpydoc
     with much text
     
     even some spacing
+  kind: returns
   type_name: 'int'
   is_generator: False

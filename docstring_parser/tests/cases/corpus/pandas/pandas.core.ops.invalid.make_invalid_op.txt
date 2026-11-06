@@ -18,11 +18,13 @@ blank_after_long_description: False
 style: numpydoc
 - DocstringParam
   args: ['param', 'name']
+  kind: param
   arg_name: 'name'
   type_name: 'str'
   is_optional: False
 - DocstringReturns
   args: ['returns']
+  kind: returns
   type_name: 'function'
   is_generator: False
   return_name: 'invalid_op'

@@ -218,6 +218,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'x']
   description: 'A signal with peaks.'
+  kind: param
   arg_name: 'x'
   type_name: 'sequence'
   is_optional: False
@@ -228,6 +229,7 @@ style: numpydoc
     `x` or a 2-element sequence of the former. The first element is
     always interpreted as the  minimal and the second, if supplied, as the
     maximal required height.
+  kind: param
   arg_name: 'height'
   type_name: 'number or ndarray or sequence'
   is_optional: True
@@ -239,6 +241,7 @@ style: numpydoc
     2-element sequence of the former. The first element is always
     interpreted as the  minimal and the second, if supplied, as the maximal
     required threshold.
+  kind: param
   arg_name: 'threshold'
   type_name: 'number or ndarray or sequence'
   is_optional: True
@@ -248,6 +251,7 @@ style: numpydoc
     Required minimal horizontal distance (>= 1) in samples between
     neighbouring peaks. Smaller peaks are removed first until the condition
     is fulfilled for all remaining peaks.
+  kind: param
   arg_name: 'distance'
   type_name: 'number'
   is_optional: True
@@ -258,6 +262,7 @@ style: numpydoc
     matching `x` or a 2-element sequence of the former. The first
     element is always interpreted as the  minimal and the second, if
     supplied, as the maximal required prominence.
+  kind: param
   arg_name: 'prominence'
   type_name: 'number or ndarray or sequence'
   is_optional: True
@@ -268,6 +273,7 @@ style: numpydoc
     matching `x` or a 2-element sequence of the former. The first
     element is always interpreted as the  minimal and the second, if
     supplied, as the maximal required width.
+  kind: param
   arg_name: 'width'
   type_name: 'number or ndarray or sequence'
   is_optional: True
@@ -277,6 +283,7 @@ style: numpydoc
     Used for calculation of the peaks prominences, thus it is only used if
     one of the arguments `prominence` or `width` is given. See argument
     `wlen` in `peak_prominences` for a full description of its effects.
+  kind: param
   arg_name: 'wlen'
   type_name: 'int'
   is_optional: True
@@ -286,6 +293,7 @@ style: numpydoc
     Used for calculation of the peaks width, thus it is only used if `width`
     is given. See argument  `rel_height` in `peak_widths` for a full
     description of its effects.
+  kind: param
   arg_name: 'rel_height'
   type_name: 'float'
   is_optional: True
@@ -298,12 +306,14 @@ style: numpydoc
     if supplied as the maximal required plateau size.
     
     .. versionadded:: 1.2.0
+  kind: param
   arg_name: 'plateau_size'
   type_name: 'number or ndarray or sequence'
   is_optional: True
 - DocstringReturns
   args: ['returns']
   description: 'Indices of peaks in `x` that satisfy all given conditions.'
+  kind: returns
   type_name: 'ndarray'
   is_generator: False
   return_name: 'peaks'
@@ -335,6 +345,7 @@ style: numpydoc
     To calculate and return properties without excluding peaks, provide the
     open interval ``(None, None)`` as a value to the appropriate argument
     (excluding `distance`).
+  kind: returns
   type_name: 'dict'
   is_generator: False
   return_name: 'properties'
@@ -343,12 +354,14 @@ style: numpydoc
   description: |
     Raised if a peak's properties have unexpected values (see
     `peak_prominences` and `peak_widths`).
+  kind: warns
   type_name: 'PeakPropertyWarning'
 - DocstringMeta
   args: ['warnings']
   description: |
     This function may return unexpected results for data containing NaNs. To
     avoid this, NaNs should either be removed or replaced.
+  kind: text
 - DocstringMeta
   args: ['see_also']
   description: |
@@ -358,6 +371,7 @@ style: numpydoc
         Directly calculate the prominence of peaks.
     peak_widths
         Directly calculate the width of peaks.
+  kind: text
 - DocstringMeta
   args: ['notes']
   description: |
@@ -392,6 +406,7 @@ style: numpydoc
       (see `peak_prominences`).
     
     .. versionadded:: 1.1.0
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
@@ -399,6 +414,7 @@ style: numpydoc
     SciPy (see `scipy.datasets.electrocardiogram`). Let's find all peaks (local
     maxima) in `x` whose amplitude lies above 0.
     
+  kind: examples
 - DocstringExample
   args: ['examples']
   description: |
@@ -407,6 +423,7 @@ style: numpydoc
     `x` in size to reflect a changing condition for different parts of the
     signal.
     
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> import matplotlib.pyplot as plt
@@ -427,6 +444,7 @@ style: numpydoc
     QRS complexes within the electrocardiogram (ECG) by demanding a distance of
     at least 150 samples.
     
+  kind: examples
   snippet: |
     >>> border = np.sin(np.linspace(0, 3 * np.pi, x.size))
     >>> peaks, _ = find_peaks(x, height=(-border, border))
@@ -438,6 +456,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: 'array([186, 180, 177, 171, 177, 169, 167, 164, 158, 162, 172])'
+  kind: examples
   snippet: |
     >>> peaks, _ = find_peaks(x, distance=150)
     >>> np.diff(peaks)
@@ -449,6 +468,7 @@ style: numpydoc
     prominence (see `peak_prominences`). E.g., we can select all peaks except
     for the mentioned QRS complexes by limiting the allowed prominence to 0.6.
     
+  kind: examples
   snippet: |
     >>> plt.plot(x)
     >>> plt.plot(peaks, x[peaks], "x")
@@ -456,6 +476,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: '0.5049999999999999'
+  kind: examples
   snippet: |
     >>> peaks, properties = find_peaks(x, prominence=(None, 0.6))
     >>> properties["prominences"].max()
@@ -468,6 +489,7 @@ style: numpydoc
     combine two conditions: a minimal prominence of 1 and width of at least 20
     samples.
     
+  kind: examples
   snippet: |
     >>> plt.plot(x)
     >>> plt.plot(peaks, x[peaks], "x")
@@ -475,6 +497,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: '(array([1.495, 2.3  ]), array([36.93773946, 39.32723577]))'
+  kind: examples
   snippet: |
     >>> x = electrocardiogram()[17000:18000]
     >>> peaks, properties = find_peaks(x, prominence=1, width=20)
@@ -482,6 +505,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: '...            ymax = x[peaks], color = "C1")'
+  kind: examples
   snippet: |
     >>> plt.plot(x)
     >>> plt.plot(peaks, x[peaks], "x")
@@ -489,10 +513,12 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: '...            xmax=properties["right_ips"], color = "C1")'
+  kind: examples
   snippet: '>>> plt.hlines(y=properties["width_heights"], xmin=properties["left_ips"],'
 - DocstringExample
   args: ['examples']
   description: ''
+  kind: examples
   snippet: '>>> plt.show()'
 === detect
 numpydoc

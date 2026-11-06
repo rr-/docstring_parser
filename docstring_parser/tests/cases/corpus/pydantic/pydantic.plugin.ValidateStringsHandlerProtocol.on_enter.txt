@@ -18,26 +18,32 @@ style: google
 - DocstringParam
   args: ['param', 'input']
   description: 'The string data to be validated.'
+  kind: param
   arg_name: 'input'
 - DocstringParam
   args: ['param', 'strict']
   description: 'Whether to validate the object in strict mode.'
+  kind: param
   arg_name: 'strict'
 - DocstringParam
   args: ['param', 'extra']
   description: 'Whether to ignore, allow, or forbid extra data during model validation.'
+  kind: param
   arg_name: 'extra'
 - DocstringParam
   args: ['param', 'context']
   description: 'The context to use for validation, this is passed to functional validators.'
+  kind: param
   arg_name: 'context'
 - DocstringParam
   args: ['param', 'by_alias']
   description: "Whether to use the field's alias to match the input data to an attribute."
+  kind: param
   arg_name: 'by_alias'
 - DocstringParam
   args: ['param', 'by_name']
   description: "Whether to use the field's name to match the input data to an attribute."
+  kind: param
   arg_name: 'by_name'
 === detect
 google

@@ -14,6 +14,7 @@ style: epydoc
 - DocstringParam
   args: ['param', 'mx']
   description: 'The hostname of a mail exchange host.'
+  kind: param
   arg_name: 'mx'
   type_name: 'L{bytes}'
   is_optional: False

@@ -37,15 +37,18 @@ style: numpydoc
     `scipy.odr` is deprecated and will be removed in SciPy 1.19.0. Please use
     `pypi.org/project/odrpack/ <https://pypi.org/project/odrpack/>`_
     instead.
+  kind: deprecation
   version: '1.17.0'
 - DocstringExample
   args: ['examples']
   description: |
     We can calculate orthogonal distance regression with a quadratic model:
     
+  kind: examples
 - DocstringExample
   args: ['examples']
   description: '[1. 2. 3.]'
+  kind: examples
   snippet: |
     >>> from scipy import odr
     >>> import numpy as np

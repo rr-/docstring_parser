@@ -61,25 +61,30 @@ style: numpydoc
     a string. Use
     ``pd.set_option('future.infer_freq_returns_offset', True)`` to opt in
     to the future behavior.
+  kind: deprecation
   version: '3.1.0'
 - DocstringParam
   args: ['param', 'index']
   description: 'If passed a Series will use the values of the series (NOT THE INDEX).'
+  kind: param
   arg_name: 'index'
   type_name: 'DatetimeIndex, TimedeltaIndex, Series or array-like'
   is_optional: False
 - DocstringReturns
   args: ['returns']
   description: 'None if no discernible frequency.'
+  kind: returns
   type_name: 'str or None'
   is_generator: False
 - DocstringRaises
   args: ['raises', 'TypeError']
   description: 'If the index is not datetime-like.'
+  kind: raises
   type_name: 'TypeError'
 - DocstringRaises
   args: ['raises', 'ValueError']
   description: 'If there are fewer than three values.'
+  kind: raises
   type_name: 'ValueError'
 - DocstringMeta
   args: ['see_also']
@@ -88,9 +93,11 @@ style: numpydoc
     timedelta_range : Return a fixed frequency TimedeltaIndex with day as the default.
     period_range : Return a fixed frequency PeriodIndex.
     DatetimeIndex.freq : Return the frequency object if it is set, otherwise None.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: "'D'"
+  kind: examples
   snippet: |
     >>> idx = pd.date_range(start="2020/12/01", end="2020/12/30", periods=30)
     >>> pd.infer_freq(idx)  # doctest: +SKIP

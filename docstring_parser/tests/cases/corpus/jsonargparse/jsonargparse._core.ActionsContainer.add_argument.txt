@@ -21,6 +21,7 @@ style: google
 - DocstringParam
   args: ['param', 'sub_configs']
   description: 'Whether to try parsing a sub-config when argument is a complex type.'
+  kind: param
   arg_name: 'sub_configs'
 === detect
 google

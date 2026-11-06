@@ -18,6 +18,7 @@ style: epydoc
 - DocstringParam
   args: ['param', 'message']
   description: 'The base filename of a message.'
+  kind: param
   arg_name: 'message'
   type_name: 'L{bytes}'
   is_optional: False
@@ -26,6 +27,7 @@ style: epydoc
   description: |
     A list containing the origination and destination addresses
     for the message.
+  kind: returns
   type_name: 'L{list} of two L{bytes}'
   is_generator: False
 === detect

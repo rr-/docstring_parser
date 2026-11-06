@@ -36,6 +36,7 @@ style: google
 - DocstringReturns
   args: ['returns']
   description: 'A list of dicts, each representing a host.'
+  kind: returns
   is_generator: False
 === detect
 google

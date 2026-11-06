@@ -24,9 +24,11 @@ style: rest
 - DocstringParam
   args: ['param', 'r']
   description: 'Response object to get unicode content from.'
+  kind: param
   arg_name: 'r'
 - DocstringReturns
   args: []
+  kind: returns
   type_name: 'str'
   is_generator: False
 === detect

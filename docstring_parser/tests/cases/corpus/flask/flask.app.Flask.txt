@@ -167,6 +167,7 @@ style: rest
 - DocstringParam
   args: ['param', 'import_name']
   description: 'the name of the application package'
+  kind: param
   arg_name: 'import_name'
 - DocstringParam
   args: ['param', 'static_url_path']
@@ -174,6 +175,7 @@ style: rest
     can be used to specify a different path for the
     static files on the web.  Defaults to the name
     of the `static_folder` folder.
+  kind: param
   arg_name: 'static_url_path'
 - DocstringParam
   args: ['param', 'static_folder']
@@ -181,6 +183,7 @@ style: rest
     The folder with static files that is served at
     ``static_url_path``. Relative to the application ``root_path``
     or an absolute path. Defaults to ``'static'``.
+  kind: param
   arg_name: 'static_folder'
 - DocstringParam
   args: ['param', 'static_host']
@@ -188,18 +191,21 @@ style: rest
     the host to use when adding the static route.
     Defaults to None. Required when using ``host_matching=True``
     with a ``static_folder`` configured.
+  kind: param
   arg_name: 'static_host'
 - DocstringParam
   args: ['param', 'host_matching']
   description: |
     set ``url_map.host_matching`` attribute.
     Defaults to False.
+  kind: param
   arg_name: 'host_matching'
 - DocstringParam
   args: ['param', 'subdomain_matching']
   description: |
     consider the subdomain relative to
     :data:`SERVER_NAME` when matching routes. Defaults to False.
+  kind: param
   arg_name: 'subdomain_matching'
 - DocstringParam
   args: ['param', 'template_folder']
@@ -208,6 +214,7 @@ style: rest
     be used by the application.  Defaults to
     ``'templates'`` folder in the root path of the
     application.
+  kind: param
   arg_name: 'template_folder'
 - DocstringParam
   args: ['param', 'instance_path']
@@ -216,6 +223,7 @@ style: rest
     By default the folder ``'instance'`` next to the
     package or module is assumed to be the instance
     path.
+  kind: param
   arg_name: 'instance_path'
 - DocstringParam
   args: ['param', 'instance_relative_config']
@@ -224,6 +232,7 @@ style: rest
     for loading the config are assumed to
     be relative to the instance path instead
     of the application root.
+  kind: param
   arg_name: 'instance_relative_config'
 - DocstringParam
   args: ['param', 'root_path']
@@ -231,6 +240,7 @@ style: rest
     The path to the root of the application files.
     This should only be set manually when it can't be detected
     automatically, such as for namespace packages.
+  kind: param
   arg_name: 'root_path'
 === detect
 rest

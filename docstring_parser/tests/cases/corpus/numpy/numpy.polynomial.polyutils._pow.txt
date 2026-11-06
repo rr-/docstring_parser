@@ -20,18 +20,21 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'mul_f']
   description: 'The ``<type>mul`` function, such as ``polymul``'
+  kind: param
   arg_name: 'mul_f'
   type_name: 'function(array_like, array_like) -> ndarray'
   is_optional: False
 - DocstringParam
   args: ['param', 'c']
   description: '1-D array of array of series coefficients'
+  kind: param
   arg_name: 'c'
   type_name: 'array_like'
   is_optional: False
 - DocstringParam
   args: ['param', 'pow, maxpower']
   description: 'See the ``<type>pow`` functions for more detail'
+  kind: param
   arg_name: 'pow, maxpower'
 === detect
 numpydoc

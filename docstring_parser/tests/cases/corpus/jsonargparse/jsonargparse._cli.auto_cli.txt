@@ -49,50 +49,61 @@ style: google
 - DocstringParam
   args: ['param', 'components']
   description: 'One or more functions/classes to include in the command line interface.'
+  kind: param
   arg_name: 'components'
 - DocstringParam
   args: ['param', 'args']
   description: 'List of arguments to parse or ``None`` to use ``sys.argv``.'
+  kind: param
   arg_name: 'args'
 - DocstringParam
   args: ['param', 'config_help']
   description: 'Help string for config file option in help.'
+  kind: param
   arg_name: 'config_help'
 - DocstringParam
   args: ['param', 'set_defaults']
   description: 'Dictionary of values to override components defaults.'
+  kind: param
   arg_name: 'set_defaults'
 - DocstringParam
   args: ['param', 'as_positional']
   description: 'Whether to add required parameters as positional arguments.'
+  kind: param
   arg_name: 'as_positional'
 - DocstringParam
   args: ['param', 'return_instance']
   description: |
     Whether class components should be instantiated directly and returned,
     i.e. without exposing class methods as subcommands.
+  kind: param
   arg_name: 'return_instance'
 - DocstringParam
   args: ['param', 'fail_untyped']
   description: |
     Whether to raise an exception for parameters that don't have a type:
     True for the required ones, "all" for all of them, False for none.
+  kind: param
   arg_name: 'fail_untyped'
 - DocstringParam
   args: ['param', 'parser_class']
   description: 'The :class:`ArgumentParser` subclass to use.'
+  kind: param
   arg_name: 'parser_class'
 - DocstringParam
   args: ['param', 'instantiators']
   description: 'Custom instantiators, see :meth:`.ArgumentParser.instantiate`.'
+  kind: param
   arg_name: 'instantiators'
 - DocstringParam
   args: ['param', '**kwargs']
   description: 'Used to instantiate :class:`.ArgumentParser`.'
+  kind: param
   arg_name: '**kwargs'
 - DocstringReturns
   args: ['returns']
   description: 'The value returned by the executed function or class method.'
+  kind: returns
   is_generator: False
 === detect
 google

@@ -12,5 +12,6 @@ style: rest
 - DocstringReturns
   args: ['yields', 'int']
   description: 'description'
+  kind: yields
   type_name: 'int'
   is_generator: True

@@ -76,6 +76,7 @@ style: numpydoc
     
     .. versionchanged:: 1.22.0
         Now accepts `os.PathLike` implementations.
+  kind: param
   arg_name: 'file'
   type_name: 'file, str, or pathlib.Path'
   is_optional: False
@@ -84,18 +85,21 @@ style: numpydoc
   description: |
     Regular expression used to parse the file.
     Groups in the regular expression correspond to fields in the dtype.
+  kind: param
   arg_name: 'regexp'
   type_name: 'str or regexp'
   is_optional: False
 - DocstringParam
   args: ['param', 'dtype']
   description: 'Dtype for the structured array; must be a structured datatype.'
+  kind: param
   arg_name: 'dtype'
   type_name: 'dtype or list of dtypes'
   is_optional: False
 - DocstringParam
   args: ['param', 'encoding']
   description: 'Encoding used to decode the inputfile. Does not apply to input streams.'
+  kind: param
   arg_name: 'encoding'
   type_name: 'str'
   is_optional: True
@@ -104,25 +108,30 @@ style: numpydoc
   description: |
     The output array, containing the part of the content of `file` that
     was matched by `regexp`. `output` is always a structured array.
+  kind: returns
   type_name: 'ndarray'
   is_generator: False
   return_name: 'output'
 - DocstringRaises
   args: ['raises', 'TypeError']
   description: 'When `dtype` is not a valid dtype for a structured array.'
+  kind: raises
   type_name: 'TypeError'
 - DocstringMeta
   args: ['see_also']
   description: 'fromstring, loadtxt'
+  kind: text
 - DocstringMeta
   args: ['notes']
   description: |
     Dtypes for structured arrays can be specified in several forms, but all
     forms specify at least the data type and field name. For details see
     `basics.rec`.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: ''
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> from io import StringIO
@@ -130,6 +139,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: "...                       [('num', np.int64), ('key', 'S3')])"
+  kind: examples
   snippet: |
     >>> regexp = r"(\d+)\s+(...)"  # match [digits, whitespace, anything]
     >>> output = np.fromregex(text, regexp,
@@ -138,10 +148,12 @@ style: numpydoc
   description: |
     array([(1312, b'foo'), (1534, b'bar'), ( 444, b'qux')],
           dtype=[('num', '<i8'), ('key', 'S3')])
+  kind: examples
   snippet: '>>> output'
 - DocstringExample
   args: ['examples']
   description: 'array([1312, 1534,  444])'
+  kind: examples
   snippet: ">>> output['num']"
 === detect
 numpydoc

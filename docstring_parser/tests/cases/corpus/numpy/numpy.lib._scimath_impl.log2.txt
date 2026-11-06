@@ -56,6 +56,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'x']
   description: 'The value(s) whose log base 2 is (are) required.'
+  kind: param
   arg_name: 'x'
   type_name: 'array_like'
   is_optional: False
@@ -64,12 +65,14 @@ style: numpydoc
   description: |
     The log base 2 of the `x` value(s). If `x` was a scalar, so is `out`,
     otherwise an array is returned.
+  kind: returns
   type_name: 'ndarray or scalar'
   is_generator: False
   return_name: 'out'
 - DocstringMeta
   args: ['see_also']
   description: 'numpy.log2'
+  kind: text
 - DocstringMeta
   args: ['notes']
   description: |
@@ -77,22 +80,27 @@ style: numpydoc
     (note, however, that otherwise `numpy.log2` and this `log2` are
     identical, i.e., both return ``-inf`` for `x = 0`, ``inf`` for `x = inf`,
     and, notably, the complex principle value if ``x.imag != 0``).
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
     We set the printing precision so the example can be auto-tested:
     
+  kind: examples
 - DocstringExample
   args: ['examples']
   description: ''
+  kind: examples
   snippet: '>>> np.set_printoptions(precision=4)'
 - DocstringExample
   args: ['examples']
   description: '3.0'
+  kind: examples
   snippet: '>>> np.emath.log2(8)'
 - DocstringExample
   args: ['examples']
   description: 'array([2.+4.5324j, 3.+4.5324j, 3.+0.j    ])'
+  kind: examples
   snippet: '>>> np.emath.log2([-4, -8, 8])'
 === detect
 numpydoc

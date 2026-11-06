@@ -21,6 +21,7 @@ style: numpydoc
   description: |
     max : alias of this function
     ndarray.max : equivalent method
+  kind: text
 === detect
 numpydoc
 === compose numpydoc

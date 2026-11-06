@@ -14,6 +14,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'a']
   description: 'x'
+  kind: param
   arg_name: 'a'
 === compose numpydoc
 Short.

@@ -16,8 +16,10 @@ style: google
 - DocstringParam
   args: ['param', 'a']
   description: 'first'
+  kind: param
   arg_name: 'a'
 - DocstringReturns
   args: ['returns']
   description: 'result'
+  kind: returns
   is_generator: False

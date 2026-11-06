@@ -13,6 +13,7 @@ style: google
 - DocstringRaises
   args: ['raises', 'TypeError']
   description: 'If the argument is not valid.'
+  kind: raises
   type_name: 'TypeError'
 === detect
 google

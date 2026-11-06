@@ -91,6 +91,7 @@ style: numpydoc
     None (default), then all values in `weights` are assumed to be
     equal. If given, the shape of `weights` must be broadcastable to
     the transform shape. Weights must be non-negative.
+  kind: param
   arg_name: 'weights'
   type_name: 'array_like shape (..., N)'
   is_optional: True
@@ -99,6 +100,7 @@ style: numpydoc
   description: |
     Axis or axes along which the means are computed. The default is to
     compute the mean of all transforms.
+  kind: param
   arg_name: 'axis'
   type_name: 'None, int, or tuple of ints'
   is_optional: True
@@ -108,6 +110,7 @@ style: numpydoc
   description: |
     Single transform containing the mean of the transforms in the
     current instance.
+  kind: returns
   type_name: '`RigidTransform` instance'
   is_generator: False
   return_name: 'mean'
@@ -117,6 +120,7 @@ style: numpydoc
     .. [1] Hartley, Richard, et al.,
             "Rotation Averaging", International Journal of Computer Vision
             103, 2013, pp. 267-305.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
@@ -124,6 +128,7 @@ style: numpydoc
     The mean of a set of transforms is the same as the mean of the
     translation and rotation components:
     
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> from scipy.spatial.transform import RigidTransform as Tf
@@ -136,6 +141,7 @@ style: numpydoc
            [-0.59353615, -0.65246765, -0.47116962,  0.25481794],
            [ 0.51801458,  0.13833531, -0.84411151,  0.52429339],
            [0., 0., 0., 1.]])
+  kind: examples
   snippet: |
     >>> t = rng.random((4, 3))
     >>> r = R.random(4, rng=rng)
@@ -148,6 +154,7 @@ style: numpydoc
            [-0.59353615, -0.65246765, -0.47116962,  0.25481794],
            [ 0.51801458,  0.13833531, -0.84411151,  0.52429339],
            [0., 0., 0., 1.]])
+  kind: examples
   snippet: '>>> Tf.from_components(t.mean(axis=0), r.mean()).as_matrix()'
 === detect
 numpydoc

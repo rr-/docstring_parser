@@ -15,6 +15,7 @@ style: google
 - DocstringReturns
   args: ['returns', 'Console']
   description: 'A console instance.'
+  kind: returns
   type_name: 'Console'
   is_generator: False
 === detect

@@ -14,14 +14,17 @@ style: rest
 - DocstringParam
   args: ['param', 'jar']
   description: 'http.cookiejar.CookieJar (not necessarily a RequestsCookieJar)'
+  kind: param
   arg_name: 'jar'
 - DocstringParam
   args: ['param', 'request']
   description: 'our own requests.Request object'
+  kind: param
   arg_name: 'request'
 - DocstringParam
   args: ['param', 'response']
   description: 'urllib3.HTTPResponse object'
+  kind: param
   arg_name: 'response'
 === detect
 rest

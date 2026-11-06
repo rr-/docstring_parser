@@ -13,6 +13,7 @@ style: google
 - DocstringReturns
   args: ['returns', 'str']
   description: 'Console output.'
+  kind: returns
   type_name: 'str'
   is_generator: False
 === detect

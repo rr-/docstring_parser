@@ -114,14 +114,17 @@ style: google
 - DocstringParam
   args: ['param', '*fields']
   description: 'The field names the validator should apply to.'
+  kind: param
   arg_name: '*fields'
 - DocstringParam
   args: ['param', 'mode']
   description: 'Specifies whether to validate the fields before or after validation.'
+  kind: param
   arg_name: 'mode'
 - DocstringParam
   args: ['param', 'check_fields']
   description: 'Whether to check that the fields actually exist on the model.'
+  kind: param
   arg_name: 'check_fields'
 - DocstringParam
   args: ['param', 'json_schema_input_type']
@@ -129,6 +132,7 @@ style: google
     The input type of the function. This is only used to generate
     the appropriate JSON Schema (in validation mode) and can only specified
     when `mode` is either `'before'`, `'plain'` or `'wrap'`.
+  kind: param
   arg_name: 'json_schema_input_type'
 - DocstringRaises
   args: ['raises', 'PydanticUserError']
@@ -137,6 +141,7 @@ style: google
     - If the provided field names are not strings.
     - If `json_schema_input_type` is provided with an unsupported `mode`.
     - If the decorator is applied to an instance method.
+  kind: raises
   type_name: 'PydanticUserError'
 === detect
 google

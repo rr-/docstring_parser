@@ -255,6 +255,7 @@ style: numpydoc
     array, the parameter `axis` specifies the time/frequency axis. It is assumed
     here that ``n_x = x.shape[axis]`` specifies the number of samples and ``T`` the
     sampling interval.
+  kind: param
   arg_name: 'x'
   type_name: 'array_like'
   is_optional: False
@@ -263,6 +264,7 @@ style: numpydoc
   description: |
     The number of samples of the resampled output signal. It may be larger or
     smaller than ``n_x``.
+  kind: param
   arg_name: 'num'
   type_name: 'int'
   is_optional: False
@@ -274,6 +276,7 @@ style: numpydoc
     signal `x` (all others are ignored). The timestamps of the output signal are
     determined by ``t[0] + T * n_x / num * np.arange(num)`` with
     ``T = t[1] - t[0]``. Default is ``None``.
+  kind: param
   arg_name: 't'
   type_name: 'array_like'
   is_optional: True
@@ -282,6 +285,7 @@ style: numpydoc
   description: |
     The time/frequency axis of `x` along which the resampling take place.
     The Default is 0.
+  kind: param
   arg_name: 'axis'
   type_name: 'int'
   is_optional: True
@@ -298,6 +302,7 @@ style: numpydoc
     If `window` is a callable  then ``W = window(f_X)``.
     Otherwise, `window` is passed to `~scipy.signal.get_window`, i.e.,
     ``W = fftshift(signal.get_window(window, n_x))``. Default is ``None``.
+  kind: param
   arg_name: 'window'
   type_name: 'array_like, callable, str, float, or tuple'
   is_optional: True
@@ -308,6 +313,7 @@ style: numpydoc
     (``'freq'``) it is asssmued that an FFT was already applied, i.e.,
     ``x = fft(x_t, axis=axis)`` with ``x_t`` being the input signal in the time
     domain.
+  kind: param
   arg_name: 'domain'
   type_name: "'time' | 'freq'"
   is_optional: True
@@ -316,6 +322,7 @@ style: numpydoc
   description: |
     The resampled signal made up of `num` samples and sampling interval
     ``T * n_x / num``.
+  kind: returns
   type_name: 'ndarray'
   is_generator: False
   return_name: 'x_r'
@@ -324,6 +331,7 @@ style: numpydoc
   description: |
     The `num` equidistant timestamps of `x_r`.
     This is only returned if paramater `t` is not ``None``.
+  kind: returns
   type_name: 'ndarray, optional'
   is_generator: False
   return_name: 't_r'
@@ -334,6 +342,7 @@ style: numpydoc
                or IIR filter.
     resample_poly : Resample a (periodic/non-periodic) signal using polyphase filtering
                     and an FIR filter.
+  kind: text
 - DocstringMeta
   args: ['notes']
   description: |
@@ -358,6 +367,7 @@ style: numpydoc
     intervals. For non-periodic signals, `resample_poly` may be a better choice.
     Consult the `scipy.interpolate` module for methods of resampling signals with
     non-constant sampling intervals.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
@@ -366,9 +376,11 @@ style: numpydoc
     interpreting the signal being periodic. The red square in the plot illustrates that
     periodictiy by showing the first sample of the next cycle of the signal.
     
+  kind: examples
 - DocstringExample
   args: ['examples']
   description: '...'
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> import matplotlib.pyplot as plt
@@ -376,6 +388,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: '...'
+  kind: examples
   snippet: |
     >>> n0, n1 = 20, 100  # number of samples
     >>> t0 = np.linspace(0, 10, n0, endpoint=False)  # input time stamps
@@ -383,6 +396,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: '...'
+  kind: examples
   snippet: |
     >>> x1 = resample(x0, n1)  # resampled signal
     >>> t1 = np.linspace(0, 10, n1, endpoint=False)  # timestamps of x1
@@ -403,6 +417,7 @@ style: numpydoc
     spectrum. The blue x's and orange dots depict the FFT values of the signal created
     by the naive approach as well as this function's result.
     
+  kind: examples
   snippet: |
     >>> fig0, ax0 = plt.subplots(1, 1, tight_layout=True)
     >>> ax0.set_title(f"Resampling $x(t)$ from {n0} samples to {n1} samples")
@@ -416,6 +431,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: '...'
+  kind: examples
   snippet: |
     >>> import matplotlib.pyplot as plt
     >>> import numpy as np
@@ -458,6 +474,7 @@ style: numpydoc
     ...         ax1.plot(f1, abs(X_), l_, alpha=.5, label=n_)
     ...     ax1.grid()
     ...     fig.legend(loc='outside lower center', ncols=4)
+  kind: examples
   snippet: |
     >>> fac, T0, T1 = 8, 1, 1/8  # upsampling factor and sampling intervals
     >>> for n0 in (15, 16):  # number of samples of input signal
@@ -485,10 +502,12 @@ style: numpydoc
     subplot shows the resulting signals over time whereas the lower subplot depicts the
     resulting one-sided magnitude spectra.
     
+  kind: examples
   snippet: '>>> plt.show()'
 - DocstringExample
   args: ['examples']
   description: '...'
+  kind: examples
   snippet: |
     >>> import matplotlib.pyplot as plt
     >>> import numpy as np
@@ -497,6 +516,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: '...'
+  kind: examples
   snippet: |
     >>> n0 = 19937 # number of input samples - prime
     >>> n1 = 128  # number of output samples - fast FFT length
@@ -505,6 +525,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: '...'
+  kind: examples
   snippet: |
     >>> x0 = np.zeros(n0)  # Input has one non-zero sample
     >>> x0[0] = n0
@@ -516,6 +537,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: '...'
+  kind: examples
   snippet: |
     >>> X0 = rfft(x0) / n0
     >>> X1r, X1p, X2p = rfft(x1r) / n1, rfft(x1p) / n1, rfft(x2p) / n1
@@ -523,6 +545,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: '...     ax0.plot(t1, x_, alpha=.5)'
+  kind: examples
   snippet: |
     >>> fig, (ax0, ax1) = plt.subplots(2, 1, layout='constrained', figsize=(5, 4))
     >>> ax0.set_title(f"Dowsampled Impulse response (from {n0} to {n1} samples)")
@@ -531,6 +554,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: '...         ylabel="Magnitude $|X(f)|$", xlim=(0, 0.55/T1))'
+  kind: examples
   snippet: |
     >>> ax0.grid()
     >>> ax1.set(xlabel=rf"Frequency $f$ in hertz ($\Delta f = {f1[1]}\,$Hz)",
@@ -550,6 +574,7 @@ style: numpydoc
     Note that the doubled spectral magnitude at the Nyqist frequency of 64 Hz is due the
     even number of ``n1=128`` output samples, which requires a special treatment as
     discussed in the previous example.
+  kind: examples
   snippet: |
     >>> ax1.axvspan(0.5/T1, f0[-1], color='gray', alpha=.2)
     >>> ax1.plot(f1, abs(X1r), 'C0.-', alpha=.5, label="resample")

@@ -36,6 +36,7 @@ style: rest
 - DocstringParam
   args: ['param', 'node']
   description: 'A node class'
+  kind: param
   arg_name: 'node'
 - DocstringParam
   args: ['param', 'figtype']
@@ -45,6 +46,7 @@ style: rest
     ``code-block`` are defined.  It is possible to add custom nodes to
     these default figtypes.  It is also possible to define new custom
     figtype if a new figtype is given.
+  kind: param
   arg_name: 'figtype'
 - DocstringParam
   args: ['param', 'title_getter']
@@ -55,16 +57,19 @@ style: rest
     :rst:role:`ref`.  By default, Sphinx searches
     ``docutils.nodes.caption`` or ``docutils.nodes.title`` from the
     node as a title.
+  kind: param
   arg_name: 'title_getter'
 - DocstringParam
   args: ['param', 'kwargs']
   description: 'Visitor functions for each builder (same as :meth:`add_node`)'
+  kind: param
   arg_name: 'kwargs'
 - DocstringParam
   args: ['param', 'override']
   description: |
     If true, install the node forcedly even if another node is already
     installed as the same name
+  kind: param
   arg_name: 'override'
 === detect
 rest

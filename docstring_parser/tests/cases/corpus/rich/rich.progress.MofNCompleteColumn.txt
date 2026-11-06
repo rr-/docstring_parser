@@ -23,6 +23,7 @@ style: google
 - DocstringParam
   args: ['param', 'separator (str, optional)']
   description: 'Text to separate completed and total values. Defaults to "/".'
+  kind: param
   arg_name: 'separator'
   type_name: 'str'
   is_optional: True

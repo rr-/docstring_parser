@@ -11,3 +11,4 @@ style: epydoc
 - DocstringMeta
   args: ['myraise', 'value']
   description: 'detail'
+  kind: text

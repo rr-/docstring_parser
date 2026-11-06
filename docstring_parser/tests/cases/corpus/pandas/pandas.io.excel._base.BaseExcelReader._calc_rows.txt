@@ -29,29 +29,34 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'header']
   description: 'See read_excel docstring.'
+  kind: param
   arg_name: 'header'
   type_name: 'int, list of int, or None'
   is_optional: False
 - DocstringParam
   args: ['param', 'index_col']
   description: 'See read_excel docstring.'
+  kind: param
   arg_name: 'index_col'
   type_name: 'int, str, list of int, or None'
   is_optional: False
 - DocstringParam
   args: ['param', 'skiprows']
   description: 'See read_excel docstring.'
+  kind: param
   arg_name: 'skiprows'
   type_name: 'list-like, int, callable, or None'
   is_optional: False
 - DocstringParam
   args: ['param', 'nrows']
   description: 'See read_excel docstring.'
+  kind: param
   arg_name: 'nrows'
   type_name: 'int or None'
   is_optional: False
 - DocstringReturns
   args: ['returns']
+  kind: returns
   type_name: 'int or None'
   is_generator: False
 === detect

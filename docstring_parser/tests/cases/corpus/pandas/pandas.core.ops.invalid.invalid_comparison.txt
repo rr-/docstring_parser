@@ -31,21 +31,25 @@ blank_after_long_description: True
 style: numpydoc
 - DocstringParam
   args: ['param', 'left']
+  kind: param
   arg_name: 'left'
   type_name: 'array-like'
   is_optional: False
 - DocstringParam
   args: ['param', 'right']
+  kind: param
   arg_name: 'right'
   type_name: 'scalar, array-like'
   is_optional: False
 - DocstringParam
   args: ['param', 'op']
+  kind: param
   arg_name: 'op'
   type_name: 'operator.{eq, ne, lt, le, gt}'
   is_optional: False
 - DocstringRaises
   args: ['raises', 'TypeError : on inequality comparisons']
+  kind: raises
   type_name: 'TypeError : on inequality comparisons'
 === detect
 numpydoc

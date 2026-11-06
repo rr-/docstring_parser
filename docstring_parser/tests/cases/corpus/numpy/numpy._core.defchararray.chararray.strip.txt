@@ -18,6 +18,7 @@ style: numpydoc
 - DocstringMeta
   args: ['see_also']
   description: 'char.strip'
+  kind: text
 === detect
 numpydoc
 === compose numpydoc

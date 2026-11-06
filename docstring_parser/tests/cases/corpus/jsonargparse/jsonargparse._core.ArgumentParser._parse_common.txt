@@ -24,40 +24,49 @@ style: google
 - DocstringParam
   args: ['param', 'cfg']
   description: 'The configuration object.'
+  kind: param
   arg_name: 'cfg'
 - DocstringParam
   args: ['param', 'env']
   description: "Whether to merge with the parsed environment, ``None`` to use the parser's default."
+  kind: param
   arg_name: 'env'
 - DocstringParam
   args: ['param', 'defaults']
   description: "Whether to merge with the parser's defaults."
+  kind: param
   arg_name: 'defaults'
 - DocstringParam
   args: ['param', 'skip_validation']
   description: 'Whether to skip validation of configuration.'
+  kind: param
   arg_name: 'skip_validation'
 - DocstringParam
   args: ['param', 'skip_required']
   description: 'Whether to skip check of required arguments.'
+  kind: param
   arg_name: 'skip_required'
 - DocstringParam
   args: ['param', 'skip_subcommands']
   description: 'Whether to skip subcommand processing.'
+  kind: param
   arg_name: 'skip_subcommands'
 - DocstringParam
   args: ['param', 'fail_no_subcommand']
   description: 'Whether to fail if no subcommand given.'
+  kind: param
   arg_name: 'fail_no_subcommand'
 - DocstringParam
   args: ['param', 'nested_parse']
   description: |
     Whether the result is to be merged into an ongoing parse of another parser,
     in which case the internal representation of values must be preserved.
+  kind: param
   arg_name: 'nested_parse'
 - DocstringReturns
   args: ['returns']
   description: 'A config object with all parsed values.'
+  kind: returns
   is_generator: False
 === detect
 google

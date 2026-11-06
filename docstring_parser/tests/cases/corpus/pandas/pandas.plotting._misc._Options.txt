@@ -47,6 +47,7 @@ style: numpydoc
     plotting.bootstrap_plot : Bootstrap plot on mean, median and mid-range statistics.
     plotting.autocorrelation_plot : Autocorrelation plot for time series.
     plotting.lag_plot : Lag plot for time series.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
@@ -61,6 +62,7 @@ style: numpydoc
              >>> with pd.plotting.plot_params.use("x_compat", True):
              ...     _ = df["A"].plot(color="r")
              ...     _ = df["B"].plot(color="g")
+  kind: examples
 === detect
 numpydoc
 === compose numpydoc

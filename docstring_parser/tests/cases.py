@@ -17,6 +17,7 @@ run on it:
 Styles are the lowercase :class:`DocstringStyle` names.
 """
 
+import enum
 import re
 import typing as T
 from pathlib import Path
@@ -90,7 +91,7 @@ def _value(value: T.Any) -> T.List[str]:
     """Dump a value as one line, or a ``|`` block for multi-line text."""
     if isinstance(value, str) and "\n" in value:
         return ["|"] + ["  " + line for line in value.split("\n")]
-    if isinstance(value, DocstringStyle):
+    if isinstance(value, enum.Enum):
         return [value.name.lower()]
     return [repr(value)]
 

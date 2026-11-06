@@ -50,12 +50,14 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'arr_or_dtype']
   description: 'The array-like or dtype to check.'
+  kind: param
   arg_name: 'arr_or_dtype'
   type_name: 'array-like or dtype'
   is_optional: False
 - DocstringReturns
   args: ['returns']
   description: 'Whether or not the array-like or dtype is of the datetime64 dtype.'
+  kind: returns
   type_name: 'boolean'
   is_generator: False
 - DocstringMeta
@@ -65,27 +67,33 @@ style: numpydoc
                                         dtype is of the datetime64[ns] dtype.
     api.types.is_datetime64_any_dtype: Check whether the provided array or
                                         dtype is of the datetime64 dtype.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: 'False'
+  kind: examples
   snippet: |
     >>> from pandas.api.types import is_datetime64_dtype
     >>> is_datetime64_dtype(object)
 - DocstringExample
   args: ['examples']
   description: 'True'
+  kind: examples
   snippet: '>>> is_datetime64_dtype(np.datetime64)'
 - DocstringExample
   args: ['examples']
   description: 'False'
+  kind: examples
   snippet: '>>> is_datetime64_dtype(np.array([], dtype=int))'
 - DocstringExample
   args: ['examples']
   description: 'True'
+  kind: examples
   snippet: '>>> is_datetime64_dtype(np.array([], dtype=np.datetime64))'
 - DocstringExample
   args: ['examples']
   description: 'False'
+  kind: examples
   snippet: '>>> is_datetime64_dtype([1, 2, 3])'
 === detect
 numpydoc

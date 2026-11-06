@@ -48,6 +48,7 @@ style: rest
   description: |
     Load env vars that start with this prefix,
     separated with an underscore (``_``).
+  kind: param
   arg_name: 'prefix'
 - DocstringParam
   args: ['param', 'loads']
@@ -56,6 +57,7 @@ style: rest
     the returned value as the config value. If any error is
     raised it is ignored and the value remains a string. The
     default is :func:`json.loads`.
+  kind: param
   arg_name: 'loads'
 === detect
 rest

@@ -60,28 +60,33 @@ style: rest
   description: |
     `current_app.url_for() <flask.Flask.url_for>`. See that method
     for full documentation.
+  kind: text
 - DocstringParam
   args: ['param', 'endpoint']
   description: |
     The endpoint name associated with the URL to
     generate. If this starts with a ``.``, the current blueprint
     name (if any) will be used.
+  kind: param
   arg_name: 'endpoint'
 - DocstringParam
   args: ['param', '_anchor']
   description: 'If given, append this as ``#anchor`` to the URL.'
+  kind: param
   arg_name: '_anchor'
 - DocstringParam
   args: ['param', '_method']
   description: |
     If given, generate the URL associated with this
     method for the endpoint.
+  kind: param
   arg_name: '_method'
 - DocstringParam
   args: ['param', '_scheme']
   description: |
     If given, the URL will have this scheme if it is
     external.
+  kind: param
   arg_name: '_scheme'
 - DocstringParam
   args: ['param', '_external']
@@ -90,6 +95,7 @@ style: rest
     require it to be external (True). External URLs include the
     scheme and domain. When not in an active request, URLs are
     external by default.
+  kind: param
   arg_name: '_external'
 - DocstringParam
   args: ['param', 'values']
@@ -97,6 +103,7 @@ style: rest
     Values to use for the variable parts of the URL rule.
     Unknown keys are appended as query string arguments, like
     ``?a=b&c=d``.
+  kind: param
   arg_name: 'values'
 === detect
 rest

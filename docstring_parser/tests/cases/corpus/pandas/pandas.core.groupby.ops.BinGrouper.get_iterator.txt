@@ -15,10 +15,12 @@ blank_after_long_description: False
 style: numpydoc
 - DocstringReturns
   args: ['returns']
+  kind: returns
   type_name: 'Generator yielding sequence of (name, subsetted object)'
   is_generator: False
 - DocstringReturns
   args: ['returns']
+  kind: returns
   type_name: 'for each group'
   is_generator: False
 === detect

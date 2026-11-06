@@ -14,4 +14,5 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'x']
   description: 'desc'
+  kind: param
   arg_name: 'x'

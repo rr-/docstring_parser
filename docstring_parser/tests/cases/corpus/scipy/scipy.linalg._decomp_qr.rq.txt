@@ -76,6 +76,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'a']
   description: 'Matrix to be decomposed'
+  kind: param
   arg_name: 'a'
   type_name: '(M, N) array_like'
   is_optional: False
@@ -84,6 +85,7 @@ style: numpydoc
   description: |
     Whether to overwrite data in `a` (may improve performance). Default is False.
     See :ref:`tutorial_linalg_overwrite` for details.
+  kind: param
   arg_name: 'overwrite_a'
   type_name: 'bool'
   is_optional: True
@@ -93,6 +95,7 @@ style: numpydoc
   description: |
     Work array size, lwork >= a.shape[1]. If None or -1, an optimal size
     is computed.
+  kind: param
   arg_name: 'lwork'
   type_name: 'int'
   is_optional: True
@@ -102,6 +105,7 @@ style: numpydoc
     Determines what information is to be returned: either both Q and R
     ('full', default), only R ('r') or both Q and R but computed in
     economy-size ('economic', see Notes).
+  kind: param
   arg_name: 'mode'
   type_name: "{'full', 'r', 'economic'}"
   is_optional: True
@@ -111,12 +115,14 @@ style: numpydoc
     Whether to check that the input matrix contains only finite numbers.
     Disabling may give a performance gain, but may result in problems
     (crashes, non-termination) if the inputs do contain infinities or NaNs.
+  kind: param
   arg_name: 'check_finite'
   type_name: 'bool'
   is_optional: True
 - DocstringReturns
   args: ['returns']
   description: "Of shape (M, N) or (M, K) for ``mode='economic'``. ``K = min(M, N)``."
+  kind: returns
   type_name: 'float or complex ndarray'
   is_generator: False
   return_name: 'R'
@@ -125,12 +131,14 @@ style: numpydoc
   description: |
     Of shape (N, N) or (K, N) for ``mode='economic'``. Not returned
     if ``mode='r'``.
+  kind: returns
   type_name: 'float or complex ndarray'
   is_generator: False
   return_name: 'Q'
 - DocstringRaises
   args: ['raises', 'LinAlgError']
   description: 'If decomposition fails.'
+  kind: raises
   type_name: 'LinAlgError'
 - DocstringMeta
   args: ['notes']
@@ -140,9 +148,11 @@ style: numpydoc
     
     If ``mode=economic``, the shapes of Q and R are (K, N) and (M, K) instead
     of (N,N) and (M,N), with ``K=min(M,N)``.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: 'True'
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> from scipy import linalg
@@ -153,16 +163,19 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: '((6, 9), (9, 9))'
+  kind: examples
   snippet: '>>> r.shape, q.shape'
 - DocstringExample
   args: ['examples']
   description: 'True'
+  kind: examples
   snippet: |
     >>> r2 = linalg.rq(a, mode='r')
     >>> np.allclose(r, r2)
 - DocstringExample
   args: ['examples']
   description: '((6, 6), (6, 9))'
+  kind: examples
   snippet: |
     >>> r3, q3 = linalg.rq(a, mode='economic')
     >>> r3.shape, q3.shape

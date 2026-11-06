@@ -41,6 +41,7 @@ style: numpydoc
     to propagate. If ``other`` has an ``input_objs`` attribute, then
     this attribute must contain an iterable of objects, each with an
     ``attrs`` attribute.
+  kind: param
   arg_name: 'other'
   type_name: 'the object from which to get the attributes that we are going'
   is_optional: False
@@ -54,6 +55,7 @@ style: numpydoc
     
        The value passed as `method` are not currently considered
        stable across pandas releases.
+  kind: param
   arg_name: 'method'
   type_name: 'str'
   is_optional: True
@@ -63,6 +65,7 @@ style: numpydoc
     In case ``other`` has an ``input_objs`` attribute, this method only
     propagates its metadata if each object in ``input_objs`` has the exact
     same metadata as the others.
+  kind: text
 === detect
 numpydoc
 === compose numpydoc

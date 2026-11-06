@@ -49,9 +49,11 @@ style: rest
     losing a reference to the app object. Instead of doing this::
     
         app = MyMiddleware(app)
+  kind: text
 - DocstringParam
   args: ['param', 'environ']
   description: 'A WSGI environment.'
+  kind: param
   arg_name: 'environ'
 - DocstringParam
   args: ['param', 'start_response']
@@ -59,6 +61,7 @@ style: rest
     A callable accepting a status code,
     a list of headers, and an optional exception context to
     start the response.
+  kind: param
   arg_name: 'start_response'
 === detect
 rest

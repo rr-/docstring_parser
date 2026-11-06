@@ -13,6 +13,7 @@ style: epydoc
 - DocstringMeta
   args: ['see']
   description: 'L{URL}'
+  kind: text
 === detect
 epydoc
 === compose epydoc

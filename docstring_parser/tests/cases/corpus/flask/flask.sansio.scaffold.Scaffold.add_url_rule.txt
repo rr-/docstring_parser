@@ -109,9 +109,11 @@ style: rest
 - DocstringMeta
   args: ['meth']
   description: '`endpoint` decorator.'
+  kind: text
 - DocstringParam
   args: ['param', 'rule']
   description: 'The URL rule string.'
+  kind: param
   arg_name: 'rule'
 - DocstringParam
   args: ['param', 'endpoint']
@@ -119,24 +121,28 @@ style: rest
     The endpoint name to associate with the rule
     and view function. Used when routing and building URLs.
     Defaults to ``view_func.__name__``.
+  kind: param
   arg_name: 'endpoint'
 - DocstringParam
   args: ['param', 'view_func']
   description: |
     The view function to associate with the
     endpoint name.
+  kind: param
   arg_name: 'view_func'
 - DocstringParam
   args: ['param', 'provide_automatic_options']
   description: |
     Add the ``OPTIONS`` method and
     respond to ``OPTIONS`` requests automatically.
+  kind: param
   arg_name: 'provide_automatic_options'
 - DocstringParam
   args: ['param', 'options']
   description: |
     Extra options passed to the
     :class:`~werkzeug.routing.Rule` object.
+  kind: param
   arg_name: 'options'
 === detect
 rest

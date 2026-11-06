@@ -14,12 +14,14 @@ style: epydoc
 - DocstringParam
   args: ['param', 'a']
   description: 'A.'
+  kind: param
   arg_name: 'a'
   type_name: 'int'
   is_optional: False
 - DocstringParam
   args: ['ivar', 'i']
   description: 'I.'
+  kind: attribute
   arg_name: 'i'
   type_name: 'str'
   is_optional: False

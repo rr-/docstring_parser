@@ -12,3 +12,4 @@ style: rest
 - DocstringRaises
   args: ['raises']
   description: 'description'
+  kind: raises

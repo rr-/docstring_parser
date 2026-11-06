@@ -20,6 +20,7 @@ style: rest
 - DocstringMeta
   args: ['attr']
   description: '`logger`.'
+  kind: text
 === detect
 rest
 === compose rest

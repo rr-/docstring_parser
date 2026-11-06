@@ -51,12 +51,14 @@ style: numpydoc
     This can be any Python object, and the function will
     check if it has attributes typically associated with
     file-like objects (e.g., `read`, `write`).
+  kind: param
   arg_name: 'obj'
   type_name: 'object'
   is_optional: False
 - DocstringReturns
   args: ['returns']
   description: 'Whether `obj` has file-like properties.'
+  kind: returns
   type_name: 'bool'
   is_generator: False
 - DocstringMeta
@@ -66,9 +68,11 @@ style: numpydoc
     api.types.is_hashable : Return True if hash(obj) will succeed, False otherwise.
     api.types.is_named_tuple : Check if the object is a named tuple.
     api.types.is_iterator : Check if the object is an iterator.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: 'True'
+  kind: examples
   snippet: |
     >>> import io
     >>> from pandas.api.types import is_file_like
@@ -77,6 +81,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: 'False'
+  kind: examples
   snippet: '>>> is_file_like([1, 2, 3])'
 === detect
 numpydoc

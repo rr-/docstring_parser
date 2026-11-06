@@ -25,10 +25,12 @@ style: google
 - DocstringParam
   args: ['param', 'source_type']
   description: 'The input type.'
+  kind: param
   arg_name: 'source_type'
 - DocstringReturns
   args: ['returns', 'CoreSchema']
   description: 'The `pydantic-core` CoreSchema generated.'
+  kind: returns
   type_name: 'CoreSchema'
   is_generator: False
 === detect

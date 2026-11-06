@@ -25,6 +25,7 @@ style: epydoc
     messages in the mailbox and the size of the mailbox in octets.
     On an ERR response, the deferred fails with a server error
     response failure.
+  kind: returns
   type_name: |
     L{Deferred <defer.Deferred>} which successfully fires with
     a 2-tuple of (0) L{int}, (1) L{int} or fails with

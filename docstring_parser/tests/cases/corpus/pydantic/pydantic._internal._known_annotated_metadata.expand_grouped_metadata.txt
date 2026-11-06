@@ -26,10 +26,12 @@ style: google
 - DocstringParam
   args: ['param', 'annotations']
   description: 'An iterable of annotations.'
+  kind: param
   arg_name: 'annotations'
 - DocstringReturns
   args: ['returns']
   description: 'An iterable of expanded annotations.'
+  kind: returns
   is_generator: False
 - DocstringExample
   args: ['examples']
@@ -42,6 +44,7 @@ style: google
     print(list(expand_grouped_metadata([Ge(4), Len(5)])))
     #> [Ge(ge=4), MinLen(min_length=5)]
     ```
+  kind: examples
 === detect
 google
 === compose google

@@ -18,12 +18,14 @@ style: google
 - DocstringParam
   args: ['param', 'lines (List[List[Segment]])']
   description: 'Rendered lines (as produced by :meth:`~rich.Console.render_lines`).'
+  kind: param
   arg_name: 'lines'
   type_name: 'List[List[Segment]]'
   is_optional: False
 - DocstringParam
   args: ['param', 'x (int, optional)']
   description: 'x offset (column no). Defaults to 0.'
+  kind: param
   arg_name: 'x'
   type_name: 'int'
   is_optional: True
@@ -31,6 +33,7 @@ style: google
 - DocstringParam
   args: ['param', 'y (int, optional)']
   description: 'y offset (column no). Defaults to 0.'
+  kind: param
   arg_name: 'y'
   type_name: 'int'
   is_optional: True
@@ -38,6 +41,7 @@ style: google
 - DocstringRaises
   args: ['raises', 'errors.NoAltScreen']
   description: "If the Console isn't in alt screen mode."
+  kind: raises
   type_name: 'errors.NoAltScreen'
 === detect
 google

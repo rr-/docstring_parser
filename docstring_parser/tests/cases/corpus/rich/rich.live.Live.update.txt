@@ -14,12 +14,14 @@ style: google
 - DocstringParam
   args: ['param', 'renderable (RenderableType)']
   description: 'New renderable to use.'
+  kind: param
   arg_name: 'renderable'
   type_name: 'RenderableType'
   is_optional: False
 - DocstringParam
   args: ['param', 'refresh (bool, optional)']
   description: 'Refresh the display. Defaults to False.'
+  kind: param
   arg_name: 'refresh'
   type_name: 'bool'
   is_optional: True

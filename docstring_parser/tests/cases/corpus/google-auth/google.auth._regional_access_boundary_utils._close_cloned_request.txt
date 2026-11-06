@@ -14,12 +14,14 @@ style: google
 - DocstringParam
   args: ['param', 'lookup_request (Any)']
   description: 'The request object/transport to close.'
+  kind: param
   arg_name: 'lookup_request'
   type_name: 'Any'
   is_optional: False
 - DocstringParam
   args: ['param', 'is_cloned (bool)']
   description: 'Whether the request was actually cloned.'
+  kind: param
   arg_name: 'is_cloned'
   type_name: 'bool'
   is_optional: False

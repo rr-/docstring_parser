@@ -13,6 +13,7 @@ style: google
 - DocstringParam
   args: ['param', 'new_size (Tuple[int, int])']
   description: 'New width and height.'
+  kind: param
   arg_name: 'new_size'
   type_name: 'Tuple[int, int]'
   is_optional: False

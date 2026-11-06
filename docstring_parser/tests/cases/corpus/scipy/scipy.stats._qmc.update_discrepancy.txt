@@ -42,24 +42,28 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'x_new']
   description: 'The new sample to add in `sample`.'
+  kind: param
   arg_name: 'x_new'
   type_name: 'array_like (1, d)'
   is_optional: False
 - DocstringParam
   args: ['param', 'sample']
   description: 'The initial sample.'
+  kind: param
   arg_name: 'sample'
   type_name: 'array_like (n, d)'
   is_optional: False
 - DocstringParam
   args: ['param', 'initial_disc']
   description: 'Centered discrepancy of the `sample`.'
+  kind: param
   arg_name: 'initial_disc'
   type_name: 'float'
   is_optional: False
 - DocstringReturns
   args: ['returns']
   description: 'Centered discrepancy of the sample composed of `x_new` and `sample`.'
+  kind: returns
   type_name: 'float'
   is_generator: False
   return_name: 'discrepancy'
@@ -69,9 +73,11 @@ style: numpydoc
     We can also compute iteratively the discrepancy by using
     ``iterative=True``.
     
+  kind: examples
 - DocstringExample
   args: ['examples']
   description: '0.04769081147119336'
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> from scipy.stats import qmc
@@ -84,6 +90,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: '0.008142039609053513'
+  kind: examples
   snippet: '>>> qmc.update_discrepancy(space[-1], space[:-1], disc_init)'
 === detect
 numpydoc

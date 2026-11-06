@@ -11,3 +11,4 @@ style: epydoc
 - DocstringMeta
   args: ['note']
   description: 'ivar value: detail'
+  kind: text

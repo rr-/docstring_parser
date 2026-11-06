@@ -139,24 +139,28 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'rule']
   description: 'The offset string or object representing target grouper conversion.'
+  kind: param
   arg_name: 'rule'
   type_name: 'str or DateOffset'
   is_optional: False
 - DocstringParam
   args: ['param', 'closed']
   description: 'Which side of bin interval is closed. See :meth:`Series.resample`.'
+  kind: param
   arg_name: 'closed'
   type_name: "{'right', 'left'}"
   is_optional: True
 - DocstringParam
   args: ['param', 'label']
   description: 'Which bin edge label to label bucket with. See :meth:`Series.resample`.'
+  kind: param
   arg_name: 'label'
   type_name: "{'right', 'left'}"
   is_optional: True
 - DocstringParam
   args: ['param', 'convention']
   description: 'For ``PeriodIndex`` only. See :meth:`Series.resample`.'
+  kind: param
   arg_name: 'convention'
   type_name: "{'start', 'end', 's', 'e'}"
   is_optional: True
@@ -165,6 +169,7 @@ style: numpydoc
   description: |
     For a DataFrame, column to use instead of index for resampling.
     Column must be datetime-like.
+  kind: param
   arg_name: 'on'
   type_name: 'str'
   is_optional: True
@@ -173,6 +178,7 @@ style: numpydoc
   description: |
     The timestamp on which to adjust the grouping. See
     :meth:`Series.resample` for accepted string values.
+  kind: param
   arg_name: 'origin'
   type_name: 'Timestamp or str'
   is_optional: True
@@ -180,6 +186,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'offset']
   description: 'An offset timedelta added to the origin.'
+  kind: param
   arg_name: 'offset'
   type_name: 'Timedelta or str'
   is_optional: True
@@ -188,6 +195,7 @@ style: numpydoc
   description: |
     Whether to include the group keys in the result index when using
     ``.apply()`` on the resampled object.
+  kind: param
   arg_name: 'group_keys'
   type_name: 'bool'
   is_optional: True
@@ -205,6 +213,7 @@ style: numpydoc
     .. versionchanged:: 3.0
     
        The default was changed to False, and True is no longer allowed.
+  kind: param
   arg_name: 'include_groups'
   type_name: 'bool'
   is_optional: True
@@ -214,10 +223,12 @@ style: numpydoc
   description: |
     Additional keyword arguments forwarded to the underlying
     :class:`Grouper`.
+  kind: param
   arg_name: '**kwargs'
 - DocstringReturns
   args: ['returns']
   description: 'Resampler object for the type of the index.'
+  kind: returns
   type_name: 'DatetimeIndexResampler, PeriodIndexResampler or TimedeltaResampler'
   is_generator: False
 - DocstringMeta
@@ -229,6 +240,7 @@ style: numpydoc
         grouping by a key.
     DatetimeIndex.resample : Frequency conversion and resampling of
         time series.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
@@ -241,6 +253,7 @@ style: numpydoc
     Downsample the DataFrame into 3 minute bins and sum the values of
     the timestamps falling into a bin.
     
+  kind: examples
   snippet: |
     >>> idx = pd.date_range("1/1/2000", periods=4, freq="min")
     >>> df = pd.DataFrame(data=4 * [range(2)], index=idx, columns=["a", "b"])
@@ -257,6 +270,7 @@ style: numpydoc
     
     Upsample the series into 30 second bins.
     
+  kind: examples
   snippet: '>>> df.groupby("a").resample("3min").sum()'
 - DocstringExample
   args: ['examples']
@@ -274,6 +288,7 @@ style: numpydoc
     
     Resample by month. Values are assigned to the month of the period.
     
+  kind: examples
   snippet: '>>> df.groupby("a").resample("30s").sum()'
 - DocstringExample
   args: ['examples']
@@ -286,6 +301,7 @@ style: numpydoc
     Downsample the series into 3 minute bins as above, but close the right
     side of the bin interval.
     
+  kind: examples
   snippet: '>>> df.groupby("a").resample("ME").sum()'
 - DocstringExample
   args: ['examples']
@@ -300,6 +316,7 @@ style: numpydoc
     the bin interval, but label each bin using the right edge instead of
     the left.
     
+  kind: examples
   snippet: '>>> (df.groupby("a").resample("3min", closed="right").sum())'
 - DocstringExample
   args: ['examples']
@@ -309,6 +326,7 @@ style: numpydoc
     0   2000-01-01 00:00:00  1
         2000-01-01 00:03:00  2
     5   2000-01-01 00:03:00  1
+  kind: examples
   snippet: '>>> (df.groupby("a").resample("3min", closed="right", label="right").sum())'
 === detect
 numpydoc

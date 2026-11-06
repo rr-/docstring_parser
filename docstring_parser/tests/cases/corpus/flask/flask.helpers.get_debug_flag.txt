@@ -11,6 +11,7 @@ style: rest
 - DocstringMeta
   args: ['envvar']
   description: '`FLASK_DEBUG` environment variable. The default is ``False``.'
+  kind: text
 === detect
 rest
 === compose rest

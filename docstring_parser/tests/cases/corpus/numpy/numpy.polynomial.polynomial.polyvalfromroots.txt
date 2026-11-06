@@ -102,6 +102,7 @@ style: numpydoc
     it is left unchanged and treated as a scalar. In either case, `x`
     or its elements must support addition and multiplication with
     with themselves and with the elements of `r`.
+  kind: param
   arg_name: 'x'
   type_name: 'array_like, compatible object'
   is_optional: False
@@ -112,6 +113,7 @@ style: numpydoc
     root index, while the remaining indices enumerate multiple
     polynomials. For instance, in the two dimensional case the roots
     of each polynomial may be thought of as stored in the columns of `r`.
+  kind: param
   arg_name: 'r'
   type_name: 'array_like'
   is_optional: False
@@ -124,21 +126,25 @@ style: numpydoc
     evaluated for every element of `x`. If False, `x` is broadcast over the
     columns of `r` for the evaluation.  This keyword is useful when `r` is
     multidimensional. The default value is True.
+  kind: param
   arg_name: 'tensor'
   type_name: 'boolean'
   is_optional: True
 - DocstringReturns
   args: ['returns']
   description: 'The shape of the returned array is described above.'
+  kind: returns
   type_name: 'ndarray, compatible object'
   is_generator: False
   return_name: 'values'
 - DocstringMeta
   args: ['see_also']
   description: 'polyroots, polyfromroots, polyval'
+  kind: text
 - DocstringExample
   args: ['examples']
   description: '0.0'
+  kind: examples
   snippet: |
     >>> from numpy.polynomial.polynomial import polyvalfromroots
     >>> polyvalfromroots(1, [1, 2, 3])
@@ -147,6 +153,7 @@ style: numpydoc
   description: |
     array([[0, 1],
            [2, 3]])
+  kind: examples
   snippet: |
     >>> a = np.arange(4).reshape(2, 2)
     >>> a
@@ -155,12 +162,14 @@ style: numpydoc
   description: |
     array([[-0.,   0.],
            [ 6.,  24.]])
+  kind: examples
   snippet: '>>> polyvalfromroots(a, [-1, 0, 1])'
 - DocstringExample
   args: ['examples']
   description: |
     array([[-2, -1],
            [ 0,  1]])
+  kind: examples
   snippet: |
     >>> r = np.arange(-2, 2).reshape(2,2)  # multidimensional coefficients
     >>> r # each column of r defines one polynomial
@@ -169,12 +178,14 @@ style: numpydoc
   description: |
     array([[-0.,  3.],
            [ 3., 0.]])
+  kind: examples
   snippet: |
     >>> b = [-2, 1]
     >>> polyvalfromroots(b, r, tensor=True)
 - DocstringExample
   args: ['examples']
   description: 'array([-0.,  0.])'
+  kind: examples
   snippet: '>>> polyvalfromroots(b, r, tensor=False)'
 === detect
 numpydoc

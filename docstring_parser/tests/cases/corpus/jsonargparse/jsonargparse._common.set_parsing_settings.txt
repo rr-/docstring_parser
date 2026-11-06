@@ -87,6 +87,7 @@ style: google
     Whether default values must be valid according to the
     argument type. The default is ``False``, meaning no default
     validation, like in argparse.
+  kind: param
   arg_name: 'validate_defaults'
 - DocstringParam
   args: ['param', 'validate_subclass_spec_in_any']
@@ -99,6 +100,7 @@ style: google
     validated, since the value is kept as a dict. By default, this is
     ``False``, meaning that an invalid subclass spec is ignored (a debug
     log is emitted) and the original value is kept.
+  kind: param
   arg_name: 'validate_subclass_spec_in_any'
 - DocstringParam
   args: ['param', 'instantiate_subclass_spec_in_any']
@@ -112,30 +114,35 @@ style: google
     the default will be ``False``. Enabling it is discouraged because it
     means that any class can be instantiated, so only do it for trusted
     configs.
+  kind: param
   arg_name: 'instantiate_subclass_spec_in_any'
 - DocstringParam
   args: ['param', 'config_read_mode_urls_enabled']
   description: |
     Whether to read config files from URLs
     using requests package. Default is ``False``.
+  kind: param
   arg_name: 'config_read_mode_urls_enabled'
 - DocstringParam
   args: ['param', 'config_read_mode_fsspec_enabled']
   description: |
     Whether to read config files from
     fsspec supported file systems. Default is ``False``.
+  kind: param
   arg_name: 'config_read_mode_fsspec_enabled'
 - DocstringParam
   args: ['param', 'docstring_parse_style']
   description: |
     The docstring style to expect. Default is
     ``DocstringStyle.AUTO``.
+  kind: param
   arg_name: 'docstring_parse_style'
 - DocstringParam
   args: ['param', 'docstring_parse_attribute_docstrings']
   description: |
     Whether to parse attribute
     docstrings (slower). Default is ``False``.
+  kind: param
   arg_name: 'docstring_parse_attribute_docstrings'
 - DocstringParam
   args: ['param', 'parse_optionals_as_positionals']
@@ -146,6 +153,7 @@ style: google
     ``--key=value`` as usual, but also as positional. The extra
     positionals are applied to optionals in the order that they were
     added to the parser. By default, this is ``False``.
+  kind: param
   arg_name: 'parse_optionals_as_positionals'
 - DocstringParam
   args: ['param', 'add_print_completion_argument']
@@ -154,12 +162,14 @@ style: google
     automatically include a ``--print_completion`` argument. Its
     accepted values are ``jsonschema`` and, when ``shtab`` is installed,
     one ``shtab-*`` value per supported shell.
+  kind: param
   arg_name: 'add_print_completion_argument'
 - DocstringParam
   args: ['param', 'stubs_resolver_allow_py_files']
   description: |
     Whether the stubs resolver should search
     in ``.py`` files in addition to ``.pyi`` files.
+  kind: param
   arg_name: 'stubs_resolver_allow_py_files'
 - DocstringParam
   args: ['param', 'omegaconf_absolute_to_relative_paths']
@@ -168,6 +178,7 @@ style: google
     with ``omegaconf+`` parser mode, absolute interpolation paths are
     converted to relative. This is only intended for backward
     compatibility with ``omegaconf`` parser mode.
+  kind: param
   arg_name: 'omegaconf_absolute_to_relative_paths'
 - DocstringParam
   args: ['param', 'unset_sentinel']
@@ -178,6 +189,7 @@ style: google
     explicitly given value and an argument that was not provided at
     all. If ``False``, uses ``None`` (the default, argparse-compatible
     behavior) unless overridden by ``argument_default``.
+  kind: param
   arg_name: 'unset_sentinel'
 - DocstringParam
   args: ['param', 'subclasses_disabled']
@@ -186,6 +198,7 @@ style: google
     only the exact type hints (not their subclasses) are accepted.
     Descendants of the configured types are also disabled. Functions
     should return ``True`` for types to disable.
+  kind: param
   arg_name: 'subclasses_disabled'
 - DocstringParam
   args: ['param', 'subclasses_enabled']
@@ -196,6 +209,7 @@ style: google
     corresponding function from ``subclasses_disabled``. By default, the
     following disable functions are registered: ``is_pure_dataclass``,
     ``is_pydantic_model``, ``is_attrs_class`` and ``is_final_class``.
+  kind: param
   arg_name: 'subclasses_enabled'
 - DocstringParam
   args: ['param', 'import_path_denylist']
@@ -205,6 +219,7 @@ style: google
     path and everything under it, e.g. ``os`` also denies ``os.system``.
     The entry ``*`` denies everything, so that only what the allowlist
     permits is importable.
+  kind: param
   arg_name: 'import_path_denylist'
 - DocstringParam
   args: ['param', 'import_path_allowlist']
@@ -215,6 +230,7 @@ style: google
     that path out of a denied ``functools``. Paths under ``jsonargparse``
     are not accepted, since a value that names them would be able to
     change these settings.
+  kind: param
   arg_name: 'import_path_allowlist'
 === detect
 google

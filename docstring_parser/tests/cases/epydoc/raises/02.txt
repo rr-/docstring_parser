@@ -12,3 +12,4 @@ style: epydoc
 - DocstringRaises
   args: ['raise']
   description: 'description'
+  kind: raises

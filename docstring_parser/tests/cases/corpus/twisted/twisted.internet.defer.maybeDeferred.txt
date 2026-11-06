@@ -48,16 +48,19 @@ style: epydoc
 - DocstringParam
   args: ['param', 'f']
   description: 'The callable to invoke'
+  kind: param
   arg_name: 'f'
   is_optional: False
 - DocstringParam
   args: ['param', 'args']
   description: 'The arguments to pass to C{f}'
+  kind: param
   arg_name: 'args'
   is_optional: False
 - DocstringParam
   args: ['param', 'kwargs']
   description: 'The keyword arguments to pass to C{f}'
+  kind: param
   arg_name: 'kwargs'
   is_optional: False
 - DocstringReturns
@@ -65,6 +68,7 @@ style: epydoc
   description: |
     The result of the function call, wrapped in a L{Deferred} if
     necessary.
+  kind: returns
   is_generator: False
 === detect
 epydoc

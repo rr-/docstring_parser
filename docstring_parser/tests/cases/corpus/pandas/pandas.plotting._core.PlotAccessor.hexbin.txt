@@ -112,18 +112,21 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'x']
   description: 'The column label or position for x points.'
+  kind: param
   arg_name: 'x'
   type_name: 'int or str'
   is_optional: False
 - DocstringParam
   args: ['param', 'y']
   description: 'The column label or position for y points.'
+  kind: param
   arg_name: 'y'
   type_name: 'int or str'
   is_optional: False
 - DocstringParam
   args: ['param', 'C']
   description: 'The column label or position for the value of `(x, y)` point.'
+  kind: param
   arg_name: 'C'
   type_name: 'int or str'
   is_optional: True
@@ -132,6 +135,7 @@ style: numpydoc
   description: |
     Function of one argument that reduces all the values in a bin to
     a single number (e.g. `np.mean`, `np.max`, `np.sum`, `np.std`).
+  kind: param
   arg_name: 'reduce_C_function'
   type_name: 'callable'
   is_optional: True
@@ -149,6 +153,7 @@ style: numpydoc
     gridsize their apparent size varies with the range of the data
     and the axis limits. To control the area covered by the
     hexagons, pass matplotlib's ``extent`` keyword via ``**kwargs``.
+  kind: param
   arg_name: 'gridsize'
   type_name: 'int or tuple of (int, int)'
   is_optional: True
@@ -159,10 +164,12 @@ style: numpydoc
     Additional keyword arguments, such as ``ax``, ``figsize``,
     ``title`` and ``grid``, are documented in
     :meth:`DataFrame.plot`.
+  kind: param
   arg_name: '**kwargs'
 - DocstringReturns
   args: ['returns']
   description: 'A one-element ndarray is returned when ``subplots=True``.'
+  kind: returns
   type_name: 'matplotlib.axes.Axes or numpy.ndarray of them'
   is_generator: False
 - DocstringMeta
@@ -171,6 +178,7 @@ style: numpydoc
     DataFrame.plot : Make plots of a DataFrame.
     matplotlib.pyplot.hexbin : Hexagonal binning plot using matplotlib,
         the matplotlib function that is used under the hood.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
@@ -212,6 +220,7 @@ style: numpydoc
         ...     gridsize=10,
         ...     cmap="viridis",
         ... )
+  kind: examples
 === detect
 numpydoc
 === compose numpydoc

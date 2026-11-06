@@ -26,24 +26,29 @@ style: google
 - DocstringParam
   args: ['param', 'force']
   description: 'Whether to force the rebuilding of the model schema, defaults to `False`.'
+  kind: param
   arg_name: 'force'
 - DocstringParam
   args: ['param', 'raise_errors']
   description: 'Whether to raise errors, defaults to `True`.'
+  kind: param
   arg_name: 'raise_errors'
 - DocstringParam
   args: ['param', '_parent_namespace_depth']
   description: 'The depth level of the parent namespace, defaults to 2.'
+  kind: param
   arg_name: '_parent_namespace_depth'
 - DocstringParam
   args: ['param', '_types_namespace']
   description: 'The types namespace, defaults to `None`.'
+  kind: param
   arg_name: '_types_namespace'
 - DocstringReturns
   args: ['returns']
   description: |
     Returns `None` if the schema is already "complete" and rebuilding was not required.
     If rebuilding _was_ required, returns `True` if rebuilding was successful, otherwise `False`.
+  kind: returns
   is_generator: False
 === detect
 google

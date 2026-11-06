@@ -53,12 +53,14 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'package']
   description: 'The name of the required package.'
+  kind: param
   arg_name: 'package'
   type_name: 'str'
   is_optional: False
 - DocstringParam
   args: ['param', 'min_version']
   description: 'Optional minimum version of the package.'
+  kind: param
   arg_name: 'min_version'
   type_name: 'str or None'
   is_optional: True
@@ -68,6 +70,7 @@ style: numpydoc
   description: |
     a pytest.mark.skipif to use as either a test decorator or a
     parametrization mark.
+  kind: returns
   type_name: 'pytest.MarkDecorator'
   is_generator: False
 === detect

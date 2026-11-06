@@ -10,4 +10,5 @@ style: google
 - DocstringParam
   args: ['param', 'spam']
   description: 'description'
+  kind: param
   arg_name: 'spam'

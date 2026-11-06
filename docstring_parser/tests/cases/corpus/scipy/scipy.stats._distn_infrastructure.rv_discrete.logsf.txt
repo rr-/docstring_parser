@@ -32,6 +32,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'k']
   description: 'Quantiles.'
+  kind: param
   arg_name: 'k'
   type_name: 'array_like'
   is_optional: False
@@ -40,18 +41,21 @@ style: numpydoc
   description: |
     The shape parameter(s) for the distribution (see docstring of the
     instance object for more information).
+  kind: param
   arg_name: 'arg1, arg2, arg3,...'
   type_name: 'array_like'
   is_optional: False
 - DocstringParam
   args: ['param', 'loc']
   description: 'Location parameter (default=0).'
+  kind: param
   arg_name: 'loc'
   type_name: 'array_like'
   is_optional: True
 - DocstringReturns
   args: ['returns']
   description: 'Log of the survival function evaluated at `k`.'
+  kind: returns
   type_name: 'ndarray'
   is_generator: False
   return_name: 'logsf'

@@ -20,26 +20,32 @@ style: google
 - DocstringParam
   args: ['param', 'name']
   description: 'Name for the type or ``None`` for an automatic name.'
+  kind: param
   arg_name: 'name'
 - DocstringParam
   args: ['param', 'base_type']
   description: 'One of ``{int, float}``.'
+  kind: param
   arg_name: 'base_type'
 - DocstringParam
   args: ['param', 'restrictions']
   description: "Tuples of pairs (comparison, reference), e.g. ``('>', 0)``."
+  kind: param
   arg_name: 'restrictions'
 - DocstringParam
   args: ['param', 'join']
   description: "How to combine multiple comparisons, one of ``{'or', 'and'}``."
+  kind: param
   arg_name: 'join'
 - DocstringParam
   args: ['param', 'docstring']
   description: 'Docstring for the type class.'
+  kind: param
   arg_name: 'docstring'
 - DocstringReturns
   args: ['returns']
   description: 'The created or retrieved type class.'
+  kind: returns
   is_generator: False
 === detect
 google

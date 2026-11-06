@@ -14,13 +14,16 @@ style: rest
 - DocstringParam
   args: ['param', 'cookiejar']
   description: 'CookieJar object to add the cookies to.'
+  kind: param
   arg_name: 'cookiejar'
 - DocstringParam
   args: ['param', 'cookies']
   description: 'Dictionary or CookieJar object to be added.'
+  kind: param
   arg_name: 'cookies'
 - DocstringReturns
   args: []
+  kind: returns
   type_name: 'CookieJar'
   is_generator: False
 === detect

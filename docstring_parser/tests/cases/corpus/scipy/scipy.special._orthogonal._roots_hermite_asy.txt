@@ -60,24 +60,28 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'n']
   description: 'quadrature order'
+  kind: param
   arg_name: 'n'
   type_name: 'int'
   is_optional: False
 - DocstringReturns
   args: ['returns']
   description: 'Quadrature nodes'
+  kind: returns
   type_name: 'ndarray'
   is_generator: False
   return_name: 'nodes'
 - DocstringReturns
   args: ['returns']
   description: 'Quadrature weights'
+  kind: returns
   type_name: 'ndarray'
   is_generator: False
   return_name: 'weights'
 - DocstringMeta
   args: ['see_also']
   description: 'roots_hermite'
+  kind: text
 - DocstringMeta
   args: ['references']
   description: |
@@ -92,6 +96,7 @@ style: numpydoc
        weights on the whole real line*.
        IMA Journal of Numerical Analysis
        :doi:`10.1093/imanum/drv002`.
+  kind: text
 === detect
 numpydoc
 === compose numpydoc

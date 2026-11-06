@@ -42,6 +42,7 @@ style: numpydoc
   description: |
     If ``True``, return ``NA`` as a tuple ``(nan, nan)``. If ``False``,
     just return ``NA`` as ``nan``.
+  kind: param
   arg_name: 'na_tuple'
   type_name: 'bool'
   is_optional: True
@@ -49,20 +50,24 @@ style: numpydoc
 - DocstringReturns
   args: ['returns']
   description: 'An Index of tuples representing the intervals.'
+  kind: returns
   type_name: 'Index'
   is_generator: False
 - DocstringMeta
   args: ['see_also']
   description: 'arrays.IntervalArray.to_tuples : Analogous method for IntervalArray.'
+  kind: text
 - DocstringExample
   args: ['examples']
   description: "IntervalIndex([(0, 1], (1, 2]], dtype='interval[int64, right]')"
+  kind: examples
   snippet: |
     >>> idx = pd.interval_range(start=0, end=2)
     >>> idx
 - DocstringExample
   args: ['examples']
   description: "Index([(0, 1), (1, 2)], dtype='object')"
+  kind: examples
   snippet: '>>> idx.to_tuples()'
 === detect
 numpydoc

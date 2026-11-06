@@ -16,6 +16,7 @@ style: rest
     first paragraph
     
     second paragraph
+  kind: param
   arg_name: 'a'
 === compose rest clean
 Short.

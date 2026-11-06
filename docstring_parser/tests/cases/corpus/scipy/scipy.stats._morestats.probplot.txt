@@ -129,6 +129,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'x']
   description: 'Sample/response data from which `probplot` creates the plot.'
+  kind: param
   arg_name: 'x'
   type_name: 'array_like'
   is_optional: False
@@ -137,6 +138,7 @@ style: numpydoc
   description: |
     Distribution-specific shape parameters (shape parameters plus location
     and scale).
+  kind: param
   arg_name: 'sparams'
   type_name: 'tuple'
   is_optional: True
@@ -147,6 +149,7 @@ style: numpydoc
     normal probability plot.  Objects that look enough like a
     stats.distributions instance (i.e. they have a ``ppf`` method) are also
     accepted.
+  kind: param
   arg_name: 'dist'
   type_name: 'str or stats.distributions instance'
   is_optional: True
@@ -156,6 +159,7 @@ style: numpydoc
   description: |
     Fit a least-squares regression (best-fit) line to the sample data if
     True (default).
+  kind: param
   arg_name: 'fit'
   type_name: 'bool'
   is_optional: True
@@ -168,6 +172,7 @@ style: numpydoc
     The `matplotlib.pyplot` module or a Matplotlib Axes object can be used,
     or a custom object with the same methods.
     Default is None, which means that no plot is created.
+  kind: param
   arg_name: 'plot'
   type_name: 'object'
   is_optional: True
@@ -178,6 +183,7 @@ style: numpydoc
     If `plot` is provided and `fit` is True, setting `rvalue` to True
     includes the coefficient of determination on the plot.
     Default is False.
+  kind: param
   arg_name: 'rvalue'
   type_name: 'bool'
   is_optional: True
@@ -188,6 +194,7 @@ style: numpydoc
     Tuple of theoretical quantiles (osm, or order statistic medians) and
     ordered responses (osr).  `osr` is simply sorted input `x`.
     For details on how `osm` is calculated see the Notes section.
+  kind: returns
   type_name: 'tuple of ndarrays'
   is_generator: False
   return_name: '(osm, osr)'
@@ -198,6 +205,7 @@ style: numpydoc
     performed by `probplot`. `r` is the square root of the coefficient of
     determination.  If ``fit=False`` and ``plot=None``, this tuple is not
     returned.
+  kind: returns
   type_name: 'tuple of floats, optional'
   is_generator: False
   return_name: '(slope, intercept, r)'
@@ -223,12 +231,14 @@ style: numpydoc
     
     where ``i`` indicates the i-th ordered value and ``n`` is the total number
     of values.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
     
     A t distribution with small degrees of freedom:
     
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> from scipy import stats
@@ -241,6 +251,7 @@ style: numpydoc
     
     A t distribution with larger degrees of freedom:
     
+  kind: examples
   snippet: |
     >>> ax1 = plt.subplot(221)
     >>> x = stats.t.rvs(3, size=nsample, random_state=rng)
@@ -251,6 +262,7 @@ style: numpydoc
     
     A mixture of two normal distributions with broadcasting:
     
+  kind: examples
   snippet: |
     >>> ax2 = plt.subplot(222)
     >>> x = stats.t.rvs(25, size=nsample, random_state=rng)
@@ -258,6 +270,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: '...                    size=(nsample//2,2), random_state=rng).ravel()'
+  kind: examples
   snippet: |
     >>> ax3 = plt.subplot(223)
     >>> x = stats.norm.rvs(loc=[0,5], scale=[1,1.5],
@@ -267,6 +280,7 @@ style: numpydoc
     
     A standard normal distribution:
     
+  kind: examples
   snippet: '>>> res = stats.probplot(x, plot=plt)'
 - DocstringExample
   args: ['examples']
@@ -275,6 +289,7 @@ style: numpydoc
     Produce a new figure with a loggamma distribution, using the ``dist`` and
     ``sparams`` keywords:
     
+  kind: examples
   snippet: |
     >>> ax4 = plt.subplot(224)
     >>> x = stats.norm.rvs(loc=0, scale=1, size=nsample, random_state=rng)
@@ -285,6 +300,7 @@ style: numpydoc
     
     Show the results with Matplotlib:
     
+  kind: examples
   snippet: |
     >>> fig = plt.figure()
     >>> ax = fig.add_subplot(111)
@@ -294,6 +310,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: ''
+  kind: examples
   snippet: '>>> plt.show()'
 === detect
 numpydoc

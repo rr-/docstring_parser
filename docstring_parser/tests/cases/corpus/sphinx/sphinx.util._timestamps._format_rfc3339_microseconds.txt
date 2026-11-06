@@ -12,6 +12,7 @@ style: rest
 - DocstringParam
   args: ['param', 'timestamp']
   description: 'The timestamp to format, in microseconds.'
+  kind: param
   arg_name: 'timestamp'
 === detect
 rest

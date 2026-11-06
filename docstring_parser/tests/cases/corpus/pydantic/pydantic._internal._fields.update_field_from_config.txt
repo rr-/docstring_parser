@@ -18,14 +18,17 @@ style: google
 - DocstringParam
   args: ['param', 'config_wrapper']
   description: 'The configuration from the model.'
+  kind: param
   arg_name: 'config_wrapper'
 - DocstringParam
   args: ['param', 'field_name']
   description: 'The field name the `FieldInfo` instance is attached to.'
+  kind: param
   arg_name: 'field_name'
 - DocstringParam
   args: ['param', 'field_info']
   description: 'The `FieldInfo` instance to update.'
+  kind: param
   arg_name: 'field_info'
 === detect
 google

@@ -30,12 +30,14 @@ blank_after_long_description: False
 style: numpydoc
 - DocstringParam
   args: ['param', 'document']
+  kind: param
   arg_name: 'document'
   type_name: 'the DOM from which to parse the table element.'
   is_optional: False
 - DocstringParam
   args: ['param', 'match']
   description: 'The text to search for in the DOM tree.'
+  kind: param
   arg_name: 'match'
   type_name: 'str or regular expression'
   is_optional: False
@@ -44,15 +46,18 @@ style: numpydoc
   description: |
     A dictionary of table attributes that can be used to disambiguate
     multiple tables on a page.
+  kind: param
   arg_name: 'attrs'
   type_name: 'dict'
   is_optional: False
 - DocstringRaises
   args: ['raises', 'ValueError : `match` does not match any text in the document.']
+  kind: raises
   type_name: 'ValueError : `match` does not match any text in the document.'
 - DocstringReturns
   args: ['returns']
   description: 'HTML <table> elements to be parsed into raw data.'
+  kind: returns
   type_name: 'list of node-like'
   is_generator: False
 === detect

@@ -12,6 +12,7 @@ style: google
 - DocstringParam
   args: ['param', 'value (Callable[[int], tuple[str, int]])']
   description: 'description'
+  kind: param
   arg_name: 'value'
   type_name: 'Callable[[int], tuple[str, int]]'
   is_optional: False

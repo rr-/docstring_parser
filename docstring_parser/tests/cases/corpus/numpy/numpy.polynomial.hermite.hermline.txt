@@ -41,6 +41,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'off, scl']
   description: 'The specified line is given by ``off + scl*x``.'
+  kind: param
   arg_name: 'off, scl'
   type_name: 'scalars'
   is_optional: False
@@ -49,6 +50,7 @@ style: numpydoc
   description: |
     This module's representation of the Hermite series for
     ``off + scl*x``.
+  kind: returns
   type_name: 'ndarray'
   is_generator: False
   return_name: 'y'
@@ -60,15 +62,18 @@ style: numpydoc
     numpy.polynomial.legendre.legline
     numpy.polynomial.laguerre.lagline
     numpy.polynomial.hermite_e.hermeline
+  kind: text
 - DocstringExample
   args: ['examples']
   description: '3.0'
+  kind: examples
   snippet: |
     >>> from numpy.polynomial.hermite import hermline, hermval
     >>> hermval(0,hermline(3, 2))
 - DocstringExample
   args: ['examples']
   description: '5.0'
+  kind: examples
   snippet: '>>> hermval(1,hermline(3, 2))'
 === detect
 numpydoc

@@ -33,6 +33,7 @@ style: epydoc
   description: |
     The name which is being queried and for which to lookup a
     response.
+  kind: param
   arg_name: 'name'
   type_name: 'L{bytes}'
   is_optional: False
@@ -41,6 +42,7 @@ style: epydoc
   description: |
     The class which is being queried.  Only I{IN} is
     implemented here and this value is presently disregarded.
+  kind: param
   arg_name: 'cls'
   type_name: 'L{int}'
   is_optional: False
@@ -49,6 +51,7 @@ style: epydoc
   description: |
     The type of records being queried.  See the types defined
     in L{twisted.names.dns}.
+  kind: param
   arg_name: 'type'
   type_name: 'L{int}'
   is_optional: False
@@ -57,6 +60,7 @@ style: epydoc
   description: |
     All processing is done locally and a result is
     available immediately, so the timeout value is ignored.
+  kind: param
   arg_name: 'timeout'
   is_optional: False
 - DocstringReturns
@@ -66,6 +70,7 @@ style: epydoc
     response records (to comprise the I{answer}, I{authority}, and
     I{additional} sections of a DNS response) or with a L{Failure} if
     there is a problem processing the query.
+  kind: returns
   is_generator: False
 === detect
 epydoc

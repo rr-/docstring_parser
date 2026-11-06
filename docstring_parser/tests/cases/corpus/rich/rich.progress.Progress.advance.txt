@@ -14,12 +14,14 @@ style: google
 - DocstringParam
   args: ['param', 'task_id (TaskID)']
   description: 'ID of task.'
+  kind: param
   arg_name: 'task_id'
   type_name: 'TaskID'
   is_optional: False
 - DocstringParam
   args: ['param', 'advance (float)']
   description: 'Number of steps to advance. Default is 1.'
+  kind: param
   arg_name: 'advance'
   type_name: 'float'
   is_optional: False

@@ -26,11 +26,13 @@ style: numpydoc
 - DocstringReturns
   args: ['returns']
   description: 'Caller.'
+  kind: returns
   type_name: 'pd.Index'
   is_generator: False
 - DocstringMeta
   args: ['see_also']
   description: 'MultiIndex.to_flat_index : Subclass implementation.'
+  kind: text
 === detect
 numpydoc
 === compose numpydoc

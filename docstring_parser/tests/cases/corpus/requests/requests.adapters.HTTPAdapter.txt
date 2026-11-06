@@ -45,10 +45,12 @@ style: rest
 - DocstringParam
   args: ['param', 'pool_connections']
   description: 'The number of urllib3 connection pools to cache.'
+  kind: param
   arg_name: 'pool_connections'
 - DocstringParam
   args: ['param', 'pool_maxsize']
   description: 'The maximum number of connections to save in the pool.'
+  kind: param
   arg_name: 'pool_maxsize'
 - DocstringParam
   args: ['param', 'max_retries']
@@ -60,10 +62,12 @@ style: rest
     connections. If you need granular control over the conditions under
     which we retry a request, import urllib3's ``Retry`` class and pass
     that instead.
+  kind: param
   arg_name: 'max_retries'
 - DocstringParam
   args: ['param', 'pool_block']
   description: 'Whether the connection pool should block for connections.'
+  kind: param
   arg_name: 'pool_block'
 === detect
 rest

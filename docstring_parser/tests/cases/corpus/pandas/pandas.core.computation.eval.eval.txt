@@ -192,6 +192,7 @@ style: numpydoc
     Additionally, the ``'pandas'`` parser allows the use of :keyword:`and`,
     :keyword:`or`, and :keyword:`not` with the same semantics as the
     corresponding bitwise operators.
+  kind: param
   arg_name: 'expr'
   type_name: 'str'
   is_optional: False
@@ -204,6 +205,7 @@ style: numpydoc
     ``'python'`` parser to retain strict Python semantics.  See the
     :ref:`enhancing performance <enhancingperf.eval>` documentation for
     more details.
+  kind: param
   arg_name: 'parser'
   type_name: "{'pandas', 'python'}"
   is_optional: True
@@ -221,6 +223,7 @@ style: numpydoc
       level python. This engine is generally not that useful.
     
     More backends may be available in the future.
+  kind: param
   arg_name: 'engine'
   type_name: "{'python', 'numexpr'}"
   is_optional: True
@@ -228,12 +231,14 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'local_dict']
   description: 'A dictionary of local variables, taken from locals() by default.'
+  kind: param
   arg_name: 'local_dict'
   type_name: 'dict or None'
   is_optional: True
 - DocstringParam
   args: ['param', 'global_dict']
   description: 'A dictionary of global variables, taken from globals() by default.'
+  kind: param
   arg_name: 'global_dict'
   type_name: 'dict or None'
   is_optional: True
@@ -247,6 +252,7 @@ style: numpydoc
     ``DataFrame.index`` and ``DataFrame.columns``
     variables that refer to their respective :class:`~pandas.DataFrame`
     instance attributes.
+  kind: param
   arg_name: 'resolvers'
   type_name: 'list of dict-like or None'
   is_optional: True
@@ -255,6 +261,7 @@ style: numpydoc
   description: |
     The number of prior stack frames to traverse and add to the current
     scope. Most users will **not** need to change this parameter.
+  kind: param
   arg_name: 'level'
   type_name: 'int'
   is_optional: True
@@ -265,6 +272,7 @@ style: numpydoc
     variable assignment in the expression. If so, then `target` must
     support item assignment with string keys, and if a copy is being
     returned, it must also support `.copy()`.
+  kind: param
   arg_name: 'target'
   type_name: 'object'
   is_optional: True
@@ -282,6 +290,7 @@ style: numpydoc
         See the `whatsnew note on PDEP-8
         <https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace>`__
         for more details.
+  kind: param
   arg_name: 'inplace'
   type_name: 'bool'
   is_optional: True
@@ -289,6 +298,7 @@ style: numpydoc
 - DocstringReturns
   args: ['returns']
   description: 'The completion value of evaluating the given code or None if ``inplace=True``.'
+  kind: returns
   type_name: 'ndarray, numeric scalar, DataFrame, Series, or None'
   is_generator: False
 - DocstringRaises
@@ -310,6 +320,7 @@ style: numpydoc
       string item assignment.
     - Item assignment is provided and `inplace=False`, but the `target`
       does not support the `.copy()` method
+  kind: raises
   type_name: 'ValueError'
 - DocstringMeta
   args: ['see_also']
@@ -318,6 +329,7 @@ style: numpydoc
             of a frame.
     DataFrame.eval : Evaluate a string describing operations on
             DataFrame columns.
+  kind: text
 - DocstringMeta
   args: ['notes']
   description: |
@@ -326,6 +338,7 @@ style: numpydoc
     
     See the :ref:`enhancing performance <enhancingperf.eval>` documentation for
     more details.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
@@ -335,6 +348,7 @@ style: numpydoc
     
     We can add a new column using ``pd.eval``:
     
+  kind: examples
   snippet: |
     >>> df = pd.DataFrame({"animal": ["dog", "pig"], "age": [10, 20]})
     >>> df
@@ -344,6 +358,7 @@ style: numpydoc
       animal  age  double_age
     0    dog   10          20
     1    pig   20          40
+  kind: examples
   snippet: '>>> pd.eval("double_age = df.age * 2", target=df)'
 === detect
 numpydoc

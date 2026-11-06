@@ -18,18 +18,21 @@ style: google
 - DocstringParam
   args: ['param', 'words (Iterable[str])']
   description: 'Words to highlight.'
+  kind: param
   arg_name: 'words'
   type_name: 'Iterable[str]'
   is_optional: False
 - DocstringParam
   args: ['param', 'style (Union[str, Style])']
   description: 'Style to apply.'
+  kind: param
   arg_name: 'style'
   type_name: 'Union[str, Style]'
   is_optional: False
 - DocstringParam
   args: ['param', 'case_sensitive (bool, optional)']
   description: 'Enable case sensitive matching. Defaults to True.'
+  kind: param
   arg_name: 'case_sensitive'
   type_name: 'bool'
   is_optional: True
@@ -37,6 +40,7 @@ style: google
 - DocstringReturns
   args: ['returns', 'int']
   description: 'Number of words highlighted.'
+  kind: returns
   type_name: 'int'
   is_generator: False
 === detect

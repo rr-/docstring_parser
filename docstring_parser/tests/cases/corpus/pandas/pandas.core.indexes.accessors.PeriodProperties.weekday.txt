@@ -14,6 +14,7 @@ style: numpydoc
 - DocstringDeprecated
   args: ['deprecation']
   description: 'Use :attr:`Series.dt.day_of_week` instead.'
+  kind: deprecation
   version: '3.1.0'
 === detect
 numpydoc

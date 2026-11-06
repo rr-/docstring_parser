@@ -54,17 +54,20 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'other']
   description: 'The other index on which join is performed.'
+  kind: param
   arg_name: 'other'
   type_name: 'Index'
   is_optional: False
 - DocstringParam
   args: ['param', 'how']
+  kind: param
   arg_name: 'how'
   type_name: "{'left', 'right', 'inner', 'outer'}"
   is_optional: False
 - DocstringParam
   args: ['param', 'level']
   description: 'It is either the integer position or the name of the level.'
+  kind: param
   arg_name: 'level'
   type_name: 'int or level name'
   is_optional: True
@@ -72,6 +75,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'return_indexers']
   description: 'Whether to return the indexers or not for both the index objects.'
+  kind: param
   arg_name: 'return_indexers'
   type_name: 'bool'
   is_optional: True
@@ -81,6 +85,7 @@ style: numpydoc
   description: |
     Sort the join keys lexicographically in the result Index. If False,
     the order of the join keys depends on the join type (how keyword).
+  kind: param
   arg_name: 'sort'
   type_name: 'bool'
   is_optional: True
@@ -88,6 +93,7 @@ style: numpydoc
 - DocstringReturns
   args: ['returns']
   description: 'The new index.'
+  kind: returns
   type_name: 'join_index, (left_indexer, right_indexer)'
   is_generator: False
 - DocstringMeta
@@ -97,9 +103,11 @@ style: numpydoc
         or on a key.
     DataFrame.merge : Merge DataFrame or named Series objects with a
         database-style join.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: "Index([1, 2, 3, 4, 5, 6], dtype='int64')"
+  kind: examples
   snippet: |
     >>> idx1 = pd.Index([1, 2, 3])
     >>> idx2 = pd.Index([4, 5, 6])
@@ -109,6 +117,7 @@ style: numpydoc
   description: |
     (Index([1, 2, 3, 4, 5, 6], dtype='int64'),
     array([ 0,  1,  2, -1, -1, -1]), array([-1, -1, -1,  0,  1,  2]))
+  kind: examples
   snippet: '>>> idx1.join(other=idx2, how="outer", return_indexers=True)'
 === detect
 numpydoc

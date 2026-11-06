@@ -24,6 +24,7 @@ style: epydoc
 - DocstringParam
   args: ['param', 'path']
   description: 'the directory to remove.'
+  kind: param
   arg_name: 'path'
   type_name: 'L{bytes}'
   is_optional: False

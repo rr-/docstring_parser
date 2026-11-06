@@ -22,6 +22,7 @@ style: rest
     One.
     
     Two.
+  kind: param
   arg_name: 'a'
 - DocstringParam
   args: ['param', 'b']
@@ -30,12 +31,14 @@ style: rest
     
     x
     y
+  kind: param
   arg_name: 'b'
 - DocstringParam
   args: ['param', 'c']
   description: |
     First,
     more.
+  kind: param
   arg_name: 'c'
 === compose rest
 Short.

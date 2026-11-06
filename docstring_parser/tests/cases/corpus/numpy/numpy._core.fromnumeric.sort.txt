@@ -160,6 +160,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'a']
   description: 'Array to be sorted.'
+  kind: param
   arg_name: 'a'
   type_name: 'array_like'
   is_optional: False
@@ -168,6 +169,7 @@ style: numpydoc
   description: |
     Axis along which to sort. If None, the array is flattened before
     sorting. The default is -1, which sorts along the last axis.
+  kind: param
   arg_name: 'axis'
   type_name: 'int or None'
   is_optional: True
@@ -179,6 +181,7 @@ style: numpydoc
     and 'mergesort' use timsort or radix sort under the covers and,
     in general, the actual implementation will vary with data type.
     The 'mergesort' option is retained for backwards compatibility.
+  kind: param
   arg_name: 'kind'
   type_name: "{'quicksort', 'mergesort', 'heapsort', 'stable'}"
   is_optional: True
@@ -191,6 +194,7 @@ style: numpydoc
     be specified as a string, and not all fields need be specified,
     but unspecified fields will still be used, in the order in which
     they come up in the dtype, to break ties.
+  kind: param
   arg_name: 'order'
   type_name: 'str or list of str'
   is_optional: True
@@ -203,6 +207,7 @@ style: numpydoc
     this option selects ``kind='stable'``. Default: ``None``.
     
     .. versionadded:: 2.0.0
+  kind: param
   arg_name: 'stable'
   type_name: 'bool'
   is_optional: True
@@ -215,12 +220,14 @@ style: numpydoc
     end for both orders. Default: ``None``.
     
     .. versionadded:: 2.5.0
+  kind: param
   arg_name: 'descending'
   type_name: 'bool'
   is_optional: True
 - DocstringReturns
   args: ['returns']
   description: 'Array of the same type and shape as `a`.'
+  kind: returns
   type_name: 'ndarray'
   is_generator: False
   return_name: 'sorted_array'
@@ -232,6 +239,7 @@ style: numpydoc
     lexsort : Indirect stable sort on multiple keys.
     searchsorted : Find elements in a sorted array.
     partition : Partial sort.
+  kind: text
 - DocstringMeta
   args: ['notes']
   description: |
@@ -302,11 +310,13 @@ style: numpydoc
     Radix sort is an O(n) sort instead of O(n log n).
     
     NaT now sorts to the end of arrays for consistency with NaN.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
     array([[1, 4],
            [1, 3]])
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> a = np.array([[1,4],[3,1]])
@@ -314,6 +324,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: 'array([1, 1, 3, 4])'
+  kind: examples
   snippet: '>>> np.sort(a, axis=None)     # sort the flattened array'
 - DocstringExample
   args: ['examples']
@@ -324,10 +335,12 @@ style: numpydoc
     Use the `order` keyword to specify a field to use when sorting a
     structured array:
     
+  kind: examples
   snippet: '>>> np.sort(a, axis=0)        # sort along the first axis'
 - DocstringExample
   args: ['examples']
   description: "...           ('Galahad', 1.7, 38)]"
+  kind: examples
   snippet: |
     >>> dtype = [('name', 'S10'), ('height', float), ('age', int)]
     >>> values = [('Arthur', 1.8, 41), ('Lancelot', 1.9, 38),
@@ -340,6 +353,7 @@ style: numpydoc
     
     Sort by age, then height if ages are equal:
     
+  kind: examples
   snippet: |
     >>> a = np.array(values, dtype=dtype)       # create a structured array
     >>> np.sort(a, order='height')                        # doctest: +SKIP
@@ -349,6 +363,7 @@ style: numpydoc
     array([('Galahad', 1.7, 38), ('Lancelot', 1.8999999999999999, 38),
            ('Arthur', 1.8, 41)],
           dtype=[('name', '|S10'), ('height', '<f8'), ('age', '<i4')])
+  kind: examples
   snippet: ">>> np.sort(a, order=['age', 'height'])               # doctest: +SKIP"
 === detect
 numpydoc

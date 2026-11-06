@@ -17,17 +17,20 @@ style: epydoc
 - DocstringParam
   args: ['ivar', 'status']
   description: 'L{int}'
+  kind: attribute
   arg_name: 'status'
   is_optional: False
 - DocstringParam
   args: ['param', 'message']
   description: 'Message of L{IResponse}'
+  kind: param
   arg_name: 'message'
   type_name: 'L{bytes}'
   is_optional: False
 - DocstringParam
   args: ['param', 'deferred']
   description: 'deferred to fire when response is complete'
+  kind: param
   arg_name: 'deferred'
   type_name: 'L{Deferred} firing with L{bytes}'
   is_optional: False

@@ -47,12 +47,14 @@ style: rest
 - DocstringParam
   args: ['param', 'rule']
   description: 'The URL rule string.'
+  kind: param
   arg_name: 'rule'
 - DocstringParam
   args: ['param', 'options']
   description: |
     Extra options passed to the
     :class:`~werkzeug.routing.Rule` object.
+  kind: param
   arg_name: 'options'
 === detect
 rest

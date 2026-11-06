@@ -16,10 +16,12 @@ style: google
 - DocstringParam
   args: ['param', 'data']
   description: 'The data to decode.'
+  kind: param
   arg_name: 'data'
 - DocstringReturns
   args: ['returns']
   description: 'The decoded data.'
+  kind: returns
   is_generator: False
 === detect
 google

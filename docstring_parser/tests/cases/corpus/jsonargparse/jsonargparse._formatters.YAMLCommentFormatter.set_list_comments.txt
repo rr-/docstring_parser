@@ -16,18 +16,22 @@ style: google
 - DocstringParam
   args: ['param', 'cfg']
   description: 'The ruamel.yaml object.'
+  kind: param
   arg_name: 'cfg'
 - DocstringParam
   args: ['param', 'action']
   description: 'The action that corresponds to the given list.'
+  kind: param
   arg_name: 'action'
 - DocstringParam
   args: ['param', 'depth']
   description: 'The nested level of the keys of the items of the list.'
+  kind: param
   arg_name: 'depth'
 - DocstringParam
   args: ['param', 'typehint']
   description: 'The type of the list, defaults to the type of the action.'
+  kind: param
   arg_name: 'typehint'
 === detect
 google

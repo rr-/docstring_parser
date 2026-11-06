@@ -34,12 +34,14 @@ style: epydoc
   description: |
     The full import path of the exception class which was
     raised on the remote end.
+  kind: attribute
   arg_name: 'remoteType'
   type_name: 'C{str}'
   is_optional: False
 - DocstringParam
   args: ['ivar', 'remoteTraceback']
   description: 'The remote traceback.'
+  kind: attribute
   arg_name: 'remoteTraceback'
   type_name: 'C{str}'
   is_optional: False
@@ -48,6 +50,7 @@ style: epydoc
   description: |
     It's not possible to include the remoteTraceback if this exception is
     thrown into a generator. It must be accessed as an attribute.
+  kind: text
 === detect
 epydoc
 === compose epydoc

@@ -18,18 +18,22 @@ style: google
 - DocstringParam
   args: ['param', 'parser']
   description: 'The parser object.'
+  kind: param
   arg_name: 'parser'
 - DocstringParam
   args: ['param', 'source']
   description: 'The configuration from which to merge.'
+  kind: param
   arg_name: 'source'
 - DocstringParam
   args: ['param', 'target']
   description: 'The configuration into which to merge.'
+  kind: param
   arg_name: 'target'
 - DocstringReturns
   args: ['returns']
   description: 'A new object with the merged configuration.'
+  kind: returns
   is_generator: False
 === detect
 google

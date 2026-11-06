@@ -100,6 +100,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'other']
   description: 'Object to compare with.'
+  kind: param
   arg_name: 'other'
   type_name: 'Series'
   is_optional: False
@@ -112,6 +113,7 @@ style: numpydoc
       with rows drawn alternately from self and other.
     * 1, or 'columns' : Resulting differences are aligned horizontally
       with columns drawn alternately from self and other.
+  kind: param
   arg_name: 'align_axis'
   type_name: "{0 or 'index', 1 or 'columns'}"
   is_optional: True
@@ -121,6 +123,7 @@ style: numpydoc
   description: |
     If true, all rows and columns are kept.
     Otherwise, only the ones with different values are kept.
+  kind: param
   arg_name: 'keep_shape'
   type_name: 'bool'
   is_optional: True
@@ -130,6 +133,7 @@ style: numpydoc
   description: |
     If true, the result keeps values that are equal.
     Otherwise, equal values are shown as NaNs.
+  kind: param
   arg_name: 'keep_equal'
   type_name: 'bool'
   is_optional: True
@@ -137,6 +141,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'result_names']
   description: 'Set the dataframes names in the comparison.'
+  kind: param
   arg_name: 'result_names'
   type_name: 'tuple'
   is_optional: True
@@ -150,20 +155,24 @@ style: numpydoc
     
     If axis is 1 or 'columns' the result will be a DataFrame.
     It will have two columns namely 'self' and 'other'.
+  kind: returns
   type_name: 'Series or DataFrame'
   is_generator: False
 - DocstringMeta
   args: ['see_also']
   description: 'DataFrame.compare : Compare with another DataFrame and show differences.'
+  kind: text
 - DocstringMeta
   args: ['notes']
   description: 'Matching NaNs will not appear as a difference.'
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
     
     Align the differences on columns
     
+  kind: examples
   snippet: |
     >>> s1 = pd.Series(["a", "b", "c", "d", "e"])
     >>> s2 = pd.Series(["a", "a", "c", "b", "e"])
@@ -176,6 +185,7 @@ style: numpydoc
     
     Stack the differences on indices
     
+  kind: examples
   snippet: '>>> s1.compare(s2)'
 - DocstringExample
   args: ['examples']
@@ -188,6 +198,7 @@ style: numpydoc
     
     Keep all original rows
     
+  kind: examples
   snippet: '>>> s1.compare(s2, align_axis=0)'
 - DocstringExample
   args: ['examples']
@@ -201,6 +212,7 @@ style: numpydoc
     
     Keep all original rows and also all original values
     
+  kind: examples
   snippet: '>>> s1.compare(s2, keep_shape=True)'
 - DocstringExample
   args: ['examples']
@@ -211,6 +223,7 @@ style: numpydoc
     2    c     c
     3    d     b
     4    e     e
+  kind: examples
   snippet: '>>> s1.compare(s2, keep_shape=True, keep_equal=True)'
 === detect
 numpydoc

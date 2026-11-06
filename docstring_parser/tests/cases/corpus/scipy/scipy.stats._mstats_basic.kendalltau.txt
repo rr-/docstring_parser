@@ -55,18 +55,21 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'x']
   description: 'First data list (for example, time).'
+  kind: param
   arg_name: 'x'
   type_name: 'sequence'
   is_optional: False
 - DocstringParam
   args: ['param', 'y']
   description: 'Second data list.'
+  kind: param
   arg_name: 'y'
   type_name: 'sequence'
   is_optional: False
 - DocstringParam
   args: ['param', 'use_ties']
   description: 'Whether ties correction should be performed.'
+  kind: param
   arg_name: 'use_ties'
   type_name: '{True, False}'
   is_optional: True
@@ -75,6 +78,7 @@ style: numpydoc
   description: |
     Whether missing data should be allocated a rank of 0 (False) or the
     average rank (True)
+  kind: param
   arg_name: 'use_missing'
   type_name: '{False, True}'
   is_optional: True
@@ -88,6 +92,7 @@ style: numpydoc
     time may grow and the result may lose some precision.
     'auto' is the default and selects the appropriate
     method based on a trade-off between speed and accuracy.
+  kind: param
   arg_name: 'method'
   type_name: "{'auto', 'asymptotic', 'exact'}"
   is_optional: True
@@ -100,6 +105,7 @@ style: numpydoc
     * 'two-sided': the rank correlation is nonzero
     * 'less': the rank correlation is negative (less than zero)
     * 'greater':  the rank correlation is positive (greater than zero)
+  kind: param
   arg_name: 'alternative'
   type_name: "{'two-sided', 'less', 'greater'}"
   is_optional: True
@@ -114,6 +120,7 @@ style: numpydoc
     pvalue : float
        The p-value for a hypothesis test whose null hypothesis is
        an absence of association, tau = 0.
+  kind: returns
   type_name: 'SignificanceResult'
   is_generator: False
   return_name: 'res'
@@ -122,6 +129,7 @@ style: numpydoc
   description: |
     .. [1] Maurice G. Kendall, "Rank Correlation Methods" (4th Edition),
            Charles Griffin & Co., 1970.
+  kind: text
 === detect
 numpydoc
 === compose numpydoc

@@ -21,12 +21,14 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'mask']
   description: 'Mask of the quadratic models to return.'
+  kind: param
   arg_name: 'mask'
   type_name: '`numpy.ndarray`, shape (m_nonlinear_eq,)'
   is_optional: True
 - DocstringReturns
   args: ['returns']
   description: 'Quadratic models of the nonlinear equality constraints.'
+  kind: returns
   type_name: '`numpy.ndarray`'
   is_generator: False
 === detect

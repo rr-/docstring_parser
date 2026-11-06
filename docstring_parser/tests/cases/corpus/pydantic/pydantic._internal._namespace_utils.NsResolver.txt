@@ -102,6 +102,7 @@ style: google
     The default globals and locals to use if no class is present
     on the stack. This can be useful when using the `GenerateSchema` class
     with `TypeAdapter`, where the "type" being analyzed is a simple annotation.
+  kind: param
   arg_name: 'namespaces_tuple'
 - DocstringParam
   args: ['param', 'parent_namespace']
@@ -128,6 +129,7 @@ style: google
     namespace will be used for *every* type being pushed to the stack. In the future,
     we might want to be smarter by only doing so when the type being pushed is defined
     in the same module as the parent namespace.
+  kind: param
   arg_name: 'parent_namespace'
 - DocstringExample
   args: ['examples']
@@ -166,6 +168,7 @@ style: google
             # correctly (as otherwise models would have to be rebuilt even though this
             # doesn't look necessary).
     ```
+  kind: examples
 === detect
 google
 === compose google

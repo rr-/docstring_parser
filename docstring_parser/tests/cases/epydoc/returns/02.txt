@@ -12,4 +12,5 @@ style: epydoc
 - DocstringReturns
   args: ['return']
   description: 'description'
+  kind: returns
   is_generator: False

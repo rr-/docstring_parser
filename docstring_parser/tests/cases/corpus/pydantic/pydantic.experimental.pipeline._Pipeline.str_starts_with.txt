@@ -13,6 +13,7 @@ style: google
 - DocstringParam
   args: ['param', 'prefix']
   description: 'The prefix the string must start with.'
+  kind: param
   arg_name: 'prefix'
 === detect
 google

@@ -51,12 +51,14 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'b']
   description: 'Linear filter term.'
+  kind: param
   arg_name: 'b'
   type_name: 'array_like'
   is_optional: False
 - DocstringParam
   args: ['param', 'a']
   description: 'Linear filter term.'
+  kind: param
   arg_name: 'a'
   type_name: 'array_like'
   is_optional: False
@@ -68,6 +70,7 @@ style: numpydoc
     If ``N = len(a) - 1``, then ``y = {y[-1], y[-2], ..., y[-N]}``.
     
     If `y` is too short, it is padded with zeros.
+  kind: param
   arg_name: 'y'
   type_name: 'array_like'
   is_optional: False
@@ -81,6 +84,7 @@ style: numpydoc
     If `x` is not given, its initial conditions are assumed zero.
     
     If `x` is too short, it is padded with zeros.
+  kind: param
   arg_name: 'x'
   type_name: 'array_like'
   is_optional: True
@@ -89,12 +93,14 @@ style: numpydoc
   description: |
     The state vector ``zi = {z_0[-1], z_1[-1], ..., z_K-1[-1]}``,
     where ``K = max(M, N)``.
+  kind: returns
   type_name: 'ndarray'
   is_generator: False
   return_name: 'zi'
 - DocstringMeta
   args: ['see_also']
   description: 'lfilter, lfilter_zi'
+  kind: text
 === detect
 numpydoc
 === compose numpydoc

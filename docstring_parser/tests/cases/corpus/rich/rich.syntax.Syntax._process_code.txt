@@ -20,6 +20,7 @@ style: google
 - DocstringParam
   args: ['param', 'code (str)']
   description: 'The raw code string to process'
+  kind: param
   arg_name: 'code'
   type_name: 'str'
   is_optional: False
@@ -28,6 +29,7 @@ style: google
   description: |
     the boolean indicates whether the raw code ends with a line return,
     while the string is the processed code.
+  kind: returns
   type_name: 'Tuple[bool, str]'
   is_generator: False
 === detect

@@ -35,6 +35,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'x']
   description: 'Input array.'
+  kind: param
   arg_name: 'x'
   type_name: 'array'
   is_optional: False
@@ -46,6 +47,7 @@ style: numpydoc
     each pair applies to the corresponding axis of ``x``.
     A single tuple, ``(before, after)``, is equivalent to a list of ``x.ndim``
     copies of this tuple.
+  kind: param
   arg_name: 'pad_width'
   type_name: 'int or tuple of ints or sequence of pairs of ints'
   is_optional: False
@@ -54,12 +56,14 @@ style: numpydoc
   description: |
     Only "constant" mode is currently supported, which pads with
     the value passed to `constant_values`.
+  kind: param
   arg_name: 'mode'
   type_name: 'str'
   is_optional: True
 - DocstringParam
   args: ['param', 'constant_values']
   description: 'Use this value to pad the input. Default is zero.'
+  kind: param
   arg_name: 'constant_values'
   type_name: 'python scalar'
   is_optional: True
@@ -67,6 +71,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'xp']
   description: 'The standard-compatible namespace for `x`. Default: infer.'
+  kind: param
   arg_name: 'xp'
   type_name: 'array_namespace'
   is_optional: True
@@ -76,6 +81,7 @@ style: numpydoc
   description: |
     The input array,
     padded with ``pad_width`` elements equal to ``constant_values``.
+  kind: returns
   type_name: 'array'
   is_generator: False
 === detect

@@ -22,10 +22,12 @@ style: google
 - DocstringParam
   args: ['param', 'class_type']
   description: 'The class to instantiate.'
+  kind: param
   arg_name: 'class_type'
 - DocstringParam
   args: ['param', '**kwargs']
   description: 'Any keyword arguments to use for instantiation.'
+  kind: param
   arg_name: '**kwargs'
 === detect
 google

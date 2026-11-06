@@ -17,6 +17,7 @@ style: google
   description: |
     >>> if Confirm.ask("Continue"):
     run_job()
+  kind: examples
 === detect
 google
 === compose google

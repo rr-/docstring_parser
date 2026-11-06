@@ -13,5 +13,6 @@ style: epydoc
 - DocstringReturns
   args: ['yield']
   description: 'description'
+  kind: yields
   type_name: 'int'
   is_generator: True

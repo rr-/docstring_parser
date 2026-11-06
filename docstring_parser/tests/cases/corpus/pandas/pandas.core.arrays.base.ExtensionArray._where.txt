@@ -19,16 +19,19 @@ blank_after_long_description: False
 style: numpydoc
 - DocstringParam
   args: ['param', 'mask']
+  kind: param
   arg_name: 'mask'
   type_name: 'np.ndarray[bool]'
   is_optional: False
 - DocstringParam
   args: ['param', 'value']
+  kind: param
   arg_name: 'value'
   type_name: 'scalar or listlike'
   is_optional: False
 - DocstringReturns
   args: ['returns']
+  kind: returns
   type_name: 'same type as self'
   is_generator: False
 === detect

@@ -45,34 +45,42 @@ style: google
     The mode in which `to_python` should run.
     If mode is 'json', the output will only contain JSON serializable types.
     If mode is 'python', the output may contain non-JSON-serializable Python objects.
+  kind: param
   arg_name: 'mode'
 - DocstringParam
   args: ['param', 'include']
   description: 'A set of fields to include in the output.'
+  kind: param
   arg_name: 'include'
 - DocstringParam
   args: ['param', 'exclude']
   description: 'A set of fields to exclude from the output.'
+  kind: param
   arg_name: 'exclude'
 - DocstringParam
   args: ['param', 'context']
   description: 'Additional context to pass to the serializer.'
+  kind: param
   arg_name: 'context'
 - DocstringParam
   args: ['param', 'by_alias']
   description: "Whether to use the field's alias in the dictionary key if defined."
+  kind: param
   arg_name: 'by_alias'
 - DocstringParam
   args: ['param', 'exclude_unset']
   description: 'Whether to exclude fields that have not been explicitly set.'
+  kind: param
   arg_name: 'exclude_unset'
 - DocstringParam
   args: ['param', 'exclude_defaults']
   description: 'Whether to exclude fields that are set to their default value.'
+  kind: param
   arg_name: 'exclude_defaults'
 - DocstringParam
   args: ['param', 'exclude_none']
   description: 'Whether to exclude fields that have a value of `None`.'
+  kind: param
   arg_name: 'exclude_none'
 - DocstringParam
   args: ['param', 'exclude_computed_fields']
@@ -80,34 +88,41 @@ style: google
     Whether to exclude computed fields.
     While this can be useful for round-tripping, it is usually recommended to use the dedicated
     `round_trip` parameter instead.
+  kind: param
   arg_name: 'exclude_computed_fields'
 - DocstringParam
   args: ['param', 'round_trip']
   description: 'If True, dumped values should be valid as input for non-idempotent types such as Json[T].'
+  kind: param
   arg_name: 'round_trip'
 - DocstringParam
   args: ['param', 'warnings']
   description: |
     How to handle serialization errors. False/"none" ignores them, True/"warn" logs errors,
     "error" raises a [`PydanticSerializationError`][pydantic_core.PydanticSerializationError].
+  kind: param
   arg_name: 'warnings'
 - DocstringParam
   args: ['param', 'fallback']
   description: |
     A function to call when an unknown value is encountered. If not provided,
     a [`PydanticSerializationError`][pydantic_core.PydanticSerializationError] error is raised.
+  kind: param
   arg_name: 'fallback'
 - DocstringParam
   args: ['param', 'serialize_as_any']
   description: 'Whether to serialize fields with duck-typing serialization behavior.'
+  kind: param
   arg_name: 'serialize_as_any'
 - DocstringParam
   args: ['param', 'polymorphic_serialization']
   description: 'Whether to use model and dataclass polymorphic serialization for this call.'
+  kind: param
   arg_name: 'polymorphic_serialization'
 - DocstringReturns
   args: ['returns']
   description: 'A dictionary representation of the model.'
+  kind: returns
   is_generator: False
 === detect
 google

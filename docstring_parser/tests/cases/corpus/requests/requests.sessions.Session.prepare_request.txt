@@ -20,14 +20,17 @@ style: rest
 - DocstringMeta
   args: ['class']
   description: '`Session`.'
+  kind: text
 - DocstringParam
   args: ['param', 'request']
   description: |
     :class:`Request` instance to prepare with this
     session's settings.
+  kind: param
   arg_name: 'request'
 - DocstringReturns
   args: []
+  kind: returns
   type_name: 'requests.PreparedRequest'
   is_generator: False
 === detect

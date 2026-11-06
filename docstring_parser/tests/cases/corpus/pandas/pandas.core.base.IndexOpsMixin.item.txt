@@ -46,17 +46,20 @@ style: numpydoc
 - DocstringReturns
   args: ['returns']
   description: 'The first element of Series or Index.'
+  kind: returns
   type_name: 'scalar'
   is_generator: False
 - DocstringRaises
   args: ['raises', 'ValueError']
   description: 'If the data is not length = 1.'
+  kind: raises
   type_name: 'ValueError'
 - DocstringMeta
   args: ['see_also']
   description: |
     Index.values : Returns an array representing the data in the Index.
     Series.head : Returns the first `n` rows.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
@@ -64,12 +67,14 @@ style: numpydoc
     
     For an index:
     
+  kind: examples
   snippet: |
     >>> s = pd.Series([1])
     >>> s.item()
 - DocstringExample
   args: ['examples']
   description: "'a'"
+  kind: examples
   snippet: |
     >>> s = pd.Series([1], index=["a"])
     >>> s.index.item()

@@ -177,78 +177,91 @@ style: numpydoc
 - DocstringParam
   args: ['attribute', 'data']
   description: 'CSR format data array of the matrix'
+  kind: attribute
   arg_name: 'data'
   type_name: 'ndarray'
   is_optional: False
 - DocstringParam
   args: ['attribute', 'indices']
   description: 'CSR format index array of the matrix'
+  kind: attribute
   arg_name: 'indices'
   type_name: 'ndarray'
   is_optional: False
 - DocstringParam
   args: ['attribute', 'indptr']
   description: 'CSR format index pointer array of the matrix'
+  kind: attribute
   arg_name: 'indptr'
   type_name: 'ndarray'
   is_optional: False
 - DocstringParam
   args: ['attribute', 'has_sorted_indices']
   description: 'Whether indices are sorted'
+  kind: attribute
   arg_name: 'has_sorted_indices'
   type_name: 'bool'
   is_optional: False
 - DocstringParam
   args: ['attribute', 'has_canonical_format']
   description: 'Whether indices are sorted and no duplicate entries exist'
+  kind: attribute
   arg_name: 'has_canonical_format'
   type_name: 'bool'
   is_optional: False
 - DocstringParam
   args: ['attribute', 'dtype']
   description: 'Data type of the matrix'
+  kind: attribute
   arg_name: 'dtype'
   type_name: 'dtype'
   is_optional: False
 - DocstringParam
   args: ['attribute', 'shape']
   description: 'Shape of the matrix'
+  kind: attribute
   arg_name: 'shape'
   type_name: '2-tuple'
   is_optional: False
 - DocstringParam
   args: ['attribute', 'ndim']
   description: 'Number of dimensions (this is always 2)'
+  kind: attribute
   arg_name: 'ndim'
   type_name: 'int'
   is_optional: False
 - DocstringParam
   args: ['attribute', 'format']
   description: "Three letter code for the format of the matrix storage, e.g. 'csr'"
+  kind: attribute
   arg_name: 'format'
   type_name: 'str'
   is_optional: False
 - DocstringParam
   args: ['attribute', 'nnz']
   description: 'Number of values stored in the matrix'
+  kind: attribute
   arg_name: 'nnz'
   type_name: 'int'
   is_optional: False
 - DocstringParam
   args: ['attribute', 'size']
   description: 'Number of values stored in the matrix'
+  kind: attribute
   arg_name: 'size'
   type_name: 'int'
   is_optional: False
 - DocstringParam
   args: ['attribute', 'T']
   description: 'The transpose of the matrix'
+  kind: attribute
   arg_name: 'T'
   type_name: 'csr_matrix'
   is_optional: False
 - DocstringParam
   args: ['attribute', 'mT']
   description: 'The matrix transpose'
+  kind: attribute
   arg_name: 'mT'
   type_name: 'csr_matrix'
   is_optional: False
@@ -270,6 +283,7 @@ style: numpydoc
     Canonical Format
         - Within each row, indices are sorted by column.
         - There are no duplicate entries.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
@@ -277,6 +291,7 @@ style: numpydoc
            [0, 0, 0, 0],
            [0, 0, 0, 0]], dtype=int8)
     
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> from scipy.sparse import csr_matrix
@@ -288,6 +303,7 @@ style: numpydoc
            [0, 0, 3],
            [4, 5, 6]])
     
+  kind: examples
   snippet: |
     >>> row = np.array([0, 0, 1, 2, 2, 2])
     >>> col = np.array([0, 2, 2, 0, 1, 2])
@@ -302,6 +318,7 @@ style: numpydoc
     
     Duplicate entries are summed together:
     
+  kind: examples
   snippet: |
     >>> indptr = np.array([0, 2, 3, 6])
     >>> indices = np.array([0, 2, 2, 0, 1, 2])
@@ -317,6 +334,7 @@ style: numpydoc
     As an example of how to construct a CSR matrix incrementally,
     the following snippet builds a term-document matrix from texts:
     
+  kind: examples
   snippet: |
     >>> row = np.array([0, 1, 2, 0])
     >>> col = np.array([0, 1, 1, 0])
@@ -331,6 +349,7 @@ style: numpydoc
     ...         data.append(1)
     ...     indptr.append(len(indices))
     ...
+  kind: examples
   snippet: |
     >>> docs = [["hello", "world", "hello"], ["goodbye", "cruel", "world"]]
     >>> indptr = [0]
@@ -343,6 +362,7 @@ style: numpydoc
   description: |
     array([[2, 1, 0, 0],
            [0, 1, 1, 1]])
+  kind: examples
   snippet: '>>> csr_matrix((data, indices, indptr), dtype=int).toarray()'
 === detect
 numpydoc

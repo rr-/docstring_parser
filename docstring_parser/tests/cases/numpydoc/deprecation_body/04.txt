@@ -12,4 +12,5 @@ style: numpydoc
 - DocstringDeprecated
   args: ['deprecation']
   description: 'Use other.'
+  kind: deprecation
   version: '1.0'

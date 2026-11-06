@@ -16,10 +16,12 @@ style: google
 - DocstringParam
   args: ['param', 'dest']
   description: 'Destination key from which to get the default.'
+  kind: param
   arg_name: 'dest'
 - DocstringRaises
   args: ['raises', 'KeyError']
   description: 'If key or its default not defined in the parser.'
+  kind: raises
   type_name: 'KeyError'
 === detect
 google

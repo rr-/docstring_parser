@@ -28,6 +28,7 @@ style: rest
 - DocstringParam
   args: ['param', 'message']
   description: 'the message to be flashed.'
+  kind: param
   arg_name: 'message'
 - DocstringParam
   args: ['param', 'category']
@@ -37,6 +38,7 @@ style: rest
     ``'error'`` for errors, ``'info'`` for information
     messages and ``'warning'`` for warnings.  However any
     kind of string can be used as category.
+  kind: param
   arg_name: 'category'
 === detect
 rest

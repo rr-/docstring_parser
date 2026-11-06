@@ -32,6 +32,7 @@ style: rest
   description: |
     The :class:`PreparedRequest <PreparedRequest>` object to be sent
     over the connection.
+  kind: param
   arg_name: 'request'
 - DocstringParam
   args: ['param', 'verify']
@@ -39,19 +40,23 @@ style: rest
     Either a boolean, in which case it controls whether we verify the
     server's TLS certificate, or a string, in which case it must be a
     path to a CA bundle to use.
+  kind: param
   arg_name: 'verify'
 - DocstringParam
   args: ['param', 'proxies']
   description: '(optional) The proxies dictionary to apply to the request.'
+  kind: param
   arg_name: 'proxies'
 - DocstringParam
   args: ['param', 'cert']
   description: |
     (optional) Any user-provided SSL certificate to be used for client
     authentication (a.k.a., mTLS).
+  kind: param
   arg_name: 'cert'
 - DocstringReturns
   args: []
+  kind: returns
   type_name: 'urllib3.HTTPConnectionPool'
   is_generator: False
 === detect

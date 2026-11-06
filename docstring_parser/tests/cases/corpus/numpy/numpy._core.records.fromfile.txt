@@ -53,24 +53,28 @@ style: numpydoc
     If file is a string or a path-like object then that file is opened,
     else it is assumed to be a file object. The file object must
     support random access (i.e. it must have tell and seek methods).
+  kind: param
   arg_name: 'fd'
   type_name: 'str or file type'
   is_optional: False
 - DocstringParam
   args: ['param', 'dtype']
   description: 'valid dtype for all arrays'
+  kind: param
   arg_name: 'dtype'
   type_name: 'data-type'
   is_optional: True
 - DocstringParam
   args: ['param', 'shape']
   description: 'shape of each array.'
+  kind: param
   arg_name: 'shape'
   type_name: 'int or tuple of ints'
   is_optional: True
 - DocstringParam
   args: ['param', 'offset']
   description: 'Position in the file to start reading from.'
+  kind: param
   arg_name: 'offset'
   type_name: 'int'
   is_optional: True
@@ -80,17 +84,20 @@ style: numpydoc
     If `dtype` is ``None``, these arguments are passed to
     `numpy.format_parser` to construct a dtype. See that function for
     detailed documentation
+  kind: param
   arg_name: 'formats, names, titles, aligned, byteorder'
   type_name: ''
   is_optional: False
 - DocstringReturns
   args: ['returns']
   description: 'record array consisting of data enclosed in file.'
+  kind: returns
   type_name: 'np.recarray'
   is_generator: False
 - DocstringExample
   args: ['examples']
   description: "... byteorder='<')"
+  kind: examples
   snippet: |
     >>> from tempfile import TemporaryFile
     >>> a = np.empty(10,dtype='f8,i4,S5')
@@ -105,10 +112,12 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: "(0.5, 10, b'abcde')"
+  kind: examples
   snippet: '>>> print(r[5])'
 - DocstringExample
   args: ['examples']
   description: '(10,)'
+  kind: examples
   snippet: '>>> r.shape'
 === detect
 numpydoc

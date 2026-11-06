@@ -13,6 +13,7 @@ style: google
 - DocstringParam
   args: ['param', 'size (int)']
   description: 'The desired size of the text.'
+  kind: param
   arg_name: 'size'
   type_name: 'int'
   is_optional: False

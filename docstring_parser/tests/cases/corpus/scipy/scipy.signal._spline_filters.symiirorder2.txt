@@ -55,12 +55,14 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'input']
   description: 'The input signal.'
+  kind: param
   arg_name: 'input'
   type_name: 'ndarray'
   is_optional: False
 - DocstringParam
   args: ['param', 'r, omega']
   description: 'Parameters in the transfer function.'
+  kind: param
   arg_name: 'r, omega'
   type_name: 'float'
   is_optional: False
@@ -69,12 +71,14 @@ style: numpydoc
   description: |
     Specifies the precision for calculating initial conditions
     of the recursive filter based on mirror-symmetric input.
+  kind: param
   arg_name: 'precision'
   type_name: 'float'
   is_optional: False
 - DocstringReturns
   args: ['returns']
   description: 'The filtered signal.'
+  kind: returns
   type_name: 'ndarray'
   is_generator: False
   return_name: 'output'

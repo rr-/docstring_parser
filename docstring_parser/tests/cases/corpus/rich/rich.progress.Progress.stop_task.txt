@@ -16,6 +16,7 @@ style: google
 - DocstringParam
   args: ['param', 'task_id (TaskID)']
   description: 'ID of task.'
+  kind: param
   arg_name: 'task_id'
   type_name: 'TaskID'
   is_optional: False

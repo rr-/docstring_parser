@@ -13,6 +13,7 @@ style: google
 - DocstringReturns
   args: ['returns']
   description: 'A dictionary of extra fields, or `None` if `config.extra` is not set to `"allow"`.'
+  kind: returns
   is_generator: False
 === detect
 google

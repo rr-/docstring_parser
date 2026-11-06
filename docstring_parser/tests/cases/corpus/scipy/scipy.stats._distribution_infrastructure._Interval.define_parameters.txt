@@ -38,6 +38,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', '*parameters']
   description: 'Parameters that may define the endpoints of the domain.'
+  kind: param
   arg_name: '*parameters'
   type_name: '_Parameter objects'
   is_optional: False

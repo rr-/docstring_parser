@@ -26,16 +26,19 @@ style: google
 - DocstringParam
   args: ['param', 'type_']
   description: 'The class or generic alias.'
+  kind: param
   arg_name: 'type_'
 - DocstringParam
   args: ['param', 'type_map']
   description: 'Mapping from `TypeVar` instance to concrete types.'
+  kind: param
   arg_name: 'type_map'
 - DocstringReturns
   args: ['returns']
   description: |
     A new type representing the basic structure of `type_` with all
     `typevar_map` keys recursively replaced.
+  kind: returns
   is_generator: False
 - DocstringExample
   args: ['examples']
@@ -46,6 +49,7 @@ style: google
     replace_types(tuple[str, list[str] | float], {str: int})
     #> tuple[int, list[int] | float]
     ```
+  kind: examples
 === detect
 google
 === compose google

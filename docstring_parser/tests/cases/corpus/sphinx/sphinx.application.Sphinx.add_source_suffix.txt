@@ -27,6 +27,7 @@ style: rest
     If false, do not install it the same suffix
     is already installed.
     If true, unconditionally install the suffix.
+  kind: param
   arg_name: 'override'
 === detect
 rest

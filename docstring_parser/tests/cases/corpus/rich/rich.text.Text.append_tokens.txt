@@ -16,12 +16,14 @@ style: google
 - DocstringParam
   args: ['param', 'tokens (Iterable[Tuple[str, Optional[StyleType]]])']
   description: 'An iterable of tuples containing str content and style.'
+  kind: param
   arg_name: 'tokens'
   type_name: 'Iterable[Tuple[str, Optional[StyleType]]]'
   is_optional: False
 - DocstringReturns
   args: ['returns', 'Text']
   description: 'Returns self for chaining.'
+  kind: returns
   type_name: 'Text'
   is_generator: False
 === detect

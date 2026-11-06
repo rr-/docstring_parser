@@ -17,14 +17,17 @@ style: google
 - DocstringParam
   args: ['param', '*args']
   description: 'Dictionary defining the default values to set.'
+  kind: param
   arg_name: '*args'
 - DocstringParam
   args: ['param', '**kwargs']
   description: 'Sets default values based on keyword arguments.'
+  kind: param
   arg_name: '**kwargs'
 - DocstringRaises
   args: ['raises', 'KeyError']
   description: 'If key not defined in the parser.'
+  kind: raises
   type_name: 'KeyError'
 === detect
 google

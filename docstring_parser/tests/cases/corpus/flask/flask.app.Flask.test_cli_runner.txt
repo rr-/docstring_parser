@@ -25,6 +25,7 @@ style: rest
   description: |
     `~flask.testing.FlaskCliRunner`. The Flask app object is
     passed as the first argument.
+  kind: text
 === detect
 rest
 === compose rest

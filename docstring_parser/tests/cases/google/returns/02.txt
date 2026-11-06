@@ -13,4 +13,5 @@ style: google
 - DocstringReturns
   args: ['returns']
   description: 'description'
+  kind: returns
   is_generator: False

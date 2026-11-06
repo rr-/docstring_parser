@@ -43,6 +43,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: ''
+  kind: examples
   snippet: '>>> import numpy as np'
 - DocstringExample
   args: ['examples']
@@ -52,22 +53,26 @@ style: numpydoc
     
     The `as`-clause of the `with`-statement gives the current print options:
     
+  kind: examples
   snippet: |
     >>> from numpy.testing import assert_equal
     >>> with np.printoptions(precision=2):
 - DocstringExample
   args: ['examples']
   description: '...      assert_equal(opts, np.get_printoptions())'
+  kind: examples
   snippet: '>>> with np.printoptions(precision=2) as opts:'
 - DocstringMeta
   args: ['see_also']
   description: 'set_printoptions, get_printoptions'
+  kind: text
 - DocstringMeta
   args: ['notes']
   description: |
     These print options apply only to NumPy ndarrays, not to scalars.
     
     **Concurrency note:** see :ref:`text_formatting_options`
+  kind: text
 === detect
 numpydoc
 === compose numpydoc

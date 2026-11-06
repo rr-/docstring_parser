@@ -24,30 +24,35 @@ style: google
 - DocstringParam
   args: ['param', 'key (str)']
   description: 'The AWS secret access key.'
+  kind: param
   arg_name: 'key'
   type_name: 'str'
   is_optional: False
 - DocstringParam
   args: ['param', 'date_stamp (str)']
   description: "The '%Y%m%d' date format."
+  kind: param
   arg_name: 'date_stamp'
   type_name: 'str'
   is_optional: False
 - DocstringParam
   args: ['param', 'region_name (str)']
   description: 'The AWS region.'
+  kind: param
   arg_name: 'region_name'
   type_name: 'str'
   is_optional: False
 - DocstringParam
   args: ['param', 'service_name (str)']
   description: 'The AWS service name, eg. sts.'
+  kind: param
   arg_name: 'service_name'
   type_name: 'str'
   is_optional: False
 - DocstringReturns
   args: ['returns', 'str']
   description: 'The signing key bytes.'
+  kind: returns
   type_name: 'str'
   is_generator: False
 === detect

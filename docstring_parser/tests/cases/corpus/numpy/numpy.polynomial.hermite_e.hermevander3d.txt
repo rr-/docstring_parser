@@ -77,12 +77,14 @@ style: numpydoc
     be converted to either float64 or complex128 depending on whether
     any of the elements are complex. Scalars are converted to 1-D
     arrays.
+  kind: param
   arg_name: 'x, y, z'
   type_name: 'array_like'
   is_optional: False
 - DocstringParam
   args: ['param', 'deg']
   description: 'List of maximum degrees of the form [x_deg, y_deg, z_deg].'
+  kind: param
   arg_name: 'deg'
   type_name: 'list of ints'
   is_optional: False
@@ -92,12 +94,14 @@ style: numpydoc
     The shape of the returned matrix is ``x.shape + (order,)``, where
     :math:`order = (deg[0]+1)*(deg[1]+1)*(deg[2]+1)`.  The dtype will
     be the same as the converted `x`, `y`, and `z`.
+  kind: returns
   type_name: 'ndarray'
   is_generator: False
   return_name: 'vander3d'
 - DocstringMeta
   args: ['see_also']
   description: 'hermevander, hermevander3d, hermeval2d, hermeval3d'
+  kind: text
 === detect
 numpydoc
 === compose numpydoc

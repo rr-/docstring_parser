@@ -11,3 +11,4 @@ style: epydoc
 - DocstringMeta
   args: ['myivar', 'value']
   description: 'detail'
+  kind: text

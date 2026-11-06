@@ -49,12 +49,14 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'X']
   description: 'The random variable :math:`X`.'
+  kind: param
   arg_name: 'X'
   type_name: '`ContinuousDistribution`'
   is_optional: False
 - DocstringReturns
   args: ['returns']
   description: 'A random variable :math:`Y = \\exp(X)`.'
+  kind: returns
   type_name: '`ContinuousDistribution`'
   is_generator: False
   return_name: 'Y'
@@ -63,6 +65,7 @@ style: numpydoc
   description: |
     Suppose we have a normally distributed random variable :math:`X`:
     
+  kind: examples
 - DocstringExample
   args: ['examples']
   description: |
@@ -72,6 +75,7 @@ style: numpydoc
     If :math:`X` is to be the natural logarithm of :math:`Y`, then we
     must take :math:`Y` to be the natural exponential of :math:`X`.
     
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> from scipy import stats
@@ -84,10 +88,12 @@ style: numpydoc
     we plot a normalized histogram of the logarithm of observations of
     ``Y`` against the PDF underlying ``X``.
     
+  kind: examples
   snippet: '>>> Y = stats.exp(X)'
 - DocstringExample
   args: ['examples']
   description: ''
+  kind: examples
   snippet: |
     >>> import matplotlib.pyplot as plt
     >>> rng = np.random.default_rng(435383595582522)

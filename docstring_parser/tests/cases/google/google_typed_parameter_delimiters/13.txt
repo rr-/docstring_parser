@@ -12,6 +12,7 @@ style: google
 - DocstringParam
   args: ['param', 'value (tuple[int, str], optional)']
   description: 'description'
+  kind: param
   arg_name: 'value'
   type_name: 'tuple[int, str]'
   is_optional: True

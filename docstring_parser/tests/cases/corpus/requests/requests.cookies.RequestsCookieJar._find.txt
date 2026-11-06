@@ -23,18 +23,22 @@ style: rest
 - DocstringParam
   args: ['param', 'name']
   description: 'a string containing name of cookie'
+  kind: param
   arg_name: 'name'
 - DocstringParam
   args: ['param', 'domain']
   description: '(optional) string containing domain of cookie'
+  kind: param
   arg_name: 'domain'
 - DocstringParam
   args: ['param', 'path']
   description: '(optional) string containing path of cookie'
+  kind: param
   arg_name: 'path'
 - DocstringReturns
   args: ['return']
   description: 'cookie.value'
+  kind: returns
   is_generator: False
 === detect
 rest

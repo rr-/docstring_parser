@@ -19,10 +19,12 @@ style: google
   description: |
     x (int): absolute x (column)
     y (int): optional y offset (row)
+  kind: returns
   is_generator: False
 - DocstringReturns
   args: ['returns', '~Control']
   description: 'Control object.'
+  kind: returns
   type_name: '~Control'
   is_generator: False
 === detect

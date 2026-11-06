@@ -20,6 +20,7 @@ style: epydoc
     1
         2
     3
+  kind: text
 === compose epydoc
 Short description
 

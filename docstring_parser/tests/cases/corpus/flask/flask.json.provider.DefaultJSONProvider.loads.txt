@@ -13,10 +13,12 @@ style: rest
 - DocstringParam
   args: ['param', 's']
   description: 'Text or UTF-8 bytes.'
+  kind: param
   arg_name: 's'
 - DocstringParam
   args: ['param', 'kwargs']
   description: 'Passed to :func:`json.loads`.'
+  kind: param
   arg_name: 'kwargs'
 === detect
 rest

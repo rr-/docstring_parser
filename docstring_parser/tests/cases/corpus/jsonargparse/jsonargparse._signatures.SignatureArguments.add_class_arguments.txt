@@ -33,54 +33,66 @@ style: google
 - DocstringParam
   args: ['param', 'class_type']
   description: 'Class from which to add arguments.'
+  kind: param
   arg_name: 'class_type'
 - DocstringParam
   args: ['param', 'nested_key']
   description: 'Key for nested namespace.'
+  kind: param
   arg_name: 'nested_key'
 - DocstringParam
   args: ['param', 'as_group']
   description: 'Whether arguments should be added to a new argument group.'
+  kind: param
   arg_name: 'as_group'
 - DocstringParam
   args: ['param', 'as_positional']
   description: 'Whether to add required parameters as positional arguments.'
+  kind: param
   arg_name: 'as_positional'
 - DocstringParam
   args: ['param', 'default']
   description: 'Default value used to override parameter defaults.'
+  kind: param
   arg_name: 'default'
 - DocstringParam
   args: ['param', 'skip']
   description: 'Names of parameters or number of positionals that should be skipped.'
+  kind: param
   arg_name: 'skip'
 - DocstringParam
   args: ['param', 'instantiate']
   description: |
     Whether the class group should be instantiated by
     :meth:`instantiate <.ArgumentParser.instantiate>`.
+  kind: param
   arg_name: 'instantiate'
 - DocstringParam
   args: ['param', 'fail_untyped']
   description: |
     Whether to raise an exception for parameters that don't have a type:
     True for the required ones, "all" for all of them, False for none.
+  kind: param
   arg_name: 'fail_untyped'
 - DocstringParam
   args: ['param', 'sub_configs']
   description: 'Whether subclass type hints should be loadable from inner config file.'
+  kind: param
   arg_name: 'sub_configs'
 - DocstringReturns
   args: ['returns']
   description: 'The list of arguments added.'
+  kind: returns
   is_generator: False
 - DocstringRaises
   args: ['raises', 'ValueError']
   description: 'When not given a class.'
+  kind: raises
   type_name: 'ValueError'
 - DocstringRaises
   args: ['raises', 'ValueError']
   description: 'When there are required parameters without at least one valid type.'
+  kind: raises
   type_name: 'ValueError'
 === detect
 google

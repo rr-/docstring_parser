@@ -24,7 +24,9 @@ style: numpydoc
     Use other.
     
     More.
+  kind: deprecation
   version: '1.0'
 - DocstringMeta
   args: ['see_also']
   description: 'other'
+  kind: text

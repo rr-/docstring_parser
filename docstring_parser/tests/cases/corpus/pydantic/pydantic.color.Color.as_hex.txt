@@ -19,6 +19,7 @@ style: google
 - DocstringReturns
   args: ['returns']
   description: 'The hexadecimal representation of the color.'
+  kind: returns
   is_generator: False
 === detect
 google

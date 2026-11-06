@@ -13,6 +13,7 @@ style: rest
 - DocstringMeta
   args: ['class']
   description: '`~ssl.SSLContext` object.'
+  kind: text
 === detect
 rest
 === compose rest

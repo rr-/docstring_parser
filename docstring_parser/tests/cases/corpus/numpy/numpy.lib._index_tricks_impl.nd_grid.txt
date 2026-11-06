@@ -55,6 +55,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'sparse']
   description: 'Whether the grid is sparse or not. Default is False.'
+  kind: param
   arg_name: 'sparse'
   type_name: 'bool'
   is_optional: True
@@ -70,6 +71,7 @@ style: numpydoc
     
     Users should use these pre-defined instances instead of using `nd_grid`
     directly.
+  kind: text
 === detect
 numpydoc
 === compose numpydoc

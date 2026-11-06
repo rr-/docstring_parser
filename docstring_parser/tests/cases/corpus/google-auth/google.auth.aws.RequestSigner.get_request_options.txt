@@ -28,6 +28,7 @@ style: google
 - DocstringParam
   args: ['param', 'aws_security_credentials (AWSSecurityCredentials)']
   description: 'The AWS security credentials.'
+  kind: param
   arg_name: 'aws_security_credentials'
   type_name: 'AWSSecurityCredentials'
   is_optional: False
@@ -36,12 +37,14 @@ style: google
   description: |
     The AWS service URL containing the canonical URI and
     query string.
+  kind: param
   arg_name: 'url'
   type_name: 'str'
   is_optional: False
 - DocstringParam
   args: ['param', 'method (str)']
   description: 'The HTTP method used to call this API.'
+  kind: param
   arg_name: 'method'
   type_name: 'str'
   is_optional: False
@@ -50,6 +53,7 @@ style: google
   description: |
     The optional request payload if
     available.
+  kind: param
   arg_name: 'request_payload'
   type_name: 'Optional[str]'
   is_optional: False
@@ -58,12 +62,14 @@ style: google
   description: |
     The optional
     additional headers needed for the requested AWS API.
+  kind: param
   arg_name: 'additional_headers'
   type_name: 'Optional[Mapping[str, str]]'
   is_optional: False
 - DocstringReturns
   args: ['returns', 'Mapping[str, str]']
   description: 'The AWS signed request dictionary object.'
+  kind: returns
   type_name: 'Mapping[str, str]'
   is_generator: False
 === detect

@@ -14,4 +14,5 @@ style: rest
   description: |
     first paragraph
     second paragraph
+  kind: param
   arg_name: 'a'

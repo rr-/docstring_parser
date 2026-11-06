@@ -67,6 +67,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'ddof']
   description: 'Degrees of freedom.'
+  kind: param
   arg_name: 'ddof'
   type_name: 'int'
   is_optional: True
@@ -79,6 +80,7 @@ style: numpydoc
     .. versionchanged:: 2.0.0
     
         numeric_only now defaults to ``False``.
+  kind: param
   arg_name: 'numeric_only'
   type_name: 'bool'
   is_optional: True
@@ -86,6 +88,7 @@ style: numpydoc
 - DocstringReturns
   args: ['returns']
   description: 'Standard deviation of values within each group.'
+  kind: returns
   type_name: 'DataFrame or Series'
   is_generator: False
 - DocstringMeta
@@ -96,11 +99,13 @@ style: numpydoc
         values.
     core.resample.Resampler.var : Compute variance of groups, excluding missing
         values.
+  kind: text
 - DocstringMeta
   args: ['notes']
   description: |
     To use the same divisor as ``numpy.std``, use ``ddof=0`` instead of
     the default ``ddof=1``.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
@@ -116,6 +121,7 @@ style: numpydoc
     ...         ]
     ...     ),
     ... )
+  kind: examples
   snippet: '>>> ser = pd.Series('
 - DocstringExample
   args: ['examples']
@@ -123,6 +129,7 @@ style: numpydoc
     2023-01-01    1.000000
     2023-02-01    2.645751
     Freq: MS, dtype: float64
+  kind: examples
   snippet: '>>> ser.resample("MS").std()'
 === detect
 numpydoc

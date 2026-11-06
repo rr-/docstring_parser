@@ -21,16 +21,19 @@ style: google
   description: |
     The required type and access permissions among [fdrwxcuFDRWX] as a keyword argument (uppercase means
     not), e.g. ActionPathList(mode='fr').
+  kind: param
   arg_name: 'mode'
 - DocstringParam
   args: ['param', 'rel']
   description: |
     Whether relative paths are with respect to current working directory 'cwd' or the list's parent
     directory 'list'.
+  kind: param
   arg_name: 'rel'
 - DocstringRaises
   args: ['raises', 'ValueError']
   description: 'If any of the parameters (mode or rel) are invalid.'
+  kind: raises
   type_name: 'ValueError'
 === detect
 google

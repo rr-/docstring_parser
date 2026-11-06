@@ -22,9 +22,12 @@ style: epydoc
     1
         2
     3
+  kind: text
 - DocstringMeta
   args: ['meta2']
   description: 'herp'
+  kind: text
 - DocstringMeta
   args: ['meta3']
   description: 'derp'
+  kind: text

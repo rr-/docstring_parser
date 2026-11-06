@@ -41,18 +41,21 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'x']
   description: 'Sequence of data on which to counts the ties'
+  kind: param
   arg_name: 'x'
   type_name: 'sequence'
   is_optional: False
 - DocstringParam
   args: ['param', 'use_missing']
   description: 'Whether to consider missing values as tied.'
+  kind: param
   arg_name: 'use_missing'
   type_name: 'bool'
   is_optional: True
 - DocstringReturns
   args: ['returns']
   description: 'Returns a dictionary (nb of ties: nb of groups).'
+  kind: returns
   type_name: 'dict'
   is_generator: False
   return_name: 'count_tied_groups'
@@ -63,6 +66,7 @@ style: numpydoc
     
     In the above example, the ties were 0 (3x), 2 (3x) and 3 (2x).
     
+  kind: examples
   snippet: |
     >>> from scipy.stats import mstats
     >>> import numpy as np
@@ -71,12 +75,14 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: '{2: 2, 3: 1}'
+  kind: examples
   snippet: |
     >>> z = np.ma.array([0, 0, 1, 2, 2, 2, 3, 3, 4, 5, 6])
     >>> mstats.count_tied_groups(z)
 - DocstringExample
   args: ['examples']
   description: '{2: 2, 3: 1}'
+  kind: examples
   snippet: |
     >>> z[[1,-1]] = np.ma.masked
     >>> mstats.count_tied_groups(z, use_missing=True)

@@ -20,6 +20,7 @@ style: google
   description: |
     The credentials
     to refresh.
+  kind: param
   arg_name: 'credentials'
   type_name: 'CredentialsWithRegionalAccessBoundary'
   is_optional: False
@@ -28,12 +29,14 @@ style: google
   description: |
     The object used to make
     HTTP requests.
+  kind: param
   arg_name: 'request'
   type_name: 'google.auth.aio.transport.Request'
   is_optional: False
 - DocstringParam
   args: ['param', 'rab_manager (_RegionalAccessBoundaryManager)']
   description: 'The manager container to update.'
+  kind: param
   arg_name: 'rab_manager'
   type_name: '_RegionalAccessBoundaryManager'
   is_optional: False

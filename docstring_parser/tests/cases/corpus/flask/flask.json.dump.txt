@@ -45,19 +45,23 @@ style: rest
   description: |
     `app.json.dump() <flask.json.provider.JSONProvider.dump>`
     method, otherwise it will use :func:`json.dump`.
+  kind: text
 - DocstringParam
   args: ['param', 'obj']
   description: 'The data to serialize.'
+  kind: param
   arg_name: 'obj'
 - DocstringParam
   args: ['param', 'fp']
   description: |
     A file opened for writing text. Should use the UTF-8
     encoding to be valid JSON.
+  kind: param
   arg_name: 'fp'
 - DocstringParam
   args: ['param', 'kwargs']
   description: 'Arguments passed to the ``dump`` implementation.'
+  kind: param
   arg_name: 'kwargs'
 === detect
 rest

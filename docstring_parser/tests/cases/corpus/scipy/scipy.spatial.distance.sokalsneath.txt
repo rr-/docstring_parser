@@ -61,12 +61,14 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'u']
   description: 'Input array.'
+  kind: param
   arg_name: 'u'
   type_name: '(N,) array_like, bool'
   is_optional: False
 - DocstringParam
   args: ['param', 'v']
   description: 'Input array.'
+  kind: param
   arg_name: 'v'
   type_name: '(N,) array_like, bool'
   is_optional: False
@@ -75,6 +77,7 @@ style: numpydoc
   description: |
     The weights for each value in `u` and `v`. Default is None,
     which gives each value a weight of 1.0
+  kind: param
   arg_name: 'w'
   type_name: '(N,) array_like'
   is_optional: True
@@ -82,26 +85,31 @@ style: numpydoc
 - DocstringReturns
   args: ['returns']
   description: 'The Sokal-Sneath dissimilarity between vectors `u` and `v`.'
+  kind: returns
   type_name: 'double'
   is_generator: False
   return_name: 'sokalsneath'
 - DocstringExample
   args: ['examples']
   description: '1.0'
+  kind: examples
   snippet: |
     >>> from scipy.spatial import distance
     >>> distance.sokalsneath([1, 0, 0], [0, 1, 0])
 - DocstringExample
   args: ['examples']
   description: '0.66666666666666663'
+  kind: examples
   snippet: '>>> distance.sokalsneath([1, 0, 0], [1, 1, 0])'
 - DocstringExample
   args: ['examples']
   description: '0.0'
+  kind: examples
   snippet: '>>> distance.sokalsneath([1, 0, 0], [2, 1, 0])'
 - DocstringExample
   args: ['examples']
   description: '-2.0'
+  kind: examples
   snippet: '>>> distance.sokalsneath([1, 0, 0], [3, 1, 0])'
 === detect
 numpydoc

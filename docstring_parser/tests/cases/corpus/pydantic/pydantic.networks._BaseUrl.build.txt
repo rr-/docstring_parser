@@ -23,38 +23,47 @@ style: google
 - DocstringParam
   args: ['param', 'scheme']
   description: 'The scheme part of the URL.'
+  kind: param
   arg_name: 'scheme'
 - DocstringParam
   args: ['param', 'username']
   description: 'The username part of the URL, or omit for no username.'
+  kind: param
   arg_name: 'username'
 - DocstringParam
   args: ['param', 'password']
   description: 'The password part of the URL, or omit for no password.'
+  kind: param
   arg_name: 'password'
 - DocstringParam
   args: ['param', 'host']
   description: 'The host part of the URL.'
+  kind: param
   arg_name: 'host'
 - DocstringParam
   args: ['param', 'port']
   description: 'The port part of the URL, or omit for no port.'
+  kind: param
   arg_name: 'port'
 - DocstringParam
   args: ['param', 'path']
   description: 'The path part of the URL, or omit for no path.'
+  kind: param
   arg_name: 'path'
 - DocstringParam
   args: ['param', 'query']
   description: 'The query part of the URL, or omit for no query.'
+  kind: param
   arg_name: 'query'
 - DocstringParam
   args: ['param', 'fragment']
   description: 'The fragment part of the URL, or omit for no fragment.'
+  kind: param
   arg_name: 'fragment'
 - DocstringReturns
   args: ['returns']
   description: 'An instance of URL'
+  kind: returns
   is_generator: False
 === detect
 google

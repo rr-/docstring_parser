@@ -30,17 +30,21 @@ style: rest
     `~werkzeug.routing.BuildError` was raised. If this returns
     a value, it will be returned by ``url_for``, otherwise the error
     will be re-raised.
+  kind: text
 - DocstringParam
   args: ['param', 'error']
   description: 'The active ``BuildError`` being handled.'
+  kind: param
   arg_name: 'error'
 - DocstringParam
   args: ['param', 'endpoint']
   description: 'The endpoint being built.'
+  kind: param
   arg_name: 'endpoint'
 - DocstringParam
   args: ['param', 'values']
   description: 'The keyword arguments passed to ``url_for``.'
+  kind: param
   arg_name: 'values'
 === detect
 rest

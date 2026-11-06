@@ -18,18 +18,22 @@ style: google
 - DocstringParam
   args: ['param', 'action']
   description: 'The action used for parsing.'
+  kind: param
   arg_name: 'action'
 - DocstringParam
   args: ['param', 'value']
   description: 'The value to parse.'
+  kind: param
   arg_name: 'value'
 - DocstringParam
   args: ['param', 'key']
   description: 'The configuration key.'
+  kind: param
   arg_name: 'key'
 - DocstringRaises
   args: ['raises', 'TypeError']
   description: 'If the value is not valid.'
+  kind: raises
   type_name: 'TypeError'
 === detect
 google

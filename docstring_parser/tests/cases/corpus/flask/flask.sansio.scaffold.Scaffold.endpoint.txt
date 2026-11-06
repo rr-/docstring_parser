@@ -33,11 +33,13 @@ style: rest
 - DocstringMeta
   args: ['meth']
   description: '`add_url_rule`.'
+  kind: text
 - DocstringParam
   args: ['param', 'endpoint']
   description: |
     The endpoint name to associate with the view
     function.
+  kind: param
   arg_name: 'endpoint'
 === detect
 rest

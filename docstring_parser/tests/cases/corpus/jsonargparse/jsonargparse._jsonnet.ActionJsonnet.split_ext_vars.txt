@@ -13,6 +13,7 @@ style: google
 - DocstringParam
   args: ['param', 'ext_vars']
   description: 'External variables. Values can be strings or any other basic type.'
+  kind: param
   arg_name: 'ext_vars'
 === detect
 google

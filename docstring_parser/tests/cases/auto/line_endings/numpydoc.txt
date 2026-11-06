@@ -19,8 +19,10 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'a']
   description: 'first'
+  kind: param
   arg_name: 'a'
 - DocstringReturns
   args: ['returns']
+  kind: returns
   type_name: 'result'
   is_generator: False

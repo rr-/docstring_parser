@@ -14,12 +14,14 @@ style: google
 - DocstringParam
   args: ['param', 'count (int)']
   description: 'Width of padding.'
+  kind: param
   arg_name: 'count'
   type_name: 'int'
   is_optional: False
 - DocstringParam
   args: ['param', 'character (str)']
   description: 'The character to pad with. Must be a string of length 1.'
+  kind: param
   arg_name: 'character'
   type_name: 'str'
   is_optional: False

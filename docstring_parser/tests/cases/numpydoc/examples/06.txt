@@ -15,8 +15,10 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: 'desc1'
+  kind: examples
   snippet: '>>> test1'
 - DocstringExample
   args: ['examples']
   description: 'desc2'
+  kind: examples
   snippet: '>>> test2'

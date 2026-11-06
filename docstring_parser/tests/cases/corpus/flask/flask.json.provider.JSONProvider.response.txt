@@ -30,15 +30,18 @@ style: rest
   description: |
     `~flask.Response` object with the ``application/json``
     mimetype.
+  kind: text
 - DocstringParam
   args: ['param', 'args']
   description: |
     A single value to serialize, or multiple values to
     treat as a list to serialize.
+  kind: param
   arg_name: 'args'
 - DocstringParam
   args: ['param', 'kwargs']
   description: 'Treat as a dict to serialize.'
+  kind: param
   arg_name: 'kwargs'
 === detect
 rest

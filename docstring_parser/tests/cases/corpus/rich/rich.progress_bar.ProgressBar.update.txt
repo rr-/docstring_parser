@@ -14,12 +14,14 @@ style: google
 - DocstringParam
   args: ['param', 'completed (float)']
   description: 'Number of steps completed.'
+  kind: param
   arg_name: 'completed'
   type_name: 'float'
   is_optional: False
 - DocstringParam
   args: ['param', 'total (float, optional)']
   description: 'Total number of steps, or ``None`` to not change. Defaults to None.'
+  kind: param
   arg_name: 'total'
   type_name: 'float'
   is_optional: True

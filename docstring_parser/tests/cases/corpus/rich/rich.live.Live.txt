@@ -22,6 +22,7 @@ style: google
 - DocstringParam
   args: ['param', 'renderable (RenderableType, optional)']
   description: 'The renderable to live display. Defaults to displaying nothing.'
+  kind: param
   arg_name: 'renderable'
   type_name: 'RenderableType'
   is_optional: True
@@ -29,6 +30,7 @@ style: google
 - DocstringParam
   args: ['param', 'console (Console, optional)']
   description: 'Optional Console instance. Defaults to an internal Console instance writing to stdout.'
+  kind: param
   arg_name: 'console'
   type_name: 'Console'
   is_optional: True
@@ -36,6 +38,7 @@ style: google
 - DocstringParam
   args: ['param', 'screen (bool, optional)']
   description: 'Enable alternate screen mode. Defaults to False.'
+  kind: param
   arg_name: 'screen'
   type_name: 'bool'
   is_optional: True
@@ -43,12 +46,14 @@ style: google
 - DocstringParam
   args: ['param', 'auto_refresh (bool, optional)']
   description: 'Enable auto refresh. If disabled, you will need to call `refresh()` or `update()` with refresh flag. Defaults to True'
+  kind: param
   arg_name: 'auto_refresh'
   type_name: 'bool'
   is_optional: True
 - DocstringParam
   args: ['param', 'refresh_per_second (float, optional)']
   description: 'Number of times per second to refresh the live display. Defaults to 4.'
+  kind: param
   arg_name: 'refresh_per_second'
   type_name: 'float'
   is_optional: True
@@ -56,6 +61,7 @@ style: google
 - DocstringParam
   args: ['param', 'transient (bool, optional)']
   description: 'Clear the renderable on exit (has no effect when screen=True). Defaults to False.'
+  kind: param
   arg_name: 'transient'
   type_name: 'bool'
   is_optional: True
@@ -63,6 +69,7 @@ style: google
 - DocstringParam
   args: ['param', 'redirect_stdout (bool, optional)']
   description: 'Enable redirection of stdout, so ``print`` may be used. Defaults to True.'
+  kind: param
   arg_name: 'redirect_stdout'
   type_name: 'bool'
   is_optional: True
@@ -70,6 +77,7 @@ style: google
 - DocstringParam
   args: ['param', 'redirect_stderr (bool, optional)']
   description: 'Enable redirection of stderr. Defaults to True.'
+  kind: param
   arg_name: 'redirect_stderr'
   type_name: 'bool'
   is_optional: True
@@ -77,6 +85,7 @@ style: google
 - DocstringParam
   args: ['param', 'vertical_overflow (VerticalOverflowMethod, optional)']
   description: 'How to handle renderable when it is too tall for the console. Defaults to "ellipsis".'
+  kind: param
   arg_name: 'vertical_overflow'
   type_name: 'VerticalOverflowMethod'
   is_optional: True
@@ -84,6 +93,7 @@ style: google
 - DocstringParam
   args: ['param', 'get_renderable (Callable[[], RenderableType], optional)']
   description: 'Optional callable to get renderable. Defaults to None.'
+  kind: param
   arg_name: 'get_renderable'
   type_name: 'Callable[[], RenderableType]'
   is_optional: True

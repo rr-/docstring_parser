@@ -44,12 +44,14 @@ style: google
   description: |
     Optional path to a config file for
     overriding ``__init__`` defaults.
+  kind: attribute
   arg_name: '__from_config_init_defaults__'
 - DocstringParam
   args: ['attribute', '__from_config_parser_kwargs__']
   description: |
     Additional kwargs to pass to the
     ArgumentParser used for parsing configs.
+  kind: attribute
   arg_name: '__from_config_parser_kwargs__'
 === detect
 google

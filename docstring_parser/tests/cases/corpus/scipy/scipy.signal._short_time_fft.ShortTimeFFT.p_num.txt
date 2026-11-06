@@ -41,12 +41,14 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'n']
   description: 'Number of samples of input signal'
+  kind: param
   arg_name: 'n'
   type_name: 'int'
   is_optional: False
 - DocstringReturns
   args: ['returns']
   description: 'Number of time slices for input signal with `n` samples.'
+  kind: returns
   type_name: 'int'
   is_generator: False
   return_name: 'p_num'
@@ -61,6 +63,7 @@ style: numpydoc
     p_range: Determine and validate slice index range.
     upper_border_begin: Where post-padding effects start.
     ShortTimeFFT: Class this method belongs to.
+  kind: text
 === detect
 numpydoc
 === compose numpydoc

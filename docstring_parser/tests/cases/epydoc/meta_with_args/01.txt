@@ -13,3 +13,4 @@ style: epydoc
 - DocstringMeta
   args: ['meta', 'ene', 'due', 'rabe']
   description: 'asd'
+  kind: text

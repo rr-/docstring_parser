@@ -14,12 +14,14 @@ style: google
 - DocstringParam
   args: ['param', 'count (int)']
   description: 'Number of characters to pad.'
+  kind: param
   arg_name: 'count'
   type_name: 'int'
   is_optional: False
 - DocstringParam
   args: ['param', 'character (str, optional)']
   description: 'Character to pad with. Defaults to " ".'
+  kind: param
   arg_name: 'character'
   type_name: 'str'
   is_optional: True

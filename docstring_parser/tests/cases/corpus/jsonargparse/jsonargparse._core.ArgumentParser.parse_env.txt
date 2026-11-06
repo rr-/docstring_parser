@@ -20,18 +20,22 @@ style: google
 - DocstringParam
   args: ['param', 'env']
   description: 'The environment object to use, if ``None`` then ``os.environ`` is used.'
+  kind: param
   arg_name: 'env'
 - DocstringParam
   args: ['param', 'defaults']
   description: "Whether to merge with the parser's defaults."
+  kind: param
   arg_name: 'defaults'
 - DocstringReturns
   args: ['returns']
   description: 'A config object with all parsed values.'
+  kind: returns
   is_generator: False
 - DocstringRaises
   args: ['raises', 'ArgumentError']
   description: 'If the parsing fails and ``exit_on_error=False``.'
+  kind: raises
   type_name: 'ArgumentError'
 === detect
 google

@@ -59,6 +59,7 @@ style: numpydoc
   description: |
     1-D array containing the Legendre series coefficients, ordered
     from lowest order term to highest.
+  kind: param
   arg_name: 'c'
   type_name: 'array_like'
   is_optional: False
@@ -68,20 +69,24 @@ style: numpydoc
     1-D array containing the coefficients of the equivalent polynomial
     (relative to the "standard" basis) ordered from lowest order term
     to highest.
+  kind: returns
   type_name: 'ndarray'
   is_generator: False
   return_name: 'pol'
 - DocstringMeta
   args: ['see_also']
   description: 'poly2leg'
+  kind: text
 - DocstringMeta
   args: ['notes']
   description: |
     The easy way to do conversions between polynomial basis sets
     is to use the convert method of a class instance.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: "Legendre([0., 1., 2., 3.], domain=[-1.,  1.], window=[-1.,  1.], symbol='x')"
+  kind: examples
   snippet: |
     >>> from numpy import polynomial as P
     >>> c = P.Legendre(range(4))
@@ -89,12 +94,14 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: 'Polynomial([-1. , -3.5,  3. ,  7.5], domain=[-1.,  1.], window=[-1., ...'
+  kind: examples
   snippet: |
     >>> p = c.convert(kind=P.Polynomial)
     >>> p
 - DocstringExample
   args: ['examples']
   description: 'array([-1. , -3.5,  3. ,  7.5])'
+  kind: examples
   snippet: '>>> P.legendre.leg2poly(range(4))'
 === detect
 numpydoc

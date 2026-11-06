@@ -17,6 +17,7 @@ style: epydoc
   description: |
     The tracked protocol instance to be which has been
     lost.
+  kind: param
   arg_name: 'protocol'
   type_name: 'L{dns.DNSProtocol}'
   is_optional: False

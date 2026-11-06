@@ -26,8 +26,10 @@ style: google
 - DocstringParam
   args: ['param', 'arg0']
   description: 'desc0'
+  kind: param
   arg_name: 'arg0'
 - DocstringParam
   args: ['param', 'arg1']
   description: 'desc1'
+  kind: param
   arg_name: 'arg1'

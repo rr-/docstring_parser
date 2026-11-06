@@ -23,6 +23,7 @@ style: epydoc
   description: |
     Something to present to a user to solicit a yes or no
     response.
+  kind: param
   arg_name: 'text'
   type_name: 'L{bytes}'
   is_optional: False
@@ -32,6 +33,7 @@ style: epydoc
     a L{Deferred} which fires with L{True} when the user answers
     'yes' and L{False} when the user answers 'no'.  It may errback if
     there were any I/O errors.
+  kind: returns
   is_generator: False
 === detect
 epydoc

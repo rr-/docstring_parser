@@ -23,6 +23,7 @@ style: google
 - DocstringRaises
   args: ['raises', 'ValueError']
   description: 'If an invalid logger value is given.'
+  kind: raises
   type_name: 'ValueError'
 === detect
 rest

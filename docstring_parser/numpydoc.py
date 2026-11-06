@@ -19,6 +19,7 @@ from .common import (
     DocstringRaises,
     DocstringReturns,
     DocstringStyle,
+    Kind,
     RenderingStyle,
     cleandoc,
     meta_as_attribute,
@@ -56,6 +57,16 @@ PARAM_DEFAULT_REGEX_IN_DESC = re.compile(
 )
 
 RETURN_KEY_REGEX = re.compile(r"^(?:(?P<name>.*?)\s*:\s*)?(?P<type>.*?)$")
+
+
+# The kinds of param that section keys other than ``param`` give.
+_PARAM_KINDS = {
+    "key": Kind.KEYWORD,
+    "keyword": Kind.KEYWORD,
+    "attribute": Kind.ATTRIBUTE,
+    "other_param": Kind.OTHER_PARAM,
+    "receives": Kind.RECEIVES,
+}
 
 
 class Section:
@@ -173,6 +184,7 @@ class ParamSection(_KVSection):
             type_name=type_name,
             is_optional=is_optional,
             default=default,
+            kind=_PARAM_KINDS.get(self.key, Kind.PARAM),
         )
 
 
@@ -189,6 +201,7 @@ class RaisesSection(_KVSection):
             args=[self.key, key],
             description=clean_str(value),
             type_name=key if len(key) > 0 else None,
+            kind=Kind.WARNS if self.key == "warns" else Kind.RAISES,
         )
 
 

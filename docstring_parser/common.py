@@ -60,6 +60,29 @@ class RenderingStyle(enum.Enum):
     EXPANDED = 3
 
 
+class Kind(enum.IntEnum):
+    """What a docstring meta documents."""
+
+    PARAM = 1
+    KEYWORD = 2
+    OTHER_PARAM = 3
+    RECEIVES = 4
+    ATTRIBUTE = 5
+    RETURNS = 6
+    YIELDS = 7
+    RAISES = 8
+    WARNS = 9
+    EXAMPLES = 10
+    DEPRECATION = 11
+    TEXT = 12
+
+
+PARAM_KINDS = frozenset(
+    {Kind.PARAM, Kind.KEYWORD, Kind.OTHER_PARAM, Kind.RECEIVES, Kind.ATTRIBUTE}
+)
+RAISES_KINDS = frozenset({Kind.RAISES, Kind.WARNS})
+
+
 class DocstringMeta:
     """Docstring meta information.
 
@@ -81,6 +104,9 @@ class DocstringMeta:
         """
         self.args = args
         self.description = description
+        #: What the meta documents. Each class sets it, so that the class
+        #: and the kind cannot disagree.
+        self.kind = Kind.TEXT
 
 
 class DocstringParam(DocstringMeta):
@@ -94,9 +120,16 @@ class DocstringParam(DocstringMeta):
         type_name: T.Optional[str],
         is_optional: T.Optional[bool],
         default: T.Optional[str],
+        kind: Kind = Kind.PARAM,
     ) -> None:
-        """Initialize self."""
+        """Initialize self.
+
+        :param kind: the kind of param, such as a keyword or an attribute
+        """
         super().__init__(args, description)
+        if kind not in PARAM_KINDS:
+            raise ValueError(f"{kind} is not a kind of param")
+        self.kind = kind
         self.arg_name = arg_name
         self.type_name = type_name
         self.is_optional = is_optional
@@ -116,6 +149,7 @@ class DocstringReturns(DocstringMeta):
     ) -> None:
         """Initialize self."""
         super().__init__(args, description)
+        self.kind = Kind.YIELDS if is_generator else Kind.RETURNS
         self.type_name = type_name
         self.is_generator = is_generator
         self.return_name = return_name
@@ -129,9 +163,16 @@ class DocstringRaises(DocstringMeta):
         args: T.List[str],
         description: T.Optional[str],
         type_name: T.Optional[str],
+        kind: Kind = Kind.RAISES,
     ) -> None:
-        """Initialize self."""
+        """Initialize self.
+
+        :param kind: raises or warns
+        """
         super().__init__(args, description)
+        if kind not in RAISES_KINDS:
+            raise ValueError(f"{kind} is not a kind of raises")
+        self.kind = kind
         self.type_name = type_name
         self.description = description
 
@@ -147,6 +188,7 @@ class DocstringDeprecated(DocstringMeta):
     ) -> None:
         """Initialize self."""
         super().__init__(args, description)
+        self.kind = Kind.DEPRECATION
         self.version = version
         self.description = description
 
@@ -162,6 +204,7 @@ class DocstringExample(DocstringMeta):
     ) -> None:
         """Initialize self."""
         super().__init__(args, description)
+        self.kind = Kind.EXAMPLES
         self.snippet = snippet
         self.description = description
 
@@ -188,6 +231,7 @@ def meta_as_attribute(meta: DocstringMeta) -> T.Optional[DocstringParam]:
             type_name=None,
             is_optional=None,
             default=None,
+            kind=Kind.ATTRIBUTE,
         )
     return None
 

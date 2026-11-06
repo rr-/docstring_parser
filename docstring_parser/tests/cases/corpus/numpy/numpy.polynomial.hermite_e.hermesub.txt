@@ -50,18 +50,21 @@ style: numpydoc
   description: |
     1-D arrays of Hermite series coefficients ordered from low to
     high.
+  kind: param
   arg_name: 'c1, c2'
   type_name: 'array_like'
   is_optional: False
 - DocstringReturns
   args: ['returns']
   description: 'Of Hermite series coefficients representing their difference.'
+  kind: returns
   type_name: 'ndarray'
   is_generator: False
   return_name: 'out'
 - DocstringMeta
   args: ['see_also']
   description: 'hermeadd, hermemulx, hermemul, hermediv, hermepow'
+  kind: text
 - DocstringMeta
   args: ['notes']
   description: |
@@ -69,9 +72,11 @@ style: numpydoc
     series is a Hermite series (without having to "reproject" the result
     onto the basis set) so subtraction, just like that of "standard"
     polynomials, is simply "component-wise."
+  kind: text
 - DocstringExample
   args: ['examples']
   description: 'array([0., 0., 0., 4.])'
+  kind: examples
   snippet: |
     >>> from numpy.polynomial.hermite_e import hermesub
     >>> hermesub([1, 2, 3, 4], [1, 2, 3])

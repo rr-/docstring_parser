@@ -17,6 +17,7 @@ style: epydoc
 - DocstringParam
   args: ['param', 'geometry']
   description: 'A tuple of (rows, columns, xpixel, ypixel)'
+  kind: param
   arg_name: 'geometry'
   type_name: 'L{tuple}'
   is_optional: False

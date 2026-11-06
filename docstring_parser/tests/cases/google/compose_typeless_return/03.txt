@@ -15,6 +15,7 @@ style: google
   description: |
     The value,
     over two lines.
+  kind: returns
   is_generator: False
 === compose google
 Short.

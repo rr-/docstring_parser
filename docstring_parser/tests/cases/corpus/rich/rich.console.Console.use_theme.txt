@@ -17,12 +17,14 @@ style: google
 - DocstringParam
   args: ['param', 'theme (Theme)']
   description: 'Theme instance to user.'
+  kind: param
   arg_name: 'theme'
   type_name: 'Theme'
   is_optional: False
 - DocstringParam
   args: ['param', 'inherit (bool, optional)']
   description: 'Inherit existing console styles. Defaults to True.'
+  kind: param
   arg_name: 'inherit'
   type_name: 'bool'
   is_optional: True
@@ -30,6 +32,7 @@ style: google
 - DocstringReturns
   args: ['returns', 'ThemeContext']
   description: '[description]'
+  kind: returns
   type_name: 'ThemeContext'
   is_generator: False
 === detect

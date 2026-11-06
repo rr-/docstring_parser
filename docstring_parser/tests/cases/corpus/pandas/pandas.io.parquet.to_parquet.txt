@@ -86,6 +86,7 @@ blank_after_long_description: False
 style: numpydoc
 - DocstringParam
   args: ['param', 'df']
+  kind: param
   arg_name: 'df'
   type_name: 'DataFrame'
   is_optional: False
@@ -106,6 +107,7 @@ style: numpydoc
     Certain URL schemes may require additional packages. For example, S3
     URLs require the ``s3fs`` library. See
     :ref:`install.optional_dependencies` for a full list.
+  kind: param
   arg_name: 'path'
   type_name: 'str, path object, file-like object, or None'
   is_optional: True
@@ -128,6 +130,7 @@ style: numpydoc
         The ``'fastparquet'`` and ``'auto'`` engine options are
         deprecated. Use ``'pyarrow'`` or do not pass ``engine``
         to use the default.
+  kind: param
   arg_name: 'engine'
   type_name: "{'auto', 'pyarrow', 'fastparquet'}"
   is_optional: True
@@ -137,6 +140,7 @@ style: numpydoc
   description: |
     default 'snappy'. Name of the compression to use. Use ``None``
     for no compression.
+  kind: param
   arg_name: 'compression'
   type_name: "{'snappy', 'gzip', 'brotli', 'lz4', 'zstd', None},"
   is_optional: False
@@ -150,6 +154,7 @@ style: numpydoc
     the RangeIndex will be stored as a range in the metadata so it
     doesn't require much space and is faster. Other indexes will
     be included as columns in the file output.
+  kind: param
   arg_name: 'index'
   type_name: 'bool'
   is_optional: True
@@ -160,6 +165,7 @@ style: numpydoc
     Column names by which to partition the dataset.
     Columns are partitioned in the order they are given.
     Must be None if path is not a string.
+  kind: param
   arg_name: 'partition_cols'
   type_name: 'str or list'
   is_optional: True
@@ -175,6 +181,7 @@ style: numpydoc
     and ``urllib`` for more details, and for more examples on storage
     options refer `here <https://pandas.pydata.org/docs/user_guide/io.html?
     highlight=storage_options#reading-writing-remote-files>`_.
+  kind: param
   arg_name: 'storage_options'
   type_name: 'dict'
   is_optional: True
@@ -185,6 +192,7 @@ style: numpydoc
     for ``engine="pyarrow"``.
     
     .. versionadded:: 2.1.0
+  kind: param
   arg_name: 'filesystem'
   type_name: 'fsspec or pyarrow filesystem'
   is_optional: True
@@ -197,9 +205,11 @@ style: numpydoc
     * For ``engine="pyarrow"``: passed to :func:`pyarrow.parquet.write_table`
       or :func:`pyarrow.parquet.write_to_dataset` (when using partition_cols)
     * For ``engine="fastparquet"``: passed to :func:`fastparquet.write`
+  kind: param
   arg_name: '**kwargs'
 - DocstringReturns
   args: ['returns']
+  kind: returns
   type_name: 'bytes if no path argument is provided else None'
   is_generator: False
 === detect

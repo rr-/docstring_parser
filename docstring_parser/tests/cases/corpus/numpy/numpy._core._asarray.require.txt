@@ -79,6 +79,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'a']
   description: 'The object to be converted to a type-and-requirement-satisfying array.'
+  kind: param
   arg_name: 'a'
   type_name: 'array_like'
   is_optional: False
@@ -88,6 +89,7 @@ style: numpydoc
     The required data-type. If None preserve the current dtype. If your
     application requires the data to be in native byteorder, include
     a byteorder specification as a part of the dtype specification.
+  kind: param
   arg_name: 'dtype'
   type_name: 'data-type'
   is_optional: False
@@ -102,16 +104,19 @@ style: numpydoc
     * 'WRITEABLE' ('W')    - ensure a writable array
     * 'OWNDATA' ('O')      - ensure an array that owns its own data
     * 'ENSUREARRAY', ('E') - ensure a base array, instead of a subclass
+  kind: param
   arg_name: 'requirements'
   type_name: 'str or sequence of str'
   is_optional: False
 - DocstringParam
   args: ['param', '${ARRAY_FUNCTION_LIKE}']
   description: '.. versionadded:: 1.20.0'
+  kind: param
   arg_name: '${ARRAY_FUNCTION_LIKE}'
 - DocstringReturns
   args: ['returns']
   description: 'Array with specified requirements and type if given.'
+  kind: returns
   type_name: 'ndarray'
   is_generator: False
   return_name: 'out'
@@ -124,11 +129,13 @@ style: numpydoc
     asfortranarray : Convert input to an ndarray with column-major
                      memory order.
     ndarray.flags : Information about the memory layout of the array.
+  kind: text
 - DocstringMeta
   args: ['notes']
   description: |
     The returned array will be guaranteed to have the listed requirements
     by making a copy if needed.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
@@ -139,6 +146,7 @@ style: numpydoc
       ALIGNED : True
       WRITEBACKIFCOPY : False
     
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> x = np.arange(6).reshape(2,3)
@@ -152,6 +160,7 @@ style: numpydoc
       WRITEABLE : True
       ALIGNED : True
       WRITEBACKIFCOPY : False
+  kind: examples
   snippet: |
     >>> y = np.require(x, dtype=np.float32, requirements=['A', 'O', 'W', 'F'])
     >>> y.flags

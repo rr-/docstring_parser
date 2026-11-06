@@ -81,6 +81,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'A']
   description: 'The array for which index arrays should be downcast.'
+  kind: param
   arg_name: 'A'
   type_name: 'sparse array or matrix'
   is_optional: False
@@ -89,6 +90,7 @@ style: numpydoc
   description: |
     Desired dtype. Should be an integer dtype (default: ``np.int32``).
     Most of scipy.sparse uses either int64 or int32.
+  kind: param
   arg_name: 'idx_dtype'
   type_name: 'dtype'
   is_optional: False
@@ -100,6 +102,7 @@ style: numpydoc
     The error message is ``f"<index> values too large for {msg}"``
     It should indicate why the downcasting is needed, e.g. "SuperLU",
     and defaults to f"dtype {idx_dtype}".
+  kind: param
   arg_name: 'msg'
   type_name: 'str'
   is_optional: True
@@ -112,6 +115,7 @@ style: numpydoc
     For COO, returns ``coords``.
     For DIA, returns ``offsets``.
     For BSR, returns ``(indices, indptr)``.
+  kind: returns
   type_name: 'ndarray or tuple of ndarrays'
   is_generator: False
   return_name: 'idx_arrays'
@@ -120,12 +124,14 @@ style: numpydoc
   description: |
     If the array has shape that would not fit in the new dtype, or if
     the sparse format does not use index arrays.
+  kind: raises
   type_name: 'ValueError'
 - DocstringExample
   args: ['examples']
   description: |
     dtype('int64')
     
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> from scipy import sparse
@@ -136,6 +142,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: 'False'
+  kind: examples
   snippet: |
     >>> # rescast after construction, raising exception if shape too big
     >>> coords = sparse.safely_cast_index_arrays(A, np.int32)
@@ -143,6 +150,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: "dtype('int32')"
+  kind: examples
   snippet: |
     >>> A.coords = coords  # set the index dtype of A
     >>> A.coords[0].dtype

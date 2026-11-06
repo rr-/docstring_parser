@@ -18,24 +18,28 @@ style: google
 - DocstringParam
   args: ['param', 'console (Console)']
   description: 'Console instance.'
+  kind: param
   arg_name: 'console'
   type_name: 'Console'
   is_optional: False
 - DocstringParam
   args: ['param', 'prompt (TextType)']
   description: 'Prompt text.'
+  kind: param
   arg_name: 'prompt'
   type_name: 'TextType'
   is_optional: False
 - DocstringParam
   args: ['param', 'password (bool)']
   description: 'Enable password entry.'
+  kind: param
   arg_name: 'password'
   type_name: 'bool'
   is_optional: False
 - DocstringReturns
   args: ['returns', 'str']
   description: 'String from user.'
+  kind: returns
   type_name: 'str'
   is_generator: False
 === detect

@@ -84,6 +84,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'N']
   description: 'The order of the filter.'
+  kind: param
   arg_name: 'N'
   type_name: 'int'
   is_optional: False
@@ -114,33 +115,39 @@ style: numpydoc
         Bond. [1]_
     
     .. versionadded:: 0.18.0
+  kind: param
   arg_name: 'norm'
   type_name: "{'phase', 'delay', 'mag'}"
   is_optional: True
 - DocstringParam
   args: ['param', '%(xp_device_snippet)s']
+  kind: param
   arg_name: '%(xp_device_snippet)s'
 - DocstringReturns
   args: ['returns']
   description: 'Zeros of the transfer function. Is always an empty array.'
+  kind: returns
   type_name: 'ndarray[float64]'
   is_generator: False
   return_name: 'z'
 - DocstringReturns
   args: ['returns']
   description: 'Poles of the transfer function.'
+  kind: returns
   type_name: 'ndarray[complex128]'
   is_generator: False
   return_name: 'p'
 - DocstringReturns
   args: ['returns']
   description: 'Gain of the transfer function. For phase-normalized, this is always 1.'
+  kind: returns
   type_name: 'float'
   is_generator: False
   return_name: 'k'
 - DocstringMeta
   args: ['see_also']
   description: 'bessel : Filter design function using this prototype'
+  kind: text
 - DocstringMeta
   args: ['notes']
   description: |
@@ -149,6 +156,7 @@ style: numpydoc
     Aberth-Ehrlich method [4]_ [5]_ is used on the Kv(x) Bessel function to
     calculate more accurate zeros, and these locations are then inverted about
     the unit circle.
+  kind: text
 - DocstringMeta
   args: ['references']
   description: |
@@ -168,6 +176,7 @@ style: numpydoc
     .. [6] Miller and Bohn, "A Bessel Filter Crossover, and Its Relation to
            Others", RaneNote 147, 1998,
            https://www.ranecommercial.com/legacy/note147.html
+  kind: text
 === detect
 numpydoc
 === compose numpydoc

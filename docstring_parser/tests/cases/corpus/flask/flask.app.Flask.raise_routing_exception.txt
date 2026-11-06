@@ -33,9 +33,11 @@ style: rest
 - DocstringMeta
   args: ['meta', 'private']
   description: ''
+  kind: text
 - DocstringMeta
   args: ['internal']
   description: ''
+  kind: text
 === detect
 rest
 === compose rest

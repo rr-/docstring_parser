@@ -18,9 +18,11 @@ style: rest
 - DocstringParam
   args: ['param', 'value']
   description: 'the header value to unquote.'
+  kind: param
   arg_name: 'value'
 - DocstringReturns
   args: []
+  kind: returns
   type_name: 'str'
   is_generator: False
 === detect

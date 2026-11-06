@@ -11,6 +11,7 @@ blank_after_long_description: False
 style: numpydoc
 - DocstringReturns
   args: ['returns']
+  kind: returns
   type_name: 'bool'
   is_generator: False
 === detect

@@ -19,10 +19,12 @@ style: google
 - DocstringParam
   args: ['param', 'schemas']
   description: 'The list of JSON Schemas to be included in the union.'
+  kind: param
   arg_name: 'schemas'
 - DocstringReturns
   args: ['returns']
   description: 'The JSON Schema representing the union of schemas.'
+  kind: returns
   is_generator: False
 === detect
 google

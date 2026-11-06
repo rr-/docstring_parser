@@ -17,6 +17,7 @@ style: google
 - DocstringParam
   args: ['param', 'text (str, optional)']
   description: 'A string to style. Defaults to "".'
+  kind: param
   arg_name: 'text'
   type_name: 'str'
   is_optional: True
@@ -24,6 +25,7 @@ style: google
 - DocstringParam
   args: ['param', 'color_system (Optional[ColorSystem], optional)']
   description: 'Color system to render to. Defaults to ColorSystem.TRUECOLOR.'
+  kind: param
   arg_name: 'color_system'
   type_name: 'Optional[ColorSystem]'
   is_optional: True
@@ -31,6 +33,7 @@ style: google
 - DocstringReturns
   args: ['returns', 'str']
   description: 'A string containing ANSI style codes.'
+  kind: returns
   type_name: 'str'
   is_generator: False
 === detect

@@ -13,5 +13,6 @@ style: rest
 - DocstringReturns
   args: ['returns']
   description: 'description'
+  kind: returns
   type_name: 'int'
   is_generator: False

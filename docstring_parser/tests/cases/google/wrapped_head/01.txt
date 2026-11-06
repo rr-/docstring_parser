@@ -15,10 +15,12 @@ style: google
 - DocstringParam
   args: ['param', 'x more The value']
   description: 'here'
+  kind: param
   arg_name: 'x more The value'
 - DocstringParam
   args: ['param', 'y (Dict[str, int])']
   description: 'there'
+  kind: param
   arg_name: 'y'
   type_name: 'Dict[str, int]'
   is_optional: False

@@ -122,6 +122,7 @@ style: numpydoc
   description: |
     Its row and column indices are used to define the new indices
     of this object.
+  kind: param
   arg_name: 'other'
   type_name: 'Object of the same data type'
   is_optional: False
@@ -139,6 +140,7 @@ style: numpydoc
       valid
     * backfill / bfill: use next valid observation to fill gap
     * nearest: use nearest valid observations to fill gap.
+  kind: param
   arg_name: 'method'
   type_name: "{None, 'backfill'/'bfill', 'pad'/'ffill', 'nearest'}"
   is_optional: False
@@ -156,6 +158,7 @@ style: numpydoc
         (Copy-on-Write). See the `user guide on Copy-on-Write
         <https://pandas.pydata.org/docs/dev/user_guide/migration.html>`__
         for more details.
+  kind: param
   arg_name: 'copy'
   type_name: 'bool'
   is_optional: True
@@ -163,6 +166,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'limit']
   description: 'Maximum number of consecutive labels to fill for inexact matches.'
+  kind: param
   arg_name: 'limit'
   type_name: 'int'
   is_optional: True
@@ -179,12 +183,14 @@ style: numpydoc
     element. List-like includes list, tuple, array, Series, and must be
     the same size as the index and its dtype must exactly match the
     index's type.
+  kind: param
   arg_name: 'tolerance'
   type_name: 'optional'
   is_optional: False
 - DocstringReturns
   args: ['returns']
   description: 'Same type as caller, but with changed indices on each axis.'
+  kind: returns
   type_name: 'Series or DataFrame'
   is_generator: False
 - DocstringMeta
@@ -193,11 +199,13 @@ style: numpydoc
     DataFrame.set_index : Set row labels.
     DataFrame.reset_index : Remove row labels or move them to new columns.
     DataFrame.reindex : Change to new indices or expand indices.
+  kind: text
 - DocstringMeta
   args: ['notes']
   description: |
     Same as calling
     ``.reindex(index=other.index, columns=other.columns,...)``.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
@@ -211,6 +219,7 @@ style: numpydoc
     ...     index=pd.date_range(start="2014-02-12", end="2014-02-15", freq="D"),
     ... )
     
+  kind: examples
   snippet: '>>> df1 = pd.DataFrame('
 - DocstringExample
   args: ['examples']
@@ -221,6 +230,7 @@ style: numpydoc
     2014-02-14          22.0             71.6    medium
     2014-02-15          35.0             95.0    medium
     
+  kind: examples
   snippet: '>>> df1'
 - DocstringExample
   args: ['examples']
@@ -230,6 +240,7 @@ style: numpydoc
     ...     index=pd.DatetimeIndex(["2014-02-12", "2014-02-13", "2014-02-15"]),
     ... )
     
+  kind: examples
   snippet: '>>> df2 = pd.DataFrame('
 - DocstringExample
   args: ['examples']
@@ -239,6 +250,7 @@ style: numpydoc
     2014-02-13          30.0       low
     2014-02-15          35.1    medium
     
+  kind: examples
   snippet: '>>> df2'
 - DocstringExample
   args: ['examples']
@@ -248,6 +260,7 @@ style: numpydoc
     2014-02-13          30.0              NaN       low
     2014-02-14           NaN              NaN       NaN
     2014-02-15          35.1              NaN    medium
+  kind: examples
   snippet: '>>> df2.reindex_like(df1)'
 === detect
 numpydoc

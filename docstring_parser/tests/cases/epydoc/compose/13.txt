@@ -12,6 +12,7 @@ style: epydoc
 - DocstringMeta
   args: ['meta']
   description: 'asd'
+  kind: text
 === compose epydoc
 Short description
 @meta: asd

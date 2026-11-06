@@ -36,6 +36,7 @@ style: google
     - The first element is a JSON schema key type.
     - The second element is the JSON mode: either 'validation' or 'serialization'.
     - The third element is a core schema.
+  kind: param
   arg_name: 'inputs'
 - DocstringReturns
   args: ['returns']
@@ -47,10 +48,12 @@ style: google
         JsonRef references to definitions that are defined in the second returned element.)
     - The second element is a dictionary whose keys are definition references for the JSON schemas
         from the first returned element, and whose values are the actual JSON schema definitions.
+  kind: returns
   is_generator: False
 - DocstringRaises
   args: ['raises', 'PydanticUserError']
   description: 'Raised if the JSON schema generator has already been used to generate a JSON schema.'
+  kind: raises
   type_name: 'PydanticUserError'
 === detect
 google

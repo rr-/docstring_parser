@@ -21,9 +21,11 @@ style: rest
 - DocstringMeta
   args: ['copyright']
   description: '(c) 2012 by Kenneth Reitz.'
+  kind: text
 - DocstringMeta
   args: ['license']
   description: 'Apache2, see LICENSE for more details.'
+  kind: text
 === detect
 rest
 === compose rest

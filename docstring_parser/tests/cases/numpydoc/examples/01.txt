@@ -17,3 +17,4 @@ style: numpydoc
     long example
     
     more here
+  kind: examples

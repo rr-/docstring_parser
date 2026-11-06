@@ -119,12 +119,14 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'subscripts']
   description: 'Specifies the subscripts for summation.'
+  kind: param
   arg_name: 'subscripts'
   type_name: 'str'
   is_optional: False
 - DocstringParam
   args: ['param', '*operands']
   description: 'These are the arrays for the operation.'
+  kind: param
   arg_name: '*operands'
   type_name: 'list of array_like'
   is_optional: False
@@ -151,6 +153,7 @@ style: numpydoc
       path for most contractions.
     
     Default is 'greedy'.
+  kind: param
   arg_name: 'optimize'
   type_name: "{bool, list, tuple, 'greedy', 'optimal'}"
   is_optional: False
@@ -158,12 +161,14 @@ style: numpydoc
 - DocstringReturns
   args: ['returns']
   description: 'A list representation of the einsum path.'
+  kind: returns
   type_name: 'list of tuples'
   is_generator: False
   return_name: 'path'
 - DocstringReturns
   args: ['returns']
   description: 'A printable representation of the einsum path.'
+  kind: returns
   type_name: 'str'
   is_generator: False
   return_name: 'string_repr'
@@ -174,9 +179,11 @@ style: numpydoc
     contracted first, the result of this contraction is then appended to the
     end of the contraction list. This list can then be iterated over until all
     intermediate contractions are complete.
+  kind: text
 - DocstringMeta
   args: ['see_also']
   description: 'einsum, linalg.multi_dot'
+  kind: text
 - DocstringExample
   args: ['examples']
   description: |
@@ -186,9 +193,11 @@ style: numpydoc
     of the contraction and the remaining contraction ``(0, 1)`` is then
     completed.
     
+  kind: examples
 - DocstringExample
   args: ['examples']
   description: "['einsum_path', (1, 2), (0, 1)]"
+  kind: examples
   snippet: |
     >>> np.random.seed(123)
     >>> a = np.random.rand(2, 2)
@@ -215,12 +224,14 @@ style: numpydoc
     
     A more complex index transformation example.
     
+  kind: examples
   snippet: '>>> print(path_info[1])'
 - DocstringExample
   args: ['examples']
   description: |
     ...                            optimize='greedy')
     
+  kind: examples
   snippet: |
     >>> I = np.random.rand(10, 10, 10, 10)
     >>> C = np.random.rand(10, 10)
@@ -228,6 +239,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: "['einsum_path', (0, 2), (0, 3), (0, 2), (0, 1)]"
+  kind: examples
   snippet: '>>> print(path_info[0])'
 - DocstringExample
   args: ['examples']
@@ -246,6 +258,7 @@ style: numpydoc
        5               bcde,fb->cdef                         gc,hd,cdef->efgh
        5               cdef,gc->defg                            hd,defg->efgh
        5               defg,hd->efgh                               efgh->efgh
+  kind: examples
   snippet: '>>> print(path_info[1])'
 === detect
 numpydoc

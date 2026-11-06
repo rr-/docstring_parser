@@ -53,12 +53,14 @@ style: numpydoc
     whose values are from the strings "ignore", "print", "log", "warn",
     "raise", and "call". The keys represent possible floating-point
     exceptions, and the values define how these exceptions are handled.
+  kind: returns
   type_name: 'dict'
   is_generator: False
   return_name: 'res'
 - DocstringMeta
   args: ['see_also']
   description: 'geterrcall, seterr, seterrcall'
+  kind: text
 - DocstringMeta
   args: ['notes']
   description: |
@@ -66,9 +68,11 @@ style: numpydoc
     treatment options, see `seterr`.
     
     **Concurrency note:** see :doc:`/reference/routines.err`
+  kind: text
 - DocstringExample
   args: ['examples']
   description: "{'divide': 'warn', 'over': 'warn', 'under': 'ignore', 'invalid': 'warn'}"
+  kind: examples
   snippet: |
     >>> import numpy as np
     >>> np.geterr()
@@ -78,10 +82,12 @@ style: numpydoc
     array([nan,  1.,  1.])
     RuntimeWarning: invalid value encountered in divide
     
+  kind: examples
   snippet: '>>> np.arange(3.) / np.arange(3.)  # doctest: +SKIP'
 - DocstringExample
   args: ['examples']
   description: "{'divide': 'warn', 'over': 'warn', 'under': 'warn', 'invalid': 'raise'}"
+  kind: examples
   snippet: |
     >>> oldsettings = np.seterr(all='warn', invalid='raise')
     >>> np.geterr()
@@ -91,10 +97,12 @@ style: numpydoc
     Traceback (most recent call last):
       ...
     FloatingPointError: invalid value encountered in divide
+  kind: examples
   snippet: '>>> np.arange(3.) / np.arange(3.)'
 - DocstringExample
   args: ['examples']
   description: ''
+  kind: examples
   snippet: '>>> oldsettings = np.seterr(**oldsettings)  # restore original'
 === detect
 numpydoc

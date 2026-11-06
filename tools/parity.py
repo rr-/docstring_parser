@@ -150,8 +150,11 @@ def dump(value: T.Any) -> str:
     if hasattr(value, "meta"):
         fields = {k: v for k, v in vars(value).items() if k != "meta"}
         parts = [dump(fields)]
+        # The base may lack fields the tree has added, which it cannot
+        # differ in.
         parts.extend(
-            f"{type(meta).__name__} {dump(vars(meta))}" for meta in value.meta
+            f"{type(meta).__name__} {dump(_shared_fields(meta))}"
+            for meta in value.meta
         )
         return "\n".join(parts)
     if isinstance(value, dict):
@@ -159,6 +162,14 @@ def dump(value: T.Any) -> str:
     if hasattr(value, "name") and hasattr(value, "value"):
         return value.name
     return repr(value)
+
+
+# Fields of the meta that the base may not have yet.
+NEW_FIELDS = {"kind"}
+
+
+def _shared_fields(meta: T.Any) -> T.Dict[str, T.Any]:
+    return {k: v for k, v in vars(meta).items() if k not in NEW_FIELDS}
 
 
 def outputs(package: T.Any, text: str) -> T.Dict[str, str]:

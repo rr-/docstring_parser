@@ -20,10 +20,12 @@ style: rest
 - DocstringRaises
   args: ['raises', 'VersionRequirementError']
   description: 'if the version of an extension in'
+  kind: raises
   type_name: 'VersionRequirementError'
 - DocstringMeta
   args: ['confval']
   description: '`needs_extension` is unknown or older than the required version.'
+  kind: text
 === detect
 rest
 === compose rest

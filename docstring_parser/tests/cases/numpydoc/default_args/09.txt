@@ -13,6 +13,7 @@ style: numpydoc
 - DocstringParam
   args: ['param', 'parameter_without_default']
   description: 'The parameter_without_default is required.'
+  kind: param
   arg_name: 'parameter_without_default'
   type_name: 'int'
   is_optional: False

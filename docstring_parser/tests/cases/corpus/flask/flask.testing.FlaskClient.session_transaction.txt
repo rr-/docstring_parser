@@ -32,11 +32,13 @@ style: rest
 - DocstringMeta
   args: ['with', 'client.session_transaction()', 'as', 'session']
   description: "session['value'] = 42"
+  kind: text
 - DocstringMeta
   args: ['meth']
   description: |
     `~flask.Flask.test_request_context` which are directly
     passed through.
+  kind: text
 === detect
 rest
 === compose rest

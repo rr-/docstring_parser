@@ -25,6 +25,7 @@ style: epydoc
   description: |
     the name of the method which this should invoke when
     called.
+  kind: attribute
   arg_name: 'methodName'
   type_name: 'L{str}'
   is_optional: False
@@ -33,6 +34,7 @@ style: epydoc
   description: |
     The name of the method being proxied (the same as
     C{methodName}).
+  kind: attribute
   arg_name: '__name__'
   type_name: 'L{str}'
   is_optional: False
@@ -41,6 +43,7 @@ style: epydoc
   description: |
     name of the attribute of the proxy where the
     original object is stored.
+  kind: attribute
   arg_name: 'originalAttribute'
   type_name: 'L{str}'
   is_optional: False

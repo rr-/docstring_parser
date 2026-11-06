@@ -11,3 +11,4 @@ style: epydoc
 - DocstringMeta
   args: ['myreturn', 'value']
   description: 'detail'
+  kind: text

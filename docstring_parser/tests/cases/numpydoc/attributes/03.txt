@@ -21,10 +21,12 @@ style: numpydoc
   description: |
     description 1
     with multi-line text
+  kind: attribute
   arg_name: 'name'
 - DocstringParam
   args: ['attribute', 'priority']
   description: 'description 2'
+  kind: attribute
   arg_name: 'priority'
   type_name: 'int'
   is_optional: False

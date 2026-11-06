@@ -16,6 +16,7 @@ style: google
 - DocstringParam
   args: ['param', 'spinner_name (str, optional)']
   description: 'Name of spinner animation. Defaults to "dots".'
+  kind: param
   arg_name: 'spinner_name'
   type_name: 'str'
   is_optional: True
@@ -23,6 +24,7 @@ style: google
 - DocstringParam
   args: ['param', 'style (StyleType, optional)']
   description: 'Style of spinner. Defaults to "progress.spinner".'
+  kind: param
   arg_name: 'style'
   type_name: 'StyleType'
   is_optional: True
@@ -30,6 +32,7 @@ style: google
 - DocstringParam
   args: ['param', 'speed (float, optional)']
   description: 'Speed factor of spinner. Defaults to 1.0.'
+  kind: param
   arg_name: 'speed'
   type_name: 'float'
   is_optional: True
@@ -37,6 +40,7 @@ style: google
 - DocstringParam
   args: ['param', 'finished_text (TextType, optional)']
   description: 'Text used when task is finished. Defaults to " ".'
+  kind: param
   arg_name: 'finished_text'
   type_name: 'TextType'
   is_optional: True

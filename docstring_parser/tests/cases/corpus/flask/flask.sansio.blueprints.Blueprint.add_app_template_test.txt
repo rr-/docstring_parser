@@ -21,11 +21,13 @@ style: rest
 - DocstringMeta
   args: ['meth']
   description: '`.Flask.add_template_test`.'
+  kind: text
 - DocstringParam
   args: ['param', 'name']
   description: |
     the optional name of the test, otherwise the
     function name will be used.
+  kind: param
   arg_name: 'name'
 === detect
 rest

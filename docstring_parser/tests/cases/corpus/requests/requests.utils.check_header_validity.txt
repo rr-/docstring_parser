@@ -14,6 +14,7 @@ style: rest
 - DocstringParam
   args: ['param', 'header']
   description: 'tuple, in the format (name, value).'
+  kind: param
   arg_name: 'header'
 === detect
 rest

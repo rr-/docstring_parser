@@ -13,6 +13,7 @@ style: numpydoc
 - DocstringExample
   args: ['examples']
   description: ''
+  kind: examples
   snippet: |
     >>> testa
     >>> testb

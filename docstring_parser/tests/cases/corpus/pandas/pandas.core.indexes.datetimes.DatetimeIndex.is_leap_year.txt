@@ -38,9 +38,11 @@ style: numpydoc
         day of the year.
     DatetimeIndex.is_year_start : Indicate whether the date is the first
         day of a year.
+  kind: text
 - DocstringExample
   args: ['examples']
   description: 'array([ True, False, False])'
+  kind: examples
   snippet: |
     >>> idx = pd.date_range("2012-01-01", "2015-01-01", freq="YE")
     >>> idx.is_leap_year

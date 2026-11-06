@@ -22,23 +22,27 @@ style: epydoc
 - DocstringParam
   args: ['ivar', 'name']
   description: 'description 1'
+  kind: attribute
   arg_name: 'name'
   is_optional: False
 - DocstringParam
   args: ['ivar', 'priority']
   description: 'description 2'
+  kind: attribute
   arg_name: 'priority'
   type_name: 'int'
   is_optional: False
 - DocstringParam
   args: ['cvar', 'sender']
   description: 'description 3'
+  kind: attribute
   arg_name: 'sender'
   type_name: 'str'
   is_optional: True
 - DocstringParam
   args: ['var', 'message']
   description: "description 4, defaults to 'hello'"
+  kind: attribute
   arg_name: 'message'
   type_name: 'str'
   is_optional: True
@@ -48,6 +52,7 @@ style: epydoc
   description: |
     long description 5,
     defaults to 'bye'
+  kind: attribute
   arg_name: 'multiline'
   type_name: 'str'
   is_optional: True

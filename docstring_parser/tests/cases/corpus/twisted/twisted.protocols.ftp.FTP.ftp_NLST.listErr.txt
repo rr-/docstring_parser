@@ -25,6 +25,7 @@ style: epydoc
     The L{Failure} wrapping a L{FileNotFoundError} that
     occurred while trying to list the contents of a nonexistent
     directory.
+  kind: param
   arg_name: 'results'
   type_name: 'L{Failure}'
   is_optional: False
@@ -33,8 +34,10 @@ style: epydoc
   description: |
     A C{tuple} containing the status code for a successful
     transfer.
+  kind: text
 - DocstringReturns
   args: ['rtype']
+  kind: returns
   type_name: 'C{tuple}'
   is_generator: False
 === detect

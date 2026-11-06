@@ -49,6 +49,7 @@ style: numpydoc
     ...     {"A": [np.nan, 2, np.nan], "C": [6, np.nan, np.nan], "B": [np.nan, 4, 2.5]},
     ...     index=["max", "mean", "min"],
     ... )
+  kind: examples
   snippet: |
     >>> from pandas.core.apply import relabel_result
     >>> result = pd.DataFrame(
@@ -60,6 +61,7 @@ style: numpydoc
     aab  NaN  6.0  NaN
     bar  NaN  NaN  4.0
     dat  NaN  NaN  2.5
+  kind: examples
   snippet: |
     >>> funcs = {"A": ["max"], "C": ["max"], "B": ["mean", "min"]}
     >>> columns = ("foo", "aab", "bar", "dat")

@@ -85,12 +85,14 @@ style: google
   description: |
     A callable used to make
     HTTP requests.
+  kind: param
   arg_name: 'request'
   type_name: 'google.auth.transport.Request'
   is_optional: False
 - DocstringParam
   args: ['param', 'audience (str)']
   description: 'The audience that this ID token is intended for.'
+  kind: param
   arg_name: 'audience'
   type_name: 'str'
   is_optional: False
@@ -110,12 +112,14 @@ style: google
     explicitly if your application requires a specific behavior. Has no
     effect when credentials are loaded from
     ``GOOGLE_APPLICATION_CREDENTIALS``.
+  kind: param
   arg_name: 'bind_id_token'
   type_name: 'Optional[bool]'
   is_optional: False
 - DocstringReturns
   args: ['returns', 'str']
   description: 'The ID token.'
+  kind: returns
   type_name: 'str'
   is_generator: False
 - DocstringRaises
@@ -123,12 +127,14 @@ style: google
   description: |
     If metadata server doesn't exist and no valid service account
     credentials are found.
+  kind: raises
   type_name: '~google.auth.exceptions.DefaultCredentialsError'
 - DocstringRaises
   args: ['raises', '~google.auth.exceptions.RefreshError']
   description: |
     If an error occurred while fetching the ID token or if a required
     certificate file is not found after retries.
+  kind: raises
   type_name: '~google.auth.exceptions.RefreshError'
 === detect
 google

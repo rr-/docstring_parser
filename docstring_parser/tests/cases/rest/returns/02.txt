@@ -12,4 +12,5 @@ style: rest
 - DocstringReturns
   args: ['returns']
   description: 'description'
+  kind: returns
   is_generator: False

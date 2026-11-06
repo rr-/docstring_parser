@@ -20,12 +20,14 @@ style: google
 - DocstringParam
   args: ['param', '*headers (Union[Column, str])']
   description: 'Column headers, either as a string, or :class:`~rich.table.Column` instance.'
+  kind: param
   arg_name: '*headers'
   type_name: 'Union[Column, str]'
   is_optional: False
 - DocstringParam
   args: ['param', 'padding (PaddingDimensions, optional)']
   description: 'Get padding around cells. Defaults to 0.'
+  kind: param
   arg_name: 'padding'
   type_name: 'PaddingDimensions'
   is_optional: True
@@ -33,6 +35,7 @@ style: google
 - DocstringParam
   args: ['param', 'collapse_padding (bool, optional)']
   description: 'Enable collapsing of padding around cells. Defaults to True.'
+  kind: param
   arg_name: 'collapse_padding'
   type_name: 'bool'
   is_optional: True
@@ -40,6 +43,7 @@ style: google
 - DocstringParam
   args: ['param', 'pad_edge (bool, optional)']
   description: 'Enable padding around edges of table. Defaults to False.'
+  kind: param
   arg_name: 'pad_edge'
   type_name: 'bool'
   is_optional: True
@@ -47,6 +51,7 @@ style: google
 - DocstringParam
   args: ['param', 'expand (bool, optional)']
   description: 'Expand the table to fit the available space if ``True``, otherwise the table width will be auto-calculated. Defaults to False.'
+  kind: param
   arg_name: 'expand'
   type_name: 'bool'
   is_optional: True
@@ -54,6 +59,7 @@ style: google
 - DocstringReturns
   args: ['returns', 'Table']
   description: 'A table instance.'
+  kind: returns
   type_name: 'Table'
   is_generator: False
 === detect

@@ -25,6 +25,7 @@ style: epydoc
   description: |
     A description in the format explained by
     L{serverFromString}.
+  kind: param
   arg_name: 'description'
   type_name: 'C{str}'
   is_optional: False
@@ -33,12 +34,14 @@ style: epydoc
   description: |
     A 'factory' argument; this is left-over from
     twisted.application.strports, it's not really used.
+  kind: param
   arg_name: 'factory'
   type_name: 'L{IProtocolFactory} or L{None}'
   is_optional: False
 - DocstringReturns
   args: ['return']
   description: 'a 3-tuple of (plugin or name, arguments, keyword arguments)'
+  kind: returns
   is_generator: False
 === detect
 epydoc
