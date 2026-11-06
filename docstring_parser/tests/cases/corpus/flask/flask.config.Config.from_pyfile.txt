@@ -63,4 +63,4 @@ behaves as if the file was imported as module with the
     root path.
 :param silent: set to ``True`` if you want silent failure for missing
     files.
-:returns: ``True`` if the file was loaded successfully.
+:return: ``True`` if the file was loaded successfully.

@@ -46,4 +46,4 @@ Sends a PATCH request. Returns :class:`Response` object.
 :param data: (optional) Dictionary, list of tuples, bytes, or file-like
     object to send in the body of the :class:`Request`.
 :param \*\*kwargs: Optional arguments that ``request`` takes.
-:returns requests.Response:
+:rtype: requests.Response

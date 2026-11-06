@@ -42,4 +42,4 @@ Long description.
 
 :param int foo: a description
 :param int bar: another description
-:returns float: a return
+:return float: a return

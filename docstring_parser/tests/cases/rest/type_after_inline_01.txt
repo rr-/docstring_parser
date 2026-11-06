@@ -34,6 +34,6 @@ style: rest
   is_generator: False
 === compose rest
 :param int x: The x.
-:param str x:
+:type x: str
 :returns int: The sum.
-:returns float:
+:rtype: float

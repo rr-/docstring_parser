@@ -19,4 +19,4 @@ rest
 === compose rest
 Return a dict of environment proxies.
 
-:returns dict:
+:rtype: dict

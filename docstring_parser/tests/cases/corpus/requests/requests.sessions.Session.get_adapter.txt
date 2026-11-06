@@ -19,4 +19,4 @@ rest
 === compose rest
 Returns the appropriate connection adapter for the given URL.
 
-:returns requests.adapters.BaseAdapter:
+:rtype: requests.adapters.BaseAdapter

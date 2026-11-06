@@ -25,4 +25,4 @@ Takes as an argument an optional domain and path and returns a plain
 old Python dict of name-value pairs of cookies that meet the
 requirements.
 
-:returns dict:
+:rtype: dict

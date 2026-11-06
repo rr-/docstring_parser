@@ -57,4 +57,4 @@ Sends a POST request.
     object to send in the body of the :class:`Request`.
 :param json: (optional) A JSON serializable Python object to send in the body of the :class:`Request`.
 :param \*\*kwargs: Optional arguments that ``request`` takes.
-:returns requests.Response: :class:`Response <Response>` object
+:return requests.Response: :class:`Response <Response>` object

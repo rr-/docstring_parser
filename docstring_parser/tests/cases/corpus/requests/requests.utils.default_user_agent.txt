@@ -19,4 +19,4 @@ rest
 === compose rest
 Return a string representing the default user agent.
 
-:returns str:
+:rtype: str

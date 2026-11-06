@@ -37,4 +37,4 @@ Returns a :class:`Session` for context-management.
     backwards compatibility. New code should use :class:`~requests.sessions.Session`
     to create a session. This may be removed at a future date.
 
-:returns Session:
+:rtype: Session

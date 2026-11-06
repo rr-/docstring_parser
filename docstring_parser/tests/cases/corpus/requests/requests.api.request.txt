@@ -204,4 +204,4 @@ Usage::
     to a CA bundle to use. Defaults to ``True``.
 :param stream: (optional) if ``False``, the response content will be immediately downloaded.
 :param cert: (optional) if String, path to ssl client cert file (.pem). If Tuple, ('cert', 'key') pair.
-:returns requests.Response: :class:`Response <Response>` object
+:return requests.Response: :class:`Response <Response>` object

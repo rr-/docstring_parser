@@ -26,4 +26,4 @@ rest
 Returns encodings from given HTTP Header Dict.
 
 :param headers: dictionary to extract encoding from.
-:returns str:
+:rtype: str

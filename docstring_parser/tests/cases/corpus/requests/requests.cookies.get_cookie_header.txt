@@ -19,4 +19,4 @@ rest
 === compose rest
 Produce an appropriate Cookie header string to be sent with `request`, or None.
 
-:returns str:
+:rtype: str

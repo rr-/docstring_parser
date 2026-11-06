@@ -19,4 +19,4 @@ rest
 === compose rest
 Check the environment and merge it with some settings.
 
-:returns dict:
+:rtype: dict

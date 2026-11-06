@@ -77,4 +77,4 @@ when subclassing the :class:`HTTPAdapter <requests.adapters.HTTPAdapter>`.
 :param proxies: (optional) The proxies dictionary to apply to the request.
 :param cert: (optional) Any user-provided SSL certificate to be used for client
     authentication (a.k.a., mTLS).
-:returns urllib3.HTTPConnectionPool:
+:rtype: urllib3.HTTPConnectionPool

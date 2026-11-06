@@ -40,4 +40,4 @@ merged from the :class:`Request <Request>` instance and those of the
 
 :param request: :class:`Request` instance to prepare with this
     session's settings.
-:returns requests.PreparedRequest:
+:rtype: requests.PreparedRequest

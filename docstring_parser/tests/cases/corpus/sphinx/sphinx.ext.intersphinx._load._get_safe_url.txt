@@ -42,4 +42,4 @@ returns results suitable for printing and logging.
 E.g.: https://user:12345@example.com => https://user@example.com
 
 :param ``str`` url: a url
-:returns ``str``: *url* with password removed
+:return ``str``: *url* with password removed

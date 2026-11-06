@@ -526,6 +526,25 @@ _PARAM_FIELD_OF_KIND = {Kind.ATTRIBUTE: "attribute"}
 _OWN_PARAM_FIELDS = frozenset(PARAM_KEYWORDS | ATTRIBUTE_FIELD_KEYWORDS)
 
 
+def _type_field(indent: str, head: str, type_name: str) -> str:
+    """Compose a type field, whose lines after the first are indented, as
+    an unindented line ends it."""
+    return f":{head}: " + f"\n{indent}".join(type_name.splitlines())
+
+
+# The kind of item each field ReST recognises by default gives.
+_KIND_OF_FIELD = {name: spec.kind for name, spec in _DEFAULT_TABLE.items()}
+
+
+def _own_key(meta: DocstringMeta, default: str) -> str:
+    """Return the field name a return or raises was read from, such as
+    ``raise``, if ReST reads it as the same kind, or else the default one."""
+    key = meta.key
+    if key and key != default and _KIND_OF_FIELD.get(key) is meta.kind:
+        return key
+    return default
+
+
 def _param_key(meta: DocstringParam) -> str:
     """Return the field name that keeps a param's kind, such as ``key``."""
     return field_name(meta, _OWN_PARAM_FIELDS, _PARAM_FIELD_OF_KIND)
@@ -575,48 +594,67 @@ def compose(
                     if meta.is_optional
                     else meta.type_name
                 )
-            type_text = f" {type_name} " if type_name else " "
-            if rendering_style == RenderingStyle.EXPANDED or not _fits_inline(
-                type_name
+            if meta.description is None and type_name:
+                # A type field alone, which reads back as a param with no
+                # description.
+                parts.append(
+                    _type_field(indent, f"type {meta.arg_name}", type_name)
+                )
+            elif rendering_style == RenderingStyle.EXPANDED or not (
+                _fits_inline(type_name)
             ):
                 text = f":{_param_key(meta)} {meta.arg_name}:"
                 text += process_desc(meta.description)
                 parts.append(text)
-                if type_text[:-1]:
+                if type_name:
                     parts.append(
-                        f":{_type_key(meta)} {meta.arg_name}:{type_text[:-1]}"
+                        _type_field(
+                            indent,
+                            f"{_type_key(meta)} {meta.arg_name}",
+                            type_name,
+                        )
                     )
             else:
+                type_text = f" {type_name} " if type_name else " "
                 text = f":{_param_key(meta)}{type_text}{meta.arg_name}:"
                 text += process_desc(meta.description)
                 parts.append(text)
         elif isinstance(meta, DocstringReturns):
             type_text = f" {meta.type_name}" if meta.type_name else ""
-            key = "yields" if meta.is_generator else "returns"
+            key = _own_key(meta, "yields" if meta.is_generator else "returns")
             type_key = "ytype" if meta.is_generator else "rtype"
-
             if meta.return_name:
+                type_key += f" {meta.return_name}"
+
+            if meta.description is None and meta.type_name:
+                # A type field alone, which reads back as a return with no
+                # description.
+                parts.append(_type_field(indent, type_key, meta.type_name))
+            elif meta.return_name:
                 # ReST names a return value only in its type field, which
                 # names the return right before it.
                 parts.append(f":{key}:" + process_desc(meta.description))
-                parts.append(f":{type_key} {meta.return_name}:{type_text}")
+                parts.append(f":{type_key}:{type_text}")
             elif (
                 rendering_style == RenderingStyle.EXPANDED
                 or not _fits_inline(meta.type_name)
             ):
-                if meta.description:
-                    text = f":{key}:"
-                    text += process_desc(meta.description)
-                    parts.append(text)
-                if type_text:
-                    parts.append(f":{type_key}:{type_text}")
+                parts.append(f":{key}:" + process_desc(meta.description))
+                if meta.type_name:
+                    parts.append(_type_field(indent, type_key, meta.type_name))
             else:
                 text = f":{key}{type_text}:"
                 text += process_desc(meta.description)
                 parts.append(text)
         elif isinstance(meta, DocstringRaises):
             type_text = f" {meta.type_name} " if meta.type_name else ""
-            text = f":raises{type_text}:" + process_desc(meta.description)
+            key = _own_key(meta, "raises")
+            text = f":{key}{type_text}:" + process_desc(meta.description)
+            parts.append(text)
+        elif isinstance(meta, DocstringDeprecated) and meta.version:
+            text = f":{meta.key or 'deprecated'}: {meta.version}"
+            if meta.description:
+                text += process_desc(meta.description)
             parts.append(text)
         else:
             text = f":{field_text(meta)}:" + process_desc(meta.description)

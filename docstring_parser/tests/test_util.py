@@ -45,7 +45,7 @@ def test_combine_docstrings() -> None:
         ":param arg_c: fun2\n"
         ":param arg_e: fun2\n"
         ":param arg_f: decorated\n"
-        ":returns: fun1"
+        ":return: fun1"
     )
 
     @combine_docstrings(fun1, fun2, exclude=[DocstringReturns])

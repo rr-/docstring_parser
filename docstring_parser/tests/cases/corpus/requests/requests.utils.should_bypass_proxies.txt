@@ -19,4 +19,4 @@ rest
 === compose rest
 Returns whether we should bypass proxies or not.
 
-:returns bool:
+:rtype: bool

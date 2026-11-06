@@ -111,7 +111,7 @@ This is a longer description.
 :param int a: description
 :param int b: description
 :returns int: The return value
-:yields str: The yielded value
+:yield str: The yielded value
 :raises ValueError : If something goes wrong.
 :raises TypeError : If something else goes wrong.
 :raises IOError : If something else goes wrong.

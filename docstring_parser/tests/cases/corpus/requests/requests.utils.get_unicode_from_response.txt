@@ -42,4 +42,4 @@ Tried:
 2. fall back and replace all unicode characters
 
 :param r: Response object to get unicode content from.
-:returns str:
+:rtype: str

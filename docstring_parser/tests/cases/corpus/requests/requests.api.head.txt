@@ -44,4 +44,4 @@ Sends a HEAD request.
 :param \*\*kwargs: Optional arguments that ``request`` takes. If
     `allow_redirects` is not provided, it will be set to `False` (as
     opposed to the default :meth:`request` behavior).
-:returns requests.Response: :class:`Response <Response>` object
+:return requests.Response: :class:`Response <Response>` object
