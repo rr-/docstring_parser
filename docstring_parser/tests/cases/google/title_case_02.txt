@@ -1,0 +1,38 @@
+# Test that a title in another case right after a line of prose stays prose.
+=== input
+Short.
+
+Wraps a sentence at a title, for
+example:
+
+    run()
+
+Args:
+    x (int): The x.
+=== parse google
+short_description: 'Short.'
+long_description: |
+  Wraps a sentence at a title, for
+  example:
+  
+      run()
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringParam
+  description: 'The x.'
+  kind: param
+  key: 'param'
+  arg_name: 'x'
+  type_name: 'int'
+  is_optional: False
+=== compose google
+Short.
+
+Wraps a sentence at a title, for
+example:
+
+    run()
+
+Args:
+    x (int): The x.

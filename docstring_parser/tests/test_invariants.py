@@ -41,15 +41,8 @@ SYNTAX = {
         "deprecated",
     }
     | TYPE_MARKS,
-    DocstringStyle.GOOGLE: {
-        word for s in google.DEFAULT_SECTIONS for word in _words(s.title)
-    }
-    | {"deprecated"}
-    | TYPE_MARKS,
-    DocstringStyle.NUMPYDOC: {
-        word for s in numpydoc.DEFAULT_SECTIONS for word in _words(s.title)
-    }
-    | TYPE_MARKS,
+    DocstringStyle.GOOGLE: {"deprecated"} | TYPE_MARKS,
+    DocstringStyle.NUMPYDOC: TYPE_MARKS,
     DocstringStyle.EPYDOC: {
         "type",
         "rtype",
@@ -61,6 +54,20 @@ SYNTAX = {
     | TYPE_MARKS,
 }
 
+# The words of section titles, in lowercase, since titles match in any case.
+TITLE_WORDS = {
+    DocstringStyle.GOOGLE: {
+        word.lower()
+        for s in google.DEFAULT_SECTIONS
+        for word in _words(s.title)
+    },
+    DocstringStyle.NUMPYDOC: {
+        word.lower()
+        for s in numpydoc.DEFAULT_SECTIONS
+        for word in _words(s.title)
+    },
+}
+
 
 @pytest.mark.parametrize("style", list(SYNTAX), ids=lambda s: s.name.lower())
 def test_no_text_is_dropped(style: DocstringStyle) -> None:
@@ -69,7 +76,12 @@ def test_no_text_is_dropped(style: DocstringStyle) -> None:
     for path in CASES:
         text = read_case(path).input
         docstring = try_parse(text, style).docstring
-        lost = _words(text) - _words(dump(docstring)) - SYNTAX[style]
+        titles = TITLE_WORDS.get(style, set())
+        lost = {
+            word
+            for word in _words(text) - _words(dump(docstring)) - SYNTAX[style]
+            if word.lower() not in titles
+        }
         assert not lost, f"{path.relative_to(CASES_DIR)} loses {sorted(lost)}"
 
 

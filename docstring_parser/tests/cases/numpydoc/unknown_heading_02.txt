@@ -1,4 +1,4 @@
-# Test that an undeclared heading in lowercase, such as See also, is no return.
+# Test that a title in another case, such as See also, starts its section.
 === input
 Short.
 
@@ -25,7 +25,6 @@ style: numpydoc
   description: 'other'
   kind: text
   key: 'see_also'
-  title: 'See also'
 === compose numpydoc
 Short.
 
@@ -34,6 +33,6 @@ Parameters
 x : int
     The x.
 
-See also
+See Also
 --------
 other

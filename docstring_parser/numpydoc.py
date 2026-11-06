@@ -479,8 +479,19 @@ class Parser(BaseParser):
     def _setup(self):
         self._titles_re = re.compile(
             r"|".join(s._title_pattern for s in self.sections.values()),
-            flags=re.M,
+            flags=re.M | re.I,
         )
+        # Titles match in any case, as napoleon reads them, so each is
+        # found by its lowercase too. The first declared of titles that
+        # differ only in case wins.
+        self._by_lower: T.Dict[str, Section] = {}
+        for title, section in self.sections.items():
+            self._by_lower.setdefault(title.lower(), section)
+
+    def _declared(self, title: str) -> Section:
+        """Return the section a title as written starts."""
+        section = self.sections.get(title)
+        return section or self._by_lower[title.lower()]
 
     def add_section(self, section: T.Union[Section, SectionSpec]):
         """Add or replace a section.
@@ -520,9 +531,9 @@ class Parser(BaseParser):
             (
                 match.start(),
                 match.end(),
-                self.sections[
+                self._declared(
                     next(g for g in match.groups() if g is not None)
-                ],
+                ),
             )
             for match in known
         ]

@@ -127,7 +127,6 @@ style: numpydoc
     tril, triu
   kind: text
   key: 'see_also'
-  title: 'See also'
 - DocstringExample
   kind: examples
   key: 'examples'
@@ -226,7 +225,7 @@ inds : tuple of arrays
     in non-decreasing order, and the corresponding column indices are
     strictly increasing for each row.
 
-See also
+See Also
 --------
 triu_indices : similar function, for upper-triangular.
 mask_indices : generic function accepting an arbitrary mask function.

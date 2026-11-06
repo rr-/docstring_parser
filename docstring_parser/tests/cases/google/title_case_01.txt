@@ -1,0 +1,46 @@
+# Test that section titles match in any case.
+=== input
+Short.
+
+ARGS:
+    x (int): The x.
+
+returns:
+    int: The sum.
+
+RaIsEs:
+    ValueError: If bad.
+=== parse google
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  description: 'The x.'
+  kind: param
+  key: 'param'
+  arg_name: 'x'
+  type_name: 'int'
+  is_optional: False
+- DocstringReturns
+  description: 'The sum.'
+  kind: returns
+  key: 'returns'
+  type_name: 'int'
+  is_generator: False
+- DocstringRaises
+  description: 'If bad.'
+  kind: raises
+  key: 'raises'
+  type_name: 'ValueError'
+=== compose google
+Short.
+
+Args:
+    x (int): The x.
+
+Returns:
+    int: The sum.
+
+Raises:
+    ValueError: If bad.
