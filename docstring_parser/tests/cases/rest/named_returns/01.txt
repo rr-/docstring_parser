@@ -1,0 +1,34 @@
+# Test that a type for a named return value right after a return with
+# neither names that return, which is how compose writes a name.
+=== input
+Short.
+
+:returns: The sum.
+:rtype total: int
+:returns: How many.
+:rtype count:
+=== parse rest
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringReturns
+  description: 'The sum.'
+  kind: returns
+  key: 'returns'
+  type_name: 'int'
+  is_generator: False
+  return_name: 'total'
+- DocstringReturns
+  description: 'How many.'
+  kind: returns
+  key: 'returns'
+  is_generator: False
+  return_name: 'count'
+=== compose rest
+Short.
+
+:returns: The sum.
+:rtype total: int
+:returns: How many.
+:rtype count:

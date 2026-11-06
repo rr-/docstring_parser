@@ -64,6 +64,7 @@
 - General: **Breaking:** `DocstringStyle` members are the names of their styles, such as `"google"`, instead of numbers, so that `parse()` and `compose()` also take a style by its name, or a parser to use
 - Numpydoc: Keep indented text before the first item of a section, such as a parameters section indented as a whole, in the long description instead of dropping it
 - ReST, Epydoc: A type field given twice for a name, such as two `:type x:` or `@rtype:` fields, gives its type to the name's next item, and one left over is an item of its own, instead of the last type overwriting the others
+- ReST: `compose()` keeps a return value's name, writing it as `:returns:` followed by `:rtype name:`, and parsing reads an `:rtype name:` field right after a `:returns:` field with neither name nor type as naming that return
 
 # 0.18 (2026-04-14)
 
