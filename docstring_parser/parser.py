@@ -9,6 +9,7 @@ from docstring_parser.common import (
     BaseParser,
     Docstring,
     DocstringStyle,
+    ParseResult,
     RenderingStyle,
 )
 from docstring_parser.sections import ParserCache, SectionSpec
@@ -61,6 +62,38 @@ def parse(
             text, [module.parse for module in _STYLE_MAP.values()], True
         )
     return _auto_parsers.get(list(sections), auto.Parser, sections).parse(text)
+
+
+def try_parse(
+    text: T.Optional[str],
+    style: T.Union[DocstringStyle, str, BaseParser] = DocstringStyle.AUTO,
+    sections: T.Optional[T.Sequence[SectionSpec]] = None,
+) -> ParseResult:
+    """Parse what can be parsed of a docstring, and tell what cannot.
+
+    It takes what :func:`parse` takes and never raises
+    :class:`~docstring_parser.common.ParseError`. The text of a part that
+    cannot be read goes to the long description, and the result lists a
+    problem for it, with its line in the docstring. In auto mode, a style
+    that reads the docstring with no problems wins.
+
+    :returns: the docstring and its problems
+    """
+    if isinstance(style, BaseParser):
+        if sections is not None:
+            raise ValueError("A parser has its sections; pass none")
+        return style.try_parse(text)
+    if not isinstance(style, DocstringStyle):
+        style = DocstringStyle(style)
+    if style != DocstringStyle.AUTO:
+        return _STYLE_MAP[style].try_parse(text, sections)
+    if sections is None:
+        return auto.try_detect(
+            text, [module.try_parse for module in _STYLE_MAP.values()], True
+        )
+    return _auto_parsers.get(list(sections), auto.Parser, sections).try_parse(
+        text
+    )
 
 
 _auto_parsers: ParserCache[auto.Parser] = ParserCache()

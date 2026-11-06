@@ -29,6 +29,8 @@ from .common import (
     DocstringStyle,
     Kind,
     ParseError,
+    ParseResult,
+    Problem,
     RenderingStyle,
     cleandoc,
     continuation_indented,
@@ -165,7 +167,6 @@ def _section_kind(section: Section) -> Kind:
 
 
 _UNINDENTED = re.compile(r"\n\S")
-_INDENT = re.compile(r"^\s*")
 
 _SECTION_TYPE = {
     Layout.ITEMS: SectionType.MULTIPLE,
@@ -361,14 +362,11 @@ class Parser(BaseParser):
             return apply(section.spec, meta)
         return meta
 
-    def parse(self, text: T.Optional[str]) -> Docstring:
-        """Parse the Google-style docstring into its components.
-
-        :returns: parsed docstring
-        """
+    def try_parse(self, text: T.Optional[str]) -> ParseResult:
+        """Parse what can be parsed of a docstring, and tell what cannot."""
         ret = Docstring(style=DocstringStyle.GOOGLE)
         if not text:
-            return ret
+            return ParseResult(ret, [])
         lines = Lines(text)
 
         # A title on the first line has no summary before it. Dedent it with
@@ -378,84 +376,99 @@ class Parser(BaseParser):
             lines = lines.with_lead()
         text = lines.text
 
-        # Find first title and split on its position
-        match = self._titles_re.search(text)
-        if match:
-            desc_chunk = text[: match.start()]
-            meta_chunk = text[match.start() :]
-        else:
-            desc_chunk = text
-            meta_chunk = ""
-
-        split_description(ret, desc_chunk)
-
         # Split by sections determined by titles
-        matches = list(self._titles_re.finditer(meta_chunk))
+        matches = list(self._titles_re.finditer(text))
+        split_description(ret, text[: matches[0].start()] if matches else text)
         if not matches:
-            return ret
-        splits = []
-        for j in range(len(matches) - 1):
-            splits.append((matches[j].end(), matches[j + 1].start()))
-        splits.append((matches[-1].end(), len(meta_chunk)))
+            return ParseResult(ret, [])
+        ends = [m.start() for m in matches[1:]] + [len(text)]
 
         # A list rather than a dict, so that a section whose title appears
-        # twice keeps both of its chunks.
-        chunks: T.List[T.Tuple[str, str]] = []
-        # Unindented text after a section, which goes to the long
-        # description instead of being dropped.
+        # twice keeps both of its chunks, with where each starts.
+        chunks: T.List[T.Tuple[str, str, int]] = []
+        # Unindented text after a section, and items that cannot be read,
+        # which go to the long description instead of being dropped.
         loose: T.List[str] = []
-        for j, (start, end) in enumerate(splits):
-            title = _title(matches[j])
+        problems: T.List[Problem] = []
+        for match, end in zip(matches, ends):
+            title = _title(match)
             if title not in self.sections:
                 continue
 
             # An unindented line ends the section, as in issue #29.
-            meta_details = meta_chunk[start:end]
+            meta_details = text[match.end() : end]
             unknown_meta = _UNINDENTED.search(meta_details)
             if unknown_meta is not None:
                 loose.append(meta_details[unknown_meta.start() :])
                 meta_details = meta_details[: unknown_meta.start()]
 
-            chunks.append((title, meta_details.strip("\n")))
-        append_loose(ret, loose, blank_around=True)
-        if not chunks:
-            return ret
+            chunk = meta_details.strip("\n")
+            offset = (
+                match.end()
+                + len(meta_details)
+                - len(meta_details.lstrip("\n"))
+            )
+            chunks.append((title, chunk, offset))
 
         # Add elements from each chunk
-        for title, chunk in chunks:
-            # Determine indent
-            indent_match = _INDENT.search(chunk)
-            if not indent_match:
-                raise ParseError(
-                    f'Can\'t infer indent from "{excerpt(chunk)}"'
-                )
-            indent = indent_match.group()
-
+        for title, chunk, offset in chunks:
             # Check for singular elements
             if self.sections[title].type in [
                 SectionType.SINGULAR,
                 SectionType.SINGULAR_OR_MULTIPLE,
             ]:
                 part = cleandoc(chunk)
-                ret.meta.append(self._meta(part, title))
+                self._add_meta(
+                    ret, part, title, problems, loose, lines, offset
+                )
                 continue
 
             # Split based on lines which have exactly that indent
+            indent = chunk[: len(chunk) - len(chunk.lstrip())]
             _re = "^" + indent + r"(?=\S)"
             c_matches = list(re.finditer(_re, chunk, flags=re.M))
             if not c_matches:
-                raise ParseError(
-                    f'No specification for "{title}": "{excerpt(chunk)}"'
+                problems.append(
+                    Problem(
+                        lines.source_line(offset),
+                        f'No specification for "{title}": "{excerpt(chunk)}"',
+                    )
                 )
-            c_splits = []
-            for j in range(len(c_matches) - 1):
-                c_splits.append((c_matches[j].end(), c_matches[j + 1].start()))
-            c_splits.append((c_matches[-1].end(), len(chunk)))
-            for j, (start, end) in enumerate(c_splits):
-                part = chunk[start:end].strip("\n")
-                ret.meta.append(self._meta(part, title))
+                loose.append(chunk)
+                continue
+            c_ends = [m.start() for m in c_matches[1:]] + [len(chunk)]
+            for c_match, c_end in zip(c_matches, c_ends):
+                part = chunk[c_match.end() : c_end].strip("\n")
+                self._add_meta(
+                    ret,
+                    part,
+                    title,
+                    problems,
+                    loose,
+                    lines,
+                    offset + c_match.start(),
+                )
 
-        return ret
+        append_loose(ret, loose, blank_around=True)
+        return ParseResult(ret, problems)
+
+    def _add_meta(
+        self,
+        ret: Docstring,
+        part: str,
+        title: str,
+        problems: T.List[Problem],
+        loose: T.List[str],
+        lines: Lines,
+        offset: int,
+    ) -> None:
+        """Add an item's meta, or its text and a problem if it cannot be
+        read."""
+        try:
+            ret.meta.append(self._meta(part, title))
+        except ParseError as ex:
+            problems.append(Problem(lines.source_line(offset), str(ex)))
+            loose.append(part)
 
 
 # The name the parser had before every style had a ``Parser``.
@@ -475,10 +488,30 @@ def parse(
         ``DEFAULT_SECTIONS``
     :returns: parsed docstring
     """
+    return _parser(sections).parse(text)
+
+
+def try_parse(
+    text: T.Optional[str],
+    sections: T.Optional[T.Sequence[T.Union[Section, SectionSpec]]] = None,
+) -> ParseResult:
+    """Parse what can be parsed of a Google-style docstring, and tell what
+    cannot, instead of raising.
+
+    :param sections: as for :func:`parse`
+    :returns: the docstring, and a problem for each part that cannot be
+        read, whose text goes to the long description
+    """
+    return _parser(sections).try_parse(text)
+
+
+def _parser(
+    sections: T.Optional[T.Sequence[T.Union[Section, SectionSpec]]],
+) -> Parser:
     # Building a parser compiles its title regex, so reuse one for the same
     # sections, including DEFAULT_SECTIONS until it changes.
     key = list(sections or DEFAULT_SECTIONS)
-    return _parsers.get(key, Parser, key).parse(text)
+    return _parsers.get(key, Parser, key)
 
 
 # The sections compose writes items in, in order, and the kinds each takes.

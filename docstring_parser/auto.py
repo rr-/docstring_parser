@@ -4,7 +4,7 @@ import re
 import typing as T
 
 from . import epydoc, google, numpydoc, rest
-from .common import BaseParser, Docstring, ParseError
+from .common import BaseParser, Docstring, ParseError, ParseResult
 from .sections import SectionSpec
 
 # Any line that could start a field or a section in some style: a ReST
@@ -59,6 +59,27 @@ def detect(
     return sorted(rets, key=lambda d: len(d.meta), reverse=True)[0]
 
 
+def try_detect(
+    text: T.Optional[str],
+    parsers: T.Sequence[T.Callable[[T.Optional[str]], ParseResult]],
+    shortcut: bool,
+) -> ParseResult:
+    """Parse a docstring in every style and keep the best result.
+
+    A result with no problems beats one with problems, and then the one
+    with most meta wins, as in :func:`detect`.
+
+    :param parsers: each style's ``try_parse``, ReST's first
+    :param shortcut: as for :func:`detect`
+    """
+    if not text or (shortcut and _has_no_fields(text)):
+        return parsers[0](text)
+    results = [try_parse_style(text) for try_parse_style in parsers]
+    return min(
+        results, key=lambda r: (bool(r.problems), -len(r.docstring.meta))
+    )
+
+
 class Parser(BaseParser):
     """Parser that tells a docstring's style and parses it in that style.
 
@@ -88,4 +109,13 @@ class Parser(BaseParser):
         """Parse a docstring in the style it is written in."""
         return detect(
             text, [parser.parse for parser in self._parsers], self._shortcut
+        )
+
+    def try_parse(self, text: T.Optional[str]) -> ParseResult:
+        """Parse a docstring in the style it is written in, or the style
+        that reads most of it."""
+        return try_detect(
+            text,
+            [parser.try_parse for parser in self._parsers],
+            self._shortcut,
         )

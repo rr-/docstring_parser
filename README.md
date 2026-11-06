@@ -35,6 +35,22 @@ Example usage:
 'ValueError'
 ```
 
+`parse()` raises `ParseError` on a docstring it cannot read. `try_parse()`
+never raises. It keeps what it can read, puts the text of the rest in the long
+description, and lists a problem for each part, with its line:
+
+```python
+>>> from docstring_parser import try_parse
+>>>
+>>> result = try_parse(
+...     "Short.\n\nArgs:\n    x: X.\n    no colon here\n", "google"
+... )
+>>> result.docstring.params[0].arg_name
+'x'
+>>> result.problems
+[Problem(line=5, message="Expected a colon in 'no colon here'.")]
+```
+
 Read [API Documentation](https://rr-.github.io/docstring_parser/).
 
 # Custom sections

@@ -18,8 +18,8 @@ Get the certificate configuration path based on the following order:
         The absolute path of the certificate config file, and None if the file does not exist.
     
 === parse google
-ParseError: Expected a colon in 'location and environment variable will be ignored.'.
+ParseError: Expected a colon in 'location and environment variable will be ignored.'. (and 1 more)
 === detect
 rest
 === compose google
-ParseError: Expected a colon in 'location and environment variable will be ignored.'.
+ParseError: Expected a colon in 'location and environment variable will be ignored.'. (and 1 more)

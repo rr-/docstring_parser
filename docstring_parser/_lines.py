@@ -28,16 +28,11 @@ def normalize_line_endings(text: str) -> str:
     return text.replace("\r\n", "\n").replace("\r", "\n")
 
 
-def dedent_lines(text: str) -> T.List[str]:
-    """Dedent a docstring's lines as ``inspect.cleandoc`` did before 3.13.
-
-    The first line loses its leading whitespace, and the others lose the
-    smallest indent among them. Blank lines at either end are dropped. A
-    line holding only whitespace counts as blank, on every version.
-    """
+def _dedent(text: str) -> T.Tuple[T.List[str], int]:
+    """Dedent a docstring's lines, and count the blank lines cut at its top."""
     if "\n" not in text:
         line = text.expandtabs().lstrip()
-        return [line] if line else []
+        return ([line], 0) if line else ([], 0)
     lines = text.expandtabs().split("\n")
     margin = None
     for line in lines[1:]:
@@ -54,7 +49,17 @@ def dedent_lines(text: str) -> T.List[str]:
     start = 0
     while start < len(lines) and not lines[start]:
         start += 1
-    return lines[start:] if start else lines
+    return (lines[start:] if start else lines), start
+
+
+def dedent_lines(text: str) -> T.List[str]:
+    """Dedent a docstring's lines as ``inspect.cleandoc`` did before 3.13.
+
+    The first line loses its leading whitespace, and the others lose the
+    smallest indent among them. Blank lines at either end are dropped. A
+    line holding only whitespace counts as blank, on every version.
+    """
+    return _dedent(text)[0]
 
 
 def cleandoc(text: str) -> str:
@@ -76,7 +81,7 @@ class Lines:
     :ivar text: the dedented lines joined with newlines, for searching
     """
 
-    __slots__ = ("_lead", "_starts", "lines", "raw", "text")
+    __slots__ = ("_lead", "_skipped", "_starts", "lines", "raw", "text")
 
     def __init__(self, text: str, lead: bool = False) -> None:
         """Normalise and dedent a docstring.
@@ -88,7 +93,9 @@ class Lines:
         if "\r" in text:
             text = normalize_line_endings(text)
         self.raw = text
-        self.lines = dedent_lines("\n" + text if lead else text)
+        self.lines, skipped = _dedent("\n" + text if lead else text)
+        # The lines of the docstring as written before the first one kept.
+        self._skipped = skipped - 1 if lead else skipped
         self.text = "\n".join(self.lines)
         self._starts: T.Optional[T.List[int]] = None
         self._lead: T.Optional[Lines] = self if lead else None
@@ -107,6 +114,11 @@ class Lines:
                 starts.append(starts[-1] + len(line) + 1)
             self._starts = starts
         return bisect.bisect_right(self._starts, offset) - 1
+
+    def source_line(self, offset: int) -> int:
+        """Return the line of the docstring as written, from 1, holding an
+        offset into ``text``."""
+        return self.line_at(offset) + self._skipped + 1
 
     def indent(self, index: int) -> int:
         """Return the indent of a line, or -1 if it holds only whitespace."""
