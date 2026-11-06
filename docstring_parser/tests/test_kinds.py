@@ -118,3 +118,36 @@ def test_params_leave_out_attributes(style: DocstringStyle, text: str) -> None:
     docstring = parse(text, style)
     assert [p.arg_name for p in docstring.params] == ["x"]
     assert [a.arg_name for a in docstring.attrs] == ["y"]
+
+
+@pytest.mark.parametrize(
+    ("style", "text"),
+    [
+        (DocstringStyle.REST, "S.\n\n:returns: R.\n:yields: Y."),
+        (DocstringStyle.GOOGLE, "S.\n\nReturns:\n    R.\n\nYields:\n    Y."),
+        (
+            DocstringStyle.NUMPYDOC,
+            "S.\n\nReturns\n-------\nint\n    R.\n\n"
+            "Yields\n------\nint\n    Y.",
+        ),
+    ],
+    ids=lambda v: v.name.lower() if isinstance(v, DocstringStyle) else "",
+)
+def test_returns_and_yields_apart(style: DocstringStyle, text: str) -> None:
+    """Test that returns and yields each list only their own kind."""
+    docstring = parse(text, style)
+    assert docstring.returns is not None
+    assert docstring.returns.description == "R."
+    assert docstring.yields is not None
+    assert docstring.yields.description == "Y."
+    assert [m.description for m in docstring.many_returns] == ["R."]
+    assert [m.description for m in docstring.many_yields] == ["Y."]
+
+
+def test_yields_only() -> None:
+    """Test that a generator's docstring has no returns."""
+    docstring = parse("S.\n\n@yield: Y.", DocstringStyle.EPYDOC)
+    assert docstring.returns is None
+    assert docstring.many_returns == []
+    assert docstring.yields is not None
+    assert docstring.yields.description == "Y."
