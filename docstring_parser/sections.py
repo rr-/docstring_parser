@@ -137,6 +137,39 @@ class SectionSpec:
         return hash((self.titles, self.kind, self.key, self.layout, self.bare))
 
 
+_P = T.TypeVar("_P")
+
+
+class ParserCache(T.Generic[_P]):
+    """Parsers or tables built for lists of sections, found by the list.
+
+    Building a parser compiles its title regex, so a parser is reused for
+    an equal list of sections. Lists are compared rather than hashed: for
+    the same section objects, which is how sections are passed again and
+    again, the comparison stops at their identity.
+    """
+
+    def __init__(self, size: int = 16) -> None:
+        self._size = size
+        self._entries: T.List[T.Tuple[T.List[T.Any], _P]] = []
+
+    def get(
+        self, key: T.List[T.Any], make: T.Callable[..., _P], *args: T.Any
+    ) -> _P:
+        """Return the parser for a list of sections, or ``make(*args)``."""
+        for stored, parser in self._entries:
+            if stored == key:
+                return parser
+        parser = make(*args)
+        self._entries.insert(0, (key, parser))
+        del self._entries[self._size :]
+        return parser
+
+    def parsers(self) -> T.List[_P]:
+        """Return the parsers cached, the latest first."""
+        return [parser for _key, parser in self._entries]
+
+
 def apply(spec: T.Optional[SectionSpec], meta: DocstringMeta) -> DocstringMeta:
     """Give a meta to its section's ``parse_item``, if it has one."""
     if spec is not None and spec.parse_item is not None:

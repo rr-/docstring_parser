@@ -33,7 +33,7 @@ from .common import (
     continuation_indented,
     excerpt,
 )
-from .sections import Layout, SectionSpec, apply
+from .sections import Layout, ParserCache, SectionSpec, apply
 
 
 class SectionType(IntEnum):
@@ -452,7 +452,7 @@ class GoogleParser:
         return ret
 
 
-_parsers: T.Dict[T.Tuple[T.Any, ...], GoogleParser] = {}
+_parsers: ParserCache[GoogleParser] = ParserCache()
 
 
 def parse(
@@ -467,13 +467,8 @@ def parse(
     """
     # Building a parser compiles its title regex, so reuse one for the same
     # sections, including DEFAULT_SECTIONS until it changes.
-    key = tuple(sections or DEFAULT_SECTIONS)
-    parser = _parsers.get(key)
-    if parser is None:
-        if len(_parsers) >= 16:
-            _parsers.clear()
-        parser = _parsers[key] = GoogleParser(list(key))
-    return parser.parse(text)
+    key = list(sections or DEFAULT_SECTIONS)
+    return _parsers.get(key, GoogleParser, key).parse(text)
 
 
 # The sections compose writes items in, in order, and the kinds each takes.

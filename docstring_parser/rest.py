@@ -25,7 +25,7 @@ from .common import (
     continuation_indented,
     excerpt,
 )
-from .sections import SectionSpec, apply
+from .sections import ParserCache, SectionSpec, apply
 
 # The fields ReST recognises by default, by the kind of item each gives.
 # ReST has no example fields of its own.
@@ -56,6 +56,7 @@ def _field_table(
 
 
 _DEFAULT_TABLE = _field_table(None)
+_tables: ParserCache[T.Dict[str, SectionSpec]] = ParserCache()
 
 
 def _build_meta(args: T.List[str], desc: str, kind: Kind) -> DocstringMeta:
@@ -132,7 +133,11 @@ def parse(
         each meta's ``key`` is the name its field is written with
     :returns: parsed docstring
     """
-    table = _DEFAULT_TABLE if sections is None else _field_table(sections)
+    table = (
+        _DEFAULT_TABLE
+        if sections is None
+        else _tables.get(list(sections), _field_table, sections)
+    )
     ret = Docstring(style=DocstringStyle.REST)
     if not text:
         return ret

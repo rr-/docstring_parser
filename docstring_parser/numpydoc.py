@@ -31,7 +31,7 @@ from .common import (
     RenderingStyle,
     cleandoc,
 )
-from .sections import SectionSpec, apply
+from .sections import ParserCache, SectionSpec, apply
 
 
 def _pairwise(iterable: T.Iterable, end=None) -> T.Iterable:
@@ -477,7 +477,7 @@ _default_parser: T.Optional[NumpydocParser] = None
 _default_parser_sections: T.Tuple[T.List[Section], T.List[str]] = ([], [])
 
 
-_parsers: T.Dict[T.Tuple[T.Any, ...], NumpydocParser] = {}
+_parsers: ParserCache[NumpydocParser] = ParserCache()
 
 
 def parse(
@@ -492,13 +492,8 @@ def parse(
     """
     global _default_parser, _default_parser_sections  # noqa: PLW0603
     if sections:
-        key = (*sections, *(getattr(s, "title", None) for s in sections))
-        parser = _parsers.get(key)
-        if parser is None:
-            if len(_parsers) >= 16:
-                _parsers.clear()
-            parser = _parsers[key] = NumpydocParser(sections)
-        return parser.parse(text)
+        key = [*sections, *(getattr(s, "title", None) for s in sections)]
+        return _parsers.get(key, NumpydocParser, sections).parse(text)
     # Building a parser compiles its title regex, so reuse one until
     # DEFAULT_SECTIONS changes: a section added, removed or replaced, or a
     # title changed in place.

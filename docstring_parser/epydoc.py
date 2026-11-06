@@ -26,7 +26,7 @@ from .common import (
     cleandoc,
     excerpt,
 )
-from .sections import SectionSpec, apply
+from .sections import ParserCache, SectionSpec, apply
 
 _FIELD_START = re.compile("^@", flags=re.M)
 _DEFAULTS_TO = re.compile(r".*defaults to (.+)", flags=re.DOTALL)
@@ -77,9 +77,14 @@ def default_sections() -> T.List[SectionSpec]:
     ]
 
 
-_DEFAULT_TABLE = {
-    name: spec for spec in default_sections() for name in spec.titles
-}
+def _field_table(
+    sections: T.Sequence[SectionSpec],
+) -> T.Dict[str, SectionSpec]:
+    return {name: spec for spec in sections for name in spec.titles}
+
+
+_DEFAULT_TABLE = _field_table(default_sections())
+_tables: ParserCache[T.Dict[str, SectionSpec]] = ParserCache()
 
 
 def parse(
@@ -95,7 +100,7 @@ def parse(
     table = (
         _DEFAULT_TABLE
         if sections is None
-        else {name: spec for spec in sections for name in spec.titles}
+        else _tables.get(list(sections), _field_table, sections)
     )
     ret = Docstring(style=DocstringStyle.EPYDOC)
     if not text:
