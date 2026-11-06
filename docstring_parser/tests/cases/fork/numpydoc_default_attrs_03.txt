@@ -1,0 +1,28 @@
+# From jsh9/docstring_parser_fork:
+# tests/test_numpydoc.py::test_default_attrs
+=== input
+
+                Attributes
+                ----------
+                attr2 : str, default: 'hello'
+                    The second attr.
+                
+=== detect
+numpydoc
+=== parse numpydoc
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  description: 'The second attr.'
+  kind: attribute
+  key: 'attribute'
+  arg_name: 'attr2'
+  type_name: 'str'
+  is_optional: True
+  default: "'hello'"
+=== compose numpydoc
+Attributes
+----------
+attr2 : str, default='hello'
+    The second attr.

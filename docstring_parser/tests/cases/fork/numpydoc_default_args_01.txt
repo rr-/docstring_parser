@@ -1,0 +1,25 @@
+# From jsh9/docstring_parser_fork:
+# tests/test_numpydoc.py::test_default_args
+=== input
+
+                Parameters
+                ----------
+                arg_without_type
+                    The arg has no type declaration.
+                
+=== detect
+numpydoc
+=== parse numpydoc
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  description: 'The arg has no type declaration.'
+  kind: param
+  key: 'param'
+  arg_name: 'arg_without_type'
+=== compose numpydoc
+Parameters
+----------
+arg_without_type
+    The arg has no type declaration.

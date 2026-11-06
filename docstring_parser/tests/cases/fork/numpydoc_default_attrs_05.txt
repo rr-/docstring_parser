@@ -1,0 +1,28 @@
+# From jsh9/docstring_parser_fork:
+# tests/test_numpydoc.py::test_default_attrs
+=== input
+
+                Attributes
+                ----------
+                attr4 : int
+                    The fourth attr. Default is 3.
+                
+=== detect
+numpydoc
+=== parse numpydoc
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  description: 'The fourth attr. Default is 3.'
+  kind: attribute
+  key: 'attribute'
+  arg_name: 'attr4'
+  type_name: 'int'
+  is_optional: False
+  default: '3'
+=== compose numpydoc
+Attributes
+----------
+attr4 : int, default=3
+    The fourth attr. Default is 3.

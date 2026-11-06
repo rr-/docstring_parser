@@ -1,0 +1,24 @@
+# From jsh9/docstring_parser_fork:
+# tests/test_numpydoc.py::test_detect_formatting_error
+=== input
+This is a function
+
+Parameters
+----------
+    arg1 : str
+    This is arg 1
+=== detect
+rest
+=== parse numpydoc
+short_description: 'This is a function'
+long_description: |
+  arg1 : str
+      This is arg 1
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+=== compose numpydoc
+This is a function
+
+arg1 : str
+    This is arg 1

@@ -1,0 +1,22 @@
+# From jsh9/docstring_parser_fork:
+# tests/test_google.py::test_yields
+=== input
+
+        Returns:
+            int: description
+        
+=== detect
+google
+=== parse google
+blank_after_short_description: False
+blank_after_long_description: False
+style: google
+- DocstringReturns
+  description: 'description'
+  kind: returns
+  key: 'returns'
+  type_name: 'int'
+  is_generator: False
+=== compose google
+Returns:
+    int: description

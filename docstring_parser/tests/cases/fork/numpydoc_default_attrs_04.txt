@@ -1,0 +1,27 @@
+# From jsh9/docstring_parser_fork:
+# tests/test_numpydoc.py::test_default_attrs
+=== input
+
+                Attributes
+                ----------
+                attr3 : float, optional
+                    The third attr.
+                
+=== detect
+numpydoc
+=== parse numpydoc
+blank_after_short_description: False
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  description: 'The third attr.'
+  kind: attribute
+  key: 'attribute'
+  arg_name: 'attr3'
+  type_name: 'float'
+  is_optional: True
+=== compose numpydoc
+Attributes
+----------
+attr3 : float, optional
+    The third attr.

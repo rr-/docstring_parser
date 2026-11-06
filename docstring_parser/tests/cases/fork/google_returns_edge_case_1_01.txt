@@ -1,0 +1,24 @@
+# From jsh9/docstring_parser_fork:
+# tests/test_google.py::test_returns_edge_case_1
+=== input
+
+        Short description
+        Returns:
+            dict[str, Any] | None: A description: with a colon
+        
+=== detect
+google
+=== parse google
+short_description: 'Short description'
+blank_after_short_description: False
+blank_after_long_description: False
+style: google
+- DocstringReturns
+  description: 'dict[str, Any] | None: A description: with a colon'
+  kind: returns
+  key: 'returns'
+  is_generator: False
+=== compose google
+Short description
+Returns:
+    dict[str, Any] | None: A description: with a colon

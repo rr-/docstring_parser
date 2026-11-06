@@ -1,0 +1,33 @@
+# From jsh9/docstring_parser_fork:
+# tests/test_google.py::test_yields
+=== input
+
+        Yields:
+            Optional[Mapping[str, List[int]]]: A description: with a colon
+        Returns:
+            int: description with return last
+        
+=== detect
+google
+=== parse google
+blank_after_short_description: False
+blank_after_long_description: False
+style: google
+- DocstringReturns
+  description: 'A description: with a colon'
+  kind: yields
+  key: 'yields'
+  type_name: 'Optional[Mapping[str, List[int]]]'
+  is_generator: True
+- DocstringReturns
+  description: 'description with return last'
+  kind: returns
+  key: 'returns'
+  type_name: 'int'
+  is_generator: False
+=== compose google
+Returns:
+    int: description with return last
+
+Yields:
+    Optional[Mapping[str, List[int]]]: A description: with a colon

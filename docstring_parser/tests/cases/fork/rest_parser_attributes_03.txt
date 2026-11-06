@@ -1,0 +1,131 @@
+# From jsh9/docstring_parser_fork:
+# tests/test_rest_attr_parser.py::test_parser_attributes
+=== input
+
+            My Class
+
+            .. attribute :: attr_1
+                :type: str
+
+            .. attribute :: attr_2
+                :type: bool
+
+                Attr 2
+
+            :param bar: A param called "bar"
+            :type name: float
+
+            .. attribute :: attr_3
+
+                Attr 3
+            :param goo: A param called "goo"
+            :type name: bool
+
+            .. attribute :: attr_4
+            .. attribute :: attr_5
+            :param foo: A param called "foo"
+            :type name: float
+            .. attribute :: attr_6
+                :type: dict | list
+
+                !
+
+            :param name: My name
+            :type name: str
+            
+=== detect
+rest
+=== parse rest
+short_description: 'My Class'
+long_description: |
+  .. attribute :: attr_1
+      :type: str
+  
+  .. attribute :: attr_2
+      :type: bool
+  
+      Attr 2
+  
+  .. attribute :: attr_3
+  
+      Attr 3
+  
+  .. attribute :: attr_4
+  .. attribute :: attr_5
+  
+  .. attribute :: attr_6
+      :type: dict | list
+  
+      !
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringParam
+  description: 'A param called "bar"'
+  kind: param
+  key: 'param'
+  arg_name: 'bar'
+- DocstringParam
+  description: 'A param called "goo"'
+  kind: param
+  key: 'param'
+  arg_name: 'goo'
+- DocstringParam
+  kind: param
+  key: 'type'
+  arg_name: 'name'
+  type_name: 'bool'
+  is_optional: False
+- DocstringParam
+  description: 'A param called "foo"'
+  kind: param
+  key: 'param'
+  arg_name: 'foo'
+- DocstringParam
+  kind: param
+  key: 'type'
+  arg_name: 'name'
+  type_name: 'float'
+  is_optional: False
+- DocstringParam
+  description: 'My name'
+  kind: param
+  key: 'param'
+  arg_name: 'name'
+  type_name: 'float'
+- DocstringParam
+  kind: param
+  key: 'type'
+  arg_name: 'name'
+  type_name: 'str'
+  is_optional: False
+=== compose rest
+My Class
+
+.. attribute :: attr_1
+    :type: str
+
+.. attribute :: attr_2
+    :type: bool
+
+    Attr 2
+
+.. attribute :: attr_3
+
+    Attr 3
+
+.. attribute :: attr_4
+.. attribute :: attr_5
+
+.. attribute :: attr_6
+    :type: dict | list
+
+    !
+
+:param bar: A param called "bar"
+:param goo: A param called "goo"
+:param bool name:
+:param foo: A param called "foo"
+:param float name:
+:param float name: My name
+:param str name:

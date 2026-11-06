@@ -1,0 +1,83 @@
+# From jsh9/docstring_parser_fork:
+# tests/test_rest_attr_parser.py::test_parser_attributes
+=== input
+
+            My Class
+
+            .. attribute :: attr_1
+                :type: str
+
+            .. attribute :: attr_2
+                :type: bool
+
+                Attr 2
+
+            .. attribute :: attr_3
+
+                Attr 3
+
+            .. attribute :: attr_4
+            .. attribute :: attr_5
+            .. attribute :: attr_6
+                :type: dict | list
+
+                !
+
+            :param name: My name
+            :type name: str
+            
+=== detect
+rest
+=== parse rest
+short_description: 'My Class'
+long_description: |
+  .. attribute :: attr_1
+      :type: str
+  
+  .. attribute :: attr_2
+      :type: bool
+  
+      Attr 2
+  
+  .. attribute :: attr_3
+  
+      Attr 3
+  
+  .. attribute :: attr_4
+  .. attribute :: attr_5
+  .. attribute :: attr_6
+      :type: dict | list
+  
+      !
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringParam
+  description: 'My name'
+  kind: param
+  key: 'param'
+  arg_name: 'name'
+  type_name: 'str'
+=== compose rest
+My Class
+
+.. attribute :: attr_1
+    :type: str
+
+.. attribute :: attr_2
+    :type: bool
+
+    Attr 2
+
+.. attribute :: attr_3
+
+    Attr 3
+
+.. attribute :: attr_4
+.. attribute :: attr_5
+.. attribute :: attr_6
+    :type: dict | list
+
+    !
+
+:param str name: My name
