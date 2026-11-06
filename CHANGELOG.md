@@ -30,6 +30,7 @@
 - General: Add `raw_type_name` to params, the type as written, such as `int, optional`, before its optional mark and default are split off
 - General: Keep a class attribute in `parse_from_object()` when the class docstring documents a param of the same name, instead of dropping it
 - General: Return the docstring of a built-in class or module from `parse_from_object()` instead of raising `TypeError`, and ignore a `__doc__` that is not a string
+- General: Cut a line holding only a tab or a form feed at either end of a docstring as a blank line, instead of reading it as the summary and the real summary as the long description
 - ReST: Stop the last field from absorbing text after the field list; that text now goes to the long description (thanks to @apoorvdarshan)
 - ReST: Raise `ParseError` instead of `IndexError` for a field with no name
 - ReST: Indent composed continuation lines in compact mode, so one starting with a role such as `:class:` is no longer read back as a new field
