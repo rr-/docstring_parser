@@ -1,0 +1,38 @@
+# Test that compose keeps a return's empty type, and a colon in its type.
+=== input
+Short.
+
+Returns
+-------
+total :
+    The total.
+: a: b
+    Odd.
+=== parse numpydoc
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringReturns
+  description: 'The total.'
+  kind: returns
+  key: 'returns'
+  type_name: ''
+  is_generator: False
+  return_name: 'total'
+- DocstringReturns
+  description: 'Odd.'
+  kind: returns
+  key: 'returns'
+  type_name: 'a: b'
+  is_generator: False
+  return_name: ''
+=== compose numpydoc
+Short.
+
+Returns
+-------
+total :
+    The total.
+: a: b
+    Odd.
