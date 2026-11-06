@@ -8,6 +8,7 @@ from ._compose import (
     description_lines,
     field_name,
     field_text,
+    start_on_new_line,
     written_type,
 )
 from ._fields import AFTER_ALL, ParamTypes, ReturnTypes, assign_types
@@ -585,7 +586,8 @@ def compose(
     :returns: docstring text
     """
 
-    def process_desc(desc: T.Optional[str]) -> str:
+    # A quoted annotation is not evaluated on every call.
+    def process_desc(desc: "T.Optional[str]") -> str:
         if not desc:
             return ""
 
@@ -600,6 +602,7 @@ def compose(
         return "\n".join([" " + first] + rest)
 
     parts = description_lines(docstring)
+    long_description = docstring.long_description
 
     for meta in docstring.meta:
         if isinstance(meta, DocstringParam):
@@ -685,4 +688,13 @@ def compose(
         else:
             text = f":{field_text(meta)}:" + process_desc(meta.description)
             parts.append(text)
-    return "\n".join(parts)
+    text = "\n".join(parts)
+    # Every field starts a line of its own, unindented, so only a lone
+    # one, or an indented long description with no field after it, can
+    # have all the other lines indented.
+    if docstring.meta:
+        if len(parts) > 1:
+            return text
+    elif not (long_description and long_description[0].isspace()):
+        return text
+    return start_on_new_line(text)

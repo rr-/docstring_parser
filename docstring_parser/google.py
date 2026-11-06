@@ -11,6 +11,7 @@ from ._compose import (
     description_lines,
     examples_text,
     section_runs,
+    start_on_new_line,
     written_type,
 )
 from ._lines import Lines
@@ -812,4 +813,12 @@ def compose(
     while parts and not parts[-1]:
         parts.pop()
 
-    return "\n".join(parts)
+    text = "\n".join(parts)
+    # Every section starts with an unindented title, and one on the first
+    # line is dedented with its items already.
+    long_description = docstring.long_description
+    if docstring.meta or not (
+        long_description and long_description[0].isspace()
+    ):
+        return text
+    return start_on_new_line(text)

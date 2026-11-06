@@ -19,5 +19,6 @@ style: epydoc
 === detect
 epydoc
 === compose epydoc
+
 @param hostAddress: An L{IAddress} this L{IListeningPort} should
     pretend to be listening on.
