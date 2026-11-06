@@ -676,7 +676,7 @@ def compose(
                 head += f"{mark}optional"
 
         if one.description:
-            body = f"\n{indent}".join([head] + one.description.splitlines())
+            body = f"\n{indent}".join([head] + one.description.split("\n"))
             parts.append(body)
         else:
             parts.append(head)
@@ -705,7 +705,7 @@ def compose(
         if docstring.deprecation.version:
             first += f" {docstring.deprecation.version}"
         if docstring.deprecation.description:
-            rest = docstring.deprecation.description.splitlines()
+            rest = docstring.deprecation.description.split("\n")
         else:
             rest = []
         parts.append(

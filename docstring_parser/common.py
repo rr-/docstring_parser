@@ -29,7 +29,7 @@ def continuation_indented(text: str) -> bool:
     continuation indent, losing their indent relative to the first line,
     so the description has to start on a line of its own.
     """
-    rest = [line for line in text.splitlines()[1:] if line.strip()]
+    rest = [line for line in text.split("\n")[1:] if line.strip()]
     return bool(rest) and all(line[0].isspace() for line in rest)
 
 

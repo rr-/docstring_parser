@@ -529,7 +529,7 @@ _OWN_PARAM_FIELDS = frozenset(PARAM_KEYWORDS | ATTRIBUTE_FIELD_KEYWORDS)
 def _type_field(indent: str, head: str, type_name: str) -> str:
     """Compose a type field, whose lines after the first are indented, as
     an unindented line ends it."""
-    return f":{head}: " + f"\n{indent}".join(type_name.splitlines())
+    return f":{head}: " + f"\n{indent}".join(type_name.split("\n"))
 
 
 # The kind of item each field ReST recognises by default gives.
@@ -575,7 +575,7 @@ def compose(
 
         # Continuation lines are indented, so that one starting with a colon
         # is not read back as a field of its own.
-        (first, *rest) = desc.splitlines()
+        (first, *rest) = desc.split("\n")
         rest = [indent + line if line else "" for line in rest]
         if rendering_style == RenderingStyle.EXPANDED or (
             continuation_indented(desc)
