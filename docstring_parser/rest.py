@@ -200,7 +200,8 @@ _ATTRIBUTE = re.compile(
 )
 _OPTION = re.compile(r":([\w-]+):[ \t]*(.*)")
 _VERSION = re.compile(
-    r"^(?P<version>v?((?:\d+)(?:\.[0-9a-z\.]+))) (?P<desc>.+)", flags=re.I
+    r"^(?P<version>v?((?:\d+)(?:\.[0-9a-z\.]+))) (?P<desc>.+)",
+    flags=re.I | re.S,
 )
 
 
