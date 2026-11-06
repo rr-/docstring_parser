@@ -53,37 +53,36 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 - DocstringParam
-  args: ['param', 'x']
   description: 'First data list (for example, time).'
   kind: param
+  key: 'param'
   arg_name: 'x'
   type_name: 'sequence'
   is_optional: False
 - DocstringParam
-  args: ['param', 'y']
   description: 'Second data list.'
   kind: param
+  key: 'param'
   arg_name: 'y'
   type_name: 'sequence'
   is_optional: False
 - DocstringParam
-  args: ['param', 'use_ties']
   description: 'Whether ties correction should be performed.'
   kind: param
+  key: 'param'
   arg_name: 'use_ties'
   type_name: '{True, False}'
   is_optional: True
 - DocstringParam
-  args: ['param', 'use_missing']
   description: |
     Whether missing data should be allocated a rank of 0 (False) or the
     average rank (True)
   kind: param
+  key: 'param'
   arg_name: 'use_missing'
   type_name: '{False, True}'
   is_optional: True
 - DocstringParam
-  args: ['param', 'method']
   description: |
     Defines which method is used to calculate the p-value [1]_.
     'asymptotic' uses a normal approximation valid for large samples.
@@ -93,11 +92,11 @@ style: numpydoc
     'auto' is the default and selects the appropriate
     method based on a trade-off between speed and accuracy.
   kind: param
+  key: 'param'
   arg_name: 'method'
   type_name: "{'auto', 'asymptotic', 'exact'}"
   is_optional: True
 - DocstringParam
-  args: ['param', 'alternative']
   description: |
     Defines the alternative hypothesis. Default is 'two-sided'.
     The following options are available:
@@ -106,12 +105,12 @@ style: numpydoc
     * 'less': the rank correlation is negative (less than zero)
     * 'greater':  the rank correlation is positive (greater than zero)
   kind: param
+  key: 'param'
   arg_name: 'alternative'
   type_name: "{'two-sided', 'less', 'greater'}"
   is_optional: True
   default: "'two-sided'"
 - DocstringReturns
-  args: ['returns']
   description: |
     An object containing attributes:
     
@@ -121,15 +120,16 @@ style: numpydoc
        The p-value for a hypothesis test whose null hypothesis is
        an absence of association, tau = 0.
   kind: returns
+  key: 'returns'
   type_name: 'SignificanceResult'
   is_generator: False
   return_name: 'res'
 - DocstringMeta
-  args: ['references']
   description: |
     .. [1] Maurice G. Kendall, "Rank Correlation Methods" (4th Edition),
            Charles Griffin & Co., 1970.
   kind: text
+  key: 'references'
 === detect
 numpydoc
 === compose numpydoc

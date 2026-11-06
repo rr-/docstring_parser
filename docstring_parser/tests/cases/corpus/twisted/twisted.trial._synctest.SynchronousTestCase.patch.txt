@@ -26,27 +26,27 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: epydoc
 - DocstringParam
-  args: ['param', 'obj']
   description: 'The object to monkey patch.'
   kind: param
+  key: 'param'
   arg_name: 'obj'
   is_optional: False
 - DocstringParam
-  args: ['param', 'attribute']
   description: 'The name of the attribute to change.'
   kind: param
+  key: 'param'
   arg_name: 'attribute'
   is_optional: False
 - DocstringParam
-  args: ['param', 'value']
   description: 'The value to set the attribute to.'
   kind: param
+  key: 'param'
   arg_name: 'value'
   is_optional: False
 - DocstringReturns
-  args: ['return']
   description: 'A L{monkey.MonkeyPatcher} object.'
   kind: returns
+  key: 'return'
   is_generator: False
 === detect
 epydoc

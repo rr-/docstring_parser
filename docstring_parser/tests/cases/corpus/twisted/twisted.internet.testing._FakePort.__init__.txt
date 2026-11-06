@@ -9,11 +9,11 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: epydoc
 - DocstringParam
-  args: ['param', 'hostAddress']
   description: |
     An L{IAddress} this L{IListeningPort} should
     pretend to be listening on.
   kind: param
+  key: 'param'
   arg_name: 'hostAddress'
   is_optional: False
 === detect

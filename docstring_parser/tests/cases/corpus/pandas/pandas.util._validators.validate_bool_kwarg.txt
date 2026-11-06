@@ -30,45 +30,45 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 - DocstringParam
-  args: ['param', 'value']
   description: 'Value to be validated.'
   kind: param
+  key: 'param'
   arg_name: 'value'
   type_name: 'bool'
   is_optional: False
 - DocstringParam
-  args: ['param', 'arg_name']
   description: 'Name of the argument. To be reflected in the error message.'
   kind: param
+  key: 'param'
   arg_name: 'arg_name'
   type_name: 'str'
   is_optional: False
 - DocstringParam
-  args: ['param', 'none_allowed']
   description: 'Whether to consider None to be a valid boolean.'
   kind: param
+  key: 'param'
   arg_name: 'none_allowed'
   type_name: 'bool'
   is_optional: True
   default: 'True'
 - DocstringParam
-  args: ['param', 'int_allowed']
   description: 'Whether to consider integer value to be a valid boolean.'
   kind: param
+  key: 'param'
   arg_name: 'int_allowed'
   type_name: 'bool'
   is_optional: True
   default: 'False'
 - DocstringReturns
-  args: ['returns']
   description: 'The same value as input.'
   kind: returns
+  key: 'returns'
   type_name: 'value'
   is_generator: False
 - DocstringRaises
-  args: ['raises', 'ValueError']
   description: 'If the value is not a valid boolean.'
   kind: raises
+  key: 'raises'
   type_name: 'ValueError'
 === detect
 numpydoc

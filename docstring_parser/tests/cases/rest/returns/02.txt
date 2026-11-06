@@ -10,7 +10,7 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: rest
 - DocstringReturns
-  args: ['returns']
   description: 'description'
   kind: returns
+  key: 'returns'
   is_generator: False

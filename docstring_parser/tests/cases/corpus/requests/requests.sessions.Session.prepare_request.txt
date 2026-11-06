@@ -18,18 +18,17 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: rest
 - DocstringMeta
-  args: ['class']
   description: '`Session`.'
   kind: text
+  key: 'class'
 - DocstringParam
-  args: ['param', 'request']
   description: |
     :class:`Request` instance to prepare with this
     session's settings.
   kind: param
+  key: 'param'
   arg_name: 'request'
 - DocstringReturns
-  args: []
   kind: returns
   type_name: 'requests.PreparedRequest'
   is_generator: False

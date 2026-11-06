@@ -58,7 +58,6 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'f']
   description: |
     Function to estimate error for. `f` must have the signature::
         f(x : ndarray, \*args) -> ndarray
@@ -72,33 +71,34 @@ style: numpydoc
     In this case, `estimate` will return arrays of shape::
         (output_dim_1, ..., output_dim_n)
   kind: param
+  key: 'param'
   arg_name: 'f'
   type_name: 'callable'
   is_optional: False
 - DocstringParam
-  args: ['param', 'a, b']
   description: |
     Lower and upper limits of integration as rank-1 arrays specifying the left
     and right endpoints of the intervals being integrated over. Infinite limits
     are currently not supported.
   kind: param
+  key: 'param'
   arg_name: 'a, b'
   type_name: 'ndarray'
   is_optional: False
 - DocstringParam
-  args: ['param', 'args']
   description: 'Additional positional args passed to `f`, if any.'
   kind: param
+  key: 'param'
   arg_name: 'args'
   type_name: 'tuple'
   is_optional: True
 - DocstringReturns
-  args: ['returns']
   description: |
     Result of error estimation. If `f` returns arrays of shape
     ``(npoints, output_dim_1, ..., output_dim_n)``, then `est` will be
     of shape ``(output_dim_1, ..., output_dim_n)``.
   kind: returns
+  key: 'returns'
   type_name: 'ndarray'
   is_generator: False
   return_name: 'err_est'

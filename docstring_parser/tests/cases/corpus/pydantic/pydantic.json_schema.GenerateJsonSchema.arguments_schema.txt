@@ -14,14 +14,14 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'schema']
   description: 'The core schema.'
   kind: param
+  key: 'param'
   arg_name: 'schema'
 - DocstringReturns
-  args: ['returns']
   description: 'The generated JSON schema.'
   kind: returns
+  key: 'returns'
   is_generator: False
 === detect
 google

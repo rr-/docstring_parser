@@ -11,9 +11,9 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringReturns
-  args: ['returns', 'int']
   description: 'A number of cells.'
   kind: returns
+  key: 'returns'
   type_name: 'int'
   is_generator: False
 === detect

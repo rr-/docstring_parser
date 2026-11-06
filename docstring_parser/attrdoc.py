@@ -116,7 +116,7 @@ def add_attribute_docstrings(
     ):
         if arg_name not in params:
             param = DocstringParam(
-                args=["attribute", arg_name],
+                key="attribute",
                 description=description,
                 arg_name=arg_name,
                 type_name=type_name,

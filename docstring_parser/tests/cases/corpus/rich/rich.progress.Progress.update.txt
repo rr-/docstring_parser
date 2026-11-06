@@ -18,58 +18,58 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'task_id (TaskID)']
   description: 'Task id (returned by add_task).'
   kind: param
+  key: 'param'
   arg_name: 'task_id'
   type_name: 'TaskID'
   is_optional: False
 - DocstringParam
-  args: ['param', 'total (float, optional)']
   description: 'Updates task.total if not None.'
   kind: param
+  key: 'param'
   arg_name: 'total'
   type_name: 'float'
   is_optional: True
 - DocstringParam
-  args: ['param', 'completed (float, optional)']
   description: 'Updates task.completed if not None.'
   kind: param
+  key: 'param'
   arg_name: 'completed'
   type_name: 'float'
   is_optional: True
 - DocstringParam
-  args: ['param', 'advance (float, optional)']
   description: 'Add a value to task.completed if not None.'
   kind: param
+  key: 'param'
   arg_name: 'advance'
   type_name: 'float'
   is_optional: True
 - DocstringParam
-  args: ['param', 'description (str, optional)']
   description: 'Change task description if not None.'
   kind: param
+  key: 'param'
   arg_name: 'description'
   type_name: 'str'
   is_optional: True
 - DocstringParam
-  args: ['param', 'visible (bool, optional)']
   description: 'Set visible flag if not None.'
   kind: param
+  key: 'param'
   arg_name: 'visible'
   type_name: 'bool'
   is_optional: True
 - DocstringParam
-  args: ['param', 'refresh (bool)']
   description: 'Force a refresh of progress information. Default is False.'
   kind: param
+  key: 'param'
   arg_name: 'refresh'
   type_name: 'bool'
   is_optional: False
 - DocstringParam
-  args: ['param', '**fields (Any)']
   description: 'Additional data fields required for rendering.'
   kind: param
+  key: 'param'
   arg_name: '**fields'
   type_name: 'Any'
   is_optional: False

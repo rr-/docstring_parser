@@ -21,69 +21,69 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringExample
-  args: ['examples']
   description: '>>> filename = Prompt.ask("Enter a filename")'
   kind: examples
+  key: 'examples'
 - DocstringParam
-  args: ['param', 'prompt (TextType, optional)']
   description: 'Prompt text. Defaults to "".'
   kind: param
+  key: 'param'
   arg_name: 'prompt'
   type_name: 'TextType'
   is_optional: True
   default: '""'
 - DocstringParam
-  args: ['param', 'console (Console, optional)']
   description: 'A Console instance or None to use global console. Defaults to None.'
   kind: param
+  key: 'param'
   arg_name: 'console'
   type_name: 'Console'
   is_optional: True
   default: 'None'
 - DocstringParam
-  args: ['param', 'password (bool, optional)']
   description: 'Enable password input. Defaults to False.'
   kind: param
+  key: 'param'
   arg_name: 'password'
   type_name: 'bool'
   is_optional: True
   default: 'False'
 - DocstringParam
-  args: ['param', 'choices (List[str], optional)']
   description: 'A list of valid choices. Defaults to None.'
   kind: param
+  key: 'param'
   arg_name: 'choices'
   type_name: 'List[str]'
   is_optional: True
   default: 'None'
 - DocstringParam
-  args: ['param', 'case_sensitive (bool, optional)']
   description: 'Matching of choices should be case-sensitive. Defaults to True.'
   kind: param
+  key: 'param'
   arg_name: 'case_sensitive'
   type_name: 'bool'
   is_optional: True
   default: 'True'
 - DocstringParam
-  args: ['param', 'show_default (bool, optional)']
   description: 'Show default in prompt. Defaults to True.'
   kind: param
+  key: 'param'
   arg_name: 'show_default'
   type_name: 'bool'
   is_optional: True
   default: 'True'
 - DocstringParam
-  args: ['param', 'show_choices (bool, optional)']
   description: 'Show choices in prompt. Defaults to True.'
   kind: param
+  key: 'param'
   arg_name: 'show_choices'
   type_name: 'bool'
   is_optional: True
   default: 'True'
 - DocstringParam
-  args: ['param', 'stream (TextIO, optional)']
   description: 'Optional text file open for reading to get input. Defaults to None.'
   kind: param
+  key: 'param'
   arg_name: 'stream'
   type_name: 'TextIO'
   is_optional: True

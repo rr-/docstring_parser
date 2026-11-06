@@ -10,15 +10,15 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: epydoc
 - DocstringParam
-  args: ['param', 'args']
   description: 'Arguments for L{SMTPFactory.__init__}'
   kind: param
+  key: 'param'
   arg_name: 'args'
   is_optional: False
 - DocstringMeta
-  args: ['see']
   description: 'L{SMTPFactory.__init__}'
   kind: text
+  key: 'see'
 === detect
 epydoc
 === compose epydoc

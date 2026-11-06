@@ -19,9 +19,10 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: rest
 - DocstringMeta
-  args: ['meta', 'private']
   description: ''
   kind: text
+  key: 'meta'
+  name: 'private'
 === detect
 rest
 === compose rest

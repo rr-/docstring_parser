@@ -19,16 +19,16 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringParam
-  args: ['param', 'name']
   description: 'Name of attribute to get.'
   kind: param
+  key: 'param'
   arg_name: 'name'
 - DocstringParam
-  args: ['param', 'default']
   description: |
     Value to set and return if the attribute is not
     present.
   kind: param
+  key: 'param'
   arg_name: 'default'
 === detect
 rest

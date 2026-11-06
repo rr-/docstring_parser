@@ -15,9 +15,9 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: epydoc
 - DocstringReturns
-  args: ['return']
   description: 'The string representation.'
   kind: returns
+  key: 'return'
   type_name: 'C{str}'
   is_generator: False
 === detect

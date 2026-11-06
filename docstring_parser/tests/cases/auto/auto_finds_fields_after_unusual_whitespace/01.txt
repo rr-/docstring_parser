@@ -12,7 +12,7 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 - DocstringParam
-  args: ['param', 'x']
   description: 'desc'
   kind: param
+  key: 'param'
   arg_name: 'x'

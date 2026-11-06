@@ -15,23 +15,23 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'width (int)']
   description: 'New width (sets both min_width and max_width).'
   kind: param
+  key: 'param'
   arg_name: 'width'
   type_name: 'int'
   is_optional: False
 - DocstringParam
-  args: ['param', 'height (int)']
   description: 'New height.'
   kind: param
+  key: 'param'
   arg_name: 'height'
   type_name: 'int'
   is_optional: False
 - DocstringReturns
-  args: ['returns', '~ConsoleOptions']
   description: 'New console options instance.'
   kind: returns
+  key: 'returns'
   type_name: '~ConsoleOptions'
   is_generator: False
 === detect

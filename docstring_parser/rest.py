@@ -4,7 +4,7 @@ import re
 import textwrap
 import typing as T
 
-from ._compose import description_lines, field_name
+from ._compose import description_lines, field_name, field_text
 from ._lines import Lines
 from ._text import append_loose, split_description
 from .common import (
@@ -59,7 +59,7 @@ def _build_meta(args: T.List[str], desc: str) -> DocstringMeta:
         default = match.group(1).rstrip(".") if match else None
 
         return DocstringParam(
-            args=args,
+            key=key,
             description=desc,
             arg_name=arg_name,
             type_name=type_name,
@@ -79,7 +79,7 @@ def _build_meta(args: T.List[str], desc: str) -> DocstringMeta:
             )
 
         return DocstringReturns(
-            args=args,
+            key=key,
             description=desc,
             type_name=type_name,
             is_generator=key in YIELDS_KEYWORDS,
@@ -92,7 +92,7 @@ def _build_meta(args: T.List[str], desc: str) -> DocstringMeta:
             flags=re.I,
         )
         return DocstringDeprecated(
-            args=args,
+            key=key,
             version=match.group("version") if match else None,
             description=match.group("desc") if match else desc,
         )
@@ -106,11 +106,9 @@ def _build_meta(args: T.List[str], desc: str) -> DocstringMeta:
             raise ParseError(
                 f"Expected one or no arguments for a {key} keyword."
             )
-        return DocstringRaises(
-            args=args, description=desc, type_name=type_name
-        )
+        return DocstringRaises(description=desc, type_name=type_name, key=key)
 
-    return DocstringMeta(args=args, description=desc)
+    return DocstringMeta(desc, key, " ".join(args[1:]) or None)
 
 
 def parse(text: T.Optional[str]) -> Docstring:
@@ -200,7 +198,6 @@ def parse(text: T.Optional[str]) -> Docstring:
         for return_name, type_name in rtypes.items():
             ret.meta.append(
                 DocstringReturns(
-                    args=[],
                     type_name=type_name,
                     description=None,
                     is_generator=False,
@@ -301,6 +298,6 @@ def compose(
             text = f":raises{type_text}:" + process_desc(meta.description)
             parts.append(text)
         else:
-            text = f":{' '.join(meta.args)}:" + process_desc(meta.description)
+            text = f":{field_text(meta)}:" + process_desc(meta.description)
             parts.append(text)
     return "\n".join(parts)

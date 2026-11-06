@@ -41,45 +41,45 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'constraint']
   description: 'Constraint to check and prepare.'
   kind: param
+  key: 'param'
   arg_name: 'constraint'
   type_name: '{`NonlinearConstraint`, `LinearConstraint`, `Bounds`}'
   is_optional: False
 - DocstringParam
-  args: ['param', 'x0']
   description: 'Initial vector of independent variables, shape (N,)'
   kind: param
+  key: 'param'
   arg_name: 'x0'
   type_name: 'array_like'
   is_optional: False
 - DocstringParam
-  args: ['attribute', 'fun']
   description: |
     Function defining the constraint wrapped by one of the convenience
     classes.
   kind: attribute
+  key: 'attribute'
   arg_name: 'fun'
   type_name: 'callable'
   is_optional: False
 - DocstringParam
-  args: ['attribute', 'bounds']
   description: |
     Contains lower and upper bounds for the constraints --- lb and ub.
     These are converted to ndarray and have a size equal to the number of
     the constraints.
   kind: attribute
+  key: 'attribute'
   arg_name: 'bounds'
   type_name: '2-tuple'
   is_optional: False
 - DocstringMeta
-  args: ['notes']
   description: |
     _ConstraintWrapper.fun and _ConstraintWrapper.violation can get sent
     arrays of shape (N, S) or (N,), where S is the number of vectors of shape
     (N,) to consider constraints for.
   kind: text
+  key: 'notes'
 === detect
 numpydoc
 === compose numpydoc

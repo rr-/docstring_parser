@@ -11,9 +11,9 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'column (int)']
   description: 'The zero-based column index to move the cursor to.'
   kind: param
+  key: 'param'
   arg_name: 'column'
   type_name: 'int'
   is_optional: False

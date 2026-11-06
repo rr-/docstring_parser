@@ -69,19 +69,19 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringMeta
-  args: ['meth']
   description: |
     `open_session` and :meth:`save_session`, the others have
     useful defaults which you don't need to change.
   kind: text
+  key: 'meth'
 - DocstringMeta
-  args: ['meth']
   description: |
     `make_null_session` to create a session that acts as replacement
     if the session support cannot work because some requirement is not
     fulfilled.  The default :class:`NullSession` class that is created
     will complain that the secret key was not set.
   kind: text
+  key: 'meth'
 === detect
 rest
 === compose rest

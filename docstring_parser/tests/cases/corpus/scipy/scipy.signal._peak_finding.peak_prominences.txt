@@ -147,75 +147,74 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'x']
   description: 'A signal with peaks.'
   kind: param
+  key: 'param'
   arg_name: 'x'
   type_name: 'sequence'
   is_optional: False
 - DocstringParam
-  args: ['param', 'peaks']
   description: 'Indices of peaks in `x`.'
   kind: param
+  key: 'param'
   arg_name: 'peaks'
   type_name: 'sequence'
   is_optional: False
 - DocstringParam
-  args: ['param', 'wlen']
   description: |
     A window length in samples that optionally limits the evaluated area for
     each peak to a subset of `x`. The peak is always placed in the middle of
     the window therefore the given length is rounded up to the next odd
     integer. This parameter can speed up the calculation (see Notes).
   kind: param
+  key: 'param'
   arg_name: 'wlen'
   type_name: 'int'
   is_optional: True
 - DocstringReturns
-  args: ['returns']
   description: 'The calculated prominences for each peak in `peaks`.'
   kind: returns
+  key: 'returns'
   type_name: 'ndarray'
   is_generator: False
   return_name: 'prominences'
 - DocstringReturns
-  args: ['returns']
   description: |
     The peaks' bases as indices in `x` to the left and right of each peak.
     The higher base of each pair is a peak's lowest contour line.
   kind: returns
+  key: 'returns'
   type_name: 'ndarray'
   is_generator: False
   return_name: 'left_bases, right_bases'
 - DocstringRaises
-  args: ['raises', 'ValueError']
   description: 'If a value in `peaks` is an invalid index for `x`.'
   kind: raises
+  key: 'raises'
   type_name: 'ValueError'
 - DocstringRaises
-  args: ['warns', 'PeakPropertyWarning']
   description: |
     For indices in `peaks` that don't point to valid local maxima in `x`,
     the returned prominence will be 0 and this warning is raised. This
     also happens if `wlen` is smaller than the plateau size of a peak.
   kind: warns
+  key: 'warns'
   type_name: 'PeakPropertyWarning'
 - DocstringMeta
-  args: ['warnings']
   description: |
     This function may return unexpected results for data containing NaNs. To
     avoid this, NaNs should either be removed or replaced.
   kind: text
+  key: 'warnings'
 - DocstringMeta
-  args: ['see_also']
   description: |
     find_peaks
         Find peaks inside a signal based on peak properties.
     peak_widths
         Calculate the width of peaks.
   kind: text
+  key: 'see_also'
 - DocstringMeta
-  args: ['notes']
   description: |
     Strategy to compute a peak's prominence:
     
@@ -244,35 +243,35 @@ style: numpydoc
     
     .. versionadded:: 1.1.0
   kind: text
+  key: 'notes'
 - DocstringMeta
-  args: ['references']
   description: |
     .. [1] Wikipedia Article for Topographic Prominence:
        https://en.wikipedia.org/wiki/Topographic_prominence
   kind: text
+  key: 'references'
 - DocstringExample
-  args: ['examples']
   description: |
     
     Create a test signal with two overlaid harmonics
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> import numpy as np
     >>> from scipy.signal import find_peaks, peak_prominences
     >>> import matplotlib.pyplot as plt
 - DocstringExample
-  args: ['examples']
   description: |
     
     Find all peaks and calculate prominences
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> x = np.linspace(0, 6 * np.pi, 1000)
     >>> x = np.sin(x) + 0.6 * np.sin(2.6 * x)
 - DocstringExample
-  args: ['examples']
   description: |
     array([1.24159486, 0.47840168, 0.28470524, 3.10716793, 0.284603  ,
            0.47822491, 2.48340261, 0.47822491])
@@ -280,18 +279,19 @@ style: numpydoc
     Calculate the height of each peak's contour line and plot the results
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> peaks, _ = find_peaks(x)
     >>> prominences = peak_prominences(x, peaks)[0]
     >>> prominences
 - DocstringExample
-  args: ['examples']
   description: |
     
     Let's evaluate a second example that demonstrates several edge cases for
     one peak at index 5.
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> contour_heights = x[peaks] - prominences
     >>> plt.plot(x)
@@ -299,7 +299,6 @@ style: numpydoc
     >>> plt.vlines(x=peaks, ymin=contour_heights, ymax=x[peaks])
     >>> plt.show()
 - DocstringExample
-  args: ['examples']
   description: |
     (array([3.]), array([2]), array([6]))
     
@@ -310,6 +309,7 @@ style: numpydoc
     higher peak represents the right border to the evaluated area.
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> x = np.array([0, 1, 0, 3, 1, 3, 0, 4, 0])
     >>> peaks = np.array([5])
@@ -318,7 +318,6 @@ style: numpydoc
     >>> plt.show()
     >>> peak_prominences(x, peaks)  # -> (prominences, left_bases, right_bases)
 - DocstringExample
-  args: ['examples']
   description: |
     (array([2.]), array([4]), array([6]))
     
@@ -327,6 +326,7 @@ style: numpydoc
     only two candidates in the evaluated area are the two neighboring samples
     and a smaller prominence is calculated.
   kind: examples
+  key: 'examples'
   snippet: '>>> peak_prominences(x, peaks, wlen=3.1)'
 === detect
 numpydoc

@@ -12,14 +12,14 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'config']
   description: 'Path to a config file or a dict with config values.'
   kind: param
+  key: 'param'
   arg_name: 'config'
 - DocstringParam
-  args: ['param', 'instantiators']
   description: 'Custom instantiators, see :meth:`.ArgumentParser.instantiate`.'
   kind: param
+  key: 'param'
   arg_name: 'instantiators'
 === detect
 google

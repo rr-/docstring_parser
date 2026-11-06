@@ -11,9 +11,9 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: rest
 - DocstringMeta
-  args: ['meth']
   description: '`~flask.Flask.test_cli_runner`. See :ref:`testing-cli`.'
   kind: text
+  key: 'meth'
 === detect
 rest
 === compose rest

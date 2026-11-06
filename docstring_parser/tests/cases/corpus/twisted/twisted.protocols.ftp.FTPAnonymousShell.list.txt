@@ -17,16 +17,16 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: epydoc
 - DocstringParam
-  args: ['param', 'path']
   description: 'the directory or file to check.'
   kind: param
+  key: 'param'
   arg_name: 'path'
   type_name: 'C{str}'
   is_optional: False
 - DocstringParam
-  args: ['param', 'keys']
   description: 'the list of desired metadata'
   kind: param
+  key: 'param'
   arg_name: 'keys'
   type_name: 'C{list} of C{str}'
   is_optional: False

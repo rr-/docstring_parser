@@ -17,19 +17,19 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'version']
   description: 'A version string.'
   kind: param
+  key: 'param'
   arg_name: 'version'
 - DocstringRaises
-  args: ['raises', 'ValueError']
   description: 'If the version string is invalid.'
   kind: raises
+  key: 'raises'
   type_name: 'ValueError'
 - DocstringReturns
-  args: ['returns']
   description: 'A tuple of 3 integers.'
   kind: returns
+  key: 'returns'
   is_generator: False
 === detect
 google

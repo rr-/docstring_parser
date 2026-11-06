@@ -132,23 +132,22 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'Z']
   description: |
     The hierarchical clustering encoded as a matrix. See
     `linkage` for more information.
   kind: param
+  key: 'param'
   arg_name: 'Z'
   type_name: 'ndarray'
   is_optional: False
 - DocstringParam
-  args: ['param', 'T']
   description: 'The flat cluster assignment vector.'
   kind: param
+  key: 'param'
   arg_name: 'T'
   type_name: 'ndarray'
   is_optional: False
 - DocstringReturns
-  args: ['returns']
   description: |
     The leader linkage node id's stored as a k-element 1-D array,
     where ``k`` is the number of flat clusters found in ``T``.
@@ -158,11 +157,11 @@ style: numpydoc
     corresponds to an original observation, otherwise it
     corresponds to a non-singleton cluster.
   kind: returns
+  key: 'returns'
   type_name: 'ndarray'
   is_generator: False
   return_name: 'L'
 - DocstringReturns
-  args: ['returns']
   description: |
     The leader linkage node id's stored as a k-element 1-D array, where
     ``k`` is the number of flat clusters found in ``T``. This allows the
@@ -171,35 +170,35 @@ style: numpydoc
     For example: if ``L[3]=2`` and ``M[3]=8``, the flat cluster with
     id 8's leader is linkage node 2.
   kind: returns
+  key: 'returns'
   type_name: 'ndarray'
   is_generator: False
   return_name: 'M'
 - DocstringMeta
-  args: ['see_also']
   description: 'fcluster : for the creation of flat cluster assignments.'
   kind: text
+  key: 'see_also'
 - DocstringExample
-  args: ['examples']
   description: |
     
     Given a linkage matrix ``Z`` - obtained after apply a clustering method
     to a dataset ``X`` - and a flat cluster assignment array ``T``:
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> from scipy.cluster.hierarchy import ward, fcluster, leaders
     >>> from scipy.spatial.distance import pdist
 - DocstringExample
-  args: ['examples']
   description: |
     ...      [0, 4], [0, 3], [1, 4],
     ...      [4, 0], [3, 0], [4, 1],
     ...      [4, 4], [3, 4], [4, 3]]
     
   kind: examples
+  key: 'examples'
   snippet: '>>> X = [[0, 0], [0, 1], [1, 0],'
 - DocstringExample
-  args: ['examples']
   description: |
     array([[ 0.        ,  1.        ,  1.        ,  2.        ],
            [ 3.        ,  4.        ,  1.        ,  2.        ],
@@ -214,11 +213,11 @@ style: numpydoc
            [20.        , 21.        ,  8.16496581, 12.        ]])
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> Z = ward(pdist(X))
     >>> Z
 - DocstringExample
-  args: ['examples']
   description: |
     array([1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4], dtype=int32)
     
@@ -226,11 +225,11 @@ style: numpydoc
     in the dendrogram that are the leaders of each flat cluster:
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> T = fcluster(Z, 3, criterion='distance')
     >>> T
 - DocstringExample
-  args: ['examples']
   description: |
     array([16, 17, 18, 19], dtype=int32)
     
@@ -241,21 +240,22 @@ style: numpydoc
     the flat clusters in ``T``:
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> L, M = leaders(Z, T)
     >>> L
 - DocstringExample
-  args: ['examples']
   description: 'array([1, 2, 3, 4], dtype=int32)'
   kind: examples
+  key: 'examples'
   snippet: '>>> M'
 - DocstringMeta
-  args: ['notes']
   description: |
     *Array API support (experimental):* This function returns arrays
     with data-dependent shape. In JAX, at the moment of writing this makes it
     impossible to execute it inside `@jax.jit`.
   kind: text
+  key: 'notes'
 === detect
 numpydoc
 === compose numpydoc

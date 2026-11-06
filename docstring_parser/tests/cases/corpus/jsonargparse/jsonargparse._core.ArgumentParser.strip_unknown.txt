@@ -14,14 +14,14 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'namespace']
   description: 'The configuration object to strip.'
   kind: param
+  key: 'param'
   arg_name: 'namespace'
 - DocstringReturns
-  args: ['returns']
   description: 'The stripped configuration object.'
   kind: returns
+  key: 'returns'
   is_generator: False
 === detect
 google

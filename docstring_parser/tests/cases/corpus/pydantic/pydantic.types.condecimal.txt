@@ -107,57 +107,57 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: google
 - DocstringParam
-  args: ['param', 'strict']
   description: 'Whether to validate the value in strict mode. Defaults to `None`.'
   kind: param
+  key: 'param'
   arg_name: 'strict'
   default: '`None`'
 - DocstringParam
-  args: ['param', 'gt']
   description: 'The value must be greater than this. Defaults to `None`.'
   kind: param
+  key: 'param'
   arg_name: 'gt'
   default: '`None`'
 - DocstringParam
-  args: ['param', 'ge']
   description: 'The value must be greater than or equal to this. Defaults to `None`.'
   kind: param
+  key: 'param'
   arg_name: 'ge'
   default: '`None`'
 - DocstringParam
-  args: ['param', 'lt']
   description: 'The value must be less than this. Defaults to `None`.'
   kind: param
+  key: 'param'
   arg_name: 'lt'
   default: '`None`'
 - DocstringParam
-  args: ['param', 'le']
   description: 'The value must be less than or equal to this. Defaults to `None`.'
   kind: param
+  key: 'param'
   arg_name: 'le'
   default: '`None`'
 - DocstringParam
-  args: ['param', 'multiple_of']
   description: 'The value must be a multiple of this. Defaults to `None`.'
   kind: param
+  key: 'param'
   arg_name: 'multiple_of'
   default: '`None`'
 - DocstringParam
-  args: ['param', 'max_digits']
   description: 'The maximum number of digits. Defaults to `None`.'
   kind: param
+  key: 'param'
   arg_name: 'max_digits'
   default: '`None`'
 - DocstringParam
-  args: ['param', 'decimal_places']
   description: 'The number of decimal places. Defaults to `None`.'
   kind: param
+  key: 'param'
   arg_name: 'decimal_places'
   default: '`None`'
 - DocstringParam
-  args: ['param', 'allow_inf_nan']
   description: 'Whether to allow infinity and NaN. Defaults to `None`.'
   kind: param
+  key: 'param'
   arg_name: 'allow_inf_nan'
   default: '`None`'
 === detect

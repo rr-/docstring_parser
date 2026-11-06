@@ -10,11 +10,11 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 - DocstringReturns
-  args: ['returns']
   description: |
     first line
     :data:`x` second
   kind: returns
+  key: 'returns'
   is_generator: False
 === compose rest
 Short.

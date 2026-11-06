@@ -25,23 +25,23 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringParam
-  args: ['param', 'resource']
   description: 'Path to the resource relative to :attr:`root_path`.'
   kind: param
+  key: 'param'
   arg_name: 'resource'
 - DocstringParam
-  args: ['param', 'mode']
   description: |
     Open the file in this mode. Only reading is supported,
     valid values are ``"r"`` (or ``"rt"``) and ``"rb"``.
   kind: param
+  key: 'param'
   arg_name: 'mode'
 - DocstringParam
-  args: ['param', 'encoding']
   description: |
     Open the file with this encoding when opening in text
     mode. This is ignored when opening in binary mode.
   kind: param
+  key: 'param'
   arg_name: 'encoding'
 === detect
 rest

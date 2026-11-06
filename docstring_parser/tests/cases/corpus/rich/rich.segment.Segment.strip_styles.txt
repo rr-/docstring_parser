@@ -14,16 +14,16 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'segments (Iterable[Segment])']
   description: 'An iterable segments.'
   kind: param
+  key: 'param'
   arg_name: 'segments'
   type_name: 'Iterable[Segment]'
   is_optional: False
 - DocstringReturns
-  args: ['yields', 'Segment']
   description: 'Segments with styles replace with None'
   kind: yields
+  key: 'yields'
   type_name: 'Segment'
   is_generator: True
 === detect

@@ -107,52 +107,51 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'n']
   description: 'The size of the matrix.'
   kind: param
+  key: 'param'
   arg_name: 'n'
   type_name: 'int'
   is_optional: False
 - DocstringParam
-  args: ['param', 'dtype']
   description: 'Numerical type of the array. Default is ``np.int8``.'
   kind: param
+  key: 'param'
   arg_name: 'dtype'
   type_name: 'dtype'
   is_optional: False
 - DocstringParam
-  args: ['param', 'Methods']
   kind: param
+  key: 'param'
   arg_name: 'Methods'
 - DocstringParam
-  args: ['param', '-------']
   kind: param
+  key: 'param'
   arg_name: '-------'
 - DocstringParam
-  args: ['param', 'toarray()']
   description: 'Construct a dense array from Laplacian data'
   kind: param
+  key: 'param'
   arg_name: 'toarray()'
 - DocstringParam
-  args: ['param', 'tosparse()']
   description: 'Construct a sparse array from Laplacian data'
   kind: param
+  key: 'param'
   arg_name: 'tosparse()'
 - DocstringParam
-  args: ['param', 'tobanded()']
   description: |
     The Sakurai matrix in the format for banded symmetric matrices,
     i.e., (3, n) ndarray with 3 upper diagonals
     placing the main diagonal at the bottom.
   kind: param
+  key: 'param'
   arg_name: 'tobanded()'
 - DocstringParam
-  args: ['param', 'eigenvalues']
   description: 'All eigenvalues of the Sakurai matrix ordered ascending.'
   kind: param
+  key: 'param'
   arg_name: 'eigenvalues'
 - DocstringMeta
-  args: ['notes']
   description: |
     Reference [1]_ introduces a generalized eigenproblem for the matrix pair
     `A` and `B` where `A` is the identity so we turn it into an eigenproblem
@@ -161,22 +160,23 @@ style: numpydoc
     
     .. versionadded:: 1.12.0
   kind: text
+  key: 'notes'
 - DocstringMeta
-  args: ['references']
   description: |
     .. [1] T. Sakurai, H. Tadano, Y. Inadomi, and U. Nagashima,
        "A moment-based method for large-scale generalized
        eigenvalue problems",
        Appl. Num. Anal. Comp. Math. Vol. 1 No. 2 (2004).
   kind: text
+  key: 'references'
 - DocstringExample
-  args: ['examples']
   description: |
     
     Since all matrix entries are small integers, ``'int8'`` is
     the default dtype for storing matrix representations.
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> import numpy as np
     >>> from scipy.sparse.linalg._special_sparse_arrays import Sakurai
@@ -184,7 +184,6 @@ style: numpydoc
     >>> n = 6
     >>> sak = Sakurai(n)
 - DocstringExample
-  args: ['examples']
   description: |
     array([[ 5, -4,  1,  0,  0,  0],
            [-4,  6, -4,  1,  0,  0],
@@ -193,47 +192,48 @@ style: numpydoc
            [ 0,  0,  1, -4,  6, -4],
            [ 0,  0,  0,  1, -4,  5]], dtype=int8)
   kind: examples
+  key: 'examples'
   snippet: '>>> sak.toarray()'
 - DocstringExample
-  args: ['examples']
   description: |
     array([[ 1,  1,  1,  1,  1,  1],
            [-4, -4, -4, -4, -4, -4],
            [ 5,  6,  6,  6,  6,  5]], dtype=int8)
   kind: examples
+  key: 'examples'
   snippet: '>>> sak.tobanded()'
 - DocstringExample
-  args: ['examples']
   description: |
     <DIAgonal sparse array of dtype 'int8'
         with 24 stored elements (5 diagonals) and shape (6, 6)>
   kind: examples
+  key: 'examples'
   snippet: '>>> sak.tosparse()'
 - DocstringExample
-  args: ['examples']
   description: 'True'
   kind: examples
+  key: 'examples'
   snippet: '>>> np.array_equal(sak.dot(np.eye(n)), sak.tosparse().toarray())'
 - DocstringExample
-  args: ['examples']
   description: |
     array([0.03922866, 0.56703972, 2.41789479, 5.97822974,
            10.54287655, 14.45473055])
   kind: examples
+  key: 'examples'
   snippet: '>>> sak.eigenvalues()'
 - DocstringExample
-  args: ['examples']
   description: |
     array([0.03922866, 0.56703972])
     
     The banded form can be used in scipy functions for banded matrices, e.g.,
     
   kind: examples
+  key: 'examples'
   snippet: '>>> sak.eigenvalues(2)'
 - DocstringExample
-  args: ['examples']
   description: 'True'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> e = eig_banded(sak.tobanded(), eigvals_only=True)
     >>> np.allclose(sak.eigenvalues(), e, atol= n * n * n * np.finfo(float).eps)

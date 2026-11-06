@@ -131,18 +131,17 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'file']
   description: |
     The file to read. File-like objects must support the
     ``seek()`` and ``read()`` methods and must always
     be opened in binary mode.  Pickled files require that the
     file-like object support the ``readline()`` method as well.
   kind: param
+  key: 'param'
   arg_name: 'file'
   type_name: 'file-like object, string, or pathlib.Path'
   is_optional: False
 - DocstringParam
-  args: ['param', 'mmap_mode']
   description: |
     If not None, then memory-map the file, using the given mode (see
     `numpy.memmap` for a detailed description of the modes).  A
@@ -151,34 +150,34 @@ style: numpydoc
     for accessing small fragments of large files without reading the
     entire file into memory.
   kind: param
+  key: 'param'
   arg_name: 'mmap_mode'
   type_name: "{None, 'r+', 'r', 'w+', 'c'}"
   is_optional: True
 - DocstringParam
-  args: ['param', 'allow_pickle']
   description: |
     Allow loading pickled object arrays stored in npy files. Reasons for
     disallowing pickles include security, as loading pickled data can
     execute arbitrary code. If pickles are disallowed, loading object
     arrays will fail. Default: False
   kind: param
+  key: 'param'
   arg_name: 'allow_pickle'
   type_name: 'bool'
   is_optional: True
   default: 'False'
 - DocstringParam
-  args: ['param', 'fix_imports']
   description: |
     Only useful when loading Python 2 generated pickled files,
     which includes npy/npz files containing object arrays. If `fix_imports`
     is True, pickle will try to map the old Python 2 names to the new names
     used in Python 3.
   kind: param
+  key: 'param'
   arg_name: 'fix_imports'
   type_name: 'bool'
   is_optional: True
 - DocstringParam
-  args: ['param', 'encoding']
   description: |
     What encoding to use when reading Python 2 strings. Only useful when
     loading Python 2 generated pickled files, which includes
@@ -186,12 +185,12 @@ style: numpydoc
     'ASCII', and 'bytes' are not allowed, as they can corrupt numerical
     data. Default: 'ASCII'
   kind: param
+  key: 'param'
   arg_name: 'encoding'
   type_name: 'str'
   is_optional: True
   default: "'ASCII'"
 - DocstringParam
-  args: ['param', 'max_header_size']
   description: |
     Maximum allowed size of the header.  Large headers may not be safe
     to load securely and thus require explicitly passing a larger value.
@@ -199,49 +198,49 @@ style: numpydoc
     This option is ignored when `allow_pickle` is passed.  In that case
     the file is by definition trusted and the limit is unnecessary.
   kind: param
+  key: 'param'
   arg_name: 'max_header_size'
   type_name: 'int'
   is_optional: True
 - DocstringReturns
-  args: ['returns']
   description: |
     Data stored in the file. For ``.npz`` files, the returned instance
     of NpzFile class must be closed to avoid leaking file descriptors.
   kind: returns
+  key: 'returns'
   type_name: 'array, tuple, dict, etc.'
   is_generator: False
   return_name: 'result'
 - DocstringRaises
-  args: ['raises', 'OSError']
   description: 'If the input file does not exist or cannot be read.'
   kind: raises
+  key: 'raises'
   type_name: 'OSError'
 - DocstringRaises
-  args: ['raises', 'UnpicklingError']
   description: 'If ``allow_pickle=True``, but the file cannot be loaded as a pickle.'
   kind: raises
+  key: 'raises'
   type_name: 'UnpicklingError'
 - DocstringRaises
-  args: ['raises', 'ValueError']
   description: 'The file contains an object array, but ``allow_pickle=False`` given.'
   kind: raises
+  key: 'raises'
   type_name: 'ValueError'
 - DocstringRaises
-  args: ['raises', 'EOFError']
   description: |
     When calling ``np.load`` multiple times on the same file handle,
     if all data has already been read
   kind: raises
+  key: 'raises'
   type_name: 'EOFError'
 - DocstringMeta
-  args: ['see_also']
   description: |
     save, savez, savez_compressed, loadtxt
     memmap : Create a memory-map to an array stored in a file on disk.
     lib.format.open_memmap : Create or load a memory-mapped ``.npy`` file.
   kind: text
+  key: 'see_also'
 - DocstringMeta
-  args: ['notes']
   description: |
     - If the file contains pickle data, then whatever object is stored
       in the pickle is returned.
@@ -258,16 +257,16 @@ style: numpydoc
       The underlying file descriptor is closed when exiting the 'with'
       block.
   kind: text
+  key: 'notes'
 - DocstringExample
-  args: ['examples']
   description: |
     
     Store data to disk, and load it again:
     
   kind: examples
+  key: 'examples'
   snippet: '>>> import numpy as np'
 - DocstringExample
-  args: ['examples']
   description: |
     array([[1, 2, 3],
            [4, 5, 6]])
@@ -275,15 +274,16 @@ style: numpydoc
     Store compressed data to disk, and load it again:
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> np.save('/tmp/123', np.array([[1, 2, 3], [4, 5, 6]]))
     >>> np.load('/tmp/123.npy')
 - DocstringExample
-  args: ['examples']
   description: |
     array([[1, 2, 3],
            [4, 5, 6]])
   kind: examples
+  key: 'examples'
   snippet: |
     >>> a=np.array([[1, 2, 3], [4, 5, 6]])
     >>> b=np.array([1, 2])
@@ -291,23 +291,23 @@ style: numpydoc
     >>> data = np.load('/tmp/123.npz')
     >>> data['a']
 - DocstringExample
-  args: ['examples']
   description: 'array([1, 2])'
   kind: examples
+  key: 'examples'
   snippet: ">>> data['b']"
 - DocstringExample
-  args: ['examples']
   description: |
     
     Mem-map the stored array, and then access the second row
     directly from disk:
     
   kind: examples
+  key: 'examples'
   snippet: '>>> data.close()'
 - DocstringExample
-  args: ['examples']
   description: 'memmap([4, 5, 6])'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> X = np.load('/tmp/123.npy', mmap_mode='r')
     >>> X[1, :]

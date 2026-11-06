@@ -14,34 +14,34 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: epydoc
 - DocstringParam
-  args: ['param', 'a']
   description: 'A.'
   kind: param
+  key: 'param'
   arg_name: 'a'
   is_optional: False
 - DocstringParam
-  args: ['keyword', 'k']
   description: 'K.'
   kind: keyword
+  key: 'keyword'
   arg_name: 'k'
   is_optional: False
 - DocstringParam
-  args: ['ivar', 'i']
   description: 'I.'
   kind: attribute
+  key: 'ivar'
   arg_name: 'i'
   is_optional: False
 - DocstringParam
-  args: ['cvar', 'c']
   description: 'C.'
   kind: attribute
+  key: 'cvar'
   arg_name: 'c'
   type_name: 'int'
   is_optional: False
 - DocstringParam
-  args: ['var', 'v']
   description: 'V.'
   kind: attribute
+  key: 'var'
   arg_name: 'v'
   is_optional: False
 === compose epydoc

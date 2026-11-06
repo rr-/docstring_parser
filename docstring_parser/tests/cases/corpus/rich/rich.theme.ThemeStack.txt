@@ -11,9 +11,9 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'theme (Theme)']
   description: 'A theme instance'
   kind: param
+  key: 'param'
   arg_name: 'theme'
   type_name: 'Theme'
   is_optional: False

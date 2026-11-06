@@ -16,30 +16,30 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'total (int)']
   description: 'The total to divide.'
   kind: param
+  key: 'param'
   arg_name: 'total'
   type_name: 'int'
   is_optional: False
 - DocstringParam
-  args: ['param', 'ratios (List[int])']
   description: 'A list of integer ratios.'
   kind: param
+  key: 'param'
   arg_name: 'ratios'
   type_name: 'List[int]'
   is_optional: False
 - DocstringParam
-  args: ['param', 'minimums (List[int])']
   description: 'List of minimum values for each slot.'
   kind: param
+  key: 'param'
   arg_name: 'minimums'
   type_name: 'List[int]'
   is_optional: False
 - DocstringReturns
-  args: ['returns', 'List[int]']
   description: 'A list of integers guaranteed to sum to total.'
   kind: returns
+  key: 'returns'
   type_name: 'List[int]'
   is_generator: False
 === detect

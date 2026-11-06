@@ -22,29 +22,29 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: numpydoc
 - DocstringParam
-  args: ['param', 'a']
   description: 'Input array with at least 1 dimension.'
   kind: param
+  key: 'param'
   arg_name: 'a'
   type_name: 'array-like'
   is_optional: False
 - DocstringParam
-  args: ['param', 'out']
   description: |
     Alternate output array in which to place the result.  The default
     is ``None``; if provided, it must have the same shape as the
     expected output and will prevent the allocation of a new array.
   kind: param
+  key: 'param'
   arg_name: 'out'
   type_name: 'ndarray'
   is_optional: True
 - DocstringReturns
-  args: ['returns']
   description: |
     A bool array where ``np.nan`` positions are marked with ``False``
     and other positions are marked with ``True``. If the type of ``a``
     is such that it can't possibly contain ``np.nan``, returns ``True``.
   kind: returns
+  key: 'returns'
   type_name: 'bool ndarray or True'
   is_generator: False
   return_name: 'y'

@@ -21,29 +21,29 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: epydoc
 - DocstringParam
-  args: ['ivar', 'methodName']
   description: |
     the name of the method which this should invoke when
     called.
   kind: attribute
+  key: 'ivar'
   arg_name: 'methodName'
   type_name: 'L{str}'
   is_optional: False
 - DocstringParam
-  args: ['ivar', '__name__']
   description: |
     The name of the method being proxied (the same as
     C{methodName}).
   kind: attribute
+  key: 'ivar'
   arg_name: '__name__'
   type_name: 'L{str}'
   is_optional: False
 - DocstringParam
-  args: ['ivar', 'originalAttribute']
   description: |
     name of the attribute of the proxy where the
     original object is stored.
   kind: attribute
+  key: 'ivar'
   arg_name: 'originalAttribute'
   type_name: 'L{str}'
   is_optional: False

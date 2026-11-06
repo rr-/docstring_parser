@@ -24,19 +24,19 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: google
 - DocstringParam
-  args: ['param', 'client_cert_available (Optional[bool])']
   description: |
     indicating if a client certificate
     is available. If None, this is determined by checking if client
     certificates are enabled using :func:`should_use_client_cert`.
   kind: param
+  key: 'param'
   arg_name: 'client_cert_available'
   type_name: 'Optional[bool]'
   is_optional: False
 - DocstringReturns
-  args: ['returns', 'bool']
   description: 'indicating if an mTLS endpoint should be used.'
   kind: returns
+  key: 'returns'
   type_name: 'bool'
   is_generator: False
 === detect

@@ -11,13 +11,13 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: epydoc
 - DocstringParam
-  args: ['param', 'a']
   description: 'first'
   kind: param
+  key: 'param'
   arg_name: 'a'
   is_optional: False
 - DocstringReturns
-  args: ['return']
   description: 'result'
   kind: returns
+  key: 'return'
   is_generator: False

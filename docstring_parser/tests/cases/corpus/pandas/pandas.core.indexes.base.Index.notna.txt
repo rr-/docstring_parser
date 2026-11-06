@@ -52,34 +52,33 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringReturns
-  args: ['returns']
   description: 'Boolean array to indicate which entries are not NA.'
   kind: returns
+  key: 'returns'
   type_name: 'numpy.ndarray[bool]'
   is_generator: False
 - DocstringMeta
-  args: ['see_also']
   description: |
     Index.notnull : Alias of notna.
     Index.isna: Inverse of notna.
     notna : Top-level notna.
   kind: text
+  key: 'see_also'
 - DocstringExample
-  args: ['examples']
   description: |
     Show which entries in an Index are not NA. The result is an
     array.
     
   kind: examples
+  key: 'examples'
 - DocstringExample
-  args: ['examples']
   description: "Index([5.2, 6.0, nan], dtype='float64')"
   kind: examples
+  key: 'examples'
   snippet: |
     >>> idx = pd.Index([5.2, 6.0, np.nan])
     >>> idx
 - DocstringExample
-  args: ['examples']
   description: |
     array([ True,  True, False])
     
@@ -87,18 +86,19 @@ style: numpydoc
     value.
     
   kind: examples
+  key: 'examples'
   snippet: '>>> idx.notna()'
 - DocstringExample
-  args: ['examples']
   description: "Index(['black', '', 'red', nan], dtype='str')"
   kind: examples
+  key: 'examples'
   snippet: |
     >>> idx = pd.Index(["black", "", "red", None])
     >>> idx
 - DocstringExample
-  args: ['examples']
   description: 'array([ True,  True,  True, False])'
   kind: examples
+  key: 'examples'
   snippet: '>>> idx.notna()'
 === detect
 numpydoc

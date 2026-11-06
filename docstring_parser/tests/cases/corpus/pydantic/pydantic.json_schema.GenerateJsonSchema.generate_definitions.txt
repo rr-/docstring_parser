@@ -29,7 +29,6 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: google
 - DocstringParam
-  args: ['param', 'inputs']
   description: |
     A sequence of tuples, where:
     
@@ -37,9 +36,9 @@ style: google
     - The second element is the JSON mode: either 'validation' or 'serialization'.
     - The third element is a core schema.
   kind: param
+  key: 'param'
   arg_name: 'inputs'
 - DocstringReturns
-  args: ['returns']
   description: |
     A tuple where:
     
@@ -49,11 +48,12 @@ style: google
     - The second element is a dictionary whose keys are definition references for the JSON schemas
         from the first returned element, and whose values are the actual JSON schema definitions.
   kind: returns
+  key: 'returns'
   is_generator: False
 - DocstringRaises
-  args: ['raises', 'PydanticUserError']
   description: 'Raised if the JSON schema generator has already been used to generate a JSON schema.'
   kind: raises
+  key: 'raises'
   type_name: 'PydanticUserError'
 === detect
 google

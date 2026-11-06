@@ -10,9 +10,9 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 - DocstringParam
-  args: ['param', 'content']
   description: 'bytestring to extract encodings from.'
   kind: param
+  key: 'param'
   arg_name: 'content'
 === detect
 rest

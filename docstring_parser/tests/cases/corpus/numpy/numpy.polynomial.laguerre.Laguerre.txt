@@ -35,33 +35,32 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'coef']
   description: |
     Laguerre coefficients in order of increasing degree, i.e,
     ``(1, 2, 3)`` gives ``1*L_0(x) + 2*L_1(X) + 3*L_2(x)``.
   kind: param
+  key: 'param'
   arg_name: 'coef'
   type_name: 'array_like'
   is_optional: False
 - DocstringParam
-  args: ['param', 'domain']
   description: |
     Domain to use. The interval ``[domain[0], domain[1]]`` is mapped
     to the interval ``[window[0], window[1]]`` by shifting and scaling.
     The default value is [0., 1.].
   kind: param
+  key: 'param'
   arg_name: 'domain'
   type_name: '(2,) array_like'
   is_optional: True
 - DocstringParam
-  args: ['param', 'window']
   description: 'Window, see `domain` for its use. The default value is [0., 1.].'
   kind: param
+  key: 'param'
   arg_name: 'window'
   type_name: '(2,) array_like'
   is_optional: True
 - DocstringParam
-  args: ['param', 'symbol']
   description: |
     Symbol used to represent the independent variable in string
     representations of the polynomial expression, e.g. for printing.
@@ -69,6 +68,7 @@ style: numpydoc
     
     .. versionadded:: 1.24
   kind: param
+  key: 'param'
   arg_name: 'symbol'
   type_name: 'str'
   is_optional: True

@@ -13,15 +13,15 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 - DocstringParam
-  args: ['param', 'a']
   description: 'description a'
   kind: param
+  key: 'param'
   arg_name: 'a'
   type_name: 'int'
 - DocstringParam
-  args: ['param', 'int', 'b']
   description: 'description b'
   kind: param
+  key: 'param'
   arg_name: 'b'
   type_name: 'int'
   is_optional: False

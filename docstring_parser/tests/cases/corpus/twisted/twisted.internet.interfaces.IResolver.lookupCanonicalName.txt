@@ -21,21 +21,20 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: epydoc
 - DocstringParam
-  args: ['param', 'name']
   description: 'DNS name to resolve.'
   kind: param
+  key: 'param'
   arg_name: 'name'
   is_optional: False
 - DocstringParam
-  args: ['param', 'timeout']
   description: |
     Number of seconds after which to reissue the query.
     When the last timeout expires, the query is considered failed.
   kind: param
+  key: 'param'
   arg_name: 'timeout'
   is_optional: False
 - DocstringReturns
-  args: ['return']
   description: |
     A L{Deferred} which fires with a three-tuple of lists of
     L{twisted.names.dns.RRHeader} instances.  The first element of the
@@ -45,6 +44,7 @@ style: epydoc
     exceptions defined in L{twisted.names.error} or with
     C{NotImplementedError}.
   kind: returns
+  key: 'return'
   is_generator: False
 === detect
 epydoc

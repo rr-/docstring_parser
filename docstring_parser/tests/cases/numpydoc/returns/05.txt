@@ -16,12 +16,12 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: numpydoc
 - DocstringReturns
-  args: ['returns']
   description: |
     description
     with much text
     
     even some spacing
   kind: returns
+  key: 'returns'
   type_name: 'int'
   is_generator: False

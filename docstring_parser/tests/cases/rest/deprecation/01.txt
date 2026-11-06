@@ -6,7 +6,7 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: rest
 - DocstringDeprecated
-  args: ['deprecation']
   description: 'this function will be removed'
   kind: deprecation
+  key: 'deprecation'
   version: '1.1.0'

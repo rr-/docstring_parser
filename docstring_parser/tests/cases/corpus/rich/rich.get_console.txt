@@ -13,9 +13,9 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: google
 - DocstringReturns
-  args: ['returns', 'Console']
   description: 'A console instance.'
   kind: returns
+  key: 'returns'
   type_name: 'Console'
   is_generator: False
 === detect

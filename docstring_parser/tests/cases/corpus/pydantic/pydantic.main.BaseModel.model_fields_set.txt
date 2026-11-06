@@ -12,11 +12,11 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringReturns
-  args: ['returns']
   description: |
     A set of strings representing the fields that have been set,
     i.e. that were not filled from defaults.
   kind: returns
+  key: 'returns'
   is_generator: False
 === detect
 google

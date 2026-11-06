@@ -15,9 +15,9 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: epydoc
 - DocstringParam
-  args: ['param', 'geometry']
   description: 'A tuple of (rows, columns, xpixel, ypixel)'
   kind: param
+  key: 'param'
   arg_name: 'geometry'
   type_name: 'L{tuple}'
   is_optional: False

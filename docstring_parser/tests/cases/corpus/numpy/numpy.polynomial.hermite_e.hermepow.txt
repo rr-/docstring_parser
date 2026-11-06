@@ -43,46 +43,46 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'c']
   description: |
     1-D array of Hermite series coefficients ordered from low to
     high.
   kind: param
+  key: 'param'
   arg_name: 'c'
   type_name: 'array_like'
   is_optional: False
 - DocstringParam
-  args: ['param', 'pow']
   description: 'Power to which the series will be raised'
   kind: param
+  key: 'param'
   arg_name: 'pow'
   type_name: 'integer'
   is_optional: False
 - DocstringParam
-  args: ['param', 'maxpower']
   description: |
     Maximum power allowed. This is mainly to limit growth of the series
     to unmanageable size. Default is 16
   kind: param
+  key: 'param'
   arg_name: 'maxpower'
   type_name: 'integer'
   is_optional: True
   default: '16'
 - DocstringReturns
-  args: ['returns']
   description: 'Hermite series of power.'
   kind: returns
+  key: 'returns'
   type_name: 'ndarray'
   is_generator: False
   return_name: 'coef'
 - DocstringMeta
-  args: ['see_also']
   description: 'hermeadd, hermesub, hermemulx, hermemul, hermediv'
   kind: text
+  key: 'see_also'
 - DocstringExample
-  args: ['examples']
   description: 'array([23.,  28.,  46.,  12.,   9.])'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> from numpy.polynomial.hermite_e import hermepow
     >>> hermepow([1, 2, 3], 2)

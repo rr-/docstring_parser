@@ -19,15 +19,15 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 - DocstringReturns
-  args: ['returns']
   description: 'Number of nonlinear inequality constraints.'
   kind: returns
+  key: 'returns'
   type_name: 'int'
   is_generator: False
 - DocstringRaises
-  args: ['raises', 'ValueError']
   description: 'If the number of nonlinear inequality constraints is not known.'
   kind: raises
+  key: 'raises'
   type_name: 'ValueError'
 === detect
 numpydoc

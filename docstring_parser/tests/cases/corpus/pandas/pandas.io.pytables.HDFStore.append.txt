@@ -109,21 +109,20 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'key']
   description: 'Key of object to append.'
   kind: param
+  key: 'param'
   arg_name: 'key'
   type_name: 'str'
   is_optional: False
 - DocstringParam
-  args: ['param', 'value']
   description: 'Value of object to append.'
   kind: param
+  key: 'param'
   arg_name: 'value'
   type_name: '{Series, DataFrame}'
   is_optional: False
 - DocstringParam
-  args: ['param', 'format']
   description: |
     Format to use when storing object in HDFStore.  Value can be one of:
     
@@ -132,67 +131,67 @@ style: numpydoc
         worse but allow more flexible operations like searching / selecting
         subsets of the data.
   kind: param
+  key: 'param'
   arg_name: 'format'
   type_name: "'table' is the default"
   is_optional: False
 - DocstringParam
-  args: ['param', 'axes']
   description: |
     Single-element list selecting the axis to store as the table's
     indexed (appendable) axis: ``[0]`` for the index (the default) or
     ``[1]`` for the columns. Ignored when appending to an existing
     table, which keeps the axes it was created with.
   kind: param
+  key: 'param'
   arg_name: 'axes'
   type_name: 'list'
   is_optional: True
   default: 'None'
 - DocstringParam
-  args: ['param', 'index']
   description: 'Write DataFrame index as a column.'
   kind: param
+  key: 'param'
   arg_name: 'index'
   type_name: 'bool'
   is_optional: True
   default: 'True'
 - DocstringParam
-  args: ['param', 'append']
   description: 'Append the input data to the existing.'
   kind: param
+  key: 'param'
   arg_name: 'append'
   type_name: 'bool'
   is_optional: True
   default: 'True'
 - DocstringParam
-  args: ['param', 'complib']
   description: |
     Compression library to use; None disables compression. See the
     ``complib`` parameter of :class:`HDFStore` for the full list of
     supported compressors.
   kind: param
+  key: 'param'
   arg_name: 'complib'
   type_name: "{'zlib', 'lzo', 'bzip2', 'blosc'}"
   is_optional: True
   default: 'None'
 - DocstringParam
-  args: ['param', 'complevel']
   description: |
     Specifies a compression level for data.
     A value of 0 or None disables compression.
   kind: param
+  key: 'param'
   arg_name: 'complevel'
   type_name: 'int, 0-9'
   is_optional: True
   default: 'None'
 - DocstringParam
-  args: ['param', 'columns']
   description: 'This parameter is currently not accepted, try data_columns.'
   kind: param
+  key: 'param'
   arg_name: 'columns'
   type_name: 'default None'
   is_optional: False
 - DocstringParam
-  args: ['param', 'min_itemsize']
   description: |
     Minimum number of bytes reserved for object columns.
     If int, all columns reserve 'min_itemsize' bytes per stored value.
@@ -200,11 +199,11 @@ style: numpydoc
     Strings are stored as encoded bytes. Since some characters require multiple
     bytes, required size may be larger than string length.
   kind: param
+  key: 'param'
   arg_name: 'min_itemsize'
   type_name: 'int, dict, or None'
   is_optional: False
 - DocstringParam
-  args: ['param', 'nan_rep']
   description: |
     String used on disk to represent missing values in string columns.
     By default a sentinel that collides with no value in the column is
@@ -213,26 +212,26 @@ style: numpydoc
     Only used when the table is created; ignored on later appends,
     which reuse whatever the table already stores.
   kind: param
+  key: 'param'
   arg_name: 'nan_rep'
   type_name: 'str'
   is_optional: True
 - DocstringParam
-  args: ['param', 'chunksize']
   description: 'Number of rows to write in each chunk.'
   kind: param
+  key: 'param'
   arg_name: 'chunksize'
   type_name: 'int'
   is_optional: True
   default: '100000'
 - DocstringParam
-  args: ['param', 'expectedrows']
   description: 'Expected TOTAL row size of this table.'
   kind: param
+  key: 'param'
   arg_name: 'expectedrows'
   type_name: 'int'
   is_optional: False
 - DocstringParam
-  args: ['param', 'dropna']
   description: |
     Do not write an ALL nan row to the store settable
     by the option 'io.hdf.dropna_table'.
@@ -242,31 +241,31 @@ style: numpydoc
         future version. Use :meth:`DataFrame.dropna` before writing
         instead.
   kind: param
+  key: 'param'
   arg_name: 'dropna'
   type_name: 'bool'
   is_optional: True
   default: 'False'
 - DocstringParam
-  args: ['param', 'data_columns']
   description: |
     List of columns to create as indexed data columns for on-disk
     queries, or True to use all columns. By default only the axes
     of the object are indexed. See `here
     <https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#query-via-data-columns>`__.
   kind: param
+  key: 'param'
   arg_name: 'data_columns'
   type_name: 'list of columns, or True'
   is_optional: True
   default: 'None'
 - DocstringParam
-  args: ['param', 'encoding']
   description: 'Provide an encoding for str.'
   kind: param
+  key: 'param'
   arg_name: 'encoding'
   type_name: 'default None'
   is_optional: False
 - DocstringParam
-  args: ['param', 'errors']
   description: |
     The error handling scheme to use for encoding errors.
     The default is 'strict' meaning that encoding errors raise a
@@ -274,16 +273,16 @@ style: numpydoc
     'xmlcharrefreplace' as well as any other name registered with
     codecs.register_error that can handle UnicodeEncodeErrors.
   kind: param
+  key: 'param'
   arg_name: 'errors'
   type_name: 'str'
   is_optional: True
   default: "'strict'"
 - DocstringMeta
-  args: ['see_also']
   description: 'HDFStore.append_to_multiple : Append to multiple tables.'
   kind: text
+  key: 'see_also'
 - DocstringMeta
-  args: ['notes']
   description: |
     Does *not* check if data being appended overlaps with existing
     data in the table, so be careful
@@ -291,8 +290,8 @@ style: numpydoc
     Appending an empty ``DataFrame`` or ``Series`` is a no-op: the store
     is not modified and a ``UserWarning`` is emitted.
   kind: text
+  key: 'notes'
 - DocstringExample
-  args: ['examples']
   description: |
        A  B
     0  1  2
@@ -300,6 +299,7 @@ style: numpydoc
     0  5  6
     1  7  8
   kind: examples
+  key: 'examples'
   snippet: |
     >>> df1 = pd.DataFrame([[1, 2], [3, 4]], columns=["A", "B"])
     >>> store = pd.HDFStore("store.h5", "w")  # doctest: +SKIP

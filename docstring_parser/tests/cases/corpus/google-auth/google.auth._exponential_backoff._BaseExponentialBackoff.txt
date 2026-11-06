@@ -28,31 +28,30 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'total_attempts Optional[int]']
   description: |
     The maximum amount of retries that should happen.
     The default value is 3 attempts.
   kind: param
+  key: 'param'
   arg_name: 'total_attempts Optional[int]'
 - DocstringParam
-  args: ['param', 'initial_wait_seconds Optional[int]']
   description: |
     The amount of time to sleep in the first backoff. This parameter
     should be in seconds.
     The default value is 1 second.
   kind: param
+  key: 'param'
   arg_name: 'initial_wait_seconds Optional[int]'
 - DocstringParam
-  args: ['param', 'randomization_factor Optional[float]']
   description: |
     The amount of jitter that should be in each backoff. For example,
     a value of 0.1 will introduce a jitter range of 10% to the
     current backoff period.
     The default value is 0.1.
   kind: param
+  key: 'param'
   arg_name: 'randomization_factor Optional[float]'
 - DocstringParam
-  args: ['param', 'multiplier Optional[float]']
   description: |
     The backoff multipler. This adjusts how much each backoff will
     increase. For example a value of 2.0 leads to a 200% backoff
@@ -60,6 +59,7 @@ style: google
     this sequence [1.0, 2.0, 4.0, 8.0].
     The default value is 2.0.
   kind: param
+  key: 'param'
   arg_name: 'multiplier Optional[float]'
 === detect
 google

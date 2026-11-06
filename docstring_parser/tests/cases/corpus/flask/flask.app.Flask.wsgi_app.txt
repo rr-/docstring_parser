@@ -43,25 +43,25 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringMeta
-  args: ['meth']
   description: |
     `__call__` so that middlewares can be applied without
     losing a reference to the app object. Instead of doing this::
     
         app = MyMiddleware(app)
   kind: text
+  key: 'meth'
 - DocstringParam
-  args: ['param', 'environ']
   description: 'A WSGI environment.'
   kind: param
+  key: 'param'
   arg_name: 'environ'
 - DocstringParam
-  args: ['param', 'start_response']
   description: |
     A callable accepting a status code,
     a list of headers, and an optional exception context to
     start the response.
   kind: param
+  key: 'param'
   arg_name: 'start_response'
 === detect
 rest

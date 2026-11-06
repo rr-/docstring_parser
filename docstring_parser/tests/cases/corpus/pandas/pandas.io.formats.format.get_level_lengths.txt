@@ -21,27 +21,27 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 - DocstringParam
-  args: ['param', 'levels']
   description: 'List of values on for level.'
   kind: param
+  key: 'param'
   arg_name: 'levels'
   type_name: 'list of lists'
   is_optional: False
 - DocstringParam
-  args: ['param', 'sentinel']
   description: 'Value which states that no new index starts on there.'
   kind: param
+  key: 'param'
   arg_name: 'sentinel'
   type_name: 'string'
   is_optional: True
 - DocstringReturns
-  args: ['returns']
   kind: returns
+  key: 'returns'
   type_name: 'Returns list of maps. For each level returns map of indexes (key is index'
   is_generator: False
 - DocstringReturns
-  args: ['returns']
   kind: returns
+  key: 'returns'
   type_name: 'in row and value is length of index).'
   is_generator: False
 === detect

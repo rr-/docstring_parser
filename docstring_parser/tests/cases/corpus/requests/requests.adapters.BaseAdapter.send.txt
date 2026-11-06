@@ -20,41 +20,41 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 - DocstringParam
-  args: ['param', 'request']
   description: 'The :class:`PreparedRequest <PreparedRequest>` being sent.'
   kind: param
+  key: 'param'
   arg_name: 'request'
 - DocstringParam
-  args: ['param', 'stream']
   description: '(optional) Whether to stream the request content.'
   kind: param
+  key: 'param'
   arg_name: 'stream'
 - DocstringParam
-  args: ['param', 'timeout']
   description: |
     (optional) How long to wait for the server to send
     data before giving up, as a float, or a :ref:`(connect timeout,
     read timeout) <timeouts>` tuple.
   kind: param
+  key: 'param'
   arg_name: 'timeout'
   type_name: 'float or tuple'
 - DocstringParam
-  args: ['param', 'verify']
   description: |
     (optional) Either a boolean, in which case it controls whether we verify
     the server's TLS certificate, or a string, in which case it must be a path
     to a CA bundle to use
   kind: param
+  key: 'param'
   arg_name: 'verify'
 - DocstringParam
-  args: ['param', 'cert']
   description: '(optional) Any user-provided SSL certificate to be trusted.'
   kind: param
+  key: 'param'
   arg_name: 'cert'
 - DocstringParam
-  args: ['param', 'proxies']
   description: '(optional) The proxies dictionary to apply to the request.'
   kind: param
+  key: 'param'
   arg_name: 'proxies'
 === detect
 rest

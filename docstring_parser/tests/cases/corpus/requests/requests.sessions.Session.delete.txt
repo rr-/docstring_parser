@@ -12,17 +12,16 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 - DocstringParam
-  args: ['param', 'url']
   description: 'URL for the new :class:`Request` object.'
   kind: param
+  key: 'param'
   arg_name: 'url'
 - DocstringParam
-  args: ['param', '\\*\\*kwargs']
   description: 'Optional arguments that ``request`` takes.'
   kind: param
+  key: 'param'
   arg_name: '\\*\\*kwargs'
 - DocstringReturns
-  args: []
   kind: returns
   type_name: 'requests.Response'
   is_generator: False

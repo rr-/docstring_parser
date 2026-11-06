@@ -12,16 +12,16 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 - DocstringParam
-  args: ['param', 'header']
   description: 'string'
   kind: param
+  key: 'param'
   arg_name: 'header'
 - DocstringReturns
-  args: ['return']
   description: |
     tuple containing content type and dictionary of
     parameters.
   kind: returns
+  key: 'return'
   is_generator: False
 === detect
 rest

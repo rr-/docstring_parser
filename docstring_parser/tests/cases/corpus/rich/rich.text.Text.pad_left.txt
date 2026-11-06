@@ -12,16 +12,16 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'count (int)']
   description: 'Number of characters to pad.'
   kind: param
+  key: 'param'
   arg_name: 'count'
   type_name: 'int'
   is_optional: False
 - DocstringParam
-  args: ['param', 'character (str, optional)']
   description: 'Character to pad with. Defaults to " ".'
   kind: param
+  key: 'param'
   arg_name: 'character'
   type_name: 'str'
   is_optional: True

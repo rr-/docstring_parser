@@ -16,46 +16,46 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'size (float)']
   description: 'Value for the end of the bar.'
   kind: param
+  key: 'param'
   arg_name: 'size'
   type_name: 'float'
   is_optional: False
 - DocstringParam
-  args: ['param', 'begin (float)']
   description: 'Begin point (between 0 and size, inclusive).'
   kind: param
+  key: 'param'
   arg_name: 'begin'
   type_name: 'float'
   is_optional: False
 - DocstringParam
-  args: ['param', 'end (float)']
   description: 'End point (between 0 and size, inclusive).'
   kind: param
+  key: 'param'
   arg_name: 'end'
   type_name: 'float'
   is_optional: False
 - DocstringParam
-  args: ['param', 'width (int, optional)']
   description: 'Width of the bar, or ``None`` for maximum width. Defaults to None.'
   kind: param
+  key: 'param'
   arg_name: 'width'
   type_name: 'int'
   is_optional: True
   default: 'None'
 - DocstringParam
-  args: ['param', 'color (Union[Color, str], optional)']
   description: 'Color of the bar. Defaults to "default".'
   kind: param
+  key: 'param'
   arg_name: 'color'
   type_name: 'Union[Color, str]'
   is_optional: True
   default: '"default"'
 - DocstringParam
-  args: ['param', 'bgcolor (Union[Color, str], optional)']
   description: 'Color of bar background. Defaults to "default".'
   kind: param
+  key: 'param'
   arg_name: 'bgcolor'
   type_name: 'Union[Color, str]'
   is_optional: True

@@ -16,32 +16,32 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'lines (List[List[Segment]])']
   description: 'Rendered lines (as produced by :meth:`~rich.Console.render_lines`).'
   kind: param
+  key: 'param'
   arg_name: 'lines'
   type_name: 'List[List[Segment]]'
   is_optional: False
 - DocstringParam
-  args: ['param', 'x (int, optional)']
   description: 'x offset (column no). Defaults to 0.'
   kind: param
+  key: 'param'
   arg_name: 'x'
   type_name: 'int'
   is_optional: True
   default: '0'
 - DocstringParam
-  args: ['param', 'y (int, optional)']
   description: 'y offset (column no). Defaults to 0.'
   kind: param
+  key: 'param'
   arg_name: 'y'
   type_name: 'int'
   is_optional: True
   default: '0'
 - DocstringRaises
-  args: ['raises', 'errors.NoAltScreen']
   description: "If the Console isn't in alt screen mode."
   kind: raises
+  key: 'raises'
   type_name: 'errors.NoAltScreen'
 === detect
 google

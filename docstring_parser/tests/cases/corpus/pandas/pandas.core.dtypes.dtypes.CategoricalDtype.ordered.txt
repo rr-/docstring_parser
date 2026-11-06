@@ -29,22 +29,22 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringMeta
-  args: ['see_also']
   description: 'categories : An Index containing the unique categories allowed.'
   kind: text
+  key: 'see_also'
 - DocstringExample
-  args: ['examples']
   description: |
     True
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> cat_type = pd.CategoricalDtype(categories=["a", "b"], ordered=True)
     >>> cat_type.ordered
 - DocstringExample
-  args: ['examples']
   description: 'False'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> cat_type = pd.CategoricalDtype(categories=["a", "b"], ordered=False)
     >>> cat_type.ordered

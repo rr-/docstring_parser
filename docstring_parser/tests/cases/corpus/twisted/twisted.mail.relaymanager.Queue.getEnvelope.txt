@@ -16,18 +16,18 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: epydoc
 - DocstringParam
-  args: ['param', 'message']
   description: 'The base filename of a message.'
   kind: param
+  key: 'param'
   arg_name: 'message'
   type_name: 'L{bytes}'
   is_optional: False
 - DocstringReturns
-  args: ['rtype']
   description: |
     A list containing the origination and destination addresses
     for the message.
   kind: returns
+  key: 'rtype'
   type_name: 'L{list} of two L{bytes}'
   is_generator: False
 === detect

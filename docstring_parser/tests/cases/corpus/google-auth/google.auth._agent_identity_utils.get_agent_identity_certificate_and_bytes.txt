@@ -19,12 +19,12 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: google
 - DocstringReturns
-  args: ['returns', 'Tuple[Optional[cryptography.x509.Certificate], Optional[bytes]]']
   description: |
     A tuple
     of (parsed certificate object, certificate bytes) if found and not
     opted out, otherwise (None, None).
   kind: returns
+  key: 'returns'
   type_name: 'Tuple[Optional[cryptography.x509.Certificate], Optional[bytes]]'
   is_generator: False
 === detect

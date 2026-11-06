@@ -11,9 +11,9 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: epydoc
 - DocstringMeta
-  args: ['since']
   description: '15.0'
   kind: text
+  key: 'since'
 === detect
 epydoc
 === compose epydoc

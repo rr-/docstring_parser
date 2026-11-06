@@ -69,56 +69,55 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'data']
   description: 'The input data for which the table schema is to be created.'
   kind: param
+  key: 'param'
   arg_name: 'data'
   type_name: 'Series or DataFrame'
   is_optional: False
 - DocstringParam
-  args: ['param', 'index']
   description: 'Whether to include ``data.index`` in the schema.'
   kind: param
+  key: 'param'
   arg_name: 'index'
   type_name: 'bool'
   is_optional: True
   default: 'True'
 - DocstringParam
-  args: ['param', 'primary_key']
   description: |
     Column names to designate as the primary key.
     The default `None` will set `'primaryKey'` to the index
     level or levels if the index is unique.
   kind: param
+  key: 'param'
   arg_name: 'primary_key'
   type_name: 'bool or None'
   is_optional: True
   default: 'True'
 - DocstringParam
-  args: ['param', 'version']
   description: |
     Whether to include a field `pandas_version` with the version
     of pandas that last revised the table schema. This version
     can be different from the installed pandas version.
   kind: param
+  key: 'param'
   arg_name: 'version'
   type_name: 'bool'
   is_optional: True
   default: 'True'
 - DocstringReturns
-  args: ['returns']
   description: 'A dictionary representing the Table schema.'
   kind: returns
+  key: 'returns'
   type_name: 'dict'
   is_generator: False
 - DocstringMeta
-  args: ['see_also']
   description: |
     DataFrame.to_json : Convert the object to a JSON string.
     read_json : Convert a JSON string to pandas object.
   kind: text
+  key: 'see_also'
 - DocstringMeta
-  args: ['notes']
   description: |
     See `Table Schema
     <https://pandas.pydata.org/docs/user_guide/io.html#table-schema>`__ for
@@ -130,21 +129,22 @@ style: numpydoc
     constraint to list the allowed values. The `ordered` attribute is included
     in an `ordered` field.
   kind: text
+  key: 'notes'
 - DocstringExample
-  args: ['examples']
   description: |
     ...     {'A': [1, 2, 3],
     ...      'B': ['a', 'b', 'c'],
     ...      'C': pd.date_range('2016-01-01', freq='D', periods=3),
     ...      }, index=pd.Index(range(3), name='idx'))
   kind: examples
+  key: 'examples'
   snippet: |
     >>> from pandas.io.json._table_schema import build_table_schema
     >>> df = pd.DataFrame(
 - DocstringExample
-  args: ['examples']
   description: "{'fields': [{'name': 'idx', 'type': 'integer'}, {'name': 'A', 'type': 'integer'}, {'name': 'B', 'type': 'string', 'extDtype': 'str'}, {'name': 'C', 'type': 'datetime'}], 'primaryKey': ['idx'], 'pandas_version': '1.4.0'}"
   kind: examples
+  key: 'examples'
   snippet: '>>> build_table_schema(df)'
 === detect
 numpydoc

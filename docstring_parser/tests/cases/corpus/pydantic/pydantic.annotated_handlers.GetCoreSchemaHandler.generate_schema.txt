@@ -23,14 +23,14 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: google
 - DocstringParam
-  args: ['param', 'source_type']
   description: 'The input type.'
   kind: param
+  key: 'param'
   arg_name: 'source_type'
 - DocstringReturns
-  args: ['returns', 'CoreSchema']
   description: 'The `pydantic-core` CoreSchema generated.'
   kind: returns
+  key: 'returns'
   type_name: 'CoreSchema'
   is_generator: False
 === detect

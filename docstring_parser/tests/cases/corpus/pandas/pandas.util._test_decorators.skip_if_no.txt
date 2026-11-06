@@ -51,26 +51,26 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'package']
   description: 'The name of the required package.'
   kind: param
+  key: 'param'
   arg_name: 'package'
   type_name: 'str'
   is_optional: False
 - DocstringParam
-  args: ['param', 'min_version']
   description: 'Optional minimum version of the package.'
   kind: param
+  key: 'param'
   arg_name: 'min_version'
   type_name: 'str or None'
   is_optional: True
   default: 'None'
 - DocstringReturns
-  args: ['returns']
   description: |
     a pytest.mark.skipif to use as either a test decorator or a
     parametrization mark.
   kind: returns
+  key: 'returns'
   type_name: 'pytest.MarkDecorator'
   is_generator: False
 === detect

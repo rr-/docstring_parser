@@ -38,7 +38,6 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringMeta
-  args: ['notes']
   description: |
     The probability density function for `gausshyper` is:
     
@@ -56,8 +55,8 @@ style: numpydoc
     
     %(after_notes)s
   kind: text
+  key: 'notes'
 - DocstringMeta
-  args: ['references']
   description: |
     .. [1] Armero, C., and M. J. Bayarri. "Prior Assessments for Prediction in
            Queues." *Journal of the Royal Statistical Society*. Series D (The
@@ -65,6 +64,7 @@ style: numpydoc
     
     %(example)s
   kind: text
+  key: 'references'
 === detect
 rest
 === compose numpydoc

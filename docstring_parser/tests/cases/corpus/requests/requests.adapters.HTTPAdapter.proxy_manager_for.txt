@@ -20,23 +20,23 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 - DocstringMeta
-  args: ['class']
   description: '`HTTPAdapter <requests.adapters.HTTPAdapter>`.'
   kind: text
+  key: 'class'
 - DocstringParam
-  args: ['param', 'proxy']
   description: 'The proxy to return a urllib3 ProxyManager for.'
   kind: param
+  key: 'param'
   arg_name: 'proxy'
 - DocstringParam
-  args: ['param', 'proxy_kwargs']
   description: 'Extra keyword arguments used to configure the Proxy Manager.'
   kind: param
+  key: 'param'
   arg_name: 'proxy_kwargs'
 - DocstringReturns
-  args: ['returns']
   description: 'ProxyManager'
   kind: returns
+  key: 'returns'
   type_name: 'urllib3.ProxyManager'
   is_generator: False
 === detect

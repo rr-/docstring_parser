@@ -18,16 +18,16 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringParam
-  args: ['param', 'builder']
   description: 'A builder class'
   kind: param
+  key: 'param'
   arg_name: 'builder'
 - DocstringParam
-  args: ['param', 'override']
   description: |
     If true, install the builder forcedly even if another builder
     is already installed as the same name
   kind: param
+  key: 'param'
   arg_name: 'override'
 === detect
 rest

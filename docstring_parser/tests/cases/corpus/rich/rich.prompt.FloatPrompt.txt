@@ -12,9 +12,9 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringExample
-  args: ['examples']
   description: '>>> temperature = FloatPrompt.ask("Enter desired temperature")'
   kind: examples
+  key: 'examples'
 === detect
 google
 === compose google

@@ -10,9 +10,9 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringReturns
-  args: ['yields']
   description: 'The value.'
   kind: yields
+  key: 'yields'
   is_generator: True
 === compose google clean
 Short.

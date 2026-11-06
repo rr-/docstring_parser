@@ -11,9 +11,9 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'prefix']
   description: 'The prefix the string must start with.'
   kind: param
+  key: 'param'
   arg_name: 'prefix'
 === detect
 google

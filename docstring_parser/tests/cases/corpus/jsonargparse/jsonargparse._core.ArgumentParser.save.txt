@@ -21,46 +21,46 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'namespace']
   description: 'The configuration object to save.'
   kind: param
+  key: 'param'
   arg_name: 'namespace'
 - DocstringParam
-  args: ['param', 'path']
   description: 'Path to the location where to save config.'
   kind: param
+  key: 'param'
   arg_name: 'path'
 - DocstringParam
-  args: ['param', 'format']
   description: |
     The output format: ``yaml``, ``json``, ``json_indented``, ``parser_mode`` or ones added via
     :func:`.set_dumper`.
   kind: param
+  key: 'param'
   arg_name: 'format'
 - DocstringParam
-  args: ['param', 'skip_unset']
   description: 'Whether to exclude entries whose value is the configured None/Unset value.'
   kind: param
+  key: 'param'
   arg_name: 'skip_unset'
 - DocstringParam
-  args: ['param', 'skip_validation']
   description: 'Whether to skip parser checking.'
   kind: param
+  key: 'param'
   arg_name: 'skip_validation'
 - DocstringParam
-  args: ['param', 'overwrite']
   description: 'Whether to overwrite existing files.'
   kind: param
+  key: 'param'
   arg_name: 'overwrite'
 - DocstringParam
-  args: ['param', 'multifile']
   description: 'Whether to save multiple config files by using the ``__path__`` metas.'
   kind: param
+  key: 'param'
   arg_name: 'multifile'
 - DocstringRaises
-  args: ['raises', 'TypeError']
   description: 'If any of the values of namespace is invalid according to the parser.'
   kind: raises
+  key: 'raises'
   type_name: 'TypeError'
 === detect
 google

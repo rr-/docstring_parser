@@ -72,11 +72,10 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringMeta
-  args: ['attr']
   description: '`response_class`.'
   kind: text
+  key: 'attr'
 - DocstringParam
-  args: ['param', 'rv']
   description: |
     the return value from the view function. The view function
     must return a response. Returning ``None``, or the view ending
@@ -119,6 +118,7 @@ style: rest
         The function is called as a WSGI application. The result is
         used to create a response object.
   kind: param
+  key: 'param'
   arg_name: 'rv'
 === detect
 rest

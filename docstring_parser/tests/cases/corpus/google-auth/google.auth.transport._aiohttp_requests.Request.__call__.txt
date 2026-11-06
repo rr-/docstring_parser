@@ -29,61 +29,61 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'url (str)']
   description: 'The URL to be requested.'
   kind: param
+  key: 'param'
   arg_name: 'url'
   type_name: 'str'
   is_optional: False
 - DocstringParam
-  args: ['param', 'method (Optional[str])']
   description: "The HTTP method to use for the request. Defaults to 'GET'."
   kind: param
+  key: 'param'
   arg_name: 'method'
   type_name: 'Optional[str]'
   is_optional: False
   default: "'GET'"
 - DocstringParam
-  args: ['param', 'body (Optional[bytes])']
   description: 'The payload or body in HTTP request.'
   kind: param
+  key: 'param'
   arg_name: 'body'
   type_name: 'Optional[bytes]'
   is_optional: False
 - DocstringParam
-  args: ['param', 'headers (Optional[Mapping[str, str]])']
   description: 'Request headers.'
   kind: param
+  key: 'param'
   arg_name: 'headers'
   type_name: 'Optional[Mapping[str, str]]'
   is_optional: False
 - DocstringParam
-  args: ['param', 'timeout (Optional[int])']
   description: |
     The number of seconds to wait for a
     response from the server. If not specified or if None, the
     requests default timeout will be used.
   kind: param
+  key: 'param'
   arg_name: 'timeout'
   type_name: 'Optional[int]'
   is_optional: False
 - DocstringParam
-  args: ['param', 'kwargs']
   description: |
     Additional arguments passed through to the underlying
     requests :meth:`requests.Session.request` method.
   kind: param
+  key: 'param'
   arg_name: 'kwargs'
 - DocstringReturns
-  args: ['returns', 'google.auth.transport.Response']
   description: 'The HTTP response.'
   kind: returns
+  key: 'returns'
   type_name: 'google.auth.transport.Response'
   is_generator: False
 - DocstringRaises
-  args: ['raises', 'google.auth.exceptions.TransportError']
   description: 'If any exception occurred.'
   kind: raises
+  key: 'raises'
   type_name: 'google.auth.exceptions.TransportError'
 === detect
 google

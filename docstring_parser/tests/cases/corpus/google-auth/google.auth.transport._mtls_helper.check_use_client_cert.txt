@@ -35,9 +35,9 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: google
 - DocstringReturns
-  args: ['returns', 'bool']
   description: 'Whether the client certificate should be used for mTLS connection.'
   kind: returns
+  key: 'returns'
   type_name: 'bool'
   is_generator: False
 === detect

@@ -16,38 +16,38 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 - DocstringParam
-  args: ['param', 'name']
   description: 'description 1'
   kind: param
+  key: 'param'
   arg_name: 'name'
 - DocstringParam
-  args: ['param', 'int', 'priority']
   description: 'description 2'
   kind: param
+  key: 'param'
   arg_name: 'priority'
   type_name: 'int'
   is_optional: False
 - DocstringParam
-  args: ['param', 'str?', 'sender']
   description: 'description 3'
   kind: param
+  key: 'param'
   arg_name: 'sender'
   type_name: 'str'
   is_optional: True
 - DocstringParam
-  args: ['param', 'str?', 'message']
   description: "description 4, defaults to 'hello'"
   kind: param
+  key: 'param'
   arg_name: 'message'
   type_name: 'str'
   is_optional: True
   default: "'hello'"
 - DocstringParam
-  args: ['param', 'str?', 'multiline']
   description: |
     long description 5,
     defaults to 'bye'
   kind: param
+  key: 'param'
   arg_name: 'multiline'
   type_name: 'str'
   is_optional: True

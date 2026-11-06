@@ -11,9 +11,9 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: numpydoc
 - DocstringParam
-  args: ['param', 'arg7']
   description: 'The fifth arg. Default: DEFAULT_ARGS'
   kind: param
+  key: 'param'
   arg_name: 'arg7'
   type_name: 'str'
   is_optional: True

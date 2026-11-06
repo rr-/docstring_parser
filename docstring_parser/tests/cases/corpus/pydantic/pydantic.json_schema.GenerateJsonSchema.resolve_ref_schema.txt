@@ -17,19 +17,19 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'json_schema']
   description: 'The schema to resolve.'
   kind: param
+  key: 'param'
   arg_name: 'json_schema'
 - DocstringReturns
-  args: ['returns']
   description: 'The resolved schema.'
   kind: returns
+  key: 'returns'
   is_generator: False
 - DocstringRaises
-  args: ['raises', 'RuntimeError']
   description: "If the schema reference can't be found in definitions."
   kind: raises
+  key: 'raises'
   type_name: 'RuntimeError'
 === detect
 google

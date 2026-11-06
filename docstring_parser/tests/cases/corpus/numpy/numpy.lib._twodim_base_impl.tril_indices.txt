@@ -83,70 +83,69 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 - DocstringParam
-  args: ['param', 'n']
   description: |
     The row dimension of the arrays for which the returned
     indices will be valid.
   kind: param
+  key: 'param'
   arg_name: 'n'
   type_name: 'int'
   is_optional: False
 - DocstringParam
-  args: ['param', 'k']
   description: 'Diagonal offset (see `tril` for details).'
   kind: param
+  key: 'param'
   arg_name: 'k'
   type_name: 'int'
   is_optional: True
 - DocstringParam
-  args: ['param', 'm']
   description: |
     The column dimension of the arrays for which the returned
     arrays will be valid.
     By default `m` is taken equal to `n`.
   kind: param
+  key: 'param'
   arg_name: 'm'
   type_name: 'int'
   is_optional: True
 - DocstringReturns
-  args: ['returns']
   description: |
     The row and column indices, respectively. The row indices are sorted
     in non-decreasing order, and the corresponding column indices are
     strictly increasing for each row.
   kind: returns
+  key: 'returns'
   type_name: 'tuple of arrays'
   is_generator: False
   return_name: 'inds'
 - DocstringReturns
-  args: ['returns']
   kind: returns
+  key: 'returns'
   type_name: 'See also'
   is_generator: False
 - DocstringReturns
-  args: ['returns']
   kind: returns
+  key: 'returns'
   type_name: '--------'
   is_generator: False
 - DocstringReturns
-  args: ['returns']
   kind: returns
+  key: 'returns'
   type_name: 'similar function, for upper-triangular.'
   is_generator: False
   return_name: 'triu_indices'
 - DocstringReturns
-  args: ['returns']
   kind: returns
+  key: 'returns'
   type_name: 'generic function accepting an arbitrary mask function.'
   is_generator: False
   return_name: 'mask_indices'
 - DocstringReturns
-  args: ['returns']
   kind: returns
+  key: 'returns'
   type_name: 'tril, triu'
   is_generator: False
 - DocstringExample
-  args: ['examples']
   description: |
     
     Compute two different sets of indices to access 4x4 arrays, one for the
@@ -154,9 +153,9 @@ style: numpydoc
     diagonals further right:
     
   kind: examples
+  key: 'examples'
   snippet: '>>> import numpy as np'
 - DocstringExample
-  args: ['examples']
   description: |
     (array([0, 1, 1, 2, 2, 2, 3, 3, 3, 3]), array([0, 0, 1, 0, 1, 2, 0, 1, 2, 3]))
     
@@ -165,11 +164,11 @@ style: numpydoc
     Here is how they can be used with a sample array:
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> il1 = np.tril_indices(4)
     >>> il1
 - DocstringExample
-  args: ['examples']
   description: |
     array([[ 0,  1,  2,  3],
            [ 4,  5,  6,  7],
@@ -179,20 +178,20 @@ style: numpydoc
     Both for indexing:
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> a = np.arange(16).reshape(4, 4)
     >>> a
 - DocstringExample
-  args: ['examples']
   description: |
     array([ 0,  4,  5, ..., 13, 14, 15])
     
     And for assigning values:
     
   kind: examples
+  key: 'examples'
   snippet: '>>> a[il1]'
 - DocstringExample
-  args: ['examples']
   description: |
     array([[-1,  1,  2,  3],
            [-1, -1,  6,  7],
@@ -202,17 +201,18 @@ style: numpydoc
     These cover almost the whole array (two diagonals right of the main one):
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> a[il1] = -1
     >>> a
 - DocstringExample
-  args: ['examples']
   description: |
     array([[-10, -10, -10,   3],
            [-10, -10, -10, -10],
            [-10, -10, -10, -10],
            [-10, -10, -10, -10]])
   kind: examples
+  key: 'examples'
   snippet: |
     >>> il2 = np.tril_indices(4, 2)
     >>> a[il2] = -10

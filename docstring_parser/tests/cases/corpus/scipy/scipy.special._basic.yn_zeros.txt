@@ -63,59 +63,59 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'n']
   description: 'Order of Bessel function'
   kind: param
+  key: 'param'
   arg_name: 'n'
   type_name: 'int'
   is_optional: False
 - DocstringParam
-  args: ['param', 'nt']
   description: 'Number of zeros to return'
   kind: param
+  key: 'param'
   arg_name: 'nt'
   type_name: 'int'
   is_optional: False
 - DocstringReturns
-  args: ['returns']
   description: 'First `nt` zeros of the Bessel function.'
   kind: returns
+  key: 'returns'
   type_name: 'ndarray'
   is_generator: False
 - DocstringMeta
-  args: ['see_also']
   description: |
     yn: Bessel function of the second kind for integer order
     yv: Bessel function of the second kind for real order
   kind: text
+  key: 'see_also'
 - DocstringMeta
-  args: ['references']
   description: |
     .. [1] Zhang, Shanjie and Jin, Jianming. "Computation of Special
            Functions", John Wiley and Sons, 1996, chapter 5.
            https://people.sc.fsu.edu/~jburkardt/f77_src/special_functions/special_functions.html
   kind: text
+  key: 'references'
 - DocstringExample
-  args: ['examples']
   description: |
     Compute the first four roots of :math:`Y_2`.
     
   kind: examples
+  key: 'examples'
 - DocstringExample
-  args: ['examples']
   description: |
     array([ 3.38424177,  6.79380751, 10.02347798, 13.20998671])
     
     Plot :math:`Y_2` and its first four roots.
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> from scipy.special import yn_zeros
     >>> yn_zeros(2, 4)
 - DocstringExample
-  args: ['examples']
   description: "...            label='Roots', zorder=5)"
   kind: examples
+  key: 'examples'
   snippet: |
     >>> import numpy as np
     >>> import matplotlib.pyplot as plt
@@ -128,9 +128,9 @@ style: numpydoc
     >>> ax.plot(x, yn(2, x), label=r'$Y_2$')
     >>> ax.scatter(yn_zeros(2, 4), np.zeros((4, )), s=30, c='r',
 - DocstringExample
-  args: ['examples']
   description: ''
   kind: examples
+  key: 'examples'
   snippet: |
     >>> ax.set_ylim(-0.4, 0.4)
     >>> ax.set_xlim(xmin, xmax)

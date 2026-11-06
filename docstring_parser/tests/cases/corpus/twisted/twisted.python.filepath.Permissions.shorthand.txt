@@ -17,9 +17,9 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: epydoc
 - DocstringReturns
-  args: ['return']
   description: 'The shorthand string.'
   kind: returns
+  key: 'return'
   type_name: 'L{str}'
   is_generator: False
 === detect

@@ -392,7 +392,7 @@ def test_parse_follows_default_sections(
         "DEFAULT_SECTIONS",
         [*numpydoc.DEFAULT_SECTIONS, Section("Meta", "meta")],
     )
-    assert parse(text).meta[0].args == ["meta"]
+    assert parse(text).meta[0].key == "meta"
 
 
 def test_parse_follows_section_title_changes(
@@ -403,9 +403,9 @@ def test_parse_follows_section_title_changes(
     monkeypatch.setattr(
         numpydoc, "DEFAULT_SECTIONS", [*numpydoc.DEFAULT_SECTIONS, section]
     )
-    assert parse("Short.\n\nMeta\n----\nasd").meta[0].args == ["meta"]
+    assert parse("Short.\n\nMeta\n----\nasd").meta[0].key == "meta"
     section.title = "Data"
-    assert parse("Short.\n\nData\n----\nasd").meta[0].args == ["meta"]
+    assert parse("Short.\n\nData\n----\nasd").meta[0].key == "meta"
 
 
 def test_compose_deprecation_layout() -> None:
@@ -440,6 +440,6 @@ def test_section_title_is_literal(title: str) -> None:
     """Test that regex characters in a section title match literally."""
     parser = NumpydocParser([Section(title, "custom")])
     docstring = parser.parse(f"Short.\n\n{title}\n{'-' * len(title)}\ntext")
-    assert [(m.args, m.description) for m in docstring.meta] == [
-        (["custom"], "text")
+    assert [(m.key, m.description) for m in docstring.meta] == [
+        ("custom", "text")
     ]

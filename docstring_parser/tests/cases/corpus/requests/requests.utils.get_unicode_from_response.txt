@@ -22,12 +22,11 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringParam
-  args: ['param', 'r']
   description: 'Response object to get unicode content from.'
   kind: param
+  key: 'param'
   arg_name: 'r'
 - DocstringReturns
-  args: []
   kind: returns
   type_name: 'str'
   is_generator: False

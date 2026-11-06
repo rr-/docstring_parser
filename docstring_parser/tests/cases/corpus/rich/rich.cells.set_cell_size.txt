@@ -16,24 +16,24 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'text']
   description: 'String to adjust.'
   kind: param
+  key: 'param'
   arg_name: 'text'
 - DocstringParam
-  args: ['param', 'total']
   description: 'Desired size in cells.'
   kind: param
+  key: 'param'
   arg_name: 'total'
 - DocstringParam
-  args: ['param', 'unicode_version']
   description: 'Unicode version.'
   kind: param
+  key: 'param'
   arg_name: 'unicode_version'
 - DocstringReturns
-  args: ['returns']
   description: 'A string with cell size equal to total.'
   kind: returns
+  key: 'returns'
   is_generator: False
 === detect
 google

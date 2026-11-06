@@ -11,9 +11,9 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'with_meta']
   description: 'Whether to include metadata keys in the copy.'
   kind: param
+  key: 'param'
   arg_name: 'with_meta'
 === detect
 google

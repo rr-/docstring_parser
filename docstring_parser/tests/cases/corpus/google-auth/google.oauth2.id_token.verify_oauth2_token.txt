@@ -25,55 +25,55 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'id_token (Union[str, bytes])']
   description: 'The encoded token.'
   kind: param
+  key: 'param'
   arg_name: 'id_token'
   type_name: 'Union[str, bytes]'
   is_optional: False
 - DocstringParam
-  args: ['param', 'request (google.auth.transport.Request)']
   description: |
     The object used to make
     HTTP requests.
   kind: param
+  key: 'param'
   arg_name: 'request'
   type_name: 'google.auth.transport.Request'
   is_optional: False
 - DocstringParam
-  args: ['param', 'audience (str)']
   description: |
     The audience that this token is intended for. This is
     typically your application's OAuth 2.0 client ID. If None then the
     audience is not verified.
   kind: param
+  key: 'param'
   arg_name: 'audience'
   type_name: 'str'
   is_optional: False
 - DocstringParam
-  args: ['param', 'clock_skew_in_seconds (int)']
   description: |
     The clock skew used for `iat` and `exp`
     validation.
   kind: param
+  key: 'param'
   arg_name: 'clock_skew_in_seconds'
   type_name: 'int'
   is_optional: False
 - DocstringReturns
-  args: ['returns', 'Mapping[str, Any]']
   description: 'The decoded token.'
   kind: returns
+  key: 'returns'
   type_name: 'Mapping[str, Any]'
   is_generator: False
 - DocstringRaises
-  args: ['raises', 'exceptions.GoogleAuthError']
   description: 'If the issuer is invalid.'
   kind: raises
+  key: 'raises'
   type_name: 'exceptions.GoogleAuthError'
 - DocstringRaises
-  args: ['raises', 'ValueError']
   description: 'If token verification fails'
   kind: raises
+  key: 'raises'
   type_name: 'ValueError'
 === detect
 google

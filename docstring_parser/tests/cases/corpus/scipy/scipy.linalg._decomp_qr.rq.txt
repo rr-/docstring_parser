@@ -74,74 +74,73 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'a']
   description: 'Matrix to be decomposed'
   kind: param
+  key: 'param'
   arg_name: 'a'
   type_name: '(M, N) array_like'
   is_optional: False
 - DocstringParam
-  args: ['param', 'overwrite_a']
   description: |
     Whether to overwrite data in `a` (may improve performance). Default is False.
     See :ref:`tutorial_linalg_overwrite` for details.
   kind: param
+  key: 'param'
   arg_name: 'overwrite_a'
   type_name: 'bool'
   is_optional: True
   default: 'False'
 - DocstringParam
-  args: ['param', 'lwork']
   description: |
     Work array size, lwork >= a.shape[1]. If None or -1, an optimal size
     is computed.
   kind: param
+  key: 'param'
   arg_name: 'lwork'
   type_name: 'int'
   is_optional: True
 - DocstringParam
-  args: ['param', 'mode']
   description: |
     Determines what information is to be returned: either both Q and R
     ('full', default), only R ('r') or both Q and R but computed in
     economy-size ('economic', see Notes).
   kind: param
+  key: 'param'
   arg_name: 'mode'
   type_name: "{'full', 'r', 'economic'}"
   is_optional: True
 - DocstringParam
-  args: ['param', 'check_finite']
   description: |
     Whether to check that the input matrix contains only finite numbers.
     Disabling may give a performance gain, but may result in problems
     (crashes, non-termination) if the inputs do contain infinities or NaNs.
   kind: param
+  key: 'param'
   arg_name: 'check_finite'
   type_name: 'bool'
   is_optional: True
 - DocstringReturns
-  args: ['returns']
   description: "Of shape (M, N) or (M, K) for ``mode='economic'``. ``K = min(M, N)``."
   kind: returns
+  key: 'returns'
   type_name: 'float or complex ndarray'
   is_generator: False
   return_name: 'R'
 - DocstringReturns
-  args: ['returns']
   description: |
     Of shape (N, N) or (K, N) for ``mode='economic'``. Not returned
     if ``mode='r'``.
   kind: returns
+  key: 'returns'
   type_name: 'float or complex ndarray'
   is_generator: False
   return_name: 'Q'
 - DocstringRaises
-  args: ['raises', 'LinAlgError']
   description: 'If decomposition fails.'
   kind: raises
+  key: 'raises'
   type_name: 'LinAlgError'
 - DocstringMeta
-  args: ['notes']
   description: |
     This is an interface to the LAPACK routines sgerqf, dgerqf, cgerqf, zgerqf,
     sorgrq, dorgrq, cungrq and zungrq.
@@ -149,10 +148,11 @@ style: numpydoc
     If ``mode=economic``, the shapes of Q and R are (K, N) and (M, K) instead
     of (N,N) and (M,N), with ``K=min(M,N)``.
   kind: text
+  key: 'notes'
 - DocstringExample
-  args: ['examples']
   description: 'True'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> import numpy as np
     >>> from scipy import linalg
@@ -161,21 +161,21 @@ style: numpydoc
     >>> r, q = linalg.rq(a)
     >>> np.allclose(a, r @ q)
 - DocstringExample
-  args: ['examples']
   description: '((6, 9), (9, 9))'
   kind: examples
+  key: 'examples'
   snippet: '>>> r.shape, q.shape'
 - DocstringExample
-  args: ['examples']
   description: 'True'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> r2 = linalg.rq(a, mode='r')
     >>> np.allclose(r, r2)
 - DocstringExample
-  args: ['examples']
   description: '((6, 6), (6, 9))'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> r3, q3 = linalg.rq(a, mode='economic')
     >>> r3.shape, q3.shape

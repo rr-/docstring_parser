@@ -39,21 +39,20 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'n']
   description: 'Number of samples of input signal'
   kind: param
+  key: 'param'
   arg_name: 'n'
   type_name: 'int'
   is_optional: False
 - DocstringReturns
-  args: ['returns']
   description: 'Number of time slices for input signal with `n` samples.'
   kind: returns
+  key: 'returns'
   type_name: 'int'
   is_generator: False
   return_name: 'p_num'
 - DocstringMeta
-  args: ['see_also']
   description: |
     k_min: The smallest possible signal index.
     k_max: First sample index after signal end not touched by a time slice.
@@ -64,6 +63,7 @@ style: numpydoc
     upper_border_begin: Where post-padding effects start.
     ShortTimeFFT: Class this method belongs to.
   kind: text
+  key: 'see_also'
 === detect
 numpydoc
 === compose numpydoc

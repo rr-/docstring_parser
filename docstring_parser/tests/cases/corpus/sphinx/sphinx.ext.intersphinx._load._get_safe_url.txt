@@ -21,15 +21,15 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: rest
 - DocstringParam
-  args: ['param', 'url']
   description: 'a url'
   kind: param
+  key: 'param'
   arg_name: 'url'
   type_name: '``str``'
 - DocstringReturns
-  args: ['return']
   description: '*url* with password removed'
   kind: returns
+  key: 'return'
   type_name: '``str``'
   is_generator: False
 === detect

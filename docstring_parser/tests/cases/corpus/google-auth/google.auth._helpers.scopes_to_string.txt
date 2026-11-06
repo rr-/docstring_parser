@@ -16,16 +16,16 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: google
 - DocstringParam
-  args: ['param', 'scopes (Sequence[str])']
   description: 'The sequence of scopes to convert.'
   kind: param
+  key: 'param'
   arg_name: 'scopes'
   type_name: 'Sequence[str]'
   is_optional: False
 - DocstringReturns
-  args: ['returns', 'str']
   description: 'The scopes formatted as a single string.'
   kind: returns
+  key: 'returns'
   type_name: 'str'
   is_generator: False
 === detect

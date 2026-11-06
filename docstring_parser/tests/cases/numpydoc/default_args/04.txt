@@ -11,9 +11,9 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: numpydoc
 - DocstringParam
-  args: ['param', 'arg3']
   description: 'The third arg.'
   kind: param
+  key: 'param'
   arg_name: 'arg3'
   type_name: 'float'
   is_optional: True

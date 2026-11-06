@@ -14,16 +14,16 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'record (LogRecord)']
   description: 'LogRecord instance.'
   kind: param
+  key: 'param'
   arg_name: 'record'
   type_name: 'LogRecord'
   is_optional: False
 - DocstringReturns
-  args: ['returns', 'Text']
   description: 'A tuple of the style and level name.'
   kind: returns
+  key: 'returns'
   type_name: 'Text'
   is_generator: False
 === detect

@@ -14,16 +14,16 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'segments (Iterable[Segment])']
   description: 'An iterable of segments.'
   kind: param
+  key: 'param'
   arg_name: 'segments'
   type_name: 'Iterable[Segment]'
   is_optional: False
 - DocstringReturns
-  args: ['returns', 'Iterable[Segment]']
   description: 'A possibly smaller iterable of segments that will render the same way.'
   kind: returns
+  key: 'returns'
   type_name: 'Iterable[Segment]'
   is_generator: False
 === detect

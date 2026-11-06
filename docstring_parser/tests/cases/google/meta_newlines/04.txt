@@ -17,7 +17,7 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'asd']
   description: ''
   kind: param
+  key: 'param'
   arg_name: 'asd'

@@ -65,43 +65,42 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'axis']
   description: 'Unused. Parameter needed for compatibility with DataFrame.'
   kind: param
+  key: 'param'
   arg_name: 'axis'
   type_name: "{0 or 'index'}"
   is_optional: False
 - DocstringParam
-  args: ['param', 'skipna']
   description: |
     Exclude NA/null values. If the entire Series is NA, or if ``skipna=False``
     and there is an NA value, this method will raise a ``ValueError``.
   kind: param
+  key: 'param'
   arg_name: 'skipna'
   type_name: 'bool'
   is_optional: True
   default: 'True'
 - DocstringParam
-  args: ['param', '*args, **kwargs']
   description: |
     Additional arguments and keywords have no effect but might be
     accepted for compatibility with NumPy.
     See :ref:`gotchas.numpy_kwargs` for more.
   kind: param
+  key: 'param'
   arg_name: '*args, **kwargs'
 - DocstringReturns
-  args: ['returns']
   description: 'Label of the minimum value.'
   kind: returns
+  key: 'returns'
   type_name: 'Index'
   is_generator: False
 - DocstringRaises
-  args: ['raises', 'ValueError']
   description: 'If the Series is empty.'
   kind: raises
+  key: 'raises'
   type_name: 'ValueError'
 - DocstringMeta
-  args: ['see_also']
   description: |
     numpy.argmin : Return indices of the minimum values
         along the given axis.
@@ -110,15 +109,15 @@ style: numpydoc
     Series.idxmax : Return index *label* of the first occurrence
         of maximum of values.
   kind: text
+  key: 'see_also'
 - DocstringMeta
-  args: ['notes']
   description: |
     This method is the Series version of ``ndarray.argmin``. This method
     returns the label of the minimum, while ``ndarray.argmin`` returns
     the position. To get the position, use ``series.values.argmin()``.
   kind: text
+  key: 'notes'
 - DocstringExample
-  args: ['examples']
   description: |
     A    1.0
     B    NaN
@@ -127,13 +126,14 @@ style: numpydoc
     dtype: float64
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> s = pd.Series(data=[1, None, 4, 1], index=["A", "B", "C", "D"])
     >>> s
 - DocstringExample
-  args: ['examples']
   description: "'A'"
   kind: examples
+  key: 'examples'
   snippet: '>>> s.idxmin()'
 === detect
 numpydoc

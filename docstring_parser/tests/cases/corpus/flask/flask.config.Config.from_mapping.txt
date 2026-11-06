@@ -17,9 +17,9 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringReturns
-  args: ['return']
   description: 'Always returns ``True``.'
   kind: returns
+  key: 'return'
   is_generator: False
 === detect
 rest

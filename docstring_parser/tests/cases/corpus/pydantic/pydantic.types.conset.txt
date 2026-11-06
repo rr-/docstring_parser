@@ -16,24 +16,24 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'item_type']
   description: 'The type of the items in the set.'
   kind: param
+  key: 'param'
   arg_name: 'item_type'
 - DocstringParam
-  args: ['param', 'min_length']
   description: 'The minimum length of the set.'
   kind: param
+  key: 'param'
   arg_name: 'min_length'
 - DocstringParam
-  args: ['param', 'max_length']
   description: 'The maximum length of the set.'
   kind: param
+  key: 'param'
   arg_name: 'max_length'
 - DocstringReturns
-  args: ['returns']
   description: 'The wrapped set type.'
   kind: returns
+  key: 'returns'
   is_generator: False
 === detect
 google

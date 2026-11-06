@@ -15,25 +15,25 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'text (str, optional)']
   description: 'A string to style. Defaults to "".'
   kind: param
+  key: 'param'
   arg_name: 'text'
   type_name: 'str'
   is_optional: True
   default: '""'
 - DocstringParam
-  args: ['param', 'color_system (Optional[ColorSystem], optional)']
   description: 'Color system to render to. Defaults to ColorSystem.TRUECOLOR.'
   kind: param
+  key: 'param'
   arg_name: 'color_system'
   type_name: 'Optional[ColorSystem]'
   is_optional: True
   default: 'ColorSystem.TRUECOLOR'
 - DocstringReturns
-  args: ['returns', 'str']
   description: 'A string containing ANSI style codes.'
   kind: returns
+  key: 'returns'
   type_name: 'str'
   is_generator: False
 === detect

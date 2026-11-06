@@ -32,25 +32,25 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringMeta
-  args: ['see_also']
   description: 'masked_where : Mask where a condition is met.'
   kind: text
+  key: 'see_also'
 - DocstringExample
-  args: ['examples']
   description: 'array([0, 1, 2, 3])'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> import numpy as np
     >>> import numpy.ma as ma
     >>> a = np.arange(4)
     >>> a
 - DocstringExample
-  args: ['examples']
   description: |
     masked_array(data=[0, 1, 2, --],
                  mask=[False, False, False,  True],
            fill_value=999999)
   kind: examples
+  key: 'examples'
   snippet: '>>> ma.masked_greater(a, 2)'
 === detect
 numpydoc

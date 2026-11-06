@@ -31,32 +31,32 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: google
 - DocstringParam
-  args: ['param', 'spam']
   description: 'spam desc'
   kind: param
+  key: 'param'
   arg_name: 'spam'
 - DocstringParam
-  args: ['param', 'bla (int)']
   description: 'bla desc'
   kind: param
+  key: 'param'
   arg_name: 'bla'
   type_name: 'int'
   is_optional: False
 - DocstringParam
-  args: ['param', 'yay (str)']
   description: ''
   kind: param
+  key: 'param'
   arg_name: 'yay'
   type_name: 'str'
   is_optional: False
 - DocstringRaises
-  args: ['raises', 'ValueError']
   description: 'exc desc'
   kind: raises
+  key: 'raises'
   type_name: 'ValueError'
 - DocstringReturns
-  args: ['returns', 'tuple']
   description: 'ret desc'
   kind: returns
+  key: 'returns'
   type_name: 'tuple'
   is_generator: False

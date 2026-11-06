@@ -20,43 +20,43 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'theme (TerminalTheme, optional)']
   description: 'TerminalTheme object containing console colors.'
   kind: param
+  key: 'param'
   arg_name: 'theme'
   type_name: 'TerminalTheme'
   is_optional: True
 - DocstringParam
-  args: ['param', 'clear (bool, optional)']
   description: 'Clear record buffer after exporting. Defaults to ``True``.'
   kind: param
+  key: 'param'
   arg_name: 'clear'
   type_name: 'bool'
   is_optional: True
   default: '``True``'
 - DocstringParam
-  args: ['param', 'code_format (str, optional)']
   description: |
     Format string to render HTML. In addition to '{foreground}',
     '{background}', and '{code}', should contain '{stylesheet}' if inline_styles is ``False``.
   kind: param
+  key: 'param'
   arg_name: 'code_format'
   type_name: 'str'
   is_optional: True
 - DocstringParam
-  args: ['param', 'inline_styles (bool, optional)']
   description: |
     If ``True`` styles will be inlined in to spans, which makes files
     larger but easier to cut and paste markup. If ``False``, styles will be embedded in a style tag.
     Defaults to False.
   kind: param
+  key: 'param'
   arg_name: 'inline_styles'
   type_name: 'bool'
   is_optional: True
 - DocstringReturns
-  args: ['returns', 'str']
   description: 'String containing console contents as HTML.'
   kind: returns
+  key: 'returns'
   type_name: 'str'
   is_generator: False
 === detect

@@ -10,9 +10,9 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 - DocstringParam
-  args: ['param', 'headers']
   description: 'a httplib.HTTPMessage or analogous carrying the headers'
   kind: param
+  key: 'param'
   arg_name: 'headers'
 === detect
 rest

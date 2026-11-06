@@ -11,9 +11,9 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: numpydoc
 - DocstringParam
-  args: ['param', 'arg6']
   description: 'The fourth arg. Defaults to None'
   kind: param
+  key: 'param'
   arg_name: 'arg6'
   type_name: 'Optional[Dict[str, Any]]'
   is_optional: True

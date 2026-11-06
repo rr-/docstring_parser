@@ -83,220 +83,220 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: google
 - DocstringParam
-  args: ['param', 'default']
   description: 'Default value if the field is not set.'
   kind: param
+  key: 'param'
   arg_name: 'default'
 - DocstringParam
-  args: ['param', 'default_factory']
   description: |
     A callable to generate the default value. The callable can either take 0 arguments
     (in which case it is called as is) or a single argument containing the already validated data.
   kind: param
+  key: 'param'
   arg_name: 'default_factory'
 - DocstringParam
-  args: ['param', 'alias']
   description: |
     The name to use for the attribute when validating or serializing by alias.
     This is often used for things like converting between snake and camel case.
   kind: param
+  key: 'param'
   arg_name: 'alias'
 - DocstringParam
-  args: ['param', 'alias_priority']
   description: 'Priority of the alias. This affects whether an alias generator is used.'
   kind: param
+  key: 'param'
   arg_name: 'alias_priority'
 - DocstringParam
-  args: ['param', 'validation_alias']
   description: 'Like `alias`, but only affects validation, not serialization.'
   kind: param
+  key: 'param'
   arg_name: 'validation_alias'
 - DocstringParam
-  args: ['param', 'serialization_alias']
   description: 'Like `alias`, but only affects serialization, not validation.'
   kind: param
+  key: 'param'
   arg_name: 'serialization_alias'
 - DocstringParam
-  args: ['param', 'title']
   description: 'Human-readable title.'
   kind: param
+  key: 'param'
   arg_name: 'title'
 - DocstringParam
-  args: ['param', 'field_title_generator']
   description: "A callable that takes a field's name and info and returns title for it."
   kind: param
+  key: 'param'
   arg_name: 'field_title_generator'
 - DocstringParam
-  args: ['param', 'description']
   description: 'Human-readable description.'
   kind: param
+  key: 'param'
   arg_name: 'description'
 - DocstringParam
-  args: ['param', 'examples']
   description: 'Example values for this field.'
   kind: param
+  key: 'param'
   arg_name: 'examples'
 - DocstringParam
-  args: ['param', 'exclude']
   description: 'Whether to exclude the field from the model serialization.'
   kind: param
+  key: 'param'
   arg_name: 'exclude'
 - DocstringParam
-  args: ['param', 'exclude_if']
   description: 'A callable that determines whether to exclude a field during serialization based on its value.'
   kind: param
+  key: 'param'
   arg_name: 'exclude_if'
 - DocstringParam
-  args: ['param', 'discriminator']
   description: 'Field name or Discriminator for discriminating the type in a tagged union.'
   kind: param
+  key: 'param'
   arg_name: 'discriminator'
 - DocstringParam
-  args: ['param', 'deprecated']
   description: |
     A deprecation message, an instance of `warnings.deprecated` or the `typing_extensions.deprecated` backport,
     or a boolean. If `True`, a default deprecation message will be emitted when accessing the field.
   kind: param
+  key: 'param'
   arg_name: 'deprecated'
 - DocstringParam
-  args: ['param', 'json_schema_extra']
   description: 'A dict or callable to provide extra JSON schema properties.'
   kind: param
+  key: 'param'
   arg_name: 'json_schema_extra'
 - DocstringParam
-  args: ['param', 'frozen']
   description: 'Whether the field is frozen. If true, attempts to change the value on an instance will raise an error.'
   kind: param
+  key: 'param'
   arg_name: 'frozen'
 - DocstringParam
-  args: ['param', 'validate_default']
   description: |
     If `True`, apply validation to the default value every time you create an instance.
     Otherwise, for performance reasons, the default value of the field is trusted and not validated.
   kind: param
+  key: 'param'
   arg_name: 'validate_default'
 - DocstringParam
-  args: ['param', 'repr']
   description: 'A boolean indicating whether to include the field in the `__repr__` output.'
   kind: param
+  key: 'param'
   arg_name: 'repr'
 - DocstringParam
-  args: ['param', 'init']
   description: |
     Whether the field should be included in the constructor of the dataclass.
     (Only applies to dataclasses.)
   kind: param
+  key: 'param'
   arg_name: 'init'
 - DocstringParam
-  args: ['param', 'init_var']
   description: |
     Whether the field should _only_ be included in the constructor of the dataclass.
     (Only applies to dataclasses.)
   kind: param
+  key: 'param'
   arg_name: 'init_var'
 - DocstringParam
-  args: ['param', 'kw_only']
   description: |
     Whether the field should be a keyword-only argument in the constructor of the dataclass.
     (Only applies to dataclasses.)
   kind: param
+  key: 'param'
   arg_name: 'kw_only'
 - DocstringParam
-  args: ['param', 'coerce_numbers_to_str']
   description: 'Whether to enable coercion of any `Number` type to `str` (not applicable in `strict` mode).'
   kind: param
+  key: 'param'
   arg_name: 'coerce_numbers_to_str'
 - DocstringParam
-  args: ['param', 'strict']
   description: |
     If `True`, strict validation is applied to the field.
     See [Strict Mode](../concepts/strict_mode.md) for details.
   kind: param
+  key: 'param'
   arg_name: 'strict'
 - DocstringParam
-  args: ['param', 'gt']
   description: 'Greater than. If set, value must be greater than this. Only applicable to numbers.'
   kind: param
+  key: 'param'
   arg_name: 'gt'
 - DocstringParam
-  args: ['param', 'ge']
   description: 'Greater than or equal. If set, value must be greater than or equal to this. Only applicable to numbers.'
   kind: param
+  key: 'param'
   arg_name: 'ge'
 - DocstringParam
-  args: ['param', 'lt']
   description: 'Less than. If set, value must be less than this. Only applicable to numbers.'
   kind: param
+  key: 'param'
   arg_name: 'lt'
 - DocstringParam
-  args: ['param', 'le']
   description: 'Less than or equal. If set, value must be less than or equal to this. Only applicable to numbers.'
   kind: param
+  key: 'param'
   arg_name: 'le'
 - DocstringParam
-  args: ['param', 'multiple_of']
   description: 'Value must be a multiple of this. Only applicable to numbers.'
   kind: param
+  key: 'param'
   arg_name: 'multiple_of'
 - DocstringParam
-  args: ['param', 'min_length']
   description: 'Minimum length for iterables.'
   kind: param
+  key: 'param'
   arg_name: 'min_length'
 - DocstringParam
-  args: ['param', 'max_length']
   description: 'Maximum length for iterables.'
   kind: param
+  key: 'param'
   arg_name: 'max_length'
 - DocstringParam
-  args: ['param', 'pattern']
   description: 'Pattern for strings (a regular expression).'
   kind: param
+  key: 'param'
   arg_name: 'pattern'
 - DocstringParam
-  args: ['param', 'allow_inf_nan']
   description: 'Allow `inf`, `-inf`, `nan`. Only applicable to float and [`Decimal`][decimal.Decimal] numbers.'
   kind: param
+  key: 'param'
   arg_name: 'allow_inf_nan'
 - DocstringParam
-  args: ['param', 'max_digits']
   description: 'Maximum number of allowed digits for [`Decimal`][decimal.Decimal] numbers.'
   kind: param
+  key: 'param'
   arg_name: 'max_digits'
 - DocstringParam
-  args: ['param', 'decimal_places']
   description: 'Maximum number of decimal places allowed for numbers.'
   kind: param
+  key: 'param'
   arg_name: 'decimal_places'
 - DocstringParam
-  args: ['param', 'union_mode']
   description: |
     The strategy to apply when validating a union. Can be `smart` (the default), or `left_to_right`.
     See [Union Mode](../concepts/unions.md#union-modes) for details.
   kind: param
+  key: 'param'
   arg_name: 'union_mode'
 - DocstringParam
-  args: ['param', 'fail_fast']
   description: |
     If `True`, validation will stop on the first error. If `False`, all validation errors will be collected.
     This option can be applied only to iterable types (list, tuple, set, and frozenset).
   kind: param
+  key: 'param'
   arg_name: 'fail_fast'
 - DocstringParam
-  args: ['param', 'extra']
   description: |
     (Deprecated) Extra fields that will be included in the JSON schema.
     
     !!! warning Deprecated
         The `extra` kwargs is deprecated. Use `json_schema_extra` instead.
   kind: param
+  key: 'param'
   arg_name: 'extra'
 - DocstringReturns
-  args: ['returns']
   description: |
     A new [`FieldInfo`][pydantic.fields.FieldInfo]. The return annotation is `Any` so `Field` can be used on
     type-annotated fields without causing a type error.
   kind: returns
+  key: 'returns'
   is_generator: False
 === detect
 google

@@ -52,72 +52,72 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'other']
   description: 'The other index on which join is performed.'
   kind: param
+  key: 'param'
   arg_name: 'other'
   type_name: 'Index'
   is_optional: False
 - DocstringParam
-  args: ['param', 'how']
   kind: param
+  key: 'param'
   arg_name: 'how'
   type_name: "{'left', 'right', 'inner', 'outer'}"
   is_optional: False
 - DocstringParam
-  args: ['param', 'level']
   description: 'It is either the integer position or the name of the level.'
   kind: param
+  key: 'param'
   arg_name: 'level'
   type_name: 'int or level name'
   is_optional: True
   default: 'None'
 - DocstringParam
-  args: ['param', 'return_indexers']
   description: 'Whether to return the indexers or not for both the index objects.'
   kind: param
+  key: 'param'
   arg_name: 'return_indexers'
   type_name: 'bool'
   is_optional: True
   default: 'False'
 - DocstringParam
-  args: ['param', 'sort']
   description: |
     Sort the join keys lexicographically in the result Index. If False,
     the order of the join keys depends on the join type (how keyword).
   kind: param
+  key: 'param'
   arg_name: 'sort'
   type_name: 'bool'
   is_optional: True
   default: 'False'
 - DocstringReturns
-  args: ['returns']
   description: 'The new index.'
   kind: returns
+  key: 'returns'
   type_name: 'join_index, (left_indexer, right_indexer)'
   is_generator: False
 - DocstringMeta
-  args: ['see_also']
   description: |
     DataFrame.join : Join columns with `other` DataFrame either on index
         or on a key.
     DataFrame.merge : Merge DataFrame or named Series objects with a
         database-style join.
   kind: text
+  key: 'see_also'
 - DocstringExample
-  args: ['examples']
   description: "Index([1, 2, 3, 4, 5, 6], dtype='int64')"
   kind: examples
+  key: 'examples'
   snippet: |
     >>> idx1 = pd.Index([1, 2, 3])
     >>> idx2 = pd.Index([4, 5, 6])
     >>> idx1.join(idx2, how="outer")
 - DocstringExample
-  args: ['examples']
   description: |
     (Index([1, 2, 3, 4, 5, 6], dtype='int64'),
     array([ 0,  1,  2, -1, -1, -1]), array([-1, -1, -1,  0,  1,  2]))
   kind: examples
+  key: 'examples'
   snippet: '>>> idx1.join(other=idx2, how="outer", return_indexers=True)'
 === detect
 numpydoc

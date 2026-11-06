@@ -76,7 +76,7 @@ class Section:
                   "Parameters" which appears on its own line, underlined by
                   en-dashes ('-') on the following line.
     :param key: meta key string. In the parsed ``DocstringMeta`` instance this
-                will be the first element of the ``args`` attribute list.
+                is the ``key`` of the parsed ``DocstringMeta``.
     """
 
     def __init__(self, title: str, key: str) -> None:
@@ -99,7 +99,7 @@ class Section:
         :param text: section body text. Should be cleaned with
                      ``inspect.cleandoc`` before parsing.
         """
-        yield DocstringMeta([self.key], description=clean_str(text))
+        yield DocstringMeta(clean_str(text), self.key)
 
 
 class _KVSection(Section):
@@ -178,7 +178,7 @@ class ParamSection(_KVSection):
                 default = default_match.group("value")
 
         return DocstringParam(
-            args=[self.key, arg_name],
+            key=self.key,
             description=clean_str(value),
             arg_name=arg_name,
             type_name=type_name,
@@ -198,7 +198,7 @@ class RaisesSection(_KVSection):
 
     def _parse_item(self, key: str, value: str) -> DocstringRaises:
         return DocstringRaises(
-            args=[self.key, key],
+            key=self.key,
             description=clean_str(value),
             type_name=key if len(key) > 0 else None,
             kind=Kind.WARNS if self.key == "warns" else Kind.RAISES,
@@ -227,7 +227,7 @@ class ReturnsSection(_KVSection):
             type_name = None
 
         return DocstringReturns(
-            args=[self.key],
+            key=self.key,
             description=clean_str(value),
             type_name=type_name,
             is_generator=self.is_generator,
@@ -262,7 +262,7 @@ class DeprecationSection(_SphinxSection):
         version, _, desc = text.partition("\n")
 
         yield DocstringDeprecated(
-            args=[self.key],
+            key=self.key,
             description=clean_str(cleandoc(desc)),
             version=clean_str(version),
         )
@@ -301,7 +301,7 @@ class ExamplesSection(Section):
                 description_lines.append(lines[i])
                 i += 1
             yield DocstringExample(
-                [self.key],
+                key=self.key,
                 snippet="\n".join(snippet_lines) if snippet_lines else None,
                 description="\n".join(description_lines),
             )
@@ -556,7 +556,7 @@ def compose(
             continue  # Already handled
 
         # Use the section's own title, e.g. "See Also" for see_also.
-        key = meta.args[0]
+        key = meta.key or ""
         title = next(
             (s.title for s in DEFAULT_SECTIONS if s.key == key),
             key.replace("_", "").title(),

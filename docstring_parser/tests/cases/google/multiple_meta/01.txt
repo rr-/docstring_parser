@@ -19,21 +19,21 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'spam']
   description: |
     asd
     1
         2
     3
   kind: param
+  key: 'param'
   arg_name: 'spam'
 - DocstringRaises
-  args: ['raises', 'bla']
   description: 'herp'
   kind: raises
+  key: 'raises'
   type_name: 'bla'
 - DocstringRaises
-  args: ['raises', 'yay']
   description: 'derp'
   kind: raises
+  key: 'raises'
   type_name: 'yay'

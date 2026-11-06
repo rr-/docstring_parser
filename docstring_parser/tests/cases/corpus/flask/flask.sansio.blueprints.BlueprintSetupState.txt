@@ -12,11 +12,11 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: rest
 - DocstringMeta
-  args: ['meth']
   description: |
     `~flask.Blueprint.make_setup_state` method and later passed
     to all register callback functions.
   kind: text
+  key: 'meth'
 === detect
 rest
 === compose rest

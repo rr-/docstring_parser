@@ -55,28 +55,27 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'axis']
   description: |
     Selects a subset of the axes of length one in the shape.
     If an axis is selected with shape entry greater than one,
     an error is raised.
   kind: param
+  key: 'param'
   arg_name: 'axis'
   type_name: 'None or int or tuple of ints'
   is_optional: True
 - DocstringReturns
-  args: ['returns']
   description: 'The matrix, but as a (1, N) matrix if it had shape (N, 1).'
   kind: returns
+  key: 'returns'
   type_name: 'matrix'
   is_generator: False
   return_name: 'squeezed'
 - DocstringMeta
-  args: ['see_also']
   description: 'numpy.squeeze : related function'
   kind: text
+  key: 'see_also'
 - DocstringMeta
-  args: ['notes']
   description: |
     If `m` has a single column then that column is returned
     as the single row of a matrix.  Otherwise `m` is returned.
@@ -84,38 +83,39 @@ style: numpydoc
     Supplying an axis keyword argument will not affect the returned matrix
     but it may cause an error to be raised.
   kind: text
+  key: 'notes'
 - DocstringExample
-  args: ['examples']
   description: |
     matrix([[1],
             [2]])
   kind: examples
+  key: 'examples'
   snippet: |
     >>> c = np.matrix([[1], [2]])
     >>> c
 - DocstringExample
-  args: ['examples']
   description: 'matrix([[1, 2]])'
   kind: examples
+  key: 'examples'
   snippet: '>>> c.squeeze()'
 - DocstringExample
-  args: ['examples']
   description: 'matrix([[1, 2]])'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> r = c.T
     >>> r
 - DocstringExample
-  args: ['examples']
   description: 'matrix([[1, 2]])'
   kind: examples
+  key: 'examples'
   snippet: '>>> r.squeeze()'
 - DocstringExample
-  args: ['examples']
   description: |
     matrix([[1, 2],
             [3, 4]])
   kind: examples
+  key: 'examples'
   snippet: |
     >>> m = np.matrix([[1, 2], [3, 4]])
     >>> m.squeeze()

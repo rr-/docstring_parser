@@ -85,13 +85,12 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 - DocstringParam
-  args: ['param', 'df']
   kind: param
+  key: 'param'
   arg_name: 'df'
   type_name: 'DataFrame'
   is_optional: False
 - DocstringParam
-  args: ['param', 'path']
   description: |
     String, path object (implementing ``os.PathLike[str]``), or file-like
     object implementing a binary ``write()`` function. If None, the result
@@ -108,12 +107,12 @@ style: numpydoc
     URLs require the ``s3fs`` library. See
     :ref:`install.optional_dependencies` for a full list.
   kind: param
+  key: 'param'
   arg_name: 'path'
   type_name: 'str, path object, file-like object, or None'
   is_optional: True
   default: 'None'
 - DocstringParam
-  args: ['param', 'engine']
   description: |
     Parquet library to use. If 'auto', then the option
     ``io.parquet.engine`` is used. The default ``io.parquet.engine``
@@ -131,21 +130,21 @@ style: numpydoc
         deprecated. Use ``'pyarrow'`` or do not pass ``engine``
         to use the default.
   kind: param
+  key: 'param'
   arg_name: 'engine'
   type_name: "{'auto', 'pyarrow', 'fastparquet'}"
   is_optional: True
   default: "'auto'"
 - DocstringParam
-  args: ['param', 'compression']
   description: |
     default 'snappy'. Name of the compression to use. Use ``None``
     for no compression.
   kind: param
+  key: 'param'
   arg_name: 'compression'
   type_name: "{'snappy', 'gzip', 'brotli', 'lz4', 'zstd', None},"
   is_optional: False
 - DocstringParam
-  args: ['param', 'index']
   description: |
     If ``True``, include the dataframe's index(es) in the file output. If
     ``False``, they will not be written to the file.
@@ -155,23 +154,23 @@ style: numpydoc
     doesn't require much space and is faster. Other indexes will
     be included as columns in the file output.
   kind: param
+  key: 'param'
   arg_name: 'index'
   type_name: 'bool'
   is_optional: True
   default: 'None'
 - DocstringParam
-  args: ['param', 'partition_cols']
   description: |
     Column names by which to partition the dataset.
     Columns are partitioned in the order they are given.
     Must be None if path is not a string.
   kind: param
+  key: 'param'
   arg_name: 'partition_cols'
   type_name: 'str or list'
   is_optional: True
   default: 'None'
 - DocstringParam
-  args: ['param', 'storage_options']
   description: |
     Extra options that make sense for a particular storage connection, e.g.
     host, port, username, password, etc. For HTTP(S) URLs the key-value
@@ -182,23 +181,23 @@ style: numpydoc
     options refer `here <https://pandas.pydata.org/docs/user_guide/io.html?
     highlight=storage_options#reading-writing-remote-files>`_.
   kind: param
+  key: 'param'
   arg_name: 'storage_options'
   type_name: 'dict'
   is_optional: True
 - DocstringParam
-  args: ['param', 'filesystem']
   description: |
     Filesystem object to use when reading the parquet file. Only implemented
     for ``engine="pyarrow"``.
     
     .. versionadded:: 2.1.0
   kind: param
+  key: 'param'
   arg_name: 'filesystem'
   type_name: 'fsspec or pyarrow filesystem'
   is_optional: True
   default: 'None'
 - DocstringParam
-  args: ['param', '**kwargs']
   description: |
     Additional keyword arguments passed to the engine:
     
@@ -206,10 +205,11 @@ style: numpydoc
       or :func:`pyarrow.parquet.write_to_dataset` (when using partition_cols)
     * For ``engine="fastparquet"``: passed to :func:`fastparquet.write`
   kind: param
+  key: 'param'
   arg_name: '**kwargs'
 - DocstringReturns
-  args: ['returns']
   kind: returns
+  key: 'returns'
   type_name: 'bytes if no path argument is provided else None'
   is_generator: False
 === detect

@@ -87,17 +87,21 @@ def test_google_parser_custom_sections() -> None:
     assert docstring.short_description is None
     assert docstring.long_description is None
     assert len(docstring.meta) == 6
-    assert docstring.meta[0].args == ["desc"]
+    assert docstring.meta[0].key == "desc"
     assert docstring.meta[0].description == "This is the description."
-    assert docstring.meta[1].args == ["param", "arg1"]
+    assert docstring.meta[1].key == "param"
+    assert docstring.meta[1].arg_name == "arg1"
     assert docstring.meta[1].description == "first arg"
-    assert docstring.meta[2].args == ["param", "arg2"]
+    assert docstring.meta[2].key == "param"
+    assert docstring.meta[2].arg_name == "arg2"
     assert docstring.meta[2].description == "second arg"
-    assert docstring.meta[3].args == ["attribute", "attr1"]
+    assert docstring.meta[3].key == "attribute"
+    assert docstring.meta[3].arg_name == "attr1"
     assert docstring.meta[3].description == "first attribute"
-    assert docstring.meta[4].args == ["attribute", "attr2"]
+    assert docstring.meta[4].key == "attribute"
+    assert docstring.meta[4].arg_name == "attr2"
     assert docstring.meta[4].description == "second attribute"
-    assert docstring.meta[5].args == ["examples"]
+    assert docstring.meta[5].key == "examples"
     assert docstring.meta[5].description == "Many examples\nMore examples"
 
 
@@ -137,7 +141,7 @@ def test_google_parser_custom_sections_after() -> None:
         """
     )
     assert len(docstring.meta) == 1
-    assert docstring.meta[0].args == ["note"]
+    assert docstring.meta[0].key == "note"
     assert docstring.meta[0].description == "a note"
 
 
@@ -179,7 +183,7 @@ def test_parse_follows_default_sections(
             Section("Notes", "notes", SectionType.SINGULAR),
         ],
     )
-    assert parse(text).meta[0].args == ["notes"]
+    assert parse(text).meta[0].key == "notes"
 
 
 @pytest.mark.parametrize("title", ["Notes?", "C++ Notes", "Args (old)"])
@@ -189,6 +193,6 @@ def test_section_title_is_literal(title: str) -> None:
         [Section(title, "custom", SectionType.SINGULAR)], title_colon=True
     )
     docstring = parser.parse(f"Short.\n\n{title}:\n    text")
-    assert [(m.args, m.description) for m in docstring.meta] == [
-        (["custom"], "text")
+    assert [(m.key, m.description) for m in docstring.meta] == [
+        ("custom", "text")
     ]

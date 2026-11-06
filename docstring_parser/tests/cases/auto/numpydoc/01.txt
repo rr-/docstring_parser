@@ -53,50 +53,50 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'spam']
   description: 'spam desc'
   kind: param
+  key: 'param'
   arg_name: 'spam'
 - DocstringParam
-  args: ['param', 'bla']
   description: 'bla desc'
   kind: param
+  key: 'param'
   arg_name: 'bla'
   type_name: 'int'
   is_optional: False
 - DocstringParam
-  args: ['param', 'yay']
   kind: param
+  key: 'param'
   arg_name: 'yay'
   type_name: 'str'
   is_optional: False
 - DocstringRaises
-  args: ['raises', 'ValueError']
   description: 'exc desc'
   kind: raises
+  key: 'raises'
   type_name: 'ValueError'
 - DocstringParam
-  args: ['other_param', 'this_guy']
   description: 'you know him'
   kind: other_param
+  key: 'other_param'
   arg_name: 'this_guy'
   type_name: 'int'
   is_optional: True
 - DocstringReturns
-  args: ['returns']
   description: 'ret desc'
   kind: returns
+  key: 'returns'
   type_name: 'tuple'
   is_generator: False
 - DocstringMeta
-  args: ['see_also']
   description: |
     multiple lines...
     something else?
   kind: text
+  key: 'see_also'
 - DocstringMeta
-  args: ['warnings']
   description: |
     multiple lines...
     none of this is real!
   kind: text
+  key: 'warnings'

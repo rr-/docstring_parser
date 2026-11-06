@@ -25,30 +25,30 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 - DocstringParam
-  args: ['param', 'x']
   kind: param
+  key: 'param'
   arg_name: 'x'
   type_name: 'array'
   is_optional: False
 - DocstringParam
-  args: ['param', 'xp']
   kind: param
+  key: 'param'
   arg_name: 'xp'
   type_name: 'array_namespace'
   is_optional: False
 - DocstringReturns
-  args: ['returns']
   description: 'Copied array'
   kind: returns
+  key: 'returns'
   type_name: 'array'
   is_generator: False
   return_name: 'copy'
 - DocstringMeta
-  args: ['notes']
   description: |
     This copy function does not offer all the semantics of `np.copy`, i.e. the
     `subok` and `order` keywords are not used.
   kind: text
+  key: 'notes'
 === detect
 numpydoc
 === compose numpydoc

@@ -17,9 +17,9 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: numpydoc
 - DocstringReturns
-  args: ['returns']
   description: 'The shape is ``(N, N)`` where ``N = np.prod(grid_shape)``.'
   kind: returns
+  key: 'returns'
   type_name: 'scipy.sparse.sparray'
   is_generator: False
   return_name: 'L'

@@ -127,44 +127,43 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'x']
   description: 'Sample/response data from which `probplot` creates the plot.'
   kind: param
+  key: 'param'
   arg_name: 'x'
   type_name: 'array_like'
   is_optional: False
 - DocstringParam
-  args: ['param', 'sparams']
   description: |
     Distribution-specific shape parameters (shape parameters plus location
     and scale).
   kind: param
+  key: 'param'
   arg_name: 'sparams'
   type_name: 'tuple'
   is_optional: True
 - DocstringParam
-  args: ['param', 'dist']
   description: |
     Distribution or distribution function name. The default is 'norm' for a
     normal probability plot.  Objects that look enough like a
     stats.distributions instance (i.e. they have a ``ppf`` method) are also
     accepted.
   kind: param
+  key: 'param'
   arg_name: 'dist'
   type_name: 'str or stats.distributions instance'
   is_optional: True
   default: "'norm'"
 - DocstringParam
-  args: ['param', 'fit']
   description: |
     Fit a least-squares regression (best-fit) line to the sample data if
     True (default).
   kind: param
+  key: 'param'
   arg_name: 'fit'
   type_name: 'bool'
   is_optional: True
 - DocstringParam
-  args: ['param', 'plot']
   description: |
     If given, plots the quantiles.
     If given and `fit` is True, also plots the least squares fit.
@@ -173,44 +172,44 @@ style: numpydoc
     or a custom object with the same methods.
     Default is None, which means that no plot is created.
   kind: param
+  key: 'param'
   arg_name: 'plot'
   type_name: 'object'
   is_optional: True
   default: 'None'
 - DocstringParam
-  args: ['param', 'rvalue']
   description: |
     If `plot` is provided and `fit` is True, setting `rvalue` to True
     includes the coefficient of determination on the plot.
     Default is False.
   kind: param
+  key: 'param'
   arg_name: 'rvalue'
   type_name: 'bool'
   is_optional: True
   default: 'False'
 - DocstringReturns
-  args: ['returns']
   description: |
     Tuple of theoretical quantiles (osm, or order statistic medians) and
     ordered responses (osr).  `osr` is simply sorted input `x`.
     For details on how `osm` is calculated see the Notes section.
   kind: returns
+  key: 'returns'
   type_name: 'tuple of ndarrays'
   is_generator: False
   return_name: '(osm, osr)'
 - DocstringReturns
-  args: ['returns']
   description: |
     Tuple  containing the result of the least-squares fit, if that is
     performed by `probplot`. `r` is the square root of the coefficient of
     determination.  If ``fit=False`` and ``plot=None``, this tuple is not
     returned.
   kind: returns
+  key: 'returns'
   type_name: 'tuple of floats, optional'
   is_generator: False
   return_name: '(slope, intercept, r)'
 - DocstringMeta
-  args: ['notes']
   description: |
     Even if `plot` is given, the figure is not shown or saved by `probplot`;
     ``plt.show()`` or ``plt.savefig('figname.png')`` should be used after
@@ -232,13 +231,14 @@ style: numpydoc
     where ``i`` indicates the i-th ordered value and ``n`` is the total number
     of values.
   kind: text
+  key: 'notes'
 - DocstringExample
-  args: ['examples']
   description: |
     
     A t distribution with small degrees of freedom:
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> import numpy as np
     >>> from scipy import stats
@@ -246,61 +246,61 @@ style: numpydoc
     >>> nsample = 100
     >>> rng = np.random.default_rng()
 - DocstringExample
-  args: ['examples']
   description: |
     
     A t distribution with larger degrees of freedom:
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> ax1 = plt.subplot(221)
     >>> x = stats.t.rvs(3, size=nsample, random_state=rng)
     >>> res = stats.probplot(x, plot=plt)
 - DocstringExample
-  args: ['examples']
   description: |
     
     A mixture of two normal distributions with broadcasting:
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> ax2 = plt.subplot(222)
     >>> x = stats.t.rvs(25, size=nsample, random_state=rng)
     >>> res = stats.probplot(x, plot=plt)
 - DocstringExample
-  args: ['examples']
   description: '...                    size=(nsample//2,2), random_state=rng).ravel()'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> ax3 = plt.subplot(223)
     >>> x = stats.norm.rvs(loc=[0,5], scale=[1,1.5],
 - DocstringExample
-  args: ['examples']
   description: |
     
     A standard normal distribution:
     
   kind: examples
+  key: 'examples'
   snippet: '>>> res = stats.probplot(x, plot=plt)'
 - DocstringExample
-  args: ['examples']
   description: |
     
     Produce a new figure with a loggamma distribution, using the ``dist`` and
     ``sparams`` keywords:
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> ax4 = plt.subplot(224)
     >>> x = stats.norm.rvs(loc=0, scale=1, size=nsample, random_state=rng)
     >>> res = stats.probplot(x, plot=plt)
 - DocstringExample
-  args: ['examples']
   description: |
     
     Show the results with Matplotlib:
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> fig = plt.figure()
     >>> ax = fig.add_subplot(111)
@@ -308,9 +308,9 @@ style: numpydoc
     >>> res = stats.probplot(x, dist=stats.loggamma, sparams=(2.5,), plot=ax)
     >>> ax.set_title("Probplot for loggamma dist with shape parameter 2.5")
 - DocstringExample
-  args: ['examples']
   description: ''
   kind: examples
+  key: 'examples'
   snippet: '>>> plt.show()'
 === detect
 numpydoc

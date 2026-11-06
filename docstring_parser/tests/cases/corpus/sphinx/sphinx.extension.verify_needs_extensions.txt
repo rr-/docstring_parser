@@ -18,14 +18,14 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: rest
 - DocstringRaises
-  args: ['raises', 'VersionRequirementError']
   description: 'if the version of an extension in'
   kind: raises
+  key: 'raises'
   type_name: 'VersionRequirementError'
 - DocstringMeta
-  args: ['confval']
   description: '`needs_extension` is unknown or older than the required version.'
   kind: text
+  key: 'confval'
 === detect
 rest
 === compose rest

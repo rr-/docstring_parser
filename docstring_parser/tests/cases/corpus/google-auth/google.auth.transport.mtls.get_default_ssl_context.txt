@@ -17,20 +17,20 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringReturns
-  args: ['returns', 'ssl.SSLContext']
   description: |
     An SSL context loaded with the default client
     certificate, or None if client certificates are not configured
     or available.
   kind: returns
+  key: 'returns'
   type_name: 'ssl.SSLContext'
   is_generator: False
 - DocstringRaises
-  args: ['raises', 'google.auth.exceptions.MutualTLSChannelError']
   description: |
     If the default client certificate
     or key is malformed.
   kind: raises
+  key: 'raises'
   type_name: 'google.auth.exceptions.MutualTLSChannelError'
 === detect
 google

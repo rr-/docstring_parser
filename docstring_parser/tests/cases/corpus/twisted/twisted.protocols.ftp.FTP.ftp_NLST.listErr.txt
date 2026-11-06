@@ -20,24 +20,24 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: epydoc
 - DocstringParam
-  args: ['param', 'results']
   description: |
     The L{Failure} wrapping a L{FileNotFoundError} that
     occurred while trying to list the contents of a nonexistent
     directory.
   kind: param
+  key: 'param'
   arg_name: 'results'
   type_name: 'L{Failure}'
   is_optional: False
 - DocstringMeta
-  args: ['returns']
   description: |
     A C{tuple} containing the status code for a successful
     transfer.
   kind: text
+  key: 'returns'
 - DocstringReturns
-  args: ['rtype']
   kind: returns
+  key: 'rtype'
   type_name: 'C{tuple}'
   is_generator: False
 === detect

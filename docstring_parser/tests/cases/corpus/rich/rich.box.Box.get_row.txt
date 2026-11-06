@@ -14,16 +14,16 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'width (List[int])']
   description: 'Widths of columns.'
   kind: param
+  key: 'param'
   arg_name: 'width'
   type_name: 'List[int]'
   is_optional: False
 - DocstringReturns
-  args: ['returns', 'str']
   description: 'A string of box characters.'
   kind: returns
+  key: 'returns'
   type_name: 'str'
   is_generator: False
 === detect

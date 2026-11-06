@@ -57,11 +57,9 @@ def test_kind_matches_class(style: DocstringStyle) -> None:
 def test_kind_must_fit_class() -> None:
     """Test that a param or raises cannot get a kind of another class."""
     with pytest.raises(ValueError, match="param"):
-        DocstringParam(
-            ["param", "x"], None, "x", None, None, None, Kind.RAISES
-        )
+        DocstringParam(None, "x", None, None, None, Kind.RAISES)
     with pytest.raises(ValueError, match="raises"):
-        DocstringRaises(["raises"], None, None, Kind.PARAM)
+        DocstringRaises(None, None, Kind.PARAM)
 
 
 @pytest.mark.parametrize(

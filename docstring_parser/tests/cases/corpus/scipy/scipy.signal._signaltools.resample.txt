@@ -249,27 +249,26 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'x']
   description: |
     The input signal made up of equidistant samples. If `x` is a multidimensional
     array, the parameter `axis` specifies the time/frequency axis. It is assumed
     here that ``n_x = x.shape[axis]`` specifies the number of samples and ``T`` the
     sampling interval.
   kind: param
+  key: 'param'
   arg_name: 'x'
   type_name: 'array_like'
   is_optional: False
 - DocstringParam
-  args: ['param', 'num']
   description: |
     The number of samples of the resampled output signal. It may be larger or
     smaller than ``n_x``.
   kind: param
+  key: 'param'
   arg_name: 'num'
   type_name: 'int'
   is_optional: False
 - DocstringParam
-  args: ['param', 't']
   description: |
     If `t` is not ``None``, then the timestamps of the resampled signal are also
     returned. `t` must contain at least the first two timestamps of the input
@@ -277,21 +276,21 @@ style: numpydoc
     determined by ``t[0] + T * n_x / num * np.arange(num)`` with
     ``T = t[1] - t[0]``. Default is ``None``.
   kind: param
+  key: 'param'
   arg_name: 't'
   type_name: 'array_like'
   is_optional: True
 - DocstringParam
-  args: ['param', 'axis']
   description: |
     The time/frequency axis of `x` along which the resampling take place.
     The Default is 0.
   kind: param
+  key: 'param'
   arg_name: 'axis'
   type_name: 'int'
   is_optional: True
   default: '0'
 - DocstringParam
-  args: ['param', 'window']
   description: |
     If not ``None``, it specifies a filter in the Fourier domain, which is applied
     before resampling. I.e., the FFT ``X`` of `x` is calculated by
@@ -303,48 +302,48 @@ style: numpydoc
     Otherwise, `window` is passed to `~scipy.signal.get_window`, i.e.,
     ``W = fftshift(signal.get_window(window, n_x))``. Default is ``None``.
   kind: param
+  key: 'param'
   arg_name: 'window'
   type_name: 'array_like, callable, str, float, or tuple'
   is_optional: True
 - DocstringParam
-  args: ['param', 'domain']
   description: |
     If set to ``'time'`` (default) then an FFT is applied to `x`, otherwise
     (``'freq'``) it is asssmued that an FFT was already applied, i.e.,
     ``x = fft(x_t, axis=axis)`` with ``x_t`` being the input signal in the time
     domain.
   kind: param
+  key: 'param'
   arg_name: 'domain'
   type_name: "'time' | 'freq'"
   is_optional: True
 - DocstringReturns
-  args: ['returns']
   description: |
     The resampled signal made up of `num` samples and sampling interval
     ``T * n_x / num``.
   kind: returns
+  key: 'returns'
   type_name: 'ndarray'
   is_generator: False
   return_name: 'x_r'
 - DocstringReturns
-  args: ['returns']
   description: |
     The `num` equidistant timestamps of `x_r`.
     This is only returned if paramater `t` is not ``None``.
   kind: returns
+  key: 'returns'
   type_name: 'ndarray, optional'
   is_generator: False
   return_name: 't_r'
 - DocstringMeta
-  args: ['see_also']
   description: |
     decimate : Downsample a (periodic/non-periodic) signal after applying an FIR
                or IIR filter.
     resample_poly : Resample a (periodic/non-periodic) signal using polyphase filtering
                     and an FIR filter.
   kind: text
+  key: 'see_also'
 - DocstringMeta
-  args: ['notes']
   description: |
     This function uses the more efficient one-sided FFT, i.e. `~scipy.fft.rfft` /
     `~scipy.fft.irfft`, if `x` is real-valued and in the time domain.
@@ -368,8 +367,8 @@ style: numpydoc
     Consult the `scipy.interpolate` module for methods of resampling signals with
     non-constant sampling intervals.
   kind: text
+  key: 'notes'
 - DocstringExample
-  args: ['examples']
   description: |
     The following example depicts a signal being up-sampled from 20 samples to 100
     samples. The ringing at the beginning of the up-sampled signal is due to
@@ -377,31 +376,31 @@ style: numpydoc
     periodictiy by showing the first sample of the next cycle of the signal.
     
   kind: examples
+  key: 'examples'
 - DocstringExample
-  args: ['examples']
   description: '...'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> import numpy as np
     >>> import matplotlib.pyplot as plt
     >>> from scipy.signal import resample
 - DocstringExample
-  args: ['examples']
   description: '...'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> n0, n1 = 20, 100  # number of samples
     >>> t0 = np.linspace(0, 10, n0, endpoint=False)  # input time stamps
     >>> x0 = np.cos(-t0**2/6)  # input signal
 - DocstringExample
-  args: ['examples']
   description: '...'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> x1 = resample(x0, n1)  # resampled signal
     >>> t1 = np.linspace(0, 10, n1, endpoint=False)  # timestamps of x1
 - DocstringExample
-  args: ['examples']
   description: |
     
     The following example compares this function with a naive `~scipy.fft.rfft` /
@@ -418,6 +417,7 @@ style: numpydoc
     by the naive approach as well as this function's result.
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> fig0, ax0 = plt.subplots(1, 1, tight_layout=True)
     >>> ax0.set_title(f"Resampling $x(t)$ from {n0} samples to {n1} samples")
@@ -429,16 +429,15 @@ style: numpydoc
     >>> ax0.grid(True)
     >>> plt.show()
 - DocstringExample
-  args: ['examples']
   description: '...'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> import matplotlib.pyplot as plt
     >>> import numpy as np
     >>> from scipy.fft import fftshift, fftfreq, fft, rfft, irfft
     >>> from scipy.signal import resample, resample_poly
 - DocstringExample
-  args: ['examples']
   description: |
     ...     n1 = fac * n0  # number of samples of upsampled signal
     ...     t0, t1 = T0 * np.arange(n0), T1 * np.arange(n1)  # time stamps
@@ -475,11 +474,11 @@ style: numpydoc
     ...     ax1.grid()
     ...     fig.legend(loc='outside lower center', ncols=4)
   kind: examples
+  key: 'examples'
   snippet: |
     >>> fac, T0, T1 = 8, 1, 1/8  # upsampling factor and sampling intervals
     >>> for n0 in (15, 16):  # number of samples of input signal
 - DocstringExample
-  args: ['examples']
   description: |
     
     The first figure shows that upsampling an odd number of samples produces identical
@@ -503,29 +502,30 @@ style: numpydoc
     resulting one-sided magnitude spectra.
     
   kind: examples
+  key: 'examples'
   snippet: '>>> plt.show()'
 - DocstringExample
-  args: ['examples']
   description: '...'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> import matplotlib.pyplot as plt
     >>> import numpy as np
     >>> from scipy.fft import rfftfreq, rfft
     >>> from scipy.signal import resample, resample_poly
 - DocstringExample
-  args: ['examples']
   description: '...'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> n0 = 19937 # number of input samples - prime
     >>> n1 = 128  # number of output samples - fast FFT length
     >>> T0, T1 = 1/n0, 1/n1  # sampling intervals
     >>> t0, t1 = np.arange(n0)*T0, np.arange(n1)*T1  # time stamps
 - DocstringExample
-  args: ['examples']
   description: '...'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> x0 = np.zeros(n0)  # Input has one non-zero sample
     >>> x0[0] = n0
@@ -535,31 +535,30 @@ style: numpydoc
     >>> x1p = resample(resample_poly(x0, 1, n0 // n1, padtype='wrap'), n1)  # periodic
     >>> x2p = resample(resample_poly(x0, 1, n0 // n1), n1)  # with zero-padding
 - DocstringExample
-  args: ['examples']
   description: '...'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> X0 = rfft(x0) / n0
     >>> X1r, X1p, X2p = rfft(x1r) / n1, rfft(x1p) / n1, rfft(x2p) / n1
     >>> f0, f1 = rfftfreq(n0, T0), rfftfreq(n1, T1)
 - DocstringExample
-  args: ['examples']
   description: '...     ax0.plot(t1, x_, alpha=.5)'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> fig, (ax0, ax1) = plt.subplots(2, 1, layout='constrained', figsize=(5, 4))
     >>> ax0.set_title(f"Dowsampled Impulse response (from {n0} to {n1} samples)")
     >>> ax0.set(xlabel="Time $t$ in seconds", ylabel="Amplitude $x(t)$", xlim=(-T1, 1))
     >>> for x_ in (x1r, x1p, x2p):
 - DocstringExample
-  args: ['examples']
   description: '...         ylabel="Magnitude $|X(f)|$", xlim=(0, 0.55/T1))'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> ax0.grid()
     >>> ax1.set(xlabel=rf"Frequency $f$ in hertz ($\Delta f = {f1[1]}\,$Hz)",
 - DocstringExample
-  args: ['examples']
   description: |
     
     The plots show that the results of the "pure" `resample` and the usage of the
@@ -575,6 +574,7 @@ style: numpydoc
     even number of ``n1=128`` output samples, which requires a special treatment as
     discussed in the previous example.
   kind: examples
+  key: 'examples'
   snippet: |
     >>> ax1.axvspan(0.5/T1, f0[-1], color='gray', alpha=.2)
     >>> ax1.plot(f1, abs(X1r), 'C0.-', alpha=.5, label="resample")

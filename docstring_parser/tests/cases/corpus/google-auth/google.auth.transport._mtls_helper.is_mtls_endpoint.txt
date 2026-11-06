@@ -16,16 +16,16 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: google
 - DocstringParam
-  args: ['param', 'url (Optional[Union[str, bytes, object]])']
   description: 'The request URL.'
   kind: param
+  key: 'param'
   arg_name: 'url'
   type_name: 'Optional[Union[str, bytes, object]]'
   is_optional: False
 - DocstringReturns
-  args: ['returns', 'bool']
   description: 'True if the URL targets an mTLS or PSC endpoint, False otherwise.'
   kind: returns
+  key: 'returns'
   type_name: 'bool'
   is_generator: False
 === detect

@@ -18,36 +18,36 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: rest
 - DocstringParam
-  args: ['param', 'name']
   description: 'a string containing name of cookie'
   kind: param
+  key: 'param'
   arg_name: 'name'
 - DocstringParam
-  args: ['param', 'domain']
   description: '(optional) string containing domain of cookie'
   kind: param
+  key: 'param'
   arg_name: 'domain'
 - DocstringParam
-  args: ['param', 'path']
   description: '(optional) string containing path of cookie'
   kind: param
+  key: 'param'
   arg_name: 'path'
 - DocstringRaises
-  args: ['raises', 'KeyError']
   description: 'if cookie is not found'
   kind: raises
+  key: 'raises'
   type_name: 'KeyError'
 - DocstringRaises
-  args: ['raises', 'CookieConflictError']
   description: |
     if there are multiple cookies
     that match name and optionally domain and path
   kind: raises
+  key: 'raises'
   type_name: 'CookieConflictError'
 - DocstringReturns
-  args: ['return']
   description: 'cookie.value'
   kind: returns
+  key: 'return'
   is_generator: False
 === detect
 rest

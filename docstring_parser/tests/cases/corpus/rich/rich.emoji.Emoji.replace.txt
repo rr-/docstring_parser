@@ -14,16 +14,16 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'text (str)']
   description: 'A string with emojis codes, e.g. "Hello :smiley:!"'
   kind: param
+  key: 'param'
   arg_name: 'text'
   type_name: 'str'
   is_optional: False
 - DocstringReturns
-  args: ['returns', 'str']
   description: 'A string with emoji codes replaces with actual emoji.'
   kind: returns
+  key: 'returns'
   type_name: 'str'
   is_generator: False
 === detect

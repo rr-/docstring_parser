@@ -27,33 +27,33 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'data']
   description: 'Sorted input data to median function'
   kind: param
+  key: 'param'
   arg_name: 'data'
   type_name: 'array'
   is_optional: False
 - DocstringParam
-  args: ['param', 'result']
   description: 'Result of median function.'
   kind: param
+  key: 'param'
   arg_name: 'result'
   type_name: 'Array or MaskedArray'
   is_optional: False
 - DocstringParam
-  args: ['param', 'axis']
   description: 'Axis along which the median was computed.'
   kind: param
+  key: 'param'
   arg_name: 'axis'
   type_name: 'int'
   is_optional: False
 - DocstringReturns
-  args: ['returns']
   description: |
     Median or NaN in axes which contained NaN in the input.  If the input
     was an array, NaN will be inserted in-place.  If a scalar, either the
     input itself or a scalar NaN.
   kind: returns
+  key: 'returns'
   type_name: 'scalar or ndarray'
   is_generator: False
   return_name: 'result'

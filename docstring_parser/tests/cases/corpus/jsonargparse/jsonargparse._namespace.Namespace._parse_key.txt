@@ -20,23 +20,23 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'key']
   description: 'The key that is being parsed.'
   kind: param
+  key: 'param'
   arg_name: 'key'
 - DocstringReturns
-  args: ['returns']
   description: |
     Tuple with three elements corresponding to:
     - The leaf key.
     - The parent namespace object.
     - The parent namespace key.
   kind: returns
+  key: 'returns'
   is_generator: False
 - DocstringRaises
-  args: ['raises', 'KeyError']
   description: 'When given invalid key.'
   kind: raises
+  key: 'raises'
   type_name: 'KeyError'
 === detect
 google

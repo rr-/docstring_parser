@@ -31,36 +31,35 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: google
 - DocstringParam
-  args: ['param', 'url (str)']
   description: 'The URL to update.'
   kind: param
+  key: 'param'
   arg_name: 'url'
   type_name: 'str'
   is_optional: False
 - DocstringParam
-  args: ['param', 'params (Mapping[str, str])']
   description: |
     A mapping of query parameter
     keys to values.
   kind: param
+  key: 'param'
   arg_name: 'params'
   type_name: 'Mapping[str, str]'
   is_optional: False
 - DocstringParam
-  args: ['param', 'remove (Sequence[str])']
   description: 'Parameters to remove from the query string.'
   kind: param
+  key: 'param'
   arg_name: 'remove'
   type_name: 'Sequence[str]'
   is_optional: False
 - DocstringReturns
-  args: ['returns', 'str']
   description: 'The URL with updated query parameters.'
   kind: returns
+  key: 'returns'
   type_name: 'str'
   is_generator: False
 - DocstringExample
-  args: ['examples']
   description: |
     >>> url = 'http://example.com?a=1'
     >>> update_query(url, {'a': '2'})
@@ -70,6 +69,7 @@ style: google
     >> update_query(url, {'b': '3'}, remove=['a'])
     http://example.com?b=3
   kind: examples
+  key: 'examples'
 === detect
 google
 === compose google

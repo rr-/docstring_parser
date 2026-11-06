@@ -21,26 +21,26 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: epydoc
 - DocstringParam
-  args: ['param', 'cls']
   description: 'the class of the instance we are unjellying.'
   kind: param
+  key: 'param'
   arg_name: 'cls'
   type_name: 'L{type}'
   is_optional: False
 - DocstringParam
-  args: ['param', 'state']
   description: |
     The jellied representation of the object's state; its
     C{__dict__} unless it has a C{__setstate__} that takes something
     else.
   kind: param
+  key: 'param'
   arg_name: 'state'
   type_name: 'L{list}'
   is_optional: False
 - DocstringReturns
-  args: ['return']
   description: 'the new, unjellied instance.'
   kind: returns
+  key: 'return'
   is_generator: False
 === detect
 epydoc

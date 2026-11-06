@@ -14,13 +14,13 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: epydoc
 - DocstringMeta
-  args: ['see']
   description: 'L{LogPublisher.addObserver}'
   kind: text
+  key: 'see'
 - DocstringParam
-  args: ['param', 'observer']
   description: 'a log observer'
   kind: param
+  key: 'param'
   arg_name: 'observer'
   type_name: 'L{callable}'
   is_optional: False

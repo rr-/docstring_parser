@@ -10,7 +10,7 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: epydoc
 - DocstringReturns
-  args: ['yield']
   description: 'description'
   kind: yields
+  key: 'yield'
   is_generator: True

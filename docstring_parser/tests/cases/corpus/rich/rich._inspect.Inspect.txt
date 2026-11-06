@@ -20,80 +20,80 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'obj (Any)']
   description: 'An object to inspect.'
   kind: param
+  key: 'param'
   arg_name: 'obj'
   type_name: 'Any'
   is_optional: False
 - DocstringParam
-  args: ['param', 'title (str, optional)']
   description: 'Title to display over inspect result, or None use type. Defaults to None.'
   kind: param
+  key: 'param'
   arg_name: 'title'
   type_name: 'str'
   is_optional: True
   default: 'None'
 - DocstringParam
-  args: ['param', 'help (bool, optional)']
   description: 'Show full help text rather than just first paragraph. Defaults to False.'
   kind: param
+  key: 'param'
   arg_name: 'help'
   type_name: 'bool'
   is_optional: True
   default: 'False'
 - DocstringParam
-  args: ['param', 'methods (bool, optional)']
   description: 'Enable inspection of callables. Defaults to False.'
   kind: param
+  key: 'param'
   arg_name: 'methods'
   type_name: 'bool'
   is_optional: True
   default: 'False'
 - DocstringParam
-  args: ['param', 'docs (bool, optional)']
   description: 'Also render doc strings. Defaults to True.'
   kind: param
+  key: 'param'
   arg_name: 'docs'
   type_name: 'bool'
   is_optional: True
   default: 'True'
 - DocstringParam
-  args: ['param', 'private (bool, optional)']
   description: 'Show private attributes (beginning with underscore). Defaults to False.'
   kind: param
+  key: 'param'
   arg_name: 'private'
   type_name: 'bool'
   is_optional: True
   default: 'False'
 - DocstringParam
-  args: ['param', 'dunder (bool, optional)']
   description: 'Show attributes starting with double underscore. Defaults to False.'
   kind: param
+  key: 'param'
   arg_name: 'dunder'
   type_name: 'bool'
   is_optional: True
   default: 'False'
 - DocstringParam
-  args: ['param', 'sort (bool, optional)']
   description: 'Sort attributes alphabetically, callables at the top, leading and trailing underscores ignored. Defaults to True.'
   kind: param
+  key: 'param'
   arg_name: 'sort'
   type_name: 'bool'
   is_optional: True
   default: 'True'
 - DocstringParam
-  args: ['param', 'all (bool, optional)']
   description: 'Show all attributes. Defaults to False.'
   kind: param
+  key: 'param'
   arg_name: 'all'
   type_name: 'bool'
   is_optional: True
   default: 'False'
 - DocstringParam
-  args: ['param', 'value (bool, optional)']
   description: 'Pretty print value of object. Defaults to True.'
   kind: param
+  key: 'param'
   arg_name: 'value'
   type_name: 'bool'
   is_optional: True

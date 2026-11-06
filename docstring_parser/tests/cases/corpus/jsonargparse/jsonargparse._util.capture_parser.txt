@@ -26,24 +26,24 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: google
 - DocstringParam
-  args: ['param', 'function']
   description: 'A callable that internally creates a parser and calls :meth:`parse_args <.ArgumentParser.parse_args>`.'
   kind: param
+  key: 'param'
   arg_name: 'function'
 - DocstringParam
-  args: ['param', '*args']
   description: 'Positional arguments used to run the function.'
   kind: param
+  key: 'param'
   arg_name: '*args'
 - DocstringParam
-  args: ['param', '**kwargs']
   description: 'Keyword arguments used to run the function.'
   kind: param
+  key: 'param'
   arg_name: '**kwargs'
 - DocstringRaises
-  args: ['raises', 'CaptureParserException']
   description: 'If the function does not call :meth:`parse_args <.ArgumentParser.parse_args>`.'
   kind: raises
+  key: 'raises'
   type_name: 'CaptureParserException'
 === detect
 google

@@ -30,29 +30,29 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'iter']
   description: 'Looping variables from outer scope'
   kind: param
+  key: 'param'
   arg_name: 'iter'
   type_name: 'tuple'
   is_optional: False
 - DocstringParam
-  args: ['param', 'max_cols']
   description: 'Permissible number of columns'
   kind: param
+  key: 'param'
   arg_name: 'max_cols'
   type_name: 'int'
   is_optional: False
 - DocstringParam
-  args: ['param', 'col_lengths']
   description: 'c'
   kind: param
+  key: 'param'
   arg_name: 'col_lengths'
   type_name: ''
   is_optional: False
 - DocstringReturns
-  args: ['returns']
   kind: returns
+  key: 'returns'
   type_name: 'list of elements'
   is_generator: False
 === detect

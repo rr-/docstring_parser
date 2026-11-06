@@ -92,23 +92,22 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'x']
   description: |
     Array (possibly multi-dimensional) of values for which to calculate
     ``sinc(x)``.
   kind: param
+  key: 'param'
   arg_name: 'x'
   type_name: 'ndarray'
   is_optional: False
 - DocstringReturns
-  args: ['returns']
   description: '``sinc(x)``, which has the same shape as the input.'
   kind: returns
+  key: 'returns'
   type_name: 'ndarray'
   is_generator: False
   return_name: 'out'
 - DocstringMeta
-  args: ['notes']
   description: |
     The name sinc is short for "sine cardinal" or "sinus cardinalis".
     
@@ -119,16 +118,16 @@ style: numpydoc
     For bandlimited interpolation of discrete-time signals, the ideal
     interpolation kernel is proportional to the sinc function.
   kind: text
+  key: 'notes'
 - DocstringMeta
-  args: ['references']
   description: |
     .. [1] Weisstein, Eric W. "Sinc Function." From MathWorld--A Wolfram Web
            Resource. https://mathworld.wolfram.com/SincFunction.html
     .. [2] Wikipedia, "Sinc function",
            https://en.wikipedia.org/wiki/Sinc_function
   kind: text
+  key: 'references'
 - DocstringExample
-  args: ['examples']
   description: |
      array([-3.89804309e-17,  -4.92362781e-02,  -8.40918587e-02, # may vary
             -8.90384387e-02,  -5.84680802e-02,   3.89804309e-17,
@@ -146,35 +145,36 @@ style: numpydoc
             -4.92362781e-02,  -3.89804309e-17])
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> import numpy as np
     >>> import matplotlib.pyplot as plt
     >>> x = np.linspace(-4, 4, 41)
     >>> np.sinc(x)
 - DocstringExample
-  args: ['examples']
   description: '[<matplotlib.lines.Line2D object at 0x...>]'
   kind: examples
+  key: 'examples'
   snippet: '>>> plt.plot(x, np.sinc(x))'
 - DocstringExample
-  args: ['examples']
   description: "Text(0.5, 1.0, 'Sinc Function')"
   kind: examples
+  key: 'examples'
   snippet: '>>> plt.title("Sinc Function")'
 - DocstringExample
-  args: ['examples']
   description: "Text(0, 0.5, 'Amplitude')"
   kind: examples
+  key: 'examples'
   snippet: '>>> plt.ylabel("Amplitude")'
 - DocstringExample
-  args: ['examples']
   description: "Text(0.5, 0, 'X')"
   kind: examples
+  key: 'examples'
   snippet: '>>> plt.xlabel("X")'
 - DocstringExample
-  args: ['examples']
   description: ''
   kind: examples
+  key: 'examples'
   snippet: '>>> plt.show()'
 === detect
 numpydoc

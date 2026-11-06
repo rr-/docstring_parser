@@ -19,16 +19,16 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 - DocstringParam
-  args: ['param', 'byteorder']
   description: 'Byte order of the output'
   kind: param
+  key: 'param'
   arg_name: 'byteorder'
   type_name: 'str'
   is_optional: False
 - DocstringReturns
-  args: ['returns']
   description: 'Bytes containing the formatted value label'
   kind: returns
+  key: 'returns'
   type_name: 'bytes'
   is_generator: False
   return_name: 'value_label'

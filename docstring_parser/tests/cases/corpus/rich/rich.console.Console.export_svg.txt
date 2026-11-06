@@ -22,52 +22,52 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'title (str, optional)']
   description: 'The title of the tab in the output image'
   kind: param
+  key: 'param'
   arg_name: 'title'
   type_name: 'str'
   is_optional: True
 - DocstringParam
-  args: ['param', 'theme (TerminalTheme, optional)']
   description: 'The ``TerminalTheme`` object to use to style the terminal'
   kind: param
+  key: 'param'
   arg_name: 'theme'
   type_name: 'TerminalTheme'
   is_optional: True
 - DocstringParam
-  args: ['param', 'clear (bool, optional)']
   description: 'Clear record buffer after exporting. Defaults to ``True``'
   kind: param
+  key: 'param'
   arg_name: 'clear'
   type_name: 'bool'
   is_optional: True
 - DocstringParam
-  args: ['param', 'code_format (str, optional)']
   description: |
     Format string used to generate the SVG. Rich will inject a number of variables
     into the string in order to form the final SVG output. The default template used and the variables
     injected by Rich can be found by inspecting the ``console.CONSOLE_SVG_FORMAT`` variable.
   kind: param
+  key: 'param'
   arg_name: 'code_format'
   type_name: 'str'
   is_optional: True
 - DocstringParam
-  args: ['param', 'font_aspect_ratio (float, optional)']
   description: |
     The width to height ratio of the font used in the ``code_format``
     string. Defaults to 0.61, which is the width to height ratio of Fira Code (the default font).
     If you aren't specifying a different font inside ``code_format``, you probably don't need this.
   kind: param
+  key: 'param'
   arg_name: 'font_aspect_ratio'
   type_name: 'float'
   is_optional: True
 - DocstringParam
-  args: ['param', 'unique_id (str, optional)']
   description: |
     unique id that is used as the prefix for various elements (CSS styles, node
     ids). If not set, this defaults to a computed value based on the recorded content.
   kind: param
+  key: 'param'
   arg_name: 'unique_id'
   type_name: 'str'
   is_optional: True

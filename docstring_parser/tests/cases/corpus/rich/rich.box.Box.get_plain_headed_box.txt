@@ -14,11 +14,11 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: google
 - DocstringReturns
-  args: ['returns', 'Box']
   description: |
     The most similar Box that doesn't use header-specific box characters.
     If the current Box already satisfies this criterion, then it's returned.
   kind: returns
+  key: 'returns'
   type_name: 'Box'
   is_generator: False
 === detect

@@ -21,24 +21,24 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 - DocstringParam
-  args: ['param', 'values']
   kind: param
+  key: 'param'
   arg_name: 'values'
   type_name: 'ndarray'
   is_optional: False
 - DocstringParam
-  args: ['param', 'axis']
   description: 'axis for the reduction, required if values.ndim > 1.'
   kind: param
+  key: 'param'
   arg_name: 'axis'
   type_name: 'int or None'
   is_optional: False
 - DocstringReturns
-  args: ['returns']
   description: |
     For 1-D values, returns a scalar of the correct missing type.
     For 2-D values, returns a 1-D array where each element is missing.
   kind: returns
+  key: 'returns'
   type_name: 'scalar or ndarray'
   is_generator: False
   return_name: 'result'

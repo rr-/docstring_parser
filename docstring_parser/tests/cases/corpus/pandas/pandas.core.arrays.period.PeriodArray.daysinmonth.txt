@@ -12,9 +12,9 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 - DocstringDeprecated
-  args: ['deprecation']
   description: 'Use :attr:`PeriodArray.days_in_month` instead.'
   kind: deprecation
+  key: 'deprecation'
   version: '3.1.0'
 === detect
 numpydoc

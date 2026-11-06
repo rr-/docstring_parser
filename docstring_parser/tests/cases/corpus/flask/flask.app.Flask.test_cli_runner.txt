@@ -21,11 +21,11 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringMeta
-  args: ['class']
   description: |
     `~flask.testing.FlaskCliRunner`. The Flask app object is
     passed as the first argument.
   kind: text
+  key: 'class'
 === detect
 rest
 === compose rest

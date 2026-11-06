@@ -24,24 +24,23 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'type_']
   description: 'The class or generic alias.'
   kind: param
+  key: 'param'
   arg_name: 'type_'
 - DocstringParam
-  args: ['param', 'type_map']
   description: 'Mapping from `TypeVar` instance to concrete types.'
   kind: param
+  key: 'param'
   arg_name: 'type_map'
 - DocstringReturns
-  args: ['returns']
   description: |
     A new type representing the basic structure of `type_` with all
     `typevar_map` keys recursively replaced.
   kind: returns
+  key: 'returns'
   is_generator: False
 - DocstringExample
-  args: ['examples']
   description: |
     ```python
     from pydantic._internal._generics import replace_types
@@ -50,6 +49,7 @@ style: google
     #> tuple[int, list[int] | float]
     ```
   kind: examples
+  key: 'examples'
 === detect
 google
 === compose google

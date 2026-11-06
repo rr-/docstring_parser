@@ -14,14 +14,14 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'cls']
   description: 'The class to create the Pydantic dataclass from.'
   kind: param
+  key: 'param'
   arg_name: 'cls'
 - DocstringReturns
-  args: ['returns']
   description: 'A Pydantic dataclass.'
   kind: returns
+  key: 'returns'
   is_generator: False
 === detect
 google

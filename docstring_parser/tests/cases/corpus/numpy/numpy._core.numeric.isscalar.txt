@@ -86,25 +86,24 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 - DocstringParam
-  args: ['param', 'element']
   description: 'Input argument, can be of any type and shape.'
   kind: param
+  key: 'param'
   arg_name: 'element'
   type_name: 'any'
   is_optional: False
 - DocstringReturns
-  args: ['returns']
   description: 'True if `element` is a scalar type, False if it is not.'
   kind: returns
+  key: 'returns'
   type_name: 'bool'
   is_generator: False
   return_name: 'val'
 - DocstringMeta
-  args: ['see_also']
   description: 'ndim : Get the number of dimensions of an array'
   kind: text
+  key: 'see_also'
 - DocstringMeta
-  args: ['notes']
   description: |
     If you need a stricter way to identify a *numerical* scalar, use
     ``isinstance(x, numbers.Number)``, as that returns ``False`` for most
@@ -138,59 +137,60 @@ style: numpydoc
     | sequence objects                   |               |                   |
     +------------------------------------+---------------+-------------------+
   kind: text
+  key: 'notes'
 - DocstringExample
-  args: ['examples']
   description: ''
   kind: examples
+  key: 'examples'
   snippet: '>>> import numpy as np'
 - DocstringExample
-  args: ['examples']
   description: |
     True
     
   kind: examples
+  key: 'examples'
   snippet: '>>> np.isscalar(3.1)'
 - DocstringExample
-  args: ['examples']
   description: |
     False
     
   kind: examples
+  key: 'examples'
   snippet: '>>> np.isscalar(np.array(3.1))'
 - DocstringExample
-  args: ['examples']
   description: |
     False
     
   kind: examples
+  key: 'examples'
   snippet: '>>> np.isscalar([3.1])'
 - DocstringExample
-  args: ['examples']
   description: |
     True
     
   kind: examples
+  key: 'examples'
   snippet: '>>> np.isscalar(False)'
 - DocstringExample
-  args: ['examples']
   description: |
     True
     
     NumPy supports PEP 3141 numbers:
     
   kind: examples
+  key: 'examples'
   snippet: ">>> np.isscalar('numpy')"
 - DocstringExample
-  args: ['examples']
   description: 'True'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> from fractions import Fraction
     >>> np.isscalar(Fraction(5, 17))
 - DocstringExample
-  args: ['examples']
   description: 'True'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> from numbers import Number
     >>> np.isscalar(Number())

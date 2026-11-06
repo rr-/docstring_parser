@@ -11,9 +11,9 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'suffix (str)']
   description: 'Suffix to remove.'
   kind: param
+  key: 'param'
   arg_name: 'suffix'
   type_name: 'str'
   is_optional: False

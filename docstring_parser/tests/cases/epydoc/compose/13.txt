@@ -10,9 +10,9 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: epydoc
 - DocstringMeta
-  args: ['meta']
   description: 'asd'
   kind: text
+  key: 'meta'
 === compose epydoc
 Short description
 @meta: asd

@@ -18,15 +18,15 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringParam
-  args: ['param', 'a']
   description: 'A.'
   kind: param
+  key: 'param'
   arg_name: 'a'
   type_name: 'int'
 - DocstringReturns
-  args: ['returns']
   description: 'x'
   kind: returns
+  key: 'returns'
   type_name: 'int'
   is_generator: False
 === compose rest

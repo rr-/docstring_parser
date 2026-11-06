@@ -41,27 +41,27 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringMeta
-  args: ['meth']
   description: |
     `app.json.dump() <flask.json.provider.JSONProvider.dump>`
     method, otherwise it will use :func:`json.dump`.
   kind: text
+  key: 'meth'
 - DocstringParam
-  args: ['param', 'obj']
   description: 'The data to serialize.'
   kind: param
+  key: 'param'
   arg_name: 'obj'
 - DocstringParam
-  args: ['param', 'fp']
   description: |
     A file opened for writing text. Should use the UTF-8
     encoding to be valid JSON.
   kind: param
+  key: 'param'
   arg_name: 'fp'
 - DocstringParam
-  args: ['param', 'kwargs']
   description: 'Arguments passed to the ``dump`` implementation.'
   kind: param
+  key: 'param'
   arg_name: 'kwargs'
 === detect
 rest

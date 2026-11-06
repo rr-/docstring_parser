@@ -22,32 +22,32 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 - DocstringParam
-  args: ['param', 'left']
   kind: param
+  key: 'param'
   arg_name: 'left'
   type_name: 'Union[SparseArray, ndarray]'
   is_optional: False
 - DocstringParam
-  args: ['param', 'right']
   kind: param
+  key: 'param'
   arg_name: 'right'
   type_name: 'Union[SparseArray, ndarray]'
   is_optional: False
 - DocstringParam
-  args: ['param', 'op']
   description: 'The binary operation to perform'
   kind: param
+  key: 'param'
   arg_name: 'op'
   type_name: 'Callable'
   is_optional: False
 - DocstringParam
-  args: ['param', 'name str']
   description: 'Name of the callable.'
   kind: param
+  key: 'param'
   arg_name: 'name str'
 - DocstringReturns
-  args: ['returns']
   kind: returns
+  key: 'returns'
   type_name: 'SparseArray'
   is_generator: False
 === detect

@@ -97,15 +97,14 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: google
 - DocstringParam
-  args: ['param', 'namespaces_tuple']
   description: |
     The default globals and locals to use if no class is present
     on the stack. This can be useful when using the `GenerateSchema` class
     with `TypeAdapter`, where the "type" being analyzed is a simple annotation.
   kind: param
+  key: 'param'
   arg_name: 'namespaces_tuple'
 - DocstringParam
-  args: ['param', 'parent_namespace']
   description: |
     An optional parent namespace that will be added to the locals
     with the lowest priority. For a given class defined in a function, the locals
@@ -130,9 +129,9 @@ style: google
     we might want to be smarter by only doing so when the type being pushed is defined
     in the same module as the parent namespace.
   kind: param
+  key: 'param'
   arg_name: 'parent_namespace'
 - DocstringExample
-  args: ['examples']
   description: |
     ```python {lint="skip" test="skip"}
     ns_resolver = NsResolver(
@@ -169,6 +168,7 @@ style: google
             # doesn't look necessary).
     ```
   kind: examples
+  key: 'examples'
 === detect
 google
 === compose google

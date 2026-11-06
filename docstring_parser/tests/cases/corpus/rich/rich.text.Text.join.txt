@@ -14,16 +14,16 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'lines (Iterable[Text])']
   description: 'An iterable of Text instances to join.'
   kind: param
+  key: 'param'
   arg_name: 'lines'
   type_name: 'Iterable[Text]'
   is_optional: False
 - DocstringReturns
-  args: ['returns', 'Text']
   description: 'A new text instance containing join text.'
   kind: returns
+  key: 'returns'
   type_name: 'Text'
   is_generator: False
 === detect

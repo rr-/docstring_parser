@@ -84,29 +84,36 @@ RAISES_KINDS = frozenset({Kind.RAISES, Kind.WARNS})
 
 
 class DocstringMeta:
-    """Docstring meta information.
+    """Docstring meta information: one item of a docstring.
 
     Symbolizes lines in form of
 
         :param arg: description
         :raises ValueError: if something happens
+
+    :ivar description: the item's text
+    :ivar kind: what the item documents. Each class sets it, so that the
+        class and the kind cannot disagree.
+    :ivar key: the field or section key it was written with, such as
+        ``param``, ``keyword`` or ``see_also``
+    :ivar name: for a text item, the words after its key, such as ``x``
+        in a ReST ``:ivar x:`` field
+    :ivar extra: words in the item's head after the parts a parser
+        recognised, such as ``more`` in Google's ``x (int) more:``
     """
 
     def __init__(
-        self, args: T.List[str], description: T.Optional[str]
+        self,
+        description: T.Optional[str],
+        key: T.Optional[str] = None,
+        name: T.Optional[str] = None,
     ) -> None:
-        """Initialize self.
-
-        :param args: list of arguments. The exact content of this variable is
-            dependent on the kind of docstring; it's used to distinguish
-            between custom docstring meta information items.
-        :param description: associated docstring description.
-        """
-        self.args = args
+        """Initialize self."""
         self.description = description
-        #: What the meta documents. Each class sets it, so that the class
-        #: and the kind cannot disagree.
         self.kind = Kind.TEXT
+        self.key = key
+        self.name = name
+        self.extra: T.Optional[str] = None
 
 
 class DocstringParam(DocstringMeta):
@@ -114,19 +121,19 @@ class DocstringParam(DocstringMeta):
 
     def __init__(
         self,
-        args: T.List[str],
         description: T.Optional[str],
         arg_name: str,
         type_name: T.Optional[str],
         is_optional: T.Optional[bool],
         default: T.Optional[str],
         kind: Kind = Kind.PARAM,
+        key: T.Optional[str] = "param",
     ) -> None:
         """Initialize self.
 
         :param kind: the kind of param, such as a keyword or an attribute
         """
-        super().__init__(args, description)
+        super().__init__(description, key)
         if kind not in PARAM_KINDS:
             raise ValueError(f"{kind} is not a kind of param")
         self.kind = kind
@@ -141,14 +148,14 @@ class DocstringReturns(DocstringMeta):
 
     def __init__(
         self,
-        args: T.List[str],
         description: T.Optional[str],
         type_name: T.Optional[str],
         is_generator: bool,
         return_name: T.Optional[str] = None,
+        key: T.Optional[str] = None,
     ) -> None:
         """Initialize self."""
-        super().__init__(args, description)
+        super().__init__(description, key)
         self.kind = Kind.YIELDS if is_generator else Kind.RETURNS
         self.type_name = type_name
         self.is_generator = is_generator
@@ -160,21 +167,20 @@ class DocstringRaises(DocstringMeta):
 
     def __init__(
         self,
-        args: T.List[str],
         description: T.Optional[str],
         type_name: T.Optional[str],
         kind: Kind = Kind.RAISES,
+        key: T.Optional[str] = "raises",
     ) -> None:
         """Initialize self.
 
         :param kind: raises or warns
         """
-        super().__init__(args, description)
+        super().__init__(description, key)
         if kind not in RAISES_KINDS:
             raise ValueError(f"{kind} is not a kind of raises")
         self.kind = kind
         self.type_name = type_name
-        self.description = description
 
 
 class DocstringDeprecated(DocstringMeta):
@@ -182,15 +188,14 @@ class DocstringDeprecated(DocstringMeta):
 
     def __init__(
         self,
-        args: T.List[str],
         description: T.Optional[str],
         version: T.Optional[str],
+        key: T.Optional[str] = "deprecation",
     ) -> None:
         """Initialize self."""
-        super().__init__(args, description)
+        super().__init__(description, key)
         self.kind = Kind.DEPRECATION
         self.version = version
-        self.description = description
 
 
 class DocstringExample(DocstringMeta):
@@ -198,15 +203,14 @@ class DocstringExample(DocstringMeta):
 
     def __init__(
         self,
-        args: T.List[str],
         snippet: T.Optional[str],
         description: T.Optional[str],
+        key: T.Optional[str] = "examples",
     ) -> None:
         """Initialize self."""
-        super().__init__(args, description)
+        super().__init__(description, key)
         self.kind = Kind.EXAMPLES
         self.snippet = snippet
-        self.description = description
 
 
 # ReST fields for attributes, which parse as plain meta rather than params.
@@ -220,18 +224,19 @@ def meta_as_attribute(meta: DocstringMeta) -> T.Optional[DocstringParam]:
     :returns: the attribute, or None if the meta is not such a field
     """
     if (
-        type(meta) is DocstringMeta
-        and len(meta.args) == 2
-        and meta.args[0] in ATTRIBUTE_FIELD_KEYWORDS
+        meta.kind is Kind.TEXT
+        and meta.key in ATTRIBUTE_FIELD_KEYWORDS
+        and meta.name
+        and " " not in meta.name
     ):
         return DocstringParam(
-            args=["attribute", meta.args[1]],
-            description=meta.description,
-            arg_name=meta.args[1],
+            meta.description,
+            arg_name=meta.name,
             type_name=None,
             is_optional=None,
             default=None,
             kind=Kind.ATTRIBUTE,
+            key="attribute",
         )
     return None
 

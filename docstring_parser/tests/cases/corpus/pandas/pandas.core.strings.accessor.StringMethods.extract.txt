@@ -89,36 +89,35 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'pat']
   description: 'Regular expression pattern with capturing groups.'
   kind: param
+  key: 'param'
   arg_name: 'pat'
   type_name: 'str'
   is_optional: False
 - DocstringParam
-  args: ['param', 'flags']
   description: |
     Flags from the ``re`` module, e.g. ``re.IGNORECASE``, that
     modify regular expression matching for things like case,
     spaces, etc. For more details, see :mod:`re`.
   kind: param
+  key: 'param'
   arg_name: 'flags'
   type_name: 'int'
   is_optional: True
   default: '0 (no flags)'
 - DocstringParam
-  args: ['param', 'expand']
   description: |
     If True, return DataFrame with one column per capture group.
     If False, return a Series/Index if there is one capture group
     or DataFrame if there are multiple capture groups.
   kind: param
+  key: 'param'
   arg_name: 'expand'
   type_name: 'bool'
   is_optional: True
   default: 'True'
 - DocstringReturns
-  args: ['returns']
   description: |
     A DataFrame with one row for each subject string, and one
     column for each group. Any capture group names in regular
@@ -129,21 +128,21 @@ style: numpydoc
     return a Series (if subject is a Series) or Index (if subject
     is an Index).
   kind: returns
+  key: 'returns'
   type_name: 'DataFrame or Series or Index'
   is_generator: False
 - DocstringMeta
-  args: ['see_also']
   description: 'extractall : Returns all matches (not just the first match).'
   kind: text
+  key: 'see_also'
 - DocstringExample
-  args: ['examples']
   description: |
     A pattern with two groups will return a DataFrame with two columns.
     Non-matches will be NaN.
     
   kind: examples
+  key: 'examples'
 - DocstringExample
-  args: ['examples']
   description: |
         0    1
     0    a    1
@@ -153,11 +152,11 @@ style: numpydoc
     A pattern may contain optional groups.
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> s = pd.Series(["a1", "b2", "c3"])
     >>> s.str.extract(r"([ab])(\d)")
 - DocstringExample
-  args: ['examples']
   description: |
         0  1
     0    a  1
@@ -167,9 +166,9 @@ style: numpydoc
     Named groups will become column names in the result.
     
   kind: examples
+  key: 'examples'
   snippet: '>>> s.str.extract(r"([ab])?(\\d)")'
 - DocstringExample
-  args: ['examples']
   description: |
     letter digit
     0      a     1
@@ -180,9 +179,9 @@ style: numpydoc
     if expand=True.
     
   kind: examples
+  key: 'examples'
   snippet: '>>> s.str.extract(r"(?P<letter>[ab])(?P<digit>\\d)")'
 - DocstringExample
-  args: ['examples']
   description: |
          0
     0    1
@@ -192,15 +191,16 @@ style: numpydoc
     A pattern with one group will return a Series if expand=False.
     
   kind: examples
+  key: 'examples'
   snippet: '>>> s.str.extract(r"[ab](\\d)", expand=True)'
 - DocstringExample
-  args: ['examples']
   description: |
     0      1
     1      2
     2    NaN
     dtype: str
   kind: examples
+  key: 'examples'
   snippet: '>>> s.str.extract(r"[ab](\\d)", expand=False)'
 === detect
 numpydoc

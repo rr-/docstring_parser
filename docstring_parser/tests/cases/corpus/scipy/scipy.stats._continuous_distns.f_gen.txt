@@ -46,11 +46,10 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringMeta
-  args: ['see_also']
   description: 'ncf'
   kind: text
+  key: 'see_also'
 - DocstringMeta
-  args: ['notes']
   description: |
     The F distribution with :math:`df_1 > 0` and :math:`df_2 > 0` degrees of freedom is
     the distribution of the ratio of two independent chi-squared distributions with
@@ -75,6 +74,7 @@ style: numpydoc
     
     %(example)s
   kind: text
+  key: 'notes'
 === detect
 rest
 === compose numpydoc

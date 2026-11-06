@@ -17,12 +17,12 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 - DocstringParam
-  args: ['param', 'a']
   description: 'first'
   kind: param
+  key: 'param'
   arg_name: 'a'
 - DocstringReturns
-  args: ['returns']
   kind: returns
+  key: 'returns'
   type_name: 'result'
   is_generator: False

@@ -50,27 +50,26 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'new_categories']
   description: 'The new categories to be included.'
   kind: param
+  key: 'param'
   arg_name: 'new_categories'
   type_name: 'category or list-like of category'
   is_optional: False
 - DocstringReturns
-  args: ['returns']
   description: 'Categorical with new categories added.'
   kind: returns
+  key: 'returns'
   type_name: 'Categorical'
   is_generator: False
 - DocstringRaises
-  args: ['raises', 'ValueError']
   description: |
     If the new categories include old categories or do not validate as
     categories
   kind: raises
+  key: 'raises'
   type_name: 'ValueError'
 - DocstringMeta
-  args: ['see_also']
   description: |
     rename_categories : Rename categories.
     reorder_categories : Reorder categories.
@@ -78,22 +77,23 @@ style: numpydoc
     remove_unused_categories : Remove categories which are not used.
     set_categories : Set the categories to the specified ones.
   kind: text
+  key: 'see_also'
 - DocstringExample
-  args: ['examples']
   description: |
     ['c', 'b', 'c']
     Categories (2, str): ['b', 'c']
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> c = pd.Categorical(["c", "b", "c"])
     >>> c
 - DocstringExample
-  args: ['examples']
   description: |
     ['c', 'b', 'c']
     Categories (4, str): ['b', 'c', 'd', 'a']
   kind: examples
+  key: 'examples'
   snippet: '>>> c.add_categories(["d", "a"])'
 === detect
 numpydoc

@@ -30,15 +30,16 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringMeta
-  args: ['with', 'client.session_transaction()', 'as', 'session']
   description: "session['value'] = 42"
   kind: text
+  key: 'with'
+  name: 'client.session_transaction() as session'
 - DocstringMeta
-  args: ['meth']
   description: |
     `~flask.Flask.test_request_context` which are directly
     passed through.
   kind: text
+  key: 'meth'
 === detect
 rest
 === compose rest

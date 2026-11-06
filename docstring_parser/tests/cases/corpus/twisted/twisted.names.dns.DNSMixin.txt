@@ -12,11 +12,11 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: epydoc
 - DocstringParam
-  args: ['ivar', '_reactor']
   description: |
     A L{IReactorTime} and L{IReactorUDP} provider which will
     be used to issue DNS queries and manage request timeouts.
   kind: attribute
+  key: 'ivar'
   arg_name: '_reactor'
   is_optional: False
 === detect

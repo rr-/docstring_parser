@@ -11,9 +11,9 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 - DocstringMeta
-  args: ['notes']
   description: 'Some text.'
   kind: text
+  key: 'notes'
 === compose numpydoc
 Short.
 

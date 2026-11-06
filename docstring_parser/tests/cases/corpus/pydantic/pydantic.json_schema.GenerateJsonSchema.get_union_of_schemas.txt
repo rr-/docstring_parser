@@ -17,14 +17,14 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: google
 - DocstringParam
-  args: ['param', 'schemas']
   description: 'The list of JSON Schemas to be included in the union.'
   kind: param
+  key: 'param'
   arg_name: 'schemas'
 - DocstringReturns
-  args: ['returns']
   description: 'The JSON Schema representing the union of schemas.'
   kind: returns
+  key: 'returns'
   is_generator: False
 === detect
 google

@@ -44,9 +44,11 @@
 - Numpydoc: Take `optional` out of a param's type also when it comes before the default, as in `int, optional, default 1`, instead of keeping it in the type and composing it twice
 - Google, Numpydoc: Match custom section titles literally, so titles with characters such as `?`, `+` or `(` work instead of being ignored or raising `re.error`
 - General: Every meta has a `kind`, a `docstring_parser.common.Kind` that tells what it documents, such as a keyword param, an attribute or a warning, the same for every style
+- General: **Breaking:** Remove `DocstringMeta.args`, whose content differed by style. A meta's `key` is the field or section name it was written with, and a text item's `name` the words after its key, as in ReST's `:ivar x:`. The meta classes no longer take `args`, and take the key as a keyword argument
+- Google: Keep the words after a param's type, as in `x (int) more:`, as the meta's new `extra`, which `compose()` writes back, instead of dropping them
 - Google, Numpydoc: `compose()` writes Epydoc's `@ivar`, `@cvar` and `@var` fields as attributes, instead of as params
 - Numpydoc: `compose()` keeps raises written with another key, such as ReST's `:raise:` and `:except:`, instead of dropping them
-- General: `compose()` sorts items by their `kind`, so a meta made by hand composes as the kind its class gives unless built with another, such as `DocstringParam(..., kind=Kind.ATTRIBUTE)`, instead of by the key in its `args`
+- General: `compose()` sorts items by their `kind`, so a meta made by hand composes as the kind its class gives unless built with another, such as `DocstringParam(..., kind=Kind.ATTRIBUTE)`
 
 # 0.18 (2026-04-14)
 

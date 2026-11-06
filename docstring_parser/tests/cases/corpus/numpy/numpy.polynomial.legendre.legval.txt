@@ -80,18 +80,17 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'x']
   description: |
     If `x` is a list or tuple, it is converted to an ndarray, otherwise
     it is left unchanged and treated as a scalar. In either case, `x`
     or its elements must support addition and multiplication with
     themselves and with the elements of `c`.
   kind: param
+  key: 'param'
   arg_name: 'x'
   type_name: 'array_like, compatible object'
   is_optional: False
 - DocstringParam
-  args: ['param', 'c']
   description: |
     Array of coefficients ordered so that the coefficients for terms of
     degree n are contained in c[n]. If `c` is multidimensional the
@@ -99,11 +98,11 @@ style: numpydoc
     dimensional case the coefficients may be thought of as stored in
     the columns of `c`.
   kind: param
+  key: 'param'
   arg_name: 'c'
   type_name: 'array_like'
   is_optional: False
 - DocstringParam
-  args: ['param', 'tensor']
   description: |
     If True, the shape of the coefficient array is extended with ones
     on the right, one for each dimension of `x`. Scalars have dimension 0
@@ -112,24 +111,25 @@ style: numpydoc
     over the columns of `c` for the evaluation.  This keyword is useful
     when `c` is multidimensional. The default value is True.
   kind: param
+  key: 'param'
   arg_name: 'tensor'
   type_name: 'boolean'
   is_optional: True
 - DocstringReturns
-  args: ['returns']
   description: 'The shape of the return value is described above.'
   kind: returns
+  key: 'returns'
   type_name: 'ndarray, algebra_like'
   is_generator: False
   return_name: 'values'
 - DocstringMeta
-  args: ['see_also']
   description: 'legval2d, leggrid2d, legval3d, leggrid3d'
   kind: text
+  key: 'see_also'
 - DocstringMeta
-  args: ['notes']
   description: 'The evaluation uses Clenshaw recursion, aka synthetic division.'
   kind: text
+  key: 'notes'
 === detect
 numpydoc
 === compose numpydoc

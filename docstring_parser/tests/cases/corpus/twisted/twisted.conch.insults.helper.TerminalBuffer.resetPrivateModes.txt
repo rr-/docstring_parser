@@ -12,13 +12,13 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: epydoc
 - DocstringMeta
-  args: ['see']
   description: 'L{setPrivateModes}'
   kind: text
+  key: 'see'
 - DocstringMeta
-  args: ['see']
   description: 'L{insults.ITerminalTransport.resetPrivateModes}'
   kind: text
+  key: 'see'
 === detect
 epydoc
 === compose epydoc

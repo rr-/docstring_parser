@@ -12,16 +12,16 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'task_id (TaskID)']
   description: 'ID of task.'
   kind: param
+  key: 'param'
   arg_name: 'task_id'
   type_name: 'TaskID'
   is_optional: False
 - DocstringParam
-  args: ['param', 'advance (float)']
   description: 'Number of steps to advance. Default is 1.'
   kind: param
+  key: 'param'
   arg_name: 'advance'
   type_name: 'float'
   is_optional: False

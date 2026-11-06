@@ -31,15 +31,15 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringMeta
-  args: ['meth']
   description: '`add_url_rule`.'
   kind: text
+  key: 'meth'
 - DocstringParam
-  args: ['param', 'endpoint']
   description: |
     The endpoint name to associate with the view
     function.
   kind: param
+  key: 'param'
   arg_name: 'endpoint'
 === detect
 rest

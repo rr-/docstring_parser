@@ -226,73 +226,72 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'start']
   description: 'Left bound for generating dates.'
   kind: param
+  key: 'param'
   arg_name: 'start'
   type_name: 'str or datetime-like'
   is_optional: True
 - DocstringParam
-  args: ['param', 'end']
   description: 'Right bound for generating dates.'
   kind: param
+  key: 'param'
   arg_name: 'end'
   type_name: 'str or datetime-like'
   is_optional: True
 - DocstringParam
-  args: ['param', 'periods']
   description: 'Number of periods to generate.'
   kind: param
+  key: 'param'
   arg_name: 'periods'
   type_name: 'int'
   is_optional: True
 - DocstringParam
-  args: ['param', 'freq']
   description: |
     Frequency strings can have multiples, e.g. '5h'. See
     :ref:`here <timeseries.offset_aliases>` for a list of
     frequency aliases.
   kind: param
+  key: 'param'
   arg_name: 'freq'
   type_name: 'str, Timedelta, datetime.timedelta, or DateOffset'
   is_optional: True
   default: "'D'"
 - DocstringParam
-  args: ['param', 'tz']
   description: |
     Time zone name for returning localized DatetimeIndex, for example
     'Asia/Hong_Kong'. By default, the resulting DatetimeIndex is
     timezone-naive unless timezone-aware datetime-likes are passed.
   kind: param
+  key: 'param'
   arg_name: 'tz'
   type_name: 'str or tzinfo'
   is_optional: True
 - DocstringParam
-  args: ['param', 'normalize']
   description: 'Normalize start/end dates to midnight before generating date range.'
   kind: param
+  key: 'param'
   arg_name: 'normalize'
   type_name: 'bool'
   is_optional: True
   default: 'False'
 - DocstringParam
-  args: ['param', 'name']
   description: 'Name of the resulting DatetimeIndex.'
   kind: param
+  key: 'param'
   arg_name: 'name'
   type_name: 'Hashable'
   is_optional: True
   default: 'None'
 - DocstringParam
-  args: ['param', 'inclusive']
   description: 'Include boundaries; Whether to set each bound as closed or open.'
   kind: param
+  key: 'param'
   arg_name: 'inclusive'
   type_name: '{"both", "neither", "left", "right"}'
   is_optional: True
   default: '"both"'
 - DocstringParam
-  args: ['param', 'unit']
   description: |
     Specify the desired resolution of the result.
     If not specified, this is inferred from the 'start', 'end', and 'freq'
@@ -301,12 +300,12 @@ style: numpydoc
     
     .. versionadded:: 2.0.0
   kind: param
+  key: 'param'
   arg_name: 'unit'
   type_name: "{'s', 'ms', 'us', 'ns', None}"
   is_optional: True
   default: 'None'
 - DocstringParam
-  args: ['param', 'ambiguous']
   description: |
     When clocks moved backward due to DST, ambiguous times may arise.
     For example in Central European Time (UTC+01), when going from 03:00
@@ -322,12 +321,12 @@ style: numpydoc
     - 'NaT' will return NaT where there are ambiguous times
     - 'raise' will raise a ValueError if there are ambiguous times.
   kind: param
+  key: 'param'
   arg_name: 'ambiguous'
   type_name: "'infer', bool-ndarray, 'NaT'"
   is_optional: True
   default: "'raise'"
 - DocstringParam
-  args: ['param', 'nonexistent']
   description: |
     A nonexistent time does not exist in a particular timezone
     where clocks moved forward due to DST.
@@ -340,30 +339,30 @@ style: numpydoc
     - timedelta objects will shift nonexistent times by the timedelta
     - 'raise' will raise a ValueError if there are nonexistent times.
   kind: param
+  key: 'param'
   arg_name: 'nonexistent'
   type_name: "'shift_forward', 'shift_backward', 'NaT', timedelta,     default 'raise'"
   is_optional: False
 - DocstringParam
-  args: ['param', '**kwargs']
   description: 'For compatibility. Has no effect on the result.'
   kind: param
+  key: 'param'
   arg_name: '**kwargs'
 - DocstringReturns
-  args: ['returns']
   description: 'A DatetimeIndex object of the generated dates.'
   kind: returns
+  key: 'returns'
   type_name: 'DatetimeIndex'
   is_generator: False
 - DocstringMeta
-  args: ['see_also']
   description: |
     DatetimeIndex : An immutable container for datetimes.
     timedelta_range : Return a fixed frequency TimedeltaIndex.
     period_range : Return a fixed frequency PeriodIndex.
     interval_range : Return a fixed frequency IntervalIndex.
   kind: text
+  key: 'see_also'
 - DocstringMeta
-  args: ['notes']
   description: |
     Of the four parameters ``start``, ``end``, ``periods``, and ``freq``,
     a maximum of three can be specified at once. Of the three parameters
@@ -375,8 +374,8 @@ style: numpydoc
     To learn more about the frequency strings, please see
     :ref:`this link<timeseries.offset_aliases>`.
   kind: text
+  key: 'notes'
 - DocstringExample
-  args: ['examples']
   description: |
     **Specifying the values**
     
@@ -386,8 +385,8 @@ style: numpydoc
     Specify `start` and `end`, with the default daily frequency.
     
   kind: examples
+  key: 'examples'
 - DocstringExample
-  args: ['examples']
   description: |
     DatetimeIndex(['2018-01-01', '2018-01-02', '2018-01-03', '2018-01-04',
                    '2018-01-05', '2018-01-06', '2018-01-07', '2018-01-08'],
@@ -396,9 +395,9 @@ style: numpydoc
     Specify timezone-aware `start` and `end`, with the default daily frequency.
     
   kind: examples
+  key: 'examples'
   snippet: '>>> pd.date_range(start="1/1/2018", end="1/08/2018")'
 - DocstringExample
-  args: ['examples']
   description: |
     ...     start=pd.to_datetime("1/1/2018").tz_localize("Europe/Berlin"),
     ...     end=pd.to_datetime("1/08/2018").tz_localize("Europe/Berlin"),
@@ -412,9 +411,9 @@ style: numpydoc
     Specify `start` and `periods`, the number of periods (days).
     
   kind: examples
+  key: 'examples'
   snippet: '>>> pd.date_range('
 - DocstringExample
-  args: ['examples']
   description: |
     DatetimeIndex(['2018-01-01', '2018-01-02', '2018-01-03', '2018-01-04',
                    '2018-01-05', '2018-01-06', '2018-01-07', '2018-01-08'],
@@ -423,9 +422,9 @@ style: numpydoc
     Specify `end` and `periods`, the number of periods (days).
     
   kind: examples
+  key: 'examples'
   snippet: '>>> pd.date_range(start="1/1/2018", periods=8)'
 - DocstringExample
-  args: ['examples']
   description: |
     DatetimeIndex(['2017-12-25', '2017-12-26', '2017-12-27', '2017-12-28',
                    '2017-12-29', '2017-12-30', '2017-12-31', '2018-01-01'],
@@ -435,9 +434,9 @@ style: numpydoc
     automatically (linearly spaced).
     
   kind: examples
+  key: 'examples'
   snippet: '>>> pd.date_range(end="1/1/2018", periods=8)'
 - DocstringExample
-  args: ['examples']
   description: |
     DatetimeIndex(['2018-04-24 00:00:00', '2018-04-25 12:00:00',
                    '2018-04-27 00:00:00'],
@@ -448,9 +447,9 @@ style: numpydoc
     Changed the `freq` (frequency) to ``'ME'`` (month end frequency).
     
   kind: examples
+  key: 'examples'
   snippet: '>>> pd.date_range(start="2018-04-24", end="2018-04-27", periods=3)'
 - DocstringExample
-  args: ['examples']
   description: |
     DatetimeIndex(['2018-01-31', '2018-02-28', '2018-03-31', '2018-04-30',
                    '2018-05-31'],
@@ -459,9 +458,9 @@ style: numpydoc
     Multiples are allowed
     
   kind: examples
+  key: 'examples'
   snippet: '>>> pd.date_range(start="1/1/2018", periods=5, freq="ME")'
 - DocstringExample
-  args: ['examples']
   description: |
     DatetimeIndex(['2018-01-31', '2018-04-30', '2018-07-31', '2018-10-31',
                    '2019-01-31'],
@@ -470,9 +469,9 @@ style: numpydoc
     `freq` can also be specified as an Offset object.
     
   kind: examples
+  key: 'examples'
   snippet: '>>> pd.date_range(start="1/1/2018", periods=5, freq="3ME")'
 - DocstringExample
-  args: ['examples']
   description: |
     DatetimeIndex(['2018-01-31', '2018-04-30', '2018-07-31', '2018-10-31',
                    '2019-01-31'],
@@ -482,9 +481,9 @@ style: numpydoc
     the start or end of a period.
     
   kind: examples
+  key: 'examples'
   snippet: '>>> pd.date_range(start="1/1/2018", periods=5, freq=pd.offsets.MonthEnd(3))'
 - DocstringExample
-  args: ['examples']
   description: |
     DatetimeIndex(['2015-03-12', '2016-03-12', '2017-03-12'],
                   dtype='datetime64[us]', freq='<DateOffset: years=1>')
@@ -492,9 +491,9 @@ style: numpydoc
     Specify `tz` to set the timezone.
     
   kind: examples
+  key: 'examples'
   snippet: '>>> pd.date_range(end="2017-03-12", periods=3, freq=pd.DateOffset(years=1))'
 - DocstringExample
-  args: ['examples']
   description: |
     DatetimeIndex(['2018-01-01 00:00:00+09:00', '2018-01-02 00:00:00+09:00',
                    '2018-01-03 00:00:00+09:00', '2018-01-04 00:00:00+09:00',
@@ -505,9 +504,9 @@ style: numpydoc
     boundary. The default, "both", includes boundary points on either end.
     
   kind: examples
+  key: 'examples'
   snippet: '>>> pd.date_range(start="1/1/2018", periods=5, tz="Asia/Tokyo")'
 - DocstringExample
-  args: ['examples']
   description: |
     DatetimeIndex(['2017-01-01', '2017-01-02', '2017-01-03', '2017-01-04'],
                   dtype='datetime64[us]', freq='D')
@@ -515,9 +514,9 @@ style: numpydoc
     Use ``inclusive='left'`` to exclude `end` if it falls on the boundary.
     
   kind: examples
+  key: 'examples'
   snippet: '>>> pd.date_range(start="2017-01-01", end="2017-01-04", inclusive="both")'
 - DocstringExample
-  args: ['examples']
   description: |
     DatetimeIndex(['2017-01-01', '2017-01-02', '2017-01-03'],
                   dtype='datetime64[us]', freq='D')
@@ -526,9 +525,9 @@ style: numpydoc
     similarly ``inclusive='neither'`` will exclude both `start` and `end`.
     
   kind: examples
+  key: 'examples'
   snippet: '>>> pd.date_range(start="2017-01-01", end="2017-01-04", inclusive="left")'
 - DocstringExample
-  args: ['examples']
   description: |
     DatetimeIndex(['2017-01-02', '2017-01-03', '2017-01-04'],
                   dtype='datetime64[us]', freq='D')
@@ -536,15 +535,16 @@ style: numpydoc
     **Specify a unit**
     
   kind: examples
+  key: 'examples'
   snippet: '>>> pd.date_range(start="2017-01-01", end="2017-01-04", inclusive="right")'
 - DocstringExample
-  args: ['examples']
   description: |
     DatetimeIndex(['2017-01-01', '2117-01-01', '2217-01-01', '2317-01-01',
                    '2417-01-01', '2517-01-01', '2617-01-01', '2717-01-01',
                    '2817-01-01', '2917-01-01'],
                   dtype='datetime64[s]', freq='100YS-JAN')
   kind: examples
+  key: 'examples'
   snippet: '>>> pd.date_range(start="2017-01-01", periods=10, freq="100YS", unit="s")'
 === detect
 numpydoc

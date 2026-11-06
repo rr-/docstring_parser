@@ -24,32 +24,32 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 - DocstringParam
-  args: ['param', 'row']
   description: 'The data row to parse for the header name.'
   kind: param
+  key: 'param'
   arg_name: 'row'
   type_name: 'list'
   is_optional: False
 - DocstringParam
-  args: ['param', 'index_col']
   description: |
     The index columns for our data. Assumed to be non-null.
     If a list is passed, the maximum ``index_col`` value is used.
   kind: param
+  key: 'param'
   arg_name: 'index_col'
   type_name: 'int, list'
   is_optional: False
 - DocstringReturns
-  args: ['returns']
   description: 'The extracted header name.'
   kind: returns
+  key: 'returns'
   type_name: 'str'
   is_generator: False
   return_name: 'header_name'
 - DocstringReturns
-  args: ['returns']
   description: 'The original data row with the header name removed.'
   kind: returns
+  key: 'returns'
   type_name: 'list'
   is_generator: False
   return_name: 'trimmed_row'

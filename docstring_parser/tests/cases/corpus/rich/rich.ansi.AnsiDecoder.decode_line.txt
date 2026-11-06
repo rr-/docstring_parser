@@ -14,16 +14,16 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'line (str)']
   description: 'A line of terminal output.'
   kind: param
+  key: 'param'
   arg_name: 'line'
   type_name: 'str'
   is_optional: False
 - DocstringReturns
-  args: ['returns', 'Text']
   description: 'A Text instance marked up according to ansi codes.'
   kind: returns
+  key: 'returns'
   type_name: 'Text'
   is_generator: False
 === detect

@@ -154,44 +154,43 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: google
 - DocstringParam
-  args: ['param', 'credentials (google.auth.credentials.Credentials)']
   description: |
     The credentials to
     add to the request.
   kind: param
+  key: 'param'
   arg_name: 'credentials'
   type_name: 'google.auth.credentials.Credentials'
   is_optional: False
 - DocstringParam
-  args: ['param', 'refresh_status_codes (Sequence[int])']
   description: |
     Which HTTP status codes indicate
     that credentials should be refreshed and the request should be
     retried.
   kind: param
+  key: 'param'
   arg_name: 'refresh_status_codes'
   type_name: 'Sequence[int]'
   is_optional: False
 - DocstringParam
-  args: ['param', 'max_refresh_attempts (int)']
   description: |
     The maximum number of times to attempt to
     refresh the credentials and retry the request.
   kind: param
+  key: 'param'
   arg_name: 'max_refresh_attempts'
   type_name: 'int'
   is_optional: False
 - DocstringParam
-  args: ['param', 'refresh_timeout (Optional[int])']
   description: |
     The timeout value in seconds for
     credential refresh HTTP requests.
   kind: param
+  key: 'param'
   arg_name: 'refresh_timeout'
   type_name: 'Optional[int]'
   is_optional: False
 - DocstringParam
-  args: ['param', 'auth_request (google.auth.transport.requests.Request)']
   description: |
     (Optional) An instance of
     :class:`~google.auth.transport.requests.Request` used when
@@ -199,16 +198,17 @@ style: google
     an instance of :class:`~google.auth.transport.requests.Request`
     is created.
   kind: param
+  key: 'param'
   arg_name: 'auth_request'
   type_name: 'google.auth.transport.requests.Request'
   is_optional: False
 - DocstringParam
-  args: ['param', 'default_host (Optional[str])']
   description: |
     A host like "pubsub.googleapis.com".
     This is used when a self-signed JWT is created from service
     account credentials.
   kind: param
+  key: 'param'
   arg_name: 'default_host'
   type_name: 'Optional[str]'
   is_optional: False

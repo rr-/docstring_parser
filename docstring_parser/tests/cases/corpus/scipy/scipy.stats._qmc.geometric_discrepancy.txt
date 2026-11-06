@@ -104,44 +104,43 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 - DocstringParam
-  args: ['param', 'sample']
   description: 'The sample to compute the discrepancy from.'
   kind: param
+  key: 'param'
   arg_name: 'sample'
   type_name: 'array_like (n, d)'
   is_optional: False
 - DocstringParam
-  args: ['param', 'method']
   description: |
     The method to use. One of ``mindist`` for minimum distance (default)
     or ``mst`` for minimum spanning tree.
   kind: param
+  key: 'param'
   arg_name: 'method'
   type_name: '{"mindist", "mst"}'
   is_optional: True
 - DocstringParam
-  args: ['param', 'metric']
   description: |
     The distance metric to use. See the documentation
     for `scipy.spatial.distance.pdist` for the available metrics and
     the default.
   kind: param
+  key: 'param'
   arg_name: 'metric'
   type_name: 'str or callable'
   is_optional: True
 - DocstringReturns
-  args: ['returns']
   description: 'Discrepancy (higher values correspond to greater sample uniformity).'
   kind: returns
+  key: 'returns'
   type_name: 'float'
   is_generator: False
   return_name: 'discrepancy'
 - DocstringMeta
-  args: ['see_also']
   description: 'discrepancy'
   kind: text
+  key: 'see_also'
 - DocstringMeta
-  args: ['notes']
   description: |
     The discrepancy can serve as a simple measure of quality of a random sample.
     This measure is based on the geometric properties of the distribution of points
@@ -162,22 +161,22 @@ style: numpydoc
     for a brief discussion). This function currently only calculates the mean
     edge length.
   kind: text
+  key: 'notes'
 - DocstringMeta
-  args: ['references']
   description: |
     .. [1] Franco J. et al. "Minimum Spanning Tree: A new approach to assess the quality
        of the design of computer experiments." Chemometrics and Intelligent Laboratory
        Systems, 97 (2), pp. 164-169, 2009.
   kind: text
+  key: 'references'
 - DocstringExample
-  args: ['examples']
   description: |
     Calculate the quality of the sample using the minimum euclidean distance
     (the defaults):
     
   kind: examples
+  key: 'examples'
 - DocstringExample
-  args: ['examples']
   description: |
     0.03708161435687876
     
@@ -185,6 +184,7 @@ style: numpydoc
     spanning tree:
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> import numpy as np
     >>> from scipy.stats import qmc
@@ -192,7 +192,6 @@ style: numpydoc
     >>> sample = qmc.LatinHypercube(d=2, rng=rng).random(50)
     >>> qmc.geometric_discrepancy(sample)
 - DocstringExample
-  args: ['examples']
   description: |
     0.1105149978798376
     
@@ -200,11 +199,12 @@ style: numpydoc
     the smallest distance:
     
   kind: examples
+  key: 'examples'
   snippet: ">>> qmc.geometric_discrepancy(sample, method='mst')"
 - DocstringExample
-  args: ['examples']
   description: '...            xlim=[0, 1], ylim=[0, 1])'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> import matplotlib.pyplot as plt
     >>> from matplotlib.lines import Line2D
@@ -219,12 +219,11 @@ style: numpydoc
     >>> fig, ax = plt.subplots(figsize=(10, 5))
     >>> _ = ax.set(aspect='equal', xlabel=r'$x_1$', ylabel=r'$x_2$',
 - DocstringExample
-  args: ['examples']
   description: "...     ax.plot(sample[edge, 0], sample[edge, 1], c='k')"
   kind: examples
+  key: 'examples'
   snippet: '>>> for edge in edges:'
 - DocstringExample
-  args: ['examples']
   description: |
     ...     Line2D([0], [0], marker='o', lw=0, label='Sample points'),
     ...     Line2D([0], [0], color='k', label='Minimum spanning tree'),
@@ -232,14 +231,15 @@ style: numpydoc
     ...            label='Minimum point-to-point distance'),
     ... ]
   kind: examples
+  key: 'examples'
   snippet: |
     >>> ax.scatter(sample[:, 0], sample[:, 1])
     >>> ax.add_patch(plt.Circle(sample[min_idx[0]], min_dist, color='red', fill=False))
     >>> markers = [
 - DocstringExample
-  args: ['examples']
   description: ''
   kind: examples
+  key: 'examples'
   snippet: |
     >>> ax.legend(handles=markers, loc='center left', bbox_to_anchor=(1, 0.5));
     >>> plt.show()

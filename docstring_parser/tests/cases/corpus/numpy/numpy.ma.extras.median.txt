@@ -71,33 +71,32 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'a']
   description: 'Input array or object that can be converted to an array.'
   kind: param
+  key: 'param'
   arg_name: 'a'
   type_name: 'array_like'
   is_optional: False
 - DocstringParam
-  args: ['param', 'axis']
   description: |
     Axis along which the medians are computed. The default (None) is
     to compute the median along a flattened version of the array.
   kind: param
+  key: 'param'
   arg_name: 'axis'
   type_name: 'int'
   is_optional: True
 - DocstringParam
-  args: ['param', 'out']
   description: |
     Alternative output array in which to place the result. It must
     have the same shape and buffer length as the expected output
     but the type will be cast if necessary.
   kind: param
+  key: 'param'
   arg_name: 'out'
   type_name: 'ndarray'
   is_optional: True
 - DocstringParam
-  args: ['param', 'overwrite_input']
   description: |
     If True, then allow use of memory of input array (a) for
     calculations. The input array will be modified by the call to
@@ -107,67 +106,68 @@ style: numpydoc
     False. Note that, if `overwrite_input` is True, and the input
     is not already an `ndarray`, an error will be raised.
   kind: param
+  key: 'param'
   arg_name: 'overwrite_input'
   type_name: 'bool'
   is_optional: True
   default: 'False'
 - DocstringParam
-  args: ['param', 'keepdims']
   description: |
     If this is set to True, the axes which are reduced are left
     in the result as dimensions with size one. With this option,
     the result will broadcast correctly against the input array.
   kind: param
+  key: 'param'
   arg_name: 'keepdims'
   type_name: 'bool'
   is_optional: True
 - DocstringReturns
-  args: ['returns']
   description: |
     A new array holding the result is returned unless out is
     specified, in which case a reference to out is returned.
     Return data-type is `float64` for integers and floats smaller than
     `float64`, or the input data-type, otherwise.
   kind: returns
+  key: 'returns'
   type_name: 'ndarray'
   is_generator: False
   return_name: 'median'
 - DocstringMeta
-  args: ['see_also']
   description: 'mean'
   kind: text
+  key: 'see_also'
 - DocstringMeta
-  args: ['notes']
   description: |
     Given a vector ``V`` with ``N`` non masked values, the median of ``V``
     is the middle value of a sorted copy of ``V`` (``Vs``) - i.e.
     ``Vs[(N-1)/2]``, when ``N`` is odd, or ``{Vs[N/2 - 1] + Vs[N/2]}/2``
     when ``N`` is even.
   kind: text
+  key: 'notes'
 - DocstringExample
-  args: ['examples']
   description: |
     1.5
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> import numpy as np
     >>> x = np.ma.array(np.arange(8), mask=[0]*4 + [1]*4)
     >>> np.ma.median(x)
 - DocstringExample
-  args: ['examples']
   description: '2.5'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> x = np.ma.array(np.arange(10).reshape(2, 5), mask=[0]*6 + [1]*4)
     >>> np.ma.median(x)
 - DocstringExample
-  args: ['examples']
   description: |
     masked_array(data=[2.0, 5.0],
                  mask=[False, False],
            fill_value=1e+20)
   kind: examples
+  key: 'examples'
   snippet: '>>> np.ma.median(x, axis=-1, overwrite_input=True)'
 === detect
 numpydoc

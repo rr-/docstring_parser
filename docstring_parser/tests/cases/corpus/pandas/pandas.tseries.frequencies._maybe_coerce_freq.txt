@@ -19,15 +19,15 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'code']
   description: 'Frequency converting from'
   kind: param
+  key: 'param'
   arg_name: 'code'
   type_name: 'str or DateOffset'
   is_optional: False
 - DocstringReturns
-  args: ['returns']
   kind: returns
+  key: 'returns'
   type_name: 'str'
   is_generator: False
 === detect
