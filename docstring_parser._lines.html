@@ -154,6 +154,16 @@
         
 
         
+            <div class="itemName"><code><a href="#dedent" class="internal-link" title="docstring_parser._lines.dedent">dedent</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="#dedent_lines" class="internal-link" title="docstring_parser._lines.dedent_lines">dedent<wbr></wbr>_lines</a></code>
             </div>
         
@@ -568,7 +578,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <a href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/_lines.py" class="sourceLink">(source)</a>
+          <a href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/_lines.py" class="sourceLink">(source)</a>
         </div>
 
         <div class="moduleDocstring">
@@ -600,6 +610,11 @@ endings are made plain newlines first.</p>
     <td>Function</td>
     <td><code><a href="#cleandoc" class="internal-link" title="docstring_parser._lines.cleandoc">cleandoc</a></code></td>
     <td>Dedent a docstring as <tt class="rst-docutils rst-literal">inspect.cleandoc</tt> did before Python 3.13.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#dedent" class="internal-link" title="docstring_parser._lines.dedent">dedent</a></code></td>
+    <td>Remove the indent all lines share, as <tt class="rst-docutils rst-literal">textwrap.dedent</tt> does.</td>
   </tr><tr class="function">
     
     <td>Function</td>
@@ -636,7 +651,7 @@ endings are made plain newlines first.</p>
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">cleandoc</span><span class="function-signature">(<span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/_lines.py#L65">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/_lines.py#L86">
       
       (source)
     </a>
@@ -658,6 +673,38 @@ only whitespace counts as blank, on every version.</p>
 </div><div class="basefunction">
   
   
+  <a name="docstring_parser._lines.dedent">
+    
+  </a>
+  <a name="dedent">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">dedent</span><span class="function-signature">(<span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/_lines.py#L68">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#dedent" title="docstring_parser._lines.dedent">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Remove the indent all lines share, as <tt class="rst-docutils rst-literal">textwrap.dedent</tt> does.</p>
+<p>A line holding only whitespace counts as blank and is emptied, on every
+version. <tt class="rst-docutils rst-literal">textwrap.dedent</tt> only treats spaces and tabs as whitespace
+before Python 3.14, so there a line holding a form feed or vertical tab
+kept everything from being dedented.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
   <a name="docstring_parser._lines.dedent_lines">
     
   </a>
@@ -668,7 +715,7 @@ only whitespace counts as blank, on every version.</p>
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">dedent_lines</span><span class="function-signature">(<span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/_lines.py#L55">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/_lines.py#L58">
       
       (source)
     </a>
@@ -699,7 +746,7 @@ line holding only whitespace counts as blank, on every version.</p>
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">normalize_line_endings</span><span class="function-signature">(<span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/_lines.py#L20">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/_lines.py#L21">
       
       (source)
     </a>
@@ -731,7 +778,7 @@ unindented text and nothing gets dedented.</p>
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">_dedent</span><span class="function-signature">(<span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#tuple" class="intersphinx-link">tuple</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>], <wbr></wbr><a href="https://docs.python.org/3/builtins/functions.html#int" class="intersphinx-link">int</a>]</code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/_lines.py#L31">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/_lines.py#L32">
       
       (source)
     </a>
@@ -757,7 +804,7 @@ unindented text and nothing gets dedented.</p>
   <div class="container-fluid">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    25.10.1 at 2026-11-06 18:55:03.
+    25.10.1 at 2026-11-06 20:12:00.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

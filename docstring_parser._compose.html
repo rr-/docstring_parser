@@ -194,7 +194,27 @@
         
 
         
-            <div class="itemName"><code><a href="#sections" class="internal-link" title="docstring_parser._compose.sections">sections</a></code>
+            <div class="itemName"><code><a href="#section_runs" class="internal-link" title="docstring_parser._compose.section_runs">section<wbr></wbr>_runs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#start_on_new_line" class="internal-link" title="docstring_parser._compose.start_on_new_line">start<wbr></wbr>_on<wbr></wbr>_new<wbr></wbr>_line</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#written_type" class="internal-link" title="docstring_parser._compose.written_type">written<wbr></wbr>_type</a></code>
             </div>
         
 
@@ -204,8 +224,21 @@
         
          
 
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="private">
         
-         
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_UNINDENTED" class="internal-link" title="docstring_parser._compose._UNINDENTED">_UNINDENTED</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
 
         
          
@@ -588,7 +621,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <a href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/_compose.py" class="sourceLink">(source)</a>
+          <a href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/_compose.py" class="sourceLink">(source)</a>
         </div>
 
         <div class="moduleDocstring">
@@ -632,8 +665,23 @@
   </tr><tr class="function">
     
     <td>Function</td>
-    <td><code><a href="#sections" class="internal-link" title="docstring_parser._compose.sections">sections</a></code></td>
-    <td>Sort a docstring's meta into titled sections by kind.</td>
+    <td><code><a href="#section_runs" class="internal-link" title="docstring_parser._compose.section_runs">section<wbr></wbr>_runs</a></code></td>
+    <td>Split a docstring's meta into titled sections, in its order.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#start_on_new_line" class="internal-link" title="docstring_parser._compose.start_on_new_line">start<wbr></wbr>_on<wbr></wbr>_new<wbr></wbr>_line</a></code></td>
+    <td>Start a composed docstring on a new line if it has to.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#written_type" class="internal-link" title="docstring_parser._compose.written_type">written<wbr></wbr>_type</a></code></td>
+    <td>Return a param's type as written, if it reads back as the param's.</td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_UNINDENTED" class="internal-link" title="docstring_parser._compose._UNINDENTED">_UNINDENTED</a></code></td>
+    <td><span class="rst-undocumented">Undocumented</span></td>
   </tr>
 </table>
           
@@ -655,7 +703,7 @@
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">description_lines</span><span class="function-signature">(<span class="rst-sig-param">docstring: <code>Docstring</code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/_compose.py#L94">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/_compose.py#L153">
       
       (source)
     </a>
@@ -682,7 +730,7 @@
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">examples_text</span><span class="function-signature">(<span class="rst-sig-param">examples: <code><a href="https://docs.python.org/3/library/typing.html#typing.Sequence" class="intersphinx-link">T.Sequence</a>[<wbr></wbr><a href="docstring_parser.common.DocstringExample.html" class="internal-link" title="docstring_parser.common.DocstringExample">DocstringExample</a>]</code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/_compose.py#L108">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/_compose.py#L168">
       
       (source)
     </a>
@@ -714,7 +762,7 @@ as its <tt class="rst-docutils rst-literal">&gt;&gt;&gt;</tt> already ends that 
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">field_name</span><span class="function-signature long-signature">(<span class="rst-sig-param">meta: <code>DocstringMeta</code>, </span><span class="rst-sig-param">own: <code><a href="https://docs.python.org/3/library/typing.html#typing.AbstractSet" class="intersphinx-link">T.AbstractSet</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code>, </span><span class="rst-sig-param">by_kind: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#dict" class="intersphinx-link">dict</a>[<wbr></wbr>Kind, <wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/_compose.py#L74">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/_compose.py#L83">
       
       (source)
     </a>
@@ -742,7 +790,7 @@ the param's own key is not one of them; <tt class="rst-docutils rst-literal">par
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">field_text</span><span class="function-signature">(<span class="rst-sig-param">meta: <code>DocstringMeta</code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/_compose.py#L89">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/_compose.py#L126">
       
       (source)
     </a>
@@ -769,7 +817,7 @@ the param's own key is not one of them; <tt class="rst-docutils rst-literal">par
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">kind_of</span><span class="function-signature">(<span class="rst-sig-param">meta: <code>DocstringMeta</code></span>) -&gt; <code>Kind</code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/_compose.py#L14">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/_compose.py#L17">
       
       (source)
     </a>
@@ -789,21 +837,21 @@ the param's own key is not one of them; <tt class="rst-docutils rst-literal">par
 </div><div class="basefunction">
   
   
-  <a name="docstring_parser._compose.sections">
+  <a name="docstring_parser._compose.section_runs">
     
   </a>
-  <a name="sections">
+  <a name="section_runs">
     
   </a>
   <div class="functionHeader">
     
     
-    <span class="py-keyword">def</span>&#160;<span class="py-defname">sections</span><span class="function-signature long-signature">(<span class="rst-sig-param">docstring: <code>Docstring</code>, </span><span class="rst-sig-param">table: <code><a href="docstring_parser._compose.SectionTable.html" class="internal-link" title="docstring_parser._compose.SectionTable">SectionTable</a></code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#tuple" class="intersphinx-link">tuple</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#tuple" class="intersphinx-link">tuple</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Any" class="intersphinx-link">T.Any</a>]]], <wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr>DocstringMeta]]</code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/_compose.py#L43">
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">section_runs</span><span class="function-signature long-signature">(<span class="rst-sig-param">docstring: <code>Docstring</code>, </span><span class="rst-sig-param">table: <code><a href="docstring_parser._compose.SectionTable.html" class="internal-link" title="docstring_parser._compose.SectionTable">SectionTable</a></code>, </span><span class="rst-sig-param">alone: <code><a href="https://docs.python.org/3/library/typing.html#typing.AbstractSet" class="intersphinx-link">T.AbstractSet</a>[<wbr></wbr>Kind]</code> = <a href="https://docs.python.org/3/builtins/stdtypes.html#frozenset" class="intersphinx-link">frozenset</a>()</span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#tuple" class="intersphinx-link">tuple</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a>, <wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Any" class="intersphinx-link">T.Any</a>]]]</code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/_compose.py#L46">
       
       (source)
     </a>
-    <a class="headerLink" href="#sections" title="docstring_parser._compose.sections">
+    <a class="headerLink" href="#section_runs" title="docstring_parser._compose.section_runs">
       
       
       ¶
@@ -811,11 +859,103 @@ the param's own key is not one of them; <tt class="rst-docutils rst-literal">par
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Sort a docstring's meta into titled sections by kind.</p>
-<p>A text meta keyed like a ReST <tt class="rst-docutils rst-literal">:ivar:</tt> field goes in as the
-attribute it stands for.</p>
-<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/builtins/stdtypes.html#tuple" class="intersphinx-link">tuple</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#tuple" class="intersphinx-link">tuple</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Any" class="intersphinx-link">T.Any</a>]]], <wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr>DocstringMeta]]</code></td><td class="fieldArgDesc">the sections that have items, each with its items in the
-order of the docstring, and the meta that no section took</td></tr></table></div>
+    <div><p>Split a docstring's meta into titled sections, in its order.</p>
+<p>Items in a row that go in one section are written in one, so that the
+sections read back in the order of the meta. A ReST <tt class="rst-docutils rst-literal">:ivar:</tt> style
+field goes in as the attribute it stands for.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">docstring:</span><code>Docstring</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">table:</span><code><a href="docstring_parser._compose.SectionTable.html" class="internal-link" title="docstring_parser._compose.SectionTable">SectionTable</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">alone:</span><code><a href="https://docs.python.org/3/library/typing.html#typing.AbstractSet" class="intersphinx-link">T.AbstractSet</a>[<wbr></wbr>Kind]</code></td><td class="fieldArgDesc">the kinds whose items each take a section of their own,
+as the style reads one item from such a section</td></tr></table><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#tuple" class="intersphinx-link">tuple</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a>, <wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Any" class="intersphinx-link">T.Any</a>]]]</code></td><td class="fieldArgDesc">each section's title and items, with None as the title of
+a meta that no section takes, which is alone in its run</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="docstring_parser._compose.start_on_new_line">
+    
+  </a>
+  <a name="start_on_new_line">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">start_on_new_line</span><span class="function-signature">(<span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/_compose.py#L131">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#start_on_new_line" title="docstring_parser._compose.start_on_new_line">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Start a composed docstring on a new line if it has to.</p>
+<p>A docstring's first line takes no part in its dedent, so lines after
+it that are all indented, such as an indented long description or a
+field's continuation lines, lose that indent when read back. Starting
+on a new line puts the first line in the dedent.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="docstring_parser._compose.written_type">
+    
+  </a>
+  <a name="written_type">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">written_type</span><span class="function-signature">(<span class="rst-sig-param">param: <code>DocstringParam</code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/_compose.py#L98">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#written_type" title="docstring_parser._compose.written_type">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return a param's type as written, if it reads back as the param's.</p>
+<p>That keeps marks such as <tt class="rst-docutils rst-literal">int, optional</tt> as they were, where a style
+would write its own, and keeps a type with no mark from gaining one
+for a default the description states.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc">the type as written, or None to compose the param's type</td></tr></table></div>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="docstring_parser._compose._UNINDENTED">
+    
+  </a>
+  <a name="_UNINDENTED">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_UNINDENTED</span> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/_compose.py#L150">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_UNINDENTED" title="docstring_parser._compose._UNINDENTED">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="https://docs.python.org/3/library/re.html#re.compile" class="intersphinx-link">re.compile</a>(r<span class="rst-variable-quote">'</span>\n\S<span class="rst-variable-quote">'</span>)</code></pre></td></tr></table>
   </div>
 </div>
         </div>
@@ -829,7 +969,7 @@ order of the docstring, and the meta that no section took</td></tr></table></div
   <div class="container-fluid">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    25.10.1 at 2026-11-06 18:55:03.
+    25.10.1 at 2026-11-06 20:12:00.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

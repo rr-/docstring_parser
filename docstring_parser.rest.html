@@ -194,6 +194,16 @@
         
 
         
+            <div class="itemName"><code><a href="#_attribute_directive" class="internal-link" title="docstring_parser.rest._attribute_directive">_attribute<wbr></wbr>_directive</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="#_build_meta" class="internal-link" title="docstring_parser.rest._build_meta">_build<wbr></wbr>_meta</a></code>
             </div>
         
@@ -244,6 +254,16 @@
         
 
         
+            <div class="itemName"><code><a href="#_own_key" class="internal-link" title="docstring_parser.rest._own_key">_own<wbr></wbr>_key</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="#_param_key" class="internal-link" title="docstring_parser.rest._param_key">_param<wbr></wbr>_key</a></code>
             </div>
         
@@ -255,6 +275,16 @@
 
         
             <div class="itemName"><code><a href="#_parser" class="internal-link" title="docstring_parser.rest._parser">_parser</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_type_field" class="internal-link" title="docstring_parser.rest._type_field">_type<wbr></wbr>_field</a></code>
             </div>
         
 
@@ -344,6 +374,16 @@
 
         
             <div class="itemName"><code><a href="#_FIELD_START" class="internal-link" title="docstring_parser.rest._FIELD_START">_FIELD<wbr></wbr>_START</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_KIND_OF_FIELD" class="internal-link" title="docstring_parser.rest._KIND_OF_FIELD">_KIND<wbr></wbr>_OF<wbr></wbr>_FIELD</a></code>
             </div>
         
 
@@ -851,7 +891,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <a href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/rest.py" class="sourceLink">(source)</a>
+          <a href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py" class="sourceLink">(source)</a>
         </div>
 
         <div class="moduleDocstring">
@@ -895,6 +935,11 @@
   </tr><tr class="function private">
     
     <td>Function</td>
+    <td><code><a href="#_attribute_directive" class="internal-link" title="docstring_parser.rest._attribute_directive">_attribute<wbr></wbr>_directive</a></code></td>
+    <td>Compose an attribute as a directive, with its type and value.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
     <td><code><a href="#_build_meta" class="internal-link" title="docstring_parser.rest._build_meta">_build<wbr></wbr>_meta</a></code></td>
     <td><span class="rst-undocumented">Undocumented</span></td>
   </tr><tr class="function private">
@@ -920,6 +965,11 @@
   </tr><tr class="function private">
     
     <td>Function</td>
+    <td><code><a href="#_own_key" class="internal-link" title="docstring_parser.rest._own_key">_own<wbr></wbr>_key</a></code></td>
+    <td>Return the field name a return or raises was read from, such as <tt class="rst-docutils rst-literal">raise</tt>, if ReST reads it as the same kind, or else the default one.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
     <td><code><a href="#_param_key" class="internal-link" title="docstring_parser.rest._param_key">_param<wbr></wbr>_key</a></code></td>
     <td>Return the field name that keeps a param's kind, such as <tt class="rst-docutils rst-literal">key</tt>.</td>
   </tr><tr class="function private">
@@ -930,8 +980,13 @@
   </tr><tr class="function private">
     
     <td>Function</td>
+    <td><code><a href="#_type_field" class="internal-link" title="docstring_parser.rest._type_field">_type<wbr></wbr>_field</a></code></td>
+    <td>Compose a type field, whose lines after the first are indented, as an unindented line ends it.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
     <td><code><a href="#_type_key" class="internal-link" title="docstring_parser.rest._type_key">_type<wbr></wbr>_key</a></code></td>
-    <td>Return the name of a param's type field: <tt class="rst-docutils rst-literal">vartype</tt> for one written as <tt class="rst-docutils rst-literal">:ivar:</tt>, <tt class="rst-docutils rst-literal">:var:</tt> or <tt class="rst-docutils rst-literal">:cvar:</tt>, as Sphinx reads it.</td>
+    <td>Return the name of a param's type field: <tt class="rst-docutils rst-literal">vartype</tt> for one written as <tt class="rst-docutils rst-literal">:ivar:</tt>, <tt class="rst-docutils rst-literal">:var:</tt>, <tt class="rst-docutils rst-literal">:cvar:</tt> or a <tt class="rst-docutils rst-literal">:vartype:</tt> alone, as Sphinx reads it.</td>
   </tr><tr class="constant private">
     
     <td>Constant</td>
@@ -966,6 +1021,11 @@
     
     <td>Constant</td>
     <td><code><a href="#_FIELD_START" class="internal-link" title="docstring_parser.rest._FIELD_START">_FIELD<wbr></wbr>_START</a></code></td>
+    <td><span class="rst-undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_KIND_OF_FIELD" class="internal-link" title="docstring_parser.rest._KIND_OF_FIELD">_KIND<wbr></wbr>_OF<wbr></wbr>_FIELD</a></code></td>
     <td><span class="rst-undocumented">Undocumented</span></td>
   </tr><tr class="constant private">
     
@@ -1048,7 +1108,7 @@
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">compose</span><span class="function-signature long-signature">(<span class="rst-sig-param">docstring: <code>Docstring</code>, </span><span class="rst-sig-param">rendering_style: <code>RenderingStyle</code> = RenderingStyle.COMPACT, </span><span class="rst-sig-param">indent: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code> = <span class="rst-variable-quote">'</span><span class="rst-variable-string">    </span><span class="rst-variable-quote">'</span></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/rest.py#L534">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L578">
       
       (source)
     </a>
@@ -1075,7 +1135,7 @@
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">default_sections</span><span class="function-signature">() -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="docstring_parser.sections.SectionSpec.html" class="internal-link" title="docstring_parser.sections.SectionSpec">SectionSpec</a>]</code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/rest.py#L52">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L57">
       
       (source)
     </a>
@@ -1102,7 +1162,7 @@
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">parse</span><span class="function-signature">(<span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code>, </span><span class="rst-sig-param">sections: <code><a href="https://docs.python.org/3/library/typing.html#typing.Sequence" class="intersphinx-link">T.Sequence</a>[<wbr></wbr><a href="docstring_parser.sections.SectionSpec.html" class="internal-link" title="docstring_parser.sections.SectionSpec">SectionSpec</a>] | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></span>) -&gt; <code>Docstring</code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/rest.py#L477">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L483">
       
       (source)
     </a>
@@ -1130,7 +1190,7 @@ each meta's <tt class="rst-docutils rst-literal">key</tt> is the name its field 
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">try_parse</span><span class="function-signature long-signature">(<span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code>, </span><span class="rst-sig-param">sections: <code><a href="https://docs.python.org/3/library/typing.html#typing.Sequence" class="intersphinx-link">T.Sequence</a>[<wbr></wbr><a href="docstring_parser.sections.SectionSpec.html" class="internal-link" title="docstring_parser.sections.SectionSpec">SectionSpec</a>] | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></span>) -&gt; <code>ParseResult</code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/rest.py#L490">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L496">
       
       (source)
     </a>
@@ -1159,7 +1219,7 @@ read, whose text goes to the long description</td></tr></table></div>
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">_attribute</span><span class="function-signature">(<span class="rst-sig-param">name: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>, </span><span class="rst-sig-param">body: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code></span>) -&gt; <code>DocstringParam</code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/rest.py#L202">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L208">
       
       (source)
     </a>
@@ -1176,6 +1236,33 @@ read, whose text goes to the long description</td></tr></table></div>
 </div><div class="basefunction private">
   
   
+  <a name="docstring_parser.rest._attribute_directive">
+    
+  </a>
+  <a name="_attribute_directive">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">_attribute_directive</span><span class="function-signature">(<span class="rst-sig-param">meta: <code>DocstringParam</code>, </span><span class="rst-sig-param">indent: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L529">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_attribute_directive" title="docstring_parser.rest._attribute_directive">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Compose an attribute as a directive, with its type and value.</p></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
   <a name="docstring_parser.rest._build_meta">
     
   </a>
@@ -1186,7 +1273,7 @@ read, whose text goes to the long description</td></tr></table></div>
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">_build_meta</span><span class="function-signature">(<span class="rst-sig-param">args: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code>, </span><span class="rst-sig-param">desc: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>, </span><span class="rst-sig-param">kind: <code>Kind</code></span>) -&gt; <code>DocstringMeta</code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/rest.py#L109">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L114">
       
       (source)
     </a>
@@ -1213,7 +1300,7 @@ read, whose text goes to the long description</td></tr></table></div>
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">_cut_attributes</span><span class="function-signature long-signature">(<span class="rst-sig-param">lines: <code><a href="docstring_parser._lines.Lines.html" class="internal-link" title="docstring_parser._lines.Lines">Lines</a></code>, </span><span class="rst-sig-param">spec: <code><a href="docstring_parser.sections.SectionSpec.html" class="internal-link" title="docstring_parser.sections.SectionSpec">SectionSpec</a></code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#tuple" class="intersphinx-link">tuple</a>[<wbr></wbr><a href="docstring_parser._lines.Lines.html" class="internal-link" title="docstring_parser._lines.Lines">Lines</a>, <wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#tuple" class="intersphinx-link">tuple</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/functions.html#int" class="intersphinx-link">int</a>, <wbr></wbr>DocstringMeta]]]</code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/rest.py#L235">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L241">
       
       (source)
     </a>
@@ -1241,7 +1328,7 @@ their text where it was</td></tr></table></div>
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">_field_table</span><span class="function-signature">(<span class="rst-sig-param">sections: <code><a href="https://docs.python.org/3/library/typing.html#typing.Sequence" class="intersphinx-link">T.Sequence</a>[<wbr></wbr><a href="docstring_parser.sections.SectionSpec.html" class="internal-link" title="docstring_parser.sections.SectionSpec">SectionSpec</a>] | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#dict" class="intersphinx-link">dict</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="docstring_parser.sections.SectionSpec.html" class="internal-link" title="docstring_parser.sections.SectionSpec">SectionSpec</a>]</code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/rest.py#L57">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L62">
       
       (source)
     </a>
@@ -1268,7 +1355,7 @@ their text where it was</td></tr></table></div>
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">_fits_inline</span><span class="function-signature">(<span class="rst-sig-param">type_name: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/functions.html#bool" class="intersphinx-link">bool</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/rest.py#L510">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L516">
       
       (source)
     </a>
@@ -1298,7 +1385,7 @@ or end the field name early, so it needs a <tt class="rst-docutils rst-literal">
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">_join_type</span><span class="function-signature">(<span class="rst-sig-param">words: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/rest.py#L75">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L80">
       
       (source)
     </a>
@@ -1319,6 +1406,34 @@ Other words in a row are no type, so the field cannot be read.</p>
 </div><div class="basefunction private">
   
   
+  <a name="docstring_parser.rest._own_key">
+    
+  </a>
+  <a name="_own_key">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">_own_key</span><span class="function-signature">(<span class="rst-sig-param">meta: <code>DocstringMeta</code>, </span><span class="rst-sig-param">default: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L555">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_own_key" title="docstring_parser.rest._own_key">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return the field name a return or raises was read from, such as
+<tt class="rst-docutils rst-literal">raise</tt>, if ReST reads it as the same kind, or else the default one.</p></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
   <a name="docstring_parser.rest._param_key">
     
   </a>
@@ -1329,7 +1444,7 @@ Other words in a row are no type, so the field cannot be read.</p>
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">_param_key</span><span class="function-signature">(<span class="rst-sig-param">meta: <code>DocstringParam</code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/rest.py#L523">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L564">
       
       (source)
     </a>
@@ -1356,7 +1471,7 @@ Other words in a row are no type, so the field cannot be read.</p>
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">_parser</span><span class="function-signature">(<span class="rst-sig-param">sections: <code><a href="https://docs.python.org/3/library/typing.html#typing.Sequence" class="intersphinx-link">T.Sequence</a>[<wbr></wbr><a href="docstring_parser.sections.SectionSpec.html" class="internal-link" title="docstring_parser.sections.SectionSpec">SectionSpec</a>] | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></span>) -&gt; <code><a href="docstring_parser.rest.Parser.html" class="internal-link" title="docstring_parser.rest.Parser">Parser</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/rest.py#L504">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L510">
       
       (source)
     </a>
@@ -1373,6 +1488,34 @@ Other words in a row are no type, so the field cannot be read.</p>
 </div><div class="basefunction private">
   
   
+  <a name="docstring_parser.rest._type_field">
+    
+  </a>
+  <a name="_type_field">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">_type_field</span><span class="function-signature">(<span class="rst-sig-param">indent: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>, </span><span class="rst-sig-param">head: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>, </span><span class="rst-sig-param">type_name: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L545">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_type_field" title="docstring_parser.rest._type_field">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Compose a type field, whose lines after the first are indented, as
+an unindented line ends it.</p></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
   <a name="docstring_parser.rest._type_key">
     
   </a>
@@ -1383,7 +1526,7 @@ Other words in a row are no type, so the field cannot be read.</p>
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">_type_key</span><span class="function-signature">(<span class="rst-sig-param">meta: <code>DocstringParam</code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/rest.py#L528">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L569">
       
       (source)
     </a>
@@ -1396,7 +1539,8 @@ Other words in a row are no type, so the field cannot be read.</p>
   <div class="docstring functionBody">
     
     <div><p>Return the name of a param's type field: <tt class="rst-docutils rst-literal">vartype</tt> for one
-written as <tt class="rst-docutils rst-literal">:ivar:</tt>, <tt class="rst-docutils rst-literal">:var:</tt> or <tt class="rst-docutils rst-literal">:cvar:</tt>, as Sphinx reads it.</p></div>
+written as <tt class="rst-docutils rst-literal">:ivar:</tt>, <tt class="rst-docutils rst-literal">:var:</tt>, <tt class="rst-docutils rst-literal">:cvar:</tt> or a <tt class="rst-docutils rst-literal">:vartype:</tt> alone,
+as Sphinx reads it.</p></div>
   </div>
 </div><div class="baseconstant private">
   
@@ -1410,7 +1554,7 @@ written as <tt class="rst-docutils rst-literal">:ivar:</tt>, <tt class="rst-docu
   <div class="functionHeader">
     
     <span class="py-defname">_ATTRIBUTE</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/rest.py#L192">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L197">
       
       (source)
     </a>
@@ -1438,7 +1582,7 @@ written as <tt class="rst-docutils rst-literal">:ivar:</tt>, <tt class="rst-docu
   <div class="functionHeader">
     
     <span class="py-defname">_DEFAULT_FIELDS</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/rest.py#L41">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L46">
       
       (source)
     </a>
@@ -1471,7 +1615,7 @@ written as <tt class="rst-docutils rst-literal">:ivar:</tt>, <tt class="rst-docu
   <div class="functionHeader">
     
     <span class="py-defname">_DEFAULT_PARSER</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/rest.py#L473">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L479">
       
       (source)
     </a>
@@ -1498,7 +1642,7 @@ written as <tt class="rst-docutils rst-literal">:ivar:</tt>, <tt class="rst-docu
   <div class="functionHeader">
     
     <span class="py-defname">_DEFAULT_TABLE</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/rest.py#L67">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L72">
       
       (source)
     </a>
@@ -1525,7 +1669,7 @@ written as <tt class="rst-docutils rst-literal">:ivar:</tt>, <tt class="rst-docu
   <div class="functionHeader">
     
     <span class="py-defname">_FIELD</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/rest.py#L178">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L183">
       
       (source)
     </a>
@@ -1554,7 +1698,7 @@ IELD}))|\\Z)',
   <div class="functionHeader">
     
     <span class="py-defname">_FIELD_NAME</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/rest.py#L170">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L175">
       
       (source)
     </a>
@@ -1581,7 +1725,7 @@ IELD}))|\\Z)',
   <div class="functionHeader">
     
     <span class="py-defname">_FIELD_START</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/rest.py#L175">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L180">
       
       (source)
     </a>
@@ -1600,6 +1744,33 @@ IELD}))|\\Z)',
 </div><div class="baseconstant private">
   
   
+  <a name="docstring_parser.rest._KIND_OF_FIELD">
+    
+  </a>
+  <a name="_KIND_OF_FIELD">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_KIND_OF_FIELD</span> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L552">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_KIND_OF_FIELD" title="docstring_parser.rest._KIND_OF_FIELD">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>{name: spec.kind for name, spec in _DEFAULT_TABLE.items()}</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
   <a name="docstring_parser.rest._NAME">
     
   </a>
@@ -1609,7 +1780,7 @@ IELD}))|\\Z)',
   <div class="functionHeader">
     
     <span class="py-defname">_NAME</span>: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/rest.py#L169">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L174">
       
       (source)
     </a>
@@ -1636,7 +1807,7 @@ IELD}))|\\Z)',
   <div class="functionHeader">
     
     <span class="py-defname">_NOT_INLINE</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/rest.py#L185">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L190">
       
       (source)
     </a>
@@ -1663,7 +1834,7 @@ IELD}))|\\Z)',
   <div class="functionHeader">
     
     <span class="py-defname">_OPTION</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/rest.py#L196">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L201">
       
       (source)
     </a>
@@ -1690,7 +1861,7 @@ IELD}))|\\Z)',
   <div class="functionHeader">
     
     <span class="py-defname">_OWN_PARAM_FIELDS</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/rest.py#L520">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L526">
       
       (source)
     </a>
@@ -1717,7 +1888,7 @@ IELD}))|\\Z)',
   <div class="functionHeader">
     
     <span class="py-defname">_PARAM_FIELD_OF_KIND</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/rest.py#L519">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L525">
       
       (source)
     </a>
@@ -1744,7 +1915,7 @@ IELD}))|\\Z)',
   <div class="functionHeader">
     
     <span class="py-defname">_START</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/rest.py#L174">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L179">
       
       (source)
     </a>
@@ -1771,7 +1942,7 @@ IELD}))|\\Z)',
   <div class="functionHeader">
     
     <span class="py-defname">_STARTS_FIELD</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/rest.py#L173">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L178">
       
       (source)
     </a>
@@ -1798,7 +1969,7 @@ IELD}))|\\Z)',
   <div class="functionHeader">
     
     <span class="py-defname">_TYPE_FIELD</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/rest.py#L183">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L188">
       
       (source)
     </a>
@@ -1825,7 +1996,7 @@ IELD}))|\\Z)',
   <div class="functionHeader">
     
     <span class="py-defname">_TYPE_JOINERS</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/rest.py#L72">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L77">
       
       (source)
     </a>
@@ -1852,7 +2023,7 @@ IELD}))|\\Z)',
   <div class="functionHeader">
     
     <span class="py-defname">_UNINDENTED</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/rest.py#L184">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L189">
       
       (source)
     </a>
@@ -1879,7 +2050,7 @@ IELD}))|\\Z)',
   <div class="functionHeader">
     
     <span class="py-defname">_VERSION</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/rest.py#L197">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L202">
       
       (source)
     </a>
@@ -1893,7 +2064,7 @@ IELD}))|\\Z)',
     
     <div><p class="undocumented">Undocumented</p></div>
     <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="https://docs.python.org/3/library/re.html#re.compile" class="intersphinx-link">re.compile</a>(r<span class="rst-variable-quote">'</span>^<span class="rst-re-group">(?P&lt;</span><span class="rst-re-ref">version</span><span class="rst-re-group">&gt;</span>v<span class="rst-re-op">?</span><span class="rst-re-group">(</span><span class="rst-re-group">(?:</span>\d<span class="rst-re-op">+</span><span class="rst-re-group">)</span><span class="rst-re-group">(?:</span>\.<span class="rst-re-group">[</span>0<span class="rst-re-op">-</span>9a<span class="rst-re-op">-</span>z\.<span class="rst-re-group">]</span><span class="rst-re-op">+</span><span class="rst-re-group">)</span><span class="rst-re-group">)</span><span class="rst-re-group">)</span> <span class="rst-re-group">(?P&lt;</span><span class="rst-re-ref">desc</span><span class="rst-re-group">&gt;</span>.<span class="rst-re-op">+</span><span class="rst-re-group">)</span><span class="rst-variable-quote">'</span>,
-           <a href="https://docs.python.org/3/library/re.html#re.I" class="intersphinx-link">re.I</a>)</code></pre></td></tr></table>
+           (<a href="https://docs.python.org/3/library/re.html#re.I" class="intersphinx-link">re.I</a> | <a href="https://docs.python.org/3/library/re.html#re.S" class="intersphinx-link">re.S</a>))</code></pre></td></tr></table>
   </div>
 </div><div class="basevariable private">
   
@@ -1907,7 +2078,7 @@ IELD}))|\\Z)',
   <div class="functionHeader">
     
     <span class="py-defname">_parsers</span>: <code><a href="docstring_parser.sections.ParserCache.html" class="internal-link" title="docstring_parser.sections.ParserCache">ParserCache</a>[<wbr></wbr><a href="docstring_parser.rest.Parser.html" class="internal-link" title="docstring_parser.rest.Parser">Parser</a>]</code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/217e7cfe569c3cf693cbd7800c01ebdb86f0cc6e/docstring_parser/rest.py#L474">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/02c7b8d218cf31284e4c8fb8506bac4d0157e09c/docstring_parser/rest.py#L480">
       
       (source)
     </a>
@@ -1934,7 +2105,7 @@ IELD}))|\\Z)',
   <div class="container-fluid">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    25.10.1 at 2026-11-06 18:55:03.
+    25.10.1 at 2026-11-06 20:12:00.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 
