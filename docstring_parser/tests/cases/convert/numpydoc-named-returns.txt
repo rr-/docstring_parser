@@ -1,0 +1,13 @@
+# Test that Numpydoc's named return values keep their names in ReST.
+=== input
+Short.
+
+Returns
+-------
+total : int
+    The sum.
+=== convert numpydoc rest
+Short.
+
+:returns: The sum.
+:rtype total: int

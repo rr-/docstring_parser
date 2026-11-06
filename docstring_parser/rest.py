@@ -164,6 +164,8 @@ class Parser(BaseParser):
         # Each name's type fields, in order, with where each was.
         types: T.Dict[str, T.List[T.Tuple[str, int]]] = {}
         rtypes: T.Dict[T.Optional[str], T.List[str]] = {}
+        # Whether the field before gave an item, rather than a type.
+        after_item = False
         # Text between or after the fields, such as an example block, which
         # goes to the long description instead of being dropped.
         loose_chunks = []
@@ -213,11 +215,26 @@ class Parser(BaseParser):
                 types.setdefault(args[1], []).append((desc, len(ret.meta)))
             elif len(args) in [1, 2] and args[0] == "rtype":
                 name = None if len(args) == 1 else args[1]
-                rtypes.setdefault(name, []).append(desc)
+                last = ret.meta[-1] if ret.meta and after_item else None
+                if (
+                    name is not None
+                    and isinstance(last, DocstringReturns)
+                    and last.return_name is None
+                    and last.type_name is None
+                ):
+                    # A type for a named return value, right after a
+                    # return with neither, names that return.
+                    last.return_name = name
+                    last.type_name = desc or None
+                else:
+                    rtypes.setdefault(name, []).append(desc)
             else:
                 spec = table.get(args[0])
                 kind = spec.kind if spec else Kind.TEXT
                 ret.meta.append(apply(spec, _build_meta(args, desc, kind)))
+                after_item = True
+                continue
+            after_item = False
         loose_chunks.append(meta_chunk[loose_start:])
 
         append_loose(ret, loose_chunks, blank_around=True)
@@ -379,8 +396,14 @@ def compose(
             type_text = f" {meta.type_name}" if meta.type_name else ""
             key = "yields" if meta.is_generator else "returns"
 
-            if rendering_style == RenderingStyle.EXPANDED or not _fits_inline(
-                meta.type_name
+            if meta.return_name:
+                # ReST names a return value only in its type field, which
+                # names the return right before it.
+                parts.append(f":{key}:" + process_desc(meta.description))
+                parts.append(f":rtype {meta.return_name}:{type_text}")
+            elif (
+                rendering_style == RenderingStyle.EXPANDED
+                or not _fits_inline(meta.type_name)
             ):
                 if meta.description:
                     text = f":{key}:"
