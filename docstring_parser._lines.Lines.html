@@ -175,6 +175,16 @@
             </div>
         
 
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#without" class="internal-link" title="docstring_parser._lines.Lines.without">without</a></code>
+            </div>
+        
+
     </li>
 </ul> 
 
@@ -231,6 +241,16 @@
 
         
             <div class="itemName"><code><a href="#_lead" class="internal-link" title="docstring_parser._lines.Lines._lead">_lead</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_map" class="internal-link" title="docstring_parser._lines.Lines._map">_map</a></code>
             </div>
         
 
@@ -375,7 +395,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">Lines</span>: <a href="https://github.com/rr-/docstring_parser/tree/72d53d8820905098904ca6fe2ceede562f2ffc19/docstring_parser/_lines.py#L76" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="docstring_parser._lines.Lines.__init__">Lines(text, lead)</a></code></p><p><a href="classIndex.html#docstring_parser._lines.Lines">View In Hierarchy</a></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">Lines</span>: <a href="https://github.com/rr-/docstring_parser/tree/92afacad1545b0127dfd9bd4be034b634e3bbd86/docstring_parser/_lines.py#L76" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="docstring_parser._lines.Lines.__init__">Lines(text, lead)</a></code></p><p><a href="classIndex.html#docstring_parser._lines.Lines">View In Hierarchy</a></p>
         </div>
 
         <div class="moduleDocstring">
@@ -411,6 +431,11 @@
     <td>Method</td>
     <td><code><a href="#with_lead" class="internal-link" title="docstring_parser._lines.Lines.with_lead">with<wbr></wbr>_lead</a></code></td>
     <td>The same docstring dedented as if it started on a new line.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#without" class="internal-link" title="docstring_parser._lines.Lines.without">without</a></code></td>
+    <td>The same docstring with ranges of lines cut out.</td>
   </tr><tr class="classvariable">
     
     <td>Class Variable</td>
@@ -435,6 +460,11 @@
     
     <td>Instance Variable</td>
     <td><code><a href="#_lead" class="internal-link" title="docstring_parser._lines.Lines._lead">_lead</a></code></td>
+    <td><span class="rst-undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_map" class="internal-link" title="docstring_parser._lines.Lines._map">_map</a></code></td>
     <td><span class="rst-undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable private">
     
@@ -467,7 +497,7 @@
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">__init__</span><span class="function-signature">(<span class="rst-sig-param"><span class="rst-undocumented">self</span>, </span><span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>, </span><span class="rst-sig-param">lead: <code><a href="https://docs.python.org/3/builtins/functions.html#bool" class="intersphinx-link">bool</a></code> = <a href="https://docs.python.org/3/builtins/constants.html#False" class="intersphinx-link">False</a></span>):</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/72d53d8820905098904ca6fe2ceede562f2ffc19/docstring_parser/_lines.py#L86">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/92afacad1545b0127dfd9bd4be034b634e3bbd86/docstring_parser/_lines.py#L94">
       
       (source)
     </a>
@@ -495,7 +525,7 @@ docstring started on the line after the quotes</td></tr></table></div>
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">indent</span><span class="function-signature">(<span class="rst-sig-param"><span class="rst-undocumented">self</span>, </span><span class="rst-sig-param">index: <code><a href="https://docs.python.org/3/builtins/functions.html#int" class="intersphinx-link">int</a></code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/functions.html#int" class="intersphinx-link">int</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/72d53d8820905098904ca6fe2ceede562f2ffc19/docstring_parser/_lines.py#L123">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/92afacad1545b0127dfd9bd4be034b634e3bbd86/docstring_parser/_lines.py#L160">
       
       (source)
     </a>
@@ -522,7 +552,7 @@ docstring started on the line after the quotes</td></tr></table></div>
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">line_at</span><span class="function-signature">(<span class="rst-sig-param"><span class="rst-undocumented">self</span>, </span><span class="rst-sig-param">offset: <code><a href="https://docs.python.org/3/builtins/functions.html#int" class="intersphinx-link">int</a></code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/functions.html#int" class="intersphinx-link">int</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/72d53d8820905098904ca6fe2ceede562f2ffc19/docstring_parser/_lines.py#L109">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/92afacad1545b0127dfd9bd4be034b634e3bbd86/docstring_parser/_lines.py#L143">
       
       (source)
     </a>
@@ -549,7 +579,7 @@ docstring started on the line after the quotes</td></tr></table></div>
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">source_line</span><span class="function-signature">(<span class="rst-sig-param"><span class="rst-undocumented">self</span>, </span><span class="rst-sig-param">offset: <code><a href="https://docs.python.org/3/builtins/functions.html#int" class="intersphinx-link">int</a></code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/functions.html#int" class="intersphinx-link">int</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/72d53d8820905098904ca6fe2ceede562f2ffc19/docstring_parser/_lines.py#L118">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/92afacad1545b0127dfd9bd4be034b634e3bbd86/docstring_parser/_lines.py#L152">
       
       (source)
     </a>
@@ -577,7 +607,7 @@ offset into <tt class="rst-docutils rst-literal">text</tt>.</p></div>
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">with_lead</span><span class="function-signature">(<span class="rst-sig-param"><span class="rst-undocumented">self</span></span>) -&gt; <code><a href="docstring_parser._lines.Lines.html" class="internal-link" title="docstring_parser._lines.Lines">Lines</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/72d53d8820905098904ca6fe2ceede562f2ffc19/docstring_parser/_lines.py#L103">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/92afacad1545b0127dfd9bd4be034b634e3bbd86/docstring_parser/_lines.py#L113">
       
       (source)
     </a>
@@ -591,6 +621,35 @@ offset into <tt class="rst-docutils rst-literal">text</tt>.</p></div>
     
     <div><p>The same docstring dedented as if it started on a new line.</p></div>
   </div>
+</div><div class="basemethod">
+  
+  
+  <a name="docstring_parser._lines.Lines.without">
+    
+  </a>
+  <a name="without">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">without</span><span class="function-signature">(<span class="rst-sig-param"><span class="rst-undocumented">self</span>, </span><span class="rst-sig-param">cut: <code><a href="https://docs.python.org/3/library/typing.html#typing.Sequence" class="intersphinx-link">T.Sequence</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#tuple" class="intersphinx-link">tuple</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/functions.html#int" class="intersphinx-link">int</a>, <wbr></wbr><a href="https://docs.python.org/3/builtins/functions.html#int" class="intersphinx-link">int</a>]]</code></span>) -&gt; <code><a href="docstring_parser._lines.Lines.html" class="internal-link" title="docstring_parser._lines.Lines">Lines</a></code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/92afacad1545b0127dfd9bd4be034b634e3bbd86/docstring_parser/_lines.py#L119">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#without" title="docstring_parser._lines.Lines.without">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>The same docstring with ranges of lines cut out.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">cut:</span><code><a href="https://docs.python.org/3/library/typing.html#typing.Sequence" class="intersphinx-link">T.Sequence</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#tuple" class="intersphinx-link">tuple</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/functions.html#int" class="intersphinx-link">int</a>, <wbr></wbr><a href="https://docs.python.org/3/builtins/functions.html#int" class="intersphinx-link">int</a>]]</code></td><td class="fieldArgDesc">the ranges of line indexes, each from its start to
+before its end, in order</td></tr></table><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="docstring_parser._lines.Lines.html" class="internal-link" title="docstring_parser._lines.Lines">Lines</a></code></td><td class="fieldArgDesc">the lines left, whose <code><a href="#source_line" class="internal-link" title="docstring_parser._lines.Lines.source_line">source_line</a></code> still tells
+the line of the docstring as written</td></tr></table></div>
+  </div>
 </div><div class="baseclassvariable">
   
   
@@ -603,7 +662,7 @@ offset into <tt class="rst-docutils rst-literal">text</tt>.</p></div>
   <div class="functionHeader">
     
     <span class="py-defname">__slots__</span>: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#tuple" class="intersphinx-link">tuple</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><span class="rst-variable-ellipsis">...</span>]</code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/72d53d8820905098904ca6fe2ceede562f2ffc19/docstring_parser/_lines.py#L84">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/92afacad1545b0127dfd9bd4be034b634e3bbd86/docstring_parser/_lines.py#L84">
       
       (source)
     </a>
@@ -630,7 +689,7 @@ offset into <tt class="rst-docutils rst-literal">text</tt>.</p></div>
   <div class="functionHeader">
     
     <span class="py-defname">lines</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/72d53d8820905098904ca6fe2ceede562f2ffc19/docstring_parser/_lines.py#L96">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/92afacad1545b0127dfd9bd4be034b634e3bbd86/docstring_parser/_lines.py#L104">
       
       (source)
     </a>
@@ -657,7 +716,7 @@ offset into <tt class="rst-docutils rst-literal">text</tt>.</p></div>
   <div class="functionHeader">
     
     <span class="py-defname">raw</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/72d53d8820905098904ca6fe2ceede562f2ffc19/docstring_parser/_lines.py#L95">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/92afacad1545b0127dfd9bd4be034b634e3bbd86/docstring_parser/_lines.py#L103">
       
       (source)
     </a>
@@ -684,7 +743,7 @@ offset into <tt class="rst-docutils rst-literal">text</tt>.</p></div>
   <div class="functionHeader">
     
     <span class="py-defname">text</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/72d53d8820905098904ca6fe2ceede562f2ffc19/docstring_parser/_lines.py#L99">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/92afacad1545b0127dfd9bd4be034b634e3bbd86/docstring_parser/_lines.py#L107">
       
       (source)
     </a>
@@ -711,11 +770,38 @@ offset into <tt class="rst-docutils rst-literal">text</tt>.</p></div>
   <div class="functionHeader">
     
     <span class="py-defname">_lead</span>: <code><a href="docstring_parser._lines.Lines.html" class="internal-link" title="docstring_parser._lines.Lines">Lines</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/72d53d8820905098904ca6fe2ceede562f2ffc19/docstring_parser/_lines.py#L101">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/92afacad1545b0127dfd9bd4be034b634e3bbd86/docstring_parser/_lines.py#L109">
       
       (source)
     </a>
     <a class="headerLink" href="#_lead" title="docstring_parser._lines.Lines._lead">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
+  <a name="docstring_parser._lines.Lines._map">
+    
+  </a>
+  <a name="_map">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_map</span>: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/functions.html#int" class="intersphinx-link">int</a>] | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/92afacad1545b0127dfd9bd4be034b634e3bbd86/docstring_parser/_lines.py#L111">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_map" title="docstring_parser._lines.Lines._map">
       
       
       ¶
@@ -738,7 +824,7 @@ offset into <tt class="rst-docutils rst-literal">text</tt>.</p></div>
   <div class="functionHeader">
     
     <span class="py-defname">_skipped</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/72d53d8820905098904ca6fe2ceede562f2ffc19/docstring_parser/_lines.py#L98">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/92afacad1545b0127dfd9bd4be034b634e3bbd86/docstring_parser/_lines.py#L106">
       
       (source)
     </a>
@@ -765,7 +851,7 @@ offset into <tt class="rst-docutils rst-literal">text</tt>.</p></div>
   <div class="functionHeader">
     
     <span class="py-defname">_starts</span>: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/functions.html#int" class="intersphinx-link">int</a>] | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/72d53d8820905098904ca6fe2ceede562f2ffc19/docstring_parser/_lines.py#L100">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/92afacad1545b0127dfd9bd4be034b634e3bbd86/docstring_parser/_lines.py#L108">
       
       (source)
     </a>
@@ -792,7 +878,7 @@ offset into <tt class="rst-docutils rst-literal">text</tt>.</p></div>
   <div class="container-fluid">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    25.10.1 at 2026-11-06 16:35:22.
+    25.10.1 at 2026-11-06 16:37:18.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 
