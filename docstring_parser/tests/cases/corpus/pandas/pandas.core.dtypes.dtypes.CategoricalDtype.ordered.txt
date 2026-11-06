@@ -60,6 +60,10 @@ Whether the categories have an ordered relationship.
 When ``True``, comparison operations on the resulting Categorical
 are valid and sort in the order of the categories.
 
+See Also
+--------
+categories : An Index containing the unique categories allowed.
+
 Examples
 --------
 >>> cat_type = pd.CategoricalDtype(categories=["a", "b"], ordered=True)
@@ -68,7 +72,3 @@ True
 >>> cat_type = pd.CategoricalDtype(categories=["a", "b"], ordered=False)
 >>> cat_type.ordered
 False
-
-See Also
---------
-categories : An Index containing the unique categories allowed.

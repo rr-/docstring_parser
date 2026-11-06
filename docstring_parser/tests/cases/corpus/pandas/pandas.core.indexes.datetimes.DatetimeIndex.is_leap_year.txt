@@ -59,15 +59,15 @@ A leap year is a year, which has 366 days (instead of 365) including
 are multiples of four with the exception of years divisible by 100
 but not by 400.
 
-Examples
---------
->>> idx = pd.date_range("2012-01-01", "2015-01-01", freq="YE")
->>> idx.is_leap_year
-array([ True, False, False])
-
 See Also
 --------
 DatetimeIndex.is_year_end : Indicate whether the date is the last
     day of the year.
 DatetimeIndex.is_year_start : Indicate whether the date is the first
     day of a year.
+
+Examples
+--------
+>>> idx = pd.date_range("2012-01-01", "2015-01-01", freq="YE")
+>>> idx.is_leap_year
+array([ True, False, False])

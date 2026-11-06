@@ -245,6 +245,14 @@ Raises
 LinAlgError
     If decomposition fails.
 
+Notes
+-----
+This is an interface to the LAPACK routines sgerqf, dgerqf, cgerqf, zgerqf,
+sorgrq, dorgrq, cungrq and zungrq.
+
+If ``mode=economic``, the shapes of Q and R are (K, N) and (M, K) instead
+of (N,N) and (M,N), with ``K=min(M,N)``.
+
 Examples
 --------
 >>> import numpy as np
@@ -262,11 +270,3 @@ True
 >>> r3, q3 = linalg.rq(a, mode='economic')
 >>> r3.shape, q3.shape
 ((6, 6), (6, 9))
-
-Notes
------
-This is an interface to the LAPACK routines sgerqf, dgerqf, cgerqf, zgerqf,
-sorgrq, dorgrq, cungrq and zungrq.
-
-If ``mode=economic``, the shapes of Q and R are (K, N) and (M, K) instead
-of (N,N) and (M,N), with ``K=min(M,N)``.

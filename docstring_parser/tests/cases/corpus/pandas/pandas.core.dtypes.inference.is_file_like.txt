@@ -114,6 +114,13 @@ Returns
 bool
     Whether `obj` has file-like properties.
 
+See Also
+--------
+api.types.is_dict_like : Check if the object is dict-like.
+api.types.is_hashable : Return True if hash(obj) will succeed, False otherwise.
+api.types.is_named_tuple : Check if the object is a named tuple.
+api.types.is_iterator : Check if the object is an iterator.
+
 Examples
 --------
 >>> import io
@@ -123,10 +130,3 @@ Examples
 True
 >>> is_file_like([1, 2, 3])
 False
-
-See Also
---------
-api.types.is_dict_like : Check if the object is dict-like.
-api.types.is_hashable : Return True if hash(obj) will succeed, False otherwise.
-api.types.is_named_tuple : Check if the object is a named tuple.
-api.types.is_iterator : Check if the object is an iterator.

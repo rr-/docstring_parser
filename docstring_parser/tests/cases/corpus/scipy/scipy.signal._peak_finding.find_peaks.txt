@@ -678,6 +678,54 @@ PeakPropertyWarning
     Raised if a peak's properties have unexpected values (see
     `peak_prominences` and `peak_widths`).
 
+Warnings
+--------
+This function may return unexpected results for data containing NaNs. To
+avoid this, NaNs should either be removed or replaced.
+
+See Also
+--------
+find_peaks_cwt
+    Find peaks using the wavelet transformation.
+peak_prominences
+    Directly calculate the prominence of peaks.
+peak_widths
+    Directly calculate the width of peaks.
+
+Notes
+-----
+In the context of this function, a peak or local maximum is defined as any
+sample whose two direct neighbours have a smaller amplitude. For flat peaks
+(more than one sample of equal amplitude wide) the index of the middle
+sample is returned (rounded down in case the number of samples is even).
+For noisy signals the peak locations can be off because the noise might
+change the position of local maxima. In those cases consider smoothing the
+signal before searching for peaks or use other peak finding and fitting
+methods (like `find_peaks_cwt`).
+
+Some additional comments on specifying conditions:
+
+* Almost all conditions (excluding `distance`) can be given as half-open or
+  closed intervals, e.g., ``1`` or ``(1, None)`` defines the half-open
+  interval :math:`[1, \infty]` while ``(None, 1)`` defines the interval
+  :math:`[-\infty, 1]`. The open interval ``(None, None)`` can be specified
+  as well, which returns the matching properties without exclusion of peaks.
+* The border is always included in the interval used to select valid peaks.
+* For several conditions the interval borders can be specified with
+  arrays matching `x` in shape which enables dynamic constrains based on
+  the sample position.
+* The conditions are evaluated in the following order: `plateau_size`,
+  `height`, `threshold`, `distance`, `prominence`, `width`. In most cases
+  this order is the fastest one because faster operations are applied first
+  to reduce the number of peaks that need to be evaluated later.
+* While indices in `peaks` are guaranteed to be at least `distance` samples
+  apart, edges of flat peaks may be closer than the allowed `distance`.
+* Use `wlen` to reduce the time it takes to evaluate the conditions for
+  `prominence` or `width` if `x` is large or has many local maxima
+  (see `peak_prominences`).
+
+.. versionadded:: 1.1.0
+
 Examples
 --------
 To demonstrate this function's usage we use a signal `x` supplied with
@@ -746,51 +794,3 @@ samples.
 >>> plt.hlines(y=properties["width_heights"], xmin=properties["left_ips"],
 ...            xmax=properties["right_ips"], color = "C1")
 >>> plt.show()
-
-Warnings
---------
-This function may return unexpected results for data containing NaNs. To
-avoid this, NaNs should either be removed or replaced.
-
-See Also
---------
-find_peaks_cwt
-    Find peaks using the wavelet transformation.
-peak_prominences
-    Directly calculate the prominence of peaks.
-peak_widths
-    Directly calculate the width of peaks.
-
-Notes
------
-In the context of this function, a peak or local maximum is defined as any
-sample whose two direct neighbours have a smaller amplitude. For flat peaks
-(more than one sample of equal amplitude wide) the index of the middle
-sample is returned (rounded down in case the number of samples is even).
-For noisy signals the peak locations can be off because the noise might
-change the position of local maxima. In those cases consider smoothing the
-signal before searching for peaks or use other peak finding and fitting
-methods (like `find_peaks_cwt`).
-
-Some additional comments on specifying conditions:
-
-* Almost all conditions (excluding `distance`) can be given as half-open or
-  closed intervals, e.g., ``1`` or ``(1, None)`` defines the half-open
-  interval :math:`[1, \infty]` while ``(None, 1)`` defines the interval
-  :math:`[-\infty, 1]`. The open interval ``(None, None)`` can be specified
-  as well, which returns the matching properties without exclusion of peaks.
-* The border is always included in the interval used to select valid peaks.
-* For several conditions the interval borders can be specified with
-  arrays matching `x` in shape which enables dynamic constrains based on
-  the sample position.
-* The conditions are evaluated in the following order: `plateau_size`,
-  `height`, `threshold`, `distance`, `prominence`, `width`. In most cases
-  this order is the fastest one because faster operations are applied first
-  to reduce the number of peaks that need to be evaluated later.
-* While indices in `peaks` are guaranteed to be at least `distance` samples
-  apart, edges of flat peaks may be closer than the allowed `distance`.
-* Use `wlen` to reduce the time it takes to evaluate the conditions for
-  `prominence` or `width` if `x` is large or has many local maxima
-  (see `peak_prominences`).
-
-.. versionadded:: 1.1.0

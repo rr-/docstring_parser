@@ -31,7 +31,6 @@ style: numpydoc
   is_generator: True
 === compose numpydoc
 Short description
-
 Yields
 ------
 int

@@ -883,6 +883,40 @@ diag : ndarray, optional
     For the normalized Laplacian, this is the array of square roots
     of vertex degrees or 1 if the degree is zero.
 
+Notes
+-----
+The Laplacian matrix of a graph is sometimes referred to as the
+"Kirchhoff matrix" or just the "Laplacian", and is useful in many
+parts of spectral graph theory.
+In particular, the eigen-decomposition of the Laplacian can give
+insight into many properties of the graph, e.g.,
+is commonly used for spectral data embedding and clustering.
+
+The constructed Laplacian doubles the memory use if ``copy=True`` and
+``form="array"`` which is the default.
+Choosing ``copy=False`` has no effect unless ``form="array"``
+or the matrix is sparse in the ``coo`` format, or dense array, except
+for the integer input with ``normed=True`` that forces the float output.
+
+Sparse input is reformatted into ``coo`` if ``form="array"``,
+which is the default.
+
+If the input adjacency matrix is not symmetric, the Laplacian is
+also non-symmetric unless ``symmetrized=True`` is used.
+
+Diagonal entries of the input adjacency matrix are ignored and
+replaced with zeros for the purpose of normalization where ``normed=True``.
+The normalization uses the inverse square roots of row-sums of the input
+adjacency matrix, and thus may fail if the row-sums contain
+negative or complex with a non-zero imaginary part values.
+
+The normalization is symmetric, making the normalized Laplacian also
+symmetric if the input csgraph was symmetric.
+
+References
+----------
+.. [1] Laplacian matrix. https://en.wikipedia.org/wiki/Laplacian_matrix
+
 Examples
 --------
 >>> import numpy as np
@@ -1097,37 +1131,3 @@ odd vertices into one color and all even vertices into another one,
 while the balanced min-cut partitions the graph
 in the middle by deleting a single edge.
 Both determined partitions are optimal.
-
-Notes
------
-The Laplacian matrix of a graph is sometimes referred to as the
-"Kirchhoff matrix" or just the "Laplacian", and is useful in many
-parts of spectral graph theory.
-In particular, the eigen-decomposition of the Laplacian can give
-insight into many properties of the graph, e.g.,
-is commonly used for spectral data embedding and clustering.
-
-The constructed Laplacian doubles the memory use if ``copy=True`` and
-``form="array"`` which is the default.
-Choosing ``copy=False`` has no effect unless ``form="array"``
-or the matrix is sparse in the ``coo`` format, or dense array, except
-for the integer input with ``normed=True`` that forces the float output.
-
-Sparse input is reformatted into ``coo`` if ``form="array"``,
-which is the default.
-
-If the input adjacency matrix is not symmetric, the Laplacian is
-also non-symmetric unless ``symmetrized=True`` is used.
-
-Diagonal entries of the input adjacency matrix are ignored and
-replaced with zeros for the purpose of normalization where ``normed=True``.
-The normalization uses the inverse square roots of row-sums of the input
-adjacency matrix, and thus may fail if the row-sums contain
-negative or complex with a non-zero imaginary part values.
-
-The normalization is symmetric, making the normalized Laplacian also
-symmetric if the input csgraph was symmetric.
-
-References
-----------
-.. [1] Laplacian matrix. https://en.wikipedia.org/wiki/Laplacian_matrix

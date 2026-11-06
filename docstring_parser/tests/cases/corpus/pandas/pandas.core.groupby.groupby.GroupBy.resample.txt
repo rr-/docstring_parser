@@ -390,6 +390,15 @@ Returns
 DatetimeIndexResampler, PeriodIndexResampler or TimedeltaResampler
     Resampler object for the type of the index.
 
+See Also
+--------
+Series.resample : Resample a Series.
+DataFrame.resample : Resample a DataFrame.
+Grouper : Specify a frequency to resample with when
+    grouping by a key.
+DatetimeIndex.resample : Frequency conversion and resampling of
+    time series.
+
 Examples
 --------
 >>> idx = pd.date_range("1/1/2000", periods=4, freq="min")
@@ -454,12 +463,3 @@ a
 0   2000-01-01 00:00:00  1
     2000-01-01 00:03:00  2
 5   2000-01-01 00:03:00  1
-
-See Also
---------
-Series.resample : Resample a Series.
-DataFrame.resample : Resample a DataFrame.
-Grouper : Specify a frequency to resample with when
-    grouping by a key.
-DatetimeIndex.resample : Frequency conversion and resampling of
-    time series.

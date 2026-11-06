@@ -149,6 +149,10 @@ Returns
 typechar : str
     The character representing the minimum-size type that was found.
 
+See Also
+--------
+dtype
+
 Examples
 --------
 >>> import numpy as np
@@ -159,7 +163,3 @@ Examples
 'D'
 >>> np.mintypecode('abceh', default='G')
 'G'
-
-See Also
---------
-dtype

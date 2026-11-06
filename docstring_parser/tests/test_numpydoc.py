@@ -161,7 +161,7 @@ def test_param_default_regex_in_desc(input_str, expected_match, default_value):
             ----
             asd
             """,
-            "Short description\n\nMeta\n----\nasd",
+            "Short description\nMeta\n----\nasd",
             1,
         ),
         (
@@ -172,7 +172,7 @@ def test_param_default_regex_in_desc(input_str, expected_match, default_value):
             ----
             asd
             """,
-            "Short description\nLong description\n\nMeta\n----\nasd",
+            "Short description\nLong description\nMeta\n----\nasd",
             1,
         ),
         (
@@ -184,9 +184,23 @@ def test_param_default_regex_in_desc(input_str, expected_match, default_value):
             ----
             asd
             """,
+            "Short description\nFirst line\n    Second line\nMeta\n----\nasd",
+            1,
+        ),
+        (
+            """
+            Short description
+
+            First line
+                Second line
+            Meta
+            ----
+            asd
+            """,
             "Short description\n"
+            "\n"
             "First line\n"
-            "    Second line\n\n"
+            "    Second line\n"
             "Meta\n"
             "----\n"
             "asd",
@@ -205,26 +219,7 @@ def test_param_default_regex_in_desc(input_str, expected_match, default_value):
             "Short description\n"
             "\n"
             "First line\n"
-            "    Second line\n\n"
-            "Meta\n"
-            "----\n"
-            "asd",
-            1,
-        ),
-        (
-            """
-            Short description
-
-            First line
-                Second line
-            Meta
-            ----
-            asd
-            """,
-            "Short description\n"
-            "\n"
-            "First line\n"
-            "    Second line\n\n"
+            "    Second line\n"
             "Meta\n"
             "----\n"
             "asd",
@@ -322,7 +317,7 @@ def test_param_default_regex_in_desc(input_str, expected_match, default_value):
             ValueError
                 description
             """,
-            "Short description\n\nRaises\n------\nValueError\n    description",
+            "Short description\nRaises\n------\nValueError\n    description",
             1,
         ),
         (
@@ -339,7 +334,7 @@ def test_param_default_regex_in_desc(input_str, expected_match, default_value):
             desc2a
             desc2b
             """,
-            "Description\n\n"
+            "Description\n"
             "Examples\n"
             "--------\n"
             ">>> test1a\n"

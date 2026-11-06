@@ -157,6 +157,19 @@ Returns
 DataFrame or Series
     Standard deviation of values within each group.
 
+See Also
+--------
+core.resample.Resampler.mean : Compute mean of groups, excluding missing values.
+core.resample.Resampler.median : Compute median of groups, excluding missing
+    values.
+core.resample.Resampler.var : Compute variance of groups, excluding missing
+    values.
+
+Notes
+-----
+To use the same divisor as ``numpy.std``, use ``ddof=0`` instead of
+the default ``ddof=1``.
+
 Examples
 --------
 >>> ser = pd.Series(
@@ -176,16 +189,3 @@ Examples
 2023-01-01    1.000000
 2023-02-01    2.645751
 Freq: MS, dtype: float64
-
-See Also
---------
-core.resample.Resampler.mean : Compute mean of groups, excluding missing values.
-core.resample.Resampler.median : Compute median of groups, excluding missing
-    values.
-core.resample.Resampler.var : Compute variance of groups, excluding missing
-    values.
-
-Notes
------
-To use the same divisor as ``numpy.std``, use ``ddof=0`` instead of
-the default ``ddof=1``.

@@ -312,6 +312,37 @@ Returns
 discrepancy : float
     Discrepancy (higher values correspond to greater sample uniformity).
 
+See Also
+--------
+discrepancy
+
+Notes
+-----
+The discrepancy can serve as a simple measure of quality of a random sample.
+This measure is based on the geometric properties of the distribution of points
+in the sample, such as the minimum distance between any pair of points, or
+the mean edge length in a minimum spanning tree.
+
+The higher the value is, the better the coverage of the parameter space is.
+Note that this is different from `scipy.stats.qmc.discrepancy`, where lower
+values correspond to higher quality of the sample.
+
+Also note that when comparing different sampling strategies using this function,
+the sample size must be kept constant.
+
+It is possible to calculate two metrics from the minimum spanning tree:
+the mean edge length and the standard deviation of edges lengths. Using
+both metrics offers a better picture of uniformity than either metric alone,
+with higher mean and lower standard deviation being preferable (see [1]_
+for a brief discussion). This function currently only calculates the mean
+edge length.
+
+References
+----------
+.. [1] Franco J. et al. "Minimum Spanning Tree: A new approach to assess the quality
+   of the design of computer experiments." Chemometrics and Intelligent Laboratory
+   Systems, 97 (2), pp. 164-169, 2009.
+
 Examples
 --------
 Calculate the quality of the sample using the minimum euclidean distance
@@ -358,34 +389,3 @@ the smallest distance:
 ... ]
 >>> ax.legend(handles=markers, loc='center left', bbox_to_anchor=(1, 0.5));
 >>> plt.show()
-
-See Also
---------
-discrepancy
-
-Notes
------
-The discrepancy can serve as a simple measure of quality of a random sample.
-This measure is based on the geometric properties of the distribution of points
-in the sample, such as the minimum distance between any pair of points, or
-the mean edge length in a minimum spanning tree.
-
-The higher the value is, the better the coverage of the parameter space is.
-Note that this is different from `scipy.stats.qmc.discrepancy`, where lower
-values correspond to higher quality of the sample.
-
-Also note that when comparing different sampling strategies using this function,
-the sample size must be kept constant.
-
-It is possible to calculate two metrics from the minimum spanning tree:
-the mean edge length and the standard deviation of edges lengths. Using
-both metrics offers a better picture of uniformity than either metric alone,
-with higher mean and lower standard deviation being preferable (see [1]_
-for a brief discussion). This function currently only calculates the mean
-edge length.
-
-References
-----------
-.. [1] Franco J. et al. "Minimum Spanning Tree: A new approach to assess the quality
-   of the design of computer experiments." Chemometrics and Intelligent Laboratory
-   Systems, 97 (2), pp. 164-169, 2009.

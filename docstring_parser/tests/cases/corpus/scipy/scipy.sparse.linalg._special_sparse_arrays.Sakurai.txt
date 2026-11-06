@@ -256,6 +256,35 @@ n : int
 dtype : dtype
     Numerical type of the array. Default is ``np.int8``.
 
+Methods
+-------
+toarray()
+    Construct a dense array from Laplacian data
+tosparse()
+    Construct a sparse array from Laplacian data
+tobanded()
+    The Sakurai matrix in the format for banded symmetric matrices,
+    i.e., (3, n) ndarray with 3 upper diagonals
+    placing the main diagonal at the bottom.
+eigenvalues
+    All eigenvalues of the Sakurai matrix ordered ascending.
+
+Notes
+-----
+Reference [1]_ introduces a generalized eigenproblem for the matrix pair
+`A` and `B` where `A` is the identity so we turn it into an eigenproblem
+just for the matrix `B` that this function outputs in various formats
+together with its eigenvalues.
+
+.. versionadded:: 1.12.0
+
+References
+----------
+.. [1] T. Sakurai, H. Tadano, Y. Inadomi, and U. Nagashima,
+   "A moment-based method for large-scale generalized
+   eigenvalue problems",
+   Appl. Num. Anal. Comp. Math. Vol. 1 No. 2 (2004).
+
 Examples
 --------
 >>> import numpy as np
@@ -294,32 +323,3 @@ The banded form can be used in scipy functions for banded matrices, e.g.,
 >>> e = eig_banded(sak.tobanded(), eigvals_only=True)
 >>> np.allclose(sak.eigenvalues(), e, atol= n * n * n * np.finfo(float).eps)
 True
-
-Methods
--------
-toarray()
-    Construct a dense array from Laplacian data
-tosparse()
-    Construct a sparse array from Laplacian data
-tobanded()
-    The Sakurai matrix in the format for banded symmetric matrices,
-    i.e., (3, n) ndarray with 3 upper diagonals
-    placing the main diagonal at the bottom.
-eigenvalues
-    All eigenvalues of the Sakurai matrix ordered ascending.
-
-Notes
------
-Reference [1]_ introduces a generalized eigenproblem for the matrix pair
-`A` and `B` where `A` is the identity so we turn it into an eigenproblem
-just for the matrix `B` that this function outputs in various formats
-together with its eigenvalues.
-
-.. versionadded:: 1.12.0
-
-References
-----------
-.. [1] T. Sakurai, H. Tadano, Y. Inadomi, and U. Nagashima,
-   "A moment-based method for large-scale generalized
-   eigenvalue problems",
-   Appl. Num. Anal. Comp. Math. Vol. 1 No. 2 (2004).

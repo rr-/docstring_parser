@@ -89,13 +89,13 @@ Returns
 out : ndarray
     Output array of bools.
 
+See Also
+--------
+equal, not_equal, greater_equal, greater, less
+
 Examples
 --------
 >>> import numpy as np
 >>> x1 = np.array(['a', 'b', 'c'])
 >>> np.char.less_equal(x1, 'b')
 array([ True,  True, False])
-
-See Also
---------
-equal, not_equal, greater_equal, greater, less

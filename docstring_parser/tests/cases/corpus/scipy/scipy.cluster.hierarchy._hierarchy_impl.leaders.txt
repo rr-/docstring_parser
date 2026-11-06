@@ -310,6 +310,10 @@ M : ndarray
     For example: if ``L[3]=2`` and ``M[3]=8``, the flat cluster with
     id 8's leader is linkage node 2.
 
+See Also
+--------
+fcluster : for the creation of flat cluster assignments.
+
 Examples
 --------
 >>> from scipy.cluster.hierarchy import ward, fcluster, leaders
@@ -354,10 +358,6 @@ the flat clusters in ``T``:
 
 >>> M
 array([1, 2, 3, 4], dtype=int32)
-
-See Also
---------
-fcluster : for the creation of flat cluster assignments.
 
 Notes
 -----

@@ -209,6 +209,12 @@ mean : `RigidTransform` instance
     Single transform containing the mean of the transforms in the
     current instance.
 
+References
+----------
+.. [1] Hartley, Richard, et al.,
+        "Rotation Averaging", International Journal of Computer Vision
+        103, 2013, pp. 267-305.
+
 Examples
 --------
 >>> import numpy as np
@@ -232,9 +238,3 @@ array([[ 0.61593485, -0.74508342,  0.25588075,  0.66999034],
        [-0.59353615, -0.65246765, -0.47116962,  0.25481794],
        [ 0.51801458,  0.13833531, -0.84411151,  0.52429339],
        [0., 0., 0., 1.]])
-
-References
-----------
-.. [1] Hartley, Richard, et al.,
-        "Rotation Averaging", International Journal of Computer Vision
-        103, 2013, pp. 267-305.

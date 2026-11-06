@@ -436,6 +436,14 @@ TypeError
     If the input is not list-like, 1D, or scalar convertible to numeric,
     such as nested lists or unsupported input types (e.g., dict).
 
+See Also
+--------
+DataFrame.astype : Cast argument to a specified dtype.
+to_datetime : Convert argument to datetime.
+to_timedelta : Convert argument to timedelta.
+numpy.ndarray.astype : Cast a numpy array to a specified type.
+DataFrame.convert_dtypes : Convert dtypes.
+
 Examples
 --------
 Take separate series and convert to numeric, coercing when told to
@@ -490,11 +498,3 @@ Index input returns an Index:
 
 >>> pd.to_numeric(pd.Index(["1", "2", "3"]))
 Index([1, 2, 3], dtype='int64')
-
-See Also
---------
-DataFrame.astype : Cast argument to a specified dtype.
-to_datetime : Convert argument to datetime.
-to_timedelta : Convert argument to timedelta.
-numpy.ndarray.astype : Cast a numpy array to a specified type.
-DataFrame.convert_dtypes : Convert dtypes.

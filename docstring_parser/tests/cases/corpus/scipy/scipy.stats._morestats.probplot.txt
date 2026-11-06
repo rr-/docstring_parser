@@ -387,6 +387,28 @@ Returns
     determination.  If ``fit=False`` and ``plot=None``, this tuple is not
     returned.
 
+Notes
+-----
+Even if `plot` is given, the figure is not shown or saved by `probplot`;
+``plt.show()`` or ``plt.savefig('figname.png')`` should be used after
+calling `probplot`.
+
+`probplot` generates a probability plot, which should not be confused with
+a Q-Q or a P-P plot.  Statsmodels has more extensive functionality of this
+type, see ``statsmodels.api.ProbPlot``.
+
+The formula used for the theoretical quantiles (horizontal axis of the
+probability plot) is Filliben's estimate::
+
+    quantiles = dist.ppf(val), for
+
+            0.5**(1/n),                  for i = n
+      val = (i - 0.3175) / (n + 0.365),  for i = 2, ..., n-1
+            1 - 0.5**(1/n),              for i = 1
+
+where ``i`` indicates the i-th ordered value and ``n`` is the total number
+of values.
+
 Examples
 --------
 >>> import numpy as np
@@ -432,25 +454,3 @@ Produce a new figure with a loggamma distribution, using the ``dist`` and
 Show the results with Matplotlib:
 
 >>> plt.show()
-
-Notes
------
-Even if `plot` is given, the figure is not shown or saved by `probplot`;
-``plt.show()`` or ``plt.savefig('figname.png')`` should be used after
-calling `probplot`.
-
-`probplot` generates a probability plot, which should not be confused with
-a Q-Q or a P-P plot.  Statsmodels has more extensive functionality of this
-type, see ``statsmodels.api.ProbPlot``.
-
-The formula used for the theoretical quantiles (horizontal axis of the
-probability plot) is Filliben's estimate::
-
-    quantiles = dist.ppf(val), for
-
-            0.5**(1/n),                  for i = n
-      val = (i - 0.3175) / (n + 0.365),  for i = 2, ..., n-1
-            1 - 0.5**(1/n),              for i = 1
-
-where ``i`` indicates the i-th ordered value and ``n`` is the total number
-of values.

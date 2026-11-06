@@ -149,14 +149,6 @@ Raises
 ValueError
     If any of the following are true: a) ``a.shape[-1] < 2``; b) ``a[..., 0] == 0``.
 
-Examples
---------
->>> from scipy.linalg import companion
->>> companion([1, -10, 31, -30])
-array([[ 10., -31.,  30.],
-       [  1.,   0.,   0.],
-       [  0.,   1.,   0.]])
-
 Notes
 -----
 .. versionadded:: 0.8.0
@@ -165,3 +157,11 @@ References
 ----------
 .. [1] R. A. Horn & C. R. Johnson, *Matrix Analysis*.  Cambridge, UK:
     Cambridge University Press, 1999, pp. 146-7.
+
+Examples
+--------
+>>> from scipy.linalg import companion
+>>> companion([1, -10, 31, -30])
+array([[ 10., -31.,  30.],
+       [  1.,   0.,   0.],
+       [  0.,   1.,   0.]])

@@ -184,6 +184,16 @@ Returns
 out : bool
     True if cast can occur according to the casting rule.
 
+Notes
+-----
+.. versionchanged:: 2.0
+   This function does not support Python scalars anymore and does not
+   apply any value-based logic for 0-D arrays and NumPy scalars.
+
+See also
+--------
+dtype, result_type
+
 Examples
 --------
 Basic examples
@@ -201,13 +211,3 @@ True
 False
 >>> np.can_cast('i4', 'S4')
 False
-
-Notes
------
-.. versionchanged:: 2.0
-   This function does not support Python scalars anymore and does not
-   apply any value-based logic for 0-D arrays and NumPy scalars.
-
-See also
---------
-dtype, result_type

@@ -115,12 +115,12 @@ Returns
 coef : ndarray
     Hermite series of power.
 
+See Also
+--------
+hermeadd, hermesub, hermemulx, hermemul, hermediv
+
 Examples
 --------
 >>> from numpy.polynomial.hermite_e import hermepow
 >>> hermepow([1, 2, 3], 2)
 array([23.,  28.,  46.,  12.,   9.])
-
-See Also
---------
-hermeadd, hermesub, hermemulx, hermemul, hermediv

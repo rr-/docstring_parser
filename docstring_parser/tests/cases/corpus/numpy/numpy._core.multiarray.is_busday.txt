@@ -190,6 +190,12 @@ out : array of bool
     An array with the same shape as ``dates``, containing True for
     each valid day, and False for each invalid day.
 
+See Also
+--------
+busdaycalendar : An object that specifies a custom set of valid days.
+busday_offset : Applies an offset counted in valid days.
+busday_count : Counts how many valid days are in a half-open date range.
+
 Examples
 --------
 >>> import numpy as np
@@ -197,9 +203,3 @@ Examples
 ... np.is_busday(['2011-07-01', '2011-07-02', '2011-07-18'],
 ...                 holidays=['2011-07-01', '2011-07-04', '2011-07-17'])
 array([False, False,  True])
-
-See Also
---------
-busdaycalendar : An object that specifies a custom set of valid days.
-busday_offset : Applies an offset counted in valid days.
-busday_count : Counts how many valid days are in a half-open date range.

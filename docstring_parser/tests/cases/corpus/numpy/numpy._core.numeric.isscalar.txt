@@ -208,29 +208,6 @@ Returns
 val : bool
     True if `element` is a scalar type, False if it is not.
 
-Examples
---------
->>> import numpy as np
->>> np.isscalar(3.1)
-True
->>> np.isscalar(np.array(3.1))
-False
->>> np.isscalar([3.1])
-False
->>> np.isscalar(False)
-True
->>> np.isscalar('numpy')
-True
-
-NumPy supports PEP 3141 numbers:
-
->>> from fractions import Fraction
->>> np.isscalar(Fraction(5, 17))
-True
->>> from numbers import Number
->>> np.isscalar(Number())
-True
-
 See Also
 --------
 ndim : Get the number of dimensions of an array
@@ -268,3 +245,26 @@ the ``bins`` argument to `histogram`. Some key differences:
 | `list`, `tuple`, and other         | ``False``     | ``False``         |
 | sequence objects                   |               |                   |
 +------------------------------------+---------------+-------------------+
+
+Examples
+--------
+>>> import numpy as np
+>>> np.isscalar(3.1)
+True
+>>> np.isscalar(np.array(3.1))
+False
+>>> np.isscalar([3.1])
+False
+>>> np.isscalar(False)
+True
+>>> np.isscalar('numpy')
+True
+
+NumPy supports PEP 3141 numbers:
+
+>>> from fractions import Fraction
+>>> np.isscalar(Fraction(5, 17))
+True
+>>> from numbers import Number
+>>> np.isscalar(Number())
+True

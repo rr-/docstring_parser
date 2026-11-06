@@ -316,6 +316,17 @@ path : list of tuples
 string_repr : str
     A printable representation of the einsum path.
 
+Notes
+-----
+The resulting path indicates which terms of the input contraction should be
+contracted first, the result of this contraction is then appended to the
+end of the contraction list. This list can then be iterated over until all
+intermediate contractions are complete.
+
+See Also
+--------
+einsum, linalg.multi_dot
+
 Examples
 --------
 We can begin with a chain dot example. In this case, it is optimal to
@@ -368,14 +379,3 @@ scaling                  current                                remaining
    5               bcde,fb->cdef                         gc,hd,cdef->efgh
    5               cdef,gc->defg                            hd,defg->efgh
    5               defg,hd->efgh                               efgh->efgh
-
-Notes
------
-The resulting path indicates which terms of the input contraction should be
-contracted first, the result of this contraction is then appended to the
-end of the contraction list. This list can then be iterated over until all
-intermediate contractions are complete.
-
-See Also
---------
-einsum, linalg.multi_dot

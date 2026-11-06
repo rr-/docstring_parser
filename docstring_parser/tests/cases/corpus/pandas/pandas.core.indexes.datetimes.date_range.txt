@@ -612,6 +612,25 @@ Returns
 DatetimeIndex
     A DatetimeIndex object of the generated dates.
 
+See Also
+--------
+DatetimeIndex : An immutable container for datetimes.
+timedelta_range : Return a fixed frequency TimedeltaIndex.
+period_range : Return a fixed frequency PeriodIndex.
+interval_range : Return a fixed frequency IntervalIndex.
+
+Notes
+-----
+Of the four parameters ``start``, ``end``, ``periods``, and ``freq``,
+a maximum of three can be specified at once. Of the three parameters
+``start``, ``end``, and ``periods``, at least two must be specified.
+If ``freq`` is omitted, the resulting ``DatetimeIndex`` will have
+``periods`` linearly spaced elements between ``start`` and ``end``
+(closed on both sides).
+
+To learn more about the frequency strings, please see
+:ref:`this link<timeseries.offset_aliases>`.
+
 Examples
 --------
 **Specifying the values**
@@ -725,22 +744,3 @@ DatetimeIndex(['2017-01-01', '2117-01-01', '2217-01-01', '2317-01-01',
                '2417-01-01', '2517-01-01', '2617-01-01', '2717-01-01',
                '2817-01-01', '2917-01-01'],
               dtype='datetime64[s]', freq='100YS-JAN')
-
-See Also
---------
-DatetimeIndex : An immutable container for datetimes.
-timedelta_range : Return a fixed frequency TimedeltaIndex.
-period_range : Return a fixed frequency PeriodIndex.
-interval_range : Return a fixed frequency IntervalIndex.
-
-Notes
------
-Of the four parameters ``start``, ``end``, ``periods``, and ``freq``,
-a maximum of three can be specified at once. Of the three parameters
-``start``, ``end``, and ``periods``, at least two must be specified.
-If ``freq`` is omitted, the resulting ``DatetimeIndex`` will have
-``periods`` linearly spaced elements between ``start`` and ``end``
-(closed on both sides).
-
-To learn more about the frequency strings, please see
-:ref:`this link<timeseries.offset_aliases>`.

@@ -137,15 +137,6 @@ out : ndarray
     Array of the roots of the series. If all the roots are real,
     then `out` is also real, otherwise it is complex.
 
-Examples
---------
->>> from numpy.polynomial.laguerre import lagroots, lagfromroots
->>> coef = lagfromroots([0, 1, 2])
->>> coef
-array([  2.,  -8.,  12.,  -6.])
->>> lagroots(coef)
-array([-4.4408921e-16,  1.0000000e+00,  2.0000000e+00])
-
 See Also
 --------
 numpy.polynomial.polynomial.polyroots
@@ -166,3 +157,12 @@ be improved by a few iterations of Newton's method.
 
 The Laguerre series basis polynomials aren't powers of `x` so the
 results of this function may seem unintuitive.
+
+Examples
+--------
+>>> from numpy.polynomial.laguerre import lagroots, lagfromroots
+>>> coef = lagfromroots([0, 1, 2])
+>>> coef
+array([  2.,  -8.,  12.,  -6.])
+>>> lagroots(coef)
+array([-4.4408921e-16,  1.0000000e+00,  2.0000000e+00])

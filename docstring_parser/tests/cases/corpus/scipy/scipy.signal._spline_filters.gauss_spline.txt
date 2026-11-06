@@ -128,17 +128,6 @@ res : ndarray
     B-spline basis function values approximated by a zero-mean Gaussian
     function.
 
-Examples
---------
-We can calculate B-Spline basis functions approximated by a Gaussian
-distribution:
-
->>> import numpy as np
->>> from scipy.signal import gauss_spline
->>> knots = np.array([-1.0, 0.0, -1.0])
->>> gauss_spline(knots, 3)
-array([0.15418033, 0.6909883, 0.15418033])  # may vary
-
 Notes
 -----
 The B-spline basis function can be approximated well by a zero-mean
@@ -154,3 +143,14 @@ References
    Sgallari F., Murli A., Paragios N. (eds) Scale Space and Variational
    Methods in Computer Vision. SSVM 2007. Lecture Notes in Computer
    Science, vol 4485. Springer, Berlin, Heidelberg.
+
+Examples
+--------
+We can calculate B-Spline basis functions approximated by a Gaussian
+distribution:
+
+>>> import numpy as np
+>>> from scipy.signal import gauss_spline
+>>> knots = np.array([-1.0, 0.0, -1.0])
+>>> gauss_spline(knots, 3)
+array([0.15418033, 0.6909883, 0.15418033])  # may vary

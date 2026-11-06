@@ -123,6 +123,10 @@ out : ndarray
     depending on input types. The output array will have an extra
     dimension with 3 elements per input element.
 
+See Also
+--------
+str.rpartition
+
 Examples
 --------
 >>> import numpy as np
@@ -131,7 +135,3 @@ Examples
 array([['aAaAa', 'A', ''],
    ['  a', 'A', '  '],
    ['abB', 'A', 'Bba']], dtype='<U5')
-
-See Also
---------
-str.rpartition

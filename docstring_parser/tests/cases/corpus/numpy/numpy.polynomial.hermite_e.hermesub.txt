@@ -103,12 +103,6 @@ Returns
 out : ndarray
     Of Hermite series coefficients representing their difference.
 
-Examples
---------
->>> from numpy.polynomial.hermite_e import hermesub
->>> hermesub([1, 2, 3, 4], [1, 2, 3])
-array([0., 0., 0., 4.])
-
 See Also
 --------
 hermeadd, hermemulx, hermemul, hermediv, hermepow
@@ -119,3 +113,9 @@ Unlike multiplication, division, etc., the difference of two Hermite
 series is a Hermite series (without having to "reproject" the result
 onto the basis set) so subtraction, just like that of "standard"
 polynomials, is simply "component-wise."
+
+Examples
+--------
+>>> from numpy.polynomial.hermite_e import hermesub
+>>> hermesub([1, 2, 3, 4], [1, 2, 3])
+array([0., 0., 0., 4.])

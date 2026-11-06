@@ -181,6 +181,15 @@ endpoints : list
     
     If the input is 2d and axis is specified, the result is a list of lists.
 
+See Also
+--------
+flatnotmasked_edges, flatnotmasked_contiguous, notmasked_edges
+clump_masked, clump_unmasked
+
+Notes
+-----
+Only accepts 2-D arrays at most.
+
 Examples
 --------
 >>> import numpy as np
@@ -205,12 +214,3 @@ array([ 0,  2,  3,  7, 8, 11])
 [[slice(0, 1, None), slice(2, 3, None)], [], [slice(0, 1, None)], [slice(0, 3, None)]]
 >>> np.ma.notmasked_contiguous(ma, axis=1)
 [[slice(0, 1, None), slice(2, 4, None)], [slice(3, 4, None)], [slice(0, 1, None), slice(3, 4, None)]]
-
-See Also
---------
-flatnotmasked_edges, flatnotmasked_contiguous, notmasked_edges
-clump_masked, clump_unmasked
-
-Notes
------
-Only accepts 2-D arrays at most.

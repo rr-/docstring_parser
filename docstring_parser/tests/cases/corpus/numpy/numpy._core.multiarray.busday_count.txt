@@ -244,6 +244,12 @@ out : array of int
     together, containing the number of valid days between
     the begin and end dates.
 
+See Also
+--------
+busdaycalendar : An object that specifies a custom set of valid days.
+is_busday : Returns a boolean array indicating valid days.
+busday_offset : Applies an offset counted in valid days.
+
 Examples
 --------
 >>> import numpy as np
@@ -256,9 +262,3 @@ Examples
 >>> # Number of Saturdays in 2011
 ... np.busday_count('2011', '2012', weekmask='Sat')
 53
-
-See Also
---------
-busdaycalendar : An object that specifies a custom set of valid days.
-is_busday : Returns a boolean array indicating valid days.
-busday_offset : Applies an offset counted in valid days.

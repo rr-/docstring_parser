@@ -434,6 +434,18 @@ Raises
 LinAlgError
     If the circulant matrix associated with `c` is near singular.
 
+See Also
+--------
+circulant : circulant matrix
+
+Notes
+-----
+For a 1-D vector `c` with length `m`, and an array `b` with shape ``(m, ...)``,
+``solve_circulant(c, b)`` returns the same result as ``solve(circulant(c), b)``
+where `solve` and `circulant` are from `scipy.linalg`.
+
+.. versionadded:: 0.16.0
+
 Examples
 --------
 >>> import numpy as np
@@ -503,15 +515,3 @@ Check by solving one pair of `c` and `b` vectors (cf. ``x[1, 1, :]``):
 
 >>> solve_circulant(c[1], b[1, :])
 array([ 0.856,  0.758,  1.149, -0.412,  0.831])
-
-See Also
---------
-circulant : circulant matrix
-
-Notes
------
-For a 1-D vector `c` with length `m`, and an array `b` with shape ``(m, ...)``,
-``solve_circulant(c, b)`` returns the same result as ``solve(circulant(c), b)``
-where `solve` and `circulant` are from `scipy.linalg`.
-
-.. versionadded:: 0.16.0

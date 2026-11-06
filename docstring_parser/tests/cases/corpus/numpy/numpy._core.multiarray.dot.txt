@@ -283,6 +283,15 @@ ValueError
     If the last dimension of `a` is not the same size as
     the second-to-last dimension of `b`.
 
+See Also
+--------
+vdot : Complex-conjugating dot product.
+vecdot : Vector dot product of two arrays.
+tensordot : Sum products over arbitrary axes.
+einsum : Einstein summation convention.
+matmul : '@' operator as method with out parameter.
+linalg.multi_dot : Chained dot product.
+
 Examples
 --------
 >>> import numpy as np
@@ -307,12 +316,3 @@ array([[4, 1],
 499128
 >>> sum(a[2,3,2,:] * b[1,2,:,2])
 499128
-
-See Also
---------
-vdot : Complex-conjugating dot product.
-vecdot : Vector dot product of two arrays.
-tensordot : Sum products over arbitrary axes.
-einsum : Einstein summation convention.
-matmul : '@' operator as method with out parameter.
-linalg.multi_dot : Chained dot product.

@@ -251,6 +251,12 @@ z1n : ndarray
 y1pz1n : ndarray
     Value of derivative Y1'(z1) for nth zero
 
+References
+----------
+.. [1] Zhang, Shanjie and Jin, Jianming. "Computation of Special
+       Functions", John Wiley and Sons, 1996, chapter 5.
+       https://people.sc.fsu.edu/~jburkardt/f77_src/special_functions/special_functions.html
+
 Examples
 --------
 Compute the first 4 real roots and the derivatives at the roots of
@@ -297,9 +303,3 @@ Compute the first 4 complex roots and the derivatives at the roots of
          -7.01590368+0.55339305j, -10.17357383+0.55127339j]),
  array([-0.45952768+1.31710194j,  0.04830191-0.69251288j,
         -0.02012695+0.51864253j,  0.011614  -0.43203296j]))
-
-References
-----------
-.. [1] Zhang, Shanjie and Jin, Jianming. "Computation of Special
-       Functions", John Wiley and Sons, 1996, chapter 5.
-       https://people.sc.fsu.edu/~jburkardt/f77_src/special_functions/special_functions.html

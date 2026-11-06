@@ -199,6 +199,16 @@ Raises
 TypeError
     When `dtype` is not a valid dtype for a structured array.
 
+See Also
+--------
+fromstring, loadtxt
+
+Notes
+-----
+Dtypes for structured arrays can be specified in several forms, but all
+forms specify at least the data type and field name. For details see
+`basics.rec`.
+
 Examples
 --------
 >>> import numpy as np
@@ -212,13 +222,3 @@ array([(1312, b'foo'), (1534, b'bar'), ( 444, b'qux')],
       dtype=[('num', '<i8'), ('key', 'S3')])
 >>> output['num']
 array([1312, 1534,  444])
-
-See Also
---------
-fromstring, loadtxt
-
-Notes
------
-Dtypes for structured arrays can be specified in several forms, but all
-forms specify at least the data type and field name. For details see
-`basics.rec`.

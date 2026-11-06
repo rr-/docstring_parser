@@ -120,6 +120,10 @@ Returns
 Index
     Index of day names.
 
+See Also
+--------
+DatetimeIndex.month_name : Return the month names with specified locale.
+
 Examples
 --------
 >>> idx = pd.date_range(start="2018-01-01", freq="D", periods=3)
@@ -135,7 +139,3 @@ names in Brazilian Portuguese language.
 
 >>> idx.day_name(locale="pt_BR.utf8")  # doctest: +SKIP
 Index(['Segunda', 'Terça', 'Quarta'], dtype='str')
-
-See Also
---------
-DatetimeIndex.month_name : Return the month names with specified locale.

@@ -273,6 +273,14 @@ fclusterdata : ndarray
     A vector of length n. T[i] is the flat cluster number to
     which original observation i belongs.
 
+See Also
+--------
+scipy.spatial.distance.pdist : pairwise distance metrics
+
+Notes
+-----
+This function is similar to the MATLAB function ``clusterdata``.
+
 Examples
 --------
 >>> from scipy.cluster.hierarchy import fclusterdata
@@ -297,11 +305,3 @@ array([3, 3, 3, 4, 4, 4, 2, 2, 2, 1, 1, 1], dtype=int32)
 
 The output here (for the dataset ``X``, distance threshold ``t``, and the
 default settings) is four clusters with three data points each.
-
-See Also
---------
-scipy.spatial.distance.pdist : pairwise distance metrics
-
-Notes
------
-This function is similar to the MATLAB function ``clusterdata``.

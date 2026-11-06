@@ -392,6 +392,29 @@ EOFError
     When calling ``np.load`` multiple times on the same file handle,
     if all data has already been read
 
+See Also
+--------
+save, savez, savez_compressed, loadtxt
+memmap : Create a memory-map to an array stored in a file on disk.
+lib.format.open_memmap : Create or load a memory-mapped ``.npy`` file.
+
+Notes
+-----
+- If the file contains pickle data, then whatever object is stored
+  in the pickle is returned.
+- If the file is a ``.npy`` file, then a single array is returned.
+- If the file is a ``.npz`` file, then a dictionary-like object is
+  returned, containing ``{filename: array}`` key-value pairs, one for
+  each file in the archive.
+- If the file is a ``.npz`` file, the returned value supports the
+  context manager protocol in a similar fashion to the open function::
+
+    with load('foo.npz') as data:
+        a = data['a']
+
+  The underlying file descriptor is closed when exiting the 'with'
+  block.
+
 Examples
 --------
 >>> import numpy as np
@@ -422,26 +445,3 @@ directly from disk:
 >>> X = np.load('/tmp/123.npy', mmap_mode='r')
 >>> X[1, :]
 memmap([4, 5, 6])
-
-See Also
---------
-save, savez, savez_compressed, loadtxt
-memmap : Create a memory-map to an array stored in a file on disk.
-lib.format.open_memmap : Create or load a memory-mapped ``.npy`` file.
-
-Notes
------
-- If the file contains pickle data, then whatever object is stored
-  in the pickle is returned.
-- If the file is a ``.npy`` file, then a single array is returned.
-- If the file is a ``.npz`` file, then a dictionary-like object is
-  returned, containing ``{filename: array}`` key-value pairs, one for
-  each file in the archive.
-- If the file is a ``.npz`` file, the returned value supports the
-  context manager protocol in a similar fashion to the open function::
-
-    with load('foo.npz') as data:
-        a = data['a']
-
-  The underlying file descriptor is closed when exiting the 'with'
-  block.

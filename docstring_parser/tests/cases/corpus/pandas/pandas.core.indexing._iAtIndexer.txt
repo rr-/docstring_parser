@@ -116,6 +116,12 @@ Raises
 IndexError
     When integer position is out of bounds.
 
+See Also
+--------
+DataFrame.at : Access a single value for a row/column label pair.
+DataFrame.loc : Access a group of rows and columns by label(s).
+DataFrame.iloc : Access a group of rows and columns by integer position(s).
+
 Examples
 --------
 >>> df = pd.DataFrame([[0, 2, 3], [0, 4, 1], [10, 20, 30]], columns=["A", "B", "C"])
@@ -140,9 +146,3 @@ Get value within a series
 
 >>> df.loc[0].iat[1]
 2
-
-See Also
---------
-DataFrame.at : Access a single value for a row/column label pair.
-DataFrame.loc : Access a group of rows and columns by label(s).
-DataFrame.iloc : Access a group of rows and columns by integer position(s).

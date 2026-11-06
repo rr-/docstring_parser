@@ -12,8 +12,7 @@ from ._compose import (
     SectionTable,
     examples_text,
     indented_long_description,
-    kind_of,
-    sections,
+    section_runs,
     written_type,
 )
 from ._lines import Lines
@@ -626,6 +625,7 @@ _COMPOSE_SECTIONS = SectionTable(
         ("Other Parameters", {Kind.OTHER_PARAM}),
         ("Raises", {Kind.RAISES}),
         ("Warns", {Kind.WARNS}),
+        ("Examples", {Kind.EXAMPLES}),
     )
 )
 
@@ -683,8 +683,9 @@ def compose(
             parts.append(head)
 
     def blank_line() -> None:
-        # One blank line between blocks, however many ask for one.
-        if parts and parts[-1] != "":
+        # One blank line between blocks, however many ask for one. Right
+        # after the descriptions, their own blank lines are kept instead.
+        if parts and parts[-1] != "" and len(parts) != described:
             parts.append("")
 
     def process_sect(name: str, args: T.List[T.Any]):
@@ -695,8 +696,30 @@ def compose(
             for arg in args:
                 process_one(arg)
 
-    # A blank line first if the docstring has to start on a new line.
+    def process_deprecation(meta: DocstringDeprecated) -> None:
+        first = ".. deprecated::"
+        if meta.version:
+            first += f" {meta.version}"
+        rest = meta.description.split("\n") if meta.description else []
+        parts.append(
+            "\n".join(
+                [first] + [indent + line if line else "" for line in rest]
+            )
+        )
+
     long = docstring.long_description
+    # A deprecation that comes first goes right after the short
+    # description, as Numpydoc writes it, with the long description read
+    # from after it. Not when the long description is followed by a blank
+    # line, which it is only when written before the directive, or when
+    # it starts indented, which would read back as the directive's body.
+    top = docstring.meta[0] if docstring.meta else None
+    if not isinstance(top, DocstringDeprecated) or (
+        docstring.blank_after_long_description or (long and long[0].isspace())
+    ):
+        top = None
+
+    # A blank line first if the docstring has to start on a new line.
     parts: T.List[str] = (
         [""]
         if long and long[0].isspace() and indented_long_description(docstring)
@@ -705,42 +728,36 @@ def compose(
     if docstring.short_description:
         parts.append(docstring.short_description)
     if docstring.blank_after_short_description:
-        blank_line()
+        parts.append("")
+    if top is not None:
+        process_deprecation(top)
+        if long:
+            # The blank line that ends the directive's body.
+            parts.append("")
+    if long:
+        parts.append(long)
+    if docstring.blank_after_long_description:
+        parts.append("")
+    # Where the descriptions end, unless a directive came after them.
+    described = len(parts) if top is None or long else -1
 
-    if docstring.deprecation:
-        first = ".. deprecated::"
-        if docstring.deprecation.version:
-            first += f" {docstring.deprecation.version}"
-        if docstring.deprecation.description:
-            rest = docstring.deprecation.description.split("\n")
-        else:
-            rest = []
-        parts.append(
-            "\n".join(
-                [first] + [indent + line if line else "" for line in rest]
-            )
-        )
-        if docstring.long_description:
+    for title, items in section_runs(docstring, _COMPOSE_SECTIONS):
+        if title == "Examples":
             blank_line()
-
-    if docstring.long_description:
-        parts.append(docstring.long_description)
-        if docstring.blank_after_long_description:
-            blank_line()
-
-    found, rest = sections(docstring, _COMPOSE_SECTIONS)
-    for title, items in found:
-        process_sect(title, items)
-
-    if len(docstring.examples) > 0:
+            parts.append("Examples")
+            parts.append("--------")
+            parts.append(examples_text(items))
+            continue
+        if title is not None:
+            process_sect(title, items)
+            continue
+        (meta,) = items
+        if meta is top:
+            continue
         blank_line()
-        parts.append("Examples")
-        parts.append("--------")
-        parts.append(examples_text(docstring.examples))
-
-    for meta in rest:
-        if kind_of(meta) in {Kind.DEPRECATION, Kind.EXAMPLES}:
-            continue  # Already handled
+        if isinstance(meta, DocstringDeprecated):
+            process_deprecation(meta)
+            continue
 
         # Use the section's own title, e.g. "See Also" for see_also.
         key = meta.key or ""
@@ -748,7 +765,6 @@ def compose(
             (s.title for s in DEFAULT_SECTIONS if s.key == key),
             key.replace("_", "").title(),
         )
-        blank_line()
         parts.append(title)
         parts.append("-" * len(title))
 

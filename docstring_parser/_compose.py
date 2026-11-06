@@ -43,37 +43,6 @@ class SectionTable:
         }
 
 
-def sections(
-    docstring: Docstring, table: SectionTable
-) -> T.Tuple[T.List[T.Tuple[str, T.List[T.Any]]], T.List[DocstringMeta]]:
-    """Sort a docstring's meta into titled sections by kind.
-
-    A text meta keyed like a ReST ``:ivar:`` field goes in as the
-    attribute it stands for.
-
-    :returns: the sections that have items, each with its items in the
-        order of the docstring, and the meta that no section took
-    """
-    index = table.index
-    found: T.List[T.List[T.Any]] = [[] for _title in table.titles]
-    rest = []
-    for meta in docstring.meta:
-        item = meta
-        if type(meta) is DocstringMeta:
-            item = meta_as_attribute(meta) or meta
-            kind = Kind.TEXT if item is meta else Kind.ATTRIBUTE
-        else:
-            kind = kind_of(meta)
-        position = index.get(kind)
-        if position is None:
-            rest.append(meta)
-        else:
-            found[position].append(item)
-    return [
-        (title, items) for title, items in zip(table.titles, found) if items
-    ], rest
-
-
 def section_runs(
     docstring: Docstring,
     table: SectionTable,

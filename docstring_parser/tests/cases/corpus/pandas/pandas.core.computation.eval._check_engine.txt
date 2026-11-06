@@ -58,14 +58,14 @@ Parameters
 engine : str
     String to validate.
 
-Returns
--------
-str
-    Engine name.
-
 Raises
 ------
 KeyError
     * If an invalid engine is passed.
 ImportError
     * If numexpr was requested but doesn't exist.
+
+Returns
+-------
+str
+    Engine name.

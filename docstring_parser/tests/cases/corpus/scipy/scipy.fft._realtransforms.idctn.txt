@@ -228,15 +228,6 @@ Returns
 y : ndarray of real
     The transformed input array.
 
-Examples
---------
->>> import numpy as np
->>> from scipy.fft import dctn, idctn
->>> rng = np.random.default_rng()
->>> y = rng.standard_normal((16, 16))
->>> np.allclose(y, idctn(dctn(y)))
-True
-
 See Also
 --------
 dctn : multidimensional DCT
@@ -245,3 +236,12 @@ Notes
 -----
 For full details of the IDCT types and normalization modes, as well as
 references, see `idct`.
+
+Examples
+--------
+>>> import numpy as np
+>>> from scipy.fft import dctn, idctn
+>>> rng = np.random.default_rng()
+>>> y = rng.standard_normal((16, 16))
+>>> np.allclose(y, idctn(dctn(y)))
+True

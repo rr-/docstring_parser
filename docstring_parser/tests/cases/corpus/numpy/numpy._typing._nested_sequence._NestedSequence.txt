@@ -105,6 +105,16 @@ numpydoc
 === compose numpydoc
 A protocol for representing nested sequences.
 
+Warnings
+--------
+`_NestedSequence` currently does not work in combination with typevars,
+*e.g.* ``def func(a: _NestedSequence[T]) -> T: ...``.
+
+See Also
+--------
+collections.abc.Sequence
+    ABCs for read-only and mutable :term:`sequences`.
+
 Examples
 --------
 .. code-block:: python
@@ -125,13 +135,3 @@ Examples
     ...     # note:     b: numpy.dtype[numpy.floating[numpy._typing._64Bit]]
     ...     # note:     c: numpy.dtype[numpy.floating[numpy._typing._64Bit]]
     ...     # note:     d: numpy.dtype[numpy.floating[numpy._typing._64Bit]]
-
-Warnings
---------
-`_NestedSequence` currently does not work in combination with typevars,
-*e.g.* ``def func(a: _NestedSequence[T]) -> T: ...``.
-
-See Also
---------
-collections.abc.Sequence
-    ABCs for read-only and mutable :term:`sequences`.

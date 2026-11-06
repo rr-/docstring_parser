@@ -121,6 +121,17 @@ res : dict
     "raise", and "call". The keys represent possible floating-point
     exceptions, and the values define how these exceptions are handled.
 
+See Also
+--------
+geterrcall, seterr, seterrcall
+
+Notes
+-----
+For complete documentation of the types of floating-point exceptions and
+treatment options, see `seterr`.
+
+**Concurrency note:** see :doc:`/reference/routines.err`
+
 Examples
 --------
 >>> import numpy as np
@@ -137,14 +148,3 @@ Traceback (most recent call last):
   ...
 FloatingPointError: invalid value encountered in divide
 >>> oldsettings = np.seterr(**oldsettings)  # restore original
-
-See Also
---------
-geterrcall, seterr, seterrcall
-
-Notes
------
-For complete documentation of the types of floating-point exceptions and
-treatment options, see `seterr`.
-
-**Concurrency note:** see :doc:`/reference/routines.err`

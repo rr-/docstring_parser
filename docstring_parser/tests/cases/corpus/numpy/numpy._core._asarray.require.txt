@@ -204,6 +204,20 @@ Returns
 out : ndarray
     Array with specified requirements and type if given.
 
+See Also
+--------
+asarray : Convert input to an ndarray.
+asanyarray : Convert to an ndarray, but pass through ndarray subclasses.
+ascontiguousarray : Convert input to a contiguous array.
+asfortranarray : Convert input to an ndarray with column-major
+                 memory order.
+ndarray.flags : Information about the memory layout of the array.
+
+Notes
+-----
+The returned array will be guaranteed to have the listed requirements
+by making a copy if needed.
+
 Examples
 --------
 >>> import numpy as np
@@ -223,17 +237,3 @@ Examples
   WRITEABLE : True
   ALIGNED : True
   WRITEBACKIFCOPY : False
-
-See Also
---------
-asarray : Convert input to an ndarray.
-asanyarray : Convert to an ndarray, but pass through ndarray subclasses.
-ascontiguousarray : Convert input to a contiguous array.
-asfortranarray : Convert input to an ndarray with column-major
-                 memory order.
-ndarray.flags : Information about the memory layout of the array.
-
-Notes
------
-The returned array will be guaranteed to have the listed requirements
-by making a copy if needed.

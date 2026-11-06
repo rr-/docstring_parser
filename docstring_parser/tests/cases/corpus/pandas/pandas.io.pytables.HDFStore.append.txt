@@ -410,6 +410,18 @@ errors : str, default 'strict'
     'xmlcharrefreplace' as well as any other name registered with
     codecs.register_error that can handle UnicodeEncodeErrors.
 
+See Also
+--------
+HDFStore.append_to_multiple : Append to multiple tables.
+
+Notes
+-----
+Does *not* check if data being appended overlaps with existing
+data in the table, so be careful
+
+Appending an empty ``DataFrame`` or ``Series`` is a no-op: the store
+is not modified and a ``UserWarning`` is emitted.
+
 Examples
 --------
 >>> df1 = pd.DataFrame([[1, 2], [3, 4]], columns=["A", "B"])
@@ -423,15 +435,3 @@ Examples
 1  3  4
 0  5  6
 1  7  8
-
-See Also
---------
-HDFStore.append_to_multiple : Append to multiple tables.
-
-Notes
------
-Does *not* check if data being appended overlaps with existing
-data in the table, so be careful
-
-Appending an empty ``DataFrame`` or ``Series`` is a no-op: the store
-is not modified and a ``UserWarning`` is emitted.

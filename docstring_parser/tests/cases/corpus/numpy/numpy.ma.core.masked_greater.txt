@@ -69,6 +69,10 @@ Mask an array where greater than a given value.
 This function is a shortcut to ``masked_where``, with
 `condition` = (x > value).
 
+See Also
+--------
+masked_where : Mask where a condition is met.
+
 Examples
 --------
 >>> import numpy as np
@@ -80,7 +84,3 @@ array([0, 1, 2, 3])
 masked_array(data=[0, 1, 2, --],
              mask=[False, False, False,  True],
        fill_value=999999)
-
-See Also
---------
-masked_where : Mask where a condition is met.

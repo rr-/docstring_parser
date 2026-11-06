@@ -84,6 +84,7 @@ numpydoc
 === compose numpydoc
 Hermite series whose graph is a straight line.
 
+
 Parameters
 ----------
 off, scl : scalars
@@ -95,14 +96,6 @@ y : ndarray
     This module's representation of the Hermite series for
     ``off + scl*x``.
 
-Examples
---------
->>> from numpy.polynomial.hermite import hermline, hermval
->>> hermval(0,hermline(3, 2))
-3.0
->>> hermval(1,hermline(3, 2))
-5.0
-
 See Also
 --------
 numpy.polynomial.polynomial.polyline
@@ -110,3 +103,11 @@ numpy.polynomial.chebyshev.chebline
 numpy.polynomial.legendre.legline
 numpy.polynomial.laguerre.lagline
 numpy.polynomial.hermite_e.hermeline
+
+Examples
+--------
+>>> from numpy.polynomial.hermite import hermline, hermval
+>>> hermval(0,hermline(3, 2))
+3.0
+>>> hermval(1,hermline(3, 2))
+5.0
