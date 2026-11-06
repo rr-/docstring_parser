@@ -1,0 +1,19 @@
+# Test parsing a union yield type whose members have brackets.
+=== input
+
+        Yields:
+            list[int] | tuple[int, ...]: the next batch
+        
+=== parse google
+blank_after_short_description: False
+blank_after_long_description: False
+style: google
+- DocstringReturns
+  description: 'the next batch'
+  kind: yields
+  key: 'yields'
+  type_name: 'list[int] | tuple[int, ...]'
+  is_generator: True
+=== compose google
+Yields:
+    list[int] | tuple[int, ...]: the next batch

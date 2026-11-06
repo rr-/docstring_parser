@@ -161,6 +161,21 @@ for result in (parse(doc), parse_from_object(tool)):
     subprocess.run([sys.executable, "-c", code], check=True, timeout=5)
 
 
+def test_google_long_union_return_finishes_promptly():
+    """A long union return type, or a near miss, must parse in one pass."""
+    code = """
+from docstring_parser import parse
+union = ' | '.join(['dict[str, list[int]]'] * 20000)
+for head, type_name in ((union, union), (union + ' x', None)):
+    doc = 'Summary.\\n\\nReturns:\\n    ' + head + ': description'
+    assert parse(doc, 'google').returns.type_name == type_name
+near = '[' * 20000 + ' | x'
+doc = 'Summary.\\n\\nReturns:\\n    ' + near + ': description'
+assert parse(doc, 'google').returns.type_name is None
+"""
+    subprocess.run([sys.executable, "-c", code], check=True, timeout=5)
+
+
 def test_parse_reuses_default_parser() -> None:
     """Test that parse builds the default parser once."""
     google.parse("Short.")

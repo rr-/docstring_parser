@@ -1,0 +1,18 @@
+# Test that a colon after prose with a bar keeps it a description.
+=== input
+
+        Returns:
+            Either this | or that: whichever comes first
+        
+=== parse google
+blank_after_short_description: False
+blank_after_long_description: False
+style: google
+- DocstringReturns
+  description: 'Either this | or that: whichever comes first'
+  kind: returns
+  key: 'returns'
+  is_generator: False
+=== compose google
+Returns:
+    Either this | or that: whichever comes first

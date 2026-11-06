@@ -63,6 +63,41 @@ MULTIPLE_PATTERN = re.compile(
     r"(\s*\w+(?:\s*\|\s*\w+)+:)"  # word | word | ... :  (PEP 604 union)
 )
 
+# One member of a union type: a dotted name with an optional subscript,
+# such as ``None``, ``np.ndarray`` or ``dict[str, int]``.
+_UNION_MEMBER = re.compile(r"[A-Za-z_][\w.]*(?:\[[^:]*\])?")
+
+
+def _is_union_head(text: str) -> bool:
+    """Tell whether an item starts with a union type and a colon.
+
+    The members are split at each ``|`` outside brackets, as in
+    ``dict[str, int | None] | None:``, in one pass over the head.
+    """
+    colon = text.find(":")
+    if colon < 0:
+        return False
+    head = text[:colon]
+    if "|" not in head or "\n" in head.strip():
+        return False
+    members = []
+    depth = start = 0
+    for i, char in enumerate(head):
+        if char == "[":
+            depth += 1
+        elif char == "]":
+            depth -= 1
+            if depth < 0:
+                return False
+        elif char == "|" and not depth:
+            members.append(head[start:i])
+            start = i + 1
+    members.append(head[start:])
+    return not depth and all(
+        _UNION_MEMBER.fullmatch(member.strip()) for member in members
+    )
+
+
 DEFAULT_SECTIONS = [
     Section("Arguments", "param", SectionType.MULTIPLE),
     Section("Args", "param", SectionType.MULTIPLE),
@@ -312,6 +347,7 @@ class Parser(BaseParser):
         if (
             section.type == SectionType.SINGULAR_OR_MULTIPLE
             and not MULTIPLE_PATTERN.match(text)
+            and not _is_union_head(text)
         ) or section.type == SectionType.SINGULAR:
             return _single_meta(section, text)
 
