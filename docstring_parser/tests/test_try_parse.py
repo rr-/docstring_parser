@@ -17,7 +17,7 @@ from docstring_parser import (
     rest,
     try_parse,
 )
-from docstring_parser._lines import Lines
+from docstring_parser._lines import Lines, cleandoc
 from docstring_parser.tests.cases import CASES_DIR, dump, read_case
 
 CASES = sorted(CASES_DIR.rglob("*.txt"))
@@ -192,8 +192,9 @@ def test_only_problems_or_parse_error(style: DocstringStyle) -> None:
     """Test that a broken docstring gives problems, or a ParseError from
     parse, and nothing else."""
     rnd = random.Random(0)
+    # Python 3.13 dedents docstrings itself, so dedent them alike first.
     codes = set(
-        re.findall(r"^    ``([a-z-]+)``$", Problem.__doc__ or "", re.M)
+        re.findall(r"^``([a-z-]+)``$", cleandoc(Problem.__doc__ or ""), re.M)
     )
     for path in CASES:
         text = _mutate(rnd, read_case(path).input)
