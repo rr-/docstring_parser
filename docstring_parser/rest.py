@@ -118,6 +118,15 @@ def _build_meta(args: T.List[str], desc: str, kind: Kind) -> DocstringMeta:
 
 
 _DEFAULTS_TO = re.compile(r".*defaults to (.+)", flags=re.DOTALL)
+_FIELD_START = re.compile("^:", flags=re.M)
+# A field ends at the next field (``^:``), at the end of the text (``\Z``),
+# or at a blank line followed by unindented, non-field content.
+_FIELD = re.compile(
+    r"(^:.*?)(?=^:|\n[ \t]*\n(?=[^ \t\n:])|\Z)", flags=re.S | re.M
+)
+_TYPE_FIELD = re.compile(r":r?type\b")
+_UNINDENTED = re.compile(r"\n(?=[^ \t\n])")
+_NOT_INLINE = re.compile(r"[\s:]")
 _VERSION = re.compile(
     r"^(?P<version>v?((?:\d+)(?:\.[0-9a-z\.]+))) (?P<desc>.+)", flags=re.I
 )
@@ -151,7 +160,7 @@ class Parser(BaseParser):
             return ret
 
         text = Lines(text).text
-        match = re.search("^:", text, flags=re.M)
+        match = _FIELD_START.search(text)
         if match:
             desc_chunk = text[: match.start()]
             meta_chunk = text[match.start() :]
@@ -174,11 +183,7 @@ class Parser(BaseParser):
         # (``\Z``), or at a blank line followed by unindented, non-field
         # content. The last case ends the field list so that a trailing block
         # (e.g. an ``Example`` section) is not absorbed into the last field.
-        for match in re.finditer(
-            r"(^:.*?)(?=^:|\n[ \t]*\n(?=[^ \t\n:])|\Z)",
-            meta_chunk,
-            flags=re.S | re.M,
-        ):
+        for match in _FIELD.finditer(meta_chunk):
             loose_chunks.append(meta_chunk[loose_start : match.start()])
             loose_start = match.end()
             chunk = match.group(0)
@@ -186,8 +191,8 @@ class Parser(BaseParser):
                 continue
             # A type is a single value, so an unindented line after it ends the
             # field rather than continuing the type.
-            if re.match(r":r?type\b", chunk):
-                unindented = re.search(r"\n(?=[^ \t\n])", chunk)
+            if _TYPE_FIELD.match(chunk):
+                unindented = _UNINDENTED.search(chunk)
                 if unindented:
                     loose_chunks.append(chunk[unindented.end() :])
                     chunk = chunk[: unindented.start()]
@@ -330,7 +335,7 @@ def _fits_inline(type_name: T.Optional[str]) -> bool:
     A type with a space or a colon in it would read back as more arguments
     or end the field name early, so it needs a ``:type:`` field of its own.
     """
-    return not type_name or not re.search(r"[\s:]", type_name)
+    return not type_name or not _NOT_INLINE.search(type_name)
 
 
 _PARAM_FIELD_OF_KIND = {Kind.ATTRIBUTE: "attribute"}

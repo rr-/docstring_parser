@@ -35,6 +35,9 @@ def dedent_lines(text: str) -> T.List[str]:
     smallest indent among them. Blank lines at either end are dropped. A
     line holding only whitespace counts as blank, on every version.
     """
+    if "\n" not in text:
+        line = text.expandtabs().lstrip()
+        return [line] if line else []
     lines = text.expandtabs().split("\n")
     margin = None
     for line in lines[1:]:
