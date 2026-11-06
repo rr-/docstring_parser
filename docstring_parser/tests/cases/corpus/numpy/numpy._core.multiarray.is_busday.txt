@@ -57,7 +57,7 @@
 === parse numpydoc
 short_description: 'is_busday('
 long_description: |
-  dates,
+      dates,
       weekmask='1111100',
       holidays=None,
       busdaycal=None,
@@ -152,7 +152,7 @@ style: numpydoc
 numpydoc
 === compose numpydoc
 is_busday(
-dates,
+    dates,
     weekmask='1111100',
     holidays=None,
     busdaycal=None,

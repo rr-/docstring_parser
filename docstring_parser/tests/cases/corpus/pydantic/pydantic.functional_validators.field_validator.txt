@@ -64,7 +64,7 @@
 === parse google
 short_description: '!!! abstract "Usage Documentation"'
 long_description: |
-  [field validators](../concepts/validators.md#field-validators)
+      [field validators](../concepts/validators.md#field-validators)
   
   Decorate methods on the class indicating that they should be used to validate fields.
   
@@ -151,7 +151,7 @@ style: google
 google
 === compose google
 !!! abstract "Usage Documentation"
-[field validators](../concepts/validators.md#field-validators)
+    [field validators](../concepts/validators.md#field-validators)
 
 Decorate methods on the class indicating that they should be used to validate fields.
 

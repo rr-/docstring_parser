@@ -12,7 +12,7 @@
     
 === parse numpydoc
 short_description: 'Write the header for an array using the 2.0 format.'
-long_description: 'The 2.0 format allows storing very large structured arrays.'
+long_description: '    The 2.0 format allows storing very large structured arrays.'
 blank_after_short_description: False
 blank_after_long_description: True
 style: numpydoc
@@ -35,7 +35,7 @@ style: numpydoc
 numpydoc
 === compose numpydoc
 Write the header for an array using the 2.0 format.
-The 2.0 format allows storing very large structured arrays.
+    The 2.0 format allows storing very large structured arrays.
 
 Parameters
 ----------

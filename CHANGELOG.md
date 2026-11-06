@@ -31,8 +31,11 @@
 - General: Keep a class attribute in `parse_from_object()` when the class docstring documents a param of the same name, instead of dropping it
 - General: Return the docstring of a built-in class or module from `parse_from_object()` instead of raising `TypeError`, and ignore a `__doc__` that is not a string
 - General: Cut a line holding only a tab or a form feed at either end of a docstring as a blank line, instead of reading it as the summary and the real summary as the long description
+- General: Keep the indent of the long description's first line, as its other lines keep theirs, instead of stripping it, so an indented signature, table or code block keeps its shape
+- General: Start a composed docstring on a new line when its long description is indented and nothing follows it, so that the indent reads back
 - General: Compose a param's type as written, such as `int, optional` or `int, default 1`, when it reads back as the same type, instead of with the style's own optional mark, and add no mark for a default that only the description states
 - General: Compose a description that holds a form feed or another line break that is not a newline on one line, as it was read, instead of breaking the line in two
+- General: Keep the indent of the long description's first line relative to the lines after it, instead of stripping it, so an indented signature, table or code block keeps its shape
 - ReST: Stop the last field from absorbing text after the field list; that text now goes to the long description (thanks to @apoorvdarshan)
 - ReST: Raise `ParseError` instead of `IndexError` for a field with no name
 - ReST: Indent composed continuation lines in compact mode, so one starting with a role such as `:class:` is no longer read back as a new field

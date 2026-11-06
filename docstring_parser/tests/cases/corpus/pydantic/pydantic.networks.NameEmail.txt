@@ -37,7 +37,7 @@
 === parse google
 short_description: 'Info:'
 long_description: |
-  To use this type, you need to install the optional
+      To use this type, you need to install the optional
       [`email-validator`](https://github.com/JoshData/python-email-validator) package:
   
       ```bash
@@ -75,7 +75,7 @@ style: google
 rest
 === compose google
 Info:
-To use this type, you need to install the optional
+    To use this type, you need to install the optional
     [`email-validator`](https://github.com/JoshData/python-email-validator) package:
 
     ```bash

@@ -70,7 +70,7 @@
 === parse google
 short_description: '!!! abstract "Usage Documentation"'
 long_description: |
-  [Fields](../concepts/fields.md)
+      [Fields](../concepts/fields.md)
   
   Create a field for objects that can be configured.
   
@@ -339,7 +339,7 @@ style: google
 google
 === compose google
 !!! abstract "Usage Documentation"
-[Fields](../concepts/fields.md)
+    [Fields](../concepts/fields.md)
 
 Create a field for objects that can be configured.
 

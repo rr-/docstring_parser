@@ -11,6 +11,7 @@ from textwrap import dedent
 from ._compose import (
     SectionTable,
     examples_text,
+    indented_long_description,
     kind_of,
     sections,
     written_type,
@@ -694,7 +695,13 @@ def compose(
             for arg in args:
                 process_one(arg)
 
-    parts: T.List[str] = []
+    # A blank line first if the docstring has to start on a new line.
+    long = docstring.long_description
+    parts: T.List[str] = (
+        [""]
+        if long and long[0].isspace() and indented_long_description(docstring)
+        else []
+    )
     if docstring.short_description:
         parts.append(docstring.short_description)
     if docstring.blank_after_short_description:

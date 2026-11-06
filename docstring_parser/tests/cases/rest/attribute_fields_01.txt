@@ -39,7 +39,8 @@ Short.
 
 :ivar int a: The a.
 :var b: The b.
-:cvar str? c: The c.
+:cvar c: The c.
+:vartype c: str, optional
 === compose rest expanded
 Short.
 
@@ -50,4 +51,4 @@ Short.
     The b.
 :cvar c:
     The c.
-:vartype c: str?
+:vartype c: str, optional

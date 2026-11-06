@@ -39,4 +39,4 @@ Short.
 
 :param int x: The param x.
 :ivar str x: The attribute x.
-:attribute float y:
+:type y: float

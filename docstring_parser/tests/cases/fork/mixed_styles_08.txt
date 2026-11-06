@@ -83,7 +83,7 @@ Raises:
 === parse rest
 short_description: 'Args:'
 long_description: |
-  a (int): description
+      a (int): description
       b (int): description
   
   Returns:
@@ -101,7 +101,7 @@ blank_after_long_description: False
 style: rest
 === compose rest
 Args:
-a (int): description
+    a (int): description
     b (int): description
 
 Returns:

@@ -23,7 +23,7 @@
 === parse numpydoc
 short_description: 'Generate the row containing column headers:'
 long_description: |
-  +----------------------------+---------------+---------------------------+
+   +----------------------------+---------------+---------------------------+
    |  index_blanks ...          | column_name_i |  column_headers (level_i) |
    +----------------------------+---------------+---------------------------+
 blank_after_short_description: True
@@ -60,7 +60,7 @@ numpydoc
 === compose numpydoc
 Generate the row containing column headers:
 
-+----------------------------+---------------+---------------------------+
+ +----------------------------+---------------+---------------------------+
  |  index_blanks ...          | column_name_i |  column_headers (level_i) |
  +----------------------------+---------------+---------------------------+
 
