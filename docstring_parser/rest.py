@@ -4,6 +4,7 @@ import re
 import typing as T
 
 from ._compose import (
+    description_lines,
     field_name,
     field_text,
     start_on_new_line,
@@ -636,10 +637,19 @@ def compose(
             return "\n".join(["\n" + indent + first] + rest)
         return "\n".join([" " + first] + rest)
 
-    top = leading_deprecation(docstring)
-    if top is not None and not _as_directive(top):
-        top = None
-    parts = description_with_deprecation(docstring, top, indent)
+    # Most docstrings have no deprecation, so only look for one to write
+    # as a directive when the first or last meta is one.
+    metas = docstring.meta
+    first = type(metas[0]) is DocstringDeprecated if metas else False
+    last = type(metas[-1]) is DocstringDeprecated if metas else False
+    top = None
+    if first and _as_directive(metas[0]):
+        top = leading_deprecation(docstring)
+    parts = (
+        description_with_deprecation(docstring, top, indent)
+        if top is not None
+        else description_lines(docstring)
+    )
     long_description = docstring.long_description
 
     for meta in docstring.meta:
@@ -742,7 +752,7 @@ def compose(
         else:
             text = f":{field_text(meta)}:" + process_desc(meta.description)
             parts.append(text)
-    if docstring.meta and _as_directive(docstring.meta[-1]) and not parts[-1]:
+    if last and _as_directive(docstring.meta[-1]) and not parts[-1]:
         parts.pop()
     text = "\n".join(parts)
     # Every field starts a line of its own, unindented, so only a lone
@@ -750,7 +760,7 @@ def compose(
     # have all the other lines indented.
     if docstring.meta:
         # A directive on the first line is dedented with its body.
-        if len(parts) > 1 or _as_directive(docstring.meta[0]):
+        if len(parts) > 1 or (first and _as_directive(docstring.meta[0])):
             return text
     elif not (long_description and long_description[0].isspace()):
         return text
