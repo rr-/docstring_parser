@@ -148,6 +148,16 @@
         
 
         
+            <div class="itemName"><code><a href="docstring_parser.sections.ParserCache.html" class="internal-link" title="docstring_parser.sections.ParserCache"><wbr></wbr>Parser<wbr></wbr>Cache</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="docstring_parser.sections.SectionSpec.html" class="internal-link" title="docstring_parser.sections.SectionSpec"><wbr></wbr>Section<wbr></wbr>Spec</a></code>
             </div>
         
@@ -214,6 +224,16 @@
 
         
             <div class="itemName"><code><a href="#_DEFAULT_LAYOUT" class="internal-link" title="docstring_parser.sections._DEFAULT_LAYOUT">_DEFAULT<wbr></wbr>_LAYOUT</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_P" class="internal-link" title="docstring_parser.sections._P">_P</a></code>
             </div>
         
 
@@ -541,7 +561,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <a href="https://github.com/rr-/docstring_parser/tree/7c182febf6d80f0fba9b705bbde44a85e07ecaf5/docstring_parser/sections.py" class="sourceLink">(source)</a>
+          <a href="https://github.com/rr-/docstring_parser/tree/61a6228b7f031e777595d333cd323e7b4568e208/docstring_parser/sections.py" class="sourceLink">(source)</a>
         </div>
 
         <div class="moduleDocstring">
@@ -585,6 +605,11 @@ parse(text, DocstringStyle.GOOGLE, sections=sections)
   </tr><tr class="class">
     
     <td>Class</td>
+    <td><code><a href="docstring_parser.sections.ParserCache.html" class="internal-link" title="docstring_parser.sections.ParserCache"><wbr></wbr>Parser<wbr></wbr>Cache</a></code></td>
+    <td>Parsers or tables built for lists of sections, found by the list.</td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
     <td><code><a href="docstring_parser.sections.SectionSpec.html" class="internal-link" title="docstring_parser.sections.SectionSpec"><wbr></wbr>Section<wbr></wbr>Spec</a></code></td>
     <td>A section, or a field, that a docstring style recognises.</td>
   </tr><tr class="function">
@@ -612,6 +637,11 @@ parse(text, DocstringStyle.GOOGLE, sections=sections)
     <td>Constant</td>
     <td><code><a href="#_DEFAULT_LAYOUT" class="internal-link" title="docstring_parser.sections._DEFAULT_LAYOUT">_DEFAULT<wbr></wbr>_LAYOUT</a></code></td>
     <td><span class="rst-undocumented">Undocumented</span></td>
+  </tr><tr class="typevariable private">
+    
+    <td>Type Variable</td>
+    <td><code><a href="#_P" class="internal-link" title="docstring_parser.sections._P">_P</a></code></td>
+    <td><span class="rst-undocumented">Undocumented</span></td>
   </tr>
 </table>
           
@@ -633,7 +663,7 @@ parse(text, DocstringStyle.GOOGLE, sections=sections)
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">apply</span><span class="function-signature">(<span class="rst-sig-param">spec: <code><a href="docstring_parser.sections.SectionSpec.html" class="internal-link" title="docstring_parser.sections.SectionSpec">SectionSpec</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code>, </span><span class="rst-sig-param">meta: <code>DocstringMeta</code></span>) -&gt; <code>DocstringMeta</code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/7c182febf6d80f0fba9b705bbde44a85e07ecaf5/docstring_parser/sections.py#L140">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/61a6228b7f031e777595d333cd323e7b4568e208/docstring_parser/sections.py#L173">
       
       (source)
     </a>
@@ -660,7 +690,7 @@ parse(text, DocstringStyle.GOOGLE, sections=sections)
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">default_sections</span><span class="function-signature">(<span class="rst-sig-param">style: <code>DocstringStyle</code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="docstring_parser.sections.SectionSpec.html" class="internal-link" title="docstring_parser.sections.SectionSpec">SectionSpec</a>]</code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/7c182febf6d80f0fba9b705bbde44a85e07ecaf5/docstring_parser/sections.py#L147">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/61a6228b7f031e777595d333cd323e7b4568e208/docstring_parser/sections.py#L180">
       
       (source)
     </a>
@@ -686,7 +716,7 @@ parse(text, DocstringStyle.GOOGLE, sections=sections)
   <div class="functionHeader">
     
     <span class="py-defname">ParseItem</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/7c182febf6d80f0fba9b705bbde44a85e07ecaf5/docstring_parser/sections.py#L68">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/61a6228b7f031e777595d333cd323e7b4568e208/docstring_parser/sections.py#L68">
       
       (source)
     </a>
@@ -713,7 +743,7 @@ parse(text, DocstringStyle.GOOGLE, sections=sections)
   <div class="functionHeader">
     
     <span class="py-defname">_DEFAULT_KEY</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/7c182febf6d80f0fba9b705bbde44a85e07ecaf5/docstring_parser/sections.py#L46">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/61a6228b7f031e777595d333cd323e7b4568e208/docstring_parser/sections.py#L46">
       
       (source)
     </a>
@@ -747,7 +777,7 @@ parse(text, DocstringStyle.GOOGLE, sections=sections)
   <div class="functionHeader">
     
     <span class="py-defname">_DEFAULT_LAYOUT</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/7c182febf6d80f0fba9b705bbde44a85e07ecaf5/docstring_parser/sections.py#L60">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/61a6228b7f031e777595d333cd323e7b4568e208/docstring_parser/sections.py#L60">
       
       (source)
     </a>
@@ -766,6 +796,33 @@ parse(text, DocstringStyle.GOOGLE, sections=sections)
  <wbr></wbr><a href="docstring_parser.sections.Kind.html#DEPRECATION" class="internal-link" title="docstring_parser.sections.Kind.DEPRECATION">Kind.DEPRECATION</a>: <a href="docstring_parser.sections.Layout.html#BLOCK" class="internal-link" title="docstring_parser.sections.Layout.BLOCK">Layout.BLOCK</a>,
  <wbr></wbr><a href="docstring_parser.sections.Kind.html#TEXT" class="internal-link" title="docstring_parser.sections.Kind.TEXT">Kind.TEXT</a>: <a href="docstring_parser.sections.Layout.html#BLOCK" class="internal-link" title="docstring_parser.sections.Layout.BLOCK">Layout.BLOCK</a>}</code></pre></td></tr></table>
   </div>
+</div><div class="basetypevariable private">
+  
+  
+  <a name="docstring_parser.sections._P">
+    
+  </a>
+  <a name="_P">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_P</span> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/61a6228b7f031e777595d333cd323e7b4568e208/docstring_parser/sections.py#L140">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_P" title="docstring_parser.sections._P">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="https://docs.python.org/3/library/typing.html#typing.TypeVar" class="intersphinx-link">T.TypeVar</a>(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">_P</span><span class="rst-variable-quote">'</span>)</code></pre></td></tr></table>
+  </div>
 </div>
         </div>
       
@@ -778,7 +835,7 @@ parse(text, DocstringStyle.GOOGLE, sections=sections)
   <div class="container-fluid">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    25.10.1 at 2026-11-06 11:18:24.
+    25.10.1 at 2026-11-06 11:52:19.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 
