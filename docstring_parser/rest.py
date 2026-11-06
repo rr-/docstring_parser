@@ -569,8 +569,11 @@ def _param_key(meta: DocstringParam) -> str:
 
 def _type_key(meta: DocstringParam) -> str:
     """Return the name of a param's type field: ``vartype`` for one
-    written as ``:ivar:``, ``:var:`` or ``:cvar:``, as Sphinx reads it."""
-    return "vartype" if meta.key in ATTRIBUTE_FIELD_KEYWORDS else "type"
+    written as ``:ivar:``, ``:var:``, ``:cvar:`` or a ``:vartype:`` alone,
+    as Sphinx reads it."""
+    if meta.key in ATTRIBUTE_FIELD_KEYWORDS or meta.key == "vartype":
+        return "vartype"
+    return "type"
 
 
 def compose(
@@ -622,11 +625,16 @@ def compose(
                 # Only the directive gives an attribute a default of its
                 # own, as its value.
                 parts.append(_attribute_directive(meta, indent))
-            elif meta.description is None and type_name:
-                # A type field alone, which reads back as a param with no
-                # description.
+            elif meta.description is None and (
+                type_name or meta.key in ("type", "vartype")
+            ):
+                # A type field alone, which reads back as a param, or an
+                # attribute, with no description, even with no type.
+                head = f"{_type_key(meta)} {meta.arg_name}"
                 parts.append(
-                    _type_field(indent, f"type {meta.arg_name}", type_name)
+                    _type_field(indent, head, type_name)
+                    if type_name
+                    else f":{head}:"
                 )
             elif rendering_style == RenderingStyle.EXPANDED or not (
                 _fits_inline(type_name)

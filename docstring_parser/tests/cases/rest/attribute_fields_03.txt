@@ -27,4 +27,4 @@ style: rest
 Short.
 
 :param x: The x.
-:param y:
+:type y:
