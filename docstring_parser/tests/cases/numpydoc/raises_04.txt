@@ -1,0 +1,29 @@
+# Test that a raises item's head is kept whole when what comes before the
+# colon is no type, such as prose or several types.
+=== input
+Short description
+
+Raises
+------
+If the value is bad: an error
+KeyError, TypeError : if missing.
+=== parse numpydoc
+short_description: 'Short description'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringRaises
+  kind: raises
+  key: 'raises'
+  type_name: 'If the value is bad: an error'
+- DocstringRaises
+  kind: raises
+  key: 'raises'
+  type_name: 'KeyError, TypeError : if missing.'
+=== compose numpydoc
+Short description
+
+Raises
+------
+If the value is bad: an error
+KeyError, TypeError : if missing.

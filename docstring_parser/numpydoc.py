@@ -13,6 +13,7 @@ from ._lines import Lines
 from ._text import (
     DEFAULT_IN_DESCRIPTION,
     DEFAULT_REGEX,
+    EXCEPTION_TYPE,
     OPTIONAL_REGEX,
     append_loose,
     clean_str,
@@ -118,6 +119,11 @@ PARAM_DEFAULT_REGEX = DEFAULT_REGEX
 PARAM_DEFAULT_REGEX_IN_DESC = DEFAULT_IN_DESCRIPTION
 
 RETURN_KEY_REGEX = re.compile(r"^(?:(?P<name>.*?)\s*:\s*)?(?P<type>.*?)$")
+# A raises item's head that starts its description after a type and a
+# colon, as in ``ValueError : if bad.``, which napoleon reads too.
+_RAISES_HEAD = re.compile(
+    rf"(?P<type>{EXCEPTION_TYPE})[ \t]*:(?:[ \t]+(?P<desc>.*)|[ \t]*)"
+)
 
 
 # The kinds of param that section keys other than ``param`` give.
@@ -244,6 +250,12 @@ class RaisesSection(_KVSection):
     """
 
     def _parse_item(self, key: str, value: str) -> DocstringRaises:
+        head = _RAISES_HEAD.fullmatch(key)
+        if head is not None:
+            key = head.group("type")
+            first = (head.group("desc") or "").strip()
+            if first:
+                value = f"{first}\n{value}" if value else first
         return DocstringRaises(
             key=self.key,
             description=clean_str(value),

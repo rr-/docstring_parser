@@ -51,9 +51,10 @@ style: numpydoc
   type_name: 'dict'
   is_optional: False
 - DocstringRaises
+  description: '`match` does not match any text in the document.'
   kind: raises
   key: 'raises'
-  type_name: 'ValueError : `match` does not match any text in the document.'
+  type_name: 'ValueError'
 - DocstringReturns
   description: 'HTML <table> elements to be parsed into raw data.'
   kind: returns
@@ -81,4 +82,5 @@ list of node-like
 
 Raises
 ------
-ValueError : `match` does not match any text in the document.
+ValueError
+    `match` does not match any text in the document.

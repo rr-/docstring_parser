@@ -1,0 +1,47 @@
+# Test that a raises item's head with a colon after its type splits there:
+# the text after the colon starts the description, which the indented
+# lines below continue.
+=== input
+Short description
+
+Raises
+------
+ValueError : if bad.
+    Or worse.
+KeyError: if missing.
+pkg.Error[int] :
+    if odd.
+=== parse numpydoc
+short_description: 'Short description'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringRaises
+  description: |
+    if bad.
+    Or worse.
+  kind: raises
+  key: 'raises'
+  type_name: 'ValueError'
+- DocstringRaises
+  description: 'if missing.'
+  kind: raises
+  key: 'raises'
+  type_name: 'KeyError'
+- DocstringRaises
+  description: 'if odd.'
+  kind: raises
+  key: 'raises'
+  type_name: 'pkg.Error[int]'
+=== compose numpydoc
+Short description
+
+Raises
+------
+ValueError
+    if bad.
+    Or worse.
+KeyError
+    if missing.
+pkg.Error[int]
+    if odd.

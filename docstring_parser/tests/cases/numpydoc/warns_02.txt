@@ -1,0 +1,25 @@
+# Test that a warns item's head splits after its type, as a raises one
+# does.
+=== input
+Short description
+
+Warns
+-----
+UserWarning : if deprecated.
+=== parse numpydoc
+short_description: 'Short description'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringRaises
+  description: 'if deprecated.'
+  kind: warns
+  key: 'warns'
+  type_name: 'UserWarning'
+=== compose numpydoc
+Short description
+
+Warns
+-----
+UserWarning
+    if deprecated.

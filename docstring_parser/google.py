@@ -14,6 +14,7 @@ from ._compose import (
 )
 from ._lines import Lines
 from ._text import (
+    EXCEPTION_TYPE,
     Example,
     append_loose,
     param_spec,
@@ -111,13 +112,10 @@ def _is_union_head(text: str) -> bool:
     )
 
 
-# One exception type: a dotted name, maybe marked as Sphinx does it
-# (``~pkg.Error``) or quoted (```Error```), with an optional subscript.
-_TYPE = r"`?[~!]?[A-Za-z_][\w.]*(?:\[[^\]\n]*\])?`?"
 # An exception type, or several, as written under ``Raises:`` with no
 # colon: ``ValueError``, ``os.error`` or ``KeyError, TypeError``.
 _BARE_TYPE = re.compile(
-    _TYPE + r"(?:[ \t]*(?:,|\||[ \t]or[ \t])[ \t]*" + _TYPE + ")*"
+    rf"{EXCEPTION_TYPE}(?:[ \t]*(?:,|\||[ \t]or[ \t])[ \t]*{EXCEPTION_TYPE})*"
 )
 
 

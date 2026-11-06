@@ -48,9 +48,10 @@ style: numpydoc
   type_name: 'operator.{eq, ne, lt, le, gt}'
   is_optional: False
 - DocstringRaises
+  description: 'on inequality comparisons'
   kind: raises
   key: 'raises'
-  type_name: 'TypeError : on inequality comparisons'
+  type_name: 'TypeError'
 === detect
 numpydoc
 === compose numpydoc
@@ -69,4 +70,5 @@ op : operator.{eq, ne, lt, le, gt}
 
 Raises
 ------
-TypeError : on inequality comparisons
+TypeError
+    on inequality comparisons
