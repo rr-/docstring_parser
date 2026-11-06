@@ -23,6 +23,8 @@ from .common import (
     DocstringStyle,
     Kind,
     ParseError,
+    ParseResult,
+    Problem,
     RenderingStyle,
     continuation_indented,
     excerpt,
@@ -150,18 +152,18 @@ class Parser(BaseParser):
             _DEFAULT_TABLE if sections is None else _field_table(sections)
         )
 
-    def parse(self, text: T.Optional[str]) -> Docstring:
-        """Parse a docstring into its components.
-
-        :returns: parsed docstring
-        """
+    def try_parse(self, text: T.Optional[str]) -> ParseResult:
+        """Parse what can be parsed of a docstring, and tell what cannot."""
         table = self._table
         ret = Docstring(style=DocstringStyle.REST)
         if not text:
-            return ret
+            return ParseResult(ret, [])
 
-        text = Lines(text).text
+        lines = Lines(text)
+        text = lines.text
+        problems: T.List[Problem] = []
         match = _FIELD_START.search(text)
+        meta_start = match.start() if match else len(text)
         if match:
             desc_chunk = text[: match.start()]
             meta_chunk = text[match.start() :]
@@ -196,17 +198,21 @@ class Parser(BaseParser):
                 if unindented:
                     loose_chunks.append(chunk[unindented.end() :])
                     chunk = chunk[: unindented.start()]
-            try:
-                args_chunk, desc_chunk = chunk.lstrip(":").split(":", 1)
-            except ValueError as ex:
-                raise ParseError(
-                    f'Error parsing meta information near "{excerpt(chunk)}".'
-                ) from ex
-            args = args_chunk.split()
-            if not args:
-                raise ParseError(
-                    f'Error parsing meta information near "{excerpt(chunk)}".'
+            at = meta_start + match.start()
+            head, colon, desc_chunk = chunk.lstrip(":").partition(":")
+            args = head.split()
+            if not colon or not args:
+                # A field that cannot be read is kept as text.
+                problems.append(
+                    Problem(
+                        lines.source_line(at),
+                        "Error parsing meta information near "
+                        f'"{excerpt(chunk)}".',
+                    )
                 )
+                loose_chunks.append(chunk)
+                after_item = False
+                continue
             desc = desc_chunk.strip()
 
             if "\n" in desc:
@@ -239,7 +245,14 @@ class Parser(BaseParser):
             else:
                 spec = table.get(args[0])
                 kind = spec.kind if spec else Kind.TEXT
-                ret.meta.append(apply(spec, _build_meta(args, desc, kind)))
+                try:
+                    meta = _build_meta(args, desc, kind)
+                except ParseError as ex:
+                    problems.append(Problem(lines.source_line(at), str(ex)))
+                    loose_chunks.append(chunk)
+                    after_item = False
+                    continue
+                ret.meta.append(apply(spec, meta))
                 after_item = True
                 continue
             after_item = False
@@ -248,7 +261,7 @@ class Parser(BaseParser):
         append_loose(ret, loose_chunks, blank_around=True)
 
         assign_types(ret.meta, types, rtypes)
-        return ret
+        return ParseResult(ret, problems)
 
 
 _DEFAULT_PARSER = Parser()
@@ -265,9 +278,27 @@ def parse(
         each meta's ``key`` is the name its field is written with
     :returns: parsed docstring
     """
+    return _parser(sections).parse(text)
+
+
+def try_parse(
+    text: T.Optional[str],
+    sections: T.Optional[T.Sequence[SectionSpec]] = None,
+) -> ParseResult:
+    """Parse what can be parsed of a ReST-style docstring, and tell what
+    cannot, instead of raising.
+
+    :param sections: as for :func:`parse`
+    :returns: the docstring, and a problem for each part that cannot be
+        read, whose text goes to the long description
+    """
+    return _parser(sections).try_parse(text)
+
+
+def _parser(sections: T.Optional[T.Sequence[SectionSpec]]) -> Parser:
     if sections is None:
-        return _DEFAULT_PARSER.parse(text)
-    return _parsers.get(list(sections), Parser, sections).parse(text)
+        return _DEFAULT_PARSER
+    return _parsers.get(list(sections), Parser, sections)
 
 
 def _fits_inline(type_name: T.Optional[str]) -> bool:

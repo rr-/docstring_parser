@@ -9,7 +9,7 @@ import typing as T
 from ._compose import description_lines, field_name, field_text
 from ._fields import ParamTypes, ReturnTypes, assign_types
 from ._lines import Lines
-from ._text import split_description
+from ._text import append_loose, split_description
 from .common import (
     PARAM_KINDS,
     RAISES_KINDS,
@@ -23,7 +23,8 @@ from .common import (
     DocstringReturns,
     DocstringStyle,
     Kind,
-    ParseError,
+    ParseResult,
+    Problem,
     RenderingStyle,
     cleandoc,
     excerpt,
@@ -101,26 +102,22 @@ class Parser(BaseParser):
             _DEFAULT_TABLE if sections is None else _field_table(sections)
         )
 
-    def parse(self, text: T.Optional[str]) -> Docstring:
-        """Parse a docstring into its components.
-
-        :returns: parsed docstring
-        """
+    def try_parse(self, text: T.Optional[str]) -> ParseResult:
+        """Parse what can be parsed of a docstring, and tell what cannot."""
         table = self._table
         ret = Docstring(style=DocstringStyle.EPYDOC)
         if not text:
-            return ret
+            return ParseResult(ret, [])
 
-        text = Lines(text).text
+        lines = Lines(text)
+        text = lines.text
         match = _FIELD_START.search(text)
-        if match:
-            desc_chunk = text[: match.start()]
-            meta_chunk = text[match.start() :]
-        else:
-            desc_chunk = text
-            meta_chunk = ""
-
-        split_description(ret, desc_chunk)
+        if not match:
+            split_description(ret, text)
+            return ParseResult(ret, [])
+        meta_start = match.start()
+        meta_chunk = text[meta_start:]
+        split_description(ret, text[:meta_start])
 
         metas: T.List[DocstringMeta] = []
         specs: T.Dict[int, T.Optional[SectionSpec]] = {}
@@ -129,35 +126,47 @@ class Parser(BaseParser):
         # Whether the return fields are about yields, which they must all
         # be or none of them.
         generator: T.Optional[bool] = None
+        # Fields that cannot be read, which are kept as text.
+        loose: T.List[str] = []
+        problems: T.List[Problem] = []
         for match in _FIELD.finditer(meta_chunk):
             chunk = match.group(0)
             if not chunk:
                 continue
+            at = meta_start + match.start()
 
             # Each chunk starts with @; description text is not a field header.
             header = _HEADER.match(chunk, 1)
-            if not header:
-                raise ParseError(
-                    f'Error parsing meta information near "{excerpt(chunk)}".'
-                )
-            key = header.group(1)
-            args = header.group(2).split()
+            key = header.group(1) if header else ""
+            args = header.group(2).split() if header else []
             spec = table.get(key)
             base, kind = _TYPE_FIELDS.get(key) or _base(spec, args)
             if (
-                (base == "param" and len(args) != 1)
+                not header
+                or (base == "param" and len(args) != 1)
                 or (base == "return" and args)
                 or (base == "meta" and spec is None and len(key) < 2)
             ):
-                raise ParseError(
-                    f'Error parsing meta information near "{excerpt(chunk)}".'
+                problems.append(
+                    Problem(
+                        lines.source_line(at),
+                        "Error parsing meta information near "
+                        f'"{excerpt(chunk)}".',
+                    )
                 )
+                loose.append(chunk)
+                continue
             if base == "return":
                 is_generator = kind is Kind.YIELDS
                 if generator is not None and generator != is_generator:
-                    raise ParseError(
-                        'Error parsing meta information for "return".'
+                    problems.append(
+                        Problem(
+                            lines.source_line(at),
+                            'Error parsing meta information for "return".',
+                        )
                     )
+                    loose.append(chunk)
+                    continue
                 generator = is_generator
 
             desc = chunk[header.end() :].strip()
@@ -208,8 +217,9 @@ class Parser(BaseParser):
         if specs:
             metas = [apply(specs.get(id(meta)), meta) for meta in metas]
         ret.meta = metas
-
-        return ret
+        if loose:
+            append_loose(ret, loose, blank_around=True)
+        return ParseResult(ret, problems)
 
 
 _DEFAULT_PARSER = Parser()
@@ -226,9 +236,27 @@ def parse(
         each meta's ``key`` is the name its field is written with
     :returns: parsed docstring
     """
+    return _parser(sections).parse(text)
+
+
+def try_parse(
+    text: T.Optional[str],
+    sections: T.Optional[T.Sequence[SectionSpec]] = None,
+) -> ParseResult:
+    """Parse what can be parsed of a epydoc-style docstring, and tell what
+    cannot, instead of raising.
+
+    :param sections: as for :func:`parse`
+    :returns: the docstring, and a problem for each part that cannot be
+        read, whose text goes to the long description
+    """
+    return _parser(sections).try_parse(text)
+
+
+def _parser(sections: T.Optional[T.Sequence[SectionSpec]]) -> Parser:
     if sections is None:
-        return _DEFAULT_PARSER.parse(text)
-    return _parsers.get(list(sections), Parser, sections).parse(text)
+        return _DEFAULT_PARSER
+    return _parsers.get(list(sections), Parser, sections)
 
 
 _OWN_PARAM_FIELDS = frozenset({"param", "keyword", "ivar", "cvar", "var"})

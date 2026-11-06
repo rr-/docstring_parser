@@ -38,8 +38,32 @@ def excerpt(text: str, limit: int = 60) -> str:
     return text if len(text) <= limit else text[:limit] + "..."
 
 
+class Problem(T.NamedTuple):
+    """Something in a docstring that could not be parsed."""
+
+    #: The line it is on, from 1, in the docstring as written.
+    line: int
+    #: What is wrong.
+    message: str
+
+
 class ParseError(RuntimeError):
-    """Base class for all parsing related errors."""
+    """A docstring could not be parsed.
+
+    :ivar problems: everything that could not be parsed, in order
+    :ivar result: what could be parsed, with the problems, if known
+    """
+
+    def __init__(
+        self,
+        message: str = "",
+        problems: T.Optional[T.List[Problem]] = None,
+        result: T.Optional["ParseResult"] = None,
+    ) -> None:
+        """Initialize self."""
+        super().__init__(message)
+        self.problems: T.List[Problem] = problems or []
+        self.result = result
 
 
 class DocstringStyle(str, enum.Enum):
@@ -328,6 +352,13 @@ class Docstring:
         ]
 
 
+class ParseResult(T.NamedTuple):
+    """A parsed docstring with everything in it that could not be parsed."""
+
+    docstring: Docstring
+    problems: T.List[Problem]
+
+
 class BaseParser:
     """A parser of one docstring style, set up with the sections to know.
 
@@ -339,5 +370,27 @@ class BaseParser:
     name: str
 
     def parse(self, text: T.Optional[str]) -> Docstring:
-        """Parse a docstring into its components."""
+        """Parse a docstring into its components.
+
+        :raises ParseError: for everything that could not be parsed
+        """
+        result = self.try_parse(text)
+        if result.problems:
+            raise parse_error(result)
+        return result.docstring
+
+    def try_parse(self, text: T.Optional[str]) -> ParseResult:
+        """Parse what can be parsed of a docstring, and tell what cannot.
+
+        Text that cannot be parsed goes to the long description.
+        """
         raise NotImplementedError
+
+
+def parse_error(result: ParseResult) -> ParseError:
+    """Make the error for a docstring's problems, telling the first one."""
+    first, *rest = result.problems
+    message = first.message
+    if rest:
+        message += f" (and {len(rest)} more)"
+    return ParseError(message, result.problems, result)

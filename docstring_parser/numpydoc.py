@@ -29,6 +29,7 @@ from .common import (
     DocstringReturns,
     DocstringStyle,
     Kind,
+    ParseResult,
     RenderingStyle,
     cleandoc,
 )
@@ -427,14 +428,11 @@ class Parser(BaseParser):
             self.sections[one.title] = one
         self._setup()
 
-    def parse(self, text: T.Optional[str]) -> Docstring:
-        """Parse the numpy-style docstring into its components.
-
-        :returns: parsed docstring
-        """
+    def try_parse(self, text: T.Optional[str]) -> ParseResult:
+        """Parse a numpy-style docstring, which always parses."""
         ret = Docstring(style=DocstringStyle.NUMPYDOC)
         if not text:
-            return ret
+            return ParseResult(ret, [])
 
         # Clean according to PEP-0257
         text = Lines(text).text
@@ -478,8 +476,7 @@ class Parser(BaseParser):
             )
 
         append_loose(ret, loose_chunks, blank_around=False)
-
-        return ret
+        return ParseResult(ret, [])
 
 
 # The name the parser had before every style had a ``Parser``.
@@ -493,6 +490,23 @@ _default_parser_sections: T.Tuple[T.List[Section], T.List[str]] = ([], [])
 _parsers: ParserCache[Parser] = ParserCache()
 
 
+def _parser(
+    sections: T.Optional[T.Sequence[T.Union[Section, SectionSpec]]],
+) -> Parser:
+    global _default_parser, _default_parser_sections  # noqa: PLW0603
+    if sections:
+        key = [*sections, *(getattr(s, "title", None) for s in sections)]
+        return _parsers.get(key, Parser, sections)
+    # Building a parser compiles its title regex, so reuse one until
+    # DEFAULT_SECTIONS changes: a section added, removed or replaced, or a
+    # title changed in place.
+    current = (list(DEFAULT_SECTIONS), [s.title for s in DEFAULT_SECTIONS])
+    if _default_parser is None or current != _default_parser_sections:
+        _default_parser = Parser()
+        _default_parser_sections = current
+    return _default_parser
+
+
 def parse(
     text: T.Optional[str],
     sections: T.Optional[T.Sequence[T.Union[Section, SectionSpec]]] = None,
@@ -503,18 +517,21 @@ def parse(
         ``DEFAULT_SECTIONS``
     :returns: parsed docstring
     """
-    global _default_parser, _default_parser_sections  # noqa: PLW0603
-    if sections:
-        key = [*sections, *(getattr(s, "title", None) for s in sections)]
-        return _parsers.get(key, Parser, sections).parse(text)
-    # Building a parser compiles its title regex, so reuse one until
-    # DEFAULT_SECTIONS changes: a section added, removed or replaced, or a
-    # title changed in place.
-    current = (list(DEFAULT_SECTIONS), [s.title for s in DEFAULT_SECTIONS])
-    if _default_parser is None or current != _default_parser_sections:
-        _default_parser = Parser()
-        _default_parser_sections = current
-    return _default_parser.parse(text)
+    return _parser(sections).parse(text)
+
+
+def try_parse(
+    text: T.Optional[str],
+    sections: T.Optional[T.Sequence[T.Union[Section, SectionSpec]]] = None,
+) -> ParseResult:
+    """Parse what can be parsed of a numpy-style docstring, and tell what
+    cannot, instead of raising.
+
+    :param sections: as for :func:`parse`
+    :returns: the docstring, and a problem for each part that cannot be
+        read, whose text goes to the long description
+    """
+    return _parser(sections).try_parse(text)
 
 
 # The sections compose writes items in, in order, and the kinds each takes.

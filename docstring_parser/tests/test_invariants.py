@@ -7,10 +7,9 @@ import pytest
 
 from docstring_parser import (
     DocstringStyle,
-    ParseError,
     google,
     numpydoc,
-    parse,
+    try_parse,
 )
 from docstring_parser.tests.cases import CASES_DIR, dump, read_case
 
@@ -42,12 +41,10 @@ SYNTAX = {
 
 @pytest.mark.parametrize("style", list(SYNTAX), ids=lambda s: s.name.lower())
 def test_no_text_is_dropped(style: DocstringStyle) -> None:
-    """Test that every word of a docstring is somewhere in its parse."""
+    """Test that every word of a docstring is somewhere in its parse,
+    including the parts that cannot be read."""
     for path in CASES:
         text = read_case(path).input
-        try:
-            docstring = parse(text, style)
-        except ParseError:
-            continue
+        docstring = try_parse(text, style).docstring
         lost = _words(text) - _words(dump(docstring)) - SYNTAX[style]
         assert not lost, f"{path.relative_to(CASES_DIR)} loses {sorted(lost)}"
