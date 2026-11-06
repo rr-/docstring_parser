@@ -127,7 +127,7 @@ _FIELD_START = re.compile("^:", flags=re.M)
 _FIELD = re.compile(
     r"(^:.*?)(?=^:|\n[ \t]*\n(?=[^ \t\n:])|\Z)", flags=re.S | re.M
 )
-_TYPE_FIELD = re.compile(r":r?type\b")
+_TYPE_FIELD = re.compile(r":[ry]?type\b")
 _UNINDENTED = re.compile(r"\n(?=[^ \t\n])")
 _NOT_INLINE = re.compile(r"[\s:]")
 _VERSION = re.compile(
@@ -175,6 +175,7 @@ class Parser(BaseParser):
 
         types: ParamTypes = {}
         rtypes: ReturnTypes = {}
+        ytypes: ReturnTypes = {}
         # Whether the field before gave an item, rather than a type.
         after_item = False
         # Text between or after the fields, such as an example block, which
@@ -224,19 +225,26 @@ class Parser(BaseParser):
             # Add special handling for :type a: typename
             if len(args) == 2 and args[0] == "type":
                 types.setdefault(args[1], []).append((desc, len(ret.meta)))
-            elif len(args) in [1, 2] and args[0] == "rtype":
+            elif len(args) in [1, 2] and args[0] in ("rtype", "ytype"):
                 name = None if len(args) == 1 else args[1]
+                yields = args[0] == "ytype"
                 last = ret.meta[-1] if ret.meta and after_item else None
                 if (
                     name is not None
                     and isinstance(last, DocstringReturns)
                     and last.return_name is None
                     and last.type_name is None
+                    and (last.is_generator or not yields)
                 ):
                     # A type for a named return value, right after a
                     # return with neither, names that return.
                     last.return_name = name
                     last.type_name = desc or None
+                elif yields:
+                    # A yield made of a type alone goes after every field.
+                    ytypes.setdefault(name, []).append(
+                        (desc, AFTER_ALL, Kind.YIELDS, None)
+                    )
                 else:
                     # A return made of a type alone goes after every field.
                     rtypes.setdefault(name, []).append(
@@ -260,7 +268,7 @@ class Parser(BaseParser):
 
         append_loose(ret, loose_chunks, blank_around=True)
 
-        assign_types(ret.meta, types, rtypes)
+        assign_types(ret.meta, types, rtypes, ytypes)
         return ParseResult(ret, problems)
 
 
@@ -372,12 +380,13 @@ def compose(
         elif isinstance(meta, DocstringReturns):
             type_text = f" {meta.type_name}" if meta.type_name else ""
             key = "yields" if meta.is_generator else "returns"
+            type_key = "ytype" if meta.is_generator else "rtype"
 
             if meta.return_name:
                 # ReST names a return value only in its type field, which
                 # names the return right before it.
                 parts.append(f":{key}:" + process_desc(meta.description))
-                parts.append(f":rtype {meta.return_name}:{type_text}")
+                parts.append(f":{type_key} {meta.return_name}:{type_text}")
             elif (
                 rendering_style == RenderingStyle.EXPANDED
                 or not _fits_inline(meta.type_name)
@@ -387,7 +396,7 @@ def compose(
                     text += process_desc(meta.description)
                     parts.append(text)
                 if type_text:
-                    parts.append(f":rtype:{type_text}")
+                    parts.append(f":{type_key}:{type_text}")
             else:
                 text = f":{key}{type_text}:"
                 text += process_desc(meta.description)

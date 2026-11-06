@@ -1,0 +1,27 @@
+# Test that a yield type field types the yields.
+=== input
+Short description.
+
+:yields: Each value.
+:ytype: int
+=== parse rest
+short_description: 'Short description.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringReturns
+  description: 'Each value.'
+  kind: yields
+  key: 'yields'
+  type_name: 'int'
+  is_generator: True
+=== compose rest
+Short description.
+
+:yields int: Each value.
+=== compose rest expanded
+Short description.
+
+:yields:
+    Each value.
+:ytype: int

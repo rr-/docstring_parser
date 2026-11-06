@@ -27,6 +27,7 @@
 - ReST: Keep blank lines and relative indents in a field's description, so paragraphs and literal blocks survive
 - ReST: Keep a `:type x:` field that no other field describes as a param, and an `:rtype name:` as a return, instead of dropping them
 - ReST: Compose a return value's name as `:returns:` followed by `:rtype name:`, and read it back, instead of dropping it
+- ReST: Read a `:ytype:` field as the type of the yields, as `:rtype:` is of the returns, and compose a yield's type with it
 - Google: Parse PEP 604 union types (e.g. `int | str`) in return sections (thanks to @binggao1230)
 - Google: Avoid regex backtracking when parsing parameter types
 - Google: Parse docstrings that open with a section title (thanks to @HardMax71)
