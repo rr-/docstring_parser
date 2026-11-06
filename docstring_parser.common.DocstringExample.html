@@ -150,16 +150,6 @@
         
 
         
-            <div class="itemName"><code><a href="#description" class="internal-link" title="docstring_parser.common.DocstringExample.description">description</a></code>
-            </div>
-        
-
-    </li><li class="">
-        
-        
-        
-
-        
             <div class="itemName"><code><a href="#kind" class="internal-link" title="docstring_parser.common.DocstringExample.kind">kind</a></code>
             </div>
         
@@ -186,7 +176,37 @@
         
 
         
-            <div class="itemName"><code><a href="docstring_parser.DocstringMeta.html#args" class="internal-link" title="docstring_parser.DocstringMeta.args">args</a></code>
+            <div class="itemName"><code><a href="docstring_parser.DocstringMeta.html#description" class="internal-link" title="docstring_parser.DocstringMeta.description">description</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.DocstringMeta.html#extra" class="internal-link" title="docstring_parser.DocstringMeta.extra">extra</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.DocstringMeta.html#key" class="internal-link" title="docstring_parser.DocstringMeta.key">key</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.DocstringMeta.html#name" class="internal-link" title="docstring_parser.DocstringMeta.name">name</a></code>
             </div>
         
 
@@ -401,7 +421,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">DocstringExample</span>(<a href="docstring_parser.DocstringMeta.html" class="internal-link" title="docstring_parser.DocstringMeta">DocstringMeta</a>): <a href="https://github.com/rr-/docstring_parser/tree/8225b7b711449a4d04b83ae226d39676782a697b/docstring_parser/common.py#L196" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="docstring_parser.common.DocstringExample.__init__">DocstringExample(args, snippet, description)</a></code></p><p><a href="classIndex.html#docstring_parser.common.DocstringExample">View In Hierarchy</a></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">DocstringExample</span>(<a href="docstring_parser.DocstringMeta.html" class="internal-link" title="docstring_parser.DocstringMeta">DocstringMeta</a>): <a href="https://github.com/rr-/docstring_parser/tree/0ded151e55bc018c873f84fa94fcaf6282dc5399/docstring_parser/common.py#L201" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="docstring_parser.common.DocstringExample.__init__">DocstringExample(snippet, description, key)</a></code></p><p><a href="classIndex.html#docstring_parser.common.DocstringExample">View In Hierarchy</a></p>
         </div>
 
         <div class="moduleDocstring">
@@ -420,13 +440,8 @@
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#description" class="internal-link" title="docstring_parser.common.DocstringExample.description">description</a></code></td>
-    <td><span class="rst-undocumented">Undocumented</span></td>
-  </tr><tr class="instancevariable">
-    
-    <td>Instance Variable</td>
     <td><code><a href="#kind" class="internal-link" title="docstring_parser.common.DocstringExample.kind">kind</a></code></td>
-    <td>What the meta documents. Each class sets it, so that the class and the kind cannot disagree.</td>
+    <td><span class="rst-undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
@@ -444,8 +459,23 @@
   <tr class="baseinstancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="docstring_parser.DocstringMeta.html#args" class="internal-link" title="docstring_parser.DocstringMeta.args">args</a></code></td>
-    <td><span class="rst-undocumented">Undocumented</span></td>
+    <td><code><a href="docstring_parser.DocstringMeta.html#description" class="internal-link" title="docstring_parser.DocstringMeta.description">description</a></code></td>
+    <td>the item's text</td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="docstring_parser.DocstringMeta.html#extra" class="internal-link" title="docstring_parser.DocstringMeta.extra">extra</a></code></td>
+    <td>words in the item's head after the parts a parser recognised, such as <tt class="rst-docutils rst-literal">more</tt> in Google's <tt class="rst-docutils rst-literal">x (int) more:</tt></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="docstring_parser.DocstringMeta.html#key" class="internal-link" title="docstring_parser.DocstringMeta.key">key</a></code></td>
+    <td>the field or section key it was written with, such as <tt class="rst-docutils rst-literal">param</tt>, <tt class="rst-docutils rst-literal">keyword</tt> or <tt class="rst-docutils rst-literal">see_also</tt></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="docstring_parser.DocstringMeta.html#name" class="internal-link" title="docstring_parser.DocstringMeta.name">name</a></code></td>
+    <td>for a text item, the words after its key, such as <tt class="rst-docutils rst-literal">x</tt> in a ReST <tt class="rst-docutils rst-literal">:ivar x:</tt> field</td>
   </tr>
 </table>
             
@@ -466,8 +496,8 @@
   <div class="functionHeader">
     
     
-    <span class="py-keyword">def</span>&#160;<span class="py-defname">__init__</span><span class="function-signature">(<span class="rst-sig-param"><span class="rst-undocumented">self</span>, </span><span class="rst-sig-param">args: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code>, </span><span class="rst-sig-param">snippet: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code>, </span><span class="rst-sig-param">description: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></span>):</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/8225b7b711449a4d04b83ae226d39676782a697b/docstring_parser/common.py#L199">
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">__init__</span><span class="function-signature long-signature">(<span class="rst-sig-param"><span class="rst-undocumented">self</span>, </span><span class="rst-sig-param">snippet: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code>, </span><span class="rst-sig-param">description: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code>, </span><span class="rst-sig-param">key: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code> = <span class="rst-variable-quote">'</span><span class="rst-variable-string">examples</span><span class="rst-variable-quote">'</span></span>):</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/0ded151e55bc018c873f84fa94fcaf6282dc5399/docstring_parser/common.py#L204">
       
       (source)
     </a>
@@ -484,33 +514,6 @@
 </div><div class="baseinstancevariable">
   
   
-  <a name="docstring_parser.common.DocstringExample.description">
-    
-  </a>
-  <a name="description">
-    
-  </a>
-  <div class="functionHeader">
-    
-    <span class="py-defname">description</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/8225b7b711449a4d04b83ae226d39676782a697b/docstring_parser/common.py#L209">
-      
-      (source)
-    </a>
-    <a class="headerLink" href="#description" title="docstring_parser.common.DocstringExample.description">
-      
-      
-      ¶
-    </a>
-  </div>
-  <div class="functionBody">
-    <div class="interfaceinfo">overrides <code><a href="docstring_parser.DocstringMeta.html#description" class="internal-link">docstring_parser.DocstringMeta.description</a></code></div>
-    <div><p class="undocumented">Undocumented</p></div>
-    
-  </div>
-</div><div class="baseinstancevariable">
-  
-  
   <a name="docstring_parser.common.DocstringExample.kind">
     
   </a>
@@ -520,7 +523,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">kind</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/8225b7b711449a4d04b83ae226d39676782a697b/docstring_parser/common.py#L207">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/0ded151e55bc018c873f84fa94fcaf6282dc5399/docstring_parser/common.py#L212">
       
       (source)
     </a>
@@ -532,8 +535,7 @@
   </div>
   <div class="functionBody">
     <div class="interfaceinfo">overrides <code><a href="docstring_parser.DocstringMeta.html#kind" class="internal-link">docstring_parser.DocstringMeta.kind</a></code></div>
-    <div><p>What the meta documents. Each class sets it, so that the class
-and the kind cannot disagree.</p></div>
+    <div><p class="undocumented">Undocumented</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -548,7 +550,7 @@ and the kind cannot disagree.</p></div>
   <div class="functionHeader">
     
     <span class="py-defname">snippet</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/8225b7b711449a4d04b83ae226d39676782a697b/docstring_parser/common.py#L208">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/0ded151e55bc018c873f84fa94fcaf6282dc5399/docstring_parser/common.py#L213">
       
       (source)
     </a>
@@ -575,7 +577,7 @@ and the kind cannot disagree.</p></div>
   <div class="container-fluid">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    25.10.1 at 2026-11-06 09:44:14.
+    25.10.1 at 2026-11-06 09:59:26.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

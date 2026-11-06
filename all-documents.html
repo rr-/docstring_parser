@@ -515,19 +515,11 @@
             <div class="type">Attribute</div>
             <div class="kind">Instance Variable</div>
             <div class="privacy">PUBLIC</div>
-            <div class="summary">What the meta documents. Each class sets it, so that the class and the kind cannot disagree.</div>
+            <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
           </li><li id="docstring_parser.common.DocstringExample.snippet">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.common<wbr></wbr>.<wbr></wbr>Docstring<wbr></wbr>Example<wbr></wbr>.snippet</div>
             <div class="url">docstring_parser.common.DocstringExample.html#snippet</div>
-            <div class="type">Attribute</div>
-            <div class="kind">Instance Variable</div>
-            <div class="privacy">PUBLIC</div>
-            <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
-          </li><li id="docstring_parser.common.DocstringExample.description">
-            
-            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.common<wbr></wbr>.<wbr></wbr>Docstring<wbr></wbr>Example<wbr></wbr>.description</div>
-            <div class="url">docstring_parser.common.DocstringExample.html#description</div>
             <div class="type">Attribute</div>
             <div class="kind">Instance Variable</div>
             <div class="privacy">PUBLIC</div>
@@ -691,19 +683,11 @@
             <div class="type">Attribute</div>
             <div class="kind">Instance Variable</div>
             <div class="privacy">PUBLIC</div>
-            <div class="summary">What the meta documents. Each class sets it, so that the class and the kind cannot disagree.</div>
+            <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
           </li><li id="docstring_parser.DocstringDeprecated.version">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Docstring<wbr></wbr>Deprecated<wbr></wbr>.version</div>
             <div class="url">docstring_parser.DocstringDeprecated.html#version</div>
-            <div class="type">Attribute</div>
-            <div class="kind">Instance Variable</div>
-            <div class="privacy">PUBLIC</div>
-            <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
-          </li><li id="docstring_parser.DocstringDeprecated.description">
-            
-            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Docstring<wbr></wbr>Deprecated<wbr></wbr>.description</div>
-            <div class="url">docstring_parser.DocstringDeprecated.html#description</div>
             <div class="type">Attribute</div>
             <div class="kind">Instance Variable</div>
             <div class="privacy">PUBLIC</div>
@@ -715,7 +699,47 @@
             <div class="type">Class</div>
             <div class="kind">Class</div>
             <div class="privacy">PUBLIC</div>
-            <div class="summary">Docstring meta information.</div>
+            <div class="summary">Docstring meta information: one item of a docstring.</div>
+          </li><li id="docstring_parser.DocstringMeta.description">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Docstring<wbr></wbr>Meta<wbr></wbr>.description</div>
+            <div class="url">docstring_parser.DocstringMeta.html#description</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">the item's text</div>
+          </li><li id="docstring_parser.DocstringMeta.kind">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Docstring<wbr></wbr>Meta<wbr></wbr>.kind</div>
+            <div class="url">docstring_parser.DocstringMeta.html#kind</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">what the item documents. Each class sets it, so that the class and the kind cannot disagree.</div>
+          </li><li id="docstring_parser.DocstringMeta.key">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Docstring<wbr></wbr>Meta<wbr></wbr>.key</div>
+            <div class="url">docstring_parser.DocstringMeta.html#key</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">the field or section key it was written with, such as <tt class="rst-docutils rst-literal">param</tt>, <tt class="rst-docutils rst-literal">keyword</tt> or <tt class="rst-docutils rst-literal">see_also</tt></div>
+          </li><li id="docstring_parser.DocstringMeta.name">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Docstring<wbr></wbr>Meta<wbr></wbr>.name</div>
+            <div class="url">docstring_parser.DocstringMeta.html#name</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">for a text item, the words after its key, such as <tt class="rst-docutils rst-literal">x</tt> in a ReST <tt class="rst-docutils rst-literal">:ivar x:</tt> field</div>
+          </li><li id="docstring_parser.DocstringMeta.extra">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Docstring<wbr></wbr>Meta<wbr></wbr>.extra</div>
+            <div class="url">docstring_parser.DocstringMeta.html#extra</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">words in the item's head after the parts a parser recognised, such as <tt class="rst-docutils rst-literal">more</tt> in Google's <tt class="rst-docutils rst-literal">x (int) more:</tt></div>
           </li><li id="docstring_parser.DocstringMeta.__init__">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Docstring<wbr></wbr>Meta<wbr></wbr>.__init__</div>
@@ -724,30 +748,6 @@
             <div class="kind">Method</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary">Initialize self.</div>
-          </li><li id="docstring_parser.DocstringMeta.args">
-            
-            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Docstring<wbr></wbr>Meta<wbr></wbr>.args</div>
-            <div class="url">docstring_parser.DocstringMeta.html#args</div>
-            <div class="type">Attribute</div>
-            <div class="kind">Instance Variable</div>
-            <div class="privacy">PUBLIC</div>
-            <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
-          </li><li id="docstring_parser.DocstringMeta.description">
-            
-            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Docstring<wbr></wbr>Meta<wbr></wbr>.description</div>
-            <div class="url">docstring_parser.DocstringMeta.html#description</div>
-            <div class="type">Attribute</div>
-            <div class="kind">Instance Variable</div>
-            <div class="privacy">PUBLIC</div>
-            <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
-          </li><li id="docstring_parser.DocstringMeta.kind">
-            
-            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Docstring<wbr></wbr>Meta<wbr></wbr>.kind</div>
-            <div class="url">docstring_parser.DocstringMeta.html#kind</div>
-            <div class="type">Attribute</div>
-            <div class="kind">Instance Variable</div>
-            <div class="privacy">PUBLIC</div>
-            <div class="summary">What the meta documents. Each class sets it, so that the class and the kind cannot disagree.</div>
           </li><li id="docstring_parser.DocstringParam">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Docstring<wbr></wbr>Param</div>
@@ -771,7 +771,7 @@
             <div class="type">Attribute</div>
             <div class="kind">Instance Variable</div>
             <div class="privacy">PUBLIC</div>
-            <div class="summary">What the meta documents. Each class sets it, so that the class and the kind cannot disagree.</div>
+            <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
           </li><li id="docstring_parser.DocstringParam.arg_name">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Docstring<wbr></wbr>Param<wbr></wbr>.arg<wbr></wbr>_name</div>
@@ -827,19 +827,11 @@
             <div class="type">Attribute</div>
             <div class="kind">Instance Variable</div>
             <div class="privacy">PUBLIC</div>
-            <div class="summary">What the meta documents. Each class sets it, so that the class and the kind cannot disagree.</div>
+            <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
           </li><li id="docstring_parser.DocstringRaises.type_name">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Docstring<wbr></wbr>Raises<wbr></wbr>.type<wbr></wbr>_name</div>
             <div class="url">docstring_parser.DocstringRaises.html#type_name</div>
-            <div class="type">Attribute</div>
-            <div class="kind">Instance Variable</div>
-            <div class="privacy">PUBLIC</div>
-            <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
-          </li><li id="docstring_parser.DocstringRaises.description">
-            
-            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Docstring<wbr></wbr>Raises<wbr></wbr>.description</div>
-            <div class="url">docstring_parser.DocstringRaises.html#description</div>
             <div class="type">Attribute</div>
             <div class="kind">Instance Variable</div>
             <div class="privacy">PUBLIC</div>
@@ -867,7 +859,7 @@
             <div class="type">Attribute</div>
             <div class="kind">Instance Variable</div>
             <div class="privacy">PUBLIC</div>
-            <div class="summary">What the meta documents. Each class sets it, so that the class and the kind cannot disagree.</div>
+            <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
           </li><li id="docstring_parser.DocstringReturns.type_name">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Docstring<wbr></wbr>Returns<wbr></wbr>.type<wbr></wbr>_name</div>
@@ -1036,6 +1028,14 @@
             <div class="kind">Function</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary">Return the field name a param is written with in a style.</div>
+          </li><li id="docstring_parser._compose.field_text">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>._compose<wbr></wbr>.field<wbr></wbr>_text</div>
+            <div class="url">docstring_parser._compose.html#field_text</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Return a text meta's key and the words after it, as in a field.</div>
           </li><li id="docstring_parser._compose.description_lines">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>._compose<wbr></wbr>.description<wbr></wbr>_lines</div>
