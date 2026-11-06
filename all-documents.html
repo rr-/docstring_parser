@@ -116,6 +116,14 @@
             <div class="kind">Module</div>
             <div class="privacy">PRIVATE</div>
             <div class="summary">What every style's composer shares.</div>
+          </li><li id="docstring_parser._directives">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>._directives</div>
+            <div class="url">docstring_parser._directives.html</div>
+            <div class="type">Module</div>
+            <div class="kind">Module</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary">reST directives in the free text of a docstring, which styles share.</div>
           </li><li id="docstring_parser._fields">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>._fields</div>
@@ -1860,6 +1868,14 @@
             <div class="kind">Constant</div>
             <div class="privacy">PRIVATE</div>
             <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.epydoc._VERSION">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.epydoc<wbr></wbr>._VERSION</div>
+            <div class="url">docstring_parser.epydoc.html#_VERSION</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Constant</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
           </li><li id="docstring_parser.epydoc._TYPE_FIELDS">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.epydoc<wbr></wbr>._TYPE<wbr></wbr>_FIELDS</div>
@@ -2028,6 +2044,110 @@
             <div class="kind">Function</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary">Render a parsed docstring into docstring text.</div>
+          </li><li id="docstring_parser._directives.DEPRECATED">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>._directives<wbr></wbr>.DEPRECATED</div>
+            <div class="url">docstring_parser._directives.html#DEPRECATED</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Constant</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser._directives.directive_pattern">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>._directives<wbr></wbr>.directive<wbr></wbr>_pattern</div>
+            <div class="url">docstring_parser._directives.html#directive_pattern</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Match the first line of any of some directives.</div>
+          </li><li id="docstring_parser._directives.Directive">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>._directives<wbr></wbr>.<wbr></wbr>Directive</div>
+            <div class="url">docstring_parser._directives.Directive.html</div>
+            <div class="type">Class</div>
+            <div class="kind">Class</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">A directive cut out of a docstring's lines.</div>
+          </li><li id="docstring_parser._directives.Directive.offset">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>._directives<wbr></wbr>.<wbr></wbr>Directive<wbr></wbr>.offset</div>
+            <div class="url">docstring_parser._directives.Directive.html#offset</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Class Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Where it was, as an offset into the text of the lines left.</div>
+          </li><li id="docstring_parser._directives.Directive.match">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>._directives<wbr></wbr>.<wbr></wbr>Directive<wbr></wbr>.match</div>
+            <div class="url">docstring_parser._directives.Directive.html#match</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Class Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">The match of its first line.</div>
+          </li><li id="docstring_parser._directives.Directive.body">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>._directives<wbr></wbr>.<wbr></wbr>Directive<wbr></wbr>.body</div>
+            <div class="url">docstring_parser._directives.Directive.html#body</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Class Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Its indented body, without blank lines at the end.</div>
+          </li><li id="docstring_parser._directives.lead_directive">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>._directives<wbr></wbr>.lead<wbr></wbr>_directive</div>
+            <div class="url">docstring_parser._directives.html#lead_directive</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Make a directive starting the docstring start a line.</div>
+          </li><li id="docstring_parser._directives.cut_directives">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>._directives<wbr></wbr>.cut<wbr></wbr>_directives</div>
+            <div class="url">docstring_parser._directives.html#cut_directives</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Cut the directives whose first line matches a pattern.</div>
+          </li><li id="docstring_parser._directives.body_text">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>._directives<wbr></wbr>.body<wbr></wbr>_text</div>
+            <div class="url">docstring_parser._directives.html#body_text</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Return a directive's body dedented, keeping relative indents.</div>
+          </li><li id="docstring_parser._directives.deprecation">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>._directives<wbr></wbr>.deprecation</div>
+            <div class="url">docstring_parser._directives.html#deprecation</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Build a deprecation from a <tt class="rst-docutils rst-literal">deprecated</tt> directive.</div>
+          </li><li id="docstring_parser._directives.deprecation_lines">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>._directives<wbr></wbr>.deprecation<wbr></wbr>_lines</div>
+            <div class="url">docstring_parser._directives.html#deprecation_lines</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Write a deprecation as a <tt class="rst-docutils rst-literal">deprecated</tt> directive.</div>
+          </li><li id="docstring_parser._directives.leading_deprecation">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>._directives<wbr></wbr>.leading<wbr></wbr>_deprecation</div>
+            <div class="url">docstring_parser._directives.html#leading_deprecation</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Return the deprecation to write right after the short description.</div>
+          </li><li id="docstring_parser._directives.description_with_deprecation">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>._directives<wbr></wbr>.description<wbr></wbr>_with<wbr></wbr>_deprecation</div>
+            <div class="url">docstring_parser._directives.html#description_with_deprecation</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">The short and long description, each followed by a blank if asked, with a deprecation as a directive between them.</div>
           </li><li id="docstring_parser.google.SectionType">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.google<wbr></wbr>.<wbr></wbr>Section<wbr></wbr>Type</div>
@@ -2202,6 +2322,14 @@
             <div class="url">docstring_parser.google.html#_section_kind</div>
             <div class="type">Function</div>
             <div class="kind">Function</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.google._DEPRECATED">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.google<wbr></wbr>._DEPRECATED</div>
+            <div class="url">docstring_parser.google.html#_DEPRECATED</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Constant</div>
             <div class="privacy">PRIVATE</div>
             <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
           </li><li id="docstring_parser.google._UNINDENTED">
@@ -3044,6 +3172,22 @@
             <div class="kind">Constant</div>
             <div class="privacy">PRIVATE</div>
             <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.rest._spec_of">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.rest<wbr></wbr>._spec<wbr></wbr>_of</div>
+            <div class="url">docstring_parser.rest.html#_spec_of</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary">Return the spec of a field, if it gives items of a kind.</div>
+          </li><li id="docstring_parser.rest._directive_pattern">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.rest<wbr></wbr>._directive<wbr></wbr>_pattern</div>
+            <div class="url">docstring_parser.rest.html#_directive_pattern</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary">Match the first line of the directives a parser reads, if any.</div>
           </li><li id="docstring_parser.rest._attribute">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.rest<wbr></wbr>._attribute</div>
@@ -3052,14 +3196,6 @@
             <div class="kind">Function</div>
             <div class="privacy">PRIVATE</div>
             <div class="summary">Build an attribute from its directive's name and indented body.</div>
-          </li><li id="docstring_parser.rest._cut_attributes">
-            
-            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.rest<wbr></wbr>._cut<wbr></wbr>_attributes</div>
-            <div class="url">docstring_parser.rest.html#_cut_attributes</div>
-            <div class="type">Function</div>
-            <div class="kind">Function</div>
-            <div class="privacy">PRIVATE</div>
-            <div class="summary">Cut the attribute directives out of a docstring.</div>
           </li><li id="docstring_parser.rest.Parser">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.rest<wbr></wbr>.<wbr></wbr>Parser</div>
@@ -3100,6 +3236,38 @@
             <div class="kind">Instance Variable</div>
             <div class="privacy">PRIVATE</div>
             <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.rest.Parser._deprecated">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.rest<wbr></wbr>.<wbr></wbr>Parser<wbr></wbr>._deprecated</div>
+            <div class="url">docstring_parser.rest.Parser.html#_deprecated</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.rest.Parser._directives">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.rest<wbr></wbr>.<wbr></wbr>Parser<wbr></wbr>._directives</div>
+            <div class="url">docstring_parser.rest.Parser.html#_directives</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.rest.Parser._names">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.rest<wbr></wbr>.<wbr></wbr>Parser<wbr></wbr>._names</div>
+            <div class="url">docstring_parser.rest.Parser.html#_names</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.rest.Parser._directive_meta">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.rest<wbr></wbr>.<wbr></wbr>Parser<wbr></wbr>._directive<wbr></wbr>_meta</div>
+            <div class="url">docstring_parser.rest.Parser.html#_directive_meta</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary">Build the meta of a directive cut out of a docstring.</div>
           </li><li id="docstring_parser.rest.Parser.try_parse">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.rest<wbr></wbr>.<wbr></wbr>Parser<wbr></wbr>.try<wbr></wbr>_parse</div>
@@ -3220,6 +3388,14 @@
             <div class="kind">Function</div>
             <div class="privacy">PRIVATE</div>
             <div class="summary">Return the name of a param's type field: <tt class="rst-docutils rst-literal">vartype</tt> for one written as <tt class="rst-docutils rst-literal">:ivar:</tt>, <tt class="rst-docutils rst-literal">:var:</tt>, <tt class="rst-docutils rst-literal">:cvar:</tt> or a <tt class="rst-docutils rst-literal">:vartype:</tt> alone, as Sphinx reads it.</div>
+          </li><li id="docstring_parser.rest._as_directive">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.rest<wbr></wbr>._as<wbr></wbr>_directive</div>
+            <div class="url">docstring_parser.rest.html#_as_directive</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary">Whether compose writes a meta as a <tt class="rst-docutils rst-literal">deprecated</tt> directive.</div>
           </li><li id="docstring_parser.rest.compose">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.rest<wbr></wbr>.compose</div>

@@ -1,0 +1,997 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>docstring_parser._directives</title>
+    <meta name="generator" content="pydoctor 25.10.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+    
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a> <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="apidocs-help-button" title="Help" href="apidocs-help.html"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 10px;">
+          <p>For more information on the search, visit the <a href="apidocs-help.html#rst-search">help page</a>.</p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="docstring_parser._directives.html" class="internal-link" title="This module">_directives</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser._directives.Directive.html" class="internal-link" title="docstring_parser._directives.Directive"><wbr></wbr>Directive</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#body_text" class="internal-link" title="docstring_parser._directives.body_text">body<wbr></wbr>_text</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#cut_directives" class="internal-link" title="docstring_parser._directives.cut_directives">cut<wbr></wbr>_directives</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#deprecation" class="internal-link" title="docstring_parser._directives.deprecation">deprecation</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#deprecation_lines" class="internal-link" title="docstring_parser._directives.deprecation_lines">deprecation<wbr></wbr>_lines</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#description_with_deprecation" class="internal-link" title="docstring_parser._directives.description_with_deprecation">description<wbr></wbr>_with<wbr></wbr>_deprecation</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#directive_pattern" class="internal-link" title="docstring_parser._directives.directive_pattern">directive<wbr></wbr>_pattern</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#lead_directive" class="internal-link" title="docstring_parser._directives.lead_directive">lead<wbr></wbr>_directive</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#leading_deprecation" class="internal-link" title="docstring_parser._directives.leading_deprecation">leading<wbr></wbr>_deprecation</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DEPRECATED" class="internal-link" title="docstring_parser._directives.DEPRECATED">DEPRECATED</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="index.html" class="internal-link" title="The parent of this module">docstring<wbr></wbr>_parser</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.attrdoc.html" class="internal-link" title="docstring_parser.attrdoc">attrdoc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.auto.html" class="internal-link" title="docstring_parser.auto">auto</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.common.html" class="internal-link" title="docstring_parser.common">common</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.epydoc.html" class="internal-link" title="docstring_parser.epydoc">epydoc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.google.html" class="internal-link" title="docstring_parser.google">google</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.numpydoc.html" class="internal-link" title="docstring_parser.numpydoc">numpydoc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.parser.html" class="internal-link" title="docstring_parser.parser">parser</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.rest.html" class="internal-link" title="docstring_parser.rest">rest</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.sections.html" class="internal-link" title="docstring_parser.sections">sections</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.util.html" class="internal-link" title="docstring_parser.util">util</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser._compose.html" class="internal-link" title="docstring_parser._compose">_compose</a></code>
+            </div>
+        
+
+    </li><li class="private thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser._directives.html" class="internal-link" title="docstring_parser._directives">_directives</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser._fields.html" class="internal-link" title="docstring_parser._fields">_fields</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser._lines.html" class="internal-link" title="docstring_parser._lines">_lines</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser._text.html" class="internal-link" title="docstring_parser._text">_text</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.BaseParser.html" class="internal-link" title="docstring_parser.BaseParser"><wbr></wbr>Base<wbr></wbr>Parser</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.Docstring.html" class="internal-link" title="docstring_parser.Docstring"><wbr></wbr>Docstring</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.DocstringDeprecated.html" class="internal-link" title="docstring_parser.DocstringDeprecated"><wbr></wbr>Docstring<wbr></wbr>Deprecated</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.DocstringMeta.html" class="internal-link" title="docstring_parser.DocstringMeta"><wbr></wbr>Docstring<wbr></wbr>Meta</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.DocstringParam.html" class="internal-link" title="docstring_parser.DocstringParam"><wbr></wbr>Docstring<wbr></wbr>Param</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.DocstringRaises.html" class="internal-link" title="docstring_parser.DocstringRaises"><wbr></wbr>Docstring<wbr></wbr>Raises</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.DocstringReturns.html" class="internal-link" title="docstring_parser.DocstringReturns"><wbr></wbr>Docstring<wbr></wbr>Returns</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.DocstringStyle.html" class="internal-link" title="docstring_parser.DocstringStyle"><wbr></wbr>Docstring<wbr></wbr>Style</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.ParseResult.html" class="internal-link" title="docstring_parser.ParseResult"><wbr></wbr>Parse<wbr></wbr>Result</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.Problem.html" class="internal-link" title="docstring_parser.Problem"><wbr></wbr>Problem</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.RenderingStyle.html" class="internal-link" title="docstring_parser.RenderingStyle"><wbr></wbr>Rendering<wbr></wbr>Style</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.ParseError.html" class="internal-link" title="docstring_parser.ParseError"><wbr></wbr>Parse<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="index.html#combine_docstrings" class="internal-link" title="docstring_parser.combine_docstrings">combine<wbr></wbr>_docstrings</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="index.html#compose" class="internal-link" title="docstring_parser.compose">compose</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="index.html#parse" class="internal-link" title="docstring_parser.parse">parse</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="index.html#parse_from_object" class="internal-link" title="docstring_parser.parse_from_object">parse<wbr></wbr>_from<wbr></wbr>_object</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="index.html#try_parse" class="internal-link" title="docstring_parser.try_parse">try<wbr></wbr>_parse</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapse-sidebar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <main class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="module private"><code><code><a href="index.html" class="internal-link">docstring_parser</a></code><wbr></wbr>.<code><a href="docstring_parser._directives.html" class="internal-link" title="docstring_parser._directives">_directives</a></code></code></h1>
+          <div id="show-private">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <a href="https://github.com/rr-/docstring_parser/tree/5a89e461497e3995838a0e47e6564dc3b8782fc7/docstring_parser/_directives.py" class="sourceLink">(source)</a>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>reST directives in the free text of a docstring, which styles share.</p>
+<p>A directive starts at the start of a line, as in:</p>
+<pre class="rst-literal-block">
+.. deprecated:: 1.0
+   Use `other` instead.
+</pre>
+<p>Its body is the indented lines after it. Readers cut the directives they
+know out of the lines before reading the rest, and keep where each was.</p>
+</div>
+        </div>
+
+        <div id="split-tables">
+          <table class="children sortable" id="id5">
+  
+  
+  <tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="docstring_parser._directives.Directive.html" class="internal-link" title="docstring_parser._directives.Directive"><wbr></wbr>Directive</a></code></td>
+    <td>A directive cut out of a docstring's lines.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#body_text" class="internal-link" title="docstring_parser._directives.body_text">body<wbr></wbr>_text</a></code></td>
+    <td>Return a directive's body dedented, keeping relative indents.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#cut_directives" class="internal-link" title="docstring_parser._directives.cut_directives">cut<wbr></wbr>_directives</a></code></td>
+    <td>Cut the directives whose first line matches a pattern.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#deprecation" class="internal-link" title="docstring_parser._directives.deprecation">deprecation</a></code></td>
+    <td>Build a deprecation from a <tt class="rst-docutils rst-literal">deprecated</tt> directive.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#deprecation_lines" class="internal-link" title="docstring_parser._directives.deprecation_lines">deprecation<wbr></wbr>_lines</a></code></td>
+    <td>Write a deprecation as a <tt class="rst-docutils rst-literal">deprecated</tt> directive.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#description_with_deprecation" class="internal-link" title="docstring_parser._directives.description_with_deprecation">description<wbr></wbr>_with<wbr></wbr>_deprecation</a></code></td>
+    <td>The short and long description, each followed by a blank if asked, with a deprecation as a directive between them.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#directive_pattern" class="internal-link" title="docstring_parser._directives.directive_pattern">directive<wbr></wbr>_pattern</a></code></td>
+    <td>Match the first line of any of some directives.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#lead_directive" class="internal-link" title="docstring_parser._directives.lead_directive">lead<wbr></wbr>_directive</a></code></td>
+    <td>Make a directive starting the docstring start a line.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#leading_deprecation" class="internal-link" title="docstring_parser._directives.leading_deprecation">leading<wbr></wbr>_deprecation</a></code></td>
+    <td>Return the deprecation to write right after the short description.</td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#DEPRECATED" class="internal-link" title="docstring_parser._directives.DEPRECATED">DEPRECATED</a></code></td>
+    <td><span class="rst-undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="child-list">
+          <div class="basefunction">
+  
+  
+  <a name="docstring_parser._directives.body_text">
+    
+  </a>
+  <a name="body_text">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">body_text</span><span class="function-signature">(<span class="rst-sig-param">body: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/5a89e461497e3995838a0e47e6564dc3b8782fc7/docstring_parser/_directives.py#L106">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#body_text" title="docstring_parser._directives.body_text">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return a directive's body dedented, keeping relative indents.</p>
+<p>A line holding only whitespace, such as a form feed, is blank.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="docstring_parser._directives.cut_directives">
+    
+  </a>
+  <a name="cut_directives">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">cut_directives</span><span class="function-signature">(<span class="rst-sig-param">lines: <code><a href="docstring_parser._lines.Lines.html" class="internal-link" title="docstring_parser._lines.Lines">Lines</a></code>, </span><span class="rst-sig-param">pattern: <code><a href="https://docs.python.org/3/library/typing.html#typing.Pattern" class="intersphinx-link">T.Pattern</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#tuple" class="intersphinx-link">tuple</a>[<wbr></wbr><a href="docstring_parser._lines.Lines.html" class="internal-link" title="docstring_parser._lines.Lines">Lines</a>, <wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="docstring_parser._directives.Directive.html" class="internal-link" title="docstring_parser._directives.Directive">Directive</a>]]</code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/5a89e461497e3995838a0e47e6564dc3b8782fc7/docstring_parser/_directives.py#L63">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#cut_directives" title="docstring_parser._directives.cut_directives">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Cut the directives whose first line matches a pattern.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">lines:</span><code><a href="docstring_parser._lines.Lines.html" class="internal-link" title="docstring_parser._lines.Lines">Lines</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">pattern:</span><code><a href="https://docs.python.org/3/library/typing.html#typing.Pattern" class="intersphinx-link">T.Pattern</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code></td><td class="fieldArgDesc">matches a directive's first line, at the start of a
+line of <tt class="rst-docutils rst-literal">lines.text</tt></td></tr></table><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/builtins/stdtypes.html#tuple" class="intersphinx-link">tuple</a>[<wbr></wbr><a href="docstring_parser._lines.Lines.html" class="internal-link" title="docstring_parser._lines.Lines">Lines</a>, <wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="docstring_parser._directives.Directive.html" class="internal-link" title="docstring_parser._directives.Directive">Directive</a>]]</code></td><td class="fieldArgDesc">the lines left, and each directive cut, in order</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="docstring_parser._directives.deprecation">
+    
+  </a>
+  <a name="deprecation">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">deprecation</span><span class="function-signature">(<span class="rst-sig-param">version: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>, </span><span class="rst-sig-param">body: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code>, </span><span class="rst-sig-param">key: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></span>) -&gt; <code>DocstringDeprecated</code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/5a89e461497e3995838a0e47e6564dc3b8782fc7/docstring_parser/_directives.py#L115">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#deprecation" title="docstring_parser._directives.deprecation">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Build a deprecation from a <tt class="rst-docutils rst-literal">deprecated</tt> directive.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">version:</span><code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">the text after <tt class="rst-docutils rst-literal">::</tt> on the directive's line</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">body:</span><code><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code></td><td class="fieldArgDesc">the directive's indented body</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">key:</span><code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>DocstringDeprecated</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="docstring_parser._directives.deprecation_lines">
+    
+  </a>
+  <a name="deprecation_lines">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">deprecation_lines</span><span class="function-signature">(<span class="rst-sig-param">meta: <code>DocstringDeprecated</code>, </span><span class="rst-sig-param">indent: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/5a89e461497e3995838a0e47e6564dc3b8782fc7/docstring_parser/_directives.py#L128">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#deprecation_lines" title="docstring_parser._directives.deprecation_lines">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Write a deprecation as a <tt class="rst-docutils rst-literal">deprecated</tt> directive.</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="docstring_parser._directives.description_with_deprecation">
+    
+  </a>
+  <a name="description_with_deprecation">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">description_with_deprecation</span><span class="function-signature long-signature">(<span class="rst-sig-param">docstring: <code>Docstring</code>, </span><span class="rst-sig-param">top: <code>DocstringDeprecated | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code>, </span><span class="rst-sig-param">indent: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>, </span><span class="rst-sig-param">blank: <code><a href="https://docs.python.org/3/builtins/functions.html#bool" class="intersphinx-link">bool</a></code> = <a href="https://docs.python.org/3/builtins/constants.html#False" class="intersphinx-link">False</a></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/5a89e461497e3995838a0e47e6564dc3b8782fc7/docstring_parser/_directives.py#L159">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#description_with_deprecation" title="docstring_parser._directives.description_with_deprecation">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>The short and long description, each followed by a blank if asked,
+with a deprecation as a directive between them.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">docstring:</span><code>Docstring</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">top:</span><code>DocstringDeprecated | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">indent:</span><code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">blank:</span><code><a href="https://docs.python.org/3/builtins/functions.html#bool" class="intersphinx-link">bool</a></code></td><td class="fieldArgDesc">whether a blank line always ends the directive before
+the long description, as Numpydoc needs; in the other styles, one
+reads back as a blank after the short description unless one is
+also before the directive</td></tr></table><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="docstring_parser._directives.directive_pattern">
+    
+  </a>
+  <a name="directive_pattern">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">directive_pattern</span><span class="function-signature">(<span class="rst-sig-param">names: <code><a href="https://docs.python.org/3/library/typing.html#typing.Sequence" class="intersphinx-link">T.Sequence</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code></span>) -&gt; <code><a href="https://docs.python.org/3/library/typing.html#typing.Pattern" class="intersphinx-link">T.Pattern</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/5a89e461497e3995838a0e47e6564dc3b8782fc7/docstring_parser/_directives.py#L25">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#directive_pattern" title="docstring_parser._directives.directive_pattern">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Match the first line of any of some directives.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">names:</span><code><a href="https://docs.python.org/3/library/typing.html#typing.Sequence" class="intersphinx-link">T.Sequence</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code></td><td class="fieldArgDesc">patterns for what follows each directive's <tt class="rst-docutils rst-literal">..</tt></td></tr></table><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/library/typing.html#typing.Pattern" class="intersphinx-link">T.Pattern</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="docstring_parser._directives.lead_directive">
+    
+  </a>
+  <a name="lead_directive">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">lead_directive</span><span class="function-signature">(<span class="rst-sig-param">lines: <code><a href="docstring_parser._lines.Lines.html" class="internal-link" title="docstring_parser._lines.Lines">Lines</a></code>, </span><span class="rst-sig-param">pattern: <code><a href="https://docs.python.org/3/library/typing.html#typing.Pattern" class="intersphinx-link">T.Pattern</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code></span>) -&gt; <code><a href="docstring_parser._lines.Lines.html" class="internal-link" title="docstring_parser._lines.Lines">Lines</a></code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/5a89e461497e3995838a0e47e6564dc3b8782fc7/docstring_parser/_directives.py#L46">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#lead_directive" title="docstring_parser._directives.lead_directive">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Make a directive starting the docstring start a line.</p>
+<p>On the first line, it is dedented with its body. After blank lines, it
+is read whatever its indent, as the short description it would
+otherwise give is.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="docstring_parser._directives.leading_deprecation">
+    
+  </a>
+  <a name="leading_deprecation">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">leading_deprecation</span><span class="function-signature">(<span class="rst-sig-param">docstring: <code>Docstring</code></span>) -&gt; <code>DocstringDeprecated | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/5a89e461497e3995838a0e47e6564dc3b8782fc7/docstring_parser/_directives.py#L139">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#leading_deprecation" title="docstring_parser._directives.leading_deprecation">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return the deprecation to write right after the short description.</p>
+<p>A deprecation that comes first goes there, as Numpydoc writes it,
+with the long description read from after it. Not when the long
+description is followed by a blank line, which it is only when written
+before the directive, or when it starts indented, which would read
+back as the directive's body.</p>
+</div>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="docstring_parser._directives.DEPRECATED">
+    
+  </a>
+  <a name="DEPRECATED">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DEPRECATED</span>: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/5a89e461497e3995838a0e47e6564dc3b8782fc7/docstring_parser/_directives.py#L22">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#DEPRECATED" title="docstring_parser._directives.DEPRECATED">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><span class="rst-variable-quote">'</span><span class="rst-variable-string">deprecated[ \\t]*::(?P&lt;version&gt;[^\\n]*?)</span><span class="rst-variable-quote">'</span></code></pre></td></tr></table>
+  </div>
+</div>
+        </div>
+      
+      </main>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container-fluid">
+    <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    25.10.1 at 2026-11-06 21:34:21.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>
