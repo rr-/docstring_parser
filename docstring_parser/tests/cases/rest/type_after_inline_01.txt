@@ -1,0 +1,39 @@
+# Test that a type field for a param or return that has a type of its own
+# is kept as an item of its own instead of being dropped.
+=== input
+:param int x: The x.
+:type x: str
+:returns int: The sum.
+:rtype: float
+=== parse rest
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+- DocstringParam
+  description: 'The x.'
+  kind: param
+  key: 'param'
+  arg_name: 'x'
+  type_name: 'int'
+  is_optional: False
+- DocstringParam
+  kind: param
+  key: 'type'
+  arg_name: 'x'
+  type_name: 'str'
+  is_optional: False
+- DocstringReturns
+  description: 'The sum.'
+  kind: returns
+  key: 'returns'
+  type_name: 'int'
+  is_generator: False
+- DocstringReturns
+  kind: returns
+  type_name: 'float'
+  is_generator: False
+=== compose rest
+:param int x: The x.
+:param str x:
+:returns int: The sum.
+:returns float:

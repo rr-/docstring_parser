@@ -54,6 +54,10 @@ def assign_types(
     vartypes = vartypes or {}
     taken: T.Dict[T.Any, int] = {}
     for meta in metas:
+        # A meta with a type of its own, as in ``:param int x:``, takes no
+        # type field, which stays a meta of its own instead of being lost.
+        if getattr(meta, "type_name", None):
+            continue
         if isinstance(meta, DocstringParam):
             name = meta.arg_name
             if meta.kind is Kind.ATTRIBUTE and name in vartypes:
