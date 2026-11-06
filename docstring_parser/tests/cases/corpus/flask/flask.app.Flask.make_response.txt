@@ -120,6 +120,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'rv'
+  is_optional: False
 === detect
 rest
 === compose rest

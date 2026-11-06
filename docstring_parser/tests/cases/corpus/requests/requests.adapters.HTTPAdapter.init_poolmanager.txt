@@ -28,21 +28,25 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'connections'
+  is_optional: False
 - DocstringParam
   description: 'The maximum number of connections to save in the pool.'
   kind: param
   key: 'param'
   arg_name: 'maxsize'
+  is_optional: False
 - DocstringParam
   description: 'Block when no free connections are available.'
   kind: param
   key: 'param'
   arg_name: 'block'
+  is_optional: False
 - DocstringParam
   description: 'Extra keyword arguments used to initialize the Pool Manager.'
   kind: param
   key: 'param'
   arg_name: 'pool_kwargs'
+  is_optional: False
 === detect
 rest
 === compose rest

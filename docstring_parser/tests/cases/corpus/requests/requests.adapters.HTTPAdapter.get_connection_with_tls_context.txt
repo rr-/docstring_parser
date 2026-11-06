@@ -34,6 +34,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'request'
+  is_optional: False
 - DocstringParam
   description: |
     Either a boolean, in which case it controls whether we verify the
@@ -42,11 +43,13 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'verify'
+  is_optional: False
 - DocstringParam
   description: '(optional) The proxies dictionary to apply to the request.'
   kind: param
   key: 'param'
   arg_name: 'proxies'
+  is_optional: False
 - DocstringParam
   description: |
     (optional) Any user-provided SSL certificate to be used for client
@@ -54,6 +57,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'cert'
+  is_optional: False
 - DocstringReturns
   kind: returns
   type_name: 'urllib3.HTTPConnectionPool'

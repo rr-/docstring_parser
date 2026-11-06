@@ -116,16 +116,19 @@ style: google
   kind: param
   key: 'param'
   arg_name: '*fields'
+  is_optional: False
 - DocstringParam
   description: 'Specifies whether to validate the fields before or after validation.'
   kind: param
   key: 'param'
   arg_name: 'mode'
+  is_optional: False
 - DocstringParam
   description: 'Whether to check that the fields actually exist on the model.'
   kind: param
   key: 'param'
   arg_name: 'check_fields'
+  is_optional: False
 - DocstringParam
   description: |
     The input type of the function. This is only used to generate
@@ -134,6 +137,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'json_schema_input_type'
+  is_optional: False
 - DocstringRaises
   description: |
     - If the decorator is used without any arguments (at least one field name must be provided).

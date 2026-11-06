@@ -107,6 +107,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'host'
+  is_optional: False
 - DocstringParam
   description: |
     the port of the webserver. Defaults to ``5000`` or the
@@ -114,6 +115,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'port'
+  is_optional: False
 - DocstringParam
   description: |
     if given, enable or disable debug mode. See
@@ -121,6 +123,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'debug'
+  is_optional: False
 - DocstringParam
   description: |
     Load the nearest :file:`.env` and :file:`.flaskenv`
@@ -129,6 +132,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'load_dotenv'
+  is_optional: False
 - DocstringParam
   description: |
     the options to be forwarded to the underlying Werkzeug
@@ -137,6 +141,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'options'
+  is_optional: False
 === detect
 rest
 === compose rest

@@ -42,6 +42,7 @@ style: google
   arg_name: 'max_length'
   type_name: 'int'
   is_optional: True
+  default: 'None'
   raw_type_name: 'int, optional'
 - DocstringParam
   description: 'Maximum length of strings before truncating, or None to disable. Defaults to None.'

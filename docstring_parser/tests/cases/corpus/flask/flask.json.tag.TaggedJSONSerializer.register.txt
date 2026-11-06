@@ -25,6 +25,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'tag_class'
+  is_optional: False
 - DocstringParam
   description: |
     overwrite an existing tag. If false (default), a
@@ -32,6 +33,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'force'
+  is_optional: False
 - DocstringParam
   description: |
     index to insert the new tag in the tag order. Useful when
@@ -40,6 +42,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'index'
+  is_optional: False
 - DocstringRaises
   description: |
     if the tag key is already registered and ``force`` is

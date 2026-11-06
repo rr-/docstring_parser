@@ -33,6 +33,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'a'
+  is_optional: False
 === parse google
 short_description: 'Sum.'
 long_description: |
@@ -52,6 +53,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'a'
+  is_optional: False
 === parse epydoc
 short_description: 'Sum.'
 long_description: |
@@ -90,3 +92,4 @@ style: numpydoc
   kind: param
   key: 'param'
   arg_name: 'a'
+  is_optional: False

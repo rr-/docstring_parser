@@ -38,11 +38,13 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'args'
+  is_optional: False
 - DocstringParam
   description: 'Treat as a dict to serialize.'
   kind: param
   key: 'param'
   arg_name: 'kwargs'
+  is_optional: False
 === detect
 rest
 === compose rest

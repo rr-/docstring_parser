@@ -31,11 +31,13 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'resource'
+  is_optional: False
 - DocstringParam
   description: 'Open the file in this mode.'
   kind: param
   key: 'param'
   arg_name: 'mode'
+  is_optional: False
 - DocstringParam
   description: |
     Open the file with this encoding when opening in text
@@ -43,6 +45,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'encoding'
+  is_optional: False
 === detect
 rest
 === compose rest

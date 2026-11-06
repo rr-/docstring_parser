@@ -52,6 +52,7 @@ style: numpydoc
   arg_name: 'loc'
   type_name: 'array_like'
   is_optional: True
+  default: '0'
   raw_type_name: 'array_like, optional'
 - DocstringReturns
   description: 'Log of the survival function evaluated at `k`.'
@@ -75,7 +76,7 @@ k : array_like
 arg1, arg2, arg3,... : array_like
     The shape parameter(s) for the distribution (see docstring of the
     instance object for more information).
-loc : array_like, optional
+loc : array_like, default=0
     Location parameter (default=0).
 
 Returns

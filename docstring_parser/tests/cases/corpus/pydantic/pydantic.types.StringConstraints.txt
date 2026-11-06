@@ -40,41 +40,49 @@ style: google
   kind: attribute
   key: 'attribute'
   arg_name: 'strip_whitespace'
+  is_optional: False
 - DocstringParam
   description: 'Whether to convert the string to uppercase.'
   kind: attribute
   key: 'attribute'
   arg_name: 'to_upper'
+  is_optional: False
 - DocstringParam
   description: 'Whether to convert the string to lowercase.'
   kind: attribute
   key: 'attribute'
   arg_name: 'to_lower'
+  is_optional: False
 - DocstringParam
   description: 'Whether to validate the string in strict mode.'
   kind: attribute
   key: 'attribute'
   arg_name: 'strict'
+  is_optional: False
 - DocstringParam
   description: 'The minimum length of the string.'
   kind: attribute
   key: 'attribute'
   arg_name: 'min_length'
+  is_optional: False
 - DocstringParam
   description: 'The maximum length of the string.'
   kind: attribute
   key: 'attribute'
   arg_name: 'max_length'
+  is_optional: False
 - DocstringParam
   description: 'A regex pattern that the string must match.'
   kind: attribute
   key: 'attribute'
   arg_name: 'pattern'
+  is_optional: False
 - DocstringParam
   description: 'Whether the string should contain only ASCII characters.'
   kind: attribute
   key: 'attribute'
   arg_name: 'ascii_only'
+  is_optional: False
 - DocstringExample
   description: |
     ```python

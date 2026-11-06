@@ -5,6 +5,7 @@
 - General: **Breaking:** Make `DocstringStyle` values the style names, such as `"google"`, instead of numbers
 - General: **Breaking:** Leave attributes out of `Docstring.params`, and list them in the new `Docstring.attrs`
 - General: **Breaking:** Leave yields out of `Docstring.returns` and `many_returns`; read them from the new `yields` and `many_yields`
+- General: **Breaking:** Make `is_optional` of a parsed param always a bool, `False` instead of `None` when it has no type
 - Google, Numpydoc: **Breaking:** Remove customising parsing by overriding internals such as `titles_re`, `title_pattern`, `_build_meta` and `KV_REGEX`; use `SectionSpec` instead
 - General: Parse docstrings with `\r\n` or `\r` line endings the same as with `\n`, on every Python version
 - General: Dedent docstrings the same way on every Python version; from 3.13, `inspect.cleandoc` dedented nothing after a blank line holding a tab or form feed
@@ -23,6 +24,8 @@
 - General: Add `try_parse()`, which never raises for the docstring's text and returns a `ParseResult` of the docstring and its `problems`, each a `Problem` with its line and a stable `code`, such as `missing-colon`; text it cannot read goes to the long description
 - General: Give `ParseError` the `problems` of the whole docstring and the `result` parsed despite them, and mention how many more there are in its message
 - General: Show a docstring and its metas with the fields they have set in `repr()`, as in `DocstringParam(kind=Kind.PARAM, arg_name='x', ...)`
+- General: Read optional params and defaults by one rule in every style: `optional` in any case or as `*optional*`, `(optional)`, `?`, and `default 1`, `default=1`, `default: 1`, `default is 1` or `defaults to 1` in the type, split at commas outside brackets and quotes
+- General: Take a default from a param's description in every style when it states one value, as in `Defaults to 3.`, `(default: 3)` or `defaults to ``None`` if unset`, and make the param optional; prose such as `the default is to use all` gives none
 - General: Add `raw_type_name` to params, the type as written, such as `int, optional`, before its optional mark and default are split off
 - General: Keep a class attribute in `parse_from_object()` when the class docstring documents a param of the same name, instead of dropping it
 - General: Return the docstring of a built-in class or module from `parse_from_object()` instead of raising `TypeError`, and ignore a `__doc__` that is not a string
@@ -49,7 +52,6 @@
 - Google: Keep every section when a title appears twice, instead of only the last one
 - Google: Keep the words after a param's type, as in `x (int) more:`, as its new `extra`, instead of dropping them
 - Google: Keep the text after a section, such as an example or an unknown section, in the long description instead of dropping it
-- Google: Make a param optional when its type ends in `(optional)` or names a default, as in `int, default 1`
 - Google: Read a `Raises:` item that is a type alone, such as `ValueError`, and a `Raises:` section of plain prose as one raises with no type, instead of raising `ParseError`
 - Numpydoc: Fix the type of `NumpydocParser`'s `sections` argument, which takes a list of sections
 - Numpydoc: Compose sections such as See Also with their own titles and underlines, instead of e.g. `Seealso`
@@ -59,11 +61,9 @@
 - Numpydoc: Compose a blank line between the deprecation block and the long description, and no trailing spaces on its blank lines
 - Numpydoc: End a deprecation directive at its indented body, so a long description written after it is no longer part of the deprecation
 - Numpydoc: Parse examples sections in linear time instead of quadratic
+- Numpydoc: Compose an optional param with no type as `x : optional`, which no longer reads back as a param named `x, optional`
 - Numpydoc: Rebuild the reused default parser also when a section in `DEFAULT_SECTIONS` has its title changed in place
-- Numpydoc: Read a default from the description only after `default is`, `default:`, `default=` or `defaults to`, not after any `default`
-- Numpydoc: Take `optional` out of a param's type also when it comes before the default, as in `int, optional, default 1`
 - Numpydoc: Compose raises written with another key, such as ReST's `:raise:` and `:except:`, instead of dropping them
-- Numpydoc: Make a param optional when its type ends in `?`, and drop the trailing space of `int (optional)`
 - Numpydoc: Keep indented text before a section's first item in the long description instead of dropping it
 - Epydoc: Match fields only at their header, so field-like text in a description no longer replaces it and a header without its colon no longer stalls the parser (thanks to @akshitkhokhani)
 - Epydoc: Take a param's key and kind from its `@param`, `@keyword` or `@ivar` field, instead of `type` when its `@type` field comes first
@@ -73,7 +73,6 @@
 - Epydoc: Read the field names Epydoc gives as synonyms: `@raises`, `@except` and `@exception` for `@raise`, `@returns` for `@return`, `@returntype` for `@rtype`, `@parameter`, `@arg` and `@argument` for `@param`, and `@kwarg` and `@kwparam` for `@keyword`
 - ReST, Numpydoc: Read text after the fields of a docstring with no description as its description, instead of a long description that `compose()` starts with an empty line
 - ReST, Epydoc: Compose each param with its kind's field name, such as `:keyword:` or `@ivar`, instead of `:param:` or `@param` for all
-- ReST, Epydoc: Make a param optional when its type says `int, optional`, `int (optional)` or `int, default 1`, as in Numpydoc, also in a `:type:` field
 - ReST, Epydoc: Give each of a name's type fields to its next item, instead of the last overwriting the others
 - Google, Numpydoc: Reuse the default parser between `parse()` calls instead of building a new one each time, making parsing about 30–50% faster
 - Google, Numpydoc: Compose params of every kind, such as ReST's `:keyword:` or Numpydoc's other params, instead of dropping those with no section of their own

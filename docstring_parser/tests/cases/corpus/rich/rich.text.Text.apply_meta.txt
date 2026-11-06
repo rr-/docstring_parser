@@ -26,7 +26,7 @@ style: google
   key: 'param'
   arg_name: 'start'
   type_name: 'int'
-  is_optional: False
+  is_optional: True
   default: '0'
 - DocstringParam
   description: 'End offset (negative indexing is supported), or None for end of text. Defaults to None.'
@@ -44,5 +44,5 @@ Apply metadata to the text, or a portion of the text.
 
 Args:
     meta (Dict[str, Any]): A dict of meta information.
-    start (int): Start offset (negative indexing is supported). Defaults to 0.
+    start (int?): Start offset (negative indexing is supported). Defaults to 0.
     end (Optional[int]?): End offset (negative indexing is supported), or None for end of text. Defaults to None.

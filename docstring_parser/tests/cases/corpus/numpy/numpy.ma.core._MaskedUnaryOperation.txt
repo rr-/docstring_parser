@@ -48,7 +48,7 @@ style: numpydoc
   key: 'param'
   arg_name: 'domain'
   type_name: 'class instance'
-  is_optional: False
+  is_optional: True
   default: 'None'
 === detect
 numpydoc

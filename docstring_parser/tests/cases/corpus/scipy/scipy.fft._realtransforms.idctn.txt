@@ -145,6 +145,7 @@ style: numpydoc
   arg_name: 'orthogonalize'
   type_name: 'bool'
   is_optional: True
+  default: 'True'
   raw_type_name: 'bool, optional'
 - DocstringReturns
   description: 'The transformed input array.'
@@ -204,7 +205,7 @@ workers : int, optional
     Maximum number of workers to use for parallel computation. If negative,
     the value wraps around from ``os.cpu_count()``.
     See :func:`~scipy.fft.fft` for more details.
-orthogonalize : bool, optional
+orthogonalize : bool, default=True
     Whether to use the orthogonalized IDCT variant (see Notes).
     Defaults to ``True`` when ``norm="ortho"`` and ``False`` otherwise.
     

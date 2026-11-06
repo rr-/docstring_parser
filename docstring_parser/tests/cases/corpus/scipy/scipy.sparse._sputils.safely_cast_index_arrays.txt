@@ -93,7 +93,8 @@ style: numpydoc
   key: 'param'
   arg_name: 'idx_dtype'
   type_name: 'dtype'
-  is_optional: False
+  is_optional: True
+  default: 'np.int32'
 - DocstringParam
   description: |
     A string to be added to the end of the ValueError message
@@ -106,7 +107,6 @@ style: numpydoc
   arg_name: 'msg'
   type_name: 'str'
   is_optional: True
-  default: 'f'
   raw_type_name: 'str, optional'
 - DocstringReturns
   description: |
@@ -176,10 +176,10 @@ Parameters
 ----------
 A : sparse array or matrix
     The array for which index arrays should be downcast.
-idx_dtype : dtype
+idx_dtype : dtype, default=np.int32
     Desired dtype. Should be an integer dtype (default: ``np.int32``).
     Most of scipy.sparse uses either int64 or int32.
-msg : str, default=f
+msg : str, optional
     A string to be added to the end of the ValueError message
     if the array shape is too big to fit in `idx_dtype`.
     The error message is ``f"<index> values too large for {msg}"``

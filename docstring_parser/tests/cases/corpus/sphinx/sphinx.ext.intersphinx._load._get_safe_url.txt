@@ -26,6 +26,7 @@ style: rest
   key: 'param'
   arg_name: 'url'
   type_name: '``str``'
+  is_optional: False
 - DocstringReturns
   description: '*url* with password removed'
   kind: returns

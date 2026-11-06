@@ -22,26 +22,31 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'name'
+  is_optional: False
 - DocstringParam
   description: 'One of ``{int, float}``.'
   kind: param
   key: 'param'
   arg_name: 'base_type'
+  is_optional: False
 - DocstringParam
   description: "Tuples of pairs (comparison, reference), e.g. ``('>', 0)``."
   kind: param
   key: 'param'
   arg_name: 'restrictions'
+  is_optional: False
 - DocstringParam
   description: "How to combine multiple comparisons, one of ``{'or', 'and'}``."
   kind: param
   key: 'param'
   arg_name: 'join'
+  is_optional: False
 - DocstringParam
   description: 'Docstring for the type class.'
   kind: param
   key: 'param'
   arg_name: 'docstring'
+  is_optional: False
 - DocstringReturns
   description: 'The created or retrieved type class.'
   kind: returns

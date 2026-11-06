@@ -17,6 +17,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'x more The value'
+  is_optional: False
 - DocstringParam
   description: 'there'
   kind: param

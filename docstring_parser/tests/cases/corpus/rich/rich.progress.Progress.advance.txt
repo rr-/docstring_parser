@@ -24,7 +24,8 @@ style: google
   key: 'param'
   arg_name: 'advance'
   type_name: 'float'
-  is_optional: False
+  is_optional: True
+  default: '1'
 === detect
 google
 === compose google
@@ -32,4 +33,4 @@ Advance task by a number of steps.
 
 Args:
     task_id (TaskID): ID of task.
-    advance (float): Number of steps to advance. Default is 1.
+    advance (float?): Number of steps to advance. Default is 1.

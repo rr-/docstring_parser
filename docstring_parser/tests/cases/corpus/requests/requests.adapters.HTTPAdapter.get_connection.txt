@@ -30,11 +30,13 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'url'
+  is_optional: False
 - DocstringParam
   description: '(optional) A Requests-style dictionary of proxies used on this request.'
   kind: param
   key: 'param'
   arg_name: 'proxies'
+  is_optional: False
 - DocstringReturns
   kind: returns
   type_name: 'urllib3.HTTPConnectionPool'

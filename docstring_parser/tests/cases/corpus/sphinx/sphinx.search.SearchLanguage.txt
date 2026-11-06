@@ -45,6 +45,7 @@ style: rest
   kind: attribute
   key: 'attribute'
   arg_name: 'stopwords'
+  is_optional: False
 - DocstringParam
   description: |
     Return splitter function of JavaScript version.  The function should be
@@ -55,6 +56,7 @@ style: rest
   kind: attribute
   key: 'attribute'
   arg_name: 'js_splitter_code'
+  is_optional: False
 - DocstringParam
   description: |
     Return stemmer class of JavaScript version.  This class' name should be
@@ -66,6 +68,7 @@ style: rest
   kind: attribute
   key: 'attribute'
   arg_name: 'js_stemmer_code'
+  is_optional: False
 === detect
 rest
 === compose rest

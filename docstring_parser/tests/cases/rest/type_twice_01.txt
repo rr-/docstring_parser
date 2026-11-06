@@ -23,12 +23,14 @@ style: rest
   key: 'param'
   arg_name: 'x'
   type_name: 'int'
+  is_optional: False
 - DocstringParam
   description: 'The second x.'
   kind: param
   key: 'param'
   arg_name: 'x'
   type_name: 'str'
+  is_optional: False
 - DocstringParam
   kind: param
   key: 'type'

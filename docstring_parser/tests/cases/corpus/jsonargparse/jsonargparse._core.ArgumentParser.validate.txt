@@ -22,21 +22,25 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'namespace'
+  is_optional: False
 - DocstringParam
   description: 'Whether to skip checking of values that are the configured None/Unset value.'
   kind: param
   key: 'param'
   arg_name: 'skip_unset'
+  is_optional: False
 - DocstringParam
   description: 'Whether to skip checking required arguments.'
   kind: param
   key: 'param'
   arg_name: 'skip_required'
+  is_optional: False
 - DocstringParam
   description: 'Base key in case cfg corresponds only to a branch.'
   kind: param
   key: 'param'
   arg_name: 'branch'
+  is_optional: False
 - DocstringRaises
   description: 'If any of the values are not valid.'
   kind: raises

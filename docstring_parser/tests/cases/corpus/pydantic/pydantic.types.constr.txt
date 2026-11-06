@@ -113,41 +113,49 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'strip_whitespace'
+  is_optional: False
 - DocstringParam
   description: 'Whether to turn all characters to uppercase.'
   kind: param
   key: 'param'
   arg_name: 'to_upper'
+  is_optional: False
 - DocstringParam
   description: 'Whether to turn all characters to lowercase.'
   kind: param
   key: 'param'
   arg_name: 'to_lower'
+  is_optional: False
 - DocstringParam
   description: 'Whether to validate the string in strict mode.'
   kind: param
   key: 'param'
   arg_name: 'strict'
+  is_optional: False
 - DocstringParam
   description: 'The minimum length of the string.'
   kind: param
   key: 'param'
   arg_name: 'min_length'
+  is_optional: False
 - DocstringParam
   description: 'The maximum length of the string.'
   kind: param
   key: 'param'
   arg_name: 'max_length'
+  is_optional: False
 - DocstringParam
   description: 'A regex pattern to validate the string against.'
   kind: param
   key: 'param'
   arg_name: 'pattern'
+  is_optional: False
 - DocstringParam
   description: 'Whether the string should contain only ASCII characters.'
   kind: param
   key: 'param'
   arg_name: 'ascii_only'
+  is_optional: False
 - DocstringReturns
   description: 'The wrapped string type.'
   kind: returns

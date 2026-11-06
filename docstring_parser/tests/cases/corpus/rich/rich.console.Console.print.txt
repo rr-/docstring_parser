@@ -65,7 +65,7 @@ style: google
   arg_name: 'justify'
   type_name: 'str'
   is_optional: True
-  default: '``None``'
+  default: 'None'
   raw_type_name: 'str, optional'
 - DocstringParam
   description: 'Overflow method: "ignore", "crop", "fold", or "ellipsis". Defaults to None.'
@@ -92,7 +92,7 @@ style: google
   arg_name: 'emoji'
   type_name: 'Optional[bool]'
   is_optional: True
-  default: '``None``'
+  default: 'None'
   raw_type_name: 'Optional[bool], optional'
 - DocstringParam
   description: 'Enable markup, or ``None`` to use console default. Defaults to ``None``.'
@@ -101,7 +101,7 @@ style: google
   arg_name: 'markup'
   type_name: 'Optional[bool]'
   is_optional: True
-  default: '``None``'
+  default: 'None'
   raw_type_name: 'Optional[bool], optional'
 - DocstringParam
   description: 'Enable automatic highlighting, or ``None`` to use console default. Defaults to ``None``.'
@@ -110,7 +110,7 @@ style: google
   arg_name: 'highlight'
   type_name: 'Optional[bool]'
   is_optional: True
-  default: '``None``'
+  default: 'None'
   raw_type_name: 'Optional[bool], optional'
 - DocstringParam
   description: 'Width of output, or ``None`` to auto-detect. Defaults to ``None``.'
@@ -119,7 +119,7 @@ style: google
   arg_name: 'width'
   type_name: 'Optional[int]'
   is_optional: True
-  default: '``None``'
+  default: 'None'
   raw_type_name: 'Optional[int], optional'
 - DocstringParam
   description: 'Crop output to width of terminal. Defaults to True.'
@@ -139,6 +139,7 @@ style: google
   arg_name: 'soft_wrap'
   type_name: 'bool'
   is_optional: True
+  default: 'None'
   raw_type_name: 'bool, optional'
 - DocstringParam
   description: 'Insert a new line at the start if the output contains more than one line. Defaults to ``False``.'
@@ -146,8 +147,8 @@ style: google
   key: 'param'
   arg_name: 'new_line_start'
   type_name: 'bool, False'
-  is_optional: False
-  default: '``False``'
+  is_optional: True
+  default: 'False'
 === detect
 google
 === compose google
@@ -168,4 +169,4 @@ Args:
     crop (Optional[bool]?): Crop output to width of terminal. Defaults to True.
     soft_wrap (bool?): Enable soft wrap mode which disables word wrapping and cropping of text or ``None`` for
         Console default. Defaults to ``None``.
-    new_line_start (bool, False): Insert a new line at the start if the output contains more than one line. Defaults to ``False``.
+    new_line_start (bool, False?): Insert a new line at the start if the output contains more than one line. Defaults to ``False``.

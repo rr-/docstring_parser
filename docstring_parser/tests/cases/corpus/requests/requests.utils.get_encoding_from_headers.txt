@@ -15,6 +15,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'headers'
+  is_optional: False
 - DocstringReturns
   kind: returns
   type_name: 'str'

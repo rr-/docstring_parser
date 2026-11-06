@@ -32,46 +32,55 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'scheme'
+  is_optional: False
 - DocstringParam
   description: 'Multiple hosts to build the URL from.'
   kind: param
   key: 'param'
   arg_name: 'hosts'
+  is_optional: False
 - DocstringParam
   description: 'The username part of the URL.'
   kind: param
   key: 'param'
   arg_name: 'username'
+  is_optional: False
 - DocstringParam
   description: 'The password part of the URL.'
   kind: param
   key: 'param'
   arg_name: 'password'
+  is_optional: False
 - DocstringParam
   description: 'The host part of the URL.'
   kind: param
   key: 'param'
   arg_name: 'host'
+  is_optional: False
 - DocstringParam
   description: 'The port part of the URL.'
   kind: param
   key: 'param'
   arg_name: 'port'
+  is_optional: False
 - DocstringParam
   description: 'The path part of the URL.'
   kind: param
   key: 'param'
   arg_name: 'path'
+  is_optional: False
 - DocstringParam
   description: 'The query part of the URL, or omit for no query.'
   kind: param
   key: 'param'
   arg_name: 'query'
+  is_optional: False
 - DocstringParam
   description: 'The fragment part of the URL, or omit for no fragment.'
   kind: param
   key: 'param'
   arg_name: 'fragment'
+  is_optional: False
 - DocstringReturns
   description: 'An instance of `MultiHostUrl`'
   kind: returns

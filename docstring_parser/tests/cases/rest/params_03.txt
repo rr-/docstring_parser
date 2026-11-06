@@ -18,6 +18,7 @@ style: rest
   key: 'param'
   arg_name: 'a'
   type_name: 'int'
+  is_optional: False
 - DocstringParam
   description: 'description b'
   kind: param

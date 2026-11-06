@@ -28,11 +28,13 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'type_'
+  is_optional: False
 - DocstringParam
   description: 'Mapping from `TypeVar` instance to concrete types.'
   kind: param
   key: 'param'
   arg_name: 'type_map'
+  is_optional: False
 - DocstringReturns
   description: |
     A new type representing the basic structure of `type_` with all

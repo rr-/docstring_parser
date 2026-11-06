@@ -58,7 +58,9 @@ def assign_types(
                 meta.raw_type_name = text
                 if spec.is_optional:
                     meta.is_optional = True
-                    meta.default = meta.default or spec.default
+                    # A default in the type wins over one the description
+                    # states, as when both come in one field.
+                    meta.default = spec.default or meta.default
         elif isinstance(meta, DocstringReturns):
             name = meta.return_name
             if meta.is_generator and name in ytypes:

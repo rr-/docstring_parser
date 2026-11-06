@@ -169,6 +169,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'import_name'
+  is_optional: False
 - DocstringParam
   description: |
     can be used to specify a different path for the
@@ -177,6 +178,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'static_url_path'
+  is_optional: False
 - DocstringParam
   description: |
     The folder with static files that is served at
@@ -185,6 +187,8 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'static_folder'
+  is_optional: True
+  default: "'static'"
 - DocstringParam
   description: |
     the host to use when adding the static route.
@@ -193,6 +197,8 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'static_host'
+  is_optional: True
+  default: 'None'
 - DocstringParam
   description: |
     set ``url_map.host_matching`` attribute.
@@ -200,6 +206,8 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'host_matching'
+  is_optional: True
+  default: 'False'
 - DocstringParam
   description: |
     consider the subdomain relative to
@@ -207,6 +215,8 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'subdomain_matching'
+  is_optional: True
+  default: 'False'
 - DocstringParam
   description: |
     the folder that contains the templates that should
@@ -216,6 +226,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'template_folder'
+  is_optional: False
 - DocstringParam
   description: |
     An alternative instance path for the application.
@@ -225,6 +236,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'instance_path'
+  is_optional: False
 - DocstringParam
   description: |
     if set to ``True`` relative filenames
@@ -234,6 +246,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'instance_relative_config'
+  is_optional: False
 - DocstringParam
   description: |
     The path to the root of the application files.
@@ -242,6 +255,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'root_path'
+  is_optional: False
 === detect
 rest
 === compose rest

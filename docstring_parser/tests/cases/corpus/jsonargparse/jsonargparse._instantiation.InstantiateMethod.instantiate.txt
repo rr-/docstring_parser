@@ -74,11 +74,13 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'namespace'
+  is_optional: False
 - DocstringParam
   description: 'Whether class groups should be instantiated.'
   kind: param
   key: 'param'
   arg_name: 'instantiate_groups'
+  is_optional: False
 - DocstringParam
   description: |
     Custom instantiators for this call, a list of ``(instantiator, class_type,
@@ -87,6 +89,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'instantiators'
+  is_optional: False
 - DocstringReturns
   description: |
     A new configuration object where every registered signature

@@ -59,6 +59,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'exc'
+  is_optional: False
 === detect
 rest
 === compose rest

@@ -47,11 +47,13 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'pool_connections'
+  is_optional: False
 - DocstringParam
   description: 'The maximum number of connections to save in the pool.'
   kind: param
   key: 'param'
   arg_name: 'pool_maxsize'
+  is_optional: False
 - DocstringParam
   description: |
     The maximum number of retries each connection
@@ -64,11 +66,13 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'max_retries'
+  is_optional: False
 - DocstringParam
   description: 'Whether the connection pool should block for connections.'
   kind: param
   key: 'param'
   arg_name: 'pool_block'
+  is_optional: False
 === detect
 rest
 === compose rest

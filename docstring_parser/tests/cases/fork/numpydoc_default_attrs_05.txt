@@ -19,7 +19,7 @@ style: numpydoc
   key: 'attribute'
   arg_name: 'attr4'
   type_name: 'int'
-  is_optional: False
+  is_optional: True
   default: '3'
 === compose numpydoc
 Attributes

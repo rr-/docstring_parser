@@ -154,7 +154,6 @@ style: numpydoc
   arg_name: 'dist'
   type_name: 'str or stats.distributions instance'
   is_optional: True
-  default: "'norm'"
   raw_type_name: 'str or stats.distributions instance, optional'
 - DocstringParam
   description: |
@@ -334,7 +333,7 @@ x : array_like
 sparams : tuple, optional
     Distribution-specific shape parameters (shape parameters plus location
     and scale).
-dist : str or stats.distributions instance, default='norm'
+dist : str or stats.distributions instance, optional
     Distribution or distribution function name. The default is 'norm' for a
     normal probability plot.  Objects that look enough like a
     stats.distributions instance (i.e. they have a ``ppf`` method) are also

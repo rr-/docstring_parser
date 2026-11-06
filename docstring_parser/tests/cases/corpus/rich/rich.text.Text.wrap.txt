@@ -66,6 +66,7 @@ style: google
   arg_name: 'no_wrap'
   type_name: 'bool'
   is_optional: True
+  default: 'False'
   raw_type_name: 'bool, optional'
 - DocstringReturns
   description: 'Number of lines.'

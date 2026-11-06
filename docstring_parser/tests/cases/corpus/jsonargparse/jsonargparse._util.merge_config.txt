@@ -20,16 +20,19 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'parser'
+  is_optional: False
 - DocstringParam
   description: 'The configuration from which to merge.'
   kind: param
   key: 'param'
   arg_name: 'source'
+  is_optional: False
 - DocstringParam
   description: 'The configuration into which to merge.'
   kind: param
   key: 'param'
   arg_name: 'target'
+  is_optional: False
 - DocstringReturns
   description: 'A new object with the merged configuration.'
   kind: returns

@@ -89,6 +89,8 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'validate_defaults'
+  is_optional: True
+  default: 'False'
 - DocstringParam
   description: |
     If ``True``, when a value for a type that
@@ -102,6 +104,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'validate_subclass_spec_in_any'
+  is_optional: False
 - DocstringParam
   description: |
     Whether ``instantiate`` builds the
@@ -116,6 +119,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'instantiate_subclass_spec_in_any'
+  is_optional: False
 - DocstringParam
   description: |
     Whether to read config files from URLs
@@ -123,6 +127,8 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'config_read_mode_urls_enabled'
+  is_optional: True
+  default: 'False'
 - DocstringParam
   description: |
     Whether to read config files from
@@ -130,6 +136,8 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'config_read_mode_fsspec_enabled'
+  is_optional: True
+  default: 'False'
 - DocstringParam
   description: |
     The docstring style to expect. Default is
@@ -137,6 +145,8 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'docstring_parse_style'
+  is_optional: True
+  default: 'DocstringStyle.AUTO'
 - DocstringParam
   description: |
     Whether to parse attribute
@@ -144,6 +154,8 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'docstring_parse_attribute_docstrings'
+  is_optional: True
+  default: 'False'
 - DocstringParam
   description: |
     If ``True``, the parser will take extra
@@ -155,6 +167,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'parse_optionals_as_positionals'
+  is_optional: False
 - DocstringParam
   description: |
     If ``True``, top-level parsers
@@ -164,6 +177,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'add_print_completion_argument'
+  is_optional: False
 - DocstringParam
   description: |
     Whether the stubs resolver should search
@@ -171,6 +185,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'stubs_resolver_allow_py_files'
+  is_optional: False
 - DocstringParam
   description: |
     If ``True``, when loading configs
@@ -180,6 +195,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'omegaconf_absolute_to_relative_paths'
+  is_optional: False
 - DocstringParam
   description: |
     If ``True``, parsers will use the :obj:`.Unset` sentinel
@@ -191,6 +207,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'unset_sentinel'
+  is_optional: False
 - DocstringParam
   description: |
     List of types or functions, so that when parsing
@@ -200,6 +217,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'subclasses_disabled'
+  is_optional: False
 - DocstringParam
   description: |
     List of types or disable function names, so that
@@ -211,6 +229,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'subclasses_enabled'
+  is_optional: False
 - DocstringParam
   description: |
     Import paths that a value is not allowed to name,
@@ -221,6 +240,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'import_path_denylist'
+  is_optional: False
 - DocstringParam
   description: |
     Import paths that a value is allowed to name,
@@ -232,6 +252,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'import_path_allowlist'
+  is_optional: False
 === detect
 google
 === compose google

@@ -16,11 +16,13 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'cookiejar'
+  is_optional: False
 - DocstringParam
   description: 'Dictionary or CookieJar object to be added.'
   kind: param
   key: 'param'
   arg_name: 'cookies'
+  is_optional: False
 - DocstringReturns
   kind: returns
   type_name: 'CookieJar'

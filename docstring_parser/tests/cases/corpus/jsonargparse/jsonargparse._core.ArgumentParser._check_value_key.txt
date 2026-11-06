@@ -20,16 +20,19 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'action'
+  is_optional: False
 - DocstringParam
   description: 'The value to parse.'
   kind: param
   key: 'param'
   arg_name: 'value'
+  is_optional: False
 - DocstringParam
   description: 'The configuration key.'
   kind: param
   key: 'param'
   arg_name: 'key'
+  is_optional: False
 - DocstringRaises
   description: 'If the value is not valid.'
   kind: raises

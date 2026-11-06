@@ -70,7 +70,8 @@ style: google
   key: 'param'
   arg_name: 'refresh'
   type_name: 'bool'
-  is_optional: False
+  is_optional: True
+  default: 'False'
 - DocstringParam
   description: 'Additional data fields required for rendering.'
   kind: param
@@ -90,5 +91,5 @@ Args:
     advance (float?): Add a value to task.completed if not None.
     description (str?): Change task description if not None.
     visible (bool?): Set visible flag if not None.
-    refresh (bool): Force a refresh of progress information. Default is False.
+    refresh (bool?): Force a refresh of progress information. Default is False.
     **fields (Any): Additional data fields required for rendering.

@@ -214,6 +214,7 @@ style: numpydoc
   arg_name: 'stable'
   type_name: 'bool'
   is_optional: True
+  default: 'None'
   raw_type_name: 'bool, optional'
 - DocstringParam
   description: |
@@ -228,6 +229,7 @@ style: numpydoc
   arg_name: 'descending'
   type_name: 'bool'
   is_optional: True
+  default: 'None'
   raw_type_name: 'bool, optional'
 - DocstringReturns
   description: 'Array of the same type and shape as `a`.'

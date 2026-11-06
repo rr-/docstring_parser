@@ -24,21 +24,25 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'value'
+  is_optional: False
 - DocstringParam
   description: 'The global namespace to use during annotation evaluation.'
   kind: param
   key: 'param'
   arg_name: 'localns'
+  is_optional: False
 - DocstringParam
   description: 'The local namespace to use during annotation evaluation.'
   kind: param
   key: 'param'
   arg_name: 'globalns'
+  is_optional: False
 - DocstringParam
   description: 'The type params belonging to the object being evaluated.'
   kind: param
   key: 'param'
   arg_name: 'type_params'
+  is_optional: False
 === detect
 google
 === compose google

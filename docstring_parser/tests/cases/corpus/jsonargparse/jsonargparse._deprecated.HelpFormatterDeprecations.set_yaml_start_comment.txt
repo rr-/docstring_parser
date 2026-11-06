@@ -16,11 +16,13 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'text'
+  is_optional: False
 - DocstringParam
   description: 'The ruamel.yaml object.'
   kind: param
   key: 'param'
   arg_name: 'cfg'
+  is_optional: False
 === detect
 google
 === compose google

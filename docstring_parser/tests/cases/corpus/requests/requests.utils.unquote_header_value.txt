@@ -20,6 +20,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'value'
+  is_optional: False
 - DocstringReturns
   kind: returns
   type_name: 'str'

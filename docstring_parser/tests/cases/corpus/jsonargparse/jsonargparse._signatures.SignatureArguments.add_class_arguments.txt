@@ -35,31 +35,37 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'class_type'
+  is_optional: False
 - DocstringParam
   description: 'Key for nested namespace.'
   kind: param
   key: 'param'
   arg_name: 'nested_key'
+  is_optional: False
 - DocstringParam
   description: 'Whether arguments should be added to a new argument group.'
   kind: param
   key: 'param'
   arg_name: 'as_group'
+  is_optional: False
 - DocstringParam
   description: 'Whether to add required parameters as positional arguments.'
   kind: param
   key: 'param'
   arg_name: 'as_positional'
+  is_optional: False
 - DocstringParam
   description: 'Default value used to override parameter defaults.'
   kind: param
   key: 'param'
   arg_name: 'default'
+  is_optional: False
 - DocstringParam
   description: 'Names of parameters or number of positionals that should be skipped.'
   kind: param
   key: 'param'
   arg_name: 'skip'
+  is_optional: False
 - DocstringParam
   description: |
     Whether the class group should be instantiated by
@@ -67,6 +73,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'instantiate'
+  is_optional: False
 - DocstringParam
   description: |
     Whether to raise an exception for parameters that don't have a type:
@@ -74,11 +81,13 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'fail_untyped'
+  is_optional: False
 - DocstringParam
   description: 'Whether subclass type hints should be loadable from inner config file.'
   kind: param
   key: 'param'
   arg_name: 'sub_configs'
+  is_optional: False
 - DocstringReturns
   description: 'The list of arguments added.'
   kind: returns

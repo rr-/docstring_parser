@@ -20,16 +20,19 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'text'
+  is_optional: False
 - DocstringParam
   description: 'Desired size in cells.'
   kind: param
   key: 'param'
   arg_name: 'total'
+  is_optional: False
 - DocstringParam
   description: 'Unicode version.'
   kind: param
   key: 'param'
   arg_name: 'unicode_version'
+  is_optional: False
 - DocstringReturns
   description: 'A string with cell size equal to total.'
   kind: returns

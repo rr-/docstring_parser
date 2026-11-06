@@ -19,6 +19,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'name'
+  is_optional: False
 - DocstringParam
   description: |
     Value to return if the attribute is not present,
@@ -26,6 +27,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'default'
+  is_optional: False
 === detect
 rest
 === compose rest

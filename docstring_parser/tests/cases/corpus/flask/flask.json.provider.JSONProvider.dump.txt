@@ -17,6 +17,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'obj'
+  is_optional: False
 - DocstringParam
   description: |
     A file opened for writing text. Should use the UTF-8
@@ -24,11 +25,13 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'fp'
+  is_optional: False
 - DocstringParam
   description: 'May be passed to the underlying JSON library.'
   kind: param
   key: 'param'
   arg_name: 'kwargs'
+  is_optional: False
 === detect
 rest
 === compose rest

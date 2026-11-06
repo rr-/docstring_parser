@@ -16,11 +16,13 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'format_name'
+  is_optional: False
 - DocstringParam
   description: 'The dumper function to set. Example: ``yaml.safe_dump``.'
   kind: param
   key: 'param'
   arg_name: 'dumper_fn'
+  is_optional: False
 === detect
 google
 === compose google

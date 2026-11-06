@@ -8,7 +8,11 @@ from enum import IntEnum
 
 from ._compose import SectionTable, description_lines, sections
 from ._lines import Lines
-from ._text import append_loose, split_description, type_spec
+from ._text import (
+    append_loose,
+    param_spec,
+    split_description,
+)
 from .common import (
     EXAMPLES_KEYWORDS,
     PARAM_KEYWORDS,
@@ -56,6 +60,8 @@ class Section(namedtuple("SectionBase", "title key type")):
     """A docstring section."""
 
 
+# Kept for code that imports it. Parsing finds defaults with the rule all
+# styles share, in ``_text.param_spec``.
 GOOGLE_ARG_DESC_REGEX = re.compile(r".*\. Defaults to (.+)\.")
 MULTIPLE_PATTERN = re.compile(
     r"(\s*[^:\s]+:)|"  # simple word:
@@ -280,20 +286,14 @@ def _multi_meta(section: Section, before: str, desc: str) -> DocstringMeta:
         head = _split_typed_arg(before) or TypedArg(
             name=before, type_name=None, extra=""
         )
-        spec = type_spec(head.type_name)
-
-        default = spec.default
-        match = None if default else GOOGLE_ARG_DESC_REGEX.match(desc)
-        if match:
-            default = match.group(1)
-
+        spec = param_spec(head.type_name, desc)
         param = DocstringParam(
             key=section.key,
             description=desc,
             arg_name=head.name,
             type_name=spec.type_name,
             is_optional=spec.is_optional,
-            default=default,
+            default=spec.default,
             kind=kind,
             raw_type_name=head.type_name,
         )

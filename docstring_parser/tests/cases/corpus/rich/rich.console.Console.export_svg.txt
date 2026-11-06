@@ -44,6 +44,7 @@ style: google
   arg_name: 'clear'
   type_name: 'bool'
   is_optional: True
+  default: 'True'
   raw_type_name: 'bool, optional'
 - DocstringParam
   description: |
@@ -66,6 +67,7 @@ style: google
   arg_name: 'font_aspect_ratio'
   type_name: 'float'
   is_optional: True
+  default: '0.61'
   raw_type_name: 'float, optional'
 - DocstringParam
   description: |

@@ -17,17 +17,19 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'func'
+  is_optional: False
 - DocstringParam
   description: 'The return type of the function. Required if func does not have a return type annotation.'
   kind: param
   key: 'param'
   arg_name: 'func_return'
+  is_optional: False
 - DocstringParam
   description: 'The name of the class. Defaults to function name suffixed with ``_class``.'
   kind: param
   key: 'param'
   arg_name: 'name'
-  default: 'function name suffixed with ``_class``'
+  is_optional: False
 === detect
 google
 === compose google

@@ -89,6 +89,7 @@ style: numpydoc
   kind: param
   key: 'param'
   arg_name: '%(xp_device_snippet)s'
+  is_optional: False
 - DocstringReturns
   description: |
     The window, with the maximum value normalized to 1 (though the value 1

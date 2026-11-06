@@ -36,6 +36,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'filename'
+  is_optional: False
 - DocstringParam
   description: |
     set to ``True`` if you want silent failure for missing
@@ -43,6 +44,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'silent'
+  is_optional: False
 - DocstringReturns
   description: '``True`` if the file was loaded successfully.'
   kind: returns

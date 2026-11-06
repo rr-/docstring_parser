@@ -50,6 +50,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'prefix'
+  is_optional: False
 - DocstringParam
   description: |
     Pass each string value to this function and use
@@ -59,6 +60,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'loads'
+  is_optional: False
 === detect
 rest
 === compose rest

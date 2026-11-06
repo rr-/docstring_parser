@@ -16,16 +16,19 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'jar'
+  is_optional: False
 - DocstringParam
   description: 'our own requests.Request object'
   kind: param
   key: 'param'
   arg_name: 'request'
+  is_optional: False
 - DocstringParam
   description: 'urllib3.HTTPResponse object'
   kind: param
   key: 'param'
   arg_name: 'response'
+  is_optional: False
 === detect
 rest
 === compose rest

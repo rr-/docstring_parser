@@ -26,36 +26,43 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'cfg'
+  is_optional: False
 - DocstringParam
   description: "Whether to merge with the parsed environment, ``None`` to use the parser's default."
   kind: param
   key: 'param'
   arg_name: 'env'
+  is_optional: False
 - DocstringParam
   description: "Whether to merge with the parser's defaults."
   kind: param
   key: 'param'
   arg_name: 'defaults'
+  is_optional: False
 - DocstringParam
   description: 'Whether to skip validation of configuration.'
   kind: param
   key: 'param'
   arg_name: 'skip_validation'
+  is_optional: False
 - DocstringParam
   description: 'Whether to skip check of required arguments.'
   kind: param
   key: 'param'
   arg_name: 'skip_required'
+  is_optional: False
 - DocstringParam
   description: 'Whether to skip subcommand processing.'
   kind: param
   key: 'param'
   arg_name: 'skip_subcommands'
+  is_optional: False
 - DocstringParam
   description: 'Whether to fail if no subcommand given.'
   kind: param
   key: 'param'
   arg_name: 'fail_no_subcommand'
+  is_optional: False
 - DocstringParam
   description: |
     Whether the result is to be merged into an ongoing parse of another parser,
@@ -63,6 +70,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'nested_parse'
+  is_optional: False
 - DocstringReturns
   description: 'A config object with all parsed values.'
   kind: returns

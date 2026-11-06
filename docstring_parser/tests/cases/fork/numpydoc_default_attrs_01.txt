@@ -18,6 +18,7 @@ style: numpydoc
   kind: attribute
   key: 'attribute'
   arg_name: 'attr_without_type'
+  is_optional: False
 === compose numpydoc
 Attributes
 ----------

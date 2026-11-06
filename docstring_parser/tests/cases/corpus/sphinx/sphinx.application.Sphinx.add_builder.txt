@@ -22,6 +22,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'builder'
+  is_optional: False
 - DocstringParam
   description: |
     If true, install the builder forcedly even if another builder
@@ -29,6 +30,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'override'
+  is_optional: False
 === detect
 rest
 === compose rest

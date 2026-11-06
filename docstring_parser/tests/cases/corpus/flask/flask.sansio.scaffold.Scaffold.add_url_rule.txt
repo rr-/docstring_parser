@@ -115,6 +115,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'rule'
+  is_optional: False
 - DocstringParam
   description: |
     The endpoint name to associate with the rule
@@ -123,6 +124,8 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'endpoint'
+  is_optional: True
+  default: 'view_func.__name__'
 - DocstringParam
   description: |
     The view function to associate with the
@@ -130,6 +133,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'view_func'
+  is_optional: False
 - DocstringParam
   description: |
     Add the ``OPTIONS`` method and
@@ -137,6 +141,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'provide_automatic_options'
+  is_optional: False
 - DocstringParam
   description: |
     Extra options passed to the
@@ -144,6 +149,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'options'
+  is_optional: False
 === detect
 rest
 === compose rest

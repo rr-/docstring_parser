@@ -343,7 +343,7 @@ def meta_as_attribute(meta: DocstringMeta) -> T.Optional[DocstringParam]:
             meta.description,
             arg_name=meta.name,
             type_name=None,
-            is_optional=None,
+            is_optional=False,
             default=None,
             kind=Kind.ATTRIBUTE,
             key="attribute",

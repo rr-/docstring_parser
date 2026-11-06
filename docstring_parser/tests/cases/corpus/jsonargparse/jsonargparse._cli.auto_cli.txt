@@ -51,26 +51,31 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'components'
+  is_optional: False
 - DocstringParam
   description: 'List of arguments to parse or ``None`` to use ``sys.argv``.'
   kind: param
   key: 'param'
   arg_name: 'args'
+  is_optional: False
 - DocstringParam
   description: 'Help string for config file option in help.'
   kind: param
   key: 'param'
   arg_name: 'config_help'
+  is_optional: False
 - DocstringParam
   description: 'Dictionary of values to override components defaults.'
   kind: param
   key: 'param'
   arg_name: 'set_defaults'
+  is_optional: False
 - DocstringParam
   description: 'Whether to add required parameters as positional arguments.'
   kind: param
   key: 'param'
   arg_name: 'as_positional'
+  is_optional: False
 - DocstringParam
   description: |
     Whether class components should be instantiated directly and returned,
@@ -78,6 +83,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'return_instance'
+  is_optional: False
 - DocstringParam
   description: |
     Whether to raise an exception for parameters that don't have a type:
@@ -85,21 +91,25 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'fail_untyped'
+  is_optional: False
 - DocstringParam
   description: 'The :class:`ArgumentParser` subclass to use.'
   kind: param
   key: 'param'
   arg_name: 'parser_class'
+  is_optional: False
 - DocstringParam
   description: 'Custom instantiators, see :meth:`.ArgumentParser.instantiate`.'
   kind: param
   key: 'param'
   arg_name: 'instantiators'
+  is_optional: False
 - DocstringParam
   description: 'Used to instantiate :class:`.ArgumentParser`.'
   kind: param
   key: 'param'
   arg_name: '**kwargs'
+  is_optional: False
 - DocstringReturns
   description: 'The value returned by the executed function or class method.'
   kind: returns

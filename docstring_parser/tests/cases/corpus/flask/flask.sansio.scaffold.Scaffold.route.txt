@@ -49,6 +49,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'rule'
+  is_optional: False
 - DocstringParam
   description: |
     Extra options passed to the
@@ -56,6 +57,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'options'
+  is_optional: False
 === detect
 rest
 === compose rest

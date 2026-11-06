@@ -20,31 +20,37 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'input'
+  is_optional: False
 - DocstringParam
   description: 'Whether to validate the object in strict mode.'
   kind: param
   key: 'param'
   arg_name: 'strict'
+  is_optional: False
 - DocstringParam
   description: 'Whether to ignore, allow, or forbid extra data during model validation.'
   kind: param
   key: 'param'
   arg_name: 'extra'
+  is_optional: False
 - DocstringParam
   description: 'The context to use for validation, this is passed to functional validators.'
   kind: param
   key: 'param'
   arg_name: 'context'
+  is_optional: False
 - DocstringParam
   description: "Whether to use the field's alias to match the input data to an attribute."
   kind: param
   key: 'param'
   arg_name: 'by_alias'
+  is_optional: False
 - DocstringParam
   description: "Whether to use the field's name to match the input data to an attribute."
   kind: param
   key: 'param'
   arg_name: 'by_name'
+  is_optional: False
 === detect
 google
 === compose google

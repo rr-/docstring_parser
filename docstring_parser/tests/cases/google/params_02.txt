@@ -19,6 +19,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'name'
+  is_optional: False
 - DocstringParam
   description: 'description 2'
   kind: param

@@ -28,6 +28,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'request'
+  is_optional: False
 - DocstringReturns
   kind: returns
   type_name: 'requests.PreparedRequest'

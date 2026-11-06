@@ -60,7 +60,6 @@ style: numpydoc
   arg_name: 'locale'
   type_name: 'str'
   is_optional: True
-  default: 'English'
   raw_type_name: 'str, optional'
 - DocstringReturns
   description: 'Index of day names.'
@@ -108,7 +107,7 @@ localized to different languages using the locale parameter.
 
 Parameters
 ----------
-locale : str, default=English
+locale : str, optional
     Locale determining the language in which to return the day name.
     Default is English locale (``'en_US.utf8'``). Use the command
     ``locale -a`` on your terminal on Unix systems to find your locale

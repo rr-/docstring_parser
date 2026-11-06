@@ -21,6 +21,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'value'
+  is_optional: False
 - DocstringReturns
   description: 'The parsed value as a float, or `None` if the value was None or equal 1.'
   kind: returns

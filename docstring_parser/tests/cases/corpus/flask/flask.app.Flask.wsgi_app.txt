@@ -55,6 +55,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'environ'
+  is_optional: False
 - DocstringParam
   description: |
     A callable accepting a status code,
@@ -63,6 +64,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'start_response'
+  is_optional: False
 === detect
 rest
 === compose rest

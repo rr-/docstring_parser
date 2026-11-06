@@ -38,6 +38,7 @@ style: numpydoc
   arg_name: 'out'
   type_name: 'ndarray'
   is_optional: True
+  default: 'None'
   raw_type_name: 'ndarray, optional'
 - DocstringReturns
   description: |

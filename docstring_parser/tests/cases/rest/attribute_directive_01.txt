@@ -20,6 +20,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'spam'
+  is_optional: False
 - DocstringParam
   description: 'hello world'
   kind: attribute

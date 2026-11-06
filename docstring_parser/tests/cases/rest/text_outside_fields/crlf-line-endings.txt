@@ -21,3 +21,4 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'a'
+  is_optional: False

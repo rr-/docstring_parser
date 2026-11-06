@@ -147,6 +147,7 @@ style: numpydoc
   arg_name: 'ddof'
   type_name: '{None, int}'
   is_optional: True
+  default: 'None'
   raw_type_name: '{None, int}, optional'
 - DocstringRaises
   description: 'Raised if some values are missing and `allow_masked` is False.'
