@@ -3,6 +3,10 @@ on:
   push:
     branches: [main]
 
+env:
+  # Keep in sync with pydoctor_version in the justfile
+  PYDOCTOR_VERSION: 25.10.1
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -18,7 +22,7 @@ jobs:
       run: |
 
         # Run simple pydoctor build
-        uv run --locked --only-group docs pydoctor \
+        uvx --python 3.12 --from "pydoctor==$PYDOCTOR_VERSION" pydoctor \
             --project-name=docstring_parser \
             --project-url=https://github.com/$GITHUB_REPOSITORY \
             --html-viewsource-base=https://github.com/$GITHUB_REPOSITORY/tree/$GITHUB_SHA \

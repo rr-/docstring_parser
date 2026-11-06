@@ -1,3 +1,6 @@
+# Keep in sync with PYDOCTOR_VERSION in .github/workflows/apidocs.yml
+pydoctor_version := "25.10.1"
+
 default:
     @just --list
 
@@ -37,7 +40,7 @@ build:
 
 # Generate the API documentation into apidocs/
 docs:
-    uv run --isolated --python 3.12 --only-group docs pydoctor \
+    uvx --python 3.12 --from 'pydoctor=={{pydoctor_version}}' pydoctor \
         --project-name=docstring_parser \
         --make-html \
         --html-output=./apidocs \

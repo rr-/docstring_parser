@@ -40,12 +40,8 @@ changelog = "https://github.com/rr-/docstring_parser/blob/main/CHANGELOG.md"
 test = [
     "pytest",
 ]
-docs = [
-    "pydoctor >= 25.4.0; python_version>='3.11'",
-]
 dev = [
     {include-group = "test"},
-    {include-group = "docs"},
     "prek",
 ]
 
