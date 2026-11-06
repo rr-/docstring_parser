@@ -1,7 +1,6 @@
 """ReST-style docstring parsing."""
 
 import re
-import textwrap
 import typing as T
 
 from ._compose import (
@@ -12,7 +11,7 @@ from ._compose import (
     written_type,
 )
 from ._fields import AFTER_ALL, ParamTypes, ReturnTypes, assign_types
-from ._lines import Lines
+from ._lines import Lines, dedent
 from ._text import (
     append_loose,
     param_spec,
@@ -208,7 +207,7 @@ _VERSION = re.compile(
 
 def _attribute(name: str, body: T.List[str]) -> DocstringParam:
     """Build an attribute from its directive's name and indented body."""
-    body = textwrap.dedent("\n".join(body)).split("\n")
+    body = dedent("\n".join(body)).split("\n")
     options: T.Dict[str, str] = {}
     # Options Sphinx has but that say nothing of the attribute, such as
     # ``:no-index:``, are kept with the description.
@@ -403,7 +402,7 @@ class Parser(BaseParser):
                 # Dedent every continuation line alike, keeping blank lines and
                 # indents relative to each other, as Google does.
                 first_line, rest = desc.split("\n", 1)
-                desc = first_line + "\n" + textwrap.dedent(rest)
+                desc = first_line + "\n" + dedent(rest)
 
             # Add special handling for :type a: typename
             if len(args) == 2 and args[0] in ("type", "vartype"):

@@ -6,7 +6,6 @@
 import itertools
 import re
 import typing as T
-from textwrap import dedent
 
 from ._compose import (
     SectionTable,
@@ -15,7 +14,7 @@ from ._compose import (
     start_on_new_line,
     written_type,
 )
-from ._lines import Lines
+from ._lines import Lines, dedent
 from ._text import (
     DEFAULT_IN_DESCRIPTION,
     DEFAULT_REGEX,

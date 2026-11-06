@@ -14,6 +14,7 @@ endings are made plain newlines first.
 """
 
 import bisect
+import os
 import typing as T
 
 
@@ -62,6 +63,24 @@ def dedent_lines(text: str) -> T.List[str]:
     line holding only whitespace counts as blank, on every version.
     """
     return _dedent(text)[0]
+
+
+def dedent(text: str) -> str:
+    """Remove the indent all lines share, as ``textwrap.dedent`` does.
+
+    A line holding only whitespace counts as blank and is emptied, on every
+    version. ``textwrap.dedent`` only treats spaces and tabs as whitespace
+    before Python 3.14, so there a line holding a form feed or vertical tab
+    kept everything from being dedented.
+    """
+    lines = text.split("\n")
+    indents = [
+        line[: len(line) - len(line.lstrip())]
+        for line in lines
+        if line.strip()
+    ]
+    cut = len(os.path.commonprefix(indents)) if indents else 0
+    return "\n".join(line[cut:] if line.strip() else "" for line in lines)
 
 
 def cleandoc(text: str) -> str:

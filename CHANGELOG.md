@@ -9,7 +9,7 @@
 - Google, Numpydoc: **Breaking:** Remove customising parsing by overriding internals such as `titles_re`, `title_pattern`, `_build_meta` and `KV_REGEX`; use `SectionSpec` instead
 - Google, Numpydoc: **Breaking:** Split examples as doctest reads them: an example's `description` is the text before its snippet, and its `snippet` holds the `>>>` lines, their `...` continuations and the expected output; text after the last snippet is an example with no snippet
 - General: Parse docstrings with `\r\n` or `\r` line endings the same as with `\n`, on every Python version
-- General: Dedent docstrings the same way on every Python version; from 3.13, `inspect.cleandoc` dedented nothing after a blank line holding a tab or form feed
+- General: Dedent docstrings and their items the same way on every Python version, which `inspect.cleandoc` (3.13) and `textwrap.dedent` (3.14) changed
 - General: Strip the short description, which kept leading spaces when a later line was indented less than it
 - General: Quote at most the first 60 characters of the text a `ParseError` points at, instead of the whole chunk
 - General: Parse a docstring with no fields or sections once in auto-detection instead of four times, making it about 47% faster
