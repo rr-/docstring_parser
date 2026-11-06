@@ -1,0 +1,55 @@
+# Test that Epydoc's synonyms of @param and @keyword give params and keywords.
+=== input
+Short.
+
+@parameter a: A.
+@arg b: B.
+@argument c: C.
+@kwarg d: D.
+@kwparam e: E.
+@type e: int
+=== parse epydoc
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringParam
+  description: 'A.'
+  kind: param
+  key: 'parameter'
+  arg_name: 'a'
+  is_optional: False
+- DocstringParam
+  description: 'B.'
+  kind: param
+  key: 'arg'
+  arg_name: 'b'
+  is_optional: False
+- DocstringParam
+  description: 'C.'
+  kind: param
+  key: 'argument'
+  arg_name: 'c'
+  is_optional: False
+- DocstringParam
+  description: 'D.'
+  kind: keyword
+  key: 'kwarg'
+  arg_name: 'd'
+  is_optional: False
+- DocstringParam
+  description: 'E.'
+  kind: keyword
+  key: 'kwparam'
+  arg_name: 'e'
+  type_name: 'int'
+  is_optional: False
+=== compose epydoc
+Short.
+
+@param a: A.
+@param b: B.
+@param c: C.
+@keyword d: D.
+@type e: int
+@keyword e: E.

@@ -29,15 +29,12 @@ style: epydoc
   arg_name: 'results'
   type_name: 'L{Failure}'
   is_optional: False
-- DocstringMeta
+- DocstringReturns
   description: |
     A C{tuple} containing the status code for a successful
     transfer.
-  kind: text
-  key: 'returns'
-- DocstringReturns
   kind: returns
-  key: 'rtype'
+  key: 'returns'
   type_name: 'C{tuple}'
   is_generator: False
 === detect
@@ -50,6 +47,6 @@ listings. Thus, send nothing and just close the connection.
 @param results: The L{Failure} wrapping a L{FileNotFoundError} that
     occurred while trying to list the contents of a nonexistent
     directory.
-@returns: A C{tuple} containing the status code for a successful
-    transfer.
 @rtype: C{tuple}
+@return: A C{tuple} containing the status code for a successful
+    transfer.

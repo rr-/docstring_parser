@@ -1,0 +1,27 @@
+# Test that @returntype with no @return gives a return of its own.
+=== input
+Short.
+
+@param x: X.
+@returntype: int
+=== parse epydoc
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringParam
+  description: 'X.'
+  kind: param
+  key: 'param'
+  arg_name: 'x'
+  is_optional: False
+- DocstringReturns
+  kind: returns
+  key: 'returntype'
+  type_name: 'int'
+  is_generator: False
+=== compose epydoc
+Short.
+
+@param x: X.
+@rtype: int

@@ -36,7 +36,14 @@ SYNTAX = {
         word for s in numpydoc.DEFAULT_SECTIONS for word in _words(s.title)
     }
     | TYPE_MARKS,
-    DocstringStyle.EPYDOC: {"type", "rtype", "ytype", "return", "yield"}
+    DocstringStyle.EPYDOC: {
+        "type",
+        "rtype",
+        "returntype",
+        "ytype",
+        "return",
+        "yield",
+    }
     | TYPE_MARKS,
 }
 
