@@ -1,0 +1,18 @@
+# Test that a deprecation with a version keeps the lines after its first.
+=== input
+:deprecated: 1.1.0 this function will be removed
+    in a later release.
+=== parse rest
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+- DocstringDeprecated
+  description: |
+    this function will be removed
+    in a later release.
+  kind: deprecation
+  key: 'deprecated'
+  version: '1.1.0'
+=== compose rest
+:deprecated: this function will be removed
+    in a later release.

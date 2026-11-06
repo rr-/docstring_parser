@@ -46,6 +46,7 @@
 - ReST: Parse an `.. attribute:: name` directive, with its `:type:` and `:value:` options, as an attribute instead of leaving it in the long description
 - ReST: Read a type with spaces in a field's head, as in `:param Dict[str, int] x:`, `:param int or None x:` or `:raises A, B:`, instead of raising `ParseError`
 - ReST: Read a line starting with a role, such as ``:meth:`run` does stuff.``, as text of the description or of the field before it, instead of a field named `meth`; as in docutils, a field's closing colon must be followed by whitespace or the end of the line
+- ReST: Keep every line of a `:deprecated:` field that starts with a version, instead of only its first
 - Google: Parse PEP 604 union types (e.g. `int | str`) in return sections (thanks to @binggao1230)
 - Google: Parse a union return or yield type whose members have brackets or dots, such as `dict[str, int] | None`, instead of keeping the whole line as the description
 - Google: Avoid regex backtracking when parsing parameter types
