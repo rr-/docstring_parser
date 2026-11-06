@@ -1,7 +1,6 @@
 """Google-style docstring parsing."""
 
 import re
-import textwrap
 import typing as T
 from collections import namedtuple
 from enum import IntEnum
@@ -14,7 +13,7 @@ from ._compose import (
     start_on_new_line,
     written_type,
 )
-from ._lines import Lines
+from ._lines import Lines, dedent
 from ._text import (
     EXCEPTION_TYPE,
     Example,
@@ -392,7 +391,7 @@ class Parser(BaseParser):
             first, _, rest = text.partition("\n")
             if ":" not in first and _BARE_TYPE.fullmatch(first.strip()):
                 return DocstringRaises(
-                    description=textwrap.dedent(rest).strip("\n") or None,
+                    description=dedent(rest).strip("\n") or None,
                     type_name=first.strip(),
                     kind=_section_kind(section),
                     key=section.key,
@@ -417,7 +416,12 @@ class Parser(BaseParser):
                 # the first of them entirely and lose its indent relative
                 # to the rest.
                 first_line, rest = desc.split("\n", 1)
-                desc = first_line + "\n" + textwrap.dedent(rest)
+                # A first line of only whitespace is blank, as the others.
+                if not first_line.strip():
+                    first_line = ""
+                desc = first_line + "\n" + dedent(rest)
+            elif not desc.strip():
+                desc = ""
             desc = desc.strip("\n")
 
         return _multi_meta(section, before, desc)

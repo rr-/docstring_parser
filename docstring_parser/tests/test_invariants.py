@@ -119,12 +119,10 @@ def test_compose_round_trip_exclusions_still_fail() -> None:
 # index among the first GENERATED.
 SUMMARY = "an indented first line reads as a field or title once flush"
 BODY = "a body's first line is dedented apart from its other lines"
-BLANK = "a line holding only a form feed or vertical tab is emptied"
 DIRECTIVE = "a directive's body holds the directive itself"
 GENERATED = 2000
 GENERATED_EXCLUSIONS = {
     (166, DocstringStyle.GOOGLE): BODY,
-    (345, DocstringStyle.GOOGLE): BLANK,
     (378, DocstringStyle.GOOGLE): BODY,
     (555, DocstringStyle.REST): SUMMARY,
     (637, DocstringStyle.REST): SUMMARY,
@@ -132,7 +130,6 @@ GENERATED_EXCLUSIONS = {
     (764, DocstringStyle.NUMPYDOC): SUMMARY,
     (835, DocstringStyle.EPYDOC): SUMMARY,
     (852, DocstringStyle.REST): SUMMARY,
-    (996, DocstringStyle.GOOGLE): BLANK,
     (1253, DocstringStyle.NUMPYDOC): BODY,
     (1408, DocstringStyle.NUMPYDOC): SUMMARY,
     (1507, DocstringStyle.GOOGLE): BODY,
@@ -142,7 +139,6 @@ GENERATED_EXCLUSIONS = {
     (1774, DocstringStyle.REST): SUMMARY,
     (1856, DocstringStyle.GOOGLE): SUMMARY,
     (1943, DocstringStyle.NUMPYDOC): DIRECTIVE,
-    (1971, DocstringStyle.GOOGLE): BLANK,
 }
 
 
