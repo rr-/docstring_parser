@@ -52,6 +52,46 @@ def test_from_class_attribute_docstrings() -> None:
     assert docstring.attrs[1].description == "Description for attr_two"
 
 
+def test_from_class_attribute_named_like_param() -> None:
+    """Test that an attribute named like a documented param is kept."""
+
+    class WithParam:
+        """Short description
+
+        :param x: The param x.
+        """
+
+        x: int = 1
+        """The attribute x."""
+
+    docstring = parse_from_object(WithParam)
+
+    assert len(docstring.params) == 1
+    assert docstring.params[0].arg_name == "x"
+    assert docstring.params[0].description == "The param x."
+    assert len(docstring.attrs) == 1
+    assert docstring.attrs[0].arg_name == "x"
+    assert docstring.attrs[0].description == "The attribute x."
+
+
+def test_from_class_documented_attribute_wins() -> None:
+    """Test that an attribute the docstring documents is not added twice."""
+
+    class WithAttribute:
+        """Short description
+
+        :attribute x: From the docstring.
+        """
+
+        x: int = 1
+        """From the source."""
+
+    docstring = parse_from_object(WithAttribute)
+
+    assert len(docstring.attrs) == 1
+    assert docstring.attrs[0].description == "From the docstring."
+
+
 def test_from_class_attribute_docstrings_without_type() -> None:
     """Test the parse of untyped attribute docstrings."""
 
