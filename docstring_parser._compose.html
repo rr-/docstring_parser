@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>docstring_parser._compose</title>
+    <meta name="generator" content="pydoctor 25.10.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+    
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a> <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="apidocs-help-button" title="Help" href="apidocs-help.html"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 10px;">
+          <p>For more information on the search, visit the <a href="apidocs-help.html#rst-search">help page</a>.</p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="docstring_parser._compose.html" class="internal-link" title="This module">_compose</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser._compose.SectionTable.html" class="internal-link" title="docstring_parser._compose.SectionTable"><wbr></wbr>Section<wbr></wbr>Table</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#description_lines" class="internal-link" title="docstring_parser._compose.description_lines">description<wbr></wbr>_lines</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#field_name" class="internal-link" title="docstring_parser._compose.field_name">field<wbr></wbr>_name</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#kind_of" class="internal-link" title="docstring_parser._compose.kind_of">kind<wbr></wbr>_of</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#sections" class="internal-link" title="docstring_parser._compose.sections">sections</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="index.html" class="internal-link" title="The parent of this module">docstring<wbr></wbr>_parser</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.attrdoc.html" class="internal-link" title="docstring_parser.attrdoc">attrdoc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.common.html" class="internal-link" title="docstring_parser.common">common</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.epydoc.html" class="internal-link" title="docstring_parser.epydoc">epydoc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.google.html" class="internal-link" title="docstring_parser.google">google</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.numpydoc.html" class="internal-link" title="docstring_parser.numpydoc">numpydoc</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.parser.html" class="internal-link" title="docstring_parser.parser">parser</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.rest.html" class="internal-link" title="docstring_parser.rest">rest</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.util.html" class="internal-link" title="docstring_parser.util">util</a></code>
+            </div>
+        
+
+    </li><li class="private thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser._compose.html" class="internal-link" title="docstring_parser._compose">_compose</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser._lines.html" class="internal-link" title="docstring_parser._lines">_lines</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser._text.html" class="internal-link" title="docstring_parser._text">_text</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.Docstring.html" class="internal-link" title="docstring_parser.Docstring"><wbr></wbr>Docstring</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.DocstringDeprecated.html" class="internal-link" title="docstring_parser.DocstringDeprecated"><wbr></wbr>Docstring<wbr></wbr>Deprecated</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.DocstringMeta.html" class="internal-link" title="docstring_parser.DocstringMeta"><wbr></wbr>Docstring<wbr></wbr>Meta</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.DocstringParam.html" class="internal-link" title="docstring_parser.DocstringParam"><wbr></wbr>Docstring<wbr></wbr>Param</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.DocstringRaises.html" class="internal-link" title="docstring_parser.DocstringRaises"><wbr></wbr>Docstring<wbr></wbr>Raises</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.DocstringReturns.html" class="internal-link" title="docstring_parser.DocstringReturns"><wbr></wbr>Docstring<wbr></wbr>Returns</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.DocstringStyle.html" class="internal-link" title="docstring_parser.DocstringStyle"><wbr></wbr>Docstring<wbr></wbr>Style</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.RenderingStyle.html" class="internal-link" title="docstring_parser.RenderingStyle"><wbr></wbr>Rendering<wbr></wbr>Style</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.ParseError.html" class="internal-link" title="docstring_parser.ParseError"><wbr></wbr>Parse<wbr></wbr>Error</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="index.html#combine_docstrings" class="internal-link" title="docstring_parser.combine_docstrings">combine<wbr></wbr>_docstrings</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="index.html#compose" class="internal-link" title="docstring_parser.compose">compose</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="index.html#parse" class="internal-link" title="docstring_parser.parse">parse</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="index.html#parse_from_object" class="internal-link" title="docstring_parser.parse_from_object">parse<wbr></wbr>_from<wbr></wbr>_object</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapse-sidebar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <main class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="module private"><code><code><a href="index.html" class="internal-link">docstring_parser</a></code><wbr></wbr>.<code><a href="docstring_parser._compose.html" class="internal-link" title="docstring_parser._compose">_compose</a></code></code></h1>
+          <div id="show-private">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <a href="https://github.com/rr-/docstring_parser/tree/8225b7b711449a4d04b83ae226d39676782a697b/docstring_parser/_compose.py" class="sourceLink">(source)</a>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>What every style's composer shares.</p></div>
+        </div>
+
+        <div id="split-tables">
+          <table class="children sortable" id="id3">
+  
+  
+  <tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="docstring_parser._compose.SectionTable.html" class="internal-link" title="docstring_parser._compose.SectionTable"><wbr></wbr>Section<wbr></wbr>Table</a></code></td>
+    <td>The titled sections a composer writes items in, by kind.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#description_lines" class="internal-link" title="docstring_parser._compose.description_lines">description<wbr></wbr>_lines</a></code></td>
+    <td>The short and long description, each followed by a blank if asked.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#field_name" class="internal-link" title="docstring_parser._compose.field_name">field<wbr></wbr>_name</a></code></td>
+    <td>Return the field name a param is written with in a style.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#kind_of" class="internal-link" title="docstring_parser._compose.kind_of">kind<wbr></wbr>_of</a></code></td>
+    <td>Tell what a meta documents, for composing it.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#sections" class="internal-link" title="docstring_parser._compose.sections">sections</a></code></td>
+    <td>Sort a docstring's meta into titled sections by kind.</td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="child-list">
+          <div class="basefunction">
+  
+  
+  <a name="docstring_parser._compose.description_lines">
+    
+  </a>
+  <a name="description_lines">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">description_lines</span><span class="function-signature">(<span class="rst-sig-param">docstring: <code>Docstring</code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/8225b7b711449a4d04b83ae226d39676782a697b/docstring_parser/_compose.py#L87">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#description_lines" title="docstring_parser._compose.description_lines">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>The short and long description, each followed by a blank if asked.</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="docstring_parser._compose.field_name">
+    
+  </a>
+  <a name="field_name">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">field_name</span><span class="function-signature long-signature">(<span class="rst-sig-param">meta: <code>DocstringMeta</code>, </span><span class="rst-sig-param">own: <code><a href="https://docs.python.org/3/library/typing.html#typing.AbstractSet" class="intersphinx-link">T.AbstractSet</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code>, </span><span class="rst-sig-param">by_kind: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#dict" class="intersphinx-link">dict</a>[<wbr></wbr><a href="docstring_parser.common.Kind.html" class="internal-link" title="docstring_parser.common.Kind">Kind</a>, <wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/8225b7b711449a4d04b83ae226d39676782a697b/docstring_parser/_compose.py#L72">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#field_name" title="docstring_parser._compose.field_name">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return the field name a param is written with in a style.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">meta:</span><code>DocstringMeta</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">own:</span><code><a href="https://docs.python.org/3/library/typing.html#typing.AbstractSet" class="intersphinx-link">T.AbstractSet</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code></td><td class="fieldArgDesc">the keys the style writes as they are</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">by<wbr></wbr>_kind:</span><code><a href="https://docs.python.org/3/builtins/stdtypes.html#dict" class="intersphinx-link">dict</a>[<wbr></wbr><a href="docstring_parser.common.Kind.html" class="internal-link" title="docstring_parser.common.Kind">Kind</a>, <wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code></td><td class="fieldArgDesc">the style's field name for each kind of param, where
+the param's own key is not one of them; <tt class="rst-docutils rst-literal">param</tt> otherwise</td></tr></table><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="docstring_parser._compose.kind_of">
+    
+  </a>
+  <a name="kind_of">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">kind_of</span><span class="function-signature">(<span class="rst-sig-param">meta: <code>DocstringMeta</code></span>) -&gt; <code><a href="docstring_parser.common.Kind.html" class="internal-link" title="docstring_parser.common.Kind">Kind</a></code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/8225b7b711449a4d04b83ae226d39676782a697b/docstring_parser/_compose.py#L13">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#kind_of" title="docstring_parser._compose.kind_of">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Tell what a meta documents, for composing it.</p>
+<p>That is its <tt class="rst-docutils rst-literal">kind</tt>, except that a ReST <tt class="rst-docutils rst-literal">:ivar:</tt> style field, which
+parses as text, is an attribute.</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="docstring_parser._compose.sections">
+    
+  </a>
+  <a name="sections">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">sections</span><span class="function-signature long-signature">(<span class="rst-sig-param">docstring: <code>Docstring</code>, </span><span class="rst-sig-param">table: <code><a href="docstring_parser._compose.SectionTable.html" class="internal-link" title="docstring_parser._compose.SectionTable">SectionTable</a></code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#tuple" class="intersphinx-link">tuple</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#tuple" class="intersphinx-link">tuple</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Any" class="intersphinx-link">T.Any</a>]]], <wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr>DocstringMeta]]</code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/8225b7b711449a4d04b83ae226d39676782a697b/docstring_parser/_compose.py#L42">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#sections" title="docstring_parser._compose.sections">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Sort a docstring's meta into titled sections by kind.</p>
+<p>A ReST <tt class="rst-docutils rst-literal">:ivar:</tt> style field goes in as the attribute it stands for.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/builtins/stdtypes.html#tuple" class="intersphinx-link">tuple</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#tuple" class="intersphinx-link">tuple</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Any" class="intersphinx-link">T.Any</a>]]], <wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr>DocstringMeta]]</code></td><td class="fieldArgDesc">the sections that have items, each with its items in the
+order of the docstring, and the meta that no section took</td></tr></table></div>
+  </div>
+</div>
+        </div>
+      
+      </main>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container-fluid">
+    <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    25.10.1 at 2026-11-06 09:44:14.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

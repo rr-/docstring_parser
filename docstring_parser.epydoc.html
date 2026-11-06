@@ -170,6 +170,26 @@
         
 
         
+            <div class="itemName"><code><a href="#_OWN_PARAM_FIELDS" class="internal-link" title="docstring_parser.epydoc._OWN_PARAM_FIELDS">_OWN<wbr></wbr>_PARAM<wbr></wbr>_FIELDS</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_PARAM_FIELD_OF_KIND" class="internal-link" title="docstring_parser.epydoc._PARAM_FIELD_OF_KIND">_PARAM<wbr></wbr>_FIELD<wbr></wbr>_OF<wbr></wbr>_KIND</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="#_PARAM_KINDS" class="internal-link" title="docstring_parser.epydoc._PARAM_KINDS">_PARAM<wbr></wbr>_KINDS</a></code>
             </div>
         
@@ -271,6 +291,16 @@
 
         
             <div class="itemName"><code><a href="docstring_parser.util.html" class="internal-link" title="docstring_parser.util">util</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser._compose.html" class="internal-link" title="docstring_parser._compose">_compose</a></code>
             </div>
         
 
@@ -478,7 +508,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <a href="https://github.com/rr-/docstring_parser/tree/6a7d8e35c0bc8565b0fbfed200820692b4c26439/docstring_parser/epydoc.py" class="sourceLink">(source)</a>
+          <a href="https://github.com/rr-/docstring_parser/tree/8225b7b711449a4d04b83ae226d39676782a697b/docstring_parser/epydoc.py" class="sourceLink">(source)</a>
         </div>
 
         <div class="moduleDocstring">
@@ -491,7 +521,7 @@
         </div>
 
         <div id="split-tables">
-          <table class="children sortable" id="id12">
+          <table class="children sortable" id="id14">
   
   
   <tr class="function">
@@ -509,6 +539,16 @@
     <td>Function</td>
     <td><code><a href="#_param_key" class="internal-link" title="docstring_parser.epydoc._param_key">_param<wbr></wbr>_key</a></code></td>
     <td>Return the field name that keeps a param's kind, such as <tt class="rst-docutils rst-literal">ivar</tt>.</td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_OWN_PARAM_FIELDS" class="internal-link" title="docstring_parser.epydoc._OWN_PARAM_FIELDS">_OWN<wbr></wbr>_PARAM<wbr></wbr>_FIELDS</a></code></td>
+    <td><span class="rst-undocumented">Undocumented</span></td>
+  </tr><tr class="constant private">
+    
+    <td>Constant</td>
+    <td><code><a href="#_PARAM_FIELD_OF_KIND" class="internal-link" title="docstring_parser.epydoc._PARAM_FIELD_OF_KIND">_PARAM<wbr></wbr>_FIELD<wbr></wbr>_OF<wbr></wbr>_KIND</a></code></td>
+    <td><span class="rst-undocumented">Undocumented</span></td>
   </tr><tr class="constant private">
     
     <td>Constant</td>
@@ -535,7 +575,7 @@
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">compose</span><span class="function-signature long-signature">(<span class="rst-sig-param">docstring: <code>Docstring</code>, </span><span class="rst-sig-param">rendering_style: <code>RenderingStyle</code> = RenderingStyle.COMPACT, </span><span class="rst-sig-param">indent: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code> = <span class="rst-variable-quote">'</span><span class="rst-variable-string">    </span><span class="rst-variable-quote">'</span></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6a7d8e35c0bc8565b0fbfed200820692b4c26439/docstring_parser/epydoc.py#L231">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/8225b7b711449a4d04b83ae226d39676782a697b/docstring_parser/epydoc.py#L229">
       
       (source)
     </a>
@@ -562,7 +602,7 @@
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">parse</span><span class="function-signature">(<span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></span>) -&gt; <code>Docstring</code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6a7d8e35c0bc8565b0fbfed200820692b4c26439/docstring_parser/epydoc.py#L34">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/8225b7b711449a4d04b83ae226d39676782a697b/docstring_parser/epydoc.py#L35">
       
       (source)
     </a>
@@ -589,7 +629,7 @@
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">_param_key</span><span class="function-signature">(<span class="rst-sig-param">meta: <code>DocstringParam</code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6a7d8e35c0bc8565b0fbfed200820692b4c26439/docstring_parser/epydoc.py#L219">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/8225b7b711449a4d04b83ae226d39676782a697b/docstring_parser/epydoc.py#L224">
       
       (source)
     </a>
@@ -606,6 +646,60 @@
 </div><div class="baseconstant private">
   
   
+  <a name="docstring_parser.epydoc._OWN_PARAM_FIELDS">
+    
+  </a>
+  <a name="_OWN_PARAM_FIELDS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_OWN_PARAM_FIELDS</span> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/8225b7b711449a4d04b83ae226d39676782a697b/docstring_parser/epydoc.py#L220">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_OWN_PARAM_FIELDS" title="docstring_parser.epydoc._OWN_PARAM_FIELDS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="https://docs.python.org/3/builtins/stdtypes.html#frozenset" class="intersphinx-link">frozenset</a>(<wbr></wbr>set([<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">param</span><span class="rst-variable-quote">'</span>, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">keyword</span><span class="rst-variable-quote">'</span>, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">ivar</span><span class="rst-variable-quote">'</span>, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">cvar</span><span class="rst-variable-quote">'</span>, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">var</span><span class="rst-variable-quote">'</span>]))</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
+  <a name="docstring_parser.epydoc._PARAM_FIELD_OF_KIND">
+    
+  </a>
+  <a name="_PARAM_FIELD_OF_KIND">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_PARAM_FIELD_OF_KIND</span> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/8225b7b711449a4d04b83ae226d39676782a697b/docstring_parser/epydoc.py#L221">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_PARAM_FIELD_OF_KIND" title="docstring_parser.epydoc._PARAM_FIELD_OF_KIND">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>{<wbr></wbr><a href="docstring_parser.common.Kind.html#ATTRIBUTE" class="internal-link" title="docstring_parser.common.Kind.ATTRIBUTE">Kind.ATTRIBUTE</a>: <span class="rst-variable-quote">'</span><span class="rst-variable-string">ivar</span><span class="rst-variable-quote">'</span>, <wbr></wbr><a href="docstring_parser.common.Kind.html#KEYWORD" class="internal-link" title="docstring_parser.common.Kind.KEYWORD">Kind.KEYWORD</a>: <span class="rst-variable-quote">'</span><span class="rst-variable-string">keyword</span><span class="rst-variable-quote">'</span>}</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant private">
+  
+  
   <a name="docstring_parser.epydoc._PARAM_KINDS">
     
   </a>
@@ -615,7 +709,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">_PARAM_KINDS</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6a7d8e35c0bc8565b0fbfed200820692b4c26439/docstring_parser/epydoc.py#L26">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/8225b7b711449a4d04b83ae226d39676782a697b/docstring_parser/epydoc.py#L27">
       
       (source)
     </a>
@@ -645,7 +739,7 @@
   <div class="container-fluid">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    25.10.1 at 2026-11-06 09:32:47.
+    25.10.1 at 2026-11-06 09:44:14.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 
