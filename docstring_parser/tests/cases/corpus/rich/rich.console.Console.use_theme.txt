@@ -43,7 +43,7 @@ Use a different theme for the duration of the context manager.
 
 Args:
     theme (Theme): Theme instance to user.
-    inherit (bool?): Inherit existing console styles. Defaults to True.
+    inherit (bool, optional): Inherit existing console styles. Defaults to True.
 
 Returns:
     ThemeContext: [description]

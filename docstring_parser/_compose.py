@@ -2,10 +2,12 @@
 
 import typing as T
 
+from ._text import param_spec
 from .common import (
     Docstring,
     DocstringExample,
     DocstringMeta,
+    DocstringParam,
     Kind,
     meta_as_attribute,
 )
@@ -121,6 +123,34 @@ def field_name(
     if key in own:
         return key
     return by_kind.get(kind_of(meta), "param")
+
+
+def written_type(param: DocstringParam) -> T.Optional[str]:
+    """Return a param's type as written, if it reads back as the param's.
+
+    That keeps marks such as ``int, optional`` as they were, where a style
+    would write its own, and keeps a type with no mark from gaining one
+    for a default the description states.
+
+    :returns: the type as written, or None to compose the param's type
+    """
+    raw = param.raw_type_name
+    if raw is None:
+        return None
+    if (
+        raw == param.type_name
+        and not param.is_optional
+        and param.default is None
+    ):
+        return raw
+    spec = param_spec(raw, param.description)
+    if (
+        spec.type_name == param.type_name
+        and spec.is_optional == bool(param.is_optional)
+        and spec.default == param.default
+    ):
+        return raw
+    return None
 
 
 def field_text(meta: DocstringMeta) -> str:

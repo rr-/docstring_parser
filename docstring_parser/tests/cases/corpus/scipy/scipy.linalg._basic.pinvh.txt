@@ -209,7 +209,7 @@ Parameters
 ----------
 a : (N, N) array_like
     Real symmetric or complex hermetian matrix to be pseudo-inverted
-atol : float, default=0
+atol : float, optional
     Absolute threshold term, default value is 0.
     
     .. versionadded:: 1.7.0
@@ -218,7 +218,7 @@ rtol : float, optional
     ``eps`` is the machine precision value of the datatype of ``a``.
     
     .. versionadded:: 1.7.0
-lower : bool, default=lower
+lower : bool, optional
     Whether the pertinent array data is taken from the lower or upper
     triangle of `a`. (Default: lower)
 return_rank : bool, optional

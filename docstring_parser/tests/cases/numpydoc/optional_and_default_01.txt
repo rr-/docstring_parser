@@ -47,9 +47,9 @@ Short.
 
 Parameters
 ----------
-a : int, default=1
+a : int, optional, default 1
     A.
-b : int, default=2
+b : int, default 2, optional
     B.
-c : {'x', 'y'}, optional
+c : {'x', 'y'}, optional, default None
     C.

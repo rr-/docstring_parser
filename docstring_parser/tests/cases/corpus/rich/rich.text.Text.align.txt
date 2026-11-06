@@ -43,4 +43,4 @@ Align text to a given width.
 Args:
     align (AlignMethod): One of "left", "center", or "right".
     width (int): Desired width.
-    character (str?): Character to pad with. Defaults to " ".
+    character (str, optional): Character to pad with. Defaults to " ".

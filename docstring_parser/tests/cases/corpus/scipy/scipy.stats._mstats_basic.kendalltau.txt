@@ -158,7 +158,7 @@ method : {'auto', 'asymptotic', 'exact'}, optional
     time may grow and the result may lose some precision.
     'auto' is the default and selects the appropriate
     method based on a trade-off between speed and accuracy.
-alternative : {'two-sided', 'less', 'greater'}, default='two-sided'
+alternative : {'two-sided', 'less', 'greater'}, optional
     Defines the alternative hypothesis. Default is 'two-sided'.
     The following options are available:
     

@@ -351,7 +351,7 @@ mmap_mode : {None, 'r+', 'r', 'w+', 'c'}, optional
     and sliced like any ndarray.  Memory mapping is especially useful
     for accessing small fragments of large files without reading the
     entire file into memory.
-allow_pickle : bool, default=False
+allow_pickle : bool, optional
     Allow loading pickled object arrays stored in npy files. Reasons for
     disallowing pickles include security, as loading pickled data can
     execute arbitrary code. If pickles are disallowed, loading object
@@ -361,7 +361,7 @@ fix_imports : bool, optional
     which includes npy/npz files containing object arrays. If `fix_imports`
     is True, pickle will try to map the old Python 2 names to the new names
     used in Python 3.
-encoding : str, default='ASCII'
+encoding : str, optional
     What encoding to use when reading Python 2 strings. Only useful when
     loading Python 2 generated pickled files, which includes
     npy/npz files containing object arrays. Values other than 'latin1',

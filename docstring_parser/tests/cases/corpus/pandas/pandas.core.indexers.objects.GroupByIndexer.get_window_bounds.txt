@@ -88,15 +88,15 @@ Computes the bounds of a window.
 
 Parameters
 ----------
-num_values : int, default=0
+num_values : int, default 0
     number of values that will be aggregated over
-min_periods : int, optional
+min_periods : int, default None
     min_periods passed from the top level rolling API
-center : bool, optional
+center : bool, default None
     center passed from the top level rolling API
-closed : str, optional
+closed : str, default None
     closed passed from the top level rolling API
-step : int, optional
+step : int, default None
     step passed from the top level rolling API
 
 Returns

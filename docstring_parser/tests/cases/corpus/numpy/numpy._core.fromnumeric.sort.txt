@@ -389,10 +389,10 @@ Parameters
 ----------
 a : array_like
     Array to be sorted.
-axis : int or None, default=-1
+axis : int or None, optional
     Axis along which to sort. If None, the array is flattened before
     sorting. The default is -1, which sorts along the last axis.
-kind : {'quicksort', 'mergesort', 'heapsort', 'stable'}, default='quicksort'
+kind : {'quicksort', 'mergesort', 'heapsort', 'stable'}, optional
     Sorting algorithm. The default is 'quicksort'. Note that both 'stable'
     and 'mergesort' use timsort or radix sort under the covers and,
     in general, the actual implementation will vary with data type.

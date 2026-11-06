@@ -67,9 +67,9 @@ Track progress file reading from a binary file.
 
 Args:
     file (BinaryIO): A file-like object opened in binary mode.
-    total (int?): Total number of bytes to read. This must be provided unless a task with a total is also given.
+    total (int, optional): Total number of bytes to read. This must be provided unless a task with a total is also given.
     task_id (TaskID): Task to track. Default is new task.
-    description (str?): Description of task, if new task is created.
+    description (str, optional): Description of task, if new task is created.
 
 Returns:
     BinaryIO: A readable file-like object in binary mode.

@@ -82,10 +82,10 @@ Word wrap the text.
 Args:
     console (Console): Console instance.
     width (int): Number of cells available per line.
-    justify (str?): Justify method: "default", "left", "center", "full", "right". Defaults to "default".
-    overflow (str?): Overflow method: "crop", "fold", or "ellipsis". Defaults to None.
-    tab_size (int?): Default tab size. Defaults to 8.
-    no_wrap (bool?): Disable wrapping, Defaults to False.
+    justify (str, optional): Justify method: "default", "left", "center", "full", "right". Defaults to "default".
+    overflow (str, optional): Overflow method: "crop", "fold", or "ellipsis". Defaults to None.
+    tab_size (int, optional): Default tab size. Defaults to 8.
+    no_wrap (bool, optional): Disable wrapping, Defaults to False.
 
 Returns:
     Lines: Number of lines.

@@ -287,7 +287,7 @@ method : {None, 'backfill'/'bfill', 'pad'/'ffill', 'nearest'}
       valid
     * backfill / bfill: use next valid observation to fill gap
     * nearest: use nearest valid observations to fill gap.
-copy : bool, default=False
+copy : bool, default False
     This keyword is now ignored; changing its value will have no
     impact on the method.
     
@@ -299,7 +299,7 @@ copy : bool, default=False
         (Copy-on-Write). See the `user guide on Copy-on-Write
         <https://pandas.pydata.org/docs/dev/user_guide/migration.html>`__
         for more details.
-limit : int, optional
+limit : int, default None
     Maximum number of consecutive labels to fill for inexact matches.
 tolerance : optional
     Maximum distance between original and new labels for inexact

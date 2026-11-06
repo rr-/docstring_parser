@@ -183,7 +183,7 @@ proportiontocut : float
     Fraction of the most positive and most negative elements to remove.
     When the specified proportion does not result in an integer number of
     elements, the number of elements to trim is rounded down.
-axis : int or None, default=0
+axis : int or None, default: 0
     Axis along which the trimmed means are computed.
     If None, compute over the raveled array.
 

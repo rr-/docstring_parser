@@ -34,4 +34,4 @@ Pad the left with a given character.
 
 Args:
     count (int): Number of characters to pad.
-    character (str?): Character to pad with. Defaults to " ".
+    character (str, optional): Character to pad with. Defaults to " ".

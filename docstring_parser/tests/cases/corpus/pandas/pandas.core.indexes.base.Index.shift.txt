@@ -144,7 +144,7 @@ by a specified time increment a given number of times.
 
 Parameters
 ----------
-periods : int, default=1
+periods : int, default 1
     Number of periods (or increments) to shift by,
     can be positive or negative.
 freq : pandas.DateOffset, pandas.Timedelta or str, optional

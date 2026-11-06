@@ -105,11 +105,11 @@ Examples:
     >>> filename = Prompt.ask("Enter a filename")
 
 Args:
-    prompt (TextType?): Prompt text. Defaults to "".
-    console (Console?): A Console instance or None to use global console. Defaults to None.
-    password (bool?): Enable password input. Defaults to False.
-    choices (List[str]?): A list of valid choices. Defaults to None.
-    case_sensitive (bool?): Matching of choices should be case-sensitive. Defaults to True.
-    show_default (bool?): Show default in prompt. Defaults to True.
-    show_choices (bool?): Show choices in prompt. Defaults to True.
-    stream (TextIO?): Optional text file open for reading to get input. Defaults to None.
+    prompt (TextType, optional): Prompt text. Defaults to "".
+    console (Console, optional): A Console instance or None to use global console. Defaults to None.
+    password (bool, optional): Enable password input. Defaults to False.
+    choices (List[str], optional): A list of valid choices. Defaults to None.
+    case_sensitive (bool, optional): Matching of choices should be case-sensitive. Defaults to True.
+    show_default (bool, optional): Show default in prompt. Defaults to True.
+    show_choices (bool, optional): Show choices in prompt. Defaults to True.
+    stream (TextIO, optional): Optional text file open for reading to get input. Defaults to None.

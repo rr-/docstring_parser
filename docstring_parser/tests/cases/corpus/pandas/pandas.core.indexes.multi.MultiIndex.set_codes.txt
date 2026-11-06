@@ -181,7 +181,7 @@ codes : sequence or list of sequence
     New codes to apply.
 level : int, level name, or sequence of int/level names (default None)
     Level(s) to set (None for all levels).
-verify_integrity : bool, default=True
+verify_integrity : bool, default True
     If True, checks that levels and codes are compatible.
 
 Returns

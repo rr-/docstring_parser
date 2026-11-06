@@ -61,8 +61,8 @@ Parameters
 mufunc : callable
     The function for which to define a masked version. Made available
     as ``_MaskedUnaryOperation.f``.
-fill : scalar, default=0
+fill : scalar, optional
     Filling value, default is 0.
-domain : class instance, optional
+domain : class instance
     Domain for the function. Should be one of the ``_Domain*``
     classes. Default is None.

@@ -207,11 +207,11 @@ Parameters
 ----------
 pat : str
     Regular expression pattern with capturing groups.
-flags : int, default=0 (no flags)
+flags : int, default 0 (no flags)
     Flags from the ``re`` module, e.g. ``re.IGNORECASE``, that
     modify regular expression matching for things like case,
     spaces, etc. For more details, see :mod:`re`.
-expand : bool, default=True
+expand : bool, default True
     If True, return DataFrame with one column per capture group.
     If False, return a Series/Index if there is one capture group
     or DataFrame if there are multiple capture groups.

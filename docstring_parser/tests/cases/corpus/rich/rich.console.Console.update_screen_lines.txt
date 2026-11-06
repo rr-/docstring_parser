@@ -52,8 +52,8 @@ Update lines of the screen at a given offset.
 
 Args:
     lines (List[List[Segment]]): Rendered lines (as produced by :meth:`~rich.Console.render_lines`).
-    x (int?): x offset (column no). Defaults to 0.
-    y (int?): y offset (column no). Defaults to 0.
+    x (int, optional): x offset (column no). Defaults to 0.
+    y (int, optional): y offset (column no). Defaults to 0.
 
 Raises:
     errors.NoAltScreen: If the Console isn't in alt screen mode.

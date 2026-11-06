@@ -52,9 +52,9 @@ google
 Adds indent guide lines to text.
 
 Args:
-    indent_size (Optional[int]?): Size of indentation, or None to auto detect. Defaults to None.
-    character (str?): Character to use for indentation. Defaults to "│".
-    style (Union[Style, str]?): Style of indent guides.
+    indent_size (Optional[int]): Size of indentation, or None to auto detect. Defaults to None.
+    character (str, optional): Character to use for indentation. Defaults to "│".
+    style (Union[Style, str], optional): Style of indent guides.
 
 Returns:
     Text: New text with indentation guides.

@@ -228,7 +228,7 @@ Write a DataFrame to the parquet format.
 Parameters
 ----------
 df : DataFrame
-path : str, path object, file-like object, or None, optional
+path : str, path object, file-like object, or None, default None
     String, path object (implementing ``os.PathLike[str]``), or file-like
     object implementing a binary ``write()`` function. If None, the result
     is returned as bytes. If a string, it will be used as the root directory
@@ -243,7 +243,7 @@ path : str, path object, file-like object, or None, optional
     Certain URL schemes may require additional packages. For example, S3
     URLs require the ``s3fs`` library. See
     :ref:`install.optional_dependencies` for a full list.
-engine : {'auto', 'pyarrow', 'fastparquet'}, default='auto'
+engine : {'auto', 'pyarrow', 'fastparquet'}, default 'auto'
     Parquet library to use. If 'auto', then the option
     ``io.parquet.engine`` is used. The default ``io.parquet.engine``
     behavior is to try 'pyarrow', falling back to 'fastparquet' if
@@ -259,10 +259,10 @@ engine : {'auto', 'pyarrow', 'fastparquet'}, default='auto'
         The ``'fastparquet'`` and ``'auto'`` engine options are
         deprecated. Use ``'pyarrow'`` or do not pass ``engine``
         to use the default.
-compression : {'snappy', 'gzip', 'brotli', 'lz4', 'zstd', None}
+compression : {'snappy', 'gzip', 'brotli', 'lz4', 'zstd', None},
     default 'snappy'. Name of the compression to use. Use ``None``
     for no compression.
-index : bool, optional
+index : bool, default None
     If ``True``, include the dataframe's index(es) in the file output. If
     ``False``, they will not be written to the file.
     If ``None``, similar to ``True`` the dataframe's index(es)
@@ -270,7 +270,7 @@ index : bool, optional
     the RangeIndex will be stored as a range in the metadata so it
     doesn't require much space and is faster. Other indexes will
     be included as columns in the file output.
-partition_cols : str or list, optional
+partition_cols : str or list, optional, default None
     Column names by which to partition the dataset.
     Columns are partitioned in the order they are given.
     Must be None if path is not a string.
@@ -283,7 +283,7 @@ storage_options : dict, optional
     and ``urllib`` for more details, and for more examples on storage
     options refer `here <https://pandas.pydata.org/docs/user_guide/io.html?
     highlight=storage_options#reading-writing-remote-files>`_.
-filesystem : fsspec or pyarrow filesystem, optional
+filesystem : fsspec or pyarrow filesystem, default None
     Filesystem object to use when reading the parquet file. Only implemented
     for ``engine="pyarrow"``.
     

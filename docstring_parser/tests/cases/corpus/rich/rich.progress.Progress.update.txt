@@ -86,10 +86,10 @@ Update information associated with a task.
 
 Args:
     task_id (TaskID): Task id (returned by add_task).
-    total (float?): Updates task.total if not None.
-    completed (float?): Updates task.completed if not None.
-    advance (float?): Add a value to task.completed if not None.
-    description (str?): Change task description if not None.
-    visible (bool?): Set visible flag if not None.
-    refresh (bool?): Force a refresh of progress information. Default is False.
+    total (float, optional): Updates task.total if not None.
+    completed (float, optional): Updates task.completed if not None.
+    advance (float, optional): Add a value to task.completed if not None.
+    description (str, optional): Change task description if not None.
+    visible (bool, optional): Set visible flag if not None.
+    refresh (bool): Force a refresh of progress information. Default is False.
     **fields (Any): Additional data fields required for rendering.

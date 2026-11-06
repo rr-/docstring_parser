@@ -70,7 +70,7 @@ iter : tuple
     Looping variables from outer scope
 max_cols : int
     Permissible number of columns
-col_lengths
+col_lengths : 
     c
 
 Returns

@@ -110,7 +110,7 @@ min_curvature : float
     unaffected by the exception strategy. By default is equal to
     1e-8 when ``exception_strategy = 'skip_update'`` and equal
     to 0.2 when ``exception_strategy = 'damp_update'``.
-init_scale : {float, np.array, 'auto'}, default='auto'
+init_scale : {float, np.array, 'auto'}
     This parameter can be used to initialize the Hessian or its
     inverse. When a float is given, the relevant array is initialized
     to ``np.eye(n) * init_scale``, where ``n`` is the problem dimension.

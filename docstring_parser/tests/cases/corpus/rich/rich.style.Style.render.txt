@@ -44,8 +44,8 @@ google
 Render the ANSI codes for the style.
 
 Args:
-    text (str?): A string to style. Defaults to "".
-    color_system (Optional[ColorSystem]?): Color system to render to. Defaults to ColorSystem.TRUECOLOR.
+    text (str, optional): A string to style. Defaults to "".
+    color_system (Optional[ColorSystem], optional): Color system to render to. Defaults to ColorSystem.TRUECOLOR.
 
 Returns:
     str: A string containing ANSI style codes.

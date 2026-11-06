@@ -106,7 +106,7 @@ c : array_like
     high.
 pow : integer
     Power to which the series will be raised
-maxpower : integer, default=16
+maxpower : integer, optional
     Maximum power allowed. This is mainly to limit growth of the series
     to unmanageable size. Default is 16
 

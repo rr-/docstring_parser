@@ -353,23 +353,23 @@ format : 'table' is the default
         Table format. Write as a PyTables Table structure which may perform
         worse but allow more flexible operations like searching / selecting
         subsets of the data.
-axes : list, optional
+axes : list, default None
     Single-element list selecting the axis to store as the table's
     indexed (appendable) axis: ``[0]`` for the index (the default) or
     ``[1]`` for the columns. Ignored when appending to an existing
     table, which keeps the axes it was created with.
-index : bool, default=True
+index : bool, default True
     Write DataFrame index as a column.
-append : bool, default=True
+append : bool, default True
     Append the input data to the existing.
-complib : {'zlib', 'lzo', 'bzip2', 'blosc'}, optional
+complib : {'zlib', 'lzo', 'bzip2', 'blosc'}, default None
     Compression library to use; None disables compression. See the
     ``complib`` parameter of :class:`HDFStore` for the full list of
     supported compressors.
-complevel : int, 0-9, optional
+complevel : int, 0-9, default None
     Specifies a compression level for data.
     A value of 0 or None disables compression.
-columns : optional
+columns : default None
     This parameter is currently not accepted, try data_columns.
 min_itemsize : int, dict, or None
     Minimum number of bytes reserved for object columns.
@@ -384,11 +384,11 @@ nan_rep : str, optional
     passed, a value equal to it is read back as a missing value.
     Only used when the table is created; ignored on later appends,
     which reuse whatever the table already stores.
-chunksize : int, default=100000
+chunksize : int, default 100000
     Number of rows to write in each chunk.
 expectedrows : int
     Expected TOTAL row size of this table.
-dropna : bool, default=False
+dropna : bool, default False, optional
     Do not write an ALL nan row to the store settable
     by the option 'io.hdf.dropna_table'.
     
@@ -396,14 +396,14 @@ dropna : bool, default=False
         The ``dropna`` keyword is deprecated and will be removed in a
         future version. Use :meth:`DataFrame.dropna` before writing
         instead.
-data_columns : list of columns, or True, optional
+data_columns : list of columns, or True, default None
     List of columns to create as indexed data columns for on-disk
     queries, or True to use all columns. By default only the axes
     of the object are indexed. See `here
     <https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#query-via-data-columns>`__.
-encoding : optional
+encoding : default None
     Provide an encoding for str.
-errors : str, default='strict'
+errors : str, default 'strict'
     The error handling scheme to use for encoding errors.
     The default is 'strict' meaning that encoding errors raise a
     UnicodeEncodeError.  Other possible values are 'ignore', 'replace' and

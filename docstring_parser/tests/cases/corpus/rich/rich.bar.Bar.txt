@@ -72,6 +72,6 @@ Args:
     size (float): Value for the end of the bar.
     begin (float): Begin point (between 0 and size, inclusive).
     end (float): End point (between 0 and size, inclusive).
-    width (int?): Width of the bar, or ``None`` for maximum width. Defaults to None.
-    color (Union[Color, str]?): Color of the bar. Defaults to "default".
-    bgcolor (Union[Color, str]?): Color of bar background. Defaults to "default".
+    width (int, optional): Width of the bar, or ``None`` for maximum width. Defaults to None.
+    color (Union[Color, str], optional): Color of the bar. Defaults to "default".
+    bgcolor (Union[Color, str], optional): Color of bar background. Defaults to "default".

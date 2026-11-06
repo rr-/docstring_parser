@@ -181,7 +181,7 @@ Parameters
 ----------
 a : array_like
     Input array, from which the diagonals are taken.
-offset : int, default=0
+offset : int, optional
     Offset of the diagonal from the main diagonal. Can be both positive
     and negative. Defaults to 0.
 axis1, axis2 : int, optional

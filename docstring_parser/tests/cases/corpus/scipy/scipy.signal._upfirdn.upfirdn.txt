@@ -310,11 +310,11 @@ h : array_like
     1-D FIR (finite-impulse response) filter coefficients.
 x : array_like
     Input signal array.
-up : int, default=1
+up : int, optional
     Upsampling rate. Default is 1.
-down : int, default=1
+down : int, optional
     Downsampling rate. Default is 1.
-axis : int, default=-1
+axis : int, optional
     The axis of the input data array along which to apply the
     linear filter. The filter is applied to each subarray along
     this axis. Default is -1.

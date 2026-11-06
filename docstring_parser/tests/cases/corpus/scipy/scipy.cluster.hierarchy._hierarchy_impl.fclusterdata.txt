@@ -259,7 +259,7 @@ metric : str or function, optional
 depth : int, optional
     The maximum depth for the inconsistency calculation. See
     `inconsistent` for more information.
-method : str, default="single"
+method : str, optional
     The linkage method to use (single, complete, average,
     weighted, median centroid, ward). See `linkage` for more
     information. Default is "single".

@@ -145,7 +145,7 @@ Parameters
 ----------
 signal : ndarray
     A rank-1 array representing samples of a signal.
-lamb : float, default=0.0
+lamb : float, optional
     Smoothing coefficient, default is 0.0.
 
 Returns

@@ -55,7 +55,7 @@ google
 A column with a 'spinner' animation.
 
 Args:
-    spinner_name (str?): Name of spinner animation. Defaults to "dots".
-    style (StyleType?): Style of spinner. Defaults to "progress.spinner".
-    speed (float?): Speed factor of spinner. Defaults to 1.0.
-    finished_text (TextType?): Text used when task is finished. Defaults to " ".
+    spinner_name (str, optional): Name of spinner animation. Defaults to "dots".
+    style (StyleType, optional): Style of spinner. Defaults to "progress.spinner".
+    speed (float, optional): Speed factor of spinner. Defaults to 1.0.
+    finished_text (TextType, optional): Text used when task is finished. Defaults to " ".

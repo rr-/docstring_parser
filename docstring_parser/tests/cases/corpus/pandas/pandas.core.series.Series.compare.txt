@@ -234,20 +234,20 @@ Parameters
 ----------
 other : Series
     Object to compare with.
-align_axis : {0 or 'index', 1 or 'columns'}, default=1
+align_axis : {0 or 'index', 1 or 'columns'}, default 1
     Determine which axis to align the comparison on.
     
     * 0, or 'index' : Resulting differences are stacked vertically
       with rows drawn alternately from self and other.
     * 1, or 'columns' : Resulting differences are aligned horizontally
       with columns drawn alternately from self and other.
-keep_shape : bool, default=False
+keep_shape : bool, default False
     If true, all rows and columns are kept.
     Otherwise, only the ones with different values are kept.
-keep_equal : bool, default=False
+keep_equal : bool, default False
     If true, the result keeps values that are equal.
     Otherwise, equal values are shown as NaNs.
-result_names : tuple, default=('self', 'other')
+result_names : tuple, default ('self', 'other')
     Set the dataframes names in the comparison.
 
 Returns

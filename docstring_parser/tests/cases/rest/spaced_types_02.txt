@@ -39,7 +39,8 @@ Short.
 :type x: int or None
 :param names: Names.
 :type names: list of str
-:param int? n: N.
+:param n: N.
+:type n: int, optional
 === compose rest expanded
 Short.
 
@@ -51,4 +52,4 @@ Short.
 :type names: list of str
 :param n:
     N.
-:type n: int?
+:type n: int, optional

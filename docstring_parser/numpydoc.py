@@ -8,7 +8,13 @@ import re
 import typing as T
 from textwrap import dedent
 
-from ._compose import SectionTable, examples_text, kind_of, sections
+from ._compose import (
+    SectionTable,
+    examples_text,
+    kind_of,
+    sections,
+    written_type,
+)
 from ._lines import Lines
 from ._text import (
     DEFAULT_IN_DESCRIPTION,
@@ -639,14 +645,18 @@ def compose(
     def process_one(
         one: T.Union[DocstringParam, DocstringReturns, DocstringRaises],
     ):
+        written = None
         if isinstance(one, DocstringParam):
             head = one.arg_name
+            written = written_type(one)
         elif isinstance(one, DocstringReturns):
             head = one.return_name
         else:
             head = None
 
-        if one.type_name and head:
+        if isinstance(one, DocstringParam) and written is not None:
+            head = f"{one.arg_name} : {written}"
+        elif one.type_name and head:
             head += f" : {one.type_name}"
         elif one.type_name:
             head = one.type_name
@@ -656,7 +666,7 @@ def compose(
         # If this is a parameter, check if it's optional.
         # If it is and there's a not-None default, include that in the type
         # declaration, otherwise just mark it as optional.
-        if isinstance(one, DocstringParam):
+        if isinstance(one, DocstringParam) and written is None:
             # With no type, the mark is the type, as in "x : optional", so
             # that it is not read back as part of the name.
             mark = ", " if one.type_name else " : "

@@ -271,10 +271,10 @@ y : int or str
     The column label or position for y points.
 C : int or str, optional
     The column label or position for the value of `(x, y)` point.
-reduce_C_function : callable, default=np.mean
+reduce_C_function : callable, default `np.mean`
     Function of one argument that reduces all the values in a bin to
     a single number (e.g. `np.mean`, `np.max`, `np.sum`, `np.std`).
-gridsize : int or tuple of (int, int), default=100
+gridsize : int or tuple of (int, int), default 100
     The number of hexagons in the x-direction.
     The corresponding number of hexagons in the y-direction is
     chosen in a way that the hexagons are approximately regular.

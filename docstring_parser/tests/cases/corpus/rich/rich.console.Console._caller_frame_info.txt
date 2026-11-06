@@ -57,7 +57,7 @@ Get caller frame information.
 
 Args:
     offset (int): the caller offset within the current frame stack.
-    currentframe (Callable[[], Optional[FrameType]]?): the callable to use to
+    currentframe (Callable[[], Optional[FrameType]], optional): the callable to use to
         retrieve the current frame. Defaults to None, which will use ``inspect.currentframe()``.
 
 Returns:
