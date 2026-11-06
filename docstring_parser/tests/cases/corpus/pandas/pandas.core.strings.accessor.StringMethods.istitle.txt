@@ -70,6 +70,7 @@ style: numpydoc
     Series.str.isupper : Check whether all characters are uppercase.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   description: |
     The ``s5.str.istitle`` method checks for whether all words are in title

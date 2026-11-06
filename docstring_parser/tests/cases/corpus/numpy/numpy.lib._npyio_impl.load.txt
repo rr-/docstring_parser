@@ -245,6 +245,7 @@ style: numpydoc
     lib.format.open_memmap : Create or load a memory-mapped ``.npy`` file.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     - If the file contains pickle data, then whatever object is stored
@@ -263,6 +264,7 @@ style: numpydoc
       block.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   kind: examples
   key: 'examples'

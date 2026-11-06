@@ -109,6 +109,7 @@ style: numpydoc
     MultiIndex.levels : Get the levels of the MultiIndex.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   kind: examples
   key: 'examples'

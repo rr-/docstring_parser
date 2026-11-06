@@ -1,0 +1,25 @@
+# Test that compose indents a summary that reads as a title, so it reads back as a summary.
+=== input
+	Note:
+
+        Text.
+Args:
+    x: X.
+=== parse google
+short_description: 'Note:'
+long_description: '        Text.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  description: 'X.'
+  kind: param
+  key: 'param'
+  arg_name: 'x'
+  is_optional: False
+=== compose google
+    Note:
+
+        Text.
+Args:
+    x: X.

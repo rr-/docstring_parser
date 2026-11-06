@@ -14,6 +14,7 @@ style: numpydoc
   description: 'Some text.'
   kind: text
   key: 'notes'
+  title: 'Notes'
 === compose numpydoc
 Short.
 

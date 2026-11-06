@@ -78,6 +78,7 @@ style: numpydoc
     set_categories : Set the categories to the specified ones.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   kind: examples
   key: 'examples'

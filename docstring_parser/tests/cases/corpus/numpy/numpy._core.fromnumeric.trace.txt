@@ -134,6 +134,7 @@ style: numpydoc
   description: 'diag, diagonal, diagflat'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   kind: examples
   key: 'examples'

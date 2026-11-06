@@ -80,6 +80,7 @@ style: numpydoc
   description: 'hermeadd, hermesub, hermemulx, hermemul, hermediv'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   kind: examples
   key: 'examples'

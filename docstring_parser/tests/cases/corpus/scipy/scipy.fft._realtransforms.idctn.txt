@@ -158,12 +158,14 @@ style: numpydoc
   description: 'dctn : multidimensional DCT'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     For full details of the IDCT types and normalization modes, as well as
     references, see `idct`.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   kind: examples
   key: 'examples'

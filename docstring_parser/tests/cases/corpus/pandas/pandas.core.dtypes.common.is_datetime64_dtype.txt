@@ -68,6 +68,7 @@ style: numpydoc
                                         dtype is of the datetime64 dtype.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   kind: examples
   key: 'examples'

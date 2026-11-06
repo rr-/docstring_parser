@@ -68,6 +68,7 @@ style: numpydoc
     is_bool_dtype : Check if a dtype is boolean.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   kind: examples
   key: 'examples'

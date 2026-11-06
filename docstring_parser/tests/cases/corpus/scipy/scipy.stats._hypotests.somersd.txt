@@ -247,6 +247,7 @@ style: numpydoc
     pearsonr : Calculates a Pearson correlation coefficient.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     This function follows the contingency table approach of [2]_ and
@@ -270,6 +271,7 @@ style: numpydoc
     opposite the convention of Somers' original paper [1]_.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringMeta
   description: |
     .. [1] Robert H. Somers, "A New Asymmetric Measure of Association for
@@ -290,6 +292,7 @@ style: numpydoc
            Accessed July 31, 2020.
   kind: text
   key: 'references'
+  title: 'References'
 - DocstringExample
   description: |
     We calculate Somers' D for the example given in [4]_, in which a hotel

@@ -58,6 +58,7 @@ style: numpydoc
        Number 3, pp. 299-316, 2001.
   kind: text
   key: 'references'
+  title: 'References'
 === detect
 numpydoc
 === compose numpydoc

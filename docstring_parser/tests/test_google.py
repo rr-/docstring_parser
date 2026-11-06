@@ -189,17 +189,17 @@ def test_parse_follows_default_sections(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     """Test that parse picks up changes to DEFAULT_SECTIONS."""
-    text = "Short.\n\nNotes:\n    Mind the gap."
+    text = "Short.\n\nRemarks:\n    Mind the gap."
     assert parse(text).meta == []
     monkeypatch.setattr(
         google,
         "DEFAULT_SECTIONS",
         [
             *google.DEFAULT_SECTIONS,
-            Section("Notes", "notes", SectionType.SINGULAR),
+            Section("Remarks", "remarks", SectionType.SINGULAR),
         ],
     )
-    assert parse(text).meta[0].key == "notes"
+    assert parse(text).meta[0].key == "remarks"
 
 
 @pytest.mark.parametrize("title", ["Notes?", "C++ Notes", "Args (old)"])

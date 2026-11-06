@@ -96,6 +96,7 @@ style: numpydoc
     DataFrame.nth : Apply function nth to each row or column of a DataFrame.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   kind: examples
   key: 'examples'

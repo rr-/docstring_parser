@@ -153,6 +153,7 @@ style: numpydoc
     of (N,N) and (M,N), with ``K=min(M,N)``.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   kind: examples
   key: 'examples'

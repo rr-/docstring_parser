@@ -93,6 +93,7 @@ style: numpydoc
     numpy.polynomial.chebyshev.chebgauss
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     .. [AS] Milton Abramowitz and Irene A. Stegun, eds.
@@ -100,6 +101,7 @@ style: numpydoc
         Graphs, and Mathematical Tables. New York: Dover, 1972.
   kind: text
   key: 'references'
+  title: 'References'
 === detect
 numpydoc
 === compose numpydoc

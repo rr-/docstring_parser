@@ -470,10 +470,12 @@ style: numpydoc
     symmetric if the input csgraph was symmetric.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringMeta
   description: '.. [1] Laplacian matrix. https://en.wikipedia.org/wiki/Laplacian_matrix'
   kind: text
   key: 'references'
+  title: 'References'
 - DocstringExample
   kind: examples
   key: 'examples'

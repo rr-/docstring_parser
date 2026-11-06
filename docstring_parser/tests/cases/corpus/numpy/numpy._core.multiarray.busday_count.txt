@@ -165,6 +165,7 @@ style: numpydoc
     busday_offset : Applies an offset counted in valid days.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   kind: examples
   key: 'examples'

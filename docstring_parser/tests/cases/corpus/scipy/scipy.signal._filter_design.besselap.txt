@@ -150,6 +150,7 @@ style: numpydoc
   description: 'bessel : Filter design function using this prototype'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     To find the pole locations, approximate starting points are generated [2]_
@@ -159,6 +160,7 @@ style: numpydoc
     the unit circle.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringMeta
   description: |
     .. [1] C.R. Bond, "Bessel Filter Constants",
@@ -179,6 +181,7 @@ style: numpydoc
            https://www.ranecommercial.com/legacy/note147.html
   kind: text
   key: 'references'
+  title: 'References'
 === detect
 numpydoc
 === compose numpydoc

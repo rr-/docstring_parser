@@ -253,6 +253,7 @@ style: numpydoc
     scipy.interpolate.UnivariateSpline : Computes spline fits.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     The solution is the coefficients of the Chebyshev series `p` that
@@ -283,12 +284,14 @@ style: numpydoc
     is inadequate splines may be a good alternative.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringMeta
   description: |
     .. [1] Wikipedia, "Curve fitting",
            https://en.wikipedia.org/wiki/Curve_fitting
   kind: text
   key: 'references'
+  title: 'References'
 === detect
 numpydoc
 === compose numpydoc

@@ -178,6 +178,7 @@ style: numpydoc
   description: 'fcluster : for the creation of flat cluster assignments.'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   kind: examples
   key: 'examples'
@@ -259,6 +260,7 @@ style: numpydoc
     impossible to execute it inside `@jax.jit`.
   kind: text
   key: 'notes'
+  title: 'Notes'
 === detect
 numpydoc
 === compose numpydoc

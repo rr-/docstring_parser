@@ -272,6 +272,7 @@ style: numpydoc
     distance_transform_edt : Faster distance transform for euclidean metric
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     This function employs a slow brute force algorithm. See also the
@@ -279,6 +280,7 @@ style: numpydoc
     chessboard algorithms [2]_.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringMeta
   description: |
     .. [1] Taxicab distance. Wikipedia, 2023.
@@ -287,6 +289,7 @@ style: numpydoc
            https://en.wikipedia.org/wiki/Chebyshev_distance
   kind: text
   key: 'references'
+  title: 'References'
 - DocstringExample
   description: 'Import the necessary modules.'
   kind: examples

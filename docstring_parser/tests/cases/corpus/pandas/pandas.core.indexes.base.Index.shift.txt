@@ -95,12 +95,14 @@ style: numpydoc
   description: 'Series.shift : Shift values of Series.'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     This method is only implemented for datetime-like index classes,
     i.e., DatetimeIndex, PeriodIndex and TimedeltaIndex.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   description: 'Put the first 5 month starts of 2011 into an index.'
   kind: examples

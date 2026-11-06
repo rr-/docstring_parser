@@ -65,6 +65,7 @@ style: numpydoc
   description: 'hermeadd, hermemulx, hermemul, hermediv, hermepow'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     Unlike multiplication, division, etc., the difference of two Hermite
@@ -73,6 +74,7 @@ style: numpydoc
     polynomials, is simply "component-wise."
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   kind: examples
   key: 'examples'

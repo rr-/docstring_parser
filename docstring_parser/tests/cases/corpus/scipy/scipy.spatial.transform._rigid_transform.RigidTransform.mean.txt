@@ -123,6 +123,7 @@ style: numpydoc
             103, 2013, pp. 267-305.
   kind: text
   key: 'references'
+  title: 'References'
 - DocstringExample
   kind: examples
   key: 'examples'

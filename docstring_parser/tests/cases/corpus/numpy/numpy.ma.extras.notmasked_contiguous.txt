@@ -98,10 +98,12 @@ style: numpydoc
     clump_masked, clump_unmasked
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: 'Only accepts 2-D arrays at most.'
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   kind: examples
   key: 'examples'

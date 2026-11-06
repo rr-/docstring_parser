@@ -121,6 +121,7 @@ style: numpydoc
            https://people.sc.fsu.edu/~jburkardt/f77_src/special_functions/special_functions.html
   kind: text
   key: 'references'
+  title: 'References'
 - DocstringExample
   description: |
     Compute the first 4 real roots and the derivatives at the roots of

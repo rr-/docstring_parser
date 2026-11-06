@@ -80,6 +80,7 @@ style: numpydoc
   description: 'cspline1d_eval : Evaluate a cubic spline at the new set of points.'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   description: |
     We can filter a signal to reduce and smooth out high-frequency noise with

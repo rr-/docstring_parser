@@ -68,6 +68,7 @@ style: numpydoc
   description: 'fftshift : Shift zero-frequency component to the center of the spectrum.'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   kind: examples
   key: 'examples'

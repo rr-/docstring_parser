@@ -131,12 +131,14 @@ style: numpydoc
     ndarray.flags : Information about the memory layout of the array.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     The returned array will be guaranteed to have the listed requirements
     by making a copy if needed.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   kind: examples
   key: 'examples'

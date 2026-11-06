@@ -68,6 +68,7 @@ style: numpydoc
     PeriodIndex.shift : Shift values of PeriodIndex.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 === detect
 numpydoc
 === compose numpydoc

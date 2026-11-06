@@ -284,6 +284,7 @@ style: numpydoc
         - There are no duplicate entries.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   kind: examples
   key: 'examples'

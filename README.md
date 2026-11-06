@@ -71,7 +71,7 @@ returns, so start from that to add to it:
 >>>
 >>> sections = [
 ...     *default_sections(DocstringStyle.GOOGLE),
-...     SectionSpec(("Keyword Args", "Kwargs"), Kind.KEYWORD),
+...     SectionSpec("Kwargs", Kind.KEYWORD),
 ...     SectionSpec("C++ Notes", Kind.TEXT),
 ... ]
 >>> docstring = parse(

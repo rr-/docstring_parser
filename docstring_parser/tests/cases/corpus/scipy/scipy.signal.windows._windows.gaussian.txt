@@ -106,6 +106,7 @@ style: numpydoc
     .. math::  w(n) = e^{ -\frac{1}{2}\left(\frac{n}{\sigma}\right)^2 }
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   description: 'Plot the window and its frequency response:'
   kind: examples

@@ -63,6 +63,7 @@ style: numpydoc
     numpy.polynomial.hermite_e.hermeline
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   kind: examples
   key: 'examples'

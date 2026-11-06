@@ -64,6 +64,7 @@ style: numpydoc
     notna : Top-level notna.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   description: |
     Show which entries in an Index are not NA. The result is an

@@ -80,6 +80,7 @@ style: numpydoc
     .. math::  \frac{1}{\sqrt {2\pi\sigma^2}}exp(-\frac{x^2}{2\sigma})
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringMeta
   description: |
     .. [1] Bouma H., Vilanova A., Bescos J.O., ter Haar Romeny B.M., Gerritsen
@@ -89,6 +90,7 @@ style: numpydoc
        Science, vol 4485. Springer, Berlin, Heidelberg.
   kind: text
   key: 'references'
+  title: 'References'
 - DocstringExample
   description: |
     We can calculate B-Spline basis functions approximated by a Gaussian

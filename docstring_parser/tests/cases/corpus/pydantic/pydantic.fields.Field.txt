@@ -76,12 +76,14 @@ long_description: |
   
   Used to provide extra information about a field, either for the model schema or complex validation. Some arguments
   apply only to number fields (`int`, `float`, `Decimal`) and some apply only to `str`.
-  
-  Note:
-      - Any `_Unset` objects will be replaced by the corresponding default value of the `FieldInfo` constructor.
 blank_after_short_description: False
 blank_after_long_description: True
 style: google
+- DocstringMeta
+  description: '- Any `_Unset` objects will be replaced by the corresponding default value of the `FieldInfo` constructor.'
+  kind: text
+  key: 'notes'
+  title: 'Note'
 - DocstringParam
   description: 'Default value if the field is not set.'
   kind: param

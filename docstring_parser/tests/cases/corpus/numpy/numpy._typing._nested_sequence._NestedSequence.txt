@@ -48,12 +48,14 @@ style: numpydoc
     *e.g.* ``def func(a: _NestedSequence[T]) -> T: ...``.
   kind: text
   key: 'warnings'
+  title: 'Warning'
 - DocstringMeta
   description: |
     collections.abc.Sequence
         ABCs for read-only and mutable :term:`sequences`.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   description: '.. code-block:: python'
   kind: examples
@@ -105,8 +107,8 @@ numpydoc
 === compose numpydoc
 A protocol for representing nested sequences.
 
-Warnings
---------
+Warning
+-------
 `_NestedSequence` currently does not work in combination with typevars,
 *e.g.* ``def func(a: _NestedSequence[T]) -> T: ...``.
 

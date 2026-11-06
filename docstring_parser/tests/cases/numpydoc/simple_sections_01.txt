@@ -38,14 +38,17 @@ style: numpydoc
     actually, anything can go in this section
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: 'Here be dragons'
   kind: text
   key: 'warnings'
+  title: 'Warnings'
 - DocstringMeta
   description: 'None of this is real'
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringMeta
   description: |
     Cite the relevant literature, e.g. [1]_.  You may also cite these
@@ -58,3 +61,4 @@ style: numpydoc
        pp. 585-588, 1996.
   kind: text
   key: 'references'
+  title: 'References'

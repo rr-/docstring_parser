@@ -328,6 +328,7 @@ style: numpydoc
     evolved with time and this document is more current.
   kind: text
   key: 'notes'
+  title: 'Notes'
 === detect
 numpydoc
 === compose numpydoc

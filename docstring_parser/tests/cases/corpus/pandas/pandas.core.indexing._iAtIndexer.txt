@@ -64,6 +64,7 @@ style: numpydoc
     DataFrame.iloc : Access a group of rows and columns by integer position(s).
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   kind: examples
   key: 'examples'

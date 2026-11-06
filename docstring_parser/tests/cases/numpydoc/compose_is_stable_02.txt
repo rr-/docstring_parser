@@ -21,10 +21,12 @@ style: numpydoc
   description: 'other'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: 'A note.'
   kind: text
   key: 'notes'
+  title: 'Notes'
 === compose numpydoc
 Short.
 

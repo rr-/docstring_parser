@@ -122,6 +122,7 @@ style: numpydoc
   description: 'fromstring, loadtxt'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     Dtypes for structured arrays can be specified in several forms, but all
@@ -129,6 +130,7 @@ style: numpydoc
     `basics.rec`.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   kind: examples
   key: 'examples'

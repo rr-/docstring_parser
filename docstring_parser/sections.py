@@ -8,7 +8,7 @@ Epydoc they are field names. Pass a list of specs as ``sections`` to
 style's own, which :func:`default_sections` returns.
 
 For example, to read ``Inputs:`` as a Google params section, and to keep
-a ``Todo:`` section as text of its own::
+a ``Remarks:`` section as text of its own::
 
     from docstring_parser import DocstringStyle, parse
     from docstring_parser.sections import Kind, SectionSpec, default_sections
@@ -16,7 +16,7 @@ a ``Todo:`` section as text of its own::
     sections = [
         *default_sections(DocstringStyle.GOOGLE),
         SectionSpec("Inputs", Kind.PARAM),
-        SectionSpec("Todo", Kind.TEXT),
+        SectionSpec("Remarks", Kind.TEXT),
     ]
     parse(text, DocstringStyle.GOOGLE, sections=sections)
 """

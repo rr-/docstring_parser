@@ -112,6 +112,7 @@ style: numpydoc
         of maximum of values.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     This method is the Series version of ``ndarray.argmin``. This method
@@ -119,6 +120,7 @@ style: numpydoc
     the position. To get the position, use ``series.values.argmin()``.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   kind: examples
   key: 'examples'

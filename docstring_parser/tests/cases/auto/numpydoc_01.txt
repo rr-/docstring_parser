@@ -96,9 +96,11 @@ style: numpydoc
     something else?
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     multiple lines...
     none of this is real!
   kind: text
   key: 'warnings'
+  title: 'Warnings'

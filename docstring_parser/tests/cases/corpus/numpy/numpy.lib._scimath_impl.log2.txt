@@ -73,6 +73,7 @@ style: numpydoc
   description: 'numpy.log2'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     For a log2() that returns ``NAN`` when real `x < 0`, use `numpy.log2`
@@ -81,6 +82,7 @@ style: numpydoc
     and, notably, the complex principle value if ``x.imag != 0``).
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   description: 'We set the printing precision so the example can be auto-tested:'
   kind: examples

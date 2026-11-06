@@ -157,7 +157,38 @@ DEFAULT_SECTIONS = [
     Section("Examples", "examples", SectionType.SINGULAR),
     Section("Returns", "returns", SectionType.SINGULAR_OR_MULTIPLE),
     Section("Yields", "yields", SectionType.SINGULAR_OR_MULTIPLE),
+    # The rest of the sections napoleon reads.
+    Section("Keyword Args", "keyword", SectionType.MULTIPLE),
+    Section("Keyword Arguments", "keyword", SectionType.MULTIPLE),
+    Section("Other Parameters", "other_param", SectionType.MULTIPLE),
+    Section("Receives", "receives", SectionType.MULTIPLE),
+    Section("Receive", "receives", SectionType.MULTIPLE),
+    Section("Raise", "raises", SectionType.MULTIPLE),
+    Section("Warns", "warns", SectionType.MULTIPLE),
+    Section("Warn", "warns", SectionType.MULTIPLE),
+    Section("Return", "returns", SectionType.SINGULAR_OR_MULTIPLE),
+    Section("Yield", "yields", SectionType.SINGULAR_OR_MULTIPLE),
+    Section("Notes", "notes", SectionType.SINGULAR),
+    Section("Note", "notes", SectionType.SINGULAR),
+    Section("Warnings", "warnings", SectionType.SINGULAR),
+    Section("Warning", "warnings", SectionType.SINGULAR),
+    Section("See Also", "see_also", SectionType.SINGULAR),
+    Section("References", "references", SectionType.SINGULAR),
+    Section("Todo", "todo", SectionType.SINGULAR),
+    Section("Methods", "methods", SectionType.SINGULAR),
+    Section("Attention", "attention", SectionType.SINGULAR),
+    Section("Caution", "caution", SectionType.SINGULAR),
+    Section("Danger", "danger", SectionType.SINGULAR),
+    Section("Error", "error", SectionType.SINGULAR),
+    Section("Hint", "hint", SectionType.SINGULAR),
+    Section("Important", "important", SectionType.SINGULAR),
+    Section("Tip", "tip", SectionType.SINGULAR),
+    Section("Deprecated", "deprecation", SectionType.SINGULAR),
 ]
+
+# A version on the first line of a Deprecated section, alone or before
+# the text, as in ``1.2 Use bar instead.``
+_VERSION = re.compile(r"v?\d+\.[0-9a-z.]+(?=\s|\Z)", flags=re.I)
 
 
 def _join_wrapped(text: str) -> str:
@@ -217,8 +248,7 @@ def _split_typed_arg(text: str) -> T.Optional[TypedArg]:
     )
 
 
-# The kind of a section given as a Section, by its key. Google has no
-# deprecation items, so a section keyed as one is plain text.
+# The kind of a section given as a Section, by its key.
 _KIND_OF_KEY = {
     key: kind
     for keys, kind in (
@@ -231,7 +261,15 @@ _KIND_OF_KEY = {
     for key in keys
 }
 _KIND_OF_KEY.update(
-    {"key": Kind.KEYWORD, "keyword": Kind.KEYWORD, "attribute": Kind.ATTRIBUTE}
+    {
+        "key": Kind.KEYWORD,
+        "keyword": Kind.KEYWORD,
+        "attribute": Kind.ATTRIBUTE,
+        "other_param": Kind.OTHER_PARAM,
+        "receives": Kind.RECEIVES,
+        "warns": Kind.WARNS,
+        "deprecation": Kind.DEPRECATION,
+    }
 )
 
 
@@ -302,10 +340,19 @@ def _single_meta(section: Section, desc: str) -> DocstringMeta:
             snippet=None, description=desc, key=section.key
         )
     if kind is Kind.DEPRECATION:
-        return DocstringDeprecated(desc, version=None, key=section.key)
+        version = _VERSION.match(desc or "")
+        if version is None:
+            return DocstringDeprecated(desc, version=None, key=section.key)
+        return DocstringDeprecated(
+            desc[version.end() :].lstrip(),
+            version=version.group(),
+            key=section.key,
+        )
     if kind in PARAM_KINDS:
         raise ItemError("missing-name", "Expected paramenter name.")
-    return DocstringMeta(desc, section.key)
+    meta = DocstringMeta(desc, section.key)
+    meta.title = section.title
+    return meta
 
 
 def _multi_meta(section: Section, before: str, desc: str) -> DocstringMeta:
@@ -374,9 +421,9 @@ class Parser(BaseParser):
             for t, s in self.sections.items()
             if colon and isinstance(s, _SpecSection) and s.spec.bare
         ]
-        titles = "|".join(
-            f"({re.escape(t)})" for t in self.sections if t not in bare
-        )
+        # One group for the title, since a group around each alternative
+        # keeps the regex engine from skipping it at its first letter.
+        titles = "|".join(re.escape(t) for t in self.sections if t not in bare)
         if bare:
             titles = (
                 f"(?:({titles}){colon}|("
@@ -716,24 +763,46 @@ def _parser(
 
 
 # The sections compose writes items in, in order, and the kinds each takes.
-# Google has no sections of its own for keyword, other or received params,
-# so they go with the others rather than being dropped.
 _COMPOSE_SECTIONS = SectionTable(
     (
-        ("Args:", {Kind.PARAM, Kind.KEYWORD, Kind.OTHER_PARAM, Kind.RECEIVES}),
+        ("Args:", {Kind.PARAM}),
+        ("Keyword Args:", {Kind.KEYWORD}),
+        ("Other Parameters:", {Kind.OTHER_PARAM}),
+        ("Receives:", {Kind.RECEIVES}),
         ("Attributes:", {Kind.ATTRIBUTE}),
         ("Returns:", {Kind.RETURNS}),
         ("Yields:", {Kind.YIELDS}),
-        ("Raises:", {Kind.RAISES, Kind.WARNS}),
+        ("Raises:", {Kind.RAISES}),
+        ("Warns:", {Kind.WARNS}),
     )
 )
 
+# The title of each text section's key, such as ``See Also`` for
+# ``see_also``, for a meta that has no title of its own.
+_TEXT_TITLES = {
+    s.key: s.title
+    for s in reversed(DEFAULT_SECTIONS)
+    if _section_kind(s) is Kind.TEXT
+}
+
+
+# The types of compose's nested functions, named once: on Python 3.8 an
+# annotation is evaluated each time its function is defined, and a
+# subscripted one costs a lookup in typing's cache.
+_Item = T.Union[DocstringParam, DocstringReturns, DocstringRaises]
+_Items = T.List[T.Any]
+
+
+def _key_title(key: T.Optional[str]) -> str:
+    """Make a section title of a key, as in ``Examples`` for ``examples``."""
+    return (key or "").replace("_", "").title()
+
 
 def _write_section(
-    parts: T.List[str], indent: str, key: T.Optional[str], body: str
+    parts: T.List[str], indent: str, title: str, body: str
 ) -> None:
-    """Write a section of text, titled by its key."""
-    parts.append((key or "").replace("_", "").title() + ":")
+    """Write a section of text under its title."""
+    parts.append(title + ":")
     if body:
         lines = [indent + line if line else "" for line in body.split("\n")]
         parts.append("\n".join(lines))
@@ -754,7 +823,7 @@ def compose(
     """
 
     def process_one(
-        one: T.Union[DocstringParam, DocstringReturns, DocstringRaises],
+        one: _Item,
         alone: bool = False,
     ):
         head = ""
@@ -850,7 +919,7 @@ def compose(
         else:
             parts.append(head)
 
-    def process_sect(name: str, args: T.List[T.Any]):
+    def process_sect(name: str, args: _Items):
         if args:
             parts.append(name)
             for arg in args:
@@ -881,14 +950,19 @@ def compose(
         if title is None and isinstance(meta, DocstringExample):
             if not meta.snippet and not meta.description and group:
                 _write_section(
-                    parts, indent, group[0].key, examples_text(group)
+                    parts,
+                    indent,
+                    _key_title(group[0].key),
+                    examples_text(group),
                 )
                 group = []
             group.append(meta)
             if meta.snippet:
                 continue
         if group:
-            _write_section(parts, indent, group[0].key, examples_text(group))
+            _write_section(
+                parts, indent, _key_title(group[0].key), examples_text(group)
+            )
             group = []
         if title is not None:
             process_sect(title, items)
@@ -906,14 +980,33 @@ def compose(
             if blank:
                 parts.append("")
         elif not isinstance(meta, DocstringExample):
-            _write_section(parts, indent, meta.key, meta.description or "")
+            title = (
+                meta.title
+                or _TEXT_TITLES.get(meta.key or "")
+                or _key_title(meta.key)
+            )
+            _write_section(parts, indent, title, meta.description or "")
     if group:
-        _write_section(parts, indent, group[0].key, examples_text(group))
+        _write_section(
+            parts, indent, _key_title(group[0].key), examples_text(group)
+        )
 
     while parts and not parts[-1]:
         parts.pop()
 
     text = "\n".join(parts)
+    # A summary such as "Note:" reads back as a title unless indented
+    # further than an unindented line after it, as it was to be read as a
+    # summary. Every default title ends in a colon, so only a summary
+    # whose first line does may read as one.
+    short = docstring.short_description
+    if (
+        short
+        and short.partition("\n")[0].rstrip().endswith(":")
+        and _parser(None)._titles_re.match(text)
+        and _UNINDENTED.search(text) is not None
+    ):
+        text = indent + text
     # Every section starts with an unindented title, and one on the first
     # line is dedented with its items already.
     long_description = docstring.long_description

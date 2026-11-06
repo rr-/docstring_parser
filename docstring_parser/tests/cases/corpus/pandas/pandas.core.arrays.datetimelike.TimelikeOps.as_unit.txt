@@ -74,6 +74,7 @@ style: numpydoc
   description: 'Timestamp.as_unit : Convert to the given unit.'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   description: 'For :class:`pandas.DatetimeIndex`:'
   kind: examples

@@ -164,17 +164,23 @@ class Section:
         self.key = key
 
     @property
+    def _title_tail(self) -> T.Optional[str]:
+        """The pattern of what follows the title in this section's header,
+        or None if the header does not start with the title."""
+        if self._spec is not None and self._spec.bare:
+            return r"[ \t]*$"
+        # As in napoleon, the underline may be shorter or longer than the
+        # title, and made of equals signs as a ReST heading's may be.
+        return r"\s*?\n(?:-{2,}|={2,})\s*$"
+
+    @property
     def _title_pattern(self) -> str:
         """Regular expression pattern matching this section's header.
 
         This pattern will match this instance's ``title`` attribute in
         an anonymous group.
         """
-        if self._spec is not None and self._spec.bare:
-            return rf"^({re.escape(self.title)})[ \t]*$"
-        # As in napoleon, the underline may be shorter or longer than the
-        # title, and made of equals signs as a ReST heading's may be.
-        return rf"^({re.escape(self.title)})\s*?\n(?:-{{2,}}|={{2,}})\s*$"
+        return rf"^({re.escape(self.title)})" + (self._title_tail or "")
 
     def _parse(self, text: str) -> T.Iterable[DocstringMeta]:
         """Parse ``DocstringMeta`` objects from the body of this section.
@@ -182,7 +188,9 @@ class Section:
         :param text: section body text. Should be cleaned with
                      ``inspect.cleandoc`` before parsing.
         """
-        yield DocstringMeta(clean_str(text), self.key)
+        meta = DocstringMeta(clean_str(text), self.key)
+        meta.title = self.title
+        yield meta
 
 
 class _KVSection(Section):
@@ -214,6 +222,10 @@ class _SphinxSection(Section):
         .. title:: something
             possibly over multiple lines
     """
+
+    @property
+    def _title_tail(self) -> T.Optional[str]:
+        return None
 
     @property
     def _title_pattern(self) -> str:
@@ -378,6 +390,8 @@ DEFAULT_SECTIONS = [
     ParamSection("Other Params", "other_param"),
     ParamSection("Other Arguments", "other_param"),
     ParamSection("Other Args", "other_param"),
+    ParamSection("Keyword Arguments", "keyword"),
+    ParamSection("Keyword Args", "keyword"),
     ParamSection("Receives", "receives"),
     ParamSection("Receive", "receives"),
     RaisesSection("Raises", "raises"),
@@ -400,6 +414,15 @@ DEFAULT_SECTIONS = [
     Section("Note", "notes"),
     Section("References", "references"),
     Section("Reference", "references"),
+    Section("Todo", "todo"),
+    Section("Methods", "methods"),
+    Section("Attention", "attention"),
+    Section("Caution", "caution"),
+    Section("Danger", "danger"),
+    Section("Error", "error"),
+    Section("Hint", "hint"),
+    Section("Important", "important"),
+    Section("Tip", "tip"),
     DeprecationSection("deprecated", "deprecation"),
 ]
 
@@ -478,10 +501,21 @@ class Parser(BaseParser):
         self._setup()
 
     def _setup(self):
-        self._titles_re = re.compile(
-            r"|".join(s._title_pattern for s in self.sections.values()),
-            flags=re.M | re.I,
-        )
+        # Headers that start with their title share one alternation with
+        # no group in it, which the regex engine skips at the first letter
+        # that differs; their title is the first line of the match. The
+        # others have a group around their title.
+        plain = []
+        others = []
+        for section in self.sections.values():
+            tail = section._title_tail
+            if tail is None:
+                others.append(section._title_pattern)
+            else:
+                plain.append(re.escape(section.title) + tail)
+        if plain:
+            others.insert(0, "^(?:" + "|".join(plain) + ")")
+        self._titles_re = re.compile("|".join(others), flags=re.M | re.I)
         # Titles match in any case, as napoleon reads them, so each is
         # found by its lowercase too. The first declared of titles that
         # differ only in case wins.
@@ -489,8 +523,11 @@ class Parser(BaseParser):
         for title, section in self.sections.items():
             self._by_lower.setdefault(title.lower(), section)
 
-    def _declared(self, title: str) -> Section:
-        """Return the section a title as written starts."""
+    def _declared(self, match: T.Match[str]) -> Section:
+        """Return the section of a header the title regex found."""
+        title = next((g for g in match.groups() if g is not None), None)
+        if title is None:
+            title = match.group().split("\n", 1)[0].rstrip()
         section = self.sections.get(title)
         return section or self._by_lower[title.lower()]
 
@@ -532,9 +569,7 @@ class Parser(BaseParser):
             (
                 match.start(),
                 match.end(),
-                self._declared(
-                    next(g for g in match.groups() if g is not None)
-                ),
+                self._declared(match),
             )
             for match in known
         ]
@@ -629,11 +664,10 @@ def try_parse(
 
 
 # The sections compose writes items in, in order, and the kinds each takes.
-# Keyword params, which Numpydoc has no section for, go with the others
-# rather than being dropped.
 _COMPOSE_SECTIONS = SectionTable(
     (
-        ("Parameters", {Kind.PARAM, Kind.KEYWORD}),
+        ("Parameters", {Kind.PARAM}),
+        ("Keyword Arguments", {Kind.KEYWORD}),
         ("Attributes", {Kind.ATTRIBUTE}),
         ("Returns", {Kind.RETURNS}),
         ("Yields", {Kind.YIELDS}),

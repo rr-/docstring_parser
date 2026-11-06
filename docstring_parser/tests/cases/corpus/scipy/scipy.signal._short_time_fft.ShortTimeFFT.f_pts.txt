@@ -22,6 +22,7 @@ style: numpydoc
     ShortTimeFFT: Class this property belongs to.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 === detect
 numpydoc
 === compose numpydoc

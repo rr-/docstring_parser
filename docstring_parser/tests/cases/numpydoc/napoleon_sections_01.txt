@@ -1,0 +1,70 @@
+# Test that the keyword param and text sections napoleon lists are read.
+=== input
+Short.
+
+Keyword Arguments
+-----------------
+k : str
+    K.
+
+Methods
+-------
+run
+    Run it.
+
+Todo
+----
+Finish it.
+
+Tip
+---
+Read the docs.
+=== parse numpydoc
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  description: 'K.'
+  kind: keyword
+  key: 'keyword'
+  arg_name: 'k'
+  type_name: 'str'
+  is_optional: False
+- DocstringMeta
+  description: |
+    run
+        Run it.
+  kind: text
+  key: 'methods'
+  title: 'Methods'
+- DocstringMeta
+  description: 'Finish it.'
+  kind: text
+  key: 'todo'
+  title: 'Todo'
+- DocstringMeta
+  description: 'Read the docs.'
+  kind: text
+  key: 'tip'
+  title: 'Tip'
+=== compose numpydoc
+Short.
+
+Keyword Arguments
+-----------------
+k : str
+    K.
+
+Methods
+-------
+run
+    Run it.
+
+Todo
+----
+Finish it.
+
+Tip
+---
+Read the docs.

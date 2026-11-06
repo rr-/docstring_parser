@@ -231,6 +231,7 @@ style: numpydoc
     :ref:`hypothesis_chisquare` : Extended example
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     This test is invalid when the observed or expected frequencies in each
@@ -261,6 +262,7 @@ style: numpydoc
     the chi-squared distribution with ``n`` degrees of freedom.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringMeta
   description: |
     .. [1] "Pearson's chi-squared test".
@@ -271,6 +273,7 @@ style: numpydoc
            (1900), pp. 157-175.
   kind: text
   key: 'references'
+  title: 'References'
 - DocstringExample
   description: |
     When only the mandatory `f_obs` argument is given, it is assumed that the

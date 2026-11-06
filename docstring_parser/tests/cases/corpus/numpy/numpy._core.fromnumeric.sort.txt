@@ -247,6 +247,7 @@ style: numpydoc
     partition : Partial sort.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     The various sorting algorithms are characterized by their average speed,
@@ -318,6 +319,7 @@ style: numpydoc
     NaT now sorts to the end of arrays for consistency with NaN.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   kind: examples
   key: 'examples'

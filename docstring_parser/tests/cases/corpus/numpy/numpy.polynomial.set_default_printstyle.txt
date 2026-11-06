@@ -60,6 +60,7 @@ style: numpydoc
     default font support for the unicode superscript and subscript ranges.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   kind: examples
   key: 'examples'

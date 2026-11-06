@@ -69,6 +69,7 @@ style: numpydoc
     api.types.is_iterator : Check if the object is an iterator.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   kind: examples
   key: 'examples'

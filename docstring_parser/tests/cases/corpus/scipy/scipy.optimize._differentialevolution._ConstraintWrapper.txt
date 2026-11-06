@@ -80,6 +80,7 @@ style: numpydoc
     (N,) to consider constraints for.
   kind: text
   key: 'notes'
+  title: 'Notes'
 === detect
 numpydoc
 === compose numpydoc

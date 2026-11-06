@@ -41,6 +41,7 @@ style: numpydoc
   description: 'Timestamp.to_julian_date : Equivalent method on ``Timestamp`` objects.'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   kind: examples
   key: 'examples'

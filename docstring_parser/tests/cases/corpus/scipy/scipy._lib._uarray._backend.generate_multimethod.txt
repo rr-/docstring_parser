@@ -157,6 +157,7 @@ style: numpydoc
         backends.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 === detect
 numpydoc
 === compose numpydoc

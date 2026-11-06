@@ -137,6 +137,7 @@ style: numpydoc
   description: 'extractall : Returns all matches (not just the first match).'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   description: |
     A pattern with two groups will return a DataFrame with two columns.

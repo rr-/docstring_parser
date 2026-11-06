@@ -158,7 +158,6 @@ GENERATED_EXCLUSIONS = {
     (1572, DocstringStyle.EPYDOC): SUMMARY,
     (1733, DocstringStyle.EPYDOC): SUMMARY,
     (1774, DocstringStyle.REST): SUMMARY,
-    (1856, DocstringStyle.GOOGLE): SUMMARY,
     (1943, DocstringStyle.NUMPYDOC): DIRECTIVE,
 }
 

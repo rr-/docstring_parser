@@ -169,6 +169,7 @@ style: numpydoc
     more
   kind: text
   key: 'notes'
+  title: 'Notes'
 === detect
 numpydoc
 === compose numpydoc

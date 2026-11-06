@@ -204,12 +204,14 @@ style: numpydoc
     circvar : Circular variance.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     In the limit of small angles, the circular standard deviation is close
     to the 'linear' standard deviation if ``normalize`` is ``False``.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringMeta
   description: |
     .. [1] Mardia, K. V. (1972). 2. In *Statistics of Directional Data*
@@ -218,6 +220,7 @@ style: numpydoc
            John Wiley & Sons, 1999.
   kind: text
   key: 'references'
+  title: 'References'
 - DocstringExample
   kind: examples
   key: 'examples'

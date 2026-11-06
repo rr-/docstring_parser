@@ -89,6 +89,7 @@ style: numpydoc
   description: 'MaskedArray.toflex : Build a flexible-type array from a masked array.'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   kind: examples
   key: 'examples'

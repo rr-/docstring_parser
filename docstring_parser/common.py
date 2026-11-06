@@ -198,8 +198,9 @@ class DocstringMeta:
         in a ReST ``:note x:`` field
     :ivar extra: words in the item's head after the parts a parser
         recognised, such as ``more`` in Google's ``x (int) more:``
-    :ivar title: for a text item read from a section no spec declares, the
-        section's title as written, such as ``Custom Title``
+    :ivar title: for a text item read from a Google or Numpydoc section,
+        the section's title as declared, such as ``Note``, or as written
+        for a heading no section declares, such as ``Custom Title``
     """
 
     # Set only on the items it applies to, so the others carry no field.

@@ -166,10 +166,12 @@ style: numpydoc
   description: 'DataFrame.compare : Compare with another DataFrame and show differences.'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: 'Matching NaNs will not appear as a difference.'
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   kind: examples
   key: 'examples'

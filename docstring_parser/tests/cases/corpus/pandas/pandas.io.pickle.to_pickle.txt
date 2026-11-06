@@ -163,6 +163,7 @@ style: numpydoc
     DataFrame.to_parquet : Write a DataFrame to the binary parquet format.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   kind: examples
   key: 'examples'

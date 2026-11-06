@@ -136,6 +136,7 @@ style: numpydoc
     busday_count : Counts how many valid days are in a half-open date range.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   kind: examples
   key: 'examples'

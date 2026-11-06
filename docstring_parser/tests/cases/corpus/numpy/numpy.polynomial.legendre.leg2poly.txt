@@ -77,12 +77,14 @@ style: numpydoc
   description: 'poly2leg'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     The easy way to do conversions between polynomial basis sets
     is to use the convert method of a class instance.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   kind: examples
   key: 'examples'
