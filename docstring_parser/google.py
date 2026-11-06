@@ -18,6 +18,7 @@ from .common import (
     RETURNS_KEYWORDS,
     RETURNS_KINDS,
     YIELDS_KEYWORDS,
+    BaseParser,
     Docstring,
     DocstringDeprecated,
     DocstringExample,
@@ -248,8 +249,10 @@ def _multi_meta(section: Section, before: str, desc: str) -> DocstringMeta:
     return DocstringMeta(desc, section.key, before)
 
 
-class GoogleParser:
+class Parser(BaseParser):
     """Parser for Google-style docstrings."""
+
+    name = "google"
 
     def __init__(
         self,
@@ -452,7 +455,11 @@ class GoogleParser:
         return ret
 
 
-_parsers: ParserCache[GoogleParser] = ParserCache()
+# The name the parser had before every style had a ``Parser``.
+GoogleParser = Parser
+
+
+_parsers: ParserCache[Parser] = ParserCache()
 
 
 def parse(
@@ -468,7 +475,7 @@ def parse(
     # Building a parser compiles its title regex, so reuse one for the same
     # sections, including DEFAULT_SECTIONS until it changes.
     key = list(sections or DEFAULT_SECTIONS)
-    return _parsers.get(key, GoogleParser, key).parse(text)
+    return _parsers.get(key, Parser, key).parse(text)
 
 
 # The sections compose writes items in, in order, and the kinds each takes.

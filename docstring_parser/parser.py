@@ -1,18 +1,16 @@
 """The main parsing routine."""
 
 import inspect
-import re
 import typing as T
 
-from docstring_parser import epydoc, google, numpydoc, rest
+from docstring_parser import auto, epydoc, google, numpydoc, rest
 from docstring_parser.attrdoc import add_attribute_docstrings
 from docstring_parser.common import (
     Docstring,
     DocstringStyle,
-    ParseError,
     RenderingStyle,
 )
-from docstring_parser.sections import SectionSpec
+from docstring_parser.sections import ParserCache, SectionSpec
 
 _STYLE_MAP = {
     DocstringStyle.REST: rest,
@@ -20,26 +18,6 @@ _STYLE_MAP = {
     DocstringStyle.NUMPYDOC: numpydoc,
     DocstringStyle.EPYDOC: epydoc,
 }
-
-# Any line that could start a field or a section in some style: a ReST
-# ``:field``, an Epydoc ``@field``, a Google title ending in a colon, or a
-# Numpydoc dashes underline or ``..`` directive.
-_FIELD_LINE = re.compile(
-    r"^[^\S\n]*[:@]" r"|:[^\S\n]*$" r"|^[^\S\n]*-+[^\S\n]*$" r"|^[^\S\n]*\.\.",
-    flags=re.M,
-)
-
-
-def _has_no_fields(text: str) -> bool:
-    """Tell whether no style can find a field or a section in the text.
-
-    Every style then parses it with no meta and without raising, so the
-    ReST result wins the tie that auto-detection would otherwise break
-    after parsing it four times.
-    """
-    if "\r" in text:
-        text = text.replace("\r\n", "\n").replace("\r", "\n")
-    return _FIELD_LINE.search(text) is None
 
 
 def _parse_in(
@@ -70,27 +48,14 @@ def parse(
     """
     if style != DocstringStyle.AUTO:
         return _parse_in(_STYLE_MAP[style], text, sections)
+    if sections is None:
+        return auto.detect(
+            text, [module.parse for module in _STYLE_MAP.values()], True
+        )
+    return _auto_parsers.get(list(sections), auto.Parser, sections).parse(text)
 
-    if not text or (
-        not any(spec.bare for spec in sections or ()) and _has_no_fields(text)
-    ):
-        return _parse_in(rest, text, sections)
 
-    exc: T.Optional[Exception] = None
-    rets = []
-    for module in _STYLE_MAP.values():
-        try:
-            ret = _parse_in(module, text, sections)
-        except ParseError as ex:
-            exc = ex
-        else:
-            rets.append(ret)
-
-    if not rets:
-        assert exc is not None
-        raise exc
-
-    return sorted(rets, key=lambda d: len(d.meta), reverse=True)[0]
+_auto_parsers: ParserCache[auto.Parser] = ParserCache()
 
 
 def parse_from_object(

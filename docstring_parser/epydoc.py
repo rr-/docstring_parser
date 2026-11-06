@@ -12,6 +12,7 @@ from ._text import split_description, type_spec
 from .common import (
     PARAM_KINDS,
     RAISES_KINDS,
+    BaseParser,
     Docstring,
     DocstringDeprecated,
     DocstringExample,
@@ -84,7 +85,185 @@ def _field_table(
 
 
 _DEFAULT_TABLE = _field_table(default_sections())
-_tables: ParserCache[T.Dict[str, SectionSpec]] = ParserCache()
+
+
+class Parser(BaseParser):
+    """Parser for Epydoc-style docstrings."""
+
+    name = "epydoc"
+
+    def __init__(
+        self, sections: T.Optional[T.Sequence[SectionSpec]] = None
+    ) -> None:
+        """Set up the parser.
+
+        :param sections: the fields to recognise, instead of the default
+            ones; each meta's ``key`` is the name its field is written with
+        """
+        self._table = (
+            _DEFAULT_TABLE if sections is None else _field_table(sections)
+        )
+
+    def parse(self, text: T.Optional[str]) -> Docstring:
+        """Parse a docstring into its components.
+
+        :returns: parsed docstring
+        """
+        table = self._table
+        ret = Docstring(style=DocstringStyle.EPYDOC)
+        if not text:
+            return ret
+
+        text = Lines(text).text
+        match = _FIELD_START.search(text)
+        if match:
+            desc_chunk = text[: match.start()]
+            meta_chunk = text[match.start() :]
+        else:
+            desc_chunk = text
+            meta_chunk = ""
+
+        split_description(ret, desc_chunk)
+
+        # tokenize
+        stream: T.List[_Field] = []
+        for match in _FIELD.finditer(meta_chunk):
+            chunk = match.group(0)
+            if not chunk:
+                continue
+
+            # Each chunk starts with @; description text is not a field header.
+            header = _HEADER.match(chunk, 1)
+            if not header:
+                raise ParseError(
+                    f'Error parsing meta information near "{excerpt(chunk)}".'
+                )
+            key = header.group(1)
+            args = header.group(2).split()
+            spec = table.get(key)
+            base, kind = _TYPE_FIELDS.get(key) or _base(spec, args)
+            if (
+                (base == "param" and len(args) != 1)
+                or (base == "return" and args)
+                or (base == "meta" and spec is None and len(key) < 2)
+            ):
+                raise ParseError(
+                    f'Error parsing meta information near "{excerpt(chunk)}".'
+                )
+
+            desc = chunk[header.end() :].strip()
+            if "\n" in desc:
+                first_line, rest = desc.split("\n", 1)
+                desc = first_line + "\n" + cleandoc(rest)
+            stream.append((base, key, args, desc, kind, spec))
+
+        # Combine type_name, arg_name, and description information
+        params: T.Dict[str, T.Dict[str, T.Any]] = {}
+        for base, key, args, desc, kind, spec in stream:
+            if base not in ["param", "return"]:
+                continue  # nothing to do
+
+            (arg_name,) = args or ("return",)
+            info = params.setdefault(arg_name, {})
+            fields = info.setdefault("fields", 0)
+            info["fields"] = fields + 1
+            if key in _TYPE_FIELDS:
+                info["type_name"] = desc
+            elif "key" not in info:
+                # The field that says what kind of param this is, even when a
+                # @type field for it comes first. Another description of the
+                # same name is an item of its own.
+                info["description"] = desc
+                info["key"] = key
+                info["kind"] = kind
+                info["spec"] = spec
+                info["first"] = fields
+
+            if base == "return":
+                is_generator = kind is Kind.YIELDS
+                if (
+                    info.setdefault("is_generator", is_generator)
+                    != is_generator
+                ):
+                    raise ParseError(
+                        f'Error parsing meta information for "{arg_name}".'
+                    )
+
+        seen: T.Dict[str, int] = {}
+        for base, key, args, desc, kind, spec in stream:
+            name = (args or ["return"])[0]
+            index = -1
+            if base in ["param", "return"]:
+                index = seen[name] = seen.get(name, -1) + 1
+                info = params[name]
+                if index and (
+                    key in _TYPE_FIELDS or index == info.get("first")
+                ):
+                    continue  # already in the name's first item
+                if index:
+                    # A name described twice gives an item for each one.
+                    info = dict(info)
+                    info.update(
+                        key=key, kind=kind, spec=spec, description=desc
+                    )
+            if base == "param":
+                (arg_name,) = args
+                type_name = info.get("type_name")
+
+                spec = type_spec(info.get("type_name"))
+
+                default = spec.default
+                match = None if default else _DEFAULTS_TO.match(desc)
+                if match:
+                    default = match.group(1).rstrip(".")
+
+                param_key = info.get("key", key)
+                meta_item = DocstringParam(
+                    key=param_key,
+                    description=info.get("description"),
+                    arg_name=arg_name,
+                    type_name=spec.type_name,
+                    is_optional=bool(spec.is_optional),
+                    default=default,
+                    kind=info.get("kind", Kind.PARAM),
+                )
+                spec = info.get("spec")
+            elif base == "return":
+                meta_item = DocstringReturns(
+                    key=key if index == 0 else info["key"],
+                    description=info.get("description"),
+                    type_name=info.get("type_name"),
+                    is_generator=info.get("is_generator", False),
+                )
+                spec = info.get("spec")
+            elif base == "raise":
+                (type_name,) = args or (None,)
+                meta_item = DocstringRaises(
+                    key=key,
+                    description=desc,
+                    type_name=type_name,
+                    kind=kind,
+                )
+            elif kind is Kind.EXAMPLES:
+                meta_item = DocstringExample(
+                    snippet=None, description=desc, key=key
+                )
+            elif kind is Kind.DEPRECATION:
+                meta_item = DocstringDeprecated(desc, version=None, key=key)
+            else:
+                meta_item = DocstringMeta(
+                    key=key,
+                    name=" ".join(args) or None,
+                    description=desc,
+                )
+
+            ret.meta.append(apply(spec, meta_item))
+
+        return ret
+
+
+_DEFAULT_PARSER = Parser()
+_parsers: ParserCache[Parser] = ParserCache()
 
 
 def parse(
@@ -97,154 +276,9 @@ def parse(
         each meta's ``key`` is the name its field is written with
     :returns: parsed docstring
     """
-    table = (
-        _DEFAULT_TABLE
-        if sections is None
-        else _tables.get(list(sections), _field_table, sections)
-    )
-    ret = Docstring(style=DocstringStyle.EPYDOC)
-    if not text:
-        return ret
-
-    text = Lines(text).text
-    match = _FIELD_START.search(text)
-    if match:
-        desc_chunk = text[: match.start()]
-        meta_chunk = text[match.start() :]
-    else:
-        desc_chunk = text
-        meta_chunk = ""
-
-    split_description(ret, desc_chunk)
-
-    # tokenize
-    stream: T.List[_Field] = []
-    for match in _FIELD.finditer(meta_chunk):
-        chunk = match.group(0)
-        if not chunk:
-            continue
-
-        # Each chunk starts with @; description text is not a field header.
-        header = _HEADER.match(chunk, 1)
-        if not header:
-            raise ParseError(
-                f'Error parsing meta information near "{excerpt(chunk)}".'
-            )
-        key = header.group(1)
-        args = header.group(2).split()
-        spec = table.get(key)
-        base, kind = _TYPE_FIELDS.get(key) or _base(spec, args)
-        if (
-            (base == "param" and len(args) != 1)
-            or (base == "return" and args)
-            or (base == "meta" and spec is None and len(key) < 2)
-        ):
-            raise ParseError(
-                f'Error parsing meta information near "{excerpt(chunk)}".'
-            )
-
-        desc = chunk[header.end() :].strip()
-        if "\n" in desc:
-            first_line, rest = desc.split("\n", 1)
-            desc = first_line + "\n" + cleandoc(rest)
-        stream.append((base, key, args, desc, kind, spec))
-
-    # Combine type_name, arg_name, and description information
-    params: T.Dict[str, T.Dict[str, T.Any]] = {}
-    for base, key, args, desc, kind, spec in stream:
-        if base not in ["param", "return"]:
-            continue  # nothing to do
-
-        (arg_name,) = args or ("return",)
-        info = params.setdefault(arg_name, {})
-        fields = info.setdefault("fields", 0)
-        info["fields"] = fields + 1
-        if key in _TYPE_FIELDS:
-            info["type_name"] = desc
-        elif "key" not in info:
-            # The field that says what kind of param this is, even when a
-            # @type field for it comes first. Another description of the
-            # same name is an item of its own.
-            info["description"] = desc
-            info["key"] = key
-            info["kind"] = kind
-            info["spec"] = spec
-            info["first"] = fields
-
-        if base == "return":
-            is_generator = kind is Kind.YIELDS
-            if info.setdefault("is_generator", is_generator) != is_generator:
-                raise ParseError(
-                    f'Error parsing meta information for "{arg_name}".'
-                )
-
-    seen: T.Dict[str, int] = {}
-    for base, key, args, desc, kind, spec in stream:
-        name = (args or ["return"])[0]
-        index = -1
-        if base in ["param", "return"]:
-            index = seen[name] = seen.get(name, -1) + 1
-            info = params[name]
-            if index and (key in _TYPE_FIELDS or index == info.get("first")):
-                continue  # already in the name's first item
-            if index:
-                # A name described twice gives an item for each description.
-                info = dict(info)
-                info.update(key=key, kind=kind, spec=spec, description=desc)
-        if base == "param":
-            (arg_name,) = args
-            type_name = info.get("type_name")
-
-            spec = type_spec(info.get("type_name"))
-
-            default = spec.default
-            match = None if default else _DEFAULTS_TO.match(desc)
-            if match:
-                default = match.group(1).rstrip(".")
-
-            param_key = info.get("key", key)
-            meta_item = DocstringParam(
-                key=param_key,
-                description=info.get("description"),
-                arg_name=arg_name,
-                type_name=spec.type_name,
-                is_optional=bool(spec.is_optional),
-                default=default,
-                kind=info.get("kind", Kind.PARAM),
-            )
-            spec = info.get("spec")
-        elif base == "return":
-            meta_item = DocstringReturns(
-                key=key if index == 0 else info["key"],
-                description=info.get("description"),
-                type_name=info.get("type_name"),
-                is_generator=info.get("is_generator", False),
-            )
-            spec = info.get("spec")
-        elif base == "raise":
-            (type_name,) = args or (None,)
-            meta_item = DocstringRaises(
-                key=key,
-                description=desc,
-                type_name=type_name,
-                kind=kind,
-            )
-        elif kind is Kind.EXAMPLES:
-            meta_item = DocstringExample(
-                snippet=None, description=desc, key=key
-            )
-        elif kind is Kind.DEPRECATION:
-            meta_item = DocstringDeprecated(desc, version=None, key=key)
-        else:
-            meta_item = DocstringMeta(
-                key=key,
-                name=" ".join(args) or None,
-                description=desc,
-            )
-
-        ret.meta.append(apply(spec, meta_item))
-
-    return ret
+    if sections is None:
+        return _DEFAULT_PARSER.parse(text)
+    return _parsers.get(list(sections), Parser, sections).parse(text)
 
 
 _OWN_PARAM_FIELDS = frozenset({"param", "keyword", "ivar", "cvar", "var"})

@@ -80,6 +80,19 @@ returns, so start from that to add to it:
   already split into its name, type and description. It may change the meta
   and return None, or return the meta to use instead.
 
+`parse()` finds a parser built for the sections it is given. To parse many
+docstrings, a parser can also be built once and used directly: each style's
+module has a `Parser`, as do `docstring_parser.auto` for telling the style,
+and each takes `sections` and has a `parse(text)` method:
+
+```python
+>>> from docstring_parser import google
+>>>
+>>> parser = google.Parser(sections)
+>>> parser.parse("Short.\n\nKwargs:\n    timeout (float): seconds").params[0].key
+'keyword'
+```
+
 These replace the ways parsers used to be customised. The attributes and
 methods those used are gone or private now, and may change in any release:
 
