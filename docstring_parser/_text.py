@@ -63,17 +63,28 @@ DEFAULT_REGEX = re.compile(
 )
 
 
-def type_spec(type_name: str) -> T.Tuple[str, bool, T.Optional[str]]:
+class TypeSpec(T.NamedTuple):
+    """A param's type with the marks of an optional param split off."""
+
+    type_name: T.Optional[str]
+    is_optional: T.Optional[bool]
+    default: T.Optional[str]
+
+
+def type_spec(type_name: T.Optional[str]) -> TypeSpec:
     """Split the marks of an optional param, and its default, off its type.
 
     A param is optional when its type ends with ``?``, ``, optional`` or
     ``(optional)``, or names a default with ``, default`` followed by the
-    value. The same rule holds in every style.
-
-    :returns: the type, whether the param is optional, and its default
+    value. The same rule holds in every style. A param with no type at all
+    is neither optional nor not.
     """
+    if type_name is None:
+        return TypeSpec(type_name=None, is_optional=None, default=None)
     if type_name.endswith("?"):
-        return type_name[:-1], True, None
+        return TypeSpec(
+            type_name=type_name[:-1], is_optional=True, default=None
+        )
     is_optional = False
     default = None
     # "optional" may come before the default or after it.
@@ -84,4 +95,6 @@ def type_spec(type_name: str) -> T.Tuple[str, bool, T.Optional[str]]:
             is_optional = True
             if regex is DEFAULT_REGEX:
                 default = match.group("value")
-    return type_name, is_optional, default
+    return TypeSpec(
+        type_name=type_name, is_optional=is_optional, default=default
+    )

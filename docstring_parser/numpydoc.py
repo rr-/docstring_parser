@@ -156,10 +156,8 @@ class ParamSection(_KVSection):
         match = PARAM_KEY_REGEX.match(key)
         assert match is not None
         arg_name: str = match.group("name")
-        type_name: T.Optional[str] = match.group("type")
-        is_optional = default = None
-        if type_name is not None:
-            type_name, is_optional, default = type_spec(type_name)
+        spec = type_spec(match.group("type"))
+        default = spec.default
 
         # If the default wasn't specifified in the type declaration,
         # try and see if we can find it in the description.
@@ -172,8 +170,8 @@ class ParamSection(_KVSection):
             key=self.key,
             description=clean_str(value),
             arg_name=arg_name,
-            type_name=type_name,
-            is_optional=is_optional,
+            type_name=spec.type_name,
+            is_optional=spec.is_optional,
             default=default,
             kind=self._spec.kind
             if self._spec

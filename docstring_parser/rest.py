@@ -62,18 +62,15 @@ def _build_meta(args: T.List[str], desc: str, kind: Kind) -> DocstringMeta:
     key = args[0]
 
     if kind in PARAM_KINDS:
-        if len(args) == 3:
-            key, type_name, arg_name = args
-            type_name, is_optional, default = type_spec(type_name)
-        elif len(args) == 2:
-            key, arg_name = args
-            type_name = None
-            is_optional = default = None
-        else:
+        if len(args) not in (2, 3):
             raise ParseError(
                 f"Expected one or two arguments for a {key} keyword."
             )
+        # The field's head is its key, maybe a type, and the param's name.
+        arg_name = args[-1]
+        spec = type_spec(args[1] if len(args) == 3 else None)
 
+        default = spec.default
         match = None if default else _DEFAULTS_TO.match(desc)
         if match:
             default = match.group(1).rstrip(".")
@@ -82,8 +79,8 @@ def _build_meta(args: T.List[str], desc: str, kind: Kind) -> DocstringMeta:
             key=key,
             description=desc,
             arg_name=arg_name,
-            type_name=type_name,
-            is_optional=is_optional,
+            type_name=spec.type_name,
+            is_optional=spec.is_optional,
             default=default,
             kind=kind,
         )
@@ -218,12 +215,11 @@ def parse(
         if isinstance(meta, DocstringParam):
             typed.add(meta.arg_name)
             if not meta.type_name and meta.arg_name in types:
-                meta.type_name, is_optional, default = type_spec(
-                    types[meta.arg_name]
-                )
-                if is_optional:
+                spec = type_spec(types[meta.arg_name])
+                meta.type_name = spec.type_name
+                if spec.is_optional:
                     meta.is_optional = True
-                    meta.default = meta.default or default
+                    meta.default = meta.default or spec.default
         elif isinstance(meta, DocstringReturns):
             meta.type_name = meta.type_name or rtypes.get(meta.return_name)
             has_returns = True
@@ -231,15 +227,15 @@ def parse(
     # A type for a name no field describes is a param of its own, where
     # its type field is.
     for name in sorted(set(types) - typed, key=type_at.__getitem__)[::-1]:
-        type_name, is_optional, default = type_spec(types[name])
+        spec = type_spec(types[name])
         ret.meta.insert(
             type_at[name],
             DocstringParam(
                 None,
                 arg_name=name,
-                type_name=type_name,
-                is_optional=is_optional,
-                default=default,
+                type_name=spec.type_name,
+                is_optional=spec.is_optional,
+                default=spec.default,
                 key="type",
             ),
         )
