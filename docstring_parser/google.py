@@ -164,6 +164,9 @@ def _section_kind(section: Section) -> Kind:
     return _KIND_OF_KEY.get(section.key, Kind.TEXT)
 
 
+_UNINDENTED = re.compile(r"\n\S")
+_INDENT = re.compile(r"^\s*")
+
 _SECTION_TYPE = {
     Layout.ITEMS: SectionType.MULTIPLE,
     Layout.BLOCK: SectionType.SINGULAR,
@@ -408,7 +411,7 @@ class Parser(BaseParser):
 
             # An unindented line ends the section, as in issue #29.
             meta_details = meta_chunk[start:end]
-            unknown_meta = re.search(r"\n\S", meta_details)
+            unknown_meta = _UNINDENTED.search(meta_details)
             if unknown_meta is not None:
                 loose.append(meta_details[unknown_meta.start() :])
                 meta_details = meta_details[: unknown_meta.start()]
@@ -421,7 +424,7 @@ class Parser(BaseParser):
         # Add elements from each chunk
         for title, chunk in chunks:
             # Determine indent
-            indent_match = re.search(r"^\s*", chunk)
+            indent_match = _INDENT.search(chunk)
             if not indent_match:
                 raise ParseError(
                     f'Can\'t infer indent from "{excerpt(chunk)}"'
