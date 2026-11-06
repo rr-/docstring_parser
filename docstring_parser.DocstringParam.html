@@ -203,6 +203,16 @@
         
 
         
+            <div class="itemName"><code><a href="#raw_type_name" class="internal-link" title="docstring_parser.DocstringParam.raw_type_name">raw<wbr></wbr>_type<wbr></wbr>_name</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="#type_name" class="internal-link" title="docstring_parser.DocstringParam.type_name">type<wbr></wbr>_name</a></code>
             </div>
         
@@ -634,7 +644,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">DocstringParam</span>(<a href="docstring_parser.DocstringMeta.html" class="internal-link" title="docstring_parser.DocstringMeta">DocstringMeta</a>): <a href="https://github.com/rr-/docstring_parser/tree/92afacad1545b0127dfd9bd4be034b634e3bbd86/docstring_parser/common.py#L185" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="docstring_parser.DocstringParam.__init__">DocstringParam(description, arg_name, type_name, is_optional, ...)</a></code></p><p><a href="classIndex.html#docstring_parser.DocstringParam">View In Hierarchy</a></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">DocstringParam</span>(<a href="docstring_parser.DocstringMeta.html" class="internal-link" title="docstring_parser.DocstringMeta">DocstringMeta</a>): <a href="https://github.com/rr-/docstring_parser/tree/d7a18a3de19e1097b47c6698957df8d445129690/docstring_parser/common.py#L185" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="docstring_parser.DocstringParam.__init__">DocstringParam(description, arg_name, type_name, is_optional, ...)</a></code></p><p><a href="classIndex.html#docstring_parser.DocstringParam">View In Hierarchy</a></p>
         </div>
 
         <div class="moduleDocstring">
@@ -669,6 +679,11 @@
     
     <td>Instance Variable</td>
     <td><code><a href="#kind" class="internal-link" title="docstring_parser.DocstringParam.kind">kind</a></code></td>
+    <td><span class="rst-undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#raw_type_name" class="internal-link" title="docstring_parser.DocstringParam.raw_type_name">raw<wbr></wbr>_type<wbr></wbr>_name</a></code></td>
     <td><span class="rst-undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
@@ -729,8 +744,8 @@
   <div class="functionHeader">
     
     
-    <span class="py-keyword">def</span>&#160;<span class="py-defname">__init__</span><span class="function-signature long-signature">(<span class="rst-sig-param"><span class="rst-undocumented">self</span>, </span><span class="rst-sig-param">description: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code>, </span><span class="rst-sig-param">arg_name: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>, </span><span class="rst-sig-param">type_name: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code>, </span><span class="rst-sig-param">is_optional: <code><a href="https://docs.python.org/3/builtins/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code>, </span><span class="rst-sig-param">default: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code>, </span><span class="rst-sig-param">kind: <code>Kind</code> = Kind.PARAM, </span><span class="rst-sig-param">key: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code> = <span class="rst-variable-quote">'</span><span class="rst-variable-string">param</span><span class="rst-variable-quote">'</span></span>):</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/92afacad1545b0127dfd9bd4be034b634e3bbd86/docstring_parser/common.py#L188">
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">__init__</span><span class="function-signature long-signature">(<span class="rst-sig-param"><span class="rst-undocumented">self</span>, </span><span class="rst-sig-param">description: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code>, </span><span class="rst-sig-param">arg_name: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>, </span><span class="rst-sig-param">type_name: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code>, </span><span class="rst-sig-param">is_optional: <code><a href="https://docs.python.org/3/builtins/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code>, </span><span class="rst-sig-param">default: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code>, </span><span class="rst-sig-param">kind: <code>Kind</code> = Kind.PARAM, </span><span class="rst-sig-param">key: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code> = <span class="rst-variable-quote">'</span><span class="rst-variable-string">param</span><span class="rst-variable-quote">'</span>, </span><span class="rst-sig-param">raw_type_name: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></span>):</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/d7a18a3de19e1097b47c6698957df8d445129690/docstring_parser/common.py#L188">
       
       (source)
     </a>
@@ -742,7 +757,9 @@
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overrides <code><a href="docstring_parser.DocstringMeta.html#__init__" class="internal-link">docstring_parser.DocstringMeta.__init__</a></code></div>
-    <div><p>Initialize self.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">description:</span><code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">arg<wbr></wbr>_name:</span><code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">type<wbr></wbr>_name:</span><code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">is<wbr></wbr>_optional:</span><code><a href="https://docs.python.org/3/builtins/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">default:</span><code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">kind:</span><code>Kind</code></td><td class="fieldArgDesc">the kind of param, such as a keyword or an attribute</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">key:</span><code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+    <div><p>Initialize self.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">description:</span><code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">arg<wbr></wbr>_name:</span><code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">type<wbr></wbr>_name:</span><code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">is<wbr></wbr>_optional:</span><code><a href="https://docs.python.org/3/builtins/functions.html#bool" class="intersphinx-link">bool</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">default:</span><code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">kind:</span><code>Kind</code></td><td class="fieldArgDesc">the kind of param, such as a keyword or an attribute</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">key:</span><code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">raw<wbr></wbr>_type<wbr></wbr>_name:</span><code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc">the type as written, before the marks of an
+optional param and its default are split off, as in
+<tt class="rst-docutils rst-literal">int, optional</tt></td></tr></table></div>
   </div>
 </div><div class="baseinstancevariable">
   
@@ -756,7 +773,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">arg_name</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/92afacad1545b0127dfd9bd4be034b634e3bbd86/docstring_parser/common.py#L206">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/d7a18a3de19e1097b47c6698957df8d445129690/docstring_parser/common.py#L210">
       
       (source)
     </a>
@@ -783,7 +800,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">default</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/92afacad1545b0127dfd9bd4be034b634e3bbd86/docstring_parser/common.py#L209">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/d7a18a3de19e1097b47c6698957df8d445129690/docstring_parser/common.py#L213">
       
       (source)
     </a>
@@ -810,7 +827,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">is_optional</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/92afacad1545b0127dfd9bd4be034b634e3bbd86/docstring_parser/common.py#L208">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/d7a18a3de19e1097b47c6698957df8d445129690/docstring_parser/common.py#L212">
       
       (source)
     </a>
@@ -837,7 +854,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">kind</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/92afacad1545b0127dfd9bd4be034b634e3bbd86/docstring_parser/common.py#L205">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/d7a18a3de19e1097b47c6698957df8d445129690/docstring_parser/common.py#L209">
       
       (source)
     </a>
@@ -855,6 +872,33 @@
 </div><div class="baseinstancevariable">
   
   
+  <a name="docstring_parser.DocstringParam.raw_type_name">
+    
+  </a>
+  <a name="raw_type_name">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">raw_type_name</span> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/d7a18a3de19e1097b47c6698957df8d445129690/docstring_parser/common.py#L214">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#raw_type_name" title="docstring_parser.DocstringParam.raw_type_name">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
   <a name="docstring_parser.DocstringParam.type_name">
     
   </a>
@@ -864,7 +908,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">type_name</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/92afacad1545b0127dfd9bd4be034b634e3bbd86/docstring_parser/common.py#L207">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/d7a18a3de19e1097b47c6698957df8d445129690/docstring_parser/common.py#L211">
       
       (source)
     </a>
@@ -891,7 +935,7 @@
   <div class="container-fluid">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    25.10.1 at 2026-11-06 16:37:18.
+    25.10.1 at 2026-11-06 16:40:37.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 
