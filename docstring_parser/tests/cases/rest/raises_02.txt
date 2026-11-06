@@ -13,3 +13,6 @@ style: rest
   description: 'description'
   kind: raises
   key: 'raises'
+=== compose rest
+Short description
+:raises: description

@@ -1,0 +1,20 @@
+# Test composing raises with and without a type.
+=== input
+
+        Short description.
+
+        :raises ValueError: a description
+        :raises: another description
+        
+=== compose rest
+Short description.
+
+:raises ValueError: a description
+:raises: another description
+=== compose rest expanded
+Short description.
+
+:raises ValueError:
+    a description
+:raises:
+    another description

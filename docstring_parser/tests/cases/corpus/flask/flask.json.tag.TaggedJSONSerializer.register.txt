@@ -62,5 +62,5 @@ Register a new tag with this serializer.
 :param index: index to insert the new tag in the tag order. Useful when
     the new tag is a special case of an existing tag. If ``None``
     (default), the tag is appended to the end of the order.
-:raise KeyError : if the tag key is already registered and ``force`` is
+:raise KeyError: if the tag key is already registered and ``force`` is
     not true.

@@ -733,7 +733,7 @@ def compose(
                 text += process_desc(meta.description)
                 parts.append(text)
         elif isinstance(meta, DocstringRaises):
-            type_text = f" {meta.type_name} " if meta.type_name else ""
+            type_text = f" {meta.type_name}" if meta.type_name else ""
             key = _own_key(meta, "raises")
             text = f":{key}{type_text}:" + process_desc(meta.description)
             parts.append(text)

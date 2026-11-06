@@ -5,7 +5,7 @@ import typing as T
 import pytest
 
 from docstring_parser import epydoc, google, numpydoc
-from docstring_parser.common import Docstring, DocstringStyle
+from docstring_parser.common import Docstring, DocstringRaises, DocstringStyle
 from docstring_parser.parser import compose, parse
 
 
@@ -97,3 +97,14 @@ def test_repr() -> None:
         f"meta=[{docstring.meta[0]!r}, {docstring.meta[1]!r}])"
     )
     assert repr(Docstring()) == "Docstring(meta=[])"
+
+
+def test_compose_rest_raises_without_space_before_colon() -> None:
+    """Test that ReST composes a raises type right before its colon."""
+    docstring = Docstring(style=DocstringStyle.REST)
+    docstring.meta.append(DocstringRaises("bad", "ValueError"))
+    docstring.meta.append(DocstringRaises("worse", None))
+    text = compose(docstring)
+    assert ":raises ValueError: bad" in text
+    assert ":raises: worse" in text
+    assert " :" not in text

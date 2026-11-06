@@ -38,4 +38,4 @@ Short.
 
 :param spam: spam desc
 :attribute bool hello: hello world
-:raises ValueError : exc desc
+:raises ValueError: exc desc
