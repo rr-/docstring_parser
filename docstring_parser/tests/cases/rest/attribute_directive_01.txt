@@ -1,0 +1,40 @@
+# Test that an attribute directive among the fields is an attribute.
+=== input
+Short.
+
+:param spam: spam desc
+
+.. attribute :: hello
+    :type: bool
+
+    hello world
+
+:raises ValueError: exc desc
+=== parse rest
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringParam
+  description: 'spam desc'
+  kind: param
+  key: 'param'
+  arg_name: 'spam'
+- DocstringParam
+  description: 'hello world'
+  kind: attribute
+  key: 'attribute'
+  arg_name: 'hello'
+  type_name: 'bool'
+  is_optional: False
+- DocstringRaises
+  description: 'exc desc'
+  kind: raises
+  key: 'raises'
+  type_name: 'ValueError'
+=== compose rest
+Short.
+
+:param spam: spam desc
+:attribute bool hello: hello world
+:raises ValueError : exc desc

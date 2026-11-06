@@ -1,0 +1,62 @@
+# Test the options of an attribute directive, and one between fields.
+=== input
+Short.
+
+.. py:attribute:: x
+   :type: int, optional
+   :value: 3
+   :no-index:
+
+   X is
+   great.
+
+Long.
+
+:param a: A.
+.. attribute:: y
+:param b: B.
+=== parse rest
+short_description: 'Short.'
+long_description: 'Long.'
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringParam
+  description: |
+    :no-index:
+    
+    X is
+    great.
+  kind: attribute
+  key: 'attribute'
+  arg_name: 'x'
+  type_name: 'int'
+  is_optional: True
+  default: '3'
+- DocstringParam
+  description: 'A.'
+  kind: param
+  key: 'param'
+  arg_name: 'a'
+- DocstringParam
+  description: ''
+  kind: attribute
+  key: 'attribute'
+  arg_name: 'y'
+- DocstringParam
+  description: 'B.'
+  kind: param
+  key: 'param'
+  arg_name: 'b'
+=== compose rest
+Short.
+
+Long.
+
+:attribute int? x: :no-index:
+
+    X is
+    great.
+:param a: A.
+:attribute y:
+:param b: B.

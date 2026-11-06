@@ -130,9 +130,89 @@ _FIELD = re.compile(
 _TYPE_FIELD = re.compile(r":[ry]?type\b")
 _UNINDENTED = re.compile(r"\n(?=[^ \t\n])")
 _NOT_INLINE = re.compile(r"[\s:]")
+# An attribute directive, as Sphinx writes one:
+#
+#   .. attribute:: name
+#      :type: int
+#
+#      Its description.
+_ATTRIBUTE = re.compile(
+    r"^\.\.[ \t]+(?:py:)?attribute[ \t]*::[ \t]*(\S[^\n]*?)[ \t]*$",
+    flags=re.M,
+)
+_OPTION = re.compile(r":([\w-]+):[ \t]*(.*)")
 _VERSION = re.compile(
     r"^(?P<version>v?((?:\d+)(?:\.[0-9a-z\.]+))) (?P<desc>.+)", flags=re.I
 )
+
+
+def _attribute(name: str, body: T.List[str]) -> DocstringParam:
+    """Build an attribute from its directive's name and indented body."""
+    body = textwrap.dedent("\n".join(body)).split("\n")
+    options: T.Dict[str, str] = {}
+    # Options Sphinx has but that say nothing of the attribute, such as
+    # ``:no-index:``, are kept with the description.
+    other: T.List[str] = []
+    start = 0
+    while start < len(body):
+        option = _OPTION.fullmatch(body[start])
+        if option is None:
+            break
+        if option.group(1) in ("type", "value"):
+            options[option.group(1)] = option.group(2).strip()
+        else:
+            other.append(body[start])
+        start += 1
+    spec = type_spec(options.get("type") or None)
+    return DocstringParam(
+        "\n".join(other + body[start:]).strip(),
+        arg_name=name,
+        type_name=spec.type_name,
+        is_optional=spec.is_optional,
+        default=options.get("value") or spec.default,
+        kind=Kind.ATTRIBUTE,
+        key="attribute",
+    )
+
+
+def _cut_attributes(
+    lines: Lines, spec: SectionSpec
+) -> T.Tuple[Lines, T.List[T.Tuple[int, DocstringMeta]]]:
+    """Cut the attribute directives out of a docstring.
+
+    :returns: the lines left, and each attribute with the offset into
+        their text where it was
+    """
+    cut: T.List[T.Tuple[int, int]] = []
+    found: T.List[T.Tuple[int, str, T.List[str]]] = []
+    every = lines.lines
+    for match in _ATTRIBUTE.finditer(lines.text):
+        start = lines.line_at(match.start())
+        end = start + 1
+        while end < len(every) and (not every[end] or every[end][0] == " "):
+            end += 1
+        body_end = end
+        while body_end > start + 1 and not every[body_end - 1].strip():
+            body_end -= 1
+        # Blank lines after the directive go with it when blank lines
+        # before it already set it off, so no extra blank lines are left.
+        if start and every[start - 1].strip():
+            end = body_end
+        cut.append((start, end))
+        found.append((start, match.group(1), every[start + 1 : body_end]))
+    if not cut:
+        return lines, []
+    left = lines.without(cut)
+    # Where each attribute was, as an offset into the text left.
+    attributes = []
+    removed = offset = index = 0
+    for (start, end), (_start, name, body) in zip(cut, found):
+        while index < start - removed:
+            offset += len(left.lines[index]) + 1
+            index += 1
+        attributes.append((offset, apply(spec, _attribute(name, body))))
+        removed += end - start
+    return left, attributes
 
 
 class Parser(BaseParser):
@@ -151,6 +231,11 @@ class Parser(BaseParser):
         self._table = (
             _DEFAULT_TABLE if sections is None else _field_table(sections)
         )
+        spec = self._table.get("attribute")
+        # The spec of attribute directives, if attributes are recognised.
+        self._attribute = (
+            spec if spec is not None and spec.kind is Kind.ATTRIBUTE else None
+        )
 
     def try_parse(self, text: T.Optional[str]) -> ParseResult:
         """Parse what can be parsed of a docstring, and tell what cannot."""
@@ -160,6 +245,9 @@ class Parser(BaseParser):
             return ParseResult(ret, [])
 
         lines = Lines(text)
+        attributes: T.List[T.Tuple[int, DocstringMeta]] = []
+        if self._attribute is not None and "attribute" in lines.text:
+            lines, attributes = _cut_attributes(lines, self._attribute)
         text = lines.text
         problems: T.List[Problem] = []
         match = _FIELD_START.search(text)
@@ -170,6 +258,10 @@ class Parser(BaseParser):
         else:
             desc_chunk = text
             meta_chunk = ""
+            if attributes and text.endswith("\n"):
+                # A blank line set the description off from the directives
+                # cut from after it, as it would from fields.
+                desc_chunk += "\n"
 
         split_description(ret, desc_chunk)
 
@@ -186,7 +278,24 @@ class Parser(BaseParser):
         # (``\Z``), or at a blank line followed by unindented, non-field
         # content. The last case ends the field list so that a trailing block
         # (e.g. an ``Example`` section) is not absorbed into the last field.
+        # The next attribute to add, in the order it was written in, and
+        # where it was in the fields.
+        next_attribute = 0
+        next_at = attributes[0][0] - meta_start if attributes else len(text)
         for match in _FIELD.finditer(meta_chunk):
+            if match.start() >= next_at:
+                while (
+                    next_attribute < len(attributes)
+                    and attributes[next_attribute][0]
+                    <= meta_start + match.start()
+                ):
+                    ret.meta.append(attributes[next_attribute][1])
+                    next_attribute += 1
+                next_at = (
+                    attributes[next_attribute][0] - meta_start
+                    if next_attribute < len(attributes)
+                    else len(text)
+                )
             loose_chunks.append(meta_chunk[loose_start : match.start()])
             loose_start = match.end()
             chunk = match.group(0)
@@ -265,6 +374,8 @@ class Parser(BaseParser):
                 continue
             after_item = False
         loose_chunks.append(meta_chunk[loose_start:])
+        if attributes:
+            ret.meta.extend(meta for _at, meta in attributes[next_attribute:])
 
         append_loose(ret, loose_chunks, blank_around=True)
 

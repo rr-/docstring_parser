@@ -32,11 +32,6 @@ long_description: |
   Causing people to indent:
   
       A lot sometimes
-  
-  .. attribute :: hello
-      :type: bool
-      
-      hello world
 blank_after_short_description: True
 blank_after_long_description: True
 style: rest
@@ -59,6 +54,13 @@ style: rest
   arg_name: 'yay'
   type_name: 'str'
   is_optional: False
+- DocstringParam
+  description: 'hello world'
+  kind: attribute
+  key: 'attribute'
+  arg_name: 'hello'
+  type_name: 'bool'
+  is_optional: False
 - DocstringRaises
   description: 'exc desc'
   kind: raises
@@ -79,13 +81,9 @@ Causing people to indent:
 
     A lot sometimes
 
-.. attribute :: hello
-    :type: bool
-    
-    hello world
-
 :param spam: spam desc
 :param int bla: bla desc
 :param str yay:
+:attribute bool hello: hello world
 :raises ValueError : exc desc
 :returns tuple: ret desc
