@@ -100,7 +100,7 @@ def test_compose_round_trips(style: DocstringStyle) -> None:
     """Test that every case input parsed with no problems composes, in
     every rendering, to text that parses back the same."""
     for path in CASES:
-        name = str(path.relative_to(CASES_DIR))
+        name = path.relative_to(CASES_DIR).as_posix()
         if (name, style) in CASE_EXCLUSIONS:
             continue
         failed = _round_trips(read_case(path).input, style)
