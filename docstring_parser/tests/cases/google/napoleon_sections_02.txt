@@ -1,0 +1,32 @@
+# Test that a Deprecated section is a deprecation with the version it starts with.
+=== input
+Short.
+
+Deprecated:
+    1.2.0 Use other instead.
+
+Methods:
+    run: Run it.
+=== parse google
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringDeprecated
+  description: 'Use other instead.'
+  kind: deprecation
+  key: 'deprecation'
+  version: '1.2.0'
+- DocstringMeta
+  description: 'run: Run it.'
+  kind: text
+  key: 'methods'
+  title: 'Methods'
+=== compose google
+Short.
+
+.. deprecated:: 1.2.0
+    Use other instead.
+
+Methods:
+    run: Run it.

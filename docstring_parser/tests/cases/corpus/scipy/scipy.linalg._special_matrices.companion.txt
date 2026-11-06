@@ -96,12 +96,14 @@ style: numpydoc
   description: '.. versionadded:: 0.8.0'
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringMeta
   description: |
     .. [1] R. A. Horn & C. R. Johnson, *Matrix Analysis*.  Cambridge, UK:
         Cambridge University Press, 1999, pp. 146-7.
   kind: text
   key: 'references'
+  title: 'References'
 - DocstringExample
   kind: examples
   key: 'examples'

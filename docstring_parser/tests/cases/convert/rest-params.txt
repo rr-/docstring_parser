@@ -12,7 +12,11 @@ Short.
 
 Args:
     a: A.
+
+Keyword Args:
     k: K.
+
+Args:
     g: G.
     p: P.
 
@@ -25,8 +29,14 @@ Parameters
 ----------
 a
     A.
+
+Keyword Arguments
+-----------------
 k
     K.
+
+Parameters
+----------
 g
     G.
 p

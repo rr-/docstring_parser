@@ -108,6 +108,7 @@ style: numpydoc
     instead ``(1,) + values.shape[ndim:]``.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   description: 'Here we define a nearest-neighbor interpolator of a simple function'
   kind: examples

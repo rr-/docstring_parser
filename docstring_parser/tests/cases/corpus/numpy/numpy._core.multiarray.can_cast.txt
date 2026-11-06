@@ -109,10 +109,12 @@ style: numpydoc
        apply any value-based logic for 0-D arrays and NumPy scalars.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringMeta
   description: 'dtype, result_type'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   description: 'Basic examples'
   kind: examples

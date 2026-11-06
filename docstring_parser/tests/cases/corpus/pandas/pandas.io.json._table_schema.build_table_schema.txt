@@ -120,6 +120,7 @@ style: numpydoc
     read_json : Convert a JSON string to pandas object.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     See `Table Schema
@@ -133,6 +134,7 @@ style: numpydoc
     in an `ordered` field.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   kind: examples
   key: 'examples'

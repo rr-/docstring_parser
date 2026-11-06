@@ -48,6 +48,7 @@ style: numpydoc
     plotting.lag_plot : Lag plot for time series.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   description: |
     .. plot::

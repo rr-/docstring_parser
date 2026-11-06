@@ -338,6 +338,7 @@ style: numpydoc
             DataFrame columns.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     The ``dtype`` of any objects involved in an arithmetic ``%`` operation are
@@ -347,6 +348,7 @@ style: numpydoc
     more details.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   kind: examples
   key: 'examples'

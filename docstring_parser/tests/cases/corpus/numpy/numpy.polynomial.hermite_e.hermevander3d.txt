@@ -102,6 +102,7 @@ style: numpydoc
   description: 'hermevander, hermevander3d, hermeval2d, hermeval3d'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 === detect
 numpydoc
 === compose numpydoc

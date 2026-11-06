@@ -83,6 +83,7 @@ style: numpydoc
     numpy.polynomial.hermite_e.hermeroots
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     The root estimates are obtained as the eigenvalues of the companion
@@ -97,6 +98,7 @@ style: numpydoc
     results of this function may seem unintuitive.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   kind: examples
   key: 'examples'

@@ -102,12 +102,14 @@ style: numpydoc
         values.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     To use the same divisor as ``numpy.std``, use ``ddof=0`` instead of
     the default ``ddof=1``.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   kind: examples
   key: 'examples'

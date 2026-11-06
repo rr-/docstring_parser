@@ -349,6 +349,7 @@ style: numpydoc
                     and an FIR filter.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     This function uses the more efficient one-sided FFT, i.e. `~scipy.fft.rfft` /
@@ -374,6 +375,7 @@ style: numpydoc
     non-constant sampling intervals.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   description: |
     The following example depicts a signal being up-sampled from 20 samples to 100

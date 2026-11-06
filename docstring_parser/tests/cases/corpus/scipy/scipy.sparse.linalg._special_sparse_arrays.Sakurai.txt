@@ -146,6 +146,7 @@ style: numpydoc
     .. versionadded:: 1.12.0
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringMeta
   description: |
     .. [1] T. Sakurai, H. Tadano, Y. Inadomi, and U. Nagashima,
@@ -154,6 +155,7 @@ style: numpydoc
        Appl. Num. Anal. Comp. Math. Vol. 1 No. 2 (2004).
   kind: text
   key: 'references'
+  title: 'References'
 - DocstringExample
   kind: examples
   key: 'examples'

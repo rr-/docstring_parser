@@ -61,6 +61,7 @@ style: numpydoc
   description: 'geterrcall, seterr, seterrcall'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     For complete documentation of the types of floating-point exceptions and
@@ -69,6 +70,7 @@ style: numpydoc
     **Concurrency note:** see :doc:`/reference/routines.err`
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   kind: examples
   key: 'examples'

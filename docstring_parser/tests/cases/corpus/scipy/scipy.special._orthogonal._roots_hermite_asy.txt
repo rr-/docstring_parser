@@ -82,6 +82,7 @@ style: numpydoc
   description: 'roots_hermite'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     .. [townsend.trogdon.olver-2014]
@@ -97,6 +98,7 @@ style: numpydoc
        :doi:`10.1093/imanum/drv002`.
   kind: text
   key: 'references'
+  title: 'References'
 === detect
 numpydoc
 === compose numpydoc

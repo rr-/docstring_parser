@@ -76,6 +76,7 @@ style: numpydoc
   description: 'numpy.squeeze : related function'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     If `m` has a single column then that column is returned
@@ -85,6 +86,7 @@ style: numpydoc
     but it may cause an error to be raised.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   kind: examples
   key: 'examples'

@@ -128,10 +128,12 @@ style: numpydoc
   description: 'legval2d, leggrid2d, legval3d, leggrid3d'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: 'The evaluation uses Clenshaw recursion, aka synthetic division.'
   kind: text
   key: 'notes'
+  title: 'Notes'
 === detect
 numpydoc
 === compose numpydoc

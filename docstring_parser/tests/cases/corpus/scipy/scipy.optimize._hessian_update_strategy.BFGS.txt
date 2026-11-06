@@ -85,12 +85,14 @@ style: numpydoc
   description: 'The update is based on the description in [1]_, p.140.'
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringMeta
   description: |
     .. [1] Nocedal, Jorge, and Stephen J. Wright. "Numerical optimization"
            Second Edition (2006).
   kind: text
   key: 'references'
+  title: 'References'
 === detect
 numpydoc
 === compose numpydoc

@@ -58,6 +58,7 @@ style: numpydoc
   description: 'arrays.IntervalArray.to_tuples : Analogous method for IntervalArray.'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   kind: examples
   key: 'examples'

@@ -140,6 +140,7 @@ style: numpydoc
   description: 'mean'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     Given a vector ``V`` with ``N`` non masked values, the median of ``V``
@@ -148,6 +149,7 @@ style: numpydoc
     when ``N`` is even.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   kind: examples
   key: 'examples'

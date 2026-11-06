@@ -1,0 +1,20 @@
+# Test that a Deprecated section with no version is a deprecation with none.
+=== input
+Short.
+
+Deprecated:
+    Use other instead.
+=== parse google
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringDeprecated
+  description: 'Use other instead.'
+  kind: deprecation
+  key: 'deprecation'
+=== compose google
+Short.
+
+.. deprecated::
+    Use other instead.

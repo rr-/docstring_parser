@@ -183,6 +183,7 @@ style: numpydoc
         the matplotlib function that is used under the hood.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   description: |
     The following examples are generated with random data from

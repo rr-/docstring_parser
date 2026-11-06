@@ -143,6 +143,7 @@ style: numpydoc
   description: 'polyroots, polyfromroots, polyval'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   kind: examples
   key: 'examples'

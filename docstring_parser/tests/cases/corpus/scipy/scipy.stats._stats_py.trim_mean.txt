@@ -110,6 +110,7 @@ style: numpydoc
     tmean : Compute the mean after trimming values outside specified limits.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     For 1-D array `a`, `trim_mean` is approximately equivalent to the following
@@ -121,6 +122,7 @@ style: numpydoc
         np.mean(a[m: len(a) - m])
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   kind: examples
   key: 'examples'

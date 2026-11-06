@@ -50,6 +50,7 @@ style: numpydoc
   description: '%(_mvn_doc_callparams_note)s'
   kind: text
   key: 'notes'
+  title: 'Notes'
 === detect
 numpydoc
 === compose numpydoc

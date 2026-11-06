@@ -60,6 +60,7 @@ style: numpydoc
     Series.head : Returns the first `n` rows.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   kind: examples
   key: 'examples'

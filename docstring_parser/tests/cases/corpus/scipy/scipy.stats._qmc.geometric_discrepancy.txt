@@ -142,6 +142,7 @@ style: numpydoc
   description: 'discrepancy'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     The discrepancy can serve as a simple measure of quality of a random sample.
@@ -164,6 +165,7 @@ style: numpydoc
     edge length.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringMeta
   description: |
     .. [1] Franco J. et al. "Minimum Spanning Tree: A new approach to assess the quality
@@ -171,6 +173,7 @@ style: numpydoc
        Systems, 97 (2), pp. 164-169, 2009.
   kind: text
   key: 'references'
+  title: 'References'
 - DocstringExample
   description: |
     Calculate the quality of the sample using the minimum euclidean distance

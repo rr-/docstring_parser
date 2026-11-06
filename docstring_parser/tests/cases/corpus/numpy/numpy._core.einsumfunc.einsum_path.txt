@@ -180,10 +180,12 @@ style: numpydoc
     intermediate contractions are complete.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringMeta
   description: 'einsum, linalg.multi_dot'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   description: |
     We can begin with a chain dot example. In this case, it is optimal to

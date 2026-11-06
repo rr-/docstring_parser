@@ -14,6 +14,8 @@ r
 === convert numpydoc google
 Short.
 
-Args:
+Other Parameters:
     q (int): Q.
+
+Receives:
     r: R.

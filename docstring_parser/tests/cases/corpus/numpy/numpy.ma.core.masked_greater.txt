@@ -35,6 +35,7 @@ style: numpydoc
   description: 'masked_where : Mask where a condition is met.'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   kind: examples
   key: 'examples'

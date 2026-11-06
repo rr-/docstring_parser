@@ -102,12 +102,14 @@ style: numpydoc
   description: 'label, center_of_mass'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     This function is very useful for isolating a volume of interest inside
     a 3-D array, that cannot be "seen through".
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   kind: examples
   key: 'examples'

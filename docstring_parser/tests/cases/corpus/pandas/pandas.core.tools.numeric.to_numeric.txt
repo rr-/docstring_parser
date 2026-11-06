@@ -263,6 +263,7 @@ style: numpydoc
     DataFrame.convert_dtypes : Convert dtypes.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   description: 'Take separate series and convert to numeric, coercing when told to'
   kind: examples

@@ -20,6 +20,7 @@ style: numpydoc
   description: 'char.join'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 === detect
 numpydoc
 === compose numpydoc

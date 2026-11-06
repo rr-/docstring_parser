@@ -259,6 +259,7 @@ style: numpydoc
   description: 'frompyfunc : Takes an arbitrary Python function and returns a ufunc'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     The `vectorize` function is provided primarily for convenience, not for
@@ -275,10 +276,12 @@ style: numpydoc
     further degrades performance.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringMeta
   description: '.. [1] :doc:`/reference/c-api/generalized-ufuncs`'
   kind: text
   key: 'references'
+  title: 'References'
 - DocstringExample
   kind: examples
   key: 'examples'

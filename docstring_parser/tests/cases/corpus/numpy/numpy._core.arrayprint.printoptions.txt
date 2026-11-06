@@ -66,6 +66,7 @@ style: numpydoc
   description: 'set_printoptions, get_printoptions'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     These print options apply only to NumPy ndarrays, not to scalars.
@@ -73,6 +74,7 @@ style: numpydoc
     **Concurrency note:** see :ref:`text_formatting_options`
   kind: text
   key: 'notes'
+  title: 'Notes'
 === detect
 numpydoc
 === compose numpydoc

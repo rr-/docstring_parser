@@ -236,6 +236,7 @@ style: numpydoc
     of values.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   kind: examples
   key: 'examples'

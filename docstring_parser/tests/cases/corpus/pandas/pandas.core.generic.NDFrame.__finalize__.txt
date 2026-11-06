@@ -67,6 +67,7 @@ style: numpydoc
     same metadata as the others.
   kind: text
   key: 'notes'
+  title: 'Notes'
 === detect
 numpydoc
 === compose numpydoc

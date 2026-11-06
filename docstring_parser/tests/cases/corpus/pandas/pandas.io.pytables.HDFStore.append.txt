@@ -294,6 +294,7 @@ style: numpydoc
   description: 'HDFStore.append_to_multiple : Append to multiple tables.'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     Does *not* check if data being appended overlaps with existing
@@ -303,6 +304,7 @@ style: numpydoc
     is not modified and a ``UserWarning`` is emitted.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   kind: examples
   key: 'examples'

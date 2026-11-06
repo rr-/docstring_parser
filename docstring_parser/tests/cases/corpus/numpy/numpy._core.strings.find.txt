@@ -71,6 +71,7 @@ style: numpydoc
   description: 'str.find'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   kind: examples
   key: 'examples'

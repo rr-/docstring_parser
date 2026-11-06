@@ -68,6 +68,7 @@ style: numpydoc
   description: 'chebadd, chebsub, chebmulx, chebdiv, chebpow'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     In general, the (polynomial) product of two C-series results in terms
@@ -77,6 +78,7 @@ style: numpydoc
     "unintuitive live" (but correct) results; see Examples section below.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   kind: examples
   key: 'examples'

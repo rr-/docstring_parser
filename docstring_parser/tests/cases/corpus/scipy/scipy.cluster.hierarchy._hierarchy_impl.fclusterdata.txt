@@ -184,10 +184,12 @@ style: numpydoc
   description: 'scipy.spatial.distance.pdist : pairwise distance metrics'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: 'This function is similar to the MATLAB function ``clusterdata``.'
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   kind: examples
   key: 'examples'

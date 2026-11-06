@@ -33,6 +33,7 @@ style: numpydoc
   description: 'MultiIndex.to_flat_index : Subclass implementation.'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 === detect
 numpydoc
 === compose numpydoc

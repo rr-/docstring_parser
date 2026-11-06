@@ -119,6 +119,7 @@ style: numpydoc
     interpolation kernel is proportional to the sinc function.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringMeta
   description: |
     .. [1] Weisstein, Eric W. "Sinc Function." From MathWorld--A Wolfram Web
@@ -127,6 +128,7 @@ style: numpydoc
            https://en.wikipedia.org/wiki/Sinc_function
   kind: text
   key: 'references'
+  title: 'References'
 - DocstringExample
   kind: examples
   key: 'examples'

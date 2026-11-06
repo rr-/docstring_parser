@@ -206,12 +206,14 @@ style: numpydoc
     .. versionadded:: 0.18
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringMeta
   description: |
     .. [1] P. P. Vaidyanathan, Multirate Systems and Filter Banks,
            Prentice Hall, 1993.
   kind: text
   key: 'references'
+  title: 'References'
 - DocstringExample
   description: 'Simple operations:'
   kind: examples

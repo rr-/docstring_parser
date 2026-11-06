@@ -43,6 +43,7 @@ style: numpydoc
     numpy.ma.average : Weighted average.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   kind: examples
   key: 'examples'

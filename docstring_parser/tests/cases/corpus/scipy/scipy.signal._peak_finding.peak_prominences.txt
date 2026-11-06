@@ -207,6 +207,7 @@ style: numpydoc
     avoid this, NaNs should either be removed or replaced.
   kind: text
   key: 'warnings'
+  title: 'Warnings'
 - DocstringMeta
   description: |
     find_peaks
@@ -215,6 +216,7 @@ style: numpydoc
         Calculate the width of peaks.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     Strategy to compute a peak's prominence:
@@ -245,12 +247,14 @@ style: numpydoc
     .. versionadded:: 1.1.0
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringMeta
   description: |
     .. [1] Wikipedia Article for Topographic Prominence:
        https://en.wikipedia.org/wiki/Topographic_prominence
   kind: text
   key: 'references'
+  title: 'References'
 - DocstringExample
   kind: examples
   key: 'examples'

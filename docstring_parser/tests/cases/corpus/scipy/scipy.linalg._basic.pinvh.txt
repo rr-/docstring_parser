@@ -159,6 +159,7 @@ style: numpydoc
   description: 'pinv : Moore-Penrose pseudoinverse of a matrix.'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   description: 'For a more detailed example see `pinv`.'
   kind: examples

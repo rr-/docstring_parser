@@ -375,6 +375,7 @@ style: numpydoc
     interval_range : Return a fixed frequency IntervalIndex.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     Of the four parameters ``start``, ``end``, ``periods``, and ``freq``,
@@ -388,6 +389,7 @@ style: numpydoc
     :ref:`this link<timeseries.offset_aliases>`.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   description: |
     **Specifying the values**

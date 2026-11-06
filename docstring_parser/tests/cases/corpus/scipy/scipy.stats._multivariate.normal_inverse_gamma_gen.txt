@@ -168,6 +168,7 @@ style: numpydoc
     invgamma
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     The probability density function of `normal_inverse_gamma` is:
@@ -192,12 +193,14 @@ style: numpydoc
     .. versionadded:: 1.15
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringMeta
   description: |
     .. [1] Normal-inverse-gamma distribution, Wikipedia,
            https://en.wikipedia.org/wiki/Normal-inverse-gamma_distribution
   kind: text
   key: 'references'
+  title: 'References'
 - DocstringExample
   description: |
     Suppose we wish to investigate the relationship between the

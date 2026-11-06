@@ -202,12 +202,14 @@ style: numpydoc
     DataFrame.reindex : Change to new indices or expand indices.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     Same as calling
     ``.reindex(index=other.index, columns=other.columns,...)``.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   kind: examples
   key: 'examples'

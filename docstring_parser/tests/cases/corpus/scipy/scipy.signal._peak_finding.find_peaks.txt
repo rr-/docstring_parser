@@ -370,6 +370,7 @@ style: numpydoc
     avoid this, NaNs should either be removed or replaced.
   kind: text
   key: 'warnings'
+  title: 'Warnings'
 - DocstringMeta
   description: |
     find_peaks_cwt
@@ -380,6 +381,7 @@ style: numpydoc
         Directly calculate the width of peaks.
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     In the context of this function, a peak or local maximum is defined as any
@@ -415,6 +417,7 @@ style: numpydoc
     .. versionadded:: 1.1.0
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   description: |
     To demonstrate this function's usage we use a signal `x` supplied with

@@ -22,6 +22,7 @@ style: numpydoc
     ndarray.max : equivalent method
   kind: text
   key: 'see_also'
+  title: 'See Also'
 === detect
 numpydoc
 === compose numpydoc

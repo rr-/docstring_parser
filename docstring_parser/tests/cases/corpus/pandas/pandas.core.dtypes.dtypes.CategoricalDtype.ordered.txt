@@ -32,6 +32,7 @@ style: numpydoc
   description: 'categories : An Index containing the unique categories allowed.'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   kind: examples
   key: 'examples'

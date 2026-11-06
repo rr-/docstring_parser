@@ -102,6 +102,7 @@ style: numpydoc
   description: 'lfilter, lfilter_zi'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 === detect
 numpydoc
 === compose numpydoc

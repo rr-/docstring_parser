@@ -79,6 +79,7 @@ style: numpydoc
   description: 'ifftshift : The inverse of `fftshift`.'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringExample
   kind: examples
   key: 'examples'

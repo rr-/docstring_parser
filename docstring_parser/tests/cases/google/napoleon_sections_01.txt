@@ -1,0 +1,92 @@
+# Test that the param, raises and text sections napoleon lists are read.
+=== input
+Short.
+
+Args:
+    a (int): A.
+
+Keyword Args:
+    k (str): K.
+
+Other Parameters:
+    o: O.
+
+Warns:
+    UserWarning: If odd.
+
+Note:
+    Mind the gap.
+
+See Also:
+    other
+
+Todo:
+    * Finish it.
+=== parse google
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  description: 'A.'
+  kind: param
+  key: 'param'
+  arg_name: 'a'
+  type_name: 'int'
+  is_optional: False
+- DocstringParam
+  description: 'K.'
+  kind: keyword
+  key: 'keyword'
+  arg_name: 'k'
+  type_name: 'str'
+  is_optional: False
+- DocstringParam
+  description: 'O.'
+  kind: other_param
+  key: 'other_param'
+  arg_name: 'o'
+  is_optional: False
+- DocstringRaises
+  description: 'If odd.'
+  kind: warns
+  key: 'warns'
+  type_name: 'UserWarning'
+- DocstringMeta
+  description: 'Mind the gap.'
+  kind: text
+  key: 'notes'
+  title: 'Note'
+- DocstringMeta
+  description: 'other'
+  kind: text
+  key: 'see_also'
+  title: 'See Also'
+- DocstringMeta
+  description: '* Finish it.'
+  kind: text
+  key: 'todo'
+  title: 'Todo'
+=== compose google
+Short.
+
+Args:
+    a (int): A.
+
+Keyword Args:
+    k (str): K.
+
+Other Parameters:
+    o: O.
+
+Warns:
+    UserWarning: If odd.
+
+Note:
+    Mind the gap.
+
+See Also:
+    other
+
+Todo:
+    * Finish it.

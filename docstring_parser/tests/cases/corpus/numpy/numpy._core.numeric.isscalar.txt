@@ -103,6 +103,7 @@ style: numpydoc
   description: 'ndim : Get the number of dimensions of an array'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     If you need a stricter way to identify a *numerical* scalar, use
@@ -138,6 +139,7 @@ style: numpydoc
     +------------------------------------+---------------+-------------------+
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   kind: examples
   key: 'examples'

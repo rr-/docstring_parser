@@ -49,6 +49,7 @@ style: numpydoc
     `subok` and `order` keywords are not used.
   kind: text
   key: 'notes'
+  title: 'Notes'
 === detect
 numpydoc
 === compose numpydoc

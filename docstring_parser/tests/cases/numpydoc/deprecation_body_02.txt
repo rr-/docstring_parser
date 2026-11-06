@@ -30,3 +30,4 @@ style: numpydoc
   description: 'other'
   kind: text
   key: 'see_also'
+  title: 'See Also'

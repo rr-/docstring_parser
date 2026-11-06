@@ -248,6 +248,7 @@ style: numpydoc
   description: 'circulant : circulant matrix'
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     For a 1-D vector `c` with length `m`, and an array `b` with shape ``(m, ...)``,
@@ -257,6 +258,7 @@ style: numpydoc
     .. versionadded:: 0.16.0
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringExample
   kind: examples
   key: 'examples'

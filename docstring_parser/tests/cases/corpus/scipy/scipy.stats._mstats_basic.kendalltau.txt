@@ -134,6 +134,7 @@ style: numpydoc
            Charles Griffin & Co., 1970.
   kind: text
   key: 'references'
+  title: 'References'
 === detect
 numpydoc
 === compose numpydoc

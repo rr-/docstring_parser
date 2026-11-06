@@ -162,6 +162,7 @@ style: numpydoc
     :ref:`hypothesis_fligner` : Extended example
   kind: text
   key: 'see_also'
+  title: 'See Also'
 - DocstringMeta
   description: |
     As with Levene's test there are three variants of Fligner's test that
@@ -175,6 +176,7 @@ style: numpydoc
     [3]_.
   kind: text
   key: 'notes'
+  title: 'Notes'
 - DocstringMeta
   description: |
     .. [1] Qu, A., Lindsay, B. G., and Li, B. (2000). Improving generalized
@@ -190,6 +192,7 @@ style: numpydoc
            Technometrics, 23(4), 351-361.
   kind: text
   key: 'references'
+  title: 'References'
 - DocstringExample
   kind: examples
   key: 'examples'
