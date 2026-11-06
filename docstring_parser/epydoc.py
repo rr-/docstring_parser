@@ -66,6 +66,24 @@ def _base(
     return "meta", kind
 
 
+def _type_meta(base: str, key: str, name: str, desc: str) -> DocstringMeta:
+    """Make the meta of a type field that no other field takes."""
+    if base == "return":
+        return DocstringReturns(
+            None, desc, _TYPE_FIELDS[key][1] is Kind.YIELDS, key=key
+        )
+    spec = type_spec(desc)
+    match = None if spec.default else _DEFAULTS_TO.match(desc)
+    return DocstringParam(
+        None,
+        arg_name=name,
+        type_name=spec.type_name,
+        is_optional=bool(spec.is_optional),
+        default=match.group(1).rstrip(".") if match else spec.default,
+        key=key,
+    )
+
+
 def default_sections() -> T.List[SectionSpec]:
     """Return the fields Epydoc recognises when given none."""
     return [
@@ -168,8 +186,12 @@ class Parser(BaseParser):
             fields = info.setdefault("fields", 0)
             info["fields"] = fields + 1
             if key in _TYPE_FIELDS:
-                info["type_name"] = desc
-            elif "key" not in info:
+                info.setdefault("types", []).append(desc)
+                first_description = False
+            else:
+                info["described"] = info.get("described", 0) + 1
+                first_description = "key" not in info
+            if first_description:
                 # The field that says what kind of param this is, even when a
                 # @type field for it comes first. Another description of the
                 # same name is an item of its own.
@@ -190,12 +212,25 @@ class Parser(BaseParser):
                     )
 
         seen: T.Dict[str, int] = {}
+        # How many items each name has given, which take its types in
+        # order, and how many of its type fields have been read.
+        given: T.Dict[str, int] = {}
+        typed: T.Dict[str, int] = {}
         for base, key, args, desc, kind, spec in stream:
             name = (args or ["return"])[0]
             index = -1
             if base in ["param", "return"]:
                 index = seen[name] = seen.get(name, -1) + 1
                 info = params[name]
+                if key in _TYPE_FIELDS:
+                    type_index = typed[name] = typed.get(name, -1) + 1
+                    if index and type_index >= max(
+                        1, info.get("described", 0)
+                    ):
+                        # A type given more often than its name's fields is
+                        # an item of its own.
+                        ret.meta.append(_type_meta(base, key, name, desc))
+                        continue
                 if index and (
                     key in _TYPE_FIELDS or index == info.get("first")
                 ):
@@ -206,11 +241,15 @@ class Parser(BaseParser):
                     info.update(
                         key=key, kind=kind, spec=spec, description=desc
                     )
+            types = info.get("types", []) if index >= 0 else []
+            if index >= 0:
+                count = given[name] = given.get(name, 0) + 1
+                type_name = (
+                    types[min(count, len(types)) - 1] if types else None
+                )
             if base == "param":
                 (arg_name,) = args
-                type_name = info.get("type_name")
-
-                spec = type_spec(info.get("type_name"))
+                spec = type_spec(type_name)
 
                 default = spec.default
                 match = None if default else _DEFAULTS_TO.match(desc)
@@ -232,7 +271,7 @@ class Parser(BaseParser):
                 meta_item = DocstringReturns(
                     key=key if index == 0 else info["key"],
                     description=info.get("description"),
-                    type_name=info.get("type_name"),
+                    type_name=type_name,
                     is_generator=info.get("is_generator", False),
                 )
                 spec = info.get("spec")
