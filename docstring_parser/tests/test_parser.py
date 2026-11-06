@@ -79,3 +79,21 @@ def test_auto_parses_every_style_for_field_lines(
         )
     parse(f"Short.\n\n{line}")
     assert len(calls) == 3
+
+
+def test_repr() -> None:
+    """Test that a docstring and its metas show the fields they have."""
+    docstring = parse("Short.\n\n:param int x: X.\n:returns: R.", "rest")
+    assert repr(docstring.meta[0]) == (
+        "DocstringParam(kind=Kind.PARAM, key='param', arg_name='x', "
+        "type_name='int', description='X.')"
+    )
+    assert repr(docstring.meta[1]) == (
+        "DocstringReturns(kind=Kind.RETURNS, key='returns', description='R.')"
+    )
+    assert repr(docstring) == (
+        "Docstring(style=DocstringStyle.REST, short_description='Short.', "
+        "blank_after_short_description=True, "
+        f"meta=[{docstring.meta[0]!r}, {docstring.meta[1]!r}])"
+    )
+    assert repr(Docstring()) == "Docstring(meta=[])"

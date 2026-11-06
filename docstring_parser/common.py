@@ -112,6 +112,40 @@ RETURNS_KINDS = frozenset({Kind.RETURNS, Kind.YIELDS})
 RAISES_KINDS = frozenset({Kind.RAISES, Kind.WARNS})
 
 
+def _repr(obj: T.Any, fields: T.Iterable[str]) -> str:
+    """Show an object as its class called with the fields it has set.
+
+    A field holding None or False is left out, as most of them do.
+    """
+    parts = []
+    for field in fields:
+        value = getattr(obj, field, None)
+        if value is None or value is False:
+            continue
+        if isinstance(value, enum.Enum):
+            parts.append(f"{field}={type(value).__name__}.{value.name}")
+        else:
+            parts.append(f"{field}={value!r}")
+    return f"{type(obj).__name__}({', '.join(parts)})"
+
+
+# The fields a meta shows in its repr, in order, of those its class has.
+_META_FIELDS = (
+    "kind",
+    "key",
+    "name",
+    "arg_name",
+    "return_name",
+    "type_name",
+    "is_optional",
+    "default",
+    "version",
+    "snippet",
+    "description",
+    "extra",
+)
+
+
 class DocstringMeta:
     """Docstring meta information: one item of a docstring.
 
@@ -143,6 +177,9 @@ class DocstringMeta:
         self.key = key
         self.name = name
         self.extra: T.Optional[str] = None
+
+    def __repr__(self) -> str:
+        return _repr(self, _META_FIELDS)
 
 
 class DocstringParam(DocstringMeta):
@@ -284,6 +321,19 @@ class Docstring:
         self.blank_after_long_description = False
         self.meta = []  # type: T.List[DocstringMeta]
         self.style = style  # type: T.Optional[DocstringStyle]
+
+    def __repr__(self) -> str:
+        return _repr(
+            self,
+            (
+                "style",
+                "short_description",
+                "long_description",
+                "blank_after_short_description",
+                "blank_after_long_description",
+                "meta",
+            ),
+        )
 
     @property
     def description(self) -> T.Optional[str]:
