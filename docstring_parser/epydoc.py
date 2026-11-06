@@ -300,7 +300,14 @@ def _own_key(meta: DocstringMeta, default: str) -> str:
 
 
 def _param_key(meta: DocstringParam) -> str:
-    """Return the field name that keeps a param's kind, such as ``ivar``."""
+    """Return the field name that keeps a param's kind, such as ``ivar``.
+
+    That is the name it was read from, such as ``arg`` or ``kwarg``, if
+    Epydoc reads it as the same kind.
+    """
+    key = meta.key
+    if key and _KIND_OF_FIELD.get(key) is meta.kind:
+        return key
     return field_name(meta, _OWN_PARAM_FIELDS, _PARAM_FIELD_OF_KIND)
 
 

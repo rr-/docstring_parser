@@ -47,9 +47,9 @@ style: epydoc
 === compose epydoc
 Short.
 
-@param a: A.
-@param b: B.
-@param c: C.
-@keyword d: D.
+@parameter a: A.
+@arg b: B.
+@argument c: C.
+@kwarg d: D.
 @type e: int
-@keyword e: E.
+@kwparam e: E.

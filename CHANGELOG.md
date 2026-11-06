@@ -93,7 +93,7 @@
 - Epydoc: Take a return's key from its `@return` or `@yield` field, not from an `@rtype` or `@ytype` before it
 - Epydoc: Read the field names Epydoc gives as synonyms: `@raises`, `@except` and `@exception` for `@raise`, `@returns` for `@return`, `@returntype` for `@rtype`, `@parameter`, `@arg` and `@argument` for `@param`, and `@kwarg` and `@kwparam` for `@keyword`
 - Epydoc: Compose a param or return that only a type field gives as that field alone, instead of adding an empty `@param:` field, and keep a return with an empty description instead of dropping it
-- Epydoc: Compose returns, yields, raises and type fields of returns with the field name they were read from, such as `@returns`, `@raises` or `@returntype`
+- Epydoc: Compose params, returns, yields, raises and the type fields of returns with the field name they were read from, such as `@arg`, `@kwarg`, `@returns`, `@raises` or `@returntype`
 - ReST, Numpydoc: Read text after the fields of a docstring with no description as its description, instead of a long description that `compose()` starts with an empty line
 - ReST, Epydoc: Compose each param with its kind's field name, such as `:keyword:` or `@ivar`, instead of `:param:` or `@param` for all
 - ReST, Epydoc: Give each of a name's type fields to its next item, instead of the last overwriting the others
