@@ -26,7 +26,7 @@ def _words(text: str) -> T.Set[str]:
 # the marks of an optional param's type.
 TYPE_MARKS = {"optional", "default"}
 SYNTAX = {
-    DocstringStyle.REST: {"type", "rtype", "ytype", "py", "value"}
+    DocstringStyle.REST: {"type", "rtype", "ytype", "vartype", "py", "value"}
     | TYPE_MARKS,
     DocstringStyle.GOOGLE: {
         word for s in google.DEFAULT_SECTIONS for word in _words(s.title)

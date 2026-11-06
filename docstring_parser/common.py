@@ -194,7 +194,7 @@ class DocstringMeta:
     :ivar key: the field or section key it was written with, such as
         ``param``, ``keyword`` or ``see_also``
     :ivar name: for a text item, the words after its key, such as ``x``
-        in a ReST ``:ivar x:`` field
+        in a ReST ``:note x:`` field
     :ivar extra: words in the item's head after the parts a parser
         recognised, such as ``more`` in Google's ``x (int) more:``
     :ivar title: for a text item read from a section no spec declares, the
@@ -323,12 +323,14 @@ class DocstringExample(DocstringMeta):
         self.snippet = snippet
 
 
-# ReST fields for attributes, which parse as plain meta rather than params.
+# The ReST fields for attributes that Sphinx knows.
 ATTRIBUTE_FIELD_KEYWORDS = {"ivar", "var", "cvar"}
 
 
 def meta_as_attribute(meta: DocstringMeta) -> T.Optional[DocstringParam]:
-    """Return a ReST ``:ivar name:`` style field as an attribute param.
+    """Return a text meta keyed like a ReST ``:ivar name:`` field, as one
+    made by hand or parsed with sections that leave the field out, as an
+    attribute param.
 
     :param meta: any docstring meta
     :returns: the attribute, or None if the meta is not such a field

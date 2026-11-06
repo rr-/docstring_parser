@@ -33,6 +33,7 @@ def assign_types(
     types: ParamTypes,
     rtypes: ReturnTypes,
     ytypes: T.Optional[ReturnTypes] = None,
+    vartypes: T.Optional[ParamTypes] = None,
 ) -> None:
     """Give params and returns the types their type fields give.
 
@@ -43,15 +44,22 @@ def assign_types(
 
     :param ytypes: types that only yields take; a yields of a name with
         none takes from ``rtypes``
+    :param vartypes: types that only attributes take, and that a type no
+        attribute takes makes one of; an attribute of a name with none
+        takes from ``types``
     """
-    if not types and not rtypes and not ytypes:
+    if not types and not rtypes and not ytypes and not vartypes:
         return
     ytypes = ytypes or {}
+    vartypes = vartypes or {}
     taken: T.Dict[T.Any, int] = {}
     for meta in metas:
         if isinstance(meta, DocstringParam):
             name = meta.arg_name
-            text = _take(taken, types.get(name, []), (True, name))
+            if meta.kind is Kind.ATTRIBUTE and name in vartypes:
+                text = _take(taken, vartypes[name], ("var", name))
+            else:
+                text = _take(taken, types.get(name, []), (True, name))
             if text is not None and not meta.type_name:
                 spec = type_spec(text)
                 meta.type_name = spec.type_name
@@ -71,19 +79,24 @@ def assign_types(
                 meta.type_name = text
 
     extra: T.List[T.Tuple[int, DocstringMeta]] = []
-    for name, found in types.items():
-        for text, at in found[taken.get((True, name), 0) :]:
-            spec = type_spec(text)
-            param = DocstringParam(
-                None,
-                arg_name=name,
-                type_name=spec.type_name,
-                is_optional=spec.is_optional,
-                default=spec.default,
-                key="type",
-                raw_type_name=text,
-            )
-            extra.append((at, param))
+    for tag, kind, key, table in (
+        (True, Kind.PARAM, "type", types),
+        ("var", Kind.ATTRIBUTE, "vartype", vartypes),
+    ):
+        for name, found in table.items():
+            for text, at in found[taken.get((tag, name), 0) :]:
+                spec = type_spec(text)
+                param = DocstringParam(
+                    None,
+                    arg_name=name,
+                    type_name=spec.type_name or None,
+                    is_optional=spec.is_optional,
+                    default=spec.default,
+                    kind=kind,
+                    key=key,
+                    raw_type_name=text or None,
+                )
+                extra.append((at, param))
     for tag, table in ((False, rtypes), (None, ytypes)):
         for rname, found_r in table.items():
             for text, at, kind, key in found_r[taken.get((tag, rname), 0) :]:

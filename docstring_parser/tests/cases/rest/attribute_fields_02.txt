@@ -1,0 +1,42 @@
+# Test that a :vartype: field types the attribute of its name and not a
+# param of the same name, which a :type: field types, and that a
+# :vartype: for no attribute is an attribute of its own.
+=== input
+Short.
+
+:param x: The param x.
+:ivar x: The attribute x.
+:type x: int
+:vartype x: str
+:vartype y: float
+=== parse rest
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringParam
+  description: 'The param x.'
+  kind: param
+  key: 'param'
+  arg_name: 'x'
+  type_name: 'int'
+  is_optional: False
+- DocstringParam
+  description: 'The attribute x.'
+  kind: attribute
+  key: 'ivar'
+  arg_name: 'x'
+  type_name: 'str'
+  is_optional: False
+- DocstringParam
+  kind: attribute
+  key: 'vartype'
+  arg_name: 'y'
+  type_name: 'float'
+  is_optional: False
+=== compose rest
+Short.
+
+:param int x: The param x.
+:ivar str x: The attribute x.
+:attribute float y:
