@@ -11,8 +11,8 @@ from textwrap import dedent
 from ._compose import (
     SectionTable,
     examples_text,
-    indented_long_description,
     section_runs,
+    start_on_new_line,
     written_type,
 )
 from ._lines import Lines
@@ -719,12 +719,7 @@ def compose(
     ):
         top = None
 
-    # A blank line first if the docstring has to start on a new line.
-    parts: T.List[str] = (
-        [""]
-        if long and long[0].isspace() and indented_long_description(docstring)
-        else []
-    )
+    parts: T.List[str] = []
     if docstring.short_description:
         parts.append(docstring.short_description)
     if docstring.blank_after_short_description:
@@ -774,4 +769,11 @@ def compose(
     # A blank line at the very end separates nothing.
     while parts and parts[-1] == "":
         parts.pop()
-    return "\n".join(parts)
+    text = "\n".join(parts)
+    # Every section starts with an unindented title.
+    long_description = docstring.long_description
+    if docstring.meta or not (
+        long_description and long_description[0].isspace()
+    ):
+        return text
+    return start_on_new_line(text)

@@ -128,22 +128,22 @@ def field_text(meta: DocstringMeta) -> str:
     return " ".join(part for part in (meta.key, meta.name) if part)
 
 
-def indented_long_description(docstring: Docstring) -> bool:
-    """Tell whether the composed docstring has to start on a new line.
+def start_on_new_line(text: str) -> str:
+    """Start a composed docstring on a new line if it has to.
 
-    A long description whose every line is indented, after the short
-    description and with no item after it, would lose that indent when
-    read back, as the first line takes no part in the dedent. Starting
-    on a new line puts the short description in it.
+    A docstring's first line takes no part in its dedent, so lines after
+    it that are all indented, such as an indented long description or a
+    field's continuation lines, lose that indent when read back. Starting
+    on a new line puts the first line in the dedent.
     """
-    long = docstring.long_description
-    return (
-        long is not None
-        and long[:1].isspace()
-        and not docstring.meta
-        and docstring.short_description is not None
-        and _UNINDENTED.search(long) is None
-    )
+    newline = text.find("\n")
+    if (
+        newline >= 0
+        and _UNINDENTED.search(text, newline) is None
+        and text[newline:].strip()
+    ):
+        return "\n" + text
+    return text
 
 
 # A line after the first that is not indented.
@@ -151,16 +151,9 @@ _UNINDENTED = re.compile(r"\n\S")
 
 
 def description_lines(docstring: Docstring) -> T.List[str]:
-    """The short and long description, each followed by a blank if asked.
-
-    A blank line comes first if the docstring has to start on a new line.
-    """
+    """The short and long description, each followed by a blank if asked."""
     long = docstring.long_description
-    parts = (
-        [""]
-        if long and long[0].isspace() and indented_long_description(docstring)
-        else []
-    )
+    parts = []
     if docstring.short_description:
         parts.append(docstring.short_description)
     if docstring.blank_after_short_description:
