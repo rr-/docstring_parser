@@ -14,14 +14,14 @@ def test_numpydoc_section_parse_override() -> None:
     class Shout(numpydoc.Section):
         def parse(self, text: str) -> T.Iterable[DocstringMeta]:
             seen.append(text)
-            yield DocstringMeta([self.key], description=text.upper())
+            yield DocstringMeta(text.upper(), key=self.key)
 
     parser = numpydoc.NumpydocParser(
         [*numpydoc.DEFAULT_SECTIONS, Shout("Shout", "shout")]
     )
     docstring = parser.parse("Summary.\n\nShout\n-----\nhello\nthere\n")
     assert seen == ["\nhello\nthere"]
-    assert [m.args for m in docstring.meta] == [["shout"]]
+    assert [m.key for m in docstring.meta] == ["shout"]
     assert docstring.meta[0].description == "\nHELLO\nTHERE"
 
 
@@ -30,7 +30,7 @@ def test_numpydoc_kv_section_parse_item_override() -> None:
 
     class Options(numpydoc._KVSection):
         def _parse_item(self, key: str, value: str) -> DocstringMeta:
-            return DocstringMeta([self.key, key], description=value + "!")
+            return DocstringMeta(value + "!", key=self.key, name=key)
 
     parser = numpydoc.NumpydocParser(
         [*numpydoc.DEFAULT_SECTIONS, Options("Options", "option")]
@@ -38,10 +38,11 @@ def test_numpydoc_kv_section_parse_item_override() -> None:
     docstring = parser.parse(
         "Summary.\n\nOptions\n-------\nfast\n    Go fast.\nslow\n    Not.\n"
     )
-    assert [(m.args, m.description) for m in docstring.meta] == [
-        (["option", "fast"], "Go fast.!"),
-        (["option", "slow"], "Not.!"),
+    assert [(m.key, m.description) for m in docstring.meta] == [
+        ("option", "Go fast.!"),
+        ("option", "Not.!"),
     ]
+    assert [m.name for m in docstring.meta] == ["fast", "slow"]
 
 
 def test_numpydoc_param_section_parse_item_override() -> None:
@@ -113,4 +114,5 @@ def test_google_custom_section() -> None:
     )
     docstring = parser.parse("Summary.\n\nInputs:\n    x (int): The x.\n")
     (param,) = docstring.params
-    assert (param.args, param.type_name) == (["param", "x (int)"], "int")
+    assert (param.key, param.type_name) == ("param", "int")
+    assert param.arg_name == "x"

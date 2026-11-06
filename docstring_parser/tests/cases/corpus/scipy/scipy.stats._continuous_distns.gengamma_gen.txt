@@ -43,11 +43,10 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringMeta
-  args: ['see_also']
   description: 'gamma, halfgennorm, invgamma, weibull_min'
   kind: text
+  key: 'see_also'
 - DocstringMeta
-  args: ['notes']
   description: |
     The probability density function for `gengamma` is ([1]_, [2]_):
     
@@ -65,8 +64,8 @@ style: numpydoc
     
     %(after_notes)s
   kind: text
+  key: 'notes'
 - DocstringMeta
-  args: ['references']
   description: |
     .. [1] E.W. Stacy, "A Generalization of the Gamma Distribution",
            Annals of Mathematical Statistics, Vol 33(3), pp. 1187--1192.
@@ -75,6 +74,7 @@ style: numpydoc
     
     %(example)s
   kind: text
+  key: 'references'
 === detect
 numpydoc
 === compose numpydoc

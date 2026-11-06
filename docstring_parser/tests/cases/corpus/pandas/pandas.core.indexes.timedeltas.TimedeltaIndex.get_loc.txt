@@ -13,8 +13,8 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 - DocstringReturns
-  args: ['returns']
   kind: returns
+  key: 'returns'
   type_name: 'int, slice, or ndarray[int]'
   is_generator: False
   return_name: 'loc'

@@ -13,8 +13,8 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: numpydoc
 - DocstringReturns
-  args: ['yields']
   description: 'description'
   kind: yields
+  key: 'yields'
   type_name: 'int'
   is_generator: True

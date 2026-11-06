@@ -26,26 +26,26 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 - DocstringParam
-  args: ['param', 'engine']
   description: 'String to validate.'
   kind: param
+  key: 'param'
   arg_name: 'engine'
   type_name: 'str'
   is_optional: False
 - DocstringRaises
-  args: ['raises', 'KeyError']
   description: '* If an invalid engine is passed.'
   kind: raises
+  key: 'raises'
   type_name: 'KeyError'
 - DocstringRaises
-  args: ['raises', 'ImportError']
   description: "* If numexpr was requested but doesn't exist."
   kind: raises
+  key: 'raises'
   type_name: 'ImportError'
 - DocstringReturns
-  args: ['returns']
   description: 'Engine name.'
   kind: returns
+  key: 'returns'
   type_name: 'str'
   is_generator: False
 === detect

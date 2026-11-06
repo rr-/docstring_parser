@@ -20,23 +20,23 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: google
 - DocstringParam
-  args: ['param', 'std_handle (wintypes.HANDLE)']
   description: 'A handle to the console input buffer or the console screen buffer.'
   kind: param
+  key: 'param'
   arg_name: 'std_handle'
   type_name: 'wintypes.HANDLE'
   is_optional: False
 - DocstringRaises
-  args: ['raises', 'LegacyWindowsError']
   description: 'If any error occurs while calling the Windows console API.'
   kind: raises
+  key: 'raises'
   type_name: 'LegacyWindowsError'
 - DocstringReturns
-  args: ['returns', 'int']
   description: |
     Value representing the current console mode as documented at
     https://docs.microsoft.com/en-us/windows/console/getconsolemode#parameters
   kind: returns
+  key: 'returns'
   type_name: 'int'
   is_generator: False
 === detect

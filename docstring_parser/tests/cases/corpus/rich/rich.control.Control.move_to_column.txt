@@ -15,16 +15,16 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringReturns
-  args: ['returns']
   description: |
     x (int): absolute x (column)
     y (int): optional y offset (row)
   kind: returns
+  key: 'returns'
   is_generator: False
 - DocstringReturns
-  args: ['returns', '~Control']
   description: 'Control object.'
   kind: returns
+  key: 'returns'
   type_name: '~Control'
   is_generator: False
 === detect

@@ -19,13 +19,13 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: rest
 - DocstringMeta
-  args: ['copyright']
   description: '(c) 2012 by Kenneth Reitz.'
   kind: text
+  key: 'copyright'
 - DocstringMeta
-  args: ['license']
   description: 'Apache2, see LICENSE for more details.'
   kind: text
+  key: 'license'
 === detect
 rest
 === compose rest

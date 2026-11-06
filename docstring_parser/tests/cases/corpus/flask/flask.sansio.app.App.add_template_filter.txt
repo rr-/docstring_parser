@@ -12,15 +12,15 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: rest
 - DocstringMeta
-  args: ['meth']
   description: '`template_filter` decorator.'
   kind: text
+  key: 'meth'
 - DocstringParam
-  args: ['param', 'name']
   description: |
     the optional name of the filter, otherwise the
     function name will be used.
   kind: param
+  key: 'param'
   arg_name: 'name'
 === detect
 rest

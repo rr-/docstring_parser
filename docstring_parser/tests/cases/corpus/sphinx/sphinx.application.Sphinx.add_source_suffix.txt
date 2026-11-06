@@ -22,12 +22,12 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringParam
-  args: ['param', 'override']
   description: |
     If false, do not install it the same suffix
     is already installed.
     If true, unconditionally install the suffix.
   kind: param
+  key: 'param'
   arg_name: 'override'
 === detect
 rest

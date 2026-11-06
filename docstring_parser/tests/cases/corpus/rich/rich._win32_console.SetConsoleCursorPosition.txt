@@ -15,23 +15,23 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'std_handle (wintypes.HANDLE)']
   description: 'A handle to the console input buffer or the console screen buffer.'
   kind: param
+  key: 'param'
   arg_name: 'std_handle'
   type_name: 'wintypes.HANDLE'
   is_optional: False
 - DocstringParam
-  args: ['param', 'coords (WindowsCoordinates)']
   description: 'The coordinates to move the cursor to.'
   kind: param
+  key: 'param'
   arg_name: 'coords'
   type_name: 'WindowsCoordinates'
   is_optional: False
 - DocstringReturns
-  args: ['returns', 'bool']
   description: 'True if the function succeeds, otherwise False.'
   kind: returns
+  key: 'returns'
   type_name: 'bool'
   is_generator: False
 === detect

@@ -14,16 +14,16 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'name']
   description: |
     description 1
     with multi-line text
   kind: param
+  key: 'param'
   arg_name: 'name'
 - DocstringParam
-  args: ['param', 'priority (int)']
   description: 'description 2'
   kind: param
+  key: 'param'
   arg_name: 'priority'
   type_name: 'int'
   is_optional: False

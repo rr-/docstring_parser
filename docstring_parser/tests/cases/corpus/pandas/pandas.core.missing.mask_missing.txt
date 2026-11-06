@@ -22,23 +22,23 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'arr']
   kind: param
+  key: 'param'
   arg_name: 'arr'
   type_name: 'ArrayLike'
   is_optional: False
 - DocstringParam
-  args: ['param', 'value']
   description: |
     Caller has ensured `not is_list_like(value)` and that it can be held
     by `arr`.
   kind: param
+  key: 'param'
   arg_name: 'value'
   type_name: 'scalar-like'
   is_optional: False
 - DocstringReturns
-  args: ['returns']
   kind: returns
+  key: 'returns'
   type_name: 'np.ndarray[bool]'
   is_generator: False
 === detect

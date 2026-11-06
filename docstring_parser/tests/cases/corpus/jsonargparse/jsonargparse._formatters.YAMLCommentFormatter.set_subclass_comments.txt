@@ -13,19 +13,19 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'cfg']
   description: 'The ruamel.yaml object that has the class_path key.'
   kind: param
+  key: 'param'
   arg_name: 'cfg'
 - DocstringParam
-  args: ['param', 'action']
   description: 'The action that corresponds to the given config object, if any.'
   kind: param
+  key: 'param'
   arg_name: 'action'
 - DocstringParam
-  args: ['param', 'depth']
   description: 'The nested level of the keys of the config object.'
   kind: param
+  key: 'param'
   arg_name: 'depth'
 === detect
 google

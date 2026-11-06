@@ -78,10 +78,15 @@ def field_name(
     :param by_kind: the style's field name for each kind of param, where
         the param's own key is not one of them; ``param`` otherwise
     """
-    key = meta.args[0] if meta.args else "param"
+    key = meta.key or "param"
     if key in own:
         return key
     return by_kind.get(kind_of(meta), "param")
+
+
+def field_text(meta: DocstringMeta) -> str:
+    """Return a text meta's key and the words after it, as in a field."""
+    return " ".join(part for part in (meta.key, meta.name) if part)
 
 
 def description_lines(docstring: Docstring) -> T.List[str]:

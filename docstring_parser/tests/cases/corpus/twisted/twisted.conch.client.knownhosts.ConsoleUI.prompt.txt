@@ -19,21 +19,21 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: epydoc
 - DocstringParam
-  args: ['param', 'text']
   description: |
     Something to present to a user to solicit a yes or no
     response.
   kind: param
+  key: 'param'
   arg_name: 'text'
   type_name: 'L{bytes}'
   is_optional: False
 - DocstringReturns
-  args: ['return']
   description: |
     a L{Deferred} which fires with L{True} when the user answers
     'yes' and L{False} when the user answers 'no'.  It may errback if
     there were any I/O errors.
   kind: returns
+  key: 'return'
   is_generator: False
 === detect
 epydoc

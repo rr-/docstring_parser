@@ -20,43 +20,43 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'file (BinaryIO)']
   description: 'A file-like object opened in binary mode.'
   kind: param
+  key: 'param'
   arg_name: 'file'
   type_name: 'BinaryIO'
   is_optional: False
 - DocstringParam
-  args: ['param', 'total (int, optional)']
   description: 'Total number of bytes to read. This must be provided unless a task with a total is also given.'
   kind: param
+  key: 'param'
   arg_name: 'total'
   type_name: 'int'
   is_optional: True
 - DocstringParam
-  args: ['param', 'task_id (TaskID)']
   description: 'Task to track. Default is new task.'
   kind: param
+  key: 'param'
   arg_name: 'task_id'
   type_name: 'TaskID'
   is_optional: False
 - DocstringParam
-  args: ['param', 'description (str, optional)']
   description: 'Description of task, if new task is created.'
   kind: param
+  key: 'param'
   arg_name: 'description'
   type_name: 'str'
   is_optional: True
 - DocstringReturns
-  args: ['returns', 'BinaryIO']
   description: 'A readable file-like object in binary mode.'
   kind: returns
+  key: 'returns'
   type_name: 'BinaryIO'
   is_generator: False
 - DocstringRaises
-  args: ['raises', 'ValueError']
   description: 'When no total value can be extracted from the arguments or the task.'
   kind: raises
+  key: 'raises'
   type_name: 'ValueError'
 === detect
 google

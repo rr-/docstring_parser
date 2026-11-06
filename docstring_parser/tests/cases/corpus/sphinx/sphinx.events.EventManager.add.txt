@@ -13,9 +13,9 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringParam
-  args: ['param', 'name']
   description: 'The name of the event.'
   kind: param
+  key: 'param'
   arg_name: 'name'
 === detect
 rest

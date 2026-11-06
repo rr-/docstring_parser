@@ -11,6 +11,7 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 - DocstringMeta
-  args: ['meta', 'ene', 'due', 'rabe']
   description: 'asd'
   kind: text
+  key: 'meta'
+  name: 'ene due rabe'

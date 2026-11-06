@@ -56,63 +56,63 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'typechars']
   description: |
     If a list of strings, each string should represent a dtype.
     If array_like, the character representation of the array dtype is used.
   kind: param
+  key: 'param'
   arg_name: 'typechars'
   type_name: 'list of str or array_like'
   is_optional: False
 - DocstringParam
-  args: ['param', 'typeset']
   description: |
     The set of characters that the returned character is chosen from.
     The default set is 'GDFgdf'.
   kind: param
+  key: 'param'
   arg_name: 'typeset'
   type_name: 'str or list of str'
   is_optional: True
 - DocstringParam
-  args: ['param', 'default']
   description: |
     The default character, this is returned if none of the characters in
     `typechars` matches a character in `typeset`.
   kind: param
+  key: 'param'
   arg_name: 'default'
   type_name: 'str'
   is_optional: True
 - DocstringReturns
-  args: ['returns']
   description: 'The character representing the minimum-size type that was found.'
   kind: returns
+  key: 'returns'
   type_name: 'str'
   is_generator: False
   return_name: 'typechar'
 - DocstringMeta
-  args: ['see_also']
   description: 'dtype'
   kind: text
+  key: 'see_also'
 - DocstringExample
-  args: ['examples']
   description: "'d'"
   kind: examples
+  key: 'examples'
   snippet: |
     >>> import numpy as np
     >>> np.mintypecode(['d', 'f', 'S'])
 - DocstringExample
-  args: ['examples']
   description: |
     'D'
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> x = np.array([1.1, 2-3.j])
     >>> np.mintypecode(x)
 - DocstringExample
-  args: ['examples']
   description: "'G'"
   kind: examples
+  key: 'examples'
   snippet: ">>> np.mintypecode('abceh', default='G')"
 === detect
 numpydoc

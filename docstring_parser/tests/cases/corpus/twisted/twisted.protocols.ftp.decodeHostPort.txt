@@ -11,9 +11,9 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: epydoc
 - DocstringReturns
-  args: ['return']
   description: 'a 2-tuple of (host, port).'
   kind: returns
+  key: 'return'
   is_generator: False
 === detect
 epydoc

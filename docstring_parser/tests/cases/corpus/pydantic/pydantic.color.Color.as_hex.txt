@@ -17,9 +17,9 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: google
 - DocstringReturns
-  args: ['returns']
   description: 'The hexadecimal representation of the color.'
   kind: returns
+  key: 'returns'
   is_generator: False
 === detect
 google

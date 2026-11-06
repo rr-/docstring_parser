@@ -6,7 +6,7 @@
 import re
 import typing as T
 
-from ._compose import description_lines, field_name
+from ._compose import description_lines, field_name, field_text
 from ._lines import Lines
 from ._text import clean_str, split_description
 from .common import (
@@ -177,7 +177,7 @@ def parse(text: T.Optional[str]) -> Docstring:
 
             param_key = info.get("key", key)
             meta_item = DocstringParam(
-                args=[param_key, arg_name],
+                key=param_key,
                 description=info.get("description"),
                 arg_name=arg_name,
                 type_name=type_name,
@@ -189,7 +189,7 @@ def parse(text: T.Optional[str]) -> Docstring:
         elif base == "return" and not is_done.get("return", False):
             info = params["return"]
             meta_item = DocstringReturns(
-                args=[key],
+                key=key,
                 description=info.get("description"),
                 type_name=info.get("type_name"),
                 is_generator=info.get("is_generator", False),
@@ -198,13 +198,14 @@ def parse(text: T.Optional[str]) -> Docstring:
         elif base == "raise":
             (type_name,) = args or (None,)
             meta_item = DocstringRaises(
-                args=[key] + args,
+                key=key,
                 description=desc,
                 type_name=type_name,
             )
         elif base == "meta":
             meta_item = DocstringMeta(
-                args=[key] + args,
+                key=key,
+                name=" ".join(args) or None,
                 description=desc,
             )
         else:
@@ -288,7 +289,7 @@ def compose(
             text += process_desc(meta.description, False)
             parts.append(text)
         else:
-            text = f"@{' '.join(meta.args)}:"
+            text = f"@{field_text(meta)}:"
             text += process_desc(meta.description, False)
             parts.append(text)
     return "\n".join(parts)

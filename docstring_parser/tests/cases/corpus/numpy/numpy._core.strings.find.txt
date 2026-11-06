@@ -41,40 +41,40 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'a']
   kind: param
+  key: 'param'
   arg_name: 'a'
   type_name: 'array_like, with ``StringDType``, ``bytes_`` or ``str_`` dtype'
   is_optional: False
 - DocstringParam
-  args: ['param', 'sub']
   description: 'The substring to search for.'
   kind: param
+  key: 'param'
   arg_name: 'sub'
   type_name: 'array_like, with ``bytes_`` or ``str_`` dtype'
   is_optional: False
 - DocstringParam
-  args: ['param', 'start, end']
   description: 'The range to look in, interpreted as in slice notation.'
   kind: param
+  key: 'param'
   arg_name: 'start, end'
   type_name: 'array_like, with any integer dtype'
   is_optional: False
 - DocstringReturns
-  args: ['returns']
   description: 'Output array of ints'
   kind: returns
+  key: 'returns'
   type_name: 'ndarray'
   is_generator: False
   return_name: 'y'
 - DocstringMeta
-  args: ['see_also']
   description: 'str.find'
   kind: text
+  key: 'see_also'
 - DocstringExample
-  args: ['examples']
   description: 'array([11])'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> import numpy as np
     >>> a = np.array(["NumPy is a Python library"])

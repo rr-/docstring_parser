@@ -79,21 +79,20 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringParam
-  args: ['param', 'request']
   description: 'The PreparedRequest being sent over the connection.'
   kind: param
+  key: 'param'
   arg_name: 'request'
   type_name: ':class:`~requests.models.PreparedRequest`'
 - DocstringParam
-  args: ['param', 'verify']
   description: |
     Either a boolean, in which case it controls whether
     we verify the server's TLS certificate, or a string, in which case it
     must be a path to a CA bundle to use.
   kind: param
+  key: 'param'
   arg_name: 'verify'
 - DocstringParam
-  args: ['param', 'cert']
   description: |
     (optional) Any user-provided SSL certificate for client
     authentication (a.k.a., mTLS). This may be a string (i.e., just
@@ -101,14 +100,15 @@ style: rest
     tuple of length 2 with the certificate file path and key file
     path.
   kind: param
+  key: 'param'
   arg_name: 'cert'
 - DocstringReturns
-  args: ['returns']
   description: |
     A tuple of two dictionaries. The first is the "host parameters"
     portion of the Pool Key including scheme, hostname, and port. The
     second is a dictionary of SSLContext related parameters.
   kind: returns
+  key: 'returns'
   is_generator: False
 === detect
 rest

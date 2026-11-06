@@ -12,7 +12,7 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: numpydoc
 - DocstringReturns
-  args: ['returns']
   kind: returns
+  key: 'returns'
   type_name: 'type'
   is_generator: False

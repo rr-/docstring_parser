@@ -17,30 +17,30 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: google
 - DocstringParam
-  args: ['param', 'style (StyleType)']
   description: 'The style to apply.'
   kind: param
+  key: 'param'
   arg_name: 'style'
   type_name: 'StyleType'
   is_optional: False
 - DocstringParam
-  args: ['param', 'start (Tuple[int, int])']
   description: 'The start of the range, in the form `[line number, column index]`.'
   kind: param
+  key: 'param'
   arg_name: 'start'
   type_name: 'Tuple[int, int]'
   is_optional: False
 - DocstringParam
-  args: ['param', 'end (Tuple[int, int])']
   description: 'The end of the range, in the form `[line number, column index]`.'
   kind: param
+  key: 'param'
   arg_name: 'end'
   type_name: 'Tuple[int, int]'
   is_optional: False
 - DocstringParam
-  args: ['param', 'style_before (bool)']
   description: 'Apply the style before any existing styles.'
   kind: param
+  key: 'param'
   arg_name: 'style_before'
   type_name: 'bool'
   is_optional: False

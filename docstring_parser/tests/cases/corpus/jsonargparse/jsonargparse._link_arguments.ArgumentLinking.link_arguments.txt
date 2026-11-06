@@ -20,29 +20,29 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: google
 - DocstringParam
-  args: ['param', 'source']
   description: 'Key(s) from which the target value is derived.'
   kind: param
+  key: 'param'
   arg_name: 'source'
 - DocstringParam
-  args: ['param', 'target']
   description: 'Key to where the value is set.'
   kind: param
+  key: 'param'
   arg_name: 'target'
 - DocstringParam
-  args: ['param', 'compute_fn']
   description: 'Function to compute target value from source.'
   kind: param
+  key: 'param'
   arg_name: 'compute_fn'
 - DocstringParam
-  args: ['param', 'apply_on']
   description: "At what point to set target value, 'parse' or 'instantiate'."
   kind: param
+  key: 'param'
   arg_name: 'apply_on'
 - DocstringRaises
-  args: ['raises', 'ValueError']
   description: 'If an invalid parameter is given.'
   kind: raises
+  key: 'raises'
   type_name: 'ValueError'
 === detect
 google

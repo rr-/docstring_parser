@@ -15,22 +15,22 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: epydoc
 - DocstringParam
-  args: ['ivar', 'status']
   description: 'L{int}'
   kind: attribute
+  key: 'ivar'
   arg_name: 'status'
   is_optional: False
 - DocstringParam
-  args: ['param', 'message']
   description: 'Message of L{IResponse}'
   kind: param
+  key: 'param'
   arg_name: 'message'
   type_name: 'L{bytes}'
   is_optional: False
 - DocstringParam
-  args: ['param', 'deferred']
   description: 'deferred to fire when response is complete'
   kind: param
+  key: 'param'
   arg_name: 'deferred'
   type_name: 'L{Deferred} firing with L{bytes}'
   is_optional: False

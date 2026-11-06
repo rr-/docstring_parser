@@ -98,4 +98,4 @@ def test_auto_parses_every_style_for_custom_numpydoc_titles(
     )
     docstring = parse("Short.\n\n**Stars**\nfive")
     assert docstring.style == DocstringStyle.NUMPYDOC
-    assert docstring.meta[0].args == ["stars"]
+    assert docstring.meta[0].key == "stars"

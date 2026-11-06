@@ -9,8 +9,8 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: epydoc
 - DocstringReturns
-  args: ['rtype']
   kind: returns
+  key: 'rtype'
   type_name: 'float'
   is_generator: False
 === compose epydoc

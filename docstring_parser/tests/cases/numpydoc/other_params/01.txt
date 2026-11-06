@@ -15,16 +15,16 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: numpydoc
 - DocstringParam
-  args: ['other_param', 'only_seldom_used_keywords']
   description: 'Explanation'
   kind: other_param
+  key: 'other_param'
   arg_name: 'only_seldom_used_keywords'
   type_name: 'type'
   is_optional: True
 - DocstringParam
-  args: ['other_param', 'common_parameters_listed_above']
   description: 'Explanation'
   kind: other_param
+  key: 'other_param'
   arg_name: 'common_parameters_listed_above'
   type_name: 'type'
   is_optional: True

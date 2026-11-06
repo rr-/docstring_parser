@@ -15,9 +15,9 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: rest
 - DocstringParam
-  args: ['param', 'default']
   description: "What to return if the env var isn't set."
   kind: param
+  key: 'param'
   arg_name: 'default'
 === detect
 rest

@@ -44,20 +44,20 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringReturns
-  args: ['returns']
   description: 'Estimated rms values of the relative residuals over each interval.'
   kind: returns
+  key: 'returns'
   type_name: 'ndarray, shape (m - 1,)'
   is_generator: False
   return_name: 'rms_res'
 - DocstringMeta
-  args: ['references']
   description: |
     .. [1] http://mathworld.wolfram.com/LobattoQuadrature.html
     .. [2] J. Kierzenka, L. F. Shampine, "A BVP Solver Based on Residual
        Control and the Maltab PSE", ACM Trans. Math. Softw., Vol. 27,
        Number 3, pp. 299-316, 2001.
   kind: text
+  key: 'references'
 === detect
 numpydoc
 === compose numpydoc

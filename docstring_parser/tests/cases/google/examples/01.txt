@@ -15,13 +15,13 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: google
 - DocstringExample
-  args: ['examples']
   description: 'example: 1'
   kind: examples
+  key: 'examples'
 - DocstringExample
-  args: ['examples']
   description: |
     long example
     
     more here
   kind: examples
+  key: 'examples'

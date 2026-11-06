@@ -20,11 +20,11 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: google
 - DocstringRaises
-  args: ['raises', 'google.auth.exceptions.MutualTLSChannelError']
   description: |
     if the environment
     configuration is invalid for mTLS.
   kind: raises
+  key: 'raises'
   type_name: 'google.auth.exceptions.MutualTLSChannelError'
 === detect
 google

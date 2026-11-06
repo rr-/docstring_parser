@@ -18,18 +18,18 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: google
 - DocstringParam
-  args: ['param', 'code (str)']
   description: 'The raw code string to process'
   kind: param
+  key: 'param'
   arg_name: 'code'
   type_name: 'str'
   is_optional: False
 - DocstringReturns
-  args: ['returns', 'Tuple[bool, str]']
   description: |
     the boolean indicates whether the raw code ends with a line return,
     while the string is the processed code.
   kind: returns
+  key: 'returns'
   type_name: 'Tuple[bool, str]'
   is_generator: False
 === detect

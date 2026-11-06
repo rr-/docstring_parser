@@ -15,22 +15,22 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 - DocstringParam
-  args: ['param', 'url']
   description: 'URL for the new :class:`Request` object.'
   kind: param
+  key: 'param'
   arg_name: 'url'
 - DocstringParam
-  args: ['param', '\\*\\*kwargs']
   description: |
     Optional arguments that ``request`` takes. If
     `allow_redirects` is not provided, it will be set to `False` (as
     opposed to the default :meth:`request` behavior).
   kind: param
+  key: 'param'
   arg_name: '\\*\\*kwargs'
 - DocstringReturns
-  args: ['return']
   description: ':class:`Response <Response>` object'
   kind: returns
+  key: 'return'
   type_name: 'requests.Response'
   is_generator: False
 === detect

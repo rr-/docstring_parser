@@ -30,50 +30,49 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: epydoc
 - DocstringParam
-  args: ['param', 'executable']
   description: |
     The file name to run and get the output of - the
     full path should be used.
   kind: param
+  key: 'param'
   arg_name: 'executable'
   is_optional: False
 - DocstringParam
-  args: ['param', 'args']
   description: |
     the command line arguments to pass to the process; a
     sequence of strings. The first string should B{NOT} be the
     executable's name.
   kind: param
+  key: 'param'
   arg_name: 'args'
   is_optional: False
 - DocstringParam
-  args: ['param', 'env']
   description: |
     the environment variables to pass to the process; a
     dictionary of strings.
   kind: param
+  key: 'param'
   arg_name: 'env'
   is_optional: False
 - DocstringParam
-  args: ['param', 'path']
   description: |
     the path to run the subprocess in - defaults to the
     current directory.
   kind: param
+  key: 'param'
   arg_name: 'path'
   is_optional: False
   default: |
     the
     current directory
 - DocstringParam
-  args: ['param', 'reactor']
   description: 'the reactor to use - defaults to the default reactor'
   kind: param
+  key: 'param'
   arg_name: 'reactor'
   is_optional: False
   default: 'the default reactor'
 - DocstringParam
-  args: ['param', 'errortoo']
   description: |
     If true, include stderr in the result.  If false, if
     stderr is received the returned L{Deferred} will errback with an
@@ -81,6 +80,7 @@ style: epydoc
     C{processEnded} attribute refers to a L{Deferred} which fires when the
     executed process ends.
   kind: param
+  key: 'param'
   arg_name: 'errortoo'
   is_optional: False
 === detect

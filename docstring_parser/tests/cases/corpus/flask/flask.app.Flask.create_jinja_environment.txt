@@ -25,11 +25,11 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringMeta
-  args: ['attr']
   description: |
     `jinja_options` after this will have no effect. Also adds
     Flask-related globals and filters to the environment.
   kind: text
+  key: 'attr'
 === detect
 rest
 === compose rest

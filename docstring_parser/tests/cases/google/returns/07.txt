@@ -9,8 +9,8 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: google
 - DocstringReturns
-  args: ['returns', 'Optional[Mapping[str, List[int]]]']
   description: 'A description: with a colon'
   kind: returns
+  key: 'returns'
   type_name: 'Optional[Mapping[str, List[int]]]'
   is_generator: False

@@ -16,18 +16,18 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: epydoc
 - DocstringMeta
-  args: ['meta1']
   description: |
     asd
     1
         2
     3
   kind: text
+  key: 'meta1'
 - DocstringMeta
-  args: ['meta2']
   description: 'herp'
   kind: text
+  key: 'meta2'
 - DocstringMeta
-  args: ['meta3']
   description: 'derp'
   kind: text
+  key: 'meta3'

@@ -19,9 +19,9 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: google
 - DocstringParam
-  args: ['param', 'sub_configs']
   description: 'Whether to try parsing a sub-config when argument is a complex type.'
   kind: param
+  key: 'param'
   arg_name: 'sub_configs'
 === detect
 google

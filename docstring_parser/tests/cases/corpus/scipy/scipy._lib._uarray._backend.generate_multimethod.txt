@@ -65,51 +65,50 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 - DocstringParam
-  args: ['param', 'argument_extractor']
   description: |
     A callable which extracts the dispatchable arguments. Extracted arguments
     should be marked by the :obj:`Dispatchable` class. It has the same signature
     as the desired multimethod.
   kind: param
+  key: 'param'
   arg_name: 'argument_extractor'
   type_name: 'ArgumentExtractorType'
   is_optional: False
 - DocstringParam
-  args: ['param', 'argument_replacer']
   description: |
     A callable with the signature (args, kwargs, dispatchables), which should also
     return an (args, kwargs) pair with the dispatchables replaced inside the
     args/kwargs.
   kind: param
+  key: 'param'
   arg_name: 'argument_replacer'
   type_name: 'ArgumentReplacerType'
   is_optional: False
 - DocstringParam
-  args: ['param', 'domain']
   description: 'A string value indicating the domain of this multimethod.'
   kind: param
+  key: 'param'
   arg_name: 'domain'
   type_name: 'str'
   is_optional: False
 - DocstringParam
-  args: ['param', 'default']
   description: |
     The default implementation of this multimethod, where ``None`` (the default)
     specifies there is no default implementation.
   kind: param
+  key: 'param'
   arg_name: 'default'
   type_name: 'Optional[Callable]'
   is_optional: True
 - DocstringExample
-  args: ['examples']
   description: |
     In this example, ``a`` is to be dispatched over, so we return it, while marking it
     as an ``int``.
     The trailing comma is needed because the args have to be returned as an iterable.
     
   kind: examples
+  key: 'examples'
 - DocstringExample
-  args: ['examples']
   description: |
     ...   return Dispatchable(a, int),
     
@@ -117,18 +116,18 @@ style: numpydoc
     args/kwargs with the supplied ones.
     
   kind: examples
+  key: 'examples'
   snippet: '>>> def override_me(a, b):'
 - DocstringExample
-  args: ['examples']
   description: |
     ...     return (dispatchables[0], args[1]), {}
     
     Next, we define the multimethod.
     
   kind: examples
+  key: 'examples'
   snippet: '>>> def override_replacer(args, kwargs, dispatchables):'
 - DocstringExample
-  args: ['examples']
   description: |
     ...     override_me, override_replacer, "ua_examples"
     ... )
@@ -136,35 +135,36 @@ style: numpydoc
     Notice that there's no default implementation, unless you supply one.
     
   kind: examples
+  key: 'examples'
   snippet: '>>> overridden_me = generate_multimethod('
 - DocstringExample
-  args: ['examples']
   description: |
     Traceback (most recent call last):
         ...
     uarray.BackendNotImplementedError: ...
     
   kind: examples
+  key: 'examples'
   snippet: '>>> overridden_me(1, "a")'
 - DocstringExample
-  args: ['examples']
   description: |
     ...     override_me, override_replacer, "ua_examples", default=lambda x, y: (x, y)
     ... )
   kind: examples
+  key: 'examples'
   snippet: '>>> overridden_me2 = generate_multimethod('
 - DocstringExample
-  args: ['examples']
   description: "(1, 'a')"
   kind: examples
+  key: 'examples'
   snippet: '>>> overridden_me2(1, "a")'
 - DocstringMeta
-  args: ['see_also']
   description: |
     uarray
         See the module documentation for how to override the method by creating
         backends.
   kind: text
+  key: 'see_also'
 === detect
 numpydoc
 === compose numpydoc

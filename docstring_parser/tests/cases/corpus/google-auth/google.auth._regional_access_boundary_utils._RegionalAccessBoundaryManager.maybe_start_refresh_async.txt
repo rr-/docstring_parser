@@ -12,16 +12,16 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'credentials (google.auth.credentials.Credentials)']
   description: 'The credentials to refresh.'
   kind: param
+  key: 'param'
   arg_name: 'credentials'
   type_name: 'google.auth.credentials.Credentials'
   is_optional: False
 - DocstringParam
-  args: ['param', 'request (google.auth.aio.transport.Request)']
   description: 'The object used to make HTTP requests.'
   kind: param
+  key: 'param'
   arg_name: 'request'
   type_name: 'google.auth.aio.transport.Request'
   is_optional: False

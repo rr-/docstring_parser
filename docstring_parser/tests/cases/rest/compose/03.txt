@@ -16,23 +16,23 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringParam
-  args: ['param', 'int', 'foo']
   description: 'a description'
   kind: param
+  key: 'param'
   arg_name: 'foo'
   type_name: 'int'
   is_optional: False
 - DocstringParam
-  args: ['param', 'int', 'bar']
   description: 'another description'
   kind: param
+  key: 'param'
   arg_name: 'bar'
   type_name: 'int'
   is_optional: False
 - DocstringReturns
-  args: ['return', 'float']
   description: 'a return'
   kind: returns
+  key: 'return'
   type_name: 'float'
   is_generator: False
 === compose rest expanded

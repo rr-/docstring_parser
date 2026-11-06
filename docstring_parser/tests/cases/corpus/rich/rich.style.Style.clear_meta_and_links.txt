@@ -11,9 +11,9 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringReturns
-  args: ['returns', 'Style']
   description: 'New style object.'
   kind: returns
+  key: 'returns'
   type_name: 'Style'
   is_generator: False
 === detect

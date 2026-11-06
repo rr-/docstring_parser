@@ -53,65 +53,65 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'x']
   description: 'Input array.'
   kind: param
+  key: 'param'
   arg_name: 'x'
   type_name: 'array_like'
   is_optional: False
 - DocstringParam
-  args: ['param', 'axes']
   description: 'Axes over which to shift.  Default is None, which shifts all axes.'
   kind: param
+  key: 'param'
   arg_name: 'axes'
   type_name: 'int or shape tuple'
   is_optional: True
   default: 'None'
 - DocstringReturns
-  args: ['returns']
   description: 'The shifted array.'
   kind: returns
+  key: 'returns'
   type_name: 'ndarray'
   is_generator: False
   return_name: 'y'
 - DocstringMeta
-  args: ['see_also']
   description: 'ifftshift : The inverse of `fftshift`.'
   kind: text
+  key: 'see_also'
 - DocstringExample
-  args: ['examples']
   description: 'array([ 0.,  1.,  2., ..., -3., -2., -1.])'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> import numpy as np
     >>> freqs = np.fft.fftfreq(10, 0.1)
     >>> freqs
 - DocstringExample
-  args: ['examples']
   description: |
     array([-5., -4., -3., -2., -1.,  0.,  1.,  2.,  3.,  4.])
     
     Shift the zero-frequency component only along the second axis:
     
   kind: examples
+  key: 'examples'
   snippet: '>>> np.fft.fftshift(freqs)'
 - DocstringExample
-  args: ['examples']
   description: |
     array([[ 0.,  1.,  2.],
            [ 3.,  4., -4.],
            [-3., -2., -1.]])
   kind: examples
+  key: 'examples'
   snippet: |
     >>> freqs = np.fft.fftfreq(9, d=1./9).reshape(3, 3)
     >>> freqs
 - DocstringExample
-  args: ['examples']
   description: |
     array([[ 2.,  0.,  1.],
            [-4.,  3.,  4.],
            [-1., -3., -2.]])
   kind: examples
+  key: 'examples'
   snippet: '>>> np.fft.fftshift(freqs, axes=(1,))'
 === detect
 numpydoc

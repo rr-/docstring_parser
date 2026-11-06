@@ -12,17 +12,16 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 - DocstringParam
-  args: ['param', 'cookiejar']
   description: 'CookieJar object to add the cookies to.'
   kind: param
+  key: 'param'
   arg_name: 'cookiejar'
 - DocstringParam
-  args: ['param', 'cookies']
   description: 'Dictionary or CookieJar object to be added.'
   kind: param
+  key: 'param'
   arg_name: 'cookies'
 - DocstringReturns
-  args: []
   kind: returns
   type_name: 'CookieJar'
   is_generator: False

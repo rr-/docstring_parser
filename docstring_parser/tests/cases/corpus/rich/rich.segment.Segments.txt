@@ -14,16 +14,16 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: google
 - DocstringParam
-  args: ['param', 'segments (Iterable[Segment])']
   description: 'An iterable of segments.'
   kind: param
+  key: 'param'
   arg_name: 'segments'
   type_name: 'Iterable[Segment]'
   is_optional: False
 - DocstringParam
-  args: ['param', 'new_lines (bool, optional)']
   description: 'Add new lines between segments. Defaults to False.'
   kind: param
+  key: 'param'
   arg_name: 'new_lines'
   type_name: 'bool'
   is_optional: True

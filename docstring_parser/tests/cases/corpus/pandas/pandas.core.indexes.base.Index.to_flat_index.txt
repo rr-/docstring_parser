@@ -24,15 +24,15 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringReturns
-  args: ['returns']
   description: 'Caller.'
   kind: returns
+  key: 'returns'
   type_name: 'pd.Index'
   is_generator: False
 - DocstringMeta
-  args: ['see_also']
   description: 'MultiIndex.to_flat_index : Subclass implementation.'
   kind: text
+  key: 'see_also'
 === detect
 numpydoc
 === compose numpydoc

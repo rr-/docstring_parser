@@ -10,9 +10,9 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: google
 - DocstringReturns
-  args: ['returns', 'str']
   description: 'The algorithm name.'
   kind: returns
+  key: 'returns'
   type_name: 'str'
   is_generator: False
 === detect

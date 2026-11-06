@@ -18,34 +18,34 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'namespace']
   description: 'The configuration object to check.'
   kind: param
+  key: 'param'
   arg_name: 'namespace'
 - DocstringParam
-  args: ['param', 'skip_unset']
   description: 'Whether to skip checking of values that are the configured None/Unset value.'
   kind: param
+  key: 'param'
   arg_name: 'skip_unset'
 - DocstringParam
-  args: ['param', 'skip_required']
   description: 'Whether to skip checking required arguments.'
   kind: param
+  key: 'param'
   arg_name: 'skip_required'
 - DocstringParam
-  args: ['param', 'branch']
   description: 'Base key in case cfg corresponds only to a branch.'
   kind: param
+  key: 'param'
   arg_name: 'branch'
 - DocstringRaises
-  args: ['raises', 'TypeError']
   description: 'If any of the values are not valid.'
   kind: raises
+  key: 'raises'
   type_name: 'TypeError'
 - DocstringRaises
-  args: ['raises', 'KeyError']
   description: 'If a key in cfg is not defined in the parser.'
   kind: raises
+  key: 'raises'
   type_name: 'KeyError'
 === detect
 google

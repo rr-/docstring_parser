@@ -12,9 +12,9 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 - DocstringParam
-  args: ['param', 'a']
   description: 'x'
   kind: param
+  key: 'param'
   arg_name: 'a'
 === compose numpydoc
 Short.

@@ -15,24 +15,24 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'theme (Theme)']
   description: 'Theme instance to user.'
   kind: param
+  key: 'param'
   arg_name: 'theme'
   type_name: 'Theme'
   is_optional: False
 - DocstringParam
-  args: ['param', 'inherit (bool, optional)']
   description: 'Inherit existing console styles. Defaults to True.'
   kind: param
+  key: 'param'
   arg_name: 'inherit'
   type_name: 'bool'
   is_optional: True
   default: 'True'
 - DocstringReturns
-  args: ['returns', 'ThemeContext']
   description: '[description]'
   kind: returns
+  key: 'returns'
   type_name: 'ThemeContext'
   is_generator: False
 === detect

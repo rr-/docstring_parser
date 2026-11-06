@@ -14,14 +14,14 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: numpydoc
 - DocstringParam
-  args: ['param', 'other']
   kind: param
+  key: 'param'
   arg_name: 'other'
   type_name: 'TimedeltaArray or ndarray[timedelta64]'
   is_optional: False
 - DocstringReturns
-  args: ['returns']
   kind: returns
+  key: 'returns'
   type_name: 'PeriodArray'
   is_generator: False
 === detect

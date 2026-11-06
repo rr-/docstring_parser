@@ -29,17 +29,17 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringMeta
-  args: ['meth']
   description: '`teardown_appcontext`. Then the'
   kind: text
+  key: 'meth'
 - DocstringMeta
-  args: ['data']
   description: '`appcontext_tearing_down` signal is sent.'
   kind: text
+  key: 'data'
 - DocstringMeta
-  args: ['meth']
   description: '`AppContext.pop() <flask.ctx.AppContext.pop>`.'
   kind: text
+  key: 'meth'
 === detect
 rest
 === compose rest

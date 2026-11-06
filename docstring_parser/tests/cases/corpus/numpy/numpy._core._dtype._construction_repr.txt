@@ -38,16 +38,15 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'short']
   description: |
     If true, this creates a shorter repr using 'kind' and 'itemsize',
     instead of the longer type name.
   kind: param
+  key: 'param'
   arg_name: 'short'
   type_name: 'bool'
   is_optional: False
 - DocstringParam
-  args: ['param', 'include_align']
   description: |
     If true, this includes the 'align=True' parameter
     inside the struct dtype construction dict when needed. Use this flag
@@ -60,6 +59,7 @@ style: numpydoc
     mode is intended for a full 'repr', where the 'align=True' is
     provided as the second parameter.
   kind: param
+  key: 'param'
   arg_name: 'include_align'
   type_name: 'bool'
   is_optional: False

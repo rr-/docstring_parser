@@ -44,37 +44,37 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringReturns
-  args: ['returns']
   description: 'The first element of Series or Index.'
   kind: returns
+  key: 'returns'
   type_name: 'scalar'
   is_generator: False
 - DocstringRaises
-  args: ['raises', 'ValueError']
   description: 'If the data is not length = 1.'
   kind: raises
+  key: 'raises'
   type_name: 'ValueError'
 - DocstringMeta
-  args: ['see_also']
   description: |
     Index.values : Returns an array representing the data in the Index.
     Series.head : Returns the first `n` rows.
   kind: text
+  key: 'see_also'
 - DocstringExample
-  args: ['examples']
   description: |
     1
     
     For an index:
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> s = pd.Series([1])
     >>> s.item()
 - DocstringExample
-  args: ['examples']
   description: "'a'"
   kind: examples
+  key: 'examples'
   snippet: |
     >>> s = pd.Series([1], index=["a"])
     >>> s.index.item()

@@ -11,9 +11,9 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringReturns
-  args: ['returns', 'WindowsConsoleFeatures']
   description: 'An instance of WindowsConsoleFeatures.'
   kind: returns
+  key: 'returns'
   type_name: 'WindowsConsoleFeatures'
   is_generator: False
 === detect

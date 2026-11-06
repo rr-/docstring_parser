@@ -64,45 +64,44 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 - DocstringParam
-  args: ['param', 'a']
   description: 'The input array.'
   kind: param
+  key: 'param'
   arg_name: 'a'
   type_name: 'array_like'
   is_optional: False
 - DocstringParam
-  args: ['param', 'axis']
   description: |
     Axis along which to perform the operation.
     If None (default), applies to a flattened version of the array, and this
     is the same as `flatnotmasked_contiguous`.
   kind: param
+  key: 'param'
   arg_name: 'axis'
   type_name: 'int'
   is_optional: True
 - DocstringReturns
-  args: ['returns']
   description: |
     A list of slices (start and end indexes) of unmasked indexes
     in the array.
     
     If the input is 2d and axis is specified, the result is a list of lists.
   kind: returns
+  key: 'returns'
   type_name: 'list'
   is_generator: False
   return_name: 'endpoints'
 - DocstringMeta
-  args: ['see_also']
   description: |
     flatnotmasked_edges, flatnotmasked_contiguous, notmasked_edges
     clump_masked, clump_unmasked
   kind: text
+  key: 'see_also'
 - DocstringMeta
-  args: ['notes']
   description: 'Only accepts 2-D arrays at most.'
   kind: text
+  key: 'notes'
 - DocstringExample
-  args: ['examples']
   description: |
     masked_array(
       data=[[0, --, 2, 3],
@@ -113,6 +112,7 @@ style: numpydoc
             [False,  True,  True, False]],
       fill_value=999999)
   kind: examples
+  key: 'examples'
   snippet: |
     >>> import numpy as np
     >>> a = np.arange(12).reshape((3, 4))
@@ -121,30 +121,30 @@ style: numpydoc
     >>> ma = np.ma.array(a, mask=mask)
     >>> ma
 - DocstringExample
-  args: ['examples']
   description: |
     array([ 0,  2,  3,  7, 8, 11])
     
   kind: examples
+  key: 'examples'
   snippet: '>>> np.array(ma[~ma.mask])'
 - DocstringExample
-  args: ['examples']
   description: |
     [slice(0, 1, None), slice(2, 4, None), slice(7, 9, None), slice(11, 12, None)]
     
   kind: examples
+  key: 'examples'
   snippet: '>>> np.ma.notmasked_contiguous(ma)'
 - DocstringExample
-  args: ['examples']
   description: |
     [[slice(0, 1, None), slice(2, 3, None)], [], [slice(0, 1, None)], [slice(0, 3, None)]]
     
   kind: examples
+  key: 'examples'
   snippet: '>>> np.ma.notmasked_contiguous(ma, axis=0)'
 - DocstringExample
-  args: ['examples']
   description: '[[slice(0, 1, None), slice(2, 4, None)], [slice(3, 4, None)], [slice(0, 1, None), slice(3, 4, None)]]'
   kind: examples
+  key: 'examples'
   snippet: '>>> np.ma.notmasked_contiguous(ma, axis=1)'
 === detect
 numpydoc

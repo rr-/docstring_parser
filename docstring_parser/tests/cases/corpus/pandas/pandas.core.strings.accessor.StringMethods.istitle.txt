@@ -50,15 +50,14 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringReturns
-  args: ['returns']
   description: |
     Series or Index of boolean values with the same length as the original
     Series/Index.
   kind: returns
+  key: 'returns'
   type_name: 'Series or Index of bool'
   is_generator: False
 - DocstringMeta
-  args: ['see_also']
   description: |
     Series.str.isalpha : Check whether all characters are alphabetic.
     Series.str.isnumeric : Check whether all characters are numeric.
@@ -70,8 +69,8 @@ style: numpydoc
     Series.str.isascii : Check whether all characters are ascii.
     Series.str.isupper : Check whether all characters are uppercase.
   kind: text
+  key: 'see_also'
 - DocstringExample
-  args: ['examples']
   description: |
     The ``s5.str.istitle`` method checks for whether all words are in title
     case (whether only the first letter of each word is capitalized). Words are
@@ -79,8 +78,8 @@ style: numpydoc
     whitespace characters.
     
   kind: examples
+  key: 'examples'
 - DocstringExample
-  args: ['examples']
   description: |
     0    False
     1     True
@@ -88,6 +87,7 @@ style: numpydoc
     3    False
     dtype: bool
   kind: examples
+  key: 'examples'
   snippet: |
     >>> s5 = pd.Series(["leopard", "Golden Eagle", "SNAKE", ""])
     >>> s5.str.istitle()

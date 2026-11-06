@@ -91,7 +91,6 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', '*system']
   description: |
     The `TransferFunction` class can be instantiated with 1 or 2
     arguments. The following gives the number of input arguments and their
@@ -101,27 +100,27 @@ style: numpydoc
       `ZerosPolesGain`)
     * 2: array_like: (numerator, denominator)
   kind: param
+  key: 'param'
   arg_name: '*system'
   type_name: 'arguments'
   is_optional: False
 - DocstringParam
-  args: ['param', 'dt']
   description: |
     Sampling time [s] of the discrete-time systems. Defaults to `None`
     (continuous-time). Must be specified as a keyword argument, for
     example, ``dt=0.1``.
   kind: param
+  key: 'param'
   arg_name: 'dt'
   type_name: 'float'
   is_optional: True
 - DocstringMeta
-  args: ['see_also']
   description: |
     ZerosPolesGain, StateSpace, lti, dlti
     tf2ss, tf2zpk, tf2sos
   kind: text
+  key: 'see_also'
 - DocstringMeta
-  args: ['notes']
   description: |
     Changing the value of properties that are not part of the
     `TransferFunction` system representation (such as the `A`, `B`, `C`, `D`
@@ -135,27 +134,27 @@ style: numpydoc
     exponent order (e.g. ``s^2 + 3s + 5`` or ``z^2 + 3z + 5`` would be
     represented as ``[1, 3, 5]``)
   kind: text
+  key: 'notes'
 - DocstringExample
-  args: ['examples']
   description: |
     Construct the transfer function
     :math:`H(s) = \frac{s^2 + 3s + 3}{s^2 + 2s + 1}`:
     
   kind: examples
+  key: 'examples'
 - DocstringExample
-  args: ['examples']
   description: ''
   kind: examples
+  key: 'examples'
   snippet: '>>> from scipy import signal'
 - DocstringExample
-  args: ['examples']
   description: ''
   kind: examples
+  key: 'examples'
   snippet: |
     >>> num = [1, 3, 3]
     >>> den = [1, 2, 1]
 - DocstringExample
-  args: ['examples']
   description: |
     TransferFunctionContinuous(
     array([1., 3., 3.]),
@@ -168,9 +167,9 @@ style: numpydoc
     0.1 seconds:
     
   kind: examples
+  key: 'examples'
   snippet: '>>> signal.TransferFunction(num, den)'
 - DocstringExample
-  args: ['examples']
   description: |
     TransferFunctionDiscrete(
     array([1., 3., 3.]),
@@ -178,6 +177,7 @@ style: numpydoc
     dt: 0.1
     )
   kind: examples
+  key: 'examples'
   snippet: '>>> signal.TransferFunction(num, den, dt=0.1)'
 === detect
 numpydoc

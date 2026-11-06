@@ -82,14 +82,13 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 - DocstringParam
-  args: ['param', 'N']
   description: 'The order of the filter.'
   kind: param
+  key: 'param'
   arg_name: 'N'
   type_name: 'int'
   is_optional: False
 - DocstringParam
-  args: ['param', 'norm']
   description: |
     Frequency normalization:
     
@@ -116,40 +115,40 @@ style: numpydoc
     
     .. versionadded:: 0.18.0
   kind: param
+  key: 'param'
   arg_name: 'norm'
   type_name: "{'phase', 'delay', 'mag'}"
   is_optional: True
 - DocstringParam
-  args: ['param', '%(xp_device_snippet)s']
   kind: param
+  key: 'param'
   arg_name: '%(xp_device_snippet)s'
 - DocstringReturns
-  args: ['returns']
   description: 'Zeros of the transfer function. Is always an empty array.'
   kind: returns
+  key: 'returns'
   type_name: 'ndarray[float64]'
   is_generator: False
   return_name: 'z'
 - DocstringReturns
-  args: ['returns']
   description: 'Poles of the transfer function.'
   kind: returns
+  key: 'returns'
   type_name: 'ndarray[complex128]'
   is_generator: False
   return_name: 'p'
 - DocstringReturns
-  args: ['returns']
   description: 'Gain of the transfer function. For phase-normalized, this is always 1.'
   kind: returns
+  key: 'returns'
   type_name: 'float'
   is_generator: False
   return_name: 'k'
 - DocstringMeta
-  args: ['see_also']
   description: 'bessel : Filter design function using this prototype'
   kind: text
+  key: 'see_also'
 - DocstringMeta
-  args: ['notes']
   description: |
     To find the pole locations, approximate starting points are generated [2]_
     for the zeros of the ordinary Bessel polynomial [3]_, then the
@@ -157,8 +156,8 @@ style: numpydoc
     calculate more accurate zeros, and these locations are then inverted about
     the unit circle.
   kind: text
+  key: 'notes'
 - DocstringMeta
-  args: ['references']
   description: |
     .. [1] C.R. Bond, "Bessel Filter Constants",
            http://www.crbond.com/papers/bsf.pdf
@@ -177,6 +176,7 @@ style: numpydoc
            Others", RaneNote 147, 1998,
            https://www.ranecommercial.com/legacy/note147.html
   kind: text
+  key: 'references'
 === detect
 numpydoc
 === compose numpydoc

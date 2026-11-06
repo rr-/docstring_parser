@@ -9,6 +9,7 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: epydoc
 - DocstringMeta
-  args: ['myparam', 'value']
   description: 'detail'
   kind: text
+  key: 'myparam'
+  name: 'value'

@@ -47,27 +47,26 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 - DocstringParam
-  args: ['param', 'X']
   description: 'The random variable :math:`X`.'
   kind: param
+  key: 'param'
   arg_name: 'X'
   type_name: '`ContinuousDistribution`'
   is_optional: False
 - DocstringReturns
-  args: ['returns']
   description: 'A random variable :math:`Y = \\exp(X)`.'
   kind: returns
+  key: 'returns'
   type_name: '`ContinuousDistribution`'
   is_generator: False
   return_name: 'Y'
 - DocstringExample
-  args: ['examples']
   description: |
     Suppose we have a normally distributed random variable :math:`X`:
     
   kind: examples
+  key: 'examples'
 - DocstringExample
-  args: ['examples']
   description: |
     
     We wish to have a lognormally distributed random variable :math:`Y`,
@@ -76,12 +75,12 @@ style: numpydoc
     must take :math:`Y` to be the natural exponential of :math:`X`.
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> import numpy as np
     >>> from scipy import stats
     >>> X = stats.Normal()
 - DocstringExample
-  args: ['examples']
   description: |
     
     To demonstrate that ``X`` represents the logarithm of ``Y``,
@@ -89,11 +88,12 @@ style: numpydoc
     ``Y`` against the PDF underlying ``X``.
     
   kind: examples
+  key: 'examples'
   snippet: '>>> Y = stats.exp(X)'
 - DocstringExample
-  args: ['examples']
   description: ''
   kind: examples
+  key: 'examples'
   snippet: |
     >>> import matplotlib.pyplot as plt
     >>> rng = np.random.default_rng(435383595582522)

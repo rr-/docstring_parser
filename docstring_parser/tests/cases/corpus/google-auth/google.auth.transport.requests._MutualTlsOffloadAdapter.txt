@@ -27,7 +27,6 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: google
 - DocstringParam
-  args: ['param', 'enterprise_cert_file_path (str)']
   description: |
     the path to a enterprise cert JSON
     file. The file should contain the following field:
@@ -39,20 +38,21 @@ style: google
             }
         }
   kind: param
+  key: 'param'
   arg_name: 'enterprise_cert_file_path'
   type_name: 'str'
   is_optional: False
 - DocstringRaises
-  args: ['raises', 'ImportError']
   description: 'if certifi is not installed'
   kind: raises
+  key: 'raises'
   type_name: 'ImportError'
 - DocstringRaises
-  args: ['raises', 'google.auth.exceptions.MutualTLSChannelError']
   description: |
     If mutual TLS channel
     creation failed for any reason.
   kind: raises
+  key: 'raises'
   type_name: 'google.auth.exceptions.MutualTLSChannelError'
 === detect
 google

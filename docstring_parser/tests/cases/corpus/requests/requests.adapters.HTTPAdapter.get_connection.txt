@@ -22,21 +22,20 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: rest
 - DocstringMeta
-  args: ['class']
   description: '`HTTPAdapter <requests.adapters.HTTPAdapter>`.'
   kind: text
+  key: 'class'
 - DocstringParam
-  args: ['param', 'url']
   description: 'The URL to connect to.'
   kind: param
+  key: 'param'
   arg_name: 'url'
 - DocstringParam
-  args: ['param', 'proxies']
   description: '(optional) A Requests-style dictionary of proxies used on this request.'
   kind: param
+  key: 'param'
   arg_name: 'proxies'
 - DocstringReturns
-  args: []
   kind: returns
   type_name: 'urllib3.HTTPConnectionPool'
   is_generator: False

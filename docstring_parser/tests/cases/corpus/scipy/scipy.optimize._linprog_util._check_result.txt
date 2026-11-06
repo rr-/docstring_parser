@@ -61,21 +61,20 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'x']
   description: 'Solution vector to original linear programming problem'
   kind: param
+  key: 'param'
   arg_name: 'x'
   type_name: '1-D array'
   is_optional: False
 - DocstringParam
-  args: ['param', 'fun']
   description: 'optimal objective value for original problem'
   kind: param
+  key: 'param'
   arg_name: 'fun'
   type_name: 'float'
   is_optional: False
 - DocstringParam
-  args: ['param', 'status']
   description: |
     An integer representing the exit status of the optimization::
     
@@ -85,50 +84,50 @@ style: numpydoc
          3 : Problem appears to be unbounded
          4 : Serious numerical difficulties encountered
   kind: param
+  key: 'param'
   arg_name: 'status'
   type_name: 'int'
   is_optional: False
 - DocstringParam
-  args: ['param', 'slack']
   description: |
     The (non-negative) slack in the upper bound constraints, that is,
     ``b_ub - A_ub @ x``
   kind: param
+  key: 'param'
   arg_name: 'slack'
   type_name: '1-D array'
   is_optional: False
 - DocstringParam
-  args: ['param', 'con']
   description: |
     The (nominally zero) residuals of the equality constraints, that is,
     ``b - A_eq @ x``
   kind: param
+  key: 'param'
   arg_name: 'con'
   type_name: '1-D array'
   is_optional: False
 - DocstringParam
-  args: ['param', 'bounds']
   description: 'The bounds on the original variables ``x``'
   kind: param
+  key: 'param'
   arg_name: 'bounds'
   type_name: '2D array'
   is_optional: False
 - DocstringParam
-  args: ['param', 'message']
   description: 'A string descriptor of the exit status of the optimization.'
   kind: param
+  key: 'param'
   arg_name: 'message'
   type_name: 'str'
   is_optional: False
 - DocstringParam
-  args: ['param', 'tol']
   description: 'Termination tolerance; see [1]_ Section 4.5.'
   kind: param
+  key: 'param'
   arg_name: 'tol'
   type_name: 'float'
   is_optional: False
 - DocstringReturns
-  args: ['returns']
   description: |
     An integer representing the exit status of the optimization::
     
@@ -138,13 +137,14 @@ style: numpydoc
          3 : Problem appears to be unbounded
          4 : Serious numerical difficulties encountered
   kind: returns
+  key: 'returns'
   type_name: 'int'
   is_generator: False
   return_name: 'status'
 - DocstringReturns
-  args: ['returns']
   description: 'A string descriptor of the exit status of the optimization.'
   kind: returns
+  key: 'returns'
   type_name: 'str'
   is_generator: False
   return_name: 'message'

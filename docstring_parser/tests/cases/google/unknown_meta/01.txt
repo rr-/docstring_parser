@@ -24,12 +24,12 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: google
 - DocstringParam
-  args: ['param', 'arg0']
   description: 'desc0'
   kind: param
+  key: 'param'
   arg_name: 'arg0'
 - DocstringParam
-  args: ['param', 'arg1']
   description: 'desc1'
   kind: param
+  key: 'param'
   arg_name: 'arg1'

@@ -15,23 +15,23 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'markdown (Markdown)']
   description: 'The parent Markdown object.'
   kind: param
+  key: 'param'
   arg_name: 'markdown'
   type_name: 'Markdown'
   is_optional: False
 - DocstringParam
-  args: ['param', 'token (Any)']
   description: 'A token from markdown-it.'
   kind: param
+  key: 'param'
   arg_name: 'token'
   type_name: 'Any'
   is_optional: False
 - DocstringReturns
-  args: ['returns', 'MarkdownElement']
   description: 'A new markdown element'
   kind: returns
+  key: 'returns'
   type_name: 'MarkdownElement'
   is_generator: False
 === detect

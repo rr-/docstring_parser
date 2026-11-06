@@ -117,21 +117,20 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'subscripts']
   description: 'Specifies the subscripts for summation.'
   kind: param
+  key: 'param'
   arg_name: 'subscripts'
   type_name: 'str'
   is_optional: False
 - DocstringParam
-  args: ['param', '*operands']
   description: 'These are the arrays for the operation.'
   kind: param
+  key: 'param'
   arg_name: '*operands'
   type_name: 'list of array_like'
   is_optional: False
 - DocstringParam
-  args: ['param', 'optimize']
   description: |
     Choose the type of path. If a tuple is provided, the second argument is
     assumed to be the maximum intermediate size created. If only a single
@@ -154,38 +153,38 @@ style: numpydoc
     
     Default is 'greedy'.
   kind: param
+  key: 'param'
   arg_name: 'optimize'
   type_name: "{bool, list, tuple, 'greedy', 'optimal'}"
   is_optional: False
   default: 'the'
 - DocstringReturns
-  args: ['returns']
   description: 'A list representation of the einsum path.'
   kind: returns
+  key: 'returns'
   type_name: 'list of tuples'
   is_generator: False
   return_name: 'path'
 - DocstringReturns
-  args: ['returns']
   description: 'A printable representation of the einsum path.'
   kind: returns
+  key: 'returns'
   type_name: 'str'
   is_generator: False
   return_name: 'string_repr'
 - DocstringMeta
-  args: ['notes']
   description: |
     The resulting path indicates which terms of the input contraction should be
     contracted first, the result of this contraction is then appended to the
     end of the contraction list. This list can then be iterated over until all
     intermediate contractions are complete.
   kind: text
+  key: 'notes'
 - DocstringMeta
-  args: ['see_also']
   description: 'einsum, linalg.multi_dot'
   kind: text
+  key: 'see_also'
 - DocstringExample
-  args: ['examples']
   description: |
     We can begin with a chain dot example. In this case, it is optimal to
     contract the ``b`` and ``c`` tensors first as represented by the first
@@ -194,10 +193,11 @@ style: numpydoc
     completed.
     
   kind: examples
+  key: 'examples'
 - DocstringExample
-  args: ['examples']
   description: "['einsum_path', (1, 2), (0, 1)]"
   kind: examples
+  key: 'examples'
   snippet: |
     >>> np.random.seed(123)
     >>> a = np.random.rand(2, 2)
@@ -206,7 +206,6 @@ style: numpydoc
     >>> path_info = np.einsum_path('ij,jk,kl->il', a, b, c, optimize='greedy')
     >>> print(path_info[0])
 - DocstringExample
-  args: ['examples']
   description: |
       Complete contraction:  ij,jk,kl->il # may vary
              Naive scaling:  4
@@ -225,24 +224,24 @@ style: numpydoc
     A more complex index transformation example.
     
   kind: examples
+  key: 'examples'
   snippet: '>>> print(path_info[1])'
 - DocstringExample
-  args: ['examples']
   description: |
     ...                            optimize='greedy')
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> I = np.random.rand(10, 10, 10, 10)
     >>> C = np.random.rand(10, 10)
     >>> path_info = np.einsum_path('ea,fb,abcd,gc,hd->efgh', C, C, I, C, C,
 - DocstringExample
-  args: ['examples']
   description: "['einsum_path', (0, 2), (0, 3), (0, 2), (0, 1)]"
   kind: examples
+  key: 'examples'
   snippet: '>>> print(path_info[0])'
 - DocstringExample
-  args: ['examples']
   description: |
       Complete contraction:  ea,fb,abcd,gc,hd->efgh # may vary
              Naive scaling:  8
@@ -259,6 +258,7 @@ style: numpydoc
        5               cdef,gc->defg                            hd,defg->efgh
        5               defg,hd->efgh                               efgh->efgh
   kind: examples
+  key: 'examples'
   snippet: '>>> print(path_info[1])'
 === detect
 numpydoc

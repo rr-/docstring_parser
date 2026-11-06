@@ -16,32 +16,32 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'indent_size (Optional[int])']
   description: 'Size of indentation, or None to auto detect. Defaults to None.'
   kind: param
+  key: 'param'
   arg_name: 'indent_size'
   type_name: 'Optional[int]'
   is_optional: False
   default: 'None'
 - DocstringParam
-  args: ['param', 'character (str, optional)']
   description: 'Character to use for indentation. Defaults to "│".'
   kind: param
+  key: 'param'
   arg_name: 'character'
   type_name: 'str'
   is_optional: True
   default: '"│"'
 - DocstringParam
-  args: ['param', 'style (Union[Style, str], optional)']
   description: 'Style of indent guides.'
   kind: param
+  key: 'param'
   arg_name: 'style'
   type_name: 'Union[Style, str]'
   is_optional: True
 - DocstringReturns
-  args: ['returns', 'Text']
   description: 'New text with indentation guides.'
   kind: returns
+  key: 'returns'
   type_name: 'Text'
   is_generator: False
 === detect

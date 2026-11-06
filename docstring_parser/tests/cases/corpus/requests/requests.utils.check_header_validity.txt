@@ -12,9 +12,9 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: rest
 - DocstringParam
-  args: ['param', 'header']
   description: 'tuple, in the format (name, value).'
   kind: param
+  key: 'param'
   arg_name: 'header'
 === detect
 rest

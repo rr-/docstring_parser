@@ -21,21 +21,21 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: google
 - DocstringParam
-  args: ['param', 'text (str)']
   description: 'Text to display.'
   kind: param
+  key: 'param'
   arg_name: 'text'
   type_name: 'str'
   is_optional: False
 - DocstringParam
-  args: ['param', 'unicode_version']
   description: 'Unicode version, `"auto"` to auto detect, `"latest"` for the latest unicode version.'
   kind: param
+  key: 'param'
   arg_name: 'unicode_version'
 - DocstringReturns
-  args: ['returns', 'int']
   description: 'Get the number of cells required to display text.'
   kind: returns
+  key: 'returns'
   type_name: 'int'
   is_generator: False
 === detect

@@ -16,19 +16,19 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringReturns
-  args: ['returns', 'Callable[[], [bytes, bytes]]']
   description: |
     A callback which returns the default
     client certificate bytes and private key bytes, both in PEM format.
   kind: returns
+  key: 'returns'
   type_name: 'Callable[[], [bytes, bytes]]'
   is_generator: False
 - DocstringRaises
-  args: ['raises', 'google.auth.exceptions.MutualTLSChannelError']
   description: |
     If the default
     client SSL credentials don't exist or are malformed.
   kind: raises
+  key: 'raises'
   type_name: 'google.auth.exceptions.MutualTLSChannelError'
 === detect
 google

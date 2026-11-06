@@ -17,23 +17,23 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: google
 - DocstringParam
-  args: ['param', 'status_code (int)']
   description: 'The response status code.'
   kind: param
+  key: 'param'
   arg_name: 'status_code'
   type_name: 'int'
   is_optional: False
 - DocstringParam
-  args: ['param', 'response_data (Mapping | str)']
   description: 'The decoded response data.'
   kind: param
+  key: 'param'
   arg_name: 'response_data'
   type_name: 'Mapping | str'
   is_optional: False
 - DocstringReturns
-  args: ['returns', 'bool']
   description: 'True if the response is retryable. False otherwise.'
   kind: returns
+  key: 'returns'
   type_name: 'bool'
   is_generator: False
 === detect

@@ -23,42 +23,42 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringMeta
-  args: ['class']
   description: '`~flask.blueprints.Blueprint`.'
   kind: text
+  key: 'class'
 - DocstringParam
-  args: ['param', 'import_name']
   description: |
     The import name of the module where this object
     is defined. Usually :attr:`__name__` should be used.
   kind: param
+  key: 'param'
   arg_name: 'import_name'
 - DocstringParam
-  args: ['param', 'static_folder']
   description: |
     Path to a folder of static files to serve.
     If this is set, a static route will be added.
   kind: param
+  key: 'param'
   arg_name: 'static_folder'
 - DocstringParam
-  args: ['param', 'static_url_path']
   description: 'URL prefix for the static route.'
   kind: param
+  key: 'param'
   arg_name: 'static_url_path'
 - DocstringParam
-  args: ['param', 'template_folder']
   description: |
     Path to a folder containing template files.
     for rendering. If this is set, a Jinja loader will be added.
   kind: param
+  key: 'param'
   arg_name: 'template_folder'
 - DocstringParam
-  args: ['param', 'root_path']
   description: |
     The path that static, template, and resource files
     are relative to. Typically not set, it is discovered based on
     the ``import_name``.
   kind: param
+  key: 'param'
   arg_name: 'root_path'
 === detect
 rest

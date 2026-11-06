@@ -11,9 +11,9 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: google
 - DocstringRaises
-  args: ['raises', 'ValueError']
   description: 'description'
   kind: raises
+  key: 'raises'
   type_name: 'ValueError'
 === compose google
 Short description

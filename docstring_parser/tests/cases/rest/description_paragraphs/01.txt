@@ -17,28 +17,28 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 - DocstringParam
-  args: ['param', 'a']
   description: |
     One.
     
     Two.
   kind: param
+  key: 'param'
   arg_name: 'a'
 - DocstringParam
-  args: ['param', 'b']
   description: |
     Values::
     
     x
     y
   kind: param
+  key: 'param'
   arg_name: 'b'
 - DocstringParam
-  args: ['param', 'c']
   description: |
     First,
     more.
   kind: param
+  key: 'param'
   arg_name: 'c'
 === compose rest
 Short.

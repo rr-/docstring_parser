@@ -118,16 +118,15 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'other']
   description: |
     Its row and column indices are used to define the new indices
     of this object.
   kind: param
+  key: 'param'
   arg_name: 'other'
   type_name: 'Object of the same data type'
   is_optional: False
 - DocstringParam
-  args: ['param', 'method']
   description: |
     Method to use for filling holes in reindexed DataFrame.
     Please note: this is only applicable to DataFrames/Series with a
@@ -141,11 +140,11 @@ style: numpydoc
     * backfill / bfill: use next valid observation to fill gap
     * nearest: use nearest valid observations to fill gap.
   kind: param
+  key: 'param'
   arg_name: 'method'
   type_name: "{None, 'backfill'/'bfill', 'pad'/'ffill', 'nearest'}"
   is_optional: False
 - DocstringParam
-  args: ['param', 'copy']
   description: |
     This keyword is now ignored; changing its value will have no
     impact on the method.
@@ -159,20 +158,20 @@ style: numpydoc
         <https://pandas.pydata.org/docs/dev/user_guide/migration.html>`__
         for more details.
   kind: param
+  key: 'param'
   arg_name: 'copy'
   type_name: 'bool'
   is_optional: True
   default: 'False'
 - DocstringParam
-  args: ['param', 'limit']
   description: 'Maximum number of consecutive labels to fill for inexact matches.'
   kind: param
+  key: 'param'
   arg_name: 'limit'
   type_name: 'int'
   is_optional: True
   default: 'None'
 - DocstringParam
-  args: ['param', 'tolerance']
   description: |
     Maximum distance between original and new labels for inexact
     matches. The values of the index at the matching locations must
@@ -184,30 +183,30 @@ style: numpydoc
     the same size as the index and its dtype must exactly match the
     index's type.
   kind: param
+  key: 'param'
   arg_name: 'tolerance'
   type_name: 'optional'
   is_optional: False
 - DocstringReturns
-  args: ['returns']
   description: 'Same type as caller, but with changed indices on each axis.'
   kind: returns
+  key: 'returns'
   type_name: 'Series or DataFrame'
   is_generator: False
 - DocstringMeta
-  args: ['see_also']
   description: |
     DataFrame.set_index : Set row labels.
     DataFrame.reset_index : Remove row labels or move them to new columns.
     DataFrame.reindex : Change to new indices or expand indices.
   kind: text
+  key: 'see_also'
 - DocstringMeta
-  args: ['notes']
   description: |
     Same as calling
     ``.reindex(index=other.index, columns=other.columns,...)``.
   kind: text
+  key: 'notes'
 - DocstringExample
-  args: ['examples']
   description: |
     ...     [
     ...         [24.3, 75.7, "high"],
@@ -220,9 +219,9 @@ style: numpydoc
     ... )
     
   kind: examples
+  key: 'examples'
   snippet: '>>> df1 = pd.DataFrame('
 - DocstringExample
-  args: ['examples']
   description: |
                 temp_celsius  temp_fahrenheit windspeed
     2014-02-12          24.3             75.7      high
@@ -231,9 +230,9 @@ style: numpydoc
     2014-02-15          35.0             95.0    medium
     
   kind: examples
+  key: 'examples'
   snippet: '>>> df1'
 - DocstringExample
-  args: ['examples']
   description: |
     ...     [[28, "low"], [30, "low"], [35.1, "medium"]],
     ...     columns=["temp_celsius", "windspeed"],
@@ -241,9 +240,9 @@ style: numpydoc
     ... )
     
   kind: examples
+  key: 'examples'
   snippet: '>>> df2 = pd.DataFrame('
 - DocstringExample
-  args: ['examples']
   description: |
                 temp_celsius windspeed
     2014-02-12          28.0       low
@@ -251,9 +250,9 @@ style: numpydoc
     2014-02-15          35.1    medium
     
   kind: examples
+  key: 'examples'
   snippet: '>>> df2'
 - DocstringExample
-  args: ['examples']
   description: |
                 temp_celsius  temp_fahrenheit windspeed
     2014-02-12          28.0              NaN       low
@@ -261,6 +260,7 @@ style: numpydoc
     2014-02-14           NaN              NaN       NaN
     2014-02-15          35.1              NaN    medium
   kind: examples
+  key: 'examples'
   snippet: '>>> df2.reindex_like(df1)'
 === detect
 numpydoc

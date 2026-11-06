@@ -16,25 +16,25 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 - DocstringParam
-  args: ['param', 'a']
   description: 'A.'
   kind: param
+  key: 'param'
   arg_name: 'a'
   type_name: 'int'
   is_optional: True
   default: '1'
 - DocstringParam
-  args: ['param', 'b']
   description: 'B.'
   kind: param
+  key: 'param'
   arg_name: 'b'
   type_name: 'int'
   is_optional: True
   default: '2'
 - DocstringParam
-  args: ['param', 'c']
   description: 'C.'
   kind: param
+  key: 'param'
   arg_name: 'c'
   type_name: "{'x', 'y'}"
   is_optional: True

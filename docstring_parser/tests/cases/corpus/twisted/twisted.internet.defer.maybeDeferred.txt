@@ -46,29 +46,29 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: epydoc
 - DocstringParam
-  args: ['param', 'f']
   description: 'The callable to invoke'
   kind: param
+  key: 'param'
   arg_name: 'f'
   is_optional: False
 - DocstringParam
-  args: ['param', 'args']
   description: 'The arguments to pass to C{f}'
   kind: param
+  key: 'param'
   arg_name: 'args'
   is_optional: False
 - DocstringParam
-  args: ['param', 'kwargs']
   description: 'The keyword arguments to pass to C{f}'
   kind: param
+  key: 'param'
   arg_name: 'kwargs'
   is_optional: False
 - DocstringReturns
-  args: ['return']
   description: |
     The result of the function call, wrapped in a L{Deferred} if
     necessary.
   kind: returns
+  key: 'return'
   is_generator: False
 === detect
 epydoc

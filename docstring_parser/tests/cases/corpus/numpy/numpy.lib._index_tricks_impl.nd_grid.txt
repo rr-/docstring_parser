@@ -53,15 +53,14 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'sparse']
   description: 'Whether the grid is sparse or not. Default is False.'
   kind: param
+  key: 'param'
   arg_name: 'sparse'
   type_name: 'bool'
   is_optional: True
   default: 'False'
 - DocstringMeta
-  args: ['notes']
   description: |
     Two instances of `nd_grid` are made available in the NumPy namespace,
     `mgrid` and `ogrid`, approximately defined as::
@@ -72,6 +71,7 @@ style: numpydoc
     Users should use these pre-defined instances instead of using `nd_grid`
     directly.
   kind: text
+  key: 'notes'
 === detect
 numpydoc
 === compose numpydoc

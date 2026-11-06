@@ -79,61 +79,60 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'obj']
   kind: param
+  key: 'param'
   arg_name: 'obj'
   type_name: 'pandas object'
   is_optional: False
 - DocstringParam
-  args: ['param', 'level']
   description: 'Level of MultiIndex'
   kind: param
+  key: 'param'
   arg_name: 'level'
   type_name: 'int'
   is_optional: True
   default: 'None'
 - DocstringParam
-  args: ['param', 'groupings']
   description: 'Most users should ignore this'
   kind: param
+  key: 'param'
   arg_name: 'groupings'
   type_name: 'list of Grouping objects'
   is_optional: False
 - DocstringParam
-  args: ['param', 'exclusions']
   description: 'List of columns to exclude'
   kind: param
+  key: 'param'
   arg_name: 'exclusions'
   type_name: 'array-like'
   is_optional: True
 - DocstringParam
-  args: ['param', 'name']
   description: 'Most users should ignore this'
   kind: param
+  key: 'param'
   arg_name: 'name'
   type_name: 'str'
   is_optional: False
 - DocstringReturns
-  args: ['returns']
   kind: returns
+  key: 'returns'
   type_name: '**Attributes**'
   is_generator: False
 - DocstringReturns
-  args: ['returns']
   description: '{group name -> group labels}'
   kind: returns
+  key: 'returns'
   type_name: 'dict'
   is_generator: False
   return_name: 'groups'
 - DocstringReturns
-  args: ['returns']
   description: 'Number of groups'
   kind: returns
+  key: 'returns'
   type_name: 'int'
   is_generator: False
   return_name: 'len(grouped)'
 - DocstringMeta
-  args: ['notes']
   description: |
     After grouping, see aggregate, apply, and transform functions. Here are
     some other brief notes about usage. When grouping by multiple groups, the
@@ -167,6 +166,7 @@ style: numpydoc
     See the online documentation for full exposition on these topics and much
     more
   kind: text
+  key: 'notes'
 === detect
 numpydoc
 === compose numpydoc

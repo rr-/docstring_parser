@@ -27,29 +27,29 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringMeta
-  args: ['meth']
   description: '`~flask.Flask.redirect` method, otherwise it will use'
   kind: text
+  key: 'meth'
 - DocstringMeta
-  args: ['func']
   description: '`werkzeug.utils.redirect`.'
   kind: text
+  key: 'func'
 - DocstringParam
-  args: ['param', 'location']
   description: 'The URL to redirect to.'
   kind: param
+  key: 'param'
   arg_name: 'location'
 - DocstringParam
-  args: ['param', 'code']
   description: 'The status code for the redirect.'
   kind: param
+  key: 'param'
   arg_name: 'code'
 - DocstringParam
-  args: ['param', 'Response']
   description: |
     The response class to use. Not used when
     ``current_app`` is active, which uses ``app.response_class``.
   kind: param
+  key: 'param'
   arg_name: 'Response'
 === detect
 rest

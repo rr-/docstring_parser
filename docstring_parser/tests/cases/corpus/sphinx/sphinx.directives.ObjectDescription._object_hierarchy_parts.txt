@@ -20,9 +20,9 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringMeta
-  args: ['py']
   description: 'meth:`_toc_entry_name` method.'
   kind: text
+  key: 'py'
 === detect
 rest
 === compose rest

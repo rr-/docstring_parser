@@ -89,7 +89,7 @@ def _join_wrapped(text: str) -> str:
     return joined
 
 
-def _split_typed_arg(text: str) -> T.Optional[T.Tuple[str, str]]:
+def _split_typed_arg(text: str) -> T.Optional[T.Tuple[str, str, str]]:
     """Split a parameter name and the type in parentheses after it.
 
     The type ends at the parenthesis matching the opening one, found in a
@@ -115,7 +115,7 @@ def _split_typed_arg(text: str) -> T.Optional[T.Tuple[str, str]]:
     type_name = text[opening + 1 : closing].strip()
     if not type_name:
         return None
-    return name, type_name
+    return name, type_name, text[closing + 1 :].strip()
 
 
 # The kinds of param that section keys other than ``param`` give.
@@ -198,22 +198,22 @@ class GoogleParser:
     def _build_single_meta(section: Section, desc: str) -> DocstringMeta:
         if section.key in RETURNS_KEYWORDS | YIELDS_KEYWORDS:
             return DocstringReturns(
-                args=[section.key],
+                key=section.key,
                 description=desc,
                 type_name=None,
                 is_generator=section.key in YIELDS_KEYWORDS,
             )
         if section.key in RAISES_KEYWORDS:
             return DocstringRaises(
-                args=[section.key], description=desc, type_name=None
+                description=desc, type_name=None, key=section.key
             )
         if section.key in EXAMPLES_KEYWORDS:
             return DocstringExample(
-                args=[section.key], snippet=None, description=desc
+                snippet=None, description=desc, key=section.key
             )
         if section.key in PARAM_KEYWORDS:
             raise ParseError("Expected paramenter name.")
-        return DocstringMeta(args=[section.key], description=desc)
+        return DocstringMeta(desc, section.key)
 
     @staticmethod
     def _build_multi_meta(
@@ -222,7 +222,7 @@ class GoogleParser:
         if section.key in PARAM_KEYWORDS:
             typed_arg = _split_typed_arg(before)
             if typed_arg:
-                arg_name, type_name = typed_arg
+                arg_name, type_name, extra = typed_arg
                 if type_name.endswith(", optional"):
                     is_optional = True
                     type_name = type_name[:-10]
@@ -232,14 +232,14 @@ class GoogleParser:
                 else:
                     is_optional = False
             else:
-                arg_name, type_name = before, None
+                arg_name, type_name, extra = before, None, ""
                 is_optional = None
 
             match = GOOGLE_ARG_DESC_REGEX.match(desc)
             default = match.group(1) if match else None
 
-            return DocstringParam(
-                args=[section.key, before],
+            param = DocstringParam(
+                key=section.key,
                 description=desc,
                 arg_name=arg_name,
                 type_name=type_name,
@@ -247,18 +247,20 @@ class GoogleParser:
                 default=default,
                 kind=_PARAM_KINDS.get(section.key, Kind.PARAM),
             )
+            param.extra = extra or None
+            return param
         if section.key in RETURNS_KEYWORDS | YIELDS_KEYWORDS:
             return DocstringReturns(
-                args=[section.key, before],
+                key=section.key,
                 description=desc,
                 type_name=before,
                 is_generator=section.key in YIELDS_KEYWORDS,
             )
         if section.key in RAISES_KEYWORDS:
             return DocstringRaises(
-                args=[section.key, before], description=desc, type_name=before
+                description=desc, type_name=before, key=section.key
             )
-        return DocstringMeta(args=[section.key, before], description=desc)
+        return DocstringMeta(desc, section.key, before)
 
     def add_section(self, section: Section):
         """Add or replace a section.
@@ -443,7 +445,8 @@ def compose(
             return
 
         if one.type_name and head:
-            head += f" ({one.type_name}{optional}):"
+            head += f" ({one.type_name}{optional})"
+            head += f" {one.extra}:" if one.extra else ":"
         elif one.type_name:
             head += f"{one.type_name}{optional}:"
         else:
@@ -481,7 +484,7 @@ def compose(
         process_sect(title, items)
 
     for meta in rest:
-        parts.append(meta.args[0].replace("_", "").title() + ":")
+        parts.append((meta.key or "").replace("_", "").title() + ":")
         if meta.description:
             lines = [indent + line for line in meta.description.splitlines()]
             parts.append("\n".join(lines))

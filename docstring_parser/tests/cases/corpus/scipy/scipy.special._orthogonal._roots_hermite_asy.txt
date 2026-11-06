@@ -58,32 +58,31 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'n']
   description: 'quadrature order'
   kind: param
+  key: 'param'
   arg_name: 'n'
   type_name: 'int'
   is_optional: False
 - DocstringReturns
-  args: ['returns']
   description: 'Quadrature nodes'
   kind: returns
+  key: 'returns'
   type_name: 'ndarray'
   is_generator: False
   return_name: 'nodes'
 - DocstringReturns
-  args: ['returns']
   description: 'Quadrature weights'
   kind: returns
+  key: 'returns'
   type_name: 'ndarray'
   is_generator: False
   return_name: 'weights'
 - DocstringMeta
-  args: ['see_also']
   description: 'roots_hermite'
   kind: text
+  key: 'see_also'
 - DocstringMeta
-  args: ['references']
   description: |
     .. [townsend.trogdon.olver-2014]
        Townsend, A. and Trogdon, T. and Olver, S. (2014)
@@ -97,6 +96,7 @@ style: numpydoc
        IMA Journal of Numerical Analysis
        :doi:`10.1093/imanum/drv002`.
   kind: text
+  key: 'references'
 === detect
 numpydoc
 === compose numpydoc

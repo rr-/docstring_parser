@@ -85,76 +85,76 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'weights']
   description: |
     Weights describing the relative importance of the transforms. If
     None (default), then all values in `weights` are assumed to be
     equal. If given, the shape of `weights` must be broadcastable to
     the transform shape. Weights must be non-negative.
   kind: param
+  key: 'param'
   arg_name: 'weights'
   type_name: 'array_like shape (..., N)'
   is_optional: True
 - DocstringParam
-  args: ['param', 'axis']
   description: |
     Axis or axes along which the means are computed. The default is to
     compute the mean of all transforms.
   kind: param
+  key: 'param'
   arg_name: 'axis'
   type_name: 'None, int, or tuple of ints'
   is_optional: True
   default: 'to'
 - DocstringReturns
-  args: ['returns']
   description: |
     Single transform containing the mean of the transforms in the
     current instance.
   kind: returns
+  key: 'returns'
   type_name: '`RigidTransform` instance'
   is_generator: False
   return_name: 'mean'
 - DocstringMeta
-  args: ['references']
   description: |
     .. [1] Hartley, Richard, et al.,
             "Rotation Averaging", International Journal of Computer Vision
             103, 2013, pp. 267-305.
   kind: text
+  key: 'references'
 - DocstringExample
-  args: ['examples']
   description: |
     
     The mean of a set of transforms is the same as the mean of the
     translation and rotation components:
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> import numpy as np
     >>> from scipy.spatial.transform import RigidTransform as Tf
     >>> from scipy.spatial.transform import Rotation as R
     >>> rng = np.random.default_rng(seed=123)
 - DocstringExample
-  args: ['examples']
   description: |
     array([[ 0.61593485, -0.74508342,  0.25588075,  0.66999034],
            [-0.59353615, -0.65246765, -0.47116962,  0.25481794],
            [ 0.51801458,  0.13833531, -0.84411151,  0.52429339],
            [0., 0., 0., 1.]])
   kind: examples
+  key: 'examples'
   snippet: |
     >>> t = rng.random((4, 3))
     >>> r = R.random(4, rng=rng)
     >>> tf = Tf.from_components(t, r)
     >>> tf.mean().as_matrix()
 - DocstringExample
-  args: ['examples']
   description: |
     array([[ 0.61593485, -0.74508342,  0.25588075,  0.66999034],
            [-0.59353615, -0.65246765, -0.47116962,  0.25481794],
            [ 0.51801458,  0.13833531, -0.84411151,  0.52429339],
            [0., 0., 0., 1.]])
   kind: examples
+  key: 'examples'
   snippet: '>>> Tf.from_components(t.mean(axis=0), r.mean()).as_matrix()'
 === detect
 numpydoc

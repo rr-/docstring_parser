@@ -12,9 +12,9 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringExample
-  args: ['examples']
   description: '>>> burrito_count = IntPrompt.ask("How many burritos do you want to order")'
   kind: examples
+  key: 'examples'
 === detect
 google
 === compose google

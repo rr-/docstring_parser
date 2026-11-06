@@ -37,11 +37,10 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'None']
   kind: param
+  key: 'param'
   arg_name: 'None'
 - DocstringExample
-  args: ['examples']
   description: |
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
@@ -52,6 +51,7 @@ style: numpydoc
         raise LinAlgError('Singular matrix')
     numpy.linalg.LinAlgError: Singular matrix
   kind: examples
+  key: 'examples'
   snippet: |
     >>> from numpy import linalg as LA
     >>> LA.inv(np.zeros((2,2)))

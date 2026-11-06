@@ -43,18 +43,18 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 - DocstringMeta
-  args: ['func']
   description: '`dump_header` function.'
   kind: text
+  key: 'func'
 - DocstringParam
-  args: ['param', 'value']
   description: 'a string with a list header.'
   kind: param
+  key: 'param'
   arg_name: 'value'
 - DocstringReturns
-  args: ['return']
   description: ':class:`list`'
   kind: returns
+  key: 'return'
   type_name: 'list'
   is_generator: False
 === detect

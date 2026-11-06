@@ -18,22 +18,22 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'name (str)']
   description: 'The name of a style or a style definition.'
   kind: param
+  key: 'param'
   arg_name: 'name'
   type_name: 'str'
   is_optional: False
 - DocstringReturns
-  args: ['returns', 'Style']
   description: 'A Style object.'
   kind: returns
+  key: 'returns'
   type_name: 'Style'
   is_generator: False
 - DocstringRaises
-  args: ['raises', 'MissingStyle']
   description: 'If no style could be parsed from name.'
   kind: raises
+  key: 'raises'
   type_name: 'MissingStyle'
 === detect
 google

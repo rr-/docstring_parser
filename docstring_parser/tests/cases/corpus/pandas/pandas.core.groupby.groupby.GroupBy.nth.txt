@@ -78,59 +78,58 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 - DocstringDeprecated
-  args: ['deprecation']
   description: |
     Index notation (``g.nth[n]``) is deprecated in favor of calling
     ``g.nth(n)`` and will be removed in a future version of pandas.
   kind: deprecation
+  key: 'deprecation'
   version: '3.1.0'
 - DocstringReturns
-  args: ['returns']
   description: 'N-th value within each group.'
   kind: returns
+  key: 'returns'
   type_name: 'Series or DataFrame'
   is_generator: False
 - DocstringMeta
-  args: ['see_also']
   description: |
     Series.nth : Apply function nth to a Series.
     DataFrame.nth : Apply function nth to each row or column of a DataFrame.
   kind: text
+  key: 'see_also'
 - DocstringExample
-  args: ['examples']
   description: |
     ...     {"A": [1, 1, 2, 1, 2], "B": [np.nan, 2, 3, 4, 5]}, columns=["A", "B"]
     ... )
   kind: examples
+  key: 'examples'
   snippet: '>>> df = pd.DataFrame('
 - DocstringExample
-  args: ['examples']
   description: |
        A   B
     0  1 NaN
     2  2 3.0
   kind: examples
+  key: 'examples'
   snippet: |
     >>> g = df.groupby("A")
     >>> g.nth(0)
 - DocstringExample
-  args: ['examples']
   description: |
        A   B
     1  1 2.0
     4  2 5.0
   kind: examples
+  key: 'examples'
   snippet: '>>> g.nth(1)'
 - DocstringExample
-  args: ['examples']
   description: |
        A   B
     3  1 4.0
     4  2 5.0
   kind: examples
+  key: 'examples'
   snippet: '>>> g.nth(-1)'
 - DocstringExample
-  args: ['examples']
   description: |
        A   B
     0  1 NaN
@@ -138,9 +137,9 @@ style: numpydoc
     2  2 3.0
     4  2 5.0
   kind: examples
+  key: 'examples'
   snippet: '>>> g.nth([0, 1])'
 - DocstringExample
-  args: ['examples']
   description: |
        A   B
     0  1 NaN
@@ -150,9 +149,9 @@ style: numpydoc
     Specifying `dropna` allows ignoring ``NaN`` values
     
   kind: examples
+  key: 'examples'
   snippet: '>>> g.nth(slice(None, -1))'
 - DocstringExample
-  args: ['examples']
   description: |
        A   B
     1  1 2.0
@@ -162,14 +161,15 @@ style: numpydoc
     empty DataFrame is returned
     
   kind: examples
+  key: 'examples'
   snippet: '>>> g.nth(0, dropna="any")'
 - DocstringExample
-  args: ['examples']
   description: |
     Empty DataFrame
     Columns: [A, B]
     Index: []
   kind: examples
+  key: 'examples'
   snippet: '>>> g.nth(3, dropna="any")'
 === detect
 numpydoc

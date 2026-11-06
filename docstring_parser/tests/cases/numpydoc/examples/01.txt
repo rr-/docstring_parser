@@ -12,9 +12,9 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: numpydoc
 - DocstringExample
-  args: ['examples']
   description: |
     long example
     
     more here
   kind: examples
+  key: 'examples'

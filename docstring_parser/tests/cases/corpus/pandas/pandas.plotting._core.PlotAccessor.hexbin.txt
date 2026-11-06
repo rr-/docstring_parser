@@ -110,38 +110,37 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'x']
   description: 'The column label or position for x points.'
   kind: param
+  key: 'param'
   arg_name: 'x'
   type_name: 'int or str'
   is_optional: False
 - DocstringParam
-  args: ['param', 'y']
   description: 'The column label or position for y points.'
   kind: param
+  key: 'param'
   arg_name: 'y'
   type_name: 'int or str'
   is_optional: False
 - DocstringParam
-  args: ['param', 'C']
   description: 'The column label or position for the value of `(x, y)` point.'
   kind: param
+  key: 'param'
   arg_name: 'C'
   type_name: 'int or str'
   is_optional: True
 - DocstringParam
-  args: ['param', 'reduce_C_function']
   description: |
     Function of one argument that reduces all the values in a bin to
     a single number (e.g. `np.mean`, `np.max`, `np.sum`, `np.std`).
   kind: param
+  key: 'param'
   arg_name: 'reduce_C_function'
   type_name: 'callable'
   is_optional: True
   default: '`np.mean`'
 - DocstringParam
-  args: ['param', 'gridsize']
   description: |
     The number of hexagons in the x-direction.
     The corresponding number of hexagons in the y-direction is
@@ -154,33 +153,33 @@ style: numpydoc
     and the axis limits. To control the area covered by the
     hexagons, pass matplotlib's ``extent`` keyword via ``**kwargs``.
   kind: param
+  key: 'param'
   arg_name: 'gridsize'
   type_name: 'int or tuple of (int, int)'
   is_optional: True
   default: '100'
 - DocstringParam
-  args: ['param', '**kwargs']
   description: |
     Additional keyword arguments, such as ``ax``, ``figsize``,
     ``title`` and ``grid``, are documented in
     :meth:`DataFrame.plot`.
   kind: param
+  key: 'param'
   arg_name: '**kwargs'
 - DocstringReturns
-  args: ['returns']
   description: 'A one-element ndarray is returned when ``subplots=True``.'
   kind: returns
+  key: 'returns'
   type_name: 'matplotlib.axes.Axes or numpy.ndarray of them'
   is_generator: False
 - DocstringMeta
-  args: ['see_also']
   description: |
     DataFrame.plot : Make plots of a DataFrame.
     matplotlib.pyplot.hexbin : Hexagonal binning plot using matplotlib,
         the matplotlib function that is used under the hood.
   kind: text
+  key: 'see_also'
 - DocstringExample
-  args: ['examples']
   description: |
     The following examples are generated with random data from
     a normal distribution.
@@ -221,6 +220,7 @@ style: numpydoc
         ...     cmap="viridis",
         ... )
   kind: examples
+  key: 'examples'
 === detect
 numpydoc
 === compose numpydoc

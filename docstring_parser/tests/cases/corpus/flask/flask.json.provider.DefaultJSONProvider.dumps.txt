@@ -18,18 +18,18 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 - DocstringMeta
-  args: ['attr']
   description: '`ensure_ascii`, and :attr:`sort_keys` attributes.'
   kind: text
+  key: 'attr'
 - DocstringParam
-  args: ['param', 'obj']
   description: 'The data to serialize.'
   kind: param
+  key: 'param'
   arg_name: 'obj'
 - DocstringParam
-  args: ['param', 'kwargs']
   description: 'Passed to :func:`json.dumps`.'
   kind: param
+  key: 'param'
   arg_name: 'kwargs'
 === detect
 rest

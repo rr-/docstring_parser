@@ -9,6 +9,6 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: epydoc
 - DocstringMeta
-  args: ['note']
   description: 'return: detail'
   kind: text
+  key: 'note'

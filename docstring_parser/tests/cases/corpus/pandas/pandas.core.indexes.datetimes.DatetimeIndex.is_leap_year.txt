@@ -32,17 +32,17 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringMeta
-  args: ['see_also']
   description: |
     DatetimeIndex.is_year_end : Indicate whether the date is the last
         day of the year.
     DatetimeIndex.is_year_start : Indicate whether the date is the first
         day of a year.
   kind: text
+  key: 'see_also'
 - DocstringExample
-  args: ['examples']
   description: 'array([ True, False, False])'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> idx = pd.date_range("2012-01-01", "2015-01-01", freq="YE")
     >>> idx.is_leap_year

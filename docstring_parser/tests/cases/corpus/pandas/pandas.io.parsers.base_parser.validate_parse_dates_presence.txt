@@ -31,26 +31,26 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'columns']
   description: 'List of names of the dataframe.'
   kind: param
+  key: 'param'
   arg_name: 'columns'
   type_name: 'list'
   is_optional: False
 - DocstringReturns
-  args: ['returns']
   kind: returns
+  key: 'returns'
   type_name: 'The names of the columns which will get parsed later if a list'
   is_generator: False
 - DocstringReturns
-  args: ['returns']
   kind: returns
+  key: 'returns'
   type_name: 'is given as specification.'
   is_generator: False
 - DocstringRaises
-  args: ['raises', 'ValueError']
   description: 'If column to parse_date is not in dataframe.'
   kind: raises
+  key: 'raises'
   type_name: 'ValueError'
 === detect
 numpydoc

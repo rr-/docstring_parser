@@ -13,13 +13,13 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 - DocstringMeta
-  args: ['exc']
   description: '`~requests.exceptions.ConnectTimeout` and'
   kind: text
+  key: 'exc'
 - DocstringMeta
-  args: ['exc']
   description: '`~requests.exceptions.ReadTimeout` errors.'
   kind: text
+  key: 'exc'
 === detect
 rest
 === compose rest

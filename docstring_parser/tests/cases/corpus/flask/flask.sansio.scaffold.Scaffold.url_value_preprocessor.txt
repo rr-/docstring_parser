@@ -38,9 +38,9 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringMeta
-  args: ['meth']
   description: '`before_request` functions.'
   kind: text
+  key: 'meth'
 === detect
 rest
 === compose rest

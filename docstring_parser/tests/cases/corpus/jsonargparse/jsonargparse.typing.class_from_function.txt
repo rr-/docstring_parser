@@ -13,19 +13,19 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'func']
   description: 'A function that returns an instance of a class.'
   kind: param
+  key: 'param'
   arg_name: 'func'
 - DocstringParam
-  args: ['param', 'func_return']
   description: 'The return type of the function. Required if func does not have a return type annotation.'
   kind: param
+  key: 'param'
   arg_name: 'func_return'
 - DocstringParam
-  args: ['param', 'name']
   description: 'The name of the class. Defaults to function name suffixed with ``_class``.'
   kind: param
+  key: 'param'
   arg_name: 'name'
   default: 'function name suffixed with ``_class``'
 === detect

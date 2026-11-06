@@ -14,12 +14,12 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringParam
-  args: ['param', 'a']
   description: 'first'
   kind: param
+  key: 'param'
   arg_name: 'a'
 - DocstringReturns
-  args: ['returns']
   description: 'result'
   kind: returns
+  key: 'returns'
   is_generator: False

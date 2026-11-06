@@ -29,9 +29,9 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringParam
-  args: ['param', 'a']
   description: 'x'
   kind: param
+  key: 'param'
   arg_name: 'a'
 === parse google
 short_description: 'Sum.'
@@ -40,9 +40,9 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: google
 - DocstringParam
-  args: ['param', 'a']
   description: 'x'
   kind: param
+  key: 'param'
   arg_name: 'a'
 === parse epydoc
 short_description: 'Sum.'
@@ -55,7 +55,6 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: epydoc
 - DocstringParam
-  args: ['param', 'a']
   description: |
     x
     Parameters
@@ -63,6 +62,7 @@ style: epydoc
     a
         x
   kind: param
+  key: 'param'
   arg_name: 'a'
   is_optional: False
 === parse numpydoc
@@ -78,7 +78,7 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'a']
   description: 'x'
   kind: param
+  key: 'param'
   arg_name: 'a'

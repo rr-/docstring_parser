@@ -76,92 +76,92 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'a']
   description: 'Real symmetric or complex hermetian matrix to be pseudo-inverted'
   kind: param
+  key: 'param'
   arg_name: 'a'
   type_name: '(N, N) array_like'
   is_optional: False
 - DocstringParam
-  args: ['param', 'atol']
   description: |
     Absolute threshold term, default value is 0.
     
     .. versionadded:: 1.7.0
   kind: param
+  key: 'param'
   arg_name: 'atol'
   type_name: 'float'
   is_optional: True
 - DocstringParam
-  args: ['param', 'rtol']
   description: |
     Relative threshold term, default value is ``N * eps`` where
     ``eps`` is the machine precision value of the datatype of ``a``.
     
     .. versionadded:: 1.7.0
   kind: param
+  key: 'param'
   arg_name: 'rtol'
   type_name: 'float'
   is_optional: True
 - DocstringParam
-  args: ['param', 'lower']
   description: |
     Whether the pertinent array data is taken from the lower or upper
     triangle of `a`. (Default: lower)
   kind: param
+  key: 'param'
   arg_name: 'lower'
   type_name: 'bool'
   is_optional: True
 - DocstringParam
-  args: ['param', 'return_rank']
   description: 'If True, return the effective rank of the matrix.'
   kind: param
+  key: 'param'
   arg_name: 'return_rank'
   type_name: 'bool'
   is_optional: True
 - DocstringParam
-  args: ['param', 'check_finite']
   description: |
     Whether to check that the input matrix contains only finite numbers.
     Disabling may give a performance gain, but may result in problems
     (crashes, non-termination) if the inputs do contain infinities or NaNs.
   kind: param
+  key: 'param'
   arg_name: 'check_finite'
   type_name: 'bool'
   is_optional: True
 - DocstringReturns
-  args: ['returns']
   description: 'The pseudo-inverse of matrix `a`.'
   kind: returns
+  key: 'returns'
   type_name: '(N, N) ndarray'
   is_generator: False
   return_name: 'B'
 - DocstringReturns
-  args: ['returns']
   description: 'The effective rank of the matrix.  Returned if `return_rank` is True.'
   kind: returns
+  key: 'returns'
   type_name: 'int'
   is_generator: False
   return_name: 'rank'
 - DocstringRaises
-  args: ['raises', 'LinAlgError']
   description: 'If eigenvalue algorithm does not converge.'
   kind: raises
+  key: 'raises'
   type_name: 'LinAlgError'
 - DocstringMeta
-  args: ['see_also']
   description: 'pinv : Moore-Penrose pseudoinverse of a matrix.'
   kind: text
+  key: 'see_also'
 - DocstringExample
-  args: ['examples']
   description: |
     For a more detailed example see `pinv`.
     
   kind: examples
+  key: 'examples'
 - DocstringExample
-  args: ['examples']
   description: 'True'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> import numpy as np
     >>> from scipy.linalg import pinvh
@@ -171,9 +171,9 @@ style: numpydoc
     >>> B = pinvh(a)
     >>> np.allclose(a, a @ B @ a)
 - DocstringExample
-  args: ['examples']
   description: 'True'
   kind: examples
+  key: 'examples'
   snippet: '>>> np.allclose(B, B @ a @ B)'
 === detect
 numpydoc

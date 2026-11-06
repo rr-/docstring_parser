@@ -88,23 +88,22 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'begindates']
   description: 'The array of the first dates for counting.'
   kind: param
+  key: 'param'
   arg_name: 'begindates'
   type_name: 'array_like of datetime64[D]'
   is_optional: False
 - DocstringParam
-  args: ['param', 'enddates']
   description: |
     The array of the end dates for counting, which are excluded
     from the count themselves.
   kind: param
+  key: 'param'
   arg_name: 'enddates'
   type_name: 'array_like of datetime64[D]'
   is_optional: False
 - DocstringParam
-  args: ['param', 'weekmask']
   description: |
     A seven-element array indicating which of Monday through Sunday are
     valid days. May be specified as a length-seven list or array, like
@@ -113,76 +112,77 @@ style: numpydoc
     weekdays, optionally separated by white space. Valid abbreviations
     are: Mon Tue Wed Thu Fri Sat Sun
   kind: param
+  key: 'param'
   arg_name: 'weekmask'
   type_name: 'str or array_like of bool'
   is_optional: True
 - DocstringParam
-  args: ['param', 'holidays']
   description: |
     An array of dates to consider as invalid dates.  They may be
     specified in any order, and NaT (not-a-time) dates are ignored.
     This list is saved in a normalized form that is suited for
     fast calculations of valid days.
   kind: param
+  key: 'param'
   arg_name: 'holidays'
   type_name: 'array_like of datetime64[D]'
   is_optional: True
 - DocstringParam
-  args: ['param', 'busdaycal']
   description: |
     A `busdaycalendar` object which specifies the valid days. If this
     parameter is provided, neither weekmask nor holidays may be
     provided.
   kind: param
+  key: 'param'
   arg_name: 'busdaycal'
   type_name: 'busdaycalendar'
   is_optional: True
 - DocstringParam
-  args: ['param', 'out']
   description: 'If provided, this array is filled with the result.'
   kind: param
+  key: 'param'
   arg_name: 'out'
   type_name: 'array of int'
   is_optional: True
 - DocstringReturns
-  args: ['returns']
   description: |
     An array with a shape from broadcasting ``begindates`` and ``enddates``
     together, containing the number of valid days between
     the begin and end dates.
   kind: returns
+  key: 'returns'
   type_name: 'array of int'
   is_generator: False
   return_name: 'out'
 - DocstringMeta
-  args: ['see_also']
   description: |
     busdaycalendar : An object that specifies a custom set of valid days.
     is_busday : Returns a boolean array indicating valid days.
     busday_offset : Applies an offset counted in valid days.
   kind: text
+  key: 'see_also'
 - DocstringExample
-  args: ['examples']
   description: |
     ... np.busday_count('2011-01', '2011-02')
     21
   kind: examples
+  key: 'examples'
   snippet: |
     >>> import numpy as np
     >>> # Number of weekdays in January 2011
 - DocstringExample
-  args: ['examples']
   description: '260'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> # Number of weekdays in 2011
     >>> np.busday_count('2011', '2012')
 - DocstringExample
-  args: ['examples']
   description: |
     ... np.busday_count('2011', '2012', weekmask='Sat')
     53
   kind: examples
+  key: 'examples'
   snippet: '>>> # Number of Saturdays in 2011'
 === detect
 numpydoc

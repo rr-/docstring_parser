@@ -11,9 +11,9 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'ext_vars']
   description: 'External variables. Values can be strings or any other basic type.'
   kind: param
+  key: 'param'
   arg_name: 'ext_vars'
 === detect
 google

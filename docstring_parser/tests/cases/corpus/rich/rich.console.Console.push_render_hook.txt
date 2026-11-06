@@ -11,9 +11,9 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'hook (RenderHook)']
   description: 'Render hook instance.'
   kind: param
+  key: 'param'
   arg_name: 'hook'
   type_name: 'RenderHook'
   is_optional: False

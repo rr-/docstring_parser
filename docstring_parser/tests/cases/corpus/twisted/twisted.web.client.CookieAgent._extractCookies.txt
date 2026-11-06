@@ -14,17 +14,17 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: epydoc
 - DocstringParam
-  args: ['param', 'response']
   description: 'the Twisted Web response that we are processing.'
   kind: param
+  key: 'param'
   arg_name: 'response'
   is_optional: False
 - DocstringParam
-  args: ['param', 'request']
   description: |
     A L{_FakeStdlibRequest} wrapping our Twisted request,
     for L{CookieJar} to extract cookies from.
   kind: param
+  key: 'param'
   arg_name: 'request'
   is_optional: False
 === detect

@@ -21,14 +21,14 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: epydoc
 - DocstringParam
-  args: ['type', 'test']
   kind: param
+  key: 'type'
   arg_name: 'test'
   type_name: 'L{pyunit.TestCase}'
   is_optional: False
 - DocstringParam
-  args: ['type', 'todo']
   kind: param
+  key: 'type'
   arg_name: 'todo'
   type_name: |
     L{unittest.Todo}, or L{None}, in which case a default todo

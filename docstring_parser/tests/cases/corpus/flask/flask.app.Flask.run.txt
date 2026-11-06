@@ -99,43 +99,43 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringParam
-  args: ['param', 'host']
   description: |
     the hostname to listen on. Set this to ``'0.0.0.0'`` to
     have the server available externally as well. Defaults to
     ``'127.0.0.1'`` or the host in the ``SERVER_NAME`` config variable
     if present.
   kind: param
+  key: 'param'
   arg_name: 'host'
 - DocstringParam
-  args: ['param', 'port']
   description: |
     the port of the webserver. Defaults to ``5000`` or the
     port defined in the ``SERVER_NAME`` config variable if present.
   kind: param
+  key: 'param'
   arg_name: 'port'
 - DocstringParam
-  args: ['param', 'debug']
   description: |
     if given, enable or disable debug mode. See
     :attr:`debug`.
   kind: param
+  key: 'param'
   arg_name: 'debug'
 - DocstringParam
-  args: ['param', 'load_dotenv']
   description: |
     Load the nearest :file:`.env` and :file:`.flaskenv`
     files to set environment variables. Will also change the working
     directory to the directory containing the first file found.
   kind: param
+  key: 'param'
   arg_name: 'load_dotenv'
 - DocstringParam
-  args: ['param', 'options']
   description: |
     the options to be forwarded to the underlying Werkzeug
     server. See :func:`werkzeug.serving.run_simple` for more
     information.
   kind: param
+  key: 'param'
   arg_name: 'options'
 === detect
 rest

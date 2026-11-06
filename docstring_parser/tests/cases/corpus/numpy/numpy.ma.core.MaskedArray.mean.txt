@@ -37,27 +37,27 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringMeta
-  args: ['see_also']
   description: |
     numpy.ndarray.mean : corresponding function for ndarrays
     numpy.mean : Equivalent function
     numpy.ma.average : Weighted average.
   kind: text
+  key: 'see_also'
 - DocstringExample
-  args: ['examples']
   description: |
     masked_array(data=[1, 2, --],
                  mask=[False, False,  True],
            fill_value=999999)
   kind: examples
+  key: 'examples'
   snippet: |
     >>> import numpy as np
     >>> a = np.ma.array([1,2,3], mask=[False, False, True])
     >>> a
 - DocstringExample
-  args: ['examples']
   description: '1.5'
   kind: examples
+  key: 'examples'
   snippet: '>>> a.mean()'
 === detect
 numpydoc

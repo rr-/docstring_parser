@@ -29,61 +29,61 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: google
 - DocstringParam
-  args: ['param', 'class_type']
   description: 'Class which includes the method.'
   kind: param
+  key: 'param'
   arg_name: 'class_type'
 - DocstringParam
-  args: ['param', 'method_name']
   description: 'Name of the method for which to add arguments.'
   kind: param
+  key: 'param'
   arg_name: 'method_name'
 - DocstringParam
-  args: ['param', 'nested_key']
   description: 'Key for nested namespace.'
   kind: param
+  key: 'param'
   arg_name: 'nested_key'
 - DocstringParam
-  args: ['param', 'as_group']
   description: 'Whether arguments should be added to a new argument group.'
   kind: param
+  key: 'param'
   arg_name: 'as_group'
 - DocstringParam
-  args: ['param', 'as_positional']
   description: 'Whether to add required parameters as positional arguments.'
   kind: param
+  key: 'param'
   arg_name: 'as_positional'
 - DocstringParam
-  args: ['param', 'skip']
   description: 'Names of parameters or number of positionals that should be skipped.'
   kind: param
+  key: 'param'
   arg_name: 'skip'
 - DocstringParam
-  args: ['param', 'fail_untyped']
   description: |
     Whether to raise an exception for parameters that don't have a type:
     True for the required ones, "all" for all of them, False for none.
   kind: param
+  key: 'param'
   arg_name: 'fail_untyped'
 - DocstringParam
-  args: ['param', 'sub_configs']
   description: 'Whether subclass type hints should be loadable from inner config file.'
   kind: param
+  key: 'param'
   arg_name: 'sub_configs'
 - DocstringReturns
-  args: ['returns']
   description: 'The list of arguments added.'
   kind: returns
+  key: 'returns'
   is_generator: False
 - DocstringRaises
-  args: ['raises', 'ValueError']
   description: 'When not given a class or the name of a method of the class.'
   kind: raises
+  key: 'raises'
   type_name: 'ValueError'
 - DocstringRaises
-  args: ['raises', 'ValueError']
   description: 'When there are required parameters without at least one valid type.'
   kind: raises
+  key: 'raises'
   type_name: 'ValueError'
 === detect
 google

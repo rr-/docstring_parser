@@ -13,7 +13,7 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: numpydoc
 - DocstringRaises
-  args: ['raises', 'ValueError']
   description: 'description'
   kind: raises
+  key: 'raises'
   type_name: 'ValueError'

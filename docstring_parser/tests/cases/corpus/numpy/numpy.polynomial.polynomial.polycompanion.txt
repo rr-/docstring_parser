@@ -37,27 +37,27 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'c']
   description: |
     1-D array of polynomial coefficients ordered from low to high
     degree.
   kind: param
+  key: 'param'
   arg_name: 'c'
   type_name: 'array_like'
   is_optional: False
 - DocstringReturns
-  args: ['returns']
   description: 'Companion matrix of dimensions (deg, deg).'
   kind: returns
+  key: 'returns'
   type_name: 'ndarray'
   is_generator: False
   return_name: 'mat'
 - DocstringExample
-  args: ['examples']
   description: |
     array([[ 0.        , -0.33333333],
            [ 1.        , -0.66666667]])
   kind: examples
+  key: 'examples'
   snippet: |
     >>> from numpy.polynomial import polynomial as P
     >>> c = (1, 2, 3)

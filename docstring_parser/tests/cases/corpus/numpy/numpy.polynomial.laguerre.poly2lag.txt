@@ -51,35 +51,35 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'pol']
   description: '1-D array containing the polynomial coefficients'
   kind: param
+  key: 'param'
   arg_name: 'pol'
   type_name: 'array_like'
   is_optional: False
 - DocstringReturns
-  args: ['returns']
   description: |
     1-D array containing the coefficients of the equivalent Laguerre
     series.
   kind: returns
+  key: 'returns'
   type_name: 'ndarray'
   is_generator: False
   return_name: 'c'
 - DocstringMeta
-  args: ['see_also']
   description: 'lag2poly'
   kind: text
+  key: 'see_also'
 - DocstringMeta
-  args: ['notes']
   description: |
     The easy way to do conversions between polynomial basis sets
     is to use the convert method of a class instance.
   kind: text
+  key: 'notes'
 - DocstringExample
-  args: ['examples']
   description: 'array([ 23., -63.,  58., -18.])'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> import numpy as np
     >>> from numpy.polynomial.laguerre import poly2lag

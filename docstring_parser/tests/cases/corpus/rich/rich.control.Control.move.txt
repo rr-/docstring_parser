@@ -16,23 +16,23 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'x (int)']
   description: 'X offset.'
   kind: param
+  key: 'param'
   arg_name: 'x'
   type_name: 'int'
   is_optional: False
 - DocstringParam
-  args: ['param', 'y (int)']
   description: 'Y offset.'
   kind: param
+  key: 'param'
   arg_name: 'y'
   type_name: 'int'
   is_optional: False
 - DocstringReturns
-  args: ['returns', '~Control']
   description: 'Control object.'
   kind: returns
+  key: 'returns'
   type_name: '~Control'
   is_generator: False
 === detect

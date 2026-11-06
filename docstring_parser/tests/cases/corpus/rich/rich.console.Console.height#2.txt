@@ -11,9 +11,9 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'height (int)']
   description: 'new height.'
   kind: param
+  key: 'param'
   arg_name: 'height'
   type_name: 'int'
   is_optional: False

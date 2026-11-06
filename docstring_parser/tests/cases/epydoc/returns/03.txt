@@ -11,8 +11,8 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: epydoc
 - DocstringReturns
-  args: ['return']
   description: 'description'
   kind: returns
+  key: 'return'
   type_name: 'int'
   is_generator: False

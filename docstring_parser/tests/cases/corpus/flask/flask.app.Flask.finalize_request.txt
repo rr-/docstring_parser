@@ -27,9 +27,9 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: rest
 - DocstringMeta
-  args: ['internal']
   description: ''
   kind: text
+  key: 'internal'
 === detect
 rest
 === compose rest

@@ -74,49 +74,48 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'codes']
   description: 'New codes to apply.'
   kind: param
+  key: 'param'
   arg_name: 'codes'
   type_name: 'sequence or list of sequence'
   is_optional: False
 - DocstringParam
-  args: ['param', 'level']
   description: 'Level(s) to set (None for all levels).'
   kind: param
+  key: 'param'
   arg_name: 'level'
   type_name: 'int, level name, or sequence of int/level names (default None)'
   is_optional: False
 - DocstringParam
-  args: ['param', 'verify_integrity']
   description: 'If True, checks that levels and codes are compatible.'
   kind: param
+  key: 'param'
   arg_name: 'verify_integrity'
   type_name: 'bool'
   is_optional: True
   default: 'True'
 - DocstringReturns
-  args: ['returns']
   description: 'The same type as the caller or None if ``inplace=True``.'
   kind: returns
+  key: 'returns'
   type_name: 'new index (of same type and class...etc) or None'
   is_generator: False
 - DocstringMeta
-  args: ['see_also']
   description: |
     MultiIndex.set_levels : Set new levels on MultiIndex.
     MultiIndex.codes : Get the codes of the levels in the MultiIndex.
     MultiIndex.levels : Get the levels of the MultiIndex.
   kind: text
+  key: 'see_also'
 - DocstringExample
-  args: ['examples']
   description: |
     ...     [(1, "one"), (1, "two"), (2, "one"), (2, "two")], names=["foo", "bar"]
     ... )
   kind: examples
+  key: 'examples'
   snippet: '>>> idx = pd.MultiIndex.from_tuples('
 - DocstringExample
-  args: ['examples']
   description: |
     MultiIndex([(1, 'one'),
         (1, 'two'),
@@ -125,9 +124,9 @@ style: numpydoc
        names=['foo', 'bar'])
     
   kind: examples
+  key: 'examples'
   snippet: '>>> idx'
 - DocstringExample
-  args: ['examples']
   description: |
     MultiIndex([(2, 'one'),
                 (1, 'one'),
@@ -135,9 +134,9 @@ style: numpydoc
                 (1, 'two')],
                names=['foo', 'bar'])
   kind: examples
+  key: 'examples'
   snippet: '>>> idx.set_codes([[1, 0, 1, 0], [0, 0, 1, 1]])'
 - DocstringExample
-  args: ['examples']
   description: |
     MultiIndex([(2, 'one'),
                 (1, 'two'),
@@ -145,9 +144,9 @@ style: numpydoc
                 (1, 'two')],
                names=['foo', 'bar'])
   kind: examples
+  key: 'examples'
   snippet: '>>> idx.set_codes([1, 0, 1, 0], level=0)'
 - DocstringExample
-  args: ['examples']
   description: |
     MultiIndex([(1, 'one'),
                 (1, 'one'),
@@ -155,9 +154,9 @@ style: numpydoc
                 (2, 'two')],
                names=['foo', 'bar'])
   kind: examples
+  key: 'examples'
   snippet: '>>> idx.set_codes([0, 0, 1, 1], level="bar")'
 - DocstringExample
-  args: ['examples']
   description: |
     MultiIndex([(2, 'one'),
                 (1, 'one'),
@@ -165,6 +164,7 @@ style: numpydoc
                 (1, 'two')],
                names=['foo', 'bar'])
   kind: examples
+  key: 'examples'
   snippet: '>>> idx.set_codes([[1, 0, 1, 0], [0, 0, 1, 1]], level=[0, 1])'
 === detect
 numpydoc

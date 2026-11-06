@@ -155,56 +155,55 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'f_obs']
   description: 'Observed frequencies in each category.'
   kind: param
+  key: 'param'
   arg_name: 'f_obs'
   type_name: 'array_like'
   is_optional: False
 - DocstringParam
-  args: ['param', 'f_exp']
   description: |
     Expected frequencies in each category. By default, the categories are
     assumed to be equally likely.
   kind: param
+  key: 'param'
   arg_name: 'f_exp'
   type_name: 'array_like'
   is_optional: True
 - DocstringParam
-  args: ['param', 'ddof']
   description: |
     "Delta degrees of freedom": adjustment to the degrees of freedom
     for the p-value.  The p-value is computed using a chi-squared
     distribution with ``k - 1 - ddof`` degrees of freedom, where ``k``
     is the number of categories.  The default value of `ddof` is 0.
   kind: param
+  key: 'param'
   arg_name: 'ddof'
   type_name: 'int'
   is_optional: True
 - DocstringParam
-  args: ['param', 'axis']
   description: |
     The axis of the broadcast result of `f_obs` and `f_exp` along which to
     apply the test.  If axis is None, all values in `f_obs` are treated
     as a single data set.  Default is 0.
   kind: param
+  key: 'param'
   arg_name: 'axis'
   type_name: 'int or None'
   is_optional: True
   default: '0'
 - DocstringParam
-  args: ['param', 'sum_check']
   description: |
     Whether to perform a check that ``sum(f_obs) - sum(f_exp) == 0``. If True,
     (default) raise an error (or, for lazy backends, return NaN) when the relative
     difference exceeds the square root of the precision of the data type.
     See Notes for rationale and possible exceptions.
   kind: param
+  key: 'param'
   arg_name: 'sum_check'
   type_name: 'bool'
   is_optional: True
 - DocstringReturns
-  args: ['returns']
   description: |
     An object containing attributes:
     
@@ -215,11 +214,11 @@ style: numpydoc
         The p-value of the test.  The value is a float if `ddof` and the
         result attribute `statistic` are scalars.
   kind: returns
+  key: 'returns'
   type_name: 'Power_divergenceResult'
   is_generator: False
   return_name: 'res'
 - DocstringMeta
-  args: ['see_also']
   description: |
     scipy.stats.power_divergence
     scipy.stats.fisher_exact : Fisher exact test on a 2x2 contingency table.
@@ -227,8 +226,8 @@ style: numpydoc
         to chi-squared test for small sample sizes.
     :ref:`hypothesis_chisquare` : Extended example
   kind: text
+  key: 'see_also'
 - DocstringMeta
-  args: ['notes']
   description: |
     This test is invalid when the observed or expected frequencies in each
     category are too small.  A typical rule is that all of the observed
@@ -257,8 +256,8 @@ style: numpydoc
     the observations; and the sum of ``n`` squared standard normal variables follows
     the chi-squared distribution with ``n`` degrees of freedom.
   kind: text
+  key: 'notes'
 - DocstringMeta
-  args: ['references']
   description: |
     .. [1] "Pearson's chi-squared test".
            *Wikipedia*. https://en.wikipedia.org/wiki/Pearson%27s_chi-squared_test
@@ -267,44 +266,44 @@ style: numpydoc
            supposed to have arisen from random sampling", Philosophical Magazine. Series 5. 50
            (1900), pp. 157-175.
   kind: text
+  key: 'references'
 - DocstringExample
-  args: ['examples']
   description: |
     When only the mandatory `f_obs` argument is given, it is assumed that the
     expected frequencies are uniform and given by the mean of the observed
     frequencies:
     
   kind: examples
+  key: 'examples'
 - DocstringExample
-  args: ['examples']
   description: |
     Power_divergenceResult(statistic=2.0, pvalue=0.84914503608460956)
     
     The optional `f_exp` argument gives the expected frequencies.
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> import numpy as np
     >>> from scipy.stats import chisquare
     >>> chisquare([16, 18, 16, 14, 12, 12])
 - DocstringExample
-  args: ['examples']
   description: |
     Power_divergenceResult(statistic=3.5, pvalue=0.62338762774958223)
     
     When `f_obs` is 2-D, by default the test is applied to each column.
     
   kind: examples
+  key: 'examples'
   snippet: '>>> chisquare([16, 18, 16, 14, 12, 12], f_exp=[16, 16, 16, 16, 16, 8])'
 - DocstringExample
-  args: ['examples']
   description: '(6, 2)'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> obs = np.array([[16, 18, 16, 14, 12, 12], [32, 24, 16, 28, 20, 24]]).T
     >>> obs.shape
 - DocstringExample
-  args: ['examples']
   description: |
     Power_divergenceResult(statistic=array([2.        , 6.66666667]), pvalue=array([0.84914504, 0.24663415]))
     
@@ -312,23 +311,23 @@ style: numpydoc
     which is equivalent to applying the test to the flattened array.
     
   kind: examples
+  key: 'examples'
   snippet: '>>> chisquare(obs)'
 - DocstringExample
-  args: ['examples']
   description: 'Power_divergenceResult(statistic=23.31034482758621, pvalue=0.015975692534127565)'
   kind: examples
+  key: 'examples'
   snippet: '>>> chisquare(obs, axis=None)'
 - DocstringExample
-  args: ['examples']
   description: |
     Power_divergenceResult(statistic=23.310344827586206, pvalue=0.01597569253412758)
     
     `ddof` is the change to make to the default degrees of freedom.
     
   kind: examples
+  key: 'examples'
   snippet: '>>> chisquare(obs.ravel())'
 - DocstringExample
-  args: ['examples']
   description: |
     Power_divergenceResult(statistic=2.0, pvalue=0.7357588823428847)
     
@@ -336,9 +335,9 @@ style: numpydoc
     chi-squared statistic with `ddof`.
     
   kind: examples
+  key: 'examples'
   snippet: '>>> chisquare([16, 18, 16, 14, 12, 12], ddof=1)'
 - DocstringExample
-  args: ['examples']
   description: |
     Power_divergenceResult(statistic=2.0, pvalue=array([0.84914504, 0.73575888, 0.5724067 ]))
     
@@ -348,9 +347,9 @@ style: numpydoc
     statistics, we use ``axis=1``:
     
   kind: examples
+  key: 'examples'
   snippet: '>>> chisquare([16, 18, 16, 14, 12, 12], ddof=[0, 1, 2])'
 - DocstringExample
-  args: ['examples']
   description: |
     ...           f_exp=[[16, 16, 16, 16, 16, 8], [8, 20, 20, 16, 12, 12]],
     ...           axis=1)
@@ -358,6 +357,7 @@ style: numpydoc
     
     For a more detailed example, see :ref:`hypothesis_chisquare`.
   kind: examples
+  key: 'examples'
   snippet: '>>> chisquare([16, 18, 16, 14, 12, 12],'
 === detect
 numpydoc

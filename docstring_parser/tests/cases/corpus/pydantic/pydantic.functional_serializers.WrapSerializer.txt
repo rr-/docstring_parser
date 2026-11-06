@@ -103,21 +103,21 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: google
 - DocstringParam
-  args: ['attribute', 'func']
   description: 'The serializer function to be wrapped.'
   kind: attribute
+  key: 'attribute'
   arg_name: 'func'
 - DocstringParam
-  args: ['attribute', 'return_type']
   description: 'The return type for the function. If omitted it will be inferred from the type annotation.'
   kind: attribute
+  key: 'attribute'
   arg_name: 'return_type'
 - DocstringParam
-  args: ['attribute', 'when_used']
   description: |
     Determines when this serializer should be used. Accepts a string with values `'always'`,
     `'unless-none'`, `'json'`, and `'json-unless-none'`. Defaults to 'always'.
   kind: attribute
+  key: 'attribute'
   arg_name: 'when_used'
 === detect
 google

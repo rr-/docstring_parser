@@ -14,16 +14,16 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'styles (Iterable[Style])']
   description: 'Styles to combine.'
   kind: param
+  key: 'param'
   arg_name: 'styles'
   type_name: 'Iterable[Style]'
   is_optional: False
 - DocstringReturns
-  args: ['returns', 'Style']
   description: 'A new style instance.'
   kind: returns
+  key: 'returns'
   type_name: 'Style'
   is_generator: False
 === detect

@@ -29,46 +29,46 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'schema']
   description: 'The input schema.'
   kind: param
+  key: 'param'
   arg_name: 'schema'
 - DocstringParam
-  args: ['param', 'discriminator']
   description: 'The name of the field which will serve as the discriminator.'
   kind: param
+  key: 'param'
   arg_name: 'discriminator'
 - DocstringParam
-  args: ['param', 'definitions']
   description: 'A mapping of schema ref to schema.'
   kind: param
+  key: 'param'
   arg_name: 'definitions'
 - DocstringReturns
-  args: ['returns']
   description: 'The new core schema.'
   kind: returns
+  key: 'returns'
   is_generator: False
 - DocstringRaises
-  args: ['raises', 'TypeError']
   description: |
     - If `discriminator` is used with invalid union variant.
     - If `discriminator` is used with union type with one variant.
     - If `discriminator` value mapped to multiple choices.
   kind: raises
+  key: 'raises'
   type_name: 'TypeError'
 - DocstringRaises
-  args: ['raises', 'MissingDefinitionForUnionRef']
   description: 'If the definition for ref is missing.'
   kind: raises
+  key: 'raises'
   type_name: 'MissingDefinitionForUnionRef'
 - DocstringRaises
-  args: ['raises', 'PydanticUserError']
   description: |
     - If a model in union doesn't have a discriminator field.
     - If discriminator field has a non-string alias.
     - If discriminator fields have different aliases.
     - If discriminator field not of type `Literal`.
   kind: raises
+  key: 'raises'
   type_name: 'PydanticUserError'
 === detect
 google

@@ -16,9 +16,9 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: numpydoc
 - DocstringMeta
-  args: ['see_also']
   description: 'char.strip'
   kind: text
+  key: 'see_also'
 === detect
 numpydoc
 === compose numpydoc

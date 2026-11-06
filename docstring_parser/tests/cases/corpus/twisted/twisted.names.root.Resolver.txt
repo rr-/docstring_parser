@@ -16,27 +16,27 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: epydoc
 - DocstringParam
-  args: ['ivar', 'hints']
   description: 'See C{hints} parameter of L{__init__}'
   kind: attribute
+  key: 'ivar'
   arg_name: 'hints'
   is_optional: False
 - DocstringParam
-  args: ['ivar', '_maximumQueries']
   description: 'See C{maximumQueries} parameter of L{__init__}'
   kind: attribute
+  key: 'ivar'
   arg_name: '_maximumQueries'
   is_optional: False
 - DocstringParam
-  args: ['ivar', '_reactor']
   description: 'See C{reactor} parameter of L{__init__}'
   kind: attribute
+  key: 'ivar'
   arg_name: '_reactor'
   is_optional: False
 - DocstringParam
-  args: ['ivar', '_resolverFactory']
   description: 'See C{resolverFactory} parameter of L{__init__}'
   kind: attribute
+  key: 'ivar'
   arg_name: '_resolverFactory'
   is_optional: False
 === detect

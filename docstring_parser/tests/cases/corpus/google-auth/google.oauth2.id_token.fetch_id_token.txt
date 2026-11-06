@@ -81,23 +81,22 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: google
 - DocstringParam
-  args: ['param', 'request (google.auth.transport.Request)']
   description: |
     A callable used to make
     HTTP requests.
   kind: param
+  key: 'param'
   arg_name: 'request'
   type_name: 'google.auth.transport.Request'
   is_optional: False
 - DocstringParam
-  args: ['param', 'audience (str)']
   description: 'The audience that this ID token is intended for.'
   kind: param
+  key: 'param'
   arg_name: 'audience'
   type_name: 'str'
   is_optional: False
 - DocstringParam
-  args: ['param', 'bind_id_token (Optional[bool])']
   description: |
     Controls whether to request a
     certificate-bound ID token from the metadata server identity
@@ -113,28 +112,29 @@ style: google
     effect when credentials are loaded from
     ``GOOGLE_APPLICATION_CREDENTIALS``.
   kind: param
+  key: 'param'
   arg_name: 'bind_id_token'
   type_name: 'Optional[bool]'
   is_optional: False
 - DocstringReturns
-  args: ['returns', 'str']
   description: 'The ID token.'
   kind: returns
+  key: 'returns'
   type_name: 'str'
   is_generator: False
 - DocstringRaises
-  args: ['raises', '~google.auth.exceptions.DefaultCredentialsError']
   description: |
     If metadata server doesn't exist and no valid service account
     credentials are found.
   kind: raises
+  key: 'raises'
   type_name: '~google.auth.exceptions.DefaultCredentialsError'
 - DocstringRaises
-  args: ['raises', '~google.auth.exceptions.RefreshError']
   description: |
     If an error occurred while fetching the ID token or if a required
     certificate file is not found after retries.
   kind: raises
+  key: 'raises'
   type_name: '~google.auth.exceptions.RefreshError'
 === detect
 google

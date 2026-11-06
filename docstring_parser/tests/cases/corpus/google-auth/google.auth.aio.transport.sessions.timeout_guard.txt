@@ -19,16 +19,16 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'timeout (float)']
   description: 'The time in seconds before the context manager times out.'
   kind: param
+  key: 'param'
   arg_name: 'timeout'
   type_name: 'float'
   is_optional: False
 - DocstringRaises
-  args: ['raises', 'google.auth.exceptions.TimeoutError']
   description: 'If the code within the context exceeds the provided timeout.'
   kind: raises
+  key: 'raises'
   type_name: 'google.auth.exceptions.TimeoutError'
 === detect
 google

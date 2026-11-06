@@ -25,28 +25,28 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringMeta
-  args: ['meth']
   description: '`from_object` function.'
   kind: text
+  key: 'meth'
 - DocstringParam
-  args: ['param', 'filename']
   description: |
     the filename of the config.  This can either be an
     absolute filename or a filename relative to the
     root path.
   kind: param
+  key: 'param'
   arg_name: 'filename'
 - DocstringParam
-  args: ['param', 'silent']
   description: |
     set to ``True`` if you want silent failure for missing
     files.
   kind: param
+  key: 'param'
   arg_name: 'silent'
 - DocstringReturns
-  args: ['return']
   description: '``True`` if the file was loaded successfully.'
   kind: returns
+  key: 'return'
   is_generator: False
 === detect
 rest

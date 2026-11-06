@@ -14,12 +14,12 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: google
 - DocstringReturns
-  args: ['returns', 'int']
   description: |
     description
     with much text
     
     even some spacing
   kind: returns
+  key: 'returns'
   type_name: 'int'
   is_generator: False

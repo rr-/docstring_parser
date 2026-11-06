@@ -34,9 +34,9 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringParam
-  args: ['param', 'mod_name']
   description: 'Module name'
   kind: param
+  key: 'param'
   arg_name: 'mod_name'
 === detect
 rest

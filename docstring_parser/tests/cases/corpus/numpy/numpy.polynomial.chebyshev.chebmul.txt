@@ -49,27 +49,26 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'c1, c2']
   description: |
     1-D arrays of Chebyshev series coefficients ordered from low to
     high.
   kind: param
+  key: 'param'
   arg_name: 'c1, c2'
   type_name: 'array_like'
   is_optional: False
 - DocstringReturns
-  args: ['returns']
   description: 'Of Chebyshev series coefficients representing their product.'
   kind: returns
+  key: 'returns'
   type_name: 'ndarray'
   is_generator: False
   return_name: 'out'
 - DocstringMeta
-  args: ['see_also']
   description: 'chebadd, chebsub, chebmulx, chebdiv, chebpow'
   kind: text
+  key: 'see_also'
 - DocstringMeta
-  args: ['notes']
   description: |
     In general, the (polynomial) product of two C-series results in terms
     that are not in the Chebyshev polynomial basis set.  Thus, to express
@@ -77,10 +76,11 @@ style: numpydoc
     the product onto said basis set, which typically produces
     "unintuitive live" (but correct) results; see Examples section below.
   kind: text
+  key: 'notes'
 - DocstringExample
-  args: ['examples']
   description: 'array([  6.5,  12. ,  12. ,   4. ,   1.5])'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> from numpy.polynomial import chebyshev as C
     >>> c1 = (1,2,3)

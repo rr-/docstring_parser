@@ -19,41 +19,41 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'request (google.auth.transport.Request)']
   description: |
     A callable used to make
     HTTP requests.
   kind: param
+  key: 'param'
   arg_name: 'request'
   type_name: 'google.auth.transport.Request'
   is_optional: False
 - DocstringParam
-  args: ['param', 'token (str)']
   description: 'The OAuth 2.0 token to revoke.'
   kind: param
+  key: 'param'
   arg_name: 'token'
   type_name: 'str'
   is_optional: False
 - DocstringParam
-  args: ['param', 'token_type_hint (str)']
   description: 'Hint for the type of token being revoked.'
   kind: param
+  key: 'param'
   arg_name: 'token_type_hint'
   type_name: 'str'
   is_optional: False
 - DocstringParam
-  args: ['param', 'revoke_url (str)']
   description: 'The STS endpoint URL for revoking tokens.'
   kind: param
+  key: 'param'
   arg_name: 'revoke_url'
   type_name: 'str'
   is_optional: False
 - DocstringRaises
-  args: ['raises', 'google.auth.exceptions.OAuthError']
   description: |
     If the token revocation endpoint
     returned an error.
   kind: raises
+  key: 'raises'
   type_name: 'google.auth.exceptions.OAuthError'
 === detect
 google

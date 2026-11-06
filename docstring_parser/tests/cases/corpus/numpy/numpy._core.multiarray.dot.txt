@@ -119,21 +119,20 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'a']
   description: 'First argument.'
   kind: param
+  key: 'param'
   arg_name: 'a'
   type_name: 'array_like'
   is_optional: False
 - DocstringParam
-  args: ['param', 'b']
   description: 'Second argument.'
   kind: param
+  key: 'param'
   arg_name: 'b'
   type_name: 'array_like'
   is_optional: False
 - DocstringParam
-  args: ['param', 'out']
   description: |
     Output argument. This must have the exact kind that would be returned
     if it was not used. In particular, it must have the right type, must be
@@ -142,29 +141,29 @@ style: numpydoc
     conditions are not met, an exception is raised, instead of attempting
     to be flexible.
   kind: param
+  key: 'param'
   arg_name: 'out'
   type_name: 'ndarray'
   is_optional: True
 - DocstringReturns
-  args: ['returns']
   description: |
     Returns the dot product of `a` and `b`.  If `a` and `b` are both
     scalars or both 1-D arrays then a scalar is returned; otherwise
     an array is returned.
     If `out` is given, then it is returned.
   kind: returns
+  key: 'returns'
   type_name: 'ndarray'
   is_generator: False
   return_name: 'output'
 - DocstringRaises
-  args: ['raises', 'ValueError']
   description: |
     If the last dimension of `a` is not the same size as
     the second-to-last dimension of `b`.
   kind: raises
+  key: 'raises'
   type_name: 'ValueError'
 - DocstringMeta
-  args: ['see_also']
   description: |
     vdot : Complex-conjugating dot product.
     vecdot : Vector dot product of two arrays.
@@ -173,49 +172,50 @@ style: numpydoc
     matmul : '@' operator as method with out parameter.
     linalg.multi_dot : Chained dot product.
   kind: text
+  key: 'see_also'
 - DocstringExample
-  args: ['examples']
   description: |
     12
     
     Neither argument is complex-conjugated:
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> import numpy as np
     >>> np.dot(3, 4)
 - DocstringExample
-  args: ['examples']
   description: |
     (-13+0j)
     
     For 2-D arrays it is the matrix product:
     
   kind: examples
+  key: 'examples'
   snippet: '>>> np.dot([2j, 3j], [2j, 3j])'
 - DocstringExample
-  args: ['examples']
   description: |
     array([[4, 1],
            [2, 2]])
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> a = [[1, 0], [0, 1]]
     >>> b = [[4, 1], [2, 2]]
     >>> np.dot(a, b)
 - DocstringExample
-  args: ['examples']
   description: '499128'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> a = np.arange(3*4*5*6).reshape((3,4,5,6))
     >>> b = np.arange(3*4*5*6)[::-1].reshape((5,4,6,3))
     >>> np.dot(a, b)[2,3,2,1,2,2]
 - DocstringExample
-  args: ['examples']
   description: '499128'
   kind: examples
+  key: 'examples'
   snippet: '>>> sum(a[2,3,2,:] * b[1,2,:,2])'
 === detect
 numpydoc

@@ -9,9 +9,9 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: epydoc
 - DocstringParam
-  args: ['param', 'chatui']
   description: 'The GUI chat client associated with this contacts list.'
   kind: param
+  key: 'param'
   arg_name: 'chatui'
   type_name: 'L{ChatUI}'
   is_optional: False

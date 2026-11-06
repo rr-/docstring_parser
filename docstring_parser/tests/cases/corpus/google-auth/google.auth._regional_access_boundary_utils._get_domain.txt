@@ -11,9 +11,9 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringReturns
-  args: ['returns', 'str']
   description: 'The dynamic domain string.'
   kind: returns
+  key: 'returns'
   type_name: 'str'
   is_generator: False
 === detect

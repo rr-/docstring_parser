@@ -13,11 +13,11 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: epydoc
 - DocstringParam
-  args: ['param', 'protocol']
   description: |
     The tracked protocol instance to be which has been
     lost.
   kind: param
+  key: 'param'
   arg_name: 'protocol'
   type_name: 'L{dns.DNSProtocol}'
   is_optional: False

@@ -9,6 +9,6 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 - DocstringDeprecated
-  args: ['deprecation']
   kind: deprecation
+  key: 'deprecation'
   version: '1.6.0'

@@ -24,17 +24,16 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'annotations']
   description: 'An iterable of annotations.'
   kind: param
+  key: 'param'
   arg_name: 'annotations'
 - DocstringReturns
-  args: ['returns']
   description: 'An iterable of expanded annotations.'
   kind: returns
+  key: 'returns'
   is_generator: False
 - DocstringExample
-  args: ['examples']
   description: |
     ```python
     from annotated_types import Ge, Len
@@ -45,6 +44,7 @@ style: google
     #> [Ge(ge=4), MinLen(min_length=5)]
     ```
   kind: examples
+  key: 'examples'
 === detect
 google
 === compose google

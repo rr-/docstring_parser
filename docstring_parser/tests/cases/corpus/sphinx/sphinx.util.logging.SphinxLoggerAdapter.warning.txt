@@ -35,50 +35,50 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringParam
-  args: ['param', 'msg']
   description: 'The message, which may contain placeholders for ``args``.'
   kind: param
+  key: 'param'
   arg_name: 'msg'
 - DocstringParam
-  args: ['param', 'args']
   description: 'The arguments to substitute into ``msg``.'
   kind: param
+  key: 'param'
   arg_name: 'args'
 - DocstringParam
-  args: ['param', 'type']
   description: 'The type of the warning.'
   kind: param
+  key: 'param'
   arg_name: 'type'
 - DocstringParam
-  args: ['param', 'subtype']
   description: 'The subtype of the warning.'
   kind: param
+  key: 'param'
   arg_name: 'subtype'
 - DocstringParam
-  args: ['param', 'location']
   description: |
     The source location of the warning's origin,
     which can be a string (the ``docname`` or ``docname:lineno``),
     a tuple of ``(docname, lineno)``,
     or the docutils node object.
   kind: param
+  key: 'param'
   arg_name: 'location'
 - DocstringParam
-  args: ['param', 'nonl']
   description: 'Whether to append a new line terminator to the message.'
   kind: param
+  key: 'param'
   arg_name: 'nonl'
 - DocstringParam
-  args: ['param', 'color']
   description: 'A color code for the message.'
   kind: param
+  key: 'param'
   arg_name: 'color'
 - DocstringParam
-  args: ['param', 'once']
   description: |
     Do not log this warning,
     if a previous warning already has same ``msg``, ``args`` and ``once=True``.
   kind: param
+  key: 'param'
   arg_name: 'once'
 === detect
 rest

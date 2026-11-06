@@ -321,13 +321,13 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringMeta
-  args: ['notes']
   description: |
     The ``.npy`` format, including motivation for creating it and a comparison of
     alternatives, is described in the
     :doc:`"npy-format" NEP <neps:nep-0001-npy-format>`, however details have
     evolved with time and this document is more current.
   kind: text
+  key: 'notes'
 === detect
 rest
 === compose numpydoc

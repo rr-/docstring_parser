@@ -66,21 +66,20 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'from_']
   description: 'Data type, NumPy scalar, or array to cast from.'
   kind: param
+  key: 'param'
   arg_name: 'from_'
   type_name: 'dtype, dtype specifier, NumPy scalar, or array'
   is_optional: False
 - DocstringParam
-  args: ['param', 'to']
   description: 'Data type to cast to.'
   kind: param
+  key: 'param'
   arg_name: 'to'
   type_name: 'dtype or dtype specifier'
   is_optional: False
 - DocstringParam
-  args: ['param', 'casting']
   description: |
     Controls what kind of data casting may occur.
     
@@ -91,18 +90,18 @@ style: numpydoc
       like float64 to float32, are allowed.
     * 'unsafe' means any data conversions may be done.
   kind: param
+  key: 'param'
   arg_name: 'casting'
   type_name: "{'no', 'equiv', 'safe', 'same_kind', 'unsafe'}"
   is_optional: True
 - DocstringReturns
-  args: ['returns']
   description: 'True if cast can occur according to the casting rule.'
   kind: returns
+  key: 'returns'
   type_name: 'bool'
   is_generator: False
   return_name: 'out'
 - DocstringMeta
-  args: ['notes']
   description: |
     .. versionchanged:: 2.0
        This function does not support Python scalars anymore and does not
@@ -112,45 +111,46 @@ style: numpydoc
     --------
     dtype, result_type
   kind: text
+  key: 'notes'
 - DocstringExample
-  args: ['examples']
   description: |
     Basic examples
     
   kind: examples
+  key: 'examples'
 - DocstringExample
-  args: ['examples']
   description: 'True'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> import numpy as np
     >>> np.can_cast(np.int32, np.int64)
 - DocstringExample
-  args: ['examples']
   description: 'True'
   kind: examples
+  key: 'examples'
   snippet: '>>> np.can_cast(np.float64, complex)'
 - DocstringExample
-  args: ['examples']
   description: |
     False
     
   kind: examples
+  key: 'examples'
   snippet: '>>> np.can_cast(complex, float)'
 - DocstringExample
-  args: ['examples']
   description: 'True'
   kind: examples
+  key: 'examples'
   snippet: ">>> np.can_cast('i8', 'f8')"
 - DocstringExample
-  args: ['examples']
   description: 'False'
   kind: examples
+  key: 'examples'
   snippet: ">>> np.can_cast('i8', 'f4')"
 - DocstringExample
-  args: ['examples']
   description: 'False'
   kind: examples
+  key: 'examples'
   snippet: ">>> np.can_cast('i4', 'S4')"
 === detect
 numpydoc

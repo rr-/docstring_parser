@@ -18,9 +18,9 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringMeta
-  args: ['attr']
   description: '`logger`.'
   kind: text
+  key: 'attr'
 === detect
 rest
 === compose rest

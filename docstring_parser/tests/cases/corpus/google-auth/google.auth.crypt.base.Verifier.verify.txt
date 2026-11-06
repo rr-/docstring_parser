@@ -16,25 +16,25 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'message (Union[str, bytes])']
   description: 'The message to verify.'
   kind: param
+  key: 'param'
   arg_name: 'message'
   type_name: 'Union[str, bytes]'
   is_optional: False
 - DocstringParam
-  args: ['param', 'signature (Union[str, bytes])']
   description: 'The cryptography signature to check.'
   kind: param
+  key: 'param'
   arg_name: 'signature'
   type_name: 'Union[str, bytes]'
   is_optional: False
 - DocstringReturns
-  args: ['returns', 'bool']
   description: |
     True if message was signed by the private key associated
     with the public key that this object was constructed with.
   kind: returns
+  key: 'returns'
   type_name: 'bool'
   is_generator: False
 === detect

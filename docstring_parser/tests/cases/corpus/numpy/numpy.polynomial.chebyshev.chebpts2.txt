@@ -27,16 +27,16 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'npts']
   description: 'Number of sample points desired.'
   kind: param
+  key: 'param'
   arg_name: 'npts'
   type_name: 'int'
   is_optional: False
 - DocstringReturns
-  args: ['returns']
   description: 'The Chebyshev points of the second kind.'
   kind: returns
+  key: 'returns'
   type_name: 'ndarray'
   is_generator: False
   return_name: 'pts'

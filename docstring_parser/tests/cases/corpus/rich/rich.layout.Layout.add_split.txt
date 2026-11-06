@@ -12,9 +12,9 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', '*layouts (Union[Layout, RenderableType])']
   description: 'Positional arguments should be renderables or (sub) Layout instances.'
   kind: param
+  key: 'param'
   arg_name: '*layouts'
   type_name: 'Union[Layout, RenderableType]'
   is_optional: False

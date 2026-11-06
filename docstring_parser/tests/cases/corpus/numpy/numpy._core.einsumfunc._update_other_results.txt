@@ -28,29 +28,29 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'results']
   description: |
     List of contraction results produced by
     ``_parse_possible_contraction``.
   kind: param
+  key: 'param'
   arg_name: 'results'
   type_name: 'list'
   is_optional: False
 - DocstringParam
-  args: ['param', 'best']
   description: |
     The best contraction of ``results`` i.e. the one that
     will be performed.
   kind: param
+  key: 'param'
   arg_name: 'best'
   type_name: 'list'
   is_optional: False
 - DocstringReturns
-  args: ['returns']
   description: |
     The list of modified results, updated with outcome of
     ``best`` contraction.
   kind: returns
+  key: 'returns'
   type_name: 'list'
   is_generator: False
   return_name: 'mod_results'

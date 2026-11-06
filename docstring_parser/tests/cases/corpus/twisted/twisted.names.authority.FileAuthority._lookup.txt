@@ -29,48 +29,48 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: epydoc
 - DocstringParam
-  args: ['param', 'name']
   description: |
     The name which is being queried and for which to lookup a
     response.
   kind: param
+  key: 'param'
   arg_name: 'name'
   type_name: 'L{bytes}'
   is_optional: False
 - DocstringParam
-  args: ['param', 'cls']
   description: |
     The class which is being queried.  Only I{IN} is
     implemented here and this value is presently disregarded.
   kind: param
+  key: 'param'
   arg_name: 'cls'
   type_name: 'L{int}'
   is_optional: False
 - DocstringParam
-  args: ['param', 'type']
   description: |
     The type of records being queried.  See the types defined
     in L{twisted.names.dns}.
   kind: param
+  key: 'param'
   arg_name: 'type'
   type_name: 'L{int}'
   is_optional: False
 - DocstringParam
-  args: ['param', 'timeout']
   description: |
     All processing is done locally and a result is
     available immediately, so the timeout value is ignored.
   kind: param
+  key: 'param'
   arg_name: 'timeout'
   is_optional: False
 - DocstringReturns
-  args: ['return']
   description: |
     A L{Deferred} that fires with a L{tuple} of three sets of
     response records (to comprise the I{answer}, I{authority}, and
     I{additional} sections of a DNS response) or with a L{Failure} if
     there is a problem processing the query.
   kind: returns
+  key: 'return'
   is_generator: False
 === detect
 epydoc

@@ -18,11 +18,11 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: rest
 - DocstringParam
-  args: ['param', 'name']
   description: |
     the optional name of the test, otherwise the
     function name will be used.
   kind: param
+  key: 'param'
   arg_name: 'name'
 === detect
 rest

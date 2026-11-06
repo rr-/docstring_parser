@@ -18,31 +18,31 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: rest
 - DocstringMeta
-  args: ['class']
   description: '`HTTPAdapter <requests.adapters.HTTPAdapter>`.'
   kind: text
+  key: 'class'
 - DocstringParam
-  args: ['param', 'conn']
   description: 'The urllib3 connection object associated with the cert.'
   kind: param
+  key: 'param'
   arg_name: 'conn'
 - DocstringParam
-  args: ['param', 'url']
   description: 'The requested URL.'
   kind: param
+  key: 'param'
   arg_name: 'url'
 - DocstringParam
-  args: ['param', 'verify']
   description: |
     Either a boolean, in which case it controls whether we verify
     the server's TLS certificate, or a string, in which case it must be a path
     to a CA bundle to use
   kind: param
+  key: 'param'
   arg_name: 'verify'
 - DocstringParam
-  args: ['param', 'cert']
   description: 'The SSL certificate to verify.'
   kind: param
+  key: 'param'
   arg_name: 'cert'
 === detect
 rest

@@ -99,68 +99,67 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', '*samples']
   description: 'Arrays of sample data.  Need not be the same length.'
   kind: param
+  key: 'param'
   arg_name: '*samples'
   type_name: 'array_like'
   is_optional: False
 - DocstringParam
-  args: ['param', 'center']
   description: |
     Which statistics to use to center data points within each sample. Default
     is 'median'.
   kind: param
+  key: 'param'
   arg_name: 'center'
   type_name: "{'mean', 'median', 'trimmed'}"
   is_optional: True
   default: "'median'"
 - DocstringParam
-  args: ['param', 'proportiontocut']
   description: |
     When `center` is 'trimmed', this gives the proportion of data points
     to cut from each end. (See `scipy.stats.trim_mean`.)
     Default is 0.05.
   kind: param
+  key: 'param'
   arg_name: 'proportiontocut'
   type_name: 'float'
   is_optional: True
   default: '0.05'
 - DocstringParam
-  args: ['param', 'axis']
   description: |
     If an int or tuple of ints, the axis or axes of the input along which
     to compute the statistic. The statistic of each axis-slice (e.g. row)
     of the input will appear in a corresponding element of the output.
     If ``None``, the input will be raveled before computing the statistic.
   kind: param
+  key: 'param'
   arg_name: 'axis'
   type_name: 'int or tuple of ints'
   is_optional: True
   default: '0'
 - DocstringReturns
-  args: ['returns']
   description: 'The test statistic.'
   kind: returns
+  key: 'returns'
   type_name: 'float'
   is_generator: False
   return_name: 'statistic'
 - DocstringReturns
-  args: ['returns']
   description: 'The p-value for the hypothesis test.'
   kind: returns
+  key: 'returns'
   type_name: 'float'
   is_generator: False
   return_name: 'pvalue'
 - DocstringMeta
-  args: ['see_also']
   description: |
     bartlett : A parametric test for equality of k variances in normal samples
     levene : A robust parametric test for equality of k variances
     :ref:`hypothesis_fligner` : Extended example
   kind: text
+  key: 'see_also'
 - DocstringMeta
-  args: ['notes']
   description: |
     As with Levene's test there are three variants of Fligner's test that
     differ by the measure of central tendency used in the test.  See `levene`
@@ -172,8 +171,8 @@ style: numpydoc
     superior in terms of robustness of departures from normality and power
     [3]_.
   kind: text
+  key: 'notes'
 - DocstringMeta
-  args: ['references']
   description: |
     .. [1] Qu, A., Lindsay, B. G., and Li, B. (2000). Improving generalized
            estimating equations using quadratic inference functions.
@@ -187,19 +186,19 @@ style: numpydoc
            applications to the outer continental shelf bidding data.
            Technometrics, 23(4), 351-361.
   kind: text
+  key: 'references'
 - DocstringExample
-  args: ['examples']
   description: |
     
     Test whether the lists `a`, `b` and `c` come from populations
     with equal variances.
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> import numpy as np
     >>> from scipy import stats
 - DocstringExample
-  args: ['examples']
   description: |
     0.00450826080004775
     
@@ -210,6 +209,7 @@ style: numpydoc
     larger than that of `a` and `c`:
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> a = [8.88, 9.12, 9.04, 8.98, 9.00, 9.08, 9.01, 8.85, 9.06, 8.99]
     >>> b = [8.88, 8.95, 9.29, 9.44, 9.15, 9.58, 8.36, 9.18, 8.67, 9.05]
@@ -217,12 +217,12 @@ style: numpydoc
     >>> stat, p = stats.fligner(a, b, c)
     >>> p
 - DocstringExample
-  args: ['examples']
   description: |
     [0.007054444444444413, 0.13073888888888888, 0.008890000000000002]
     
     For a more detailed example, see :ref:`hypothesis_fligner`.
   kind: examples
+  key: 'examples'
   snippet: '>>> [np.var(x, ddof=1) for x in [a, b, c]]'
 === detect
 numpydoc

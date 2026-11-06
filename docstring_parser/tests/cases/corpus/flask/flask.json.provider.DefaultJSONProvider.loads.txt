@@ -11,14 +11,14 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 - DocstringParam
-  args: ['param', 's']
   description: 'Text or UTF-8 bytes.'
   kind: param
+  key: 'param'
   arg_name: 's'
 - DocstringParam
-  args: ['param', 'kwargs']
   description: 'Passed to :func:`json.loads`.'
   kind: param
+  key: 'param'
   arg_name: 'kwargs'
 === detect
 rest

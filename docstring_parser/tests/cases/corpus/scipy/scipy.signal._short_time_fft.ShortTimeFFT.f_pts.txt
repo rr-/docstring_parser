@@ -15,13 +15,13 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 - DocstringMeta
-  args: ['see_also']
   description: |
     delta_f: Width of the frequency bins of the STFT.
     f: Frequencies values of the STFT.
     mfft: Length of the input for FFT used.
     ShortTimeFFT: Class this property belongs to.
   kind: text
+  key: 'see_also'
 === detect
 numpydoc
 === compose numpydoc

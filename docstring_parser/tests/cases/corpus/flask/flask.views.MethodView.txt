@@ -52,11 +52,11 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringMeta
-  args: ['attr']
   description: |
     `methods` is automatically set based on the methods defined on
     the class.
   kind: text
+  key: 'attr'
 === detect
 rest
 === compose rest

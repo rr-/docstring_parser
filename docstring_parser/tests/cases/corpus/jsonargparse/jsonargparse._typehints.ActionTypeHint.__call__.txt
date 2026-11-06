@@ -11,9 +11,9 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringRaises
-  args: ['raises', 'TypeError']
   description: 'If the argument is not valid.'
   kind: raises
+  key: 'raises'
   type_name: 'TypeError'
 === detect
 google

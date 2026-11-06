@@ -20,33 +20,33 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'offset (int)']
   description: 'the caller offset within the current frame stack.'
   kind: param
+  key: 'param'
   arg_name: 'offset'
   type_name: 'int'
   is_optional: False
 - DocstringParam
-  args: ['param', 'currentframe (Callable[[], Optional[FrameType]], optional)']
   description: |
     the callable to use to
     retrieve the current frame. Defaults to None, which will use ``inspect.currentframe()``.
   kind: param
+  key: 'param'
   arg_name: 'currentframe'
   type_name: 'Callable[[], Optional[FrameType]]'
   is_optional: True
 - DocstringReturns
-  args: ['returns', 'Tuple[str, int, Dict[str, Any]]']
   description: |
     A tuple containing the filename, the line number and
     the dictionary of local variables associated with the caller frame.
   kind: returns
+  key: 'returns'
   type_name: 'Tuple[str, int, Dict[str, Any]]'
   is_generator: False
 - DocstringRaises
-  args: ['raises', 'RuntimeError']
   description: 'If the stack offset is invalid.'
   kind: raises
+  key: 'raises'
   type_name: 'RuntimeError'
 === detect
 google

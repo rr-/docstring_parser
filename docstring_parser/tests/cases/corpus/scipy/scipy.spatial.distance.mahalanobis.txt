@@ -53,50 +53,50 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'u']
   description: 'Input array.'
   kind: param
+  key: 'param'
   arg_name: 'u'
   type_name: '(N,) array_like'
   is_optional: False
 - DocstringParam
-  args: ['param', 'v']
   description: 'Input array.'
   kind: param
+  key: 'param'
   arg_name: 'v'
   type_name: '(N,) array_like'
   is_optional: False
 - DocstringParam
-  args: ['param', 'VI']
   description: 'The inverse of the covariance matrix.'
   kind: param
+  key: 'param'
   arg_name: 'VI'
   type_name: 'array_like'
   is_optional: False
 - DocstringReturns
-  args: ['returns']
   description: 'The Mahalanobis distance between vectors `u` and `v`.'
   kind: returns
+  key: 'returns'
   type_name: 'double'
   is_generator: False
   return_name: 'mahalanobis'
 - DocstringExample
-  args: ['examples']
   description: '1.0'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> from scipy.spatial import distance
     >>> iv = [[1, 0.5, 0.5], [0.5, 1, 0.5], [0.5, 0.5, 1]]
     >>> distance.mahalanobis([1, 0, 0], [0, 1, 0], iv)
 - DocstringExample
-  args: ['examples']
   description: '1.0'
   kind: examples
+  key: 'examples'
   snippet: '>>> distance.mahalanobis([0, 2, 0], [0, 1, 0], iv)'
 - DocstringExample
-  args: ['examples']
   description: '1.7320508075688772'
   kind: examples
+  key: 'examples'
   snippet: '>>> distance.mahalanobis([2, 0, 0], [0, 1, 0], iv)'
 === detect
 numpydoc

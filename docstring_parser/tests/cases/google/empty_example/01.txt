@@ -13,11 +13,11 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringExample
-  args: ['examples']
   description: ''
   kind: examples
+  key: 'examples'
 - DocstringRaises
-  args: ['raises', 'IOError']
   description: 'some error'
   kind: raises
+  key: 'raises'
   type_name: 'IOError'

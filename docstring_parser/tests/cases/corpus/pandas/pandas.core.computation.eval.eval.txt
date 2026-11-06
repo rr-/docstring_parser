@@ -159,7 +159,6 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'expr']
   description: |
     The expression to evaluate. This string cannot contain any Python
     `statements
@@ -193,11 +192,11 @@ style: numpydoc
     :keyword:`or`, and :keyword:`not` with the same semantics as the
     corresponding bitwise operators.
   kind: param
+  key: 'param'
   arg_name: 'expr'
   type_name: 'str'
   is_optional: False
 - DocstringParam
-  args: ['param', 'parser']
   description: |
     The parser to use to construct the syntax tree from the expression. The
     default of ``'pandas'`` parses code slightly different than standard
@@ -206,12 +205,12 @@ style: numpydoc
     :ref:`enhancing performance <enhancingperf.eval>` documentation for
     more details.
   kind: param
+  key: 'param'
   arg_name: 'parser'
   type_name: "{'pandas', 'python'}"
   is_optional: True
   default: "'pandas'"
 - DocstringParam
-  args: ['param', 'engine']
   description: |
     The engine used to evaluate the expression. Supported engines are
     
@@ -224,26 +223,26 @@ style: numpydoc
     
     More backends may be available in the future.
   kind: param
+  key: 'param'
   arg_name: 'engine'
   type_name: "{'python', 'numexpr'}"
   is_optional: True
   default: 'None'
 - DocstringParam
-  args: ['param', 'local_dict']
   description: 'A dictionary of local variables, taken from locals() by default.'
   kind: param
+  key: 'param'
   arg_name: 'local_dict'
   type_name: 'dict or None'
   is_optional: True
 - DocstringParam
-  args: ['param', 'global_dict']
   description: 'A dictionary of global variables, taken from globals() by default.'
   kind: param
+  key: 'param'
   arg_name: 'global_dict'
   type_name: 'dict or None'
   is_optional: True
 - DocstringParam
-  args: ['param', 'resolvers']
   description: |
     A list of objects implementing the ``__getitem__`` special method that
     you can use to inject an additional collection of namespaces to use for
@@ -253,32 +252,32 @@ style: numpydoc
     variables that refer to their respective :class:`~pandas.DataFrame`
     instance attributes.
   kind: param
+  key: 'param'
   arg_name: 'resolvers'
   type_name: 'list of dict-like or None'
   is_optional: True
 - DocstringParam
-  args: ['param', 'level']
   description: |
     The number of prior stack frames to traverse and add to the current
     scope. Most users will **not** need to change this parameter.
   kind: param
+  key: 'param'
   arg_name: 'level'
   type_name: 'int'
   is_optional: True
 - DocstringParam
-  args: ['param', 'target']
   description: |
     This is the target object for assignment. It is used when there is
     variable assignment in the expression. If so, then `target` must
     support item assignment with string keys, and if a copy is being
     returned, it must also support `.copy()`.
   kind: param
+  key: 'param'
   arg_name: 'target'
   type_name: 'object'
   is_optional: True
   default: 'None'
 - DocstringParam
-  args: ['param', 'inplace']
   description: |
     If `target` is provided, and the expression mutates `target`, whether
     to modify `target` inplace. Otherwise, return a copy of `target` with
@@ -291,18 +290,18 @@ style: numpydoc
         <https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace>`__
         for more details.
   kind: param
+  key: 'param'
   arg_name: 'inplace'
   type_name: 'bool'
   is_optional: True
   default: 'False'
 - DocstringReturns
-  args: ['returns']
   description: 'The completion value of evaluating the given code or None if ``inplace=True``.'
   kind: returns
+  key: 'returns'
   type_name: 'ndarray, numeric scalar, DataFrame, Series, or None'
   is_generator: False
 - DocstringRaises
-  args: ['raises', 'ValueError']
   description: |
     There are many instances where such an error can be raised:
     
@@ -321,17 +320,17 @@ style: numpydoc
     - Item assignment is provided and `inplace=False`, but the `target`
       does not support the `.copy()` method
   kind: raises
+  key: 'raises'
   type_name: 'ValueError'
 - DocstringMeta
-  args: ['see_also']
   description: |
     DataFrame.query : Evaluates a boolean expression to query the columns
             of a frame.
     DataFrame.eval : Evaluate a string describing operations on
             DataFrame columns.
   kind: text
+  key: 'see_also'
 - DocstringMeta
-  args: ['notes']
   description: |
     The ``dtype`` of any objects involved in an arithmetic ``%`` operation are
     recursively cast to ``float64``.
@@ -339,8 +338,8 @@ style: numpydoc
     See the :ref:`enhancing performance <enhancingperf.eval>` documentation for
     more details.
   kind: text
+  key: 'notes'
 - DocstringExample
-  args: ['examples']
   description: |
       animal  age
     0    dog   10
@@ -349,16 +348,17 @@ style: numpydoc
     We can add a new column using ``pd.eval``:
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> df = pd.DataFrame({"animal": ["dog", "pig"], "age": [10, 20]})
     >>> df
 - DocstringExample
-  args: ['examples']
   description: |
       animal  age  double_age
     0    dog   10          20
     1    pig   20          40
   kind: examples
+  key: 'examples'
   snippet: '>>> pd.eval("double_age = df.age * 2", target=df)'
 === detect
 numpydoc

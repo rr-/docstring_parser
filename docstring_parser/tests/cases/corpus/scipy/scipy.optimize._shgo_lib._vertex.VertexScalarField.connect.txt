@@ -12,8 +12,8 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 - DocstringParam
-  args: ['param', 'v']
   kind: param
+  key: 'param'
   arg_name: 'v'
   type_name: 'VertexBase or VertexScalarField object'
   is_optional: False

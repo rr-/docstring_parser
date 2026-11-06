@@ -138,56 +138,55 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'x']
   description: 'x-coordinates of the M sample points ``(x[i], y[i])``.'
   kind: param
+  key: 'param'
   arg_name: 'x'
   type_name: 'array_like, shape (M,)'
   is_optional: False
 - DocstringParam
-  args: ['param', 'y']
   description: |
     y-coordinates of the sample points. Several data sets of sample
     points sharing the same x-coordinates can be fitted at once by
     passing in a 2D-array that contains one dataset per column.
   kind: param
+  key: 'param'
   arg_name: 'y'
   type_name: 'array_like, shape (M,) or (M, K)'
   is_optional: False
 - DocstringParam
-  args: ['param', 'deg']
   description: |
     Degree(s) of the fitting polynomials. If `deg` is a single integer,
     all terms up to and including the `deg`'th term are included in the
     fit. For NumPy versions >= 1.11.0 a list of integers specifying the
     degrees of the terms to include may be used instead.
   kind: param
+  key: 'param'
   arg_name: 'deg'
   type_name: 'int or 1-D array_like'
   is_optional: False
 - DocstringParam
-  args: ['param', 'rcond']
   description: |
     Relative condition number of the fit. Singular values smaller than
     this relative to the largest singular value will be ignored. The
     default value is ``len(x)*eps``, where eps is the relative precision of
     the float type, about 2e-16 in most cases.
   kind: param
+  key: 'param'
   arg_name: 'rcond'
   type_name: 'float'
   is_optional: True
 - DocstringParam
-  args: ['param', 'full']
   description: |
     Switch determining nature of return value. When it is False (the
     default) just the coefficients are returned, when True diagnostic
     information from the singular value decomposition is also returned.
   kind: param
+  key: 'param'
   arg_name: 'full'
   type_name: 'bool'
   is_optional: True
 - DocstringParam
-  args: ['param', 'w']
   description: |
     Weights. If not None, the weight ``w[i]`` applies to the unsquared
     residual ``y[i] - y_hat[i]`` at ``x[i]``. Ideally the weights are
@@ -195,21 +194,21 @@ style: numpydoc
     same variance.  When using inverse-variance weighting, use
     ``w[i] = 1/sigma(y[i])``.  The default value is None.
   kind: param
+  key: 'param'
   arg_name: 'w'
   type_name: 'array_like, shape (`M`,)'
   is_optional: True
 - DocstringReturns
-  args: ['returns']
   description: |
     Chebyshev coefficients ordered from low to high. If `y` was 2-D,
     the coefficients for the data in column k  of `y` are in column
     `k`.
   kind: returns
+  key: 'returns'
   type_name: 'ndarray, shape (M,) or (M, K)'
   is_generator: False
   return_name: 'coef'
 - DocstringReturns
-  args: ['returns']
   description: |
     These values are only returned if ``full == True``
     
@@ -220,11 +219,11 @@ style: numpydoc
     
     For more details, see `numpy.linalg.lstsq`.
   kind: returns
+  key: 'returns'
   type_name: 'list'
   is_generator: False
   return_name: '[residuals, rank, singular_values, rcond]'
 - DocstringRaises
-  args: ['warns', 'RankWarning']
   description: |
     The rank of the coefficient matrix in the least-squares fit is
     deficient. The warning is only raised if ``full == False``.  The
@@ -233,9 +232,9 @@ style: numpydoc
     >>> import warnings
     >>> warnings.simplefilter('ignore', np.exceptions.RankWarning)
   kind: warns
+  key: 'warns'
   type_name: 'RankWarning'
 - DocstringMeta
-  args: ['see_also']
   description: |
     numpy.polynomial.polynomial.polyfit
     numpy.polynomial.legendre.legfit
@@ -248,8 +247,8 @@ style: numpydoc
     numpy.linalg.lstsq : Computes a least-squares fit from the matrix.
     scipy.interpolate.UnivariateSpline : Computes spline fits.
   kind: text
+  key: 'see_also'
 - DocstringMeta
-  args: ['notes']
   description: |
     The solution is the coefficients of the Chebyshev series `p` that
     minimizes the sum of the weighted squared errors
@@ -278,12 +277,13 @@ style: numpydoc
     sample points and the smoothness of the data. If the quality of the fit
     is inadequate splines may be a good alternative.
   kind: text
+  key: 'notes'
 - DocstringMeta
-  args: ['references']
   description: |
     .. [1] Wikipedia, "Curve fitting",
            https://en.wikipedia.org/wiki/Curve_fitting
   kind: text
+  key: 'references'
 === detect
 numpydoc
 === compose numpydoc

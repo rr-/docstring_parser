@@ -132,37 +132,36 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'samples']
   description: |
     Input array. Must be at least two-dimensional, and the last axis of the
     input must correspond with the dimensionality of the vector space.
     When the input is exactly two dimensional, this means that each row
     of the data is a vector observation.
   kind: param
+  key: 'param'
   arg_name: 'samples'
   type_name: 'array_like'
   is_optional: False
 - DocstringParam
-  args: ['param', 'axis']
   description: 'Axis along which the directional mean is computed.'
   kind: param
+  key: 'param'
   arg_name: 'axis'
   type_name: 'int'
   is_optional: True
   default: '0'
 - DocstringParam
-  args: ['param', 'normalize']
   description: |
     If True, normalize the input to ensure that each observation is a
     unit vector. It the observations are already unit vectors, consider
     setting this to False to avoid unnecessary computation.
   kind: param
+  key: 'param'
   arg_name: 'normalize'
   type_name: 'bool'
   is_optional: True
   default: 'True'
 - DocstringReturns
-  args: ['returns']
   description: |
     An object containing attributes:
     
@@ -171,17 +170,17 @@ style: numpydoc
     mean_resultant_length : ndarray
         The mean resultant length [1]_.
   kind: returns
+  key: 'returns'
   type_name: 'DirectionalStats'
   is_generator: False
   return_name: 'res'
 - DocstringMeta
-  args: ['see_also']
   description: |
     circmean: circular mean; i.e. directional mean for 2D *angles*
     circvar: circular variance; i.e. directional variance for 2D *angles*
   kind: text
+  key: 'see_also'
 - DocstringMeta
-  args: ['notes']
   description: |
     This uses a definition of directional mean from [1]_.
     Assuming the observations are unit vectors, the calculation is as follows.
@@ -203,24 +202,24 @@ style: numpydoc
     returns ``R`` as attribute `mean_resultant_length` so the user can compute
     their preferred measure of dispersion.
   kind: text
+  key: 'notes'
 - DocstringMeta
-  args: ['references']
   description: |
     .. [1] Mardia, Jupp. (2000). *Directional Statistics*
        (p. 163). Wiley.
     
     .. [2] https://en.wikipedia.org/wiki/Directional_statistics
   kind: text
+  key: 'references'
 - DocstringExample
-  args: ['examples']
   description: '...                  [6, -8]])  # second observation'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> import numpy as np
     >>> from scipy.stats import directional_stats
     >>> data = np.array([[3, 4],    # first observation, 2D vector space
 - DocstringExample
-  args: ['examples']
   description: |
     array([1., 0.])
     
@@ -229,11 +228,11 @@ style: numpydoc
     a unit vector.
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> dirstats = directional_stats(data)
     >>> dirstats.mean_direction
 - DocstringExample
-  args: ['examples']
   description: |
     array([4.5, -2.])
     
@@ -241,14 +240,14 @@ style: numpydoc
     center for a set of observations on a sphere, e.g. geographical locations.
     
   kind: examples
+  key: 'examples'
   snippet: '>>> data.mean(axis=0)'
 - DocstringExample
-  args: ['examples']
   description: '...                  [0.8660254, -0.5, 0.]])'
   kind: examples
+  key: 'examples'
   snippet: '>>> data = np.array([[0.8660254, 0.5, 0.],'
 - DocstringExample
-  args: ['examples']
   description: |
     array([1., 0., 0.])
     
@@ -256,11 +255,11 @@ style: numpydoc
     lie on the surface of the sphere.
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> dirstats = directional_stats(data)
     >>> dirstats.mean_direction
 - DocstringExample
-  args: ['examples']
   description: |
     array([0.8660254, 0., 0.])
     
@@ -271,11 +270,12 @@ style: numpydoc
     vectors in the above example as:
     
   kind: examples
+  key: 'examples'
   snippet: '>>> data.mean(axis=0)'
 - DocstringExample
-  args: ['examples']
   description: '0.13397459716167093'
   kind: examples
+  key: 'examples'
   snippet: '>>> 1 - dirstats.mean_resultant_length'
 === detect
 numpydoc

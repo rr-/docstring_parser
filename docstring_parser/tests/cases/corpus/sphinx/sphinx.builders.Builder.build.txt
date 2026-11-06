@@ -12,9 +12,9 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 - DocstringMeta
-  args: ['meth']
   description: '`!write`.'
   kind: text
+  key: 'meth'
 === detect
 rest
 === compose rest

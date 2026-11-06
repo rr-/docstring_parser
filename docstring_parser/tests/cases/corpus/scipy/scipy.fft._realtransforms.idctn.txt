@@ -65,21 +65,20 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 - DocstringParam
-  args: ['param', 'x']
   description: 'The input array.'
   kind: param
+  key: 'param'
   arg_name: 'x'
   type_name: 'array_like'
   is_optional: False
 - DocstringParam
-  args: ['param', 'type']
   description: 'Type of the DCT (see Notes). Default type is 2.'
   kind: param
+  key: 'param'
   arg_name: 'type'
   type_name: '{1, 2, 3, 4}'
   is_optional: True
 - DocstringParam
-  args: ['param', 's']
   description: |
     The shape of the result.  If both `s` and `axes` (see below) are
     None, `s` is ``x.shape``; if `s` is None but `axes` is
@@ -90,76 +89,77 @@ style: numpydoc
     If any element of `s` is -1, the size of the corresponding dimension of
     `x` is used.
   kind: param
+  key: 'param'
   arg_name: 's'
   type_name: 'int or array_like of ints or None'
   is_optional: True
 - DocstringParam
-  args: ['param', 'axes']
   description: |
     Axes over which the IDCT is computed. If not given, the last ``len(s)``
     axes are used, or all axes if `s` is also not specified.
   kind: param
+  key: 'param'
   arg_name: 'axes'
   type_name: 'int or array_like of ints or None'
   is_optional: True
 - DocstringParam
-  args: ['param', 'norm']
   description: 'Normalization mode (see Notes). Default is "backward".'
   kind: param
+  key: 'param'
   arg_name: 'norm'
   type_name: '{"backward", "ortho", "forward"}'
   is_optional: True
   default: '"backward"'
 - DocstringParam
-  args: ['param', 'overwrite_x']
   description: 'If True, the contents of `x` can be destroyed; the default is False.'
   kind: param
+  key: 'param'
   arg_name: 'overwrite_x'
   type_name: 'bool'
   is_optional: True
   default: 'False'
 - DocstringParam
-  args: ['param', 'workers']
   description: |
     Maximum number of workers to use for parallel computation. If negative,
     the value wraps around from ``os.cpu_count()``.
     See :func:`~scipy.fft.fft` for more details.
   kind: param
+  key: 'param'
   arg_name: 'workers'
   type_name: 'int'
   is_optional: True
 - DocstringParam
-  args: ['param', 'orthogonalize']
   description: |
     Whether to use the orthogonalized IDCT variant (see Notes).
     Defaults to ``True`` when ``norm="ortho"`` and ``False`` otherwise.
     
     .. versionadded:: 1.8.0
   kind: param
+  key: 'param'
   arg_name: 'orthogonalize'
   type_name: 'bool'
   is_optional: True
 - DocstringReturns
-  args: ['returns']
   description: 'The transformed input array.'
   kind: returns
+  key: 'returns'
   type_name: 'ndarray of real'
   is_generator: False
   return_name: 'y'
 - DocstringMeta
-  args: ['see_also']
   description: 'dctn : multidimensional DCT'
   kind: text
+  key: 'see_also'
 - DocstringMeta
-  args: ['notes']
   description: |
     For full details of the IDCT types and normalization modes, as well as
     references, see `idct`.
   kind: text
+  key: 'notes'
 - DocstringExample
-  args: ['examples']
   description: 'True'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> import numpy as np
     >>> from scipy.fft import dctn, idctn

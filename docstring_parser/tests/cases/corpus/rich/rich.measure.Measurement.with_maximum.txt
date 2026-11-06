@@ -14,16 +14,16 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'width (int)']
   description: 'Maximum desired width.'
   kind: param
+  key: 'param'
   arg_name: 'width'
   type_name: 'int'
   is_optional: False
 - DocstringReturns
-  args: ['returns', 'Measurement']
   description: 'New Measurement object.'
   kind: returns
+  key: 'returns'
   type_name: 'Measurement'
   is_generator: False
 === detect

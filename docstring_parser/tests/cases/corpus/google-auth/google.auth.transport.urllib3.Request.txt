@@ -44,11 +44,11 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: google
 - DocstringParam
-  args: ['param', 'http (urllib3.PoolManager)']
   description: |
     An instance of a urllib3 class that implements
     the request interface (e.g. :class:`urllib3.PoolManager`).
   kind: param
+  key: 'param'
   arg_name: 'http'
   type_name: 'urllib3.PoolManager'
   is_optional: False

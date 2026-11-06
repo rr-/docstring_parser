@@ -83,77 +83,76 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'x']
   description: |
     A 1-D or 2-D array containing multiple variables and observations.
     Each row of `x` represents a variable, and each column a single
     observation of all those variables. Also see `rowvar` below.
   kind: param
+  key: 'param'
   arg_name: 'x'
   type_name: 'array_like'
   is_optional: False
 - DocstringParam
-  args: ['param', 'y']
   description: |
     An additional set of variables and observations. `y` has the same
     shape as `x`.
   kind: param
+  key: 'param'
   arg_name: 'y'
   type_name: 'array_like'
   is_optional: True
 - DocstringParam
-  args: ['param', 'rowvar']
   description: |
     If `rowvar` is True (default), then each row represents a
     variable, with observations in the columns. Otherwise, the relationship
     is transposed: each column represents a variable, while the rows
     contain observations.
   kind: param
+  key: 'param'
   arg_name: 'rowvar'
   type_name: 'bool'
   is_optional: True
 - DocstringParam
-  args: ['param', 'bias']
   description: |
     Default normalization (False) is by ``(N-1)``, where ``N`` is the
     number of observations given (unbiased estimate). If `bias` is True,
     then normalization is by ``N``. This keyword can be overridden by
     the keyword ``ddof`` in numpy versions >= 1.5.
   kind: param
+  key: 'param'
   arg_name: 'bias'
   type_name: 'bool'
   is_optional: True
 - DocstringParam
-  args: ['param', 'allow_masked']
   description: |
     If True, masked values are propagated pair-wise: if a value is masked
     in `x`, the corresponding value is masked in `y`.
     If False, raises a `ValueError` exception when some values are missing.
   kind: param
+  key: 'param'
   arg_name: 'allow_masked'
   type_name: 'bool'
   is_optional: True
 - DocstringParam
-  args: ['param', 'ddof']
   description: |
     If not ``None`` normalization is by ``(N - ddof)``, where ``N`` is
     the number of observations; this overrides the value implied by
     ``bias``. The default value is ``None``.
   kind: param
+  key: 'param'
   arg_name: 'ddof'
   type_name: '{None, int}'
   is_optional: True
 - DocstringRaises
-  args: ['raises', 'ValueError']
   description: 'Raised if some values are missing and `allow_masked` is False.'
   kind: raises
+  key: 'raises'
   type_name: 'ValueError'
 - DocstringMeta
-  args: ['see_also']
   description: 'numpy.cov'
   kind: text
+  key: 'see_also'
 - DocstringExample
-  args: ['examples']
   description: |
     masked_array(
     data=[[--, --, --, --],
@@ -167,6 +166,7 @@ style: numpydoc
     fill_value=1e+20,
     dtype=float64)
   kind: examples
+  key: 'examples'
   snippet: |
     >>> import numpy as np
     >>> x = np.ma.array([[0, 1], [1, 1]], mask=[0, 1, 0, 1])

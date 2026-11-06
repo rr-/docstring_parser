@@ -14,16 +14,16 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'cells (int)']
   description: 'Additional space to add to end of span.'
   kind: param
+  key: 'param'
   arg_name: 'cells'
   type_name: 'int'
   is_optional: False
 - DocstringReturns
-  args: ['returns', 'Span']
   description: 'A span.'
   kind: returns
+  key: 'returns'
   type_name: 'Span'
   is_generator: False
 === detect

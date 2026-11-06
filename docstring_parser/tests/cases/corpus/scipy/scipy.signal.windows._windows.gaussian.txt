@@ -59,70 +59,70 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 - DocstringParam
-  args: ['param', 'M']
   description: |
     Number of points in the output window. If zero, an empty array
     is returned. An exception is thrown when it is negative.
   kind: param
+  key: 'param'
   arg_name: 'M'
   type_name: 'int'
   is_optional: False
 - DocstringParam
-  args: ['param', 'std']
   description: 'The standard deviation, sigma.'
   kind: param
+  key: 'param'
   arg_name: 'std'
   type_name: 'float'
   is_optional: False
 - DocstringParam
-  args: ['param', 'sym']
   description: |
     When True (default), generates a symmetric window, for use in filter
     design.
     When False, generates a periodic window, for use in spectral analysis.
   kind: param
+  key: 'param'
   arg_name: 'sym'
   type_name: 'bool'
   is_optional: True
 - DocstringParam
-  args: ['param', '%(xp_device_snippet)s']
   kind: param
+  key: 'param'
   arg_name: '%(xp_device_snippet)s'
 - DocstringReturns
-  args: ['returns']
   description: |
     The window, with the maximum value normalized to 1 (though the value 1
     does not appear if `M` is even and `sym` is True).
   kind: returns
+  key: 'returns'
   type_name: 'ndarray'
   is_generator: False
   return_name: 'w'
 - DocstringMeta
-  args: ['notes']
   description: |
     The Gaussian window is defined as
     
     .. math::  w(n) = e^{ -\frac{1}{2}\left(\frac{n}{\sigma}\right)^2 }
   kind: text
+  key: 'notes'
 - DocstringExample
-  args: ['examples']
   description: |
     Plot the window and its frequency response:
     
   kind: examples
+  key: 'examples'
 - DocstringExample
-  args: ['examples']
   description: ''
   kind: examples
+  key: 'examples'
   snippet: |
     >>> import numpy as np
     >>> from scipy import signal
     >>> from scipy.fft import fft, fftshift
     >>> import matplotlib.pyplot as plt
 - DocstringExample
-  args: ['examples']
   description: ''
   kind: examples
+  key: 'examples'
   snippet: |
     >>> window = signal.windows.gaussian(51, std=7)
     >>> plt.plot(window)
@@ -130,9 +130,9 @@ style: numpydoc
     >>> plt.ylabel("Amplitude")
     >>> plt.xlabel("Sample")
 - DocstringExample
-  args: ['examples']
   description: ''
   kind: examples
+  key: 'examples'
   snippet: |
     >>> plt.figure()
     >>> A = fft(window, 2048) / (len(window)/2.0)

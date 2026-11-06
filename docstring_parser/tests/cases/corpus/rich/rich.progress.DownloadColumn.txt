@@ -11,9 +11,9 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'binary_units (bool, optional)']
   description: 'Use binary units, KiB, MiB etc. Defaults to False.'
   kind: param
+  key: 'param'
   arg_name: 'binary_units'
   type_name: 'bool'
   is_optional: True

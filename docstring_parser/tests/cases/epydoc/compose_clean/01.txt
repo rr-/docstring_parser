@@ -20,38 +20,38 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: epydoc
 - DocstringParam
-  args: ['param', 'name']
   description: 'description 1'
   kind: param
+  key: 'param'
   arg_name: 'name'
   is_optional: False
 - DocstringParam
-  args: ['param', 'priority']
   description: 'description 2'
   kind: param
+  key: 'param'
   arg_name: 'priority'
   type_name: 'int'
   is_optional: False
 - DocstringParam
-  args: ['param', 'sender']
   description: 'description 3'
   kind: param
+  key: 'param'
   arg_name: 'sender'
   type_name: 'str'
   is_optional: True
 - DocstringParam
-  args: ['param', 'message']
   description: "description 4, defaults to 'hello'"
   kind: param
+  key: 'param'
   arg_name: 'message'
   type_name: 'str'
   is_optional: True
 - DocstringParam
-  args: ['param', 'multiline']
   description: |
     long description 5,
     defaults to 'bye'
   kind: param
+  key: 'param'
   arg_name: 'multiline'
   type_name: 'str'
   is_optional: True

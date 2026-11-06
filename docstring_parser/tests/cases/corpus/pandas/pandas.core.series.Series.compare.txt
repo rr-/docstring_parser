@@ -98,14 +98,13 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'other']
   description: 'Object to compare with.'
   kind: param
+  key: 'param'
   arg_name: 'other'
   type_name: 'Series'
   is_optional: False
 - DocstringParam
-  args: ['param', 'align_axis']
   description: |
     Determine which axis to align the comparison on.
     
@@ -114,40 +113,40 @@ style: numpydoc
     * 1, or 'columns' : Resulting differences are aligned horizontally
       with columns drawn alternately from self and other.
   kind: param
+  key: 'param'
   arg_name: 'align_axis'
   type_name: "{0 or 'index', 1 or 'columns'}"
   is_optional: True
   default: '1'
 - DocstringParam
-  args: ['param', 'keep_shape']
   description: |
     If true, all rows and columns are kept.
     Otherwise, only the ones with different values are kept.
   kind: param
+  key: 'param'
   arg_name: 'keep_shape'
   type_name: 'bool'
   is_optional: True
   default: 'False'
 - DocstringParam
-  args: ['param', 'keep_equal']
   description: |
     If true, the result keeps values that are equal.
     Otherwise, equal values are shown as NaNs.
   kind: param
+  key: 'param'
   arg_name: 'keep_equal'
   type_name: 'bool'
   is_optional: True
   default: 'False'
 - DocstringParam
-  args: ['param', 'result_names']
   description: 'Set the dataframes names in the comparison.'
   kind: param
+  key: 'param'
   arg_name: 'result_names'
   type_name: 'tuple'
   is_optional: True
   default: "('self', 'other')"
 - DocstringReturns
-  args: ['returns']
   description: |
     If axis is 0 or 'index' the result will be a Series.
     The resulting index will be a MultiIndex with 'self' and 'other'
@@ -156,28 +155,28 @@ style: numpydoc
     If axis is 1 or 'columns' the result will be a DataFrame.
     It will have two columns namely 'self' and 'other'.
   kind: returns
+  key: 'returns'
   type_name: 'Series or DataFrame'
   is_generator: False
 - DocstringMeta
-  args: ['see_also']
   description: 'DataFrame.compare : Compare with another DataFrame and show differences.'
   kind: text
+  key: 'see_also'
 - DocstringMeta
-  args: ['notes']
   description: 'Matching NaNs will not appear as a difference.'
   kind: text
+  key: 'notes'
 - DocstringExample
-  args: ['examples']
   description: |
     
     Align the differences on columns
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> s1 = pd.Series(["a", "b", "c", "d", "e"])
     >>> s2 = pd.Series(["a", "a", "c", "b", "e"])
 - DocstringExample
-  args: ['examples']
   description: |
       self other
     1    b     a
@@ -186,9 +185,9 @@ style: numpydoc
     Stack the differences on indices
     
   kind: examples
+  key: 'examples'
   snippet: '>>> s1.compare(s2)'
 - DocstringExample
-  args: ['examples']
   description: |
     1  self     b
        other    a
@@ -199,9 +198,9 @@ style: numpydoc
     Keep all original rows
     
   kind: examples
+  key: 'examples'
   snippet: '>>> s1.compare(s2, align_axis=0)'
 - DocstringExample
-  args: ['examples']
   description: |
       self other
     0  NaN   NaN
@@ -213,9 +212,9 @@ style: numpydoc
     Keep all original rows and also all original values
     
   kind: examples
+  key: 'examples'
   snippet: '>>> s1.compare(s2, keep_shape=True)'
 - DocstringExample
-  args: ['examples']
   description: |
       self other
     0    a     a
@@ -224,6 +223,7 @@ style: numpydoc
     3    d     b
     4    e     e
   kind: examples
+  key: 'examples'
   snippet: '>>> s1.compare(s2, keep_shape=True, keep_equal=True)'
 === detect
 numpydoc

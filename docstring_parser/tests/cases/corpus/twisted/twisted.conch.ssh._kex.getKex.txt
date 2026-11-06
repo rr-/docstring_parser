@@ -18,24 +18,25 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: epydoc
 - DocstringParam
-  args: ['param', 'kexAlgorithm']
   description: 'The key exchange algorithm name.'
   kind: param
+  key: 'param'
   arg_name: 'kexAlgorithm'
   type_name: 'L{bytes}'
   is_optional: False
 - DocstringReturns
-  args: ['return']
   description: |
     A description of the key exchange algorithm named by
     C{kexAlgorithm}.
   kind: returns
+  key: 'return'
   type_name: 'L{_IKexAlgorithm}'
   is_generator: False
 - DocstringMeta
-  args: ['raises', 'ConchError']
   description: 'if the key exchange algorithm is not found.'
   kind: text
+  key: 'raises'
+  name: 'ConchError'
 === detect
 epydoc
 === compose epydoc

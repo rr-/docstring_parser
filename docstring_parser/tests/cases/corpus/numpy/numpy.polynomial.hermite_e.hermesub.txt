@@ -46,37 +46,37 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'c1, c2']
   description: |
     1-D arrays of Hermite series coefficients ordered from low to
     high.
   kind: param
+  key: 'param'
   arg_name: 'c1, c2'
   type_name: 'array_like'
   is_optional: False
 - DocstringReturns
-  args: ['returns']
   description: 'Of Hermite series coefficients representing their difference.'
   kind: returns
+  key: 'returns'
   type_name: 'ndarray'
   is_generator: False
   return_name: 'out'
 - DocstringMeta
-  args: ['see_also']
   description: 'hermeadd, hermemulx, hermemul, hermediv, hermepow'
   kind: text
+  key: 'see_also'
 - DocstringMeta
-  args: ['notes']
   description: |
     Unlike multiplication, division, etc., the difference of two Hermite
     series is a Hermite series (without having to "reproject" the result
     onto the basis set) so subtraction, just like that of "standard"
     polynomials, is simply "component-wise."
   kind: text
+  key: 'notes'
 - DocstringExample
-  args: ['examples']
   description: 'array([0., 0., 0., 4.])'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> from numpy.polynomial.hermite_e import hermesub
     >>> hermesub([1, 2, 3, 4], [1, 2, 3])

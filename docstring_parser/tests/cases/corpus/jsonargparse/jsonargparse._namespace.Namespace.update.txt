@@ -13,19 +13,19 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'value']
   description: 'A namespace to update multiple values or other type to set in a single key.'
   kind: param
+  key: 'param'
   arg_name: 'value'
 - DocstringParam
-  args: ['param', 'key']
   description: 'Branch key where to set the value. Required if value is not namespace.'
   kind: param
+  key: 'param'
   arg_name: 'key'
 - DocstringParam
-  args: ['param', 'only_unset']
   description: 'Whether to only set the value if not set in namespace.'
   kind: param
+  key: 'param'
   arg_name: 'only_unset'
 === detect
 google

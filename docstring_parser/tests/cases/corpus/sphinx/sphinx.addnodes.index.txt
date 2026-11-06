@@ -27,9 +27,9 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 - DocstringMeta
-  args: ['rst']
   description: 'dir:`glossary` and https://github.com/sphinx-doc/sphinx/pull/2320.'
   kind: text
+  key: 'rst'
 === detect
 rest
 === compose rest

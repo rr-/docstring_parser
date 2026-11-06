@@ -100,91 +100,90 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'X']
   description: 'N by M data matrix with N observations in M dimensions.'
   kind: param
+  key: 'param'
   arg_name: 'X'
   type_name: '(N, M) ndarray'
   is_optional: False
 - DocstringParam
-  args: ['param', 't']
   description: |
     For criteria 'inconsistent', 'distance' or 'monocrit',
      this is the threshold to apply when forming flat clusters.
     For 'maxclust' or 'maxclust_monocrit' criteria,
      this would be max number of clusters requested.
   kind: param
+  key: 'param'
   arg_name: 't'
   type_name: 'scalar'
   is_optional: False
 - DocstringParam
-  args: ['param', 'criterion']
   description: |
     Specifies the criterion for forming flat clusters. Valid
     values are 'inconsistent' (default), 'distance', or 'maxclust'
     cluster formation algorithms. See `fcluster` for descriptions.
   kind: param
+  key: 'param'
   arg_name: 'criterion'
   type_name: 'str'
   is_optional: True
 - DocstringParam
-  args: ['param', 'metric']
   description: |
     The distance metric for calculating pairwise distances. See
     ``distance.pdist`` for descriptions and linkage to verify
     compatibility with the linkage method.
   kind: param
+  key: 'param'
   arg_name: 'metric'
   type_name: 'str or function'
   is_optional: True
 - DocstringParam
-  args: ['param', 'depth']
   description: |
     The maximum depth for the inconsistency calculation. See
     `inconsistent` for more information.
   kind: param
+  key: 'param'
   arg_name: 'depth'
   type_name: 'int'
   is_optional: True
 - DocstringParam
-  args: ['param', 'method']
   description: |
     The linkage method to use (single, complete, average,
     weighted, median centroid, ward). See `linkage` for more
     information. Default is "single".
   kind: param
+  key: 'param'
   arg_name: 'method'
   type_name: 'str'
   is_optional: True
   default: '"single"'
 - DocstringParam
-  args: ['param', 'R']
   description: |
     The inconsistency matrix. It will be computed if necessary
     if it is not passed.
   kind: param
+  key: 'param'
   arg_name: 'R'
   type_name: 'ndarray'
   is_optional: True
 - DocstringReturns
-  args: ['returns']
   description: |
     A vector of length n. T[i] is the flat cluster number to
     which original observation i belongs.
   kind: returns
+  key: 'returns'
   type_name: 'ndarray'
   is_generator: False
   return_name: 'fclusterdata'
 - DocstringMeta
-  args: ['see_also']
   description: 'scipy.spatial.distance.pdist : pairwise distance metrics'
   kind: text
+  key: 'see_also'
 - DocstringMeta
-  args: ['notes']
   description: 'This function is similar to the MATLAB function ``clusterdata``.'
   kind: text
+  key: 'notes'
 - DocstringExample
-  args: ['examples']
   description: |
     
     This is a convenience method that abstracts all the steps to perform in a
@@ -199,24 +198,25 @@ style: numpydoc
       `scipy.cluster.hierarchy.fcluster`.
     
   kind: examples
+  key: 'examples'
   snippet: '>>> from scipy.cluster.hierarchy import fclusterdata'
 - DocstringExample
-  args: ['examples']
   description: |
     ...      [0, 4], [0, 3], [1, 4],
     ...      [4, 0], [3, 0], [4, 1],
     ...      [4, 4], [3, 4], [4, 3]]
     
   kind: examples
+  key: 'examples'
   snippet: '>>> X = [[0, 0], [0, 1], [1, 0],'
 - DocstringExample
-  args: ['examples']
   description: |
     array([3, 3, 3, 4, 4, 4, 2, 2, 2, 1, 1, 1], dtype=int32)
     
     The output here (for the dataset ``X``, distance threshold ``t``, and the
     default settings) is four clusters with three data points each.
   kind: examples
+  key: 'examples'
   snippet: '>>> fclusterdata(X, t=1)'
 === detect
 numpydoc

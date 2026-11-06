@@ -16,30 +16,30 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'record (LogRecord)']
   description: 'logging Record.'
   kind: param
+  key: 'param'
   arg_name: 'record'
   type_name: 'LogRecord'
   is_optional: False
 - DocstringParam
-  args: ['param', 'traceback (Optional[Traceback])']
   description: 'Traceback instance or None for no Traceback.'
   kind: param
+  key: 'param'
   arg_name: 'traceback'
   type_name: 'Optional[Traceback]'
   is_optional: False
 - DocstringParam
-  args: ['param', 'message_renderable (ConsoleRenderable)']
   description: 'Renderable (typically Text) containing log message contents.'
   kind: param
+  key: 'param'
   arg_name: 'message_renderable'
   type_name: 'ConsoleRenderable'
   is_optional: False
 - DocstringReturns
-  args: ['returns', 'ConsoleRenderable']
   description: 'Renderable to display log.'
   kind: returns
+  key: 'returns'
   type_name: 'ConsoleRenderable'
   is_generator: False
 === detect

@@ -35,37 +35,37 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'periods']
   description: |
     Number of periods (or increments) to shift by,
     can be positive or negative.
   kind: param
+  key: 'param'
   arg_name: 'periods'
   type_name: 'int'
   is_optional: True
   default: '1'
 - DocstringParam
-  args: ['param', 'freq']
   description: |
     Frequency increment to shift by.
     If None, the index is shifted by its own `freq` attribute.
     Offset aliases are valid strings, e.g., 'D', 'W', 'M' etc.
   kind: param
+  key: 'param'
   arg_name: 'freq'
   type_name: 'pandas.DateOffset, pandas.Timedelta or string'
   is_optional: True
 - DocstringReturns
-  args: ['returns']
   description: 'Shifted index.'
   kind: returns
+  key: 'returns'
   type_name: 'pandas.DatetimeIndex'
   is_generator: False
 - DocstringMeta
-  args: ['see_also']
   description: |
     Index.shift : Shift values of Index.
     PeriodIndex.shift : Shift values of PeriodIndex.
   kind: text
+  key: 'see_also'
 === detect
 numpydoc
 === compose numpydoc

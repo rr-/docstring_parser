@@ -26,21 +26,21 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: google
 - DocstringParam
-  args: ['param', 'required']
   description: 'Whether the subcommand must be provided.'
   kind: param
+  key: 'param'
   arg_name: 'required'
 - DocstringParam
-  args: ['param', 'dest']
   description: 'Destination key where the chosen subcommand name is stored.'
   kind: param
+  key: 'param'
   arg_name: 'dest'
 - DocstringParam
-  args: ['param', '**kwargs']
   description: |
     All options that `argparse.ArgumentParser.add_subparsers
     <https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser.add_subparsers>`_ accepts.
   kind: param
+  key: 'param'
   arg_name: '**kwargs'
 === detect
 google

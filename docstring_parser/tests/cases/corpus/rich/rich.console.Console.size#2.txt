@@ -11,9 +11,9 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'new_size (Tuple[int, int])']
   description: 'New width and height.'
   kind: param
+  key: 'param'
   arg_name: 'new_size'
   type_name: 'Tuple[int, int]'
   is_optional: False

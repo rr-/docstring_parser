@@ -10,7 +10,7 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: epydoc
 - DocstringRaises
-  args: ['raise', 'ValueError']
   description: 'description'
   kind: raises
+  key: 'raise'
   type_name: 'ValueError'

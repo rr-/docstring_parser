@@ -14,24 +14,24 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'meta (Dict[str, Any])']
   description: 'A dict of meta information.'
   kind: param
+  key: 'param'
   arg_name: 'meta'
   type_name: 'Dict[str, Any]'
   is_optional: False
 - DocstringParam
-  args: ['param', 'start (int)']
   description: 'Start offset (negative indexing is supported). Defaults to 0.'
   kind: param
+  key: 'param'
   arg_name: 'start'
   type_name: 'int'
   is_optional: False
   default: '0'
 - DocstringParam
-  args: ['param', 'end (Optional[int], optional)']
   description: 'End offset (negative indexing is supported), or None for end of text. Defaults to None.'
   kind: param
+  key: 'param'
   arg_name: 'end'
   type_name: 'Optional[int]'
   is_optional: True

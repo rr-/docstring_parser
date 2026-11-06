@@ -19,25 +19,25 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: epydoc
 - DocstringParam
-  args: ['param', 'user']
   description: 'The destination address.'
   kind: param
+  key: 'param'
   arg_name: 'user'
   type_name: 'L{Address}'
   is_optional: False
 - DocstringParam
-  args: ['param', 'protocol']
   description: |
     The protocol over which the message to be relayed is
     being received.
   kind: param
+  key: 'param'
   arg_name: 'protocol'
   type_name: 'L{Protocol <twisted.internet.protocol.Protocol>}'
   is_optional: False
 - DocstringReturns
-  args: ['rtype']
   description: 'C{False}.'
   kind: returns
+  key: 'rtype'
   type_name: 'L{bool}'
   is_generator: False
 === detect

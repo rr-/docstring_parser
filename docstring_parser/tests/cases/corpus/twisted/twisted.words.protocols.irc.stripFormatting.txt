@@ -17,22 +17,22 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: epydoc
 - DocstringParam
-  args: ['param', 'text']
   description: 'Formatted text to parse.'
   kind: param
+  key: 'param'
   arg_name: 'text'
   type_name: 'C{str}'
   is_optional: False
 - DocstringReturns
-  args: ['rtype']
   description: 'Plain text without any control sequences.'
   kind: returns
+  key: 'rtype'
   type_name: 'C{str}'
   is_generator: False
 - DocstringMeta
-  args: ['since']
   description: '13.1'
   kind: text
+  key: 'since'
 === detect
 epydoc
 === compose epydoc

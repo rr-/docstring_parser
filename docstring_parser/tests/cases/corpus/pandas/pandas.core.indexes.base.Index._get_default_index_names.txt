@@ -21,24 +21,24 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 - DocstringParam
-  args: ['param', 'names']
   description: 'Index names to set.'
   kind: param
+  key: 'param'
   arg_name: 'names'
   type_name: 'int, str or 1-dimensional list'
   is_optional: True
   default: 'None'
 - DocstringParam
-  args: ['param', 'default']
   description: 'Default name of index.'
   kind: param
+  key: 'param'
   arg_name: 'default'
   type_name: 'str'
   is_optional: False
 - DocstringRaises
-  args: ['raises', 'TypeError']
   description: 'if names not str or list-like'
   kind: raises
+  key: 'raises'
   type_name: 'TypeError'
 === detect
 numpydoc

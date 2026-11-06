@@ -14,14 +14,14 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'value']
   description: 'The data to encode.'
   kind: param
+  key: 'param'
   arg_name: 'value'
 - DocstringReturns
-  args: ['returns']
   description: 'The encoded data.'
   kind: returns
+  key: 'returns'
   is_generator: False
 === detect
 google

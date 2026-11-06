@@ -45,16 +45,16 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: rest
 - DocstringParam
-  args: ['param', 'rule']
   description: 'The URL rule string.'
   kind: param
+  key: 'param'
   arg_name: 'rule'
 - DocstringParam
-  args: ['param', 'options']
   description: |
     Extra options passed to the
     :class:`~werkzeug.routing.Rule` object.
   kind: param
+  key: 'param'
   arg_name: 'options'
 === detect
 rest

@@ -65,15 +65,14 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'ddof']
   description: 'Degrees of freedom.'
   kind: param
+  key: 'param'
   arg_name: 'ddof'
   type_name: 'int'
   is_optional: True
   default: '1'
 - DocstringParam
-  args: ['param', 'numeric_only']
   description: |
     Include only `float`, `int` or `boolean` data.
     
@@ -81,18 +80,18 @@ style: numpydoc
     
         numeric_only now defaults to ``False``.
   kind: param
+  key: 'param'
   arg_name: 'numeric_only'
   type_name: 'bool'
   is_optional: True
   default: 'False'
 - DocstringReturns
-  args: ['returns']
   description: 'Standard deviation of values within each group.'
   kind: returns
+  key: 'returns'
   type_name: 'DataFrame or Series'
   is_generator: False
 - DocstringMeta
-  args: ['see_also']
   description: |
     core.resample.Resampler.mean : Compute mean of groups, excluding missing values.
     core.resample.Resampler.median : Compute median of groups, excluding missing
@@ -100,14 +99,14 @@ style: numpydoc
     core.resample.Resampler.var : Compute variance of groups, excluding missing
         values.
   kind: text
+  key: 'see_also'
 - DocstringMeta
-  args: ['notes']
   description: |
     To use the same divisor as ``numpy.std``, use ``ddof=0`` instead of
     the default ``ddof=1``.
   kind: text
+  key: 'notes'
 - DocstringExample
-  args: ['examples']
   description: |
     ...     [1, 3, 2, 4, 3, 8],
     ...     index=pd.DatetimeIndex(
@@ -122,14 +121,15 @@ style: numpydoc
     ...     ),
     ... )
   kind: examples
+  key: 'examples'
   snippet: '>>> ser = pd.Series('
 - DocstringExample
-  args: ['examples']
   description: |
     2023-01-01    1.000000
     2023-02-01    2.645751
     Freq: MS, dtype: float64
   kind: examples
+  key: 'examples'
   snippet: '>>> ser.resample("MS").std()'
 === detect
 numpydoc

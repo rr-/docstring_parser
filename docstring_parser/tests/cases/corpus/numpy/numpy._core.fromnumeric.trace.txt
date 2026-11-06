@@ -70,34 +70,33 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
-  args: ['param', 'a']
   description: 'Input array, from which the diagonals are taken.'
   kind: param
+  key: 'param'
   arg_name: 'a'
   type_name: 'array_like'
   is_optional: False
 - DocstringParam
-  args: ['param', 'offset']
   description: |
     Offset of the diagonal from the main diagonal. Can be both positive
     and negative. Defaults to 0.
   kind: param
+  key: 'param'
   arg_name: 'offset'
   type_name: 'int'
   is_optional: True
   default: '0'
 - DocstringParam
-  args: ['param', 'axis1, axis2']
   description: |
     Axes to be used as the first and second axis of the 2-D sub-arrays
     from which the diagonals should be taken. Defaults are the first two
     axes of `a`.
   kind: param
+  key: 'param'
   arg_name: 'axis1, axis2'
   type_name: 'int'
   is_optional: True
 - DocstringParam
-  args: ['param', 'dtype']
   description: |
     Determines the data-type of the returned array and of the accumulator
     where the elements are summed. If dtype has the value None and `a` is
@@ -105,51 +104,52 @@ style: numpydoc
     precision, then the default integer precision is used. Otherwise,
     the precision is the same as that of `a`.
   kind: param
+  key: 'param'
   arg_name: 'dtype'
   type_name: 'dtype'
   is_optional: True
 - DocstringParam
-  args: ['param', 'out']
   description: |
     Array into which the output is placed. Its type is preserved and
     it must be of the right shape to hold the output.
   kind: param
+  key: 'param'
   arg_name: 'out'
   type_name: 'ndarray'
   is_optional: True
 - DocstringReturns
-  args: ['returns']
   description: |
     If `a` is 2-D, the sum along the diagonal is returned.  If `a` has
     larger dimensions, then an array of sums along diagonals is returned.
   kind: returns
+  key: 'returns'
   type_name: 'ndarray'
   is_generator: False
   return_name: 'sum_along_diagonals'
 - DocstringMeta
-  args: ['see_also']
   description: 'diag, diagonal, diagflat'
   kind: text
+  key: 'see_also'
 - DocstringExample
-  args: ['examples']
   description: '3.0'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> import numpy as np
     >>> np.trace(np.eye(3))
 - DocstringExample
-  args: ['examples']
   description: |
     array([6, 8])
     
   kind: examples
+  key: 'examples'
   snippet: |
     >>> a = np.arange(8).reshape((2,2,2))
     >>> np.trace(a)
 - DocstringExample
-  args: ['examples']
   description: '(2, 3)'
   kind: examples
+  key: 'examples'
   snippet: |
     >>> a = np.arange(24).reshape((2,2,2,3))
     >>> np.trace(a).shape

@@ -13,7 +13,7 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: numpydoc
 - DocstringRaises
-  args: ['warns', 'UserWarning']
   description: 'description'
   kind: warns
+  key: 'warns'
   type_name: 'UserWarning'

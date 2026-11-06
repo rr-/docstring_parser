@@ -21,27 +21,27 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: epydoc
 - DocstringParam
-  args: ['param', 'description']
   description: |
     A description in the format explained by
     L{serverFromString}.
   kind: param
+  key: 'param'
   arg_name: 'description'
   type_name: 'C{str}'
   is_optional: False
 - DocstringParam
-  args: ['param', 'factory']
   description: |
     A 'factory' argument; this is left-over from
     twisted.application.strports, it's not really used.
   kind: param
+  key: 'param'
   arg_name: 'factory'
   type_name: 'L{IProtocolFactory} or L{None}'
   is_optional: False
 - DocstringReturns
-  args: ['return']
   description: 'a 3-tuple of (plugin or name, arguments, keyword arguments)'
   kind: returns
+  key: 'return'
   is_generator: False
 === detect
 epydoc

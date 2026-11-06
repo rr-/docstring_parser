@@ -18,13 +18,13 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringMeta
-  args: ['see_also']
   description: 'other'
   kind: text
+  key: 'see_also'
 - DocstringMeta
-  args: ['notes']
   description: 'A note.'
   kind: text
+  key: 'notes'
 === compose numpydoc
 Short.
 

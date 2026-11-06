@@ -13,15 +13,15 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: epydoc
 - DocstringParam
-  args: ['ivar', '_spawnProcess']
   description: 'A hook used for testing the spawning of child process.'
   kind: attribute
+  key: 'ivar'
   arg_name: '_spawnProcess'
   is_optional: False
 - DocstringMeta
-  args: ['since']
   description: '13.1'
   kind: text
+  key: 'since'
 === detect
 epydoc
 === compose epydoc

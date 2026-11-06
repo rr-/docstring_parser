@@ -11,11 +11,11 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: epydoc
 - DocstringParam
-  args: ['ivar', 'state']
   description: |
     A string representing the state the connection is currently
     in.
   kind: attribute
+  key: 'ivar'
   arg_name: 'state'
   is_optional: False
 === detect

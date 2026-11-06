@@ -14,24 +14,24 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringParam
-  args: ['param', 'id']
   description: '<url-safe base64-encoded> credential id (key handle).'
   kind: param
+  key: 'param'
   arg_name: 'id'
 - DocstringParam
-  args: ['param', 'response']
   description: 'The authenticator assertion response.'
   kind: param
+  key: 'param'
   arg_name: 'response'
 - DocstringParam
-  args: ['param', 'authenticator_attachment']
   description: "<'cross-platform'|'platform'> The attachment status of the authenticator."
   kind: param
+  key: 'param'
   arg_name: 'authenticator_attachment'
 - DocstringParam
-  args: ['param', 'client_extension_results']
   description: 'WebAuthn authentication extensions output results in a dictionary.'
   kind: param
+  key: 'param'
   arg_name: 'client_extension_results'
 === detect
 google

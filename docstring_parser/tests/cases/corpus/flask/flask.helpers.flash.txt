@@ -26,12 +26,11 @@ blank_after_short_description: False
 blank_after_long_description: True
 style: rest
 - DocstringParam
-  args: ['param', 'message']
   description: 'the message to be flashed.'
   kind: param
+  key: 'param'
   arg_name: 'message'
 - DocstringParam
-  args: ['param', 'category']
   description: |
     the category for the message.  The following values
     are recommended: ``'message'`` for any kind of message,
@@ -39,6 +38,7 @@ style: rest
     messages and ``'warning'`` for warnings.  However any
     kind of string can be used as category.
   kind: param
+  key: 'param'
   arg_name: 'category'
 === detect
 rest
