@@ -660,7 +660,7 @@ def _write_section(
     """Write a section of text, titled by its key."""
     parts.append((key or "").replace("_", "").title() + ":")
     if body:
-        lines = [indent + line if line else "" for line in body.splitlines()]
+        lines = [indent + line if line else "" for line in body.split("\n")]
         parts.append("\n".join(lines))
     parts.append("")
 
@@ -696,7 +696,7 @@ def compose(
                 and alone
                 and not any(
                     _has_item_head(line)
-                    for line in one.description.splitlines()
+                    for line in one.description.split("\n")
                     if line and not line[0].isspace()
                 )
             ):
@@ -704,7 +704,7 @@ def compose(
                 parts.append(
                     "\n".join(
                         indent + line if line else ""
-                        for line in one.description.splitlines()
+                        for line in one.description.split("\n")
                     )
                 )
                 return
@@ -733,7 +733,7 @@ def compose(
             if one.description:
                 parts.append(
                     "\n".join(
-                        indent + line for line in one.description.splitlines()
+                        indent + line for line in one.description.split("\n")
                     )
                 )
             return
@@ -761,11 +761,11 @@ def compose(
             or continuation_indented(one.description)
         ):
             body = f"\n{indent}{indent}".join(
-                [head] + one.description.splitlines()
+                [head] + one.description.split("\n")
             )
             parts.append(body)
         elif one.description:
-            (first, *rest) = one.description.splitlines()
+            (first, *rest) = one.description.split("\n")
             body = f"\n{indent}{indent}".join([head + " " + first] + rest)
             parts.append(body)
         else:
