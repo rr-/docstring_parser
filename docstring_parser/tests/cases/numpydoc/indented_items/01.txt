@@ -1,0 +1,23 @@
+# Test that indented text before a section's first item goes to the long
+# description instead of being dropped.
+=== input
+Short.
+
+Parameters
+----------
+    These are indented.
+x : int
+    The x.
+=== parse numpydoc
+short_description: 'Short.'
+long_description: 'These are indented.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  description: 'The x.'
+  kind: param
+  key: 'param'
+  arg_name: 'x'
+  type_name: 'int'
+  is_optional: False

@@ -466,6 +466,12 @@ class Parser(BaseParser):
             if isinstance(factory, _SphinxSection):
                 chunk, loose = _split_directive(chunk)
                 loose_chunks.append(loose)
+            if isinstance(factory, _KVSection):
+                # Indented text before the first item is no item.
+                first = _KV_REGEX.search(chunk)
+                split = first.start() if first else len(chunk)
+                loose_chunks.append(chunk[:split])
+                chunk = chunk[split:]
             spec = factory._spec
             ret.meta.extend(
                 apply(spec, meta) for meta in factory._parse(chunk)
