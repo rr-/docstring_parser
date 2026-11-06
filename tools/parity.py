@@ -60,15 +60,21 @@ def _shared_fields(meta: T.Any) -> T.Dict[str, T.Any]:
     return {k: v for k, v in vars(meta).items() if k not in NEW_FIELDS}
 
 
-def outputs(package: T.Any, text: str) -> T.Dict[str, str]:
-    """Everything the package makes of one docstring."""
+def outputs(
+    package: T.Any, text: str
+) -> T.Tuple[T.Dict[str, str], T.Set[str]]:
+    """Everything the package makes of one docstring.
+
+    Also the styles it fails to parse the docstring in.
+    """
     style_of, rendering_of = package.DocstringStyle, package.RenderingStyle
-    out = {}
+    out, failed = {}, set()
     for style in STYLES + ("AUTO",):
         try:
             doc = package.parse(text, style_of[style])
         except Exception as ex:  # noqa: BLE001
             out[f"parse {style}"] = f"{type(ex).__name__}: {ex}"
+            failed.add(style)
             continue
         out[f"parse {style}"] = dump(doc)
         for target in STYLES:
@@ -82,7 +88,7 @@ def outputs(package: T.Any, text: str) -> T.Dict[str, str]:
                     )
                 except Exception as ex:  # noqa: BLE001
                     out[key] = f"{type(ex).__name__}: {ex}"
-    return out
+    return out, failed
 
 
 def main() -> int:
@@ -102,9 +108,31 @@ def main() -> int:
         sys.path.insert(0, tmp)
         base = importlib.import_module(BASE_NAME)
         differ = []
+        # Inputs one side fails to parse in a style the other parses in.
+        one_sided: T.Dict[str, list] = {
+            "parses only in base": [],
+            "parses only in tree": [],
+        }
         for origin, text in named:
-            old, new = outputs(base, text), outputs(docstring_parser, text)
-            keys = [k for k in old if old[k] != new.get(k)]
+            old, old_failed = outputs(base, text)
+            new, new_failed = outputs(docstring_parser, text)
+            only_base = new_failed - old_failed
+            only_tree = old_failed - new_failed
+            for label, styles in (
+                ("parses only in base", only_base),
+                ("parses only in tree", only_tree),
+            ):
+                if styles:
+                    keys = [f"parse {style}" for style in sorted(styles)]
+                    one_sided[label].append((origin, text, keys, old, new))
+            # The compose output of a style only one side parses in has
+            # nothing to compare with.
+            skip = only_base | only_tree
+            keys = [
+                k
+                for k in dict.fromkeys([*old, *new])
+                if k.split(" ")[1] not in skip and old.get(k) != new.get(k)
+            ]
             if keys:
                 differ.append((origin, text, keys, old, new))
 
@@ -116,11 +144,22 @@ def main() -> int:
     )
     for key, count in sorted(counts.items()):
         print(f"  {key}: {count}")
-    for origin, text, keys, old, new in differ[: args.show]:
-        print(f"\n--- {origin} input {text!r}")
-        for key in keys[:3]:
-            print(f"  {key}\n    base: {old[key]!r}\n    new:  {new[key]!r}")
-    return 1 if differ else 0
+    for label, items in one_sided.items():
+        if items:
+            origins = collections.Counter(origin for origin, *_ in items)
+            print(
+                f"{len(items)} {label}: "
+                + ", ".join(f"{o} {n}" for o, n in sorted(origins.items()))
+            )
+    for label, items in [("differs", differ), *one_sided.items()]:
+        for origin, text, keys, old, new in items[: args.show]:
+            print(f"\n--- {origin} input {label}: {text!r}")
+            for key in keys[:3]:
+                print(
+                    f"  {key}\n    base: {old.get(key)!r}"
+                    f"\n    new:  {new.get(key)!r}"
+                )
+    return 1 if differ or any(one_sided.values()) else 0
 
 
 if __name__ == "__main__":
