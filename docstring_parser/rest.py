@@ -11,6 +11,7 @@ from .common import (
     PARAM_KEYWORDS,
     PARAM_KINDS,
     RAISES_KINDS,
+    BaseParser,
     Docstring,
     DocstringDeprecated,
     DocstringExample,
@@ -56,7 +57,6 @@ def _field_table(
 
 
 _DEFAULT_TABLE = _field_table(None)
-_tables: ParserCache[T.Dict[str, SectionSpec]] = ParserCache()
 
 
 def _build_meta(args: T.List[str], desc: str, kind: Kind) -> DocstringMeta:
@@ -123,6 +123,156 @@ _VERSION = re.compile(
 )
 
 
+class Parser(BaseParser):
+    """Parser for ReST-style docstrings."""
+
+    name = "rest"
+
+    def __init__(
+        self, sections: T.Optional[T.Sequence[SectionSpec]] = None
+    ) -> None:
+        """Set up the parser.
+
+        :param sections: the fields to recognise, instead of the default
+            ones; each meta's ``key`` is the name its field is written with
+        """
+        self._table = (
+            _DEFAULT_TABLE if sections is None else _field_table(sections)
+        )
+
+    def parse(self, text: T.Optional[str]) -> Docstring:
+        """Parse a docstring into its components.
+
+        :returns: parsed docstring
+        """
+        table = self._table
+        ret = Docstring(style=DocstringStyle.REST)
+        if not text:
+            return ret
+
+        text = Lines(text).text
+        match = re.search("^:", text, flags=re.M)
+        if match:
+            desc_chunk = text[: match.start()]
+            meta_chunk = text[match.start() :]
+        else:
+            desc_chunk = text
+            meta_chunk = ""
+
+        split_description(ret, desc_chunk)
+
+        types = {}
+        type_at: T.Dict[str, int] = {}
+        rtypes = {}
+        # Text between or after the fields, such as an example block, which
+        # goes to the long description instead of being dropped.
+        loose_chunks = []
+        loose_start = 0
+        # A field ends at the next field (``^:``), at the end of the chunk
+        # (``\Z``), or at a blank line followed by unindented, non-field
+        # content. The last case ends the field list so that a trailing block
+        # (e.g. an ``Example`` section) is not absorbed into the last field.
+        for match in re.finditer(
+            r"(^:.*?)(?=^:|\n[ \t]*\n(?=[^ \t\n:])|\Z)",
+            meta_chunk,
+            flags=re.S | re.M,
+        ):
+            loose_chunks.append(meta_chunk[loose_start : match.start()])
+            loose_start = match.end()
+            chunk = match.group(0)
+            if not chunk:
+                continue
+            # A type is a single value, so an unindented line after it ends the
+            # field rather than continuing the type.
+            if re.match(r":r?type\b", chunk):
+                unindented = re.search(r"\n(?=[^ \t\n])", chunk)
+                if unindented:
+                    loose_chunks.append(chunk[unindented.end() :])
+                    chunk = chunk[: unindented.start()]
+            try:
+                args_chunk, desc_chunk = chunk.lstrip(":").split(":", 1)
+            except ValueError as ex:
+                raise ParseError(
+                    f'Error parsing meta information near "{excerpt(chunk)}".'
+                ) from ex
+            args = args_chunk.split()
+            if not args:
+                raise ParseError(
+                    f'Error parsing meta information near "{excerpt(chunk)}".'
+                )
+            desc = desc_chunk.strip()
+
+            if "\n" in desc:
+                # Dedent every continuation line alike, keeping blank lines and
+                # indents relative to each other, as Google does.
+                first_line, rest = desc.split("\n", 1)
+                desc = first_line + "\n" + textwrap.dedent(rest)
+
+            # Add special handling for :type a: typename
+            if len(args) == 2 and args[0] == "type":
+                types[args[1]] = desc
+                type_at.setdefault(args[1], len(ret.meta))
+            elif len(args) in [1, 2] and args[0] == "rtype":
+                rtypes[None if len(args) == 1 else args[1]] = desc
+            else:
+                spec = table.get(args[0])
+                kind = spec.kind if spec else Kind.TEXT
+                ret.meta.append(apply(spec, _build_meta(args, desc, kind)))
+        loose_chunks.append(meta_chunk[loose_start:])
+
+        append_loose(ret, loose_chunks, blank_around=True)
+
+        has_returns = False
+        typed = set()
+        for meta in ret.meta:
+            if isinstance(meta, DocstringParam):
+                typed.add(meta.arg_name)
+                if not meta.type_name and meta.arg_name in types:
+                    spec = type_spec(types[meta.arg_name])
+                    meta.type_name = spec.type_name
+                    if spec.is_optional:
+                        meta.is_optional = True
+                        meta.default = meta.default or spec.default
+            elif isinstance(meta, DocstringReturns):
+                meta.type_name = meta.type_name or rtypes.get(meta.return_name)
+                has_returns = True
+
+        # A type for a name no field describes is a param of its own, where
+        # its type field is.
+        for name in sorted(set(types) - typed, key=type_at.__getitem__)[::-1]:
+            spec = type_spec(types[name])
+            ret.meta.insert(
+                type_at[name],
+                DocstringParam(
+                    None,
+                    arg_name=name,
+                    type_name=spec.type_name,
+                    is_optional=spec.is_optional,
+                    default=spec.default,
+                    key="type",
+                ),
+            )
+
+        # Returns take the type without a name, and a type for a return value
+        # with a name is a return of its own.
+        for return_name, type_name in rtypes.items():
+            if not has_returns or return_name is not None:
+                ret.meta.append(
+                    DocstringReturns(
+                        type_name=type_name,
+                        description=None,
+                        is_generator=False,
+                        return_name=return_name,
+                    )
+                )
+
+        return ret
+
+
+_DEFAULT_PARSER = Parser()
+_parsers: ParserCache[Parser] = ParserCache()
+
+
 def parse(
     text: T.Optional[str],
     sections: T.Optional[T.Sequence[SectionSpec]] = None,
@@ -133,132 +283,9 @@ def parse(
         each meta's ``key`` is the name its field is written with
     :returns: parsed docstring
     """
-    table = (
-        _DEFAULT_TABLE
-        if sections is None
-        else _tables.get(list(sections), _field_table, sections)
-    )
-    ret = Docstring(style=DocstringStyle.REST)
-    if not text:
-        return ret
-
-    text = Lines(text).text
-    match = re.search("^:", text, flags=re.M)
-    if match:
-        desc_chunk = text[: match.start()]
-        meta_chunk = text[match.start() :]
-    else:
-        desc_chunk = text
-        meta_chunk = ""
-
-    split_description(ret, desc_chunk)
-
-    types = {}
-    type_at: T.Dict[str, int] = {}
-    rtypes = {}
-    # Text between or after the fields, such as an example block, which
-    # goes to the long description instead of being dropped.
-    loose_chunks = []
-    loose_start = 0
-    # A field ends at the next field (``^:``), at the end of the chunk
-    # (``\Z``), or at a blank line followed by unindented, non-field
-    # content. The last case ends the field list so that a trailing block
-    # (e.g. an ``Example`` section) is not absorbed into the last field.
-    for match in re.finditer(
-        r"(^:.*?)(?=^:|\n[ \t]*\n(?=[^ \t\n:])|\Z)",
-        meta_chunk,
-        flags=re.S | re.M,
-    ):
-        loose_chunks.append(meta_chunk[loose_start : match.start()])
-        loose_start = match.end()
-        chunk = match.group(0)
-        if not chunk:
-            continue
-        # A type is a single value, so an unindented line after it ends the
-        # field rather than continuing the type.
-        if re.match(r":r?type\b", chunk):
-            unindented = re.search(r"\n(?=[^ \t\n])", chunk)
-            if unindented:
-                loose_chunks.append(chunk[unindented.end() :])
-                chunk = chunk[: unindented.start()]
-        try:
-            args_chunk, desc_chunk = chunk.lstrip(":").split(":", 1)
-        except ValueError as ex:
-            raise ParseError(
-                f'Error parsing meta information near "{excerpt(chunk)}".'
-            ) from ex
-        args = args_chunk.split()
-        if not args:
-            raise ParseError(
-                f'Error parsing meta information near "{excerpt(chunk)}".'
-            )
-        desc = desc_chunk.strip()
-
-        if "\n" in desc:
-            # Dedent every continuation line alike, keeping blank lines and
-            # indents relative to each other, as Google does.
-            first_line, rest = desc.split("\n", 1)
-            desc = first_line + "\n" + textwrap.dedent(rest)
-
-        # Add special handling for :type a: typename
-        if len(args) == 2 and args[0] == "type":
-            types[args[1]] = desc
-            type_at.setdefault(args[1], len(ret.meta))
-        elif len(args) in [1, 2] and args[0] == "rtype":
-            rtypes[None if len(args) == 1 else args[1]] = desc
-        else:
-            spec = table.get(args[0])
-            kind = spec.kind if spec else Kind.TEXT
-            ret.meta.append(apply(spec, _build_meta(args, desc, kind)))
-    loose_chunks.append(meta_chunk[loose_start:])
-
-    append_loose(ret, loose_chunks, blank_around=True)
-
-    has_returns = False
-    typed = set()
-    for meta in ret.meta:
-        if isinstance(meta, DocstringParam):
-            typed.add(meta.arg_name)
-            if not meta.type_name and meta.arg_name in types:
-                spec = type_spec(types[meta.arg_name])
-                meta.type_name = spec.type_name
-                if spec.is_optional:
-                    meta.is_optional = True
-                    meta.default = meta.default or spec.default
-        elif isinstance(meta, DocstringReturns):
-            meta.type_name = meta.type_name or rtypes.get(meta.return_name)
-            has_returns = True
-
-    # A type for a name no field describes is a param of its own, where
-    # its type field is.
-    for name in sorted(set(types) - typed, key=type_at.__getitem__)[::-1]:
-        spec = type_spec(types[name])
-        ret.meta.insert(
-            type_at[name],
-            DocstringParam(
-                None,
-                arg_name=name,
-                type_name=spec.type_name,
-                is_optional=spec.is_optional,
-                default=spec.default,
-                key="type",
-            ),
-        )
-
-    # Returns take the type without a name, and a type for a return value
-    # with a name is a return of its own.
-    for return_name, type_name in rtypes.items():
-        if not has_returns or return_name is not None:
-            ret.meta.append(
-                DocstringReturns(
-                    type_name=type_name,
-                    description=None,
-                    is_generator=False,
-                    return_name=return_name,
-                )
-            )
-
-    return ret
+    if sections is None:
+        return _DEFAULT_PARSER.parse(text)
+    return _parsers.get(list(sections), Parser, sections).parse(text)
 
 
 def _fits_inline(type_name: T.Optional[str]) -> bool:

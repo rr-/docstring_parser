@@ -1,6 +1,7 @@
 """Parse docstrings as per Sphinx notation."""
 
 from .common import (
+    BaseParser,
     Docstring,
     DocstringDeprecated,
     DocstringMeta,
@@ -24,6 +25,7 @@ __all__ = [
     "ParseError",
     "Docstring",
     "DocstringMeta",
+    "BaseParser",
     "DocstringParam",
     "DocstringRaises",
     "DocstringReturns",

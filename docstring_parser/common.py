@@ -322,3 +322,18 @@ class Docstring:
         return [
             item for item in self.meta if isinstance(item, DocstringExample)
         ]
+
+
+class BaseParser:
+    """A parser of one docstring style, set up with the sections to know.
+
+    Build one once and call :meth:`parse` for every docstring; its sections
+    are read when it is made, not on every call.
+    """
+
+    #: The name of the style the parser reads, such as ``"google"``.
+    name: str
+
+    def parse(self, text: T.Optional[str]) -> Docstring:
+        """Parse a docstring into its components."""
+        raise NotImplementedError

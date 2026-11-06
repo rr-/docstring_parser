@@ -19,6 +19,7 @@ from ._text import (
     type_spec,
 )
 from .common import (
+    BaseParser,
     Docstring,
     DocstringDeprecated,
     DocstringExample,
@@ -390,8 +391,10 @@ def default_sections() -> T.List[SectionSpec]:
     ]
 
 
-class NumpydocParser:
+class Parser(BaseParser):
     """Parser for numpydoc-style docstrings."""
+
+    name = "numpydoc"
 
     def __init__(
         self,
@@ -473,11 +476,15 @@ class NumpydocParser:
         return ret
 
 
-_default_parser: T.Optional[NumpydocParser] = None
+# The name the parser had before every style had a ``Parser``.
+NumpydocParser = Parser
+
+
+_default_parser: T.Optional[Parser] = None
 _default_parser_sections: T.Tuple[T.List[Section], T.List[str]] = ([], [])
 
 
-_parsers: ParserCache[NumpydocParser] = ParserCache()
+_parsers: ParserCache[Parser] = ParserCache()
 
 
 def parse(
@@ -493,13 +500,13 @@ def parse(
     global _default_parser, _default_parser_sections  # noqa: PLW0603
     if sections:
         key = [*sections, *(getattr(s, "title", None) for s in sections)]
-        return _parsers.get(key, NumpydocParser, sections).parse(text)
+        return _parsers.get(key, Parser, sections).parse(text)
     # Building a parser compiles its title regex, so reuse one until
     # DEFAULT_SECTIONS changes: a section added, removed or replaced, or a
     # title changed in place.
     current = (list(DEFAULT_SECTIONS), [s.title for s in DEFAULT_SECTIONS])
     if _default_parser is None or current != _default_parser_sections:
-        _default_parser = NumpydocParser()
+        _default_parser = Parser()
         _default_parser_sections = current
     return _default_parser.parse(text)
 
