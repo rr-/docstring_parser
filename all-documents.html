@@ -547,7 +547,7 @@
             <div class="type">Function</div>
             <div class="kind">Function</div>
             <div class="privacy">PUBLIC</div>
-            <div class="summary">Return a ReST <tt class="rst-docutils rst-literal">:ivar name:</tt> style field as an attribute param.</div>
+            <div class="summary">Return a text meta keyed like a ReST <tt class="rst-docutils rst-literal">:ivar name:</tt> field, as one made by hand or parsed with sections that leave the field out, as an attribute param.</div>
           </li><li id="docstring_parser.common.parse_error">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.common<wbr></wbr>.parse<wbr></wbr>_error</div>
@@ -811,7 +811,7 @@
             <div class="type">Attribute</div>
             <div class="kind">Instance Variable</div>
             <div class="privacy">PUBLIC</div>
-            <div class="summary">for a text item, the words after its key, such as <tt class="rst-docutils rst-literal">x</tt> in a ReST <tt class="rst-docutils rst-literal">:ivar x:</tt> field</div>
+            <div class="summary">for a text item, the words after its key, such as <tt class="rst-docutils rst-literal">x</tt> in a ReST <tt class="rst-docutils rst-literal">:note x:</tt> field</div>
           </li><li id="docstring_parser.DocstringMeta.extra">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Docstring<wbr></wbr>Meta<wbr></wbr>.extra</div>
@@ -3116,6 +3116,14 @@
             <div class="kind">Constant</div>
             <div class="privacy">PRIVATE</div>
             <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.rest._OWN_PARAM_FIELDS">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.rest<wbr></wbr>._OWN<wbr></wbr>_PARAM<wbr></wbr>_FIELDS</div>
+            <div class="url">docstring_parser.rest.html#_OWN_PARAM_FIELDS</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Constant</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
           </li><li id="docstring_parser.rest._param_key">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.rest<wbr></wbr>._param<wbr></wbr>_key</div>
@@ -3124,6 +3132,14 @@
             <div class="kind">Function</div>
             <div class="privacy">PRIVATE</div>
             <div class="summary">Return the field name that keeps a param's kind, such as <tt class="rst-docutils rst-literal">key</tt>.</div>
+          </li><li id="docstring_parser.rest._type_key">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.rest<wbr></wbr>._type<wbr></wbr>_key</div>
+            <div class="url">docstring_parser.rest.html#_type_key</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary">Return the name of a param's type field: <tt class="rst-docutils rst-literal">vartype</tt> for one written as <tt class="rst-docutils rst-literal">:ivar:</tt>, <tt class="rst-docutils rst-literal">:var:</tt> or <tt class="rst-docutils rst-literal">:cvar:</tt>, as Sphinx reads it.</div>
           </li><li id="docstring_parser.rest.compose">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.rest<wbr></wbr>.compose</div>
