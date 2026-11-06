@@ -92,11 +92,16 @@ def workloads(
     rendering_of = package.RenderingStyle
     parse, compose, error = package.parse, package.compose, package.ParseError
 
-    def parse_all(part: T.List[str], style: T.Any) -> T.Callable[[], None]:
+    def parse_all(
+        part: T.List[str], style: T.Any, sections: T.Any = None
+    ) -> T.Callable[[], None]:
         def run() -> None:
             for text in part:
                 try:
-                    parse(text, style)
+                    if sections is None:
+                        parse(text, style)
+                    else:
+                        parse(text, style, sections=sections)
                 except error:
                     pass
 
@@ -115,6 +120,19 @@ def workloads(
     for name in STYLES + ("auto",):
         style = style_of[name.upper()]
         out[f"parse {name}"] = [parse_all(p, style) for p in chunks(texts)]
+    # Parsing with a style's own sections passed in, where the base has
+    # sections to pass.
+    try:
+        sections = importlib.import_module(package.__name__ + ".sections")
+    except ImportError:
+        sections = None
+    if sections is not None:
+        for name in STYLES:
+            style = style_of[name.upper()]
+            specs = sections.default_sections(style)
+            out[f"parse {name} sections"] = [
+                parse_all(p, style, specs) for p in chunks(texts)
+            ]
     for name in STYLES:
         style = style_of[name.upper()]
         docs = []
@@ -160,6 +178,8 @@ def main() -> int:
     print(f"{'workload':26} {'base':>9} {'new':>9} {'new/base':>8}")
     slow = []
     for name, base_runs in base.items():
+        if name not in new:
+            continue
         pairs = list(zip(base_runs, new[name]))
         for base_run, new_run in pairs:
             base_run()
