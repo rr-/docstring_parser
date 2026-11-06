@@ -7,12 +7,11 @@
         The read descriptor will not be removed by L{IReactorFDSet.removeAll}.
         
 === parse epydoc
-short_description: 'Add a read descriptor which is part of the implementation of the'
-long_description: |
+short_description: |
+  Add a read descriptor which is part of the implementation of the
   reactor itself.
-  
-  The read descriptor will not be removed by L{IReactorFDSet.removeAll}.
-blank_after_short_description: False
+long_description: 'The read descriptor will not be removed by L{IReactorFDSet.removeAll}.'
+blank_after_short_description: True
 blank_after_long_description: False
 style: epydoc
 === detect

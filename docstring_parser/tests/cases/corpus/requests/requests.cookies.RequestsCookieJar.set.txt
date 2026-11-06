@@ -5,8 +5,8 @@ Dict-like set() that also supports optional domain and path args in
         multiple domains.
         
 === parse rest
-short_description: 'Dict-like set() that also supports optional domain and path args in'
-long_description: |
+short_description: |
+  Dict-like set() that also supports optional domain and path args in
   order to resolve naming collisions from using one cookie jar over
   multiple domains.
 blank_after_short_description: False

@@ -4,8 +4,9 @@ Given a module instance this tries to find the best possible
     application in the module or raises an exception.
     
 === parse rest
-short_description: 'Given a module instance this tries to find the best possible'
-long_description: 'application in the module or raises an exception.'
+short_description: |
+  Given a module instance this tries to find the best possible
+  application in the module or raises an exception.
 blank_after_short_description: False
 blank_after_long_description: False
 style: rest

@@ -7,13 +7,12 @@ Alternative error attach function to the :meth:`errorhandler`
         .. versionadded:: 0.7
         
 === parse rest
-short_description: 'Alternative error attach function to the :meth:`errorhandler`'
-long_description: |
+short_description: |
+  Alternative error attach function to the :meth:`errorhandler`
   decorator that is more straightforward to use for non decorator
   usage.
-  
-  .. versionadded:: 0.7
-blank_after_short_description: False
+long_description: '.. versionadded:: 0.7'
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

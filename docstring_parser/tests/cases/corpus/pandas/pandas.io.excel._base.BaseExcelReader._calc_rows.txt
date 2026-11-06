@@ -21,9 +21,10 @@
         int or None
         
 === parse numpydoc
-short_description: 'If nrows specified, find the number of rows needed from the'
-long_description: 'file, otherwise return None.'
-blank_after_short_description: False
+short_description: |
+  If nrows specified, find the number of rows needed from the
+  file, otherwise return None.
+blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam
@@ -64,6 +65,7 @@ numpydoc
 === compose numpydoc
 If nrows specified, find the number of rows needed from the
 file, otherwise return None.
+
 
 Parameters
 ----------

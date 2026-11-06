@@ -8,10 +8,11 @@
             text (Text): Text instance to apply the style to.
         
 === parse google
-short_description: 'Apply stylized ranges to a text instance,'
-long_description: 'using the given code to determine the right portion to apply the style to.'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  Apply stylized ranges to a text instance,
+  using the given code to determine the right portion to apply the style to.
+blank_after_short_description: True
+blank_after_long_description: False
 style: google
 - DocstringParam
   description: 'Text instance to apply the style to.'

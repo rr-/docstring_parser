@@ -14,17 +14,17 @@ A decorator that is used to register a custom template global function.
                      function name will be used.
         
 === parse rest
-short_description: 'A decorator that is used to register a custom template global function.'
-long_description: |
+short_description: |
+  A decorator that is used to register a custom template global function.
   You can specify a name for the global function, otherwise the function
   name will be used. Example::
-  
+long_description: |
       @app.template_global()
       def double(n):
           return 2 * n
   
   .. versionadded:: 0.10
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringParam

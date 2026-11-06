@@ -4,8 +4,9 @@ Internal helper that returns the default endpoint for a given
     function.  This always is the function name.
     
 === parse rest
-short_description: 'Internal helper that returns the default endpoint for a given'
-long_description: 'function.  This always is the function name.'
+short_description: |
+  Internal helper that returns the default endpoint for a given
+  function.  This always is the function name.
 blank_after_short_description: False
 blank_after_long_description: False
 style: rest

@@ -4,8 +4,9 @@ Mixin for FunctionDocumenter and MethodDocumenter to provide the
     feature of reading the signature from the docstring.
     
 === parse rest
-short_description: 'Mixin for FunctionDocumenter and MethodDocumenter to provide the'
-long_description: 'feature of reading the signature from the docstring.'
+short_description: |
+  Mixin for FunctionDocumenter and MethodDocumenter to provide the
+  feature of reading the signature from the docstring.
 blank_after_short_description: False
 blank_after_long_description: False
 style: rest

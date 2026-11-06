@@ -31,10 +31,10 @@
         parametrization mark.
     
 === parse numpydoc
-short_description: 'Generic function to help skip tests when required packages are not'
-long_description: |
+short_description: |
+  Generic function to help skip tests when required packages are not
   present on the testing system.
-  
+long_description: |
   This function returns a pytest mark with a skip condition that will be
   evaluated during test collection. An attempt will be made to import the
   specified ``package`` and optionally ensure it meets the ``min_version``
@@ -47,7 +47,7 @@ long_description: |
   If the import and version check are unsuccessful, then the test function
   (or test case when used in conjunction with parametrization) will be
   skipped.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam

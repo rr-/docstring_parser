@@ -23,10 +23,10 @@ See U{http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt} for
 more information about the protocol.
 
 === parse epydoc
-short_description: 'Memcache client protocol. Memcached is a caching server, storing data in the'
-long_description: |
+short_description: |
+  Memcache client protocol. Memcached is a caching server, storing data in the
   form of pairs key/value, and memcache is the protocol to talk with it.
-  
+long_description: |
   To connect to a server, create a factory for L{MemCacheProtocol}::
   
       from twisted.internet import reactor, protocol
@@ -44,7 +44,7 @@ long_description: |
   
   See U{http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt} for
   more information about the protocol.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: epydoc
 === detect

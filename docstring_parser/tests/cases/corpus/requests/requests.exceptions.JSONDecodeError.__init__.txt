@@ -7,8 +7,8 @@
         and the error message from JSONDecodeError is preserved.
         
 === parse rest
-short_description: 'Construct the JSONDecodeError instance first with all'
-long_description: |
+short_description: |
+  Construct the JSONDecodeError instance first with all
   args. Then use it's args to construct the IOError so that
   the json specific args aren't used as IOError specific args
   and the error message from JSONDecodeError is preserved.

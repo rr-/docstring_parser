@@ -21,10 +21,11 @@
             creation failed for any reason.
     
 === parse google
-short_description: 'A TransportAdapter that enables mutual TLS and offloads the client side'
-long_description: 'signing operation to the signing library.'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  A TransportAdapter that enables mutual TLS and offloads the client side
+  signing operation to the signing library.
+blank_after_short_description: True
+blank_after_long_description: False
 style: google
 - DocstringParam
   description: |

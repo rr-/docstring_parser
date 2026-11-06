@@ -15,17 +15,17 @@ Called by :meth:`.url_for` if a
         :param values: The keyword arguments passed to ``url_for``.
         
 === parse rest
-short_description: 'Called by :meth:`.url_for` if a'
-long_description: |
+short_description: |
+  Called by :meth:`.url_for` if a
   :exc:`~werkzeug.routing.BuildError` was raised. If this returns
   a value, it will be returned by ``url_for``, otherwise the error
   will be re-raised.
-  
+long_description: |
   Each function in :attr:`url_build_error_handlers` is called with
   ``error``, ``endpoint`` and ``values``. If a function returns
   ``None`` or raises a ``BuildError``, it is skipped. Otherwise,
   its return value is returned by ``url_for``.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringParam

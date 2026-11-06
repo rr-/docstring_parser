@@ -13,10 +13,11 @@ we might need to coerce a code to a rule_code
     str
     
 === parse numpydoc
-short_description: 'we might need to coerce a code to a rule_code'
-long_description: 'and uppercase it'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  we might need to coerce a code to a rule_code
+  and uppercase it
+blank_after_short_description: True
+blank_after_long_description: False
 style: numpydoc
 - DocstringParam
   description: 'Frequency converting from'

@@ -13,10 +13,11 @@ A container for data from `@field_serializer` so that we can access it
         check_fields: Whether to check that the fields actually exist on the model.
     
 === parse google
-short_description: 'A container for data from `@field_serializer` so that we can access it'
-long_description: 'while building the pydantic-core schema.'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  A container for data from `@field_serializer` so that we can access it
+  while building the pydantic-core schema.
+blank_after_short_description: True
+blank_after_long_description: False
 style: google
 - DocstringParam
   description: "A class variable representing the decorator string, '@field_serializer'."

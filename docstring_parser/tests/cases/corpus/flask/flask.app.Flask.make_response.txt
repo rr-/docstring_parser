@@ -56,10 +56,10 @@ Convert the return value from a view function to an instance of
            response object.
         
 === parse rest
-short_description: 'Convert the return value from a view function to an instance of'
-long_description: |
+short_description: |
+  Convert the return value from a view function to an instance of
   :attr:`response_class`.
-  
+long_description: |
   .. versionchanged:: 2.2
       A generator will be converted to a streaming response.
       A list will be converted to a JSON response.
@@ -123,7 +123,6 @@ style: rest
 rest
 === compose rest
 Convert the return value from a view function to an instance of
-
 :attr:`response_class`.
 
 .. versionchanged:: 2.2

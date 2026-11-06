@@ -5,8 +5,9 @@ Accumulate `target` along `axis` after filling with y fill
 
         
 === parse numpydoc
-short_description: 'Accumulate `target` along `axis` after filling with y fill'
-long_description: 'value.'
+short_description: |
+  Accumulate `target` along `axis` after filling with y fill
+  value.
 blank_after_short_description: False
 blank_after_long_description: False
 style: numpydoc

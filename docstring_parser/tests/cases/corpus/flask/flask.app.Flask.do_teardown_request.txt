@@ -21,10 +21,10 @@ Called after the request is dispatched and the response is
             Added the ``exc`` argument.
         
 === parse rest
-short_description: 'Called after the request is dispatched and the response is'
-long_description: |
+short_description: |
+  Called after the request is dispatched and the response is
   returned, right before the request context is popped.
-  
+long_description: |
   This calls all functions decorated with
   :meth:`teardown_request`, and :meth:`Blueprint.teardown_request`
   if a blueprint handled the request. Finally, the
@@ -53,7 +53,6 @@ style: rest
 rest
 === compose rest
 Called after the request is dispatched and the response is
-
 returned, right before the request context is popped.
 
 This calls all functions decorated with

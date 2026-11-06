@@ -10,16 +10,16 @@ Create a CLI runner for testing CLI commands.
         .. versionadded:: 1.0
         
 === parse rest
-short_description: 'Create a CLI runner for testing CLI commands.'
-long_description: |
+short_description: |
+  Create a CLI runner for testing CLI commands.
   See :ref:`testing-cli`.
-  
+long_description: |
   Returns an instance of :attr:`test_cli_runner_class`, by default
   :class:`~flask.testing.FlaskCliRunner`. The Flask app object is
   passed as the first argument.
   
   .. versionadded:: 1.0
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

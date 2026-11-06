@@ -28,11 +28,11 @@ Handle an exception that did not have an error handler
         .. versionadded:: 0.3
         
 === parse rest
-short_description: 'Handle an exception that did not have an error handler'
-long_description: |
+short_description: |
+  Handle an exception that did not have an error handler
   associated with it, or that was raised from an error handler.
   This always causes a 500 ``InternalServerError``.
-  
+long_description: |
   Always sends the :data:`got_request_exception` signal.
   
   If :data:`PROPAGATE_EXCEPTIONS` is ``True``, such as in debug
@@ -55,7 +55,7 @@ long_description: |
       even for the default 500 response when there is no handler.
   
   .. versionadded:: 0.3
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

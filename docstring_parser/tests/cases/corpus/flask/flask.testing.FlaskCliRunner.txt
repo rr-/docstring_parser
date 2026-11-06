@@ -5,8 +5,8 @@ A :class:`~click.testing.CliRunner` for testing a Flask app's
     :meth:`~flask.Flask.test_cli_runner`. See :ref:`testing-cli`.
     
 === parse rest
-short_description: "A :class:`~click.testing.CliRunner` for testing a Flask app's"
-long_description: |
+short_description: |
+  A :class:`~click.testing.CliRunner` for testing a Flask app's
   CLI commands. Typically created using
   :meth:`~flask.Flask.test_cli_runner`. See :ref:`testing-cli`.
 blank_after_short_description: False

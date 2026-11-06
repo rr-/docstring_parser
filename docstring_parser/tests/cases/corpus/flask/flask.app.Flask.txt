@@ -96,12 +96,12 @@ The flask object implements a WSGI application and acts as the central
         automatically, such as for namespace packages.
     
 === parse rest
-short_description: 'The flask object implements a WSGI application and acts as the central'
-long_description: |
+short_description: |
+  The flask object implements a WSGI application and acts as the central
   object.  It is passed the name of the module or package of the
   application.  Once it is created it will act as a central registry for
   the view functions, the URL rules, template configuration and much more.
-  
+long_description: |
   The name of the package is used to resolve resources from inside the
   package or the folder the module is contained in depending on if the
   package parameter resolves to an actual python package (a folder with
@@ -161,7 +161,7 @@ long_description: |
      The ``subdomain_matching`` parameter was added. Subdomain
      matching needs to be enabled manually now. Setting
      :data:`SERVER_NAME` does not implicitly enable it.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringParam

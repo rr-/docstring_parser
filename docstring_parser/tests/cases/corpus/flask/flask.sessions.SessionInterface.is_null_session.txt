@@ -7,13 +7,13 @@ Checks if a given object is a null session.  Null sessions are
         by default.
         
 === parse rest
-short_description: 'Checks if a given object is a null session.  Null sessions are'
-long_description: |
+short_description: |
+  Checks if a given object is a null session.  Null sessions are
   not asked to be saved.
-  
+long_description: |
   This checks if the object is an instance of :attr:`null_session_class`
   by default.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

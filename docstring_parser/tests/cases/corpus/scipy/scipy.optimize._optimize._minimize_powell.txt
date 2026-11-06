@@ -89,10 +89,11 @@
         iterations.
     
 === parse numpydoc
-short_description: 'Minimization of scalar function of one or more variables using the'
-long_description: 'modified Powell algorithm.'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  Minimization of scalar function of one or more variables using the
+  modified Powell algorithm.
+blank_after_short_description: True
+blank_after_long_description: False
 style: numpydoc
 - DocstringParam
   description: |

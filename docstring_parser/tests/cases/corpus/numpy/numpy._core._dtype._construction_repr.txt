@@ -27,15 +27,15 @@
         provided as the second parameter.
     
 === parse numpydoc
-short_description: "Creates a string repr of the dtype, excluding the 'dtype()' part"
-long_description: |
+short_description: |
+  Creates a string repr of the dtype, excluding the 'dtype()' part
   surrounding the object. This object may be a string, a list, or
   a dict depending on the nature of the dtype. This
   is the object passed as the first parameter to the dtype
   constructor, and if no additional constructor parameters are
   given, will reproduce the exact memory layout.
-blank_after_short_description: False
-blank_after_long_description: True
+blank_after_short_description: True
+blank_after_long_description: False
 style: numpydoc
 - DocstringParam
   description: |

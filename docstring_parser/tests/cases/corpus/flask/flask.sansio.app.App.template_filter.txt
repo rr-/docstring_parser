@@ -12,15 +12,15 @@ A decorator that is used to register custom template filter.
                      function name will be used.
         
 === parse rest
-short_description: 'A decorator that is used to register custom template filter.'
-long_description: |
+short_description: |
+  A decorator that is used to register custom template filter.
   You can specify a name for the filter, otherwise the function
   name will be used. Example::
-  
+long_description: |
     @app.template_filter()
     def reverse(s):
         return s[::-1]
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringParam

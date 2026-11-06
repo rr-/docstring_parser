@@ -18,13 +18,13 @@ Iterates over the response data.  When stream=True is set on the
         `encoding` on the response.
         
 === parse rest
-short_description: 'Iterates over the response data.  When stream=True is set on the'
-long_description: |
+short_description: |
+  Iterates over the response data.  When stream=True is set on the
   request, this avoids reading the content at once into memory for
   large responses.  The chunk size is the number of bytes it should
   read into memory.  This is not necessarily the length of each item
   returned as decoding can take place.
-  
+long_description: |
   chunk_size must be of type int or None. A value of None will
   function differently depending on the value of `stream`.
   stream=True will read data as it arrives in whatever size the
@@ -35,7 +35,7 @@ long_description: |
   information from the response. If no encoding information is available,
   bytes will be returned. This can be bypassed by manually setting
   `encoding` on the response.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

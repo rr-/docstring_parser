@@ -4,8 +4,9 @@ Creates a new document object which has a special reporter object good
         for logging.
         
 === parse rest
-short_description: 'Creates a new document object which has a special reporter object good'
-long_description: 'for logging.'
+short_description: |
+  Creates a new document object which has a special reporter object good
+  for logging.
 blank_after_short_description: False
 blank_after_long_description: False
 style: rest

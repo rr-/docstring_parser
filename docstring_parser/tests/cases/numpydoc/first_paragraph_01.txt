@@ -1,0 +1,31 @@
+# Test that the short description is the whole first paragraph.
+=== input
+Return the Foo for
+bar calls.
+
+Parameters
+----------
+x : int
+    The x.
+=== parse numpydoc
+short_description: |
+  Return the Foo for
+  bar calls.
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  description: 'The x.'
+  kind: param
+  key: 'param'
+  arg_name: 'x'
+  type_name: 'int'
+  is_optional: False
+=== compose numpydoc
+Return the Foo for
+bar calls.
+
+Parameters
+----------
+x : int
+    The x.

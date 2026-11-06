@@ -17,10 +17,11 @@ Convert a string to a Text instance. This is called automatically if
 
         
 === parse google
-short_description: 'Convert a string to a Text instance. This is called automatically if'
-long_description: 'you print or log a string.'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  Convert a string to a Text instance. This is called automatically if
+  you print or log a string.
+blank_after_short_description: True
+blank_after_long_description: False
 style: google
 - DocstringParam
   description: 'Text to render.'

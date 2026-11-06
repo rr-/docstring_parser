@@ -21,10 +21,10 @@ An Index is the description for a domain-specific index.  To add an index to
        :rst:role:`ref` role.
     
 === parse rest
-short_description: 'An Index is the description for a domain-specific index.  To add an index to'
-long_description: |
+short_description: |
+  An Index is the description for a domain-specific index.  To add an index to
   a domain, subclass Index, overriding the three name attributes:
-  
+long_description: |
   * `name` is an identifier used for generating file names.
     It is also used for a hyperlink target for the index. Therefore, users can
     refer the index page using ``ref`` role and a string which is combined
@@ -41,7 +41,7 @@ long_description: |
   
      Index pages can be referred by domain name and index name via
      :rst:role:`ref` role.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

@@ -5,8 +5,9 @@
         over the new protocol.
         
 === parse epydoc
-short_description: 'Send me; I am the last box on the connection.  All further traffic will be'
-long_description: 'over the new protocol.'
+short_description: |
+  Send me; I am the last box on the connection.  All further traffic will be
+  over the new protocol.
 blank_after_short_description: False
 blank_after_long_description: False
 style: epydoc

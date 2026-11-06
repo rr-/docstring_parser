@@ -5,8 +5,9 @@
     are rewritten to relative form from the node where they appear.
     
 === parse google
-short_description: 'Return a new nested dict/list where absolute ${...} interpolations'
-long_description: 'are rewritten to relative form from the node where they appear.'
+short_description: |
+  Return a new nested dict/list where absolute ${...} interpolations
+  are rewritten to relative form from the node where they appear.
 blank_after_short_description: False
 blank_after_long_description: False
 style: google

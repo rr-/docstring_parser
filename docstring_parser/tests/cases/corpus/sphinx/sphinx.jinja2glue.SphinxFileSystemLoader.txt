@@ -4,8 +4,9 @@ FileSystemLoader subclass that is not so strict about '..'  entries in
     template names.
     
 === parse rest
-short_description: "FileSystemLoader subclass that is not so strict about '..'  entries in"
-long_description: 'template names.'
+short_description: |
+  FileSystemLoader subclass that is not so strict about '..'  entries in
+  template names.
 blank_after_short_description: False
 blank_after_long_description: False
 style: rest

@@ -35,14 +35,14 @@
 
     
 === parse numpydoc
-short_description: 'Return element-wise a copy of the string with'
-long_description: |
+short_description: |
+  Return element-wise a copy of the string with
   uppercase characters converted to lowercase and vice versa.
-  
+long_description: |
   Calls :meth:`str.swapcase` element-wise.
   
   For 8-bit strings, this method is locale-dependent.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam

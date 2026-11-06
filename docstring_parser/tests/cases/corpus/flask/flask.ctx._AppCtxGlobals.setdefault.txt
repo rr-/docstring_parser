@@ -10,11 +10,10 @@ Get the value of an attribute if it is present, otherwise
         .. versionadded:: 0.11
         
 === parse rest
-short_description: 'Get the value of an attribute if it is present, otherwise'
-long_description: |
+short_description: |
+  Get the value of an attribute if it is present, otherwise
   set and return a default value. Like :meth:`dict.setdefault`.
-  
-  .. versionadded:: 0.11
+long_description: '.. versionadded:: 0.11'
 blank_after_short_description: True
 blank_after_long_description: True
 style: rest
@@ -36,7 +35,6 @@ style: rest
 rest
 === compose rest
 Get the value of an attribute if it is present, otherwise
-
 set and return a default value. Like :meth:`dict.setdefault`.
 
 .. versionadded:: 0.11

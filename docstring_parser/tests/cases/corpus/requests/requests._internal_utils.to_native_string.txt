@@ -5,8 +5,8 @@ Given a string object, regardless of type, returns a representation of
     necessary. This assumes ASCII unless told otherwise.
     
 === parse rest
-short_description: 'Given a string object, regardless of type, returns a representation of'
-long_description: |
+short_description: |
+  Given a string object, regardless of type, returns a representation of
   that string in the native string type, encoding and decoding where
   necessary. This assumes ASCII unless told otherwise.
 blank_after_short_description: False

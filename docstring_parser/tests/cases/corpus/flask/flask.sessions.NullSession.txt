@@ -5,8 +5,8 @@ Class used to generate nicer error messages if sessions are not
     but fail on setting.
     
 === parse rest
-short_description: 'Class used to generate nicer error messages if sessions are not'
-long_description: |
+short_description: |
+  Class used to generate nicer error messages if sessions are not
   available.  Will still allow read-only access to the empty session
   but fail on setting.
 blank_after_short_description: False

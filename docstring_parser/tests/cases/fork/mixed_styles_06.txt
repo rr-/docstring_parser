@@ -32,10 +32,11 @@
 === detect
 numpydoc
 === parse google
-short_description: 'Parameters'
-long_description: |
+short_description: |
+  Parameters
   ----------
   a: int
+long_description: |
       description
   b: int
       description
@@ -88,10 +89,11 @@ TypeError
 IOError
     If something else goes wrong.
 === parse rest
-short_description: 'Parameters'
-long_description: |
+short_description: |
+  Parameters
   ----------
   a: int
+long_description: |
       description
   b: int
       description

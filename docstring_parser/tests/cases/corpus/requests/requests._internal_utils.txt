@@ -8,13 +8,13 @@ Provides utility functions that are consumed internally by Requests
 which depend on extremely few external helpers (such as compat)
 
 === parse rest
-short_description: 'requests._internal_utils'
-long_description: |
+short_description: |
+  requests._internal_utils
   ~~~~~~~~~~~~~~
-  
+long_description: |
   Provides utility functions that are consumed internally by Requests
   which depend on extremely few external helpers (such as compat)
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

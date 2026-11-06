@@ -13,11 +13,11 @@ Open a resource file relative to the application's instance folder
             Added the ``encoding`` parameter.
         
 === parse rest
-short_description: "Open a resource file relative to the application's instance folder"
-long_description: |
+short_description: |
+  Open a resource file relative to the application's instance folder
   :attr:`instance_path`. Unlike :meth:`open_resource`, files in the
   instance folder can be opened for writing.
-  
+long_description: |
   .. versionchanged:: 3.1
       Added the ``encoding`` parameter.
 blank_after_short_description: True
@@ -47,7 +47,6 @@ style: rest
 rest
 === compose rest
 Open a resource file relative to the application's instance folder
-
 :attr:`instance_path`. Unlike :meth:`open_resource`, files in the
 instance folder can be opened for writing.
 

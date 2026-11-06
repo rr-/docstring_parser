@@ -5,8 +5,8 @@ Return ``'Strict'`` or ``'Lax'`` if the cookie should use the
         the :data:`SESSION_COOKIE_SAMESITE` setting.
         
 === parse rest
-short_description: "Return ``'Strict'`` or ``'Lax'`` if the cookie should use the"
-long_description: |
+short_description: |
+  Return ``'Strict'`` or ``'Lax'`` if the cookie should use the
   ``SameSite`` attribute. This currently just returns the value of
   the :data:`SESSION_COOKIE_SAMESITE` setting.
 blank_after_short_description: False

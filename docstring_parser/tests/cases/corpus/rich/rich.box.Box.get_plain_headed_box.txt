@@ -8,10 +8,11 @@ If this box uses special characters for the borders of the header, then
                 If the current Box already satisfies this criterion, then it's returned.
         
 === parse google
-short_description: 'If this box uses special characters for the borders of the header, then'
-long_description: 'return the equivalent box that does not.'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  If this box uses special characters for the borders of the header, then
+  return the equivalent box that does not.
+blank_after_short_description: True
+blank_after_long_description: False
 style: google
 - DocstringReturns
   description: |

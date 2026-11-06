@@ -6,12 +6,11 @@ Dict-like values() that returns a list of values of cookies from the
         .. seealso:: keys() and items().
         
 === parse rest
-short_description: 'Dict-like values() that returns a list of values of cookies from the'
-long_description: |
+short_description: |
+  Dict-like values() that returns a list of values of cookies from the
   jar.
-  
-  .. seealso:: keys() and items().
-blank_after_short_description: False
+long_description: '.. seealso:: keys() and items().'
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

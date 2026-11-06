@@ -7,10 +7,11 @@ Get a global :class:`~rich.console.Console` instance. This function is used when
         Console: A console instance.
     
 === parse google
-short_description: 'Get a global :class:`~rich.console.Console` instance. This function is used when Rich requires a Console,'
-long_description: "and hasn't been explicitly given one."
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  Get a global :class:`~rich.console.Console` instance. This function is used when Rich requires a Console,
+  and hasn't been explicitly given one.
+blank_after_short_description: True
+blank_after_long_description: False
 style: google
 - DocstringReturns
   description: 'A console instance.'

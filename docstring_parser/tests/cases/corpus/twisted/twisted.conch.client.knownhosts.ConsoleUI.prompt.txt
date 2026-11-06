@@ -13,10 +13,11 @@
             there were any I/O errors.
         
 === parse epydoc
-short_description: 'Write the given text as a prompt to the console output, then read a'
-long_description: 'result from the console input.'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  Write the given text as a prompt to the console output, then read a
+  result from the console input.
+blank_after_short_description: True
+blank_after_long_description: False
 style: epydoc
 - DocstringParam
   description: |

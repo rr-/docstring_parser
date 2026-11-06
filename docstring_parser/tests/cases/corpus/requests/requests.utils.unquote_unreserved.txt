@@ -6,10 +6,11 @@ Un-escape any percent-escape sequences in a URI that are unreserved
     :rtype: str
     
 === parse rest
-short_description: 'Un-escape any percent-escape sequences in a URI that are unreserved'
-long_description: 'characters. This leaves all reserved, illegal and non-ASCII bytes encoded.'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  Un-escape any percent-escape sequences in a URI that are unreserved
+  characters. This leaves all reserved, illegal and non-ASCII bytes encoded.
+blank_after_short_description: True
+blank_after_long_description: False
 style: rest
 - DocstringReturns
   kind: returns

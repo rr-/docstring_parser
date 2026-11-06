@@ -4,8 +4,9 @@ Return a role adapter function that always gives the registered
         role its full name ('domain:name') as the first argument.
         
 === parse rest
-short_description: 'Return a role adapter function that always gives the registered'
-long_description: "role its full name ('domain:name') as the first argument."
+short_description: |
+  Return a role adapter function that always gives the registered
+  role its full name ('domain:name') as the first argument.
 blank_after_short_description: False
 blank_after_long_description: False
 style: rest

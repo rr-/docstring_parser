@@ -5,8 +5,8 @@ Calculate the Simpson integrals for all h1 intervals assuming equal interval
     h2 intervals by reversing the inputs, `y` and `dx`.
     
 === parse numpydoc
-short_description: 'Calculate the Simpson integrals for all h1 intervals assuming equal interval'
-long_description: |
+short_description: |
+  Calculate the Simpson integrals for all h1 intervals assuming equal interval
   widths. The function can also be used to calculate the integral for all
   h2 intervals by reversing the inputs, `y` and `dx`.
 blank_after_short_description: False

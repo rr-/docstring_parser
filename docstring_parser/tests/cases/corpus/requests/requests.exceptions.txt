@@ -7,12 +7,11 @@ requests.exceptions
 This module contains the set of Requests' exceptions.
 
 === parse rest
-short_description: 'requests.exceptions'
-long_description: |
+short_description: |
+  requests.exceptions
   ~~~~~~~~~~~~~~~~~~~
-  
-  This module contains the set of Requests' exceptions.
-blank_after_short_description: False
+long_description: "This module contains the set of Requests' exceptions."
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

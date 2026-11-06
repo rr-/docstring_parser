@@ -142,10 +142,10 @@ Solve the equation ``C @ x = b`` for ``x``, where ``C`` is a
 
     
 === parse numpydoc
-short_description: 'Solve the equation ``C @ x = b`` for ``x``, where ``C`` is a'
-long_description: |
+short_description: |
+  Solve the equation ``C @ x = b`` for ``x``, where ``C`` is a
   circulant matrix defined by `c`.
-  
+long_description: |
   `C` is the circulant matrix associated with the vector `c`.
   
   The system is solved by doing division in Fourier space. The
@@ -156,7 +156,7 @@ long_description: |
   where `fft` and `ifft` are the fast Fourier transform and its inverse,
   respectively. For a large vector `c`, this is *much* faster than
   solving the system with the full circulant matrix.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam

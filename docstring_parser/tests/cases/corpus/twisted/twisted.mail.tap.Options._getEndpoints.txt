@@ -23,14 +23,14 @@
             command line parameters.
         
 === parse epydoc
-short_description: 'Return a list of endpoints for the specified service, constructing'
-long_description: |
+short_description: |
+  Return a list of endpoints for the specified service, constructing
   defaults if necessary.
-  
+long_description: |
   If no endpoints were configured for the service and the protocol
   was not explicitly disabled with a I{--no-*} option, a default
   endpoint for the service is created.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: True
 style: epydoc
 - DocstringParam

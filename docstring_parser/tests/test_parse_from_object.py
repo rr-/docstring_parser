@@ -29,6 +29,7 @@ def test_from_class_attribute_docstrings() -> None:
 
     class StandardCase:
         """Short description
+
         Long description
         """
 
@@ -41,7 +42,7 @@ def test_from_class_attribute_docstrings() -> None:
 
     assert docstring.short_description == "Short description"
     assert docstring.long_description == "Long description"
-    assert docstring.description == "Short description\nLong description"
+    assert docstring.description == "Short description\n\nLong description"
     assert len(docstring.attrs) == 2
     assert docstring.params == []
     assert docstring.attrs[0].arg_name == "attr_one"

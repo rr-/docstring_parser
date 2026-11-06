@@ -7,12 +7,12 @@ Takes as an argument an optional domain and path and returns a plain
         :rtype: dict
         
 === parse rest
-short_description: 'Takes as an argument an optional domain and path and returns a plain'
-long_description: |
+short_description: |
+  Takes as an argument an optional domain and path and returns a plain
   old Python dict of name-value pairs of cookies that meet the
   requirements.
-blank_after_short_description: False
-blank_after_long_description: True
+blank_after_short_description: True
+blank_after_long_description: False
 style: rest
 - DocstringReturns
   kind: returns

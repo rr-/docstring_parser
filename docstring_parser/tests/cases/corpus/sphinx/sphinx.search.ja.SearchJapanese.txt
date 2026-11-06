@@ -4,8 +4,9 @@ Japanese search implementation: uses no stemmer, but word splitting is quite
     complicated.
     
 === parse rest
-short_description: 'Japanese search implementation: uses no stemmer, but word splitting is quite'
-long_description: 'complicated.'
+short_description: |
+  Japanese search implementation: uses no stemmer, but word splitting is quite
+  complicated.
 blank_after_short_description: False
 blank_after_long_description: False
 style: rest

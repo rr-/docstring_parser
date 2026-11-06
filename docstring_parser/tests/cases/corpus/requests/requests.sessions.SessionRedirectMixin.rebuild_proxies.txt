@@ -12,16 +12,16 @@ This method re-evaluates the proxy configuration by considering the
         :rtype: dict
         
 === parse rest
-short_description: 'This method re-evaluates the proxy configuration by considering the'
-long_description: |
+short_description: |
+  This method re-evaluates the proxy configuration by considering the
   environment variables. If we are redirected to a URL covered by
   NO_PROXY, we strip the proxy configuration. Otherwise, we set missing
   proxy keys for this URL (in case they were stripped by a previous
   redirect).
-  
+long_description: |
   This method also replaces the Proxy-Authorization header where
   necessary.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringReturns

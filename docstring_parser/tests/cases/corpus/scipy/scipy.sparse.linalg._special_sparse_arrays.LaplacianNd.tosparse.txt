@@ -11,10 +11,11 @@
 
         
 === parse numpydoc
-short_description: 'Constructs a sparse array from the Laplacian data. The returned sparse'
-long_description: 'array format is dependent on the selected boundary conditions.'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  Constructs a sparse array from the Laplacian data. The returned sparse
+  array format is dependent on the selected boundary conditions.
+blank_after_short_description: True
+blank_after_long_description: False
 style: numpydoc
 - DocstringReturns
   description: 'The shape is ``(N, N)`` where ``N = np.prod(grid_shape)``.'

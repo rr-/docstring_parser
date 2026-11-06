@@ -5,8 +5,8 @@ Returns True if the session cookie should be httponly.  This
         config var.
         
 === parse rest
-short_description: 'Returns True if the session cookie should be httponly.  This'
-long_description: |
+short_description: |
+  Returns True if the session cookie should be httponly.  This
   currently just returns the value of the ``SESSION_COOKIE_HTTPONLY``
   config var.
 blank_after_short_description: False

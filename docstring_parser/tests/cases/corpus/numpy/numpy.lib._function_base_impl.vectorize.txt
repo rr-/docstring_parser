@@ -163,10 +163,10 @@
     array([0., 1., 2.])
     
 === parse numpydoc
-short_description: 'vectorize(pyfunc=np._NoValue, otypes=None, doc=None, excluded=None,'
-long_description: |
+short_description: |
+  vectorize(pyfunc=np._NoValue, otypes=None, doc=None, excluded=None,
   cache=False, signature=None)
-  
+long_description: |
   Returns an object that acts like pyfunc, but takes arrays as input.
   
   Define a vectorized function which takes a nested sequence of objects or
@@ -178,7 +178,7 @@ long_description: |
   The data type of the output of `vectorized` is determined by calling
   the function with the first element of the input.  This can be avoided
   by specifying the `otypes` argument.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam

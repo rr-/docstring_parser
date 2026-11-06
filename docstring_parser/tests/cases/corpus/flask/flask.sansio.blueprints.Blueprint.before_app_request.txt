@@ -4,8 +4,9 @@ Like :meth:`before_request`, but before every request, not only those handled
         by the blueprint. Equivalent to :meth:`.Flask.before_request`.
         
 === parse rest
-short_description: 'Like :meth:`before_request`, but before every request, not only those handled'
-long_description: 'by the blueprint. Equivalent to :meth:`.Flask.before_request`.'
+short_description: |
+  Like :meth:`before_request`, but before every request, not only those handled
+  by the blueprint. Equivalent to :meth:`.Flask.before_request`.
 blank_after_short_description: False
 blank_after_long_description: False
 style: rest

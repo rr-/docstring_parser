@@ -4,8 +4,9 @@ Add a row to the table, to use with ``add_cell()``.  It is not needed
         to call ``add_row()`` before the first ``add_cell()``.
         
 === parse rest
-short_description: 'Add a row to the table, to use with ``add_cell()``.  It is not needed'
-long_description: 'to call ``add_row()`` before the first ``add_cell()``.'
+short_description: |
+  Add a row to the table, to use with ``add_cell()``.  It is not needed
+  to call ``add_row()`` before the first ``add_cell()``.
 blank_after_short_description: False
 blank_after_long_description: False
 style: rest

@@ -51,10 +51,10 @@ Creates a test client for this application.  For information
            the constructor of :attr:`test_client_class`.
         
 === parse rest
-short_description: 'Creates a test client for this application.  For information'
-long_description: |
+short_description: |
+  Creates a test client for this application.  For information
   about unit testing head over to :doc:`/testing`.
-  
+long_description: |
   Note that if you are testing for assertions or exceptions in your
   application code, you must set ``app.testing = True`` in order for the
   exceptions to propagate to the test client.  Otherwise, the exception
@@ -101,7 +101,7 @@ long_description: |
   .. versionchanged:: 0.11
      Added `**kwargs` to support passing additional keyword arguments to
      the constructor of :attr:`test_client_class`.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

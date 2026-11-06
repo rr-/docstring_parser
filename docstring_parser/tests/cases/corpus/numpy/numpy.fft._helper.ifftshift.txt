@@ -35,10 +35,11 @@
 
     
 === parse numpydoc
-short_description: 'The inverse of `fftshift`. Although identical for even-length `x`, the'
-long_description: 'functions differ by one sample for odd-length `x`.'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  The inverse of `fftshift`. Although identical for even-length `x`, the
+  functions differ by one sample for odd-length `x`.
+blank_after_short_description: True
+blank_after_long_description: False
 style: numpydoc
 - DocstringParam
   description: 'Input array.'

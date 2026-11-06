@@ -14,12 +14,12 @@ The maximum size in bytes any non-file form field may be in a
             This is configurable through Flask config.
         
 === parse rest
-short_description: 'The maximum size in bytes any non-file form field may be in a'
-long_description: |
+short_description: |
+  The maximum size in bytes any non-file form field may be in a
   ``multipart/form-data`` body. If this limit is exceeded, a 413
   :exc:`~werkzeug.exceptions.RequestEntityTooLarge` error is raised. If it
   is set to ``None``, no limit is enforced at the Flask application level.
-  
+long_description: |
   Each request defaults to the :data:`MAX_FORM_MEMORY_SIZE` config, which
   defaults to ``500_000``. It can be set on a specific ``request`` to
   apply the limit to that specific view. This should be set appropriately
@@ -27,7 +27,7 @@ long_description: |
   
   .. versionchanged:: 3.1
       This is configurable through Flask config.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

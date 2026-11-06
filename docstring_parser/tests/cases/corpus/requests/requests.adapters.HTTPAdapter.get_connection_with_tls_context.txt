@@ -20,12 +20,12 @@ Returns a urllib3 connection for the given request and TLS settings.
             urllib3.HTTPConnectionPool
         
 === parse rest
-short_description: 'Returns a urllib3 connection for the given request and TLS settings.'
-long_description: |
+short_description: |
+  Returns a urllib3 connection for the given request and TLS settings.
   This should not be called from user code, and is only exposed for use
   when subclassing the :class:`HTTPAdapter <requests.adapters.HTTPAdapter>`.
-blank_after_short_description: False
-blank_after_long_description: True
+blank_after_short_description: True
+blank_after_long_description: False
 style: rest
 - DocstringParam
   description: |

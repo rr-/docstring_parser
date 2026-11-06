@@ -26,11 +26,11 @@ Dispatches request methods to the corresponding instance methods.
         )
     
 === parse rest
-short_description: 'Dispatches request methods to the corresponding instance methods.'
-long_description: |
+short_description: |
+  Dispatches request methods to the corresponding instance methods.
   For example, if you implement a ``get`` method, it will be used to
   handle ``GET`` requests.
-  
+long_description: |
   This can be useful for defining a REST API.
   
   :attr:`methods` is automatically set based on the methods defined on
@@ -51,7 +51,7 @@ long_description: |
       app.add_url_rule(
           "/counter", view_func=CounterAPI.as_view("counter")
       )
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

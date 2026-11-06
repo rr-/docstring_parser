@@ -16,10 +16,11 @@
     np.ndarray[bool]
     
 === parse numpydoc
-short_description: 'Return a masking array of same size/shape as arr'
-long_description: 'with entries equaling value set to True.'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  Return a masking array of same size/shape as arr
+  with entries equaling value set to True.
+blank_after_short_description: True
+blank_after_long_description: False
 style: numpydoc
 - DocstringParam
   kind: param

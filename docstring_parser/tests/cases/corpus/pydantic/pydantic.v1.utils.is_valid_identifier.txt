@@ -6,8 +6,8 @@
     :return: True if the identifier is valid.
     
 === parse google
-short_description: 'Checks that a string is a valid identifier and not a Python keyword.'
-long_description: |
+short_description: |
+  Checks that a string is a valid identifier and not a Python keyword.
   :param identifier: The identifier to test.
   :return: True if the identifier is valid.
 blank_after_short_description: False

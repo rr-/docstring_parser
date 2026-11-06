@@ -8,10 +8,11 @@ A simple renderable to render an iterable of segments. This class may be useful 
         new_lines (bool, optional): Add new lines between segments. Defaults to False.
     
 === parse google
-short_description: 'A simple renderable to render an iterable of segments. This class may be useful if'
-long_description: 'you want to print segments outside of a __rich_console__ method.'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  A simple renderable to render an iterable of segments. This class may be useful if
+  you want to print segments outside of a __rich_console__ method.
+blank_after_short_description: True
+blank_after_long_description: False
 style: google
 - DocstringParam
   description: 'An iterable of segments.'

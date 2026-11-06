@@ -12,10 +12,11 @@
                 while the string is the processed code.
         
 === parse google
-short_description: 'Applies various processing to a raw code string'
-long_description: '(normalises it so it always ends with a line return, dedents it if necessary, etc.)'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  Applies various processing to a raw code string
+  (normalises it so it always ends with a line return, dedents it if necessary, etc.)
+blank_after_short_description: True
+blank_after_long_description: False
 style: google
 - DocstringParam
   description: 'The raw code string to process'

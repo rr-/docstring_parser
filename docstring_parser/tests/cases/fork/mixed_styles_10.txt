@@ -18,8 +18,8 @@
 === detect
 rest
 === parse google
-short_description: ':param a: description'
-long_description: |
+short_description: |
+  :param a: description
   :type a: int
   :param b: description
   :type b: int
