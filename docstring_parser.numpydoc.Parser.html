@@ -161,6 +161,16 @@
         
 
         
+            <div class="itemName"><code><a href="#_declared" class="internal-link" title="docstring_parser.numpydoc.Parser._declared">_declared</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="#_setup" class="internal-link" title="docstring_parser.numpydoc.Parser._setup">_setup</a></code>
             </div>
         
@@ -191,6 +201,16 @@
 
         
             <div class="itemName"><code><a href="#sections" class="internal-link" title="docstring_parser.numpydoc.Parser.sections">sections</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_by_lower" class="internal-link" title="docstring_parser.numpydoc.Parser._by_lower">_by<wbr></wbr>_lower</a></code>
             </div>
         
 
@@ -628,7 +648,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">Parser</span>(BaseParser): <a href="https://github.com/rr-/docstring_parser/tree/d23a326918e8781757f46a5f98f0209e33d9b8cf/docstring_parser/numpydoc.py#L459" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="docstring_parser.numpydoc.Parser.__init__">Parser(sections)</a></code></p><p><a href="classIndex.html#docstring_parser.numpydoc.Parser">View In Hierarchy</a></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">Parser</span>(BaseParser): <a href="https://github.com/rr-/docstring_parser/tree/3c5ce4ac5c0b91a20484865019cbb958ef6206b6/docstring_parser/numpydoc.py#L459" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="docstring_parser.numpydoc.Parser.__init__">Parser(sections)</a></code></p><p><a href="classIndex.html#docstring_parser.numpydoc.Parser">View In Hierarchy</a></p>
         </div>
 
         <div class="moduleDocstring">
@@ -667,7 +687,17 @@
   </tr><tr class="method private">
     
     <td>Method</td>
+    <td><code><a href="#_declared" class="internal-link" title="docstring_parser.numpydoc.Parser._declared">_declared</a></code></td>
+    <td>Return the section a title as written starts.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
     <td><code><a href="#_setup" class="internal-link" title="docstring_parser.numpydoc.Parser._setup">_setup</a></code></td>
+    <td><span class="rst-undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_by_lower" class="internal-link" title="docstring_parser.numpydoc.Parser._by_lower">_by<wbr></wbr>_lower</a></code></td>
     <td><span class="rst-undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable private">
     
@@ -695,7 +725,7 @@
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">__init__</span><span class="function-signature">(<span class="rst-sig-param"><span class="rst-undocumented">self</span>, </span><span class="rst-sig-param">sections: <code><a href="https://docs.python.org/3/library/typing.html#typing.Sequence" class="intersphinx-link">T.Sequence</a>[<wbr></wbr><a href="docstring_parser.numpydoc.Section.html" class="internal-link" title="docstring_parser.numpydoc.Section">Section</a> | <a href="docstring_parser.sections.SectionSpec.html" class="internal-link" title="docstring_parser.sections.SectionSpec">SectionSpec</a>] | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></span>):</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/d23a326918e8781757f46a5f98f0209e33d9b8cf/docstring_parser/numpydoc.py#L464">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/3c5ce4ac5c0b91a20484865019cbb958ef6206b6/docstring_parser/numpydoc.py#L464">
       
       (source)
     </a>
@@ -722,7 +752,7 @@
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">add_section</span><span class="function-signature">(<span class="rst-sig-param"><span class="rst-undocumented">self</span>, </span><span class="rst-sig-param">section: <code><a href="docstring_parser.numpydoc.Section.html" class="internal-link" title="docstring_parser.numpydoc.Section">Section</a> | <a href="docstring_parser.sections.SectionSpec.html" class="internal-link" title="docstring_parser.sections.SectionSpec">SectionSpec</a></code></span>):</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/d23a326918e8781757f46a5f98f0209e33d9b8cf/docstring_parser/numpydoc.py#L485">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/3c5ce4ac5c0b91a20484865019cbb958ef6206b6/docstring_parser/numpydoc.py#L496">
       
       (source)
     </a>
@@ -749,7 +779,7 @@
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">try_parse</span><span class="function-signature">(<span class="rst-sig-param"><span class="rst-undocumented">self</span>, </span><span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></span>) -&gt; <code>ParseResult</code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/d23a326918e8781757f46a5f98f0209e33d9b8cf/docstring_parser/numpydoc.py#L495">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/3c5ce4ac5c0b91a20484865019cbb958ef6206b6/docstring_parser/numpydoc.py#L506">
       
       (source)
     </a>
@@ -775,7 +805,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">name</span>: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/d23a326918e8781757f46a5f98f0209e33d9b8cf/docstring_parser/numpydoc.py#L462">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/3c5ce4ac5c0b91a20484865019cbb958ef6206b6/docstring_parser/numpydoc.py#L462">
       
       (source)
     </a>
@@ -802,7 +832,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">sections</span>: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#dict" class="intersphinx-link">dict</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="docstring_parser.numpydoc.Section.html" class="internal-link" title="docstring_parser.numpydoc.Section">Section</a>]</code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/d23a326918e8781757f46a5f98f0209e33d9b8cf/docstring_parser/numpydoc.py#L473">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/3c5ce4ac5c0b91a20484865019cbb958ef6206b6/docstring_parser/numpydoc.py#L473">
       
       (source)
     </a>
@@ -820,6 +850,33 @@
 </div><div class="basemethod private">
   
   
+  <a name="docstring_parser.numpydoc.Parser._declared">
+    
+  </a>
+  <a name="_declared">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">_declared</span><span class="function-signature">(<span class="rst-sig-param"><span class="rst-undocumented">self</span>, </span><span class="rst-sig-param">title: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></span>) -&gt; <code><a href="docstring_parser.numpydoc.Section.html" class="internal-link" title="docstring_parser.numpydoc.Section">Section</a></code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/3c5ce4ac5c0b91a20484865019cbb958ef6206b6/docstring_parser/numpydoc.py#L491">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_declared" title="docstring_parser.numpydoc.Parser._declared">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return the section a title as written starts.</p></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
   <a name="docstring_parser.numpydoc.Parser._setup">
     
   </a>
@@ -830,7 +887,7 @@
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">_setup</span><span class="function-signature">(<span class="rst-sig-param"><span class="rst-undocumented">self</span></span>):</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/d23a326918e8781757f46a5f98f0209e33d9b8cf/docstring_parser/numpydoc.py#L479">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/3c5ce4ac5c0b91a20484865019cbb958ef6206b6/docstring_parser/numpydoc.py#L479">
       
       (source)
     </a>
@@ -847,6 +904,33 @@
 </div><div class="baseinstancevariable private">
   
   
+  <a name="docstring_parser.numpydoc.Parser._by_lower">
+    
+  </a>
+  <a name="_by_lower">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_by_lower</span>: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#dict" class="intersphinx-link">dict</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="docstring_parser.numpydoc.Section.html" class="internal-link" title="docstring_parser.numpydoc.Section">Section</a>]</code> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/3c5ce4ac5c0b91a20484865019cbb958ef6206b6/docstring_parser/numpydoc.py#L487">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_by_lower" title="docstring_parser.numpydoc.Parser._by_lower">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  
   <a name="docstring_parser.numpydoc.Parser._titles_re">
     
   </a>
@@ -856,7 +940,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">_titles_re</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/d23a326918e8781757f46a5f98f0209e33d9b8cf/docstring_parser/numpydoc.py#L480">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/3c5ce4ac5c0b91a20484865019cbb958ef6206b6/docstring_parser/numpydoc.py#L480">
       
       (source)
     </a>
@@ -883,7 +967,7 @@
   <div class="container-fluid">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    25.10.1 at 2026-11-06 22:47:41.
+    25.10.1 at 2026-11-06 22:48:13.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 
