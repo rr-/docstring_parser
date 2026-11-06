@@ -148,6 +148,16 @@
             </div>
         
 
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#try_detect" class="internal-link" title="docstring_parser.auto.try_detect">try<wbr></wbr>_detect</a></code>
+            </div>
+        
+
     </li><li class="private">
         
         
@@ -429,6 +439,26 @@
         
 
         
+            <div class="itemName"><code><a href="docstring_parser.ParseResult.html" class="internal-link" title="docstring_parser.ParseResult"><wbr></wbr>Parse<wbr></wbr>Result</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.Problem.html" class="internal-link" title="docstring_parser.Problem"><wbr></wbr>Problem</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="docstring_parser.RenderingStyle.html" class="internal-link" title="docstring_parser.RenderingStyle"><wbr></wbr>Rendering<wbr></wbr>Style</a></code>
             </div>
         
@@ -489,6 +519,16 @@
             </div>
         
 
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="index.html#try_parse" class="internal-link" title="docstring_parser.try_parse">try<wbr></wbr>_parse</a></code>
+            </div>
+        
+
     </li>
 </ul> 
 
@@ -531,7 +571,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <a href="https://github.com/rr-/docstring_parser/tree/615a0ad0e60acbeb2d51b5a071286dab5a0e9750/docstring_parser/auto.py" class="sourceLink">(source)</a>
+          <a href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/auto.py" class="sourceLink">(source)</a>
         </div>
 
         <div class="moduleDocstring">
@@ -552,6 +592,11 @@
     <td>Function</td>
     <td><code><a href="#detect" class="internal-link" title="docstring_parser.auto.detect">detect</a></code></td>
     <td>Parse a docstring in every style and keep the result with most meta.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#try_detect" class="internal-link" title="docstring_parser.auto.try_detect">try<wbr></wbr>_detect</a></code></td>
+    <td>Parse a docstring in every style and keep the best result.</td>
   </tr><tr class="function private">
     
     <td>Function</td>
@@ -583,7 +628,7 @@
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">detect</span><span class="function-signature long-signature">(<span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code>, </span><span class="rst-sig-param">parsers: <code><a href="https://docs.python.org/3/library/typing.html#typing.Sequence" class="intersphinx-link">T.Sequence</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Callable" class="intersphinx-link">T.Callable</a>[<wbr></wbr>[<wbr></wbr>(<a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a>)], <wbr></wbr>Docstring]]</code>, </span><span class="rst-sig-param">shortcut: <code><a href="https://docs.python.org/3/builtins/functions.html#bool" class="intersphinx-link">bool</a></code></span>) -&gt; <code>Docstring</code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/615a0ad0e60acbeb2d51b5a071286dab5a0e9750/docstring_parser/auto.py#L31">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/auto.py#L31">
       
       (source)
     </a>
@@ -598,6 +643,36 @@
     <div><p>Parse a docstring in every style and keep the result with most meta.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">text:</span><code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">parsers:</span><code><a href="https://docs.python.org/3/library/typing.html#typing.Sequence" class="intersphinx-link">T.Sequence</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Callable" class="intersphinx-link">T.Callable</a>[<wbr></wbr>[<wbr></wbr>(<a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a>)], <wbr></wbr>Docstring]]</code></td><td class="fieldArgDesc">each style's parse, ReST's first</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">shortcut:</span><code><a href="https://docs.python.org/3/builtins/functions.html#bool" class="intersphinx-link">bool</a></code></td><td class="fieldArgDesc">parse text that no style finds a field in as ReST
 only; with a title that needs no marker, a style may find one</td></tr></table><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>Docstring</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
   </div>
+</div><div class="basefunction">
+  
+  
+  <a name="docstring_parser.auto.try_detect">
+    
+  </a>
+  <a name="try_detect">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">try_detect</span><span class="function-signature long-signature">(<span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code>, </span><span class="rst-sig-param">parsers: <code><a href="https://docs.python.org/3/library/typing.html#typing.Sequence" class="intersphinx-link">T.Sequence</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Callable" class="intersphinx-link">T.Callable</a>[<wbr></wbr>[<wbr></wbr>(<a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a>)], <wbr></wbr>ParseResult]]</code>, </span><span class="rst-sig-param">shortcut: <code><a href="https://docs.python.org/3/builtins/functions.html#bool" class="intersphinx-link">bool</a></code></span>) -&gt; <code>ParseResult</code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/auto.py#L62">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#try_detect" title="docstring_parser.auto.try_detect">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Parse a docstring in every style and keep the best result.</p>
+<p>A result with no problems beats one with problems, and then the one
+with most meta wins, as in <code><a href="#detect" class="internal-link" title="docstring_parser.auto.detect">detect</a></code>.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">text:</span><code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">parsers:</span><code><a href="https://docs.python.org/3/library/typing.html#typing.Sequence" class="intersphinx-link">T.Sequence</a>[<wbr></wbr><a href="https://docs.python.org/3/library/typing.html#typing.Callable" class="intersphinx-link">T.Callable</a>[<wbr></wbr>[<wbr></wbr>(<a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a>)], <wbr></wbr>ParseResult]]</code></td><td class="fieldArgDesc">each style's <tt class="rst-docutils rst-literal">try_parse</tt>, ReST's first</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">shortcut:</span><code><a href="https://docs.python.org/3/builtins/functions.html#bool" class="intersphinx-link">bool</a></code></td><td class="fieldArgDesc">as for <code><a href="#detect" class="internal-link" title="docstring_parser.auto.detect">detect</a></code></td></tr></table><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>ParseResult</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
 </div><div class="basefunction private">
   
   
@@ -611,7 +686,7 @@ only; with a title that needs no marker, a style may find one</td></tr></table><
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">_has_no_fields</span><span class="function-signature">(<span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/functions.html#bool" class="intersphinx-link">bool</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/615a0ad0e60acbeb2d51b5a071286dab5a0e9750/docstring_parser/auto.py#L19">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/auto.py#L19">
       
       (source)
     </a>
@@ -641,7 +716,7 @@ after parsing it four times.</p>
   <div class="functionHeader">
     
     <span class="py-defname">_FIELD_LINE</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/615a0ad0e60acbeb2d51b5a071286dab5a0e9750/docstring_parser/auto.py#L13">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/auto.py#L13">
       
       (source)
     </a>
@@ -669,7 +744,7 @@ after parsing it four times.</p>
   <div class="container-fluid">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    25.10.1 at 2026-11-06 13:21:05.
+    25.10.1 at 2026-11-06 15:37:32.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

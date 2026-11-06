@@ -228,6 +228,14 @@
             <div class="kind">Function</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary">Turn Windows and old Mac line endings into plain newlines.</div>
+          </li><li id="docstring_parser._lines._dedent">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>._lines<wbr></wbr>._dedent</div>
+            <div class="url">docstring_parser._lines.html#_dedent</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary">Dedent a docstring's lines, and count the blank lines cut at its top.</div>
           </li><li id="docstring_parser._lines.dedent_lines">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>._lines<wbr></wbr>.dedent<wbr></wbr>_lines</div>
@@ -292,6 +300,14 @@
             <div class="kind">Method</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary">Normalise and dedent a docstring.</div>
+          </li><li id="docstring_parser._lines.Lines._skipped">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>._lines<wbr></wbr>.<wbr></wbr>Lines<wbr></wbr>._skipped</div>
+            <div class="url">docstring_parser._lines.Lines.html#_skipped</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
           </li><li id="docstring_parser._lines.Lines._starts">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>._lines<wbr></wbr>.<wbr></wbr>Lines<wbr></wbr>._starts</div>
@@ -324,6 +340,14 @@
             <div class="kind">Method</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary">Return the index of the line holding an offset into <tt class="rst-docutils rst-literal">text</tt>.</div>
+          </li><li id="docstring_parser._lines.Lines.source_line">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>._lines<wbr></wbr>.<wbr></wbr>Lines<wbr></wbr>.source<wbr></wbr>_line</div>
+            <div class="url">docstring_parser._lines.Lines.html#source_line</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Return the line of the docstring as written, from 1, holding an offset into <tt class="rst-docutils rst-literal">text</tt>.</div>
           </li><li id="docstring_parser._lines.Lines.indent">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>._lines<wbr></wbr>.<wbr></wbr>Lines<wbr></wbr>.indent</div>
@@ -468,6 +492,14 @@
             <div class="kind">Function</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary">Return a ReST <tt class="rst-docutils rst-literal">:ivar name:</tt> style field as an attribute param.</div>
+          </li><li id="docstring_parser.common.parse_error">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.common<wbr></wbr>.parse<wbr></wbr>_error</div>
+            <div class="url">docstring_parser.common.html#parse_error</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Make the error for a docstring's problems, telling the first one.</div>
           </li><li id="docstring_parser.BaseParser">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Base<wbr></wbr>Parser</div>
@@ -492,6 +524,14 @@
             <div class="kind">Method</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary">Parse a docstring into its components.</div>
+          </li><li id="docstring_parser.BaseParser.try_parse">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Base<wbr></wbr>Parser<wbr></wbr>.try<wbr></wbr>_parse</div>
+            <div class="url">docstring_parser.BaseParser.html#try_parse</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Parse what can be parsed of a docstring, and tell what cannot.</div>
           </li><li id="docstring_parser.Docstring">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Docstring</div>
@@ -891,7 +931,79 @@
             <div class="type">Class</div>
             <div class="kind">Exception</div>
             <div class="privacy">PUBLIC</div>
-            <div class="summary">Base class for all parsing related errors.</div>
+            <div class="summary">A docstring could not be parsed.</div>
+          </li><li id="docstring_parser.ParseError.problems">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Parse<wbr></wbr>Error<wbr></wbr>.problems</div>
+            <div class="url">docstring_parser.ParseError.html#problems</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">everything that could not be parsed, in order</div>
+          </li><li id="docstring_parser.ParseError.result">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Parse<wbr></wbr>Error<wbr></wbr>.result</div>
+            <div class="url">docstring_parser.ParseError.html#result</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">what could be parsed, with the problems, if known</div>
+          </li><li id="docstring_parser.ParseError.__init__">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Parse<wbr></wbr>Error<wbr></wbr>.__init__</div>
+            <div class="url">docstring_parser.ParseError.html#__init__</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Initialize self.</div>
+          </li><li id="docstring_parser.ParseResult">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Parse<wbr></wbr>Result</div>
+            <div class="url">docstring_parser.ParseResult.html</div>
+            <div class="type">Class</div>
+            <div class="kind">Class</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">A parsed docstring with everything in it that could not be parsed.</div>
+          </li><li id="docstring_parser.ParseResult.docstring">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Parse<wbr></wbr>Result<wbr></wbr>.docstring</div>
+            <div class="url">docstring_parser.ParseResult.html#docstring</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Class Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.ParseResult.problems">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Parse<wbr></wbr>Result<wbr></wbr>.problems</div>
+            <div class="url">docstring_parser.ParseResult.html#problems</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Class Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.Problem">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Problem</div>
+            <div class="url">docstring_parser.Problem.html</div>
+            <div class="type">Class</div>
+            <div class="kind">Class</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Something in a docstring that could not be parsed.</div>
+          </li><li id="docstring_parser.Problem.line">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Problem<wbr></wbr>.line</div>
+            <div class="url">docstring_parser.Problem.html#line</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Class Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">The line it is on, from 1, in the docstring as written.</div>
+          </li><li id="docstring_parser.Problem.message">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Problem<wbr></wbr>.message</div>
+            <div class="url">docstring_parser.Problem.html#message</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Class Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">What is wrong.</div>
           </li><li id="docstring_parser.RenderingStyle">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Rendering<wbr></wbr>Style</div>
@@ -1548,14 +1660,14 @@
             <div class="kind">Instance Variable</div>
             <div class="privacy">PRIVATE</div>
             <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
-          </li><li id="docstring_parser.epydoc.Parser.parse">
+          </li><li id="docstring_parser.epydoc.Parser.try_parse">
             
-            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.epydoc<wbr></wbr>.<wbr></wbr>Parser<wbr></wbr>.parse</div>
-            <div class="url">docstring_parser.epydoc.Parser.html#parse</div>
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.epydoc<wbr></wbr>.<wbr></wbr>Parser<wbr></wbr>.try<wbr></wbr>_parse</div>
+            <div class="url">docstring_parser.epydoc.Parser.html#try_parse</div>
             <div class="type">Function</div>
             <div class="kind">Method</div>
             <div class="privacy">PUBLIC</div>
-            <div class="summary">Parse a docstring into its components.</div>
+            <div class="summary">Parse what can be parsed of a docstring, and tell what cannot.</div>
           </li><li id="docstring_parser.epydoc._DEFAULT_PARSER">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.epydoc<wbr></wbr>._DEFAULT<wbr></wbr>_PARSER</div>
@@ -1580,6 +1692,22 @@
             <div class="kind">Function</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary">Parse the epydoc-style docstring into its components.</div>
+          </li><li id="docstring_parser.epydoc.try_parse">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.epydoc<wbr></wbr>.try<wbr></wbr>_parse</div>
+            <div class="url">docstring_parser.epydoc.html#try_parse</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Parse what can be parsed of a epydoc-style docstring, and tell what cannot, instead of raising.</div>
+          </li><li id="docstring_parser.epydoc._parser">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.epydoc<wbr></wbr>._parser</div>
+            <div class="url">docstring_parser.epydoc.html#_parser</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
           </li><li id="docstring_parser.epydoc._OWN_PARAM_FIELDS">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.epydoc<wbr></wbr>._OWN<wbr></wbr>_PARAM<wbr></wbr>_FIELDS</div>
@@ -1764,14 +1892,6 @@
             <div class="kind">Constant</div>
             <div class="privacy">PRIVATE</div>
             <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
-          </li><li id="docstring_parser.google._INDENT">
-            
-            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.google<wbr></wbr>._INDENT</div>
-            <div class="url">docstring_parser.google.html#_INDENT</div>
-            <div class="type">Attribute</div>
-            <div class="kind">Constant</div>
-            <div class="privacy">PRIVATE</div>
-            <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
           </li><li id="docstring_parser.google._SECTION_TYPE">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.google<wbr></wbr>._SECTION<wbr></wbr>_TYPE</div>
@@ -1908,14 +2028,22 @@
             <div class="kind">Method</div>
             <div class="privacy">PRIVATE</div>
             <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
-          </li><li id="docstring_parser.google.Parser.parse">
+          </li><li id="docstring_parser.google.Parser.try_parse">
             
-            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.google<wbr></wbr>.<wbr></wbr>Parser<wbr></wbr>.parse</div>
-            <div class="url">docstring_parser.google.Parser.html#parse</div>
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.google<wbr></wbr>.<wbr></wbr>Parser<wbr></wbr>.try<wbr></wbr>_parse</div>
+            <div class="url">docstring_parser.google.Parser.html#try_parse</div>
             <div class="type">Function</div>
             <div class="kind">Method</div>
             <div class="privacy">PUBLIC</div>
-            <div class="summary">Parse the Google-style docstring into its components.</div>
+            <div class="summary">Parse what can be parsed of a docstring, and tell what cannot.</div>
+          </li><li id="docstring_parser.google.Parser._add_meta">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.google<wbr></wbr>.<wbr></wbr>Parser<wbr></wbr>._add<wbr></wbr>_meta</div>
+            <div class="url">docstring_parser.google.Parser.html#_add_meta</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary">Add an item's meta, or its text and a problem if it cannot be read.</div>
           </li><li id="docstring_parser.google._parsers">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.google<wbr></wbr>._parsers</div>
@@ -1932,6 +2060,22 @@
             <div class="kind">Function</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary">Parse the Google-style docstring into its components.</div>
+          </li><li id="docstring_parser.google.try_parse">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.google<wbr></wbr>.try<wbr></wbr>_parse</div>
+            <div class="url">docstring_parser.google.html#try_parse</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Parse what can be parsed of a Google-style docstring, and tell what cannot, instead of raising.</div>
+          </li><li id="docstring_parser.google._parser">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.google<wbr></wbr>._parser</div>
+            <div class="url">docstring_parser.google.html#_parser</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
           </li><li id="docstring_parser.google._COMPOSE_SECTIONS">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.google<wbr></wbr>._COMPOSE<wbr></wbr>_SECTIONS</div>
@@ -2300,14 +2444,14 @@
             <div class="kind">Method</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary">Add or replace a section.</div>
-          </li><li id="docstring_parser.numpydoc.Parser.parse">
+          </li><li id="docstring_parser.numpydoc.Parser.try_parse">
             
-            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.numpydoc<wbr></wbr>.<wbr></wbr>Parser<wbr></wbr>.parse</div>
-            <div class="url">docstring_parser.numpydoc.Parser.html#parse</div>
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.numpydoc<wbr></wbr>.<wbr></wbr>Parser<wbr></wbr>.try<wbr></wbr>_parse</div>
+            <div class="url">docstring_parser.numpydoc.Parser.html#try_parse</div>
             <div class="type">Function</div>
             <div class="kind">Method</div>
             <div class="privacy">PUBLIC</div>
-            <div class="summary">Parse the numpy-style docstring into its components.</div>
+            <div class="summary">Parse a numpy-style docstring, which always parses.</div>
           </li><li id="docstring_parser.numpydoc._default_parser">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.numpydoc<wbr></wbr>._default<wbr></wbr>_parser</div>
@@ -2332,6 +2476,14 @@
             <div class="kind">Variable</div>
             <div class="privacy">PRIVATE</div>
             <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.numpydoc._parser">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.numpydoc<wbr></wbr>._parser</div>
+            <div class="url">docstring_parser.numpydoc.html#_parser</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
           </li><li id="docstring_parser.numpydoc.parse">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.numpydoc<wbr></wbr>.parse</div>
@@ -2340,6 +2492,14 @@
             <div class="kind">Function</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary">Parse the numpy-style docstring into its components.</div>
+          </li><li id="docstring_parser.numpydoc.try_parse">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.numpydoc<wbr></wbr>.try<wbr></wbr>_parse</div>
+            <div class="url">docstring_parser.numpydoc.html#try_parse</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Parse what can be parsed of a numpy-style docstring, and tell what cannot, instead of raising.</div>
           </li><li id="docstring_parser.numpydoc._COMPOSE_SECTIONS">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.numpydoc<wbr></wbr>._COMPOSE<wbr></wbr>_SECTIONS</div>
@@ -2484,14 +2644,14 @@
             <div class="kind">Instance Variable</div>
             <div class="privacy">PRIVATE</div>
             <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
-          </li><li id="docstring_parser.rest.Parser.parse">
+          </li><li id="docstring_parser.rest.Parser.try_parse">
             
-            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.rest<wbr></wbr>.<wbr></wbr>Parser<wbr></wbr>.parse</div>
-            <div class="url">docstring_parser.rest.Parser.html#parse</div>
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.rest<wbr></wbr>.<wbr></wbr>Parser<wbr></wbr>.try<wbr></wbr>_parse</div>
+            <div class="url">docstring_parser.rest.Parser.html#try_parse</div>
             <div class="type">Function</div>
             <div class="kind">Method</div>
             <div class="privacy">PUBLIC</div>
-            <div class="summary">Parse a docstring into its components.</div>
+            <div class="summary">Parse what can be parsed of a docstring, and tell what cannot.</div>
           </li><li id="docstring_parser.rest._DEFAULT_PARSER">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.rest<wbr></wbr>._DEFAULT<wbr></wbr>_PARSER</div>
@@ -2516,6 +2676,22 @@
             <div class="kind">Function</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary">Parse the ReST-style docstring into its components.</div>
+          </li><li id="docstring_parser.rest.try_parse">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.rest<wbr></wbr>.try<wbr></wbr>_parse</div>
+            <div class="url">docstring_parser.rest.html#try_parse</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Parse what can be parsed of a ReST-style docstring, and tell what cannot, instead of raising.</div>
+          </li><li id="docstring_parser.rest._parser">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.rest<wbr></wbr>._parser</div>
+            <div class="url">docstring_parser.rest.html#_parser</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
           </li><li id="docstring_parser.rest._fits_inline">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.rest<wbr></wbr>._fits<wbr></wbr>_inline</div>
@@ -2572,6 +2748,14 @@
             <div class="kind">Function</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary">Parse a docstring in every style and keep the result with most meta.</div>
+          </li><li id="docstring_parser.auto.try_detect">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.auto<wbr></wbr>.try<wbr></wbr>_detect</div>
+            <div class="url">docstring_parser.auto.html#try_detect</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Parse a docstring in every style and keep the best result.</div>
           </li><li id="docstring_parser.auto.Parser">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.auto<wbr></wbr>.<wbr></wbr>Parser</div>
@@ -2620,6 +2804,14 @@
             <div class="kind">Method</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary">Parse a docstring in the style it is written in.</div>
+          </li><li id="docstring_parser.auto.Parser.try_parse">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.auto<wbr></wbr>.<wbr></wbr>Parser<wbr></wbr>.try<wbr></wbr>_parse</div>
+            <div class="url">docstring_parser.auto.Parser.html#try_parse</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Parse a docstring in the style it is written in, or the style that reads most of it.</div>
           </li><li id="docstring_parser.attrdoc.ast_get_constant_value">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.attrdoc<wbr></wbr>.ast<wbr></wbr>_get<wbr></wbr>_constant<wbr></wbr>_value</div>
@@ -2748,6 +2940,14 @@
             <div class="kind">Function</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary">Parse the object's docstring(s) into its components.</div>
+          </li><li id="docstring_parser.try_parse">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.try<wbr></wbr>_parse</div>
+            <div class="url">index.html#try_parse</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Parse what can be parsed of a docstring, and tell what cannot.</div>
           </li><li id="docstring_parser.util._Func">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.util<wbr></wbr>._<wbr></wbr>Func</div>

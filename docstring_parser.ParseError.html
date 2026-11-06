@@ -122,14 +122,50 @@
         
         
 
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
         
-         
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="docstring_parser.ParseError.__init__">__init__</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
 
         
          
 
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
         
-         
+        
+        
+
+        
+            <div class="itemName"><code><a href="#problems" class="internal-link" title="docstring_parser.ParseError.problems">problems</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#result" class="internal-link" title="docstring_parser.ParseError.result">result</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
 
         
          
@@ -380,6 +416,26 @@
         
 
         
+            <div class="itemName"><code><a href="docstring_parser.ParseResult.html" class="internal-link" title="docstring_parser.ParseResult"><wbr></wbr>Parse<wbr></wbr>Result</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.Problem.html" class="internal-link" title="docstring_parser.Problem"><wbr></wbr>Problem</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="docstring_parser.RenderingStyle.html" class="internal-link" title="docstring_parser.RenderingStyle"><wbr></wbr>Rendering<wbr></wbr>Style</a></code>
             </div>
         
@@ -440,6 +496,16 @@
             </div>
         
 
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="index.html#try_parse" class="internal-link" title="docstring_parser.try_parse">try<wbr></wbr>_parse</a></code>
+            </div>
+        
+
     </li>
 </ul> 
 
@@ -482,22 +548,122 @@
         </div>
 
         <div class="extrasDocstring">
-          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">ParseError</span>(<a href="https://docs.python.org/3/builtins/exceptions.html#RuntimeError" class="intersphinx-link">RuntimeError</a>): <a href="https://github.com/rr-/docstring_parser/tree/615a0ad0e60acbeb2d51b5a071286dab5a0e9750/docstring_parser/common.py#L41" class="sourceLink">(source)</a></code></p><p><a href="classIndex.html#docstring_parser.ParseError">View In Hierarchy</a></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">ParseError</span>(<a href="https://docs.python.org/3/builtins/exceptions.html#RuntimeError" class="intersphinx-link">RuntimeError</a>): <a href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/common.py#L50" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="docstring_parser.ParseError.__init__">ParseError(message, problems, result)</a></code></p><p><a href="classIndex.html#docstring_parser.ParseError">View In Hierarchy</a></p>
         </div>
 
         <div class="moduleDocstring">
-          <div><p>Base class for all parsing related errors.</p></div>
+          <div><p>A docstring could not be parsed.</p></div>
         </div>
 
         <div id="split-tables">
-          
+          <table class="children sortable" id="id70">
+  
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="docstring_parser.ParseError.__init__">__init__</a></code></td>
+    <td>Initialize self.</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#problems" class="internal-link" title="docstring_parser.ParseError.problems">problems</a></code></td>
+    <td>everything that could not be parsed, in order</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#result" class="internal-link" title="docstring_parser.ParseError.result">result</a></code></td>
+    <td>what could be parsed, with the problems, if known</td>
+  </tr>
+</table>
           
 
             
         </div>
 
         <div id="child-list">
-          
+          <div class="basemethod">
+  
+  
+  <a name="docstring_parser.ParseError.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">__init__</span><span class="function-signature long-signature">(<span class="rst-sig-param"><span class="rst-undocumented">self</span>, </span><span class="rst-sig-param">message: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code> = <span class="rst-variable-quote">'</span><span class="rst-variable-string"></span><span class="rst-variable-quote">'</span>, </span><span class="rst-sig-param">problems: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="docstring_parser.Problem.html" class="internal-link" title="docstring_parser.Problem">Problem</a>] | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a>, </span><span class="rst-sig-param">result: <code><a href="docstring_parser.ParseResult.html" class="internal-link" title="docstring_parser.ParseResult">ParseResult</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></span>):</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/common.py#L57">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#__init__" title="docstring_parser.ParseError.__init__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Initialize self.</p></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="docstring_parser.ParseError.problems">
+    
+  </a>
+  <a name="problems">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">problems</span>: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="docstring_parser.Problem.html" class="internal-link" title="docstring_parser.Problem">Problem</a>]</code> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/common.py#L65">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#problems" title="docstring_parser.ParseError.problems">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>everything that could not be parsed, in order</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="docstring_parser.ParseError.result">
+    
+  </a>
+  <a name="result">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">result</span> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/common.py#L66">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#result" title="docstring_parser.ParseError.result">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>what could be parsed, with the problems, if known</p></div>
+    
+  </div>
+</div>
         </div>
       
       </main>
@@ -509,7 +675,7 @@
   <div class="container-fluid">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    25.10.1 at 2026-11-06 13:21:05.
+    25.10.1 at 2026-11-06 15:37:32.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

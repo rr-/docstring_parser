@@ -135,6 +135,16 @@
             </div>
         
 
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#try_parse" class="internal-link" title="docstring_parser.BaseParser.try_parse">try<wbr></wbr>_parse</a></code>
+            </div>
+        
+
     </li>
 </ul> 
 
@@ -406,6 +416,26 @@
         
 
         
+            <div class="itemName"><code><a href="docstring_parser.ParseResult.html" class="internal-link" title="docstring_parser.ParseResult"><wbr></wbr>Parse<wbr></wbr>Result</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.Problem.html" class="internal-link" title="docstring_parser.Problem"><wbr></wbr>Problem</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="docstring_parser.RenderingStyle.html" class="internal-link" title="docstring_parser.RenderingStyle"><wbr></wbr>Rendering<wbr></wbr>Style</a></code>
             </div>
         
@@ -466,6 +496,16 @@
             </div>
         
 
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="index.html#try_parse" class="internal-link" title="docstring_parser.try_parse">try<wbr></wbr>_parse</a></code>
+            </div>
+        
+
     </li>
 </ul> 
 
@@ -508,7 +548,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">BaseParser</span>: <a href="https://github.com/rr-/docstring_parser/tree/615a0ad0e60acbeb2d51b5a071286dab5a0e9750/docstring_parser/common.py#L331" class="sourceLink">(source)</a></code></p><p><a href="classIndex.html#docstring_parser.BaseParser">View In Hierarchy</a></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">BaseParser</span>: <a href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/common.py#L362" class="sourceLink">(source)</a></code></p><p><a href="classIndex.html#docstring_parser.BaseParser">View In Hierarchy</a></p>
         </div>
 
         <div class="moduleDocstring">
@@ -527,6 +567,11 @@ are read when it is made, not on every call.</p>
     <td>Method</td>
     <td><code><a href="#parse" class="internal-link" title="docstring_parser.BaseParser.parse">parse</a></code></td>
     <td>Parse a docstring into its components.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#try_parse" class="internal-link" title="docstring_parser.BaseParser.try_parse">try<wbr></wbr>_parse</a></code></td>
+    <td>Parse what can be parsed of a docstring, and tell what cannot.</td>
   </tr><tr class="classvariable">
     
     <td>Class Variable</td>
@@ -553,7 +598,7 @@ are read when it is made, not on every call.</p>
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">parse</span><span class="function-signature">(<span class="rst-sig-param"><span class="rst-undocumented">self</span>, </span><span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></span>) -&gt; <code><a href="docstring_parser.Docstring.html" class="internal-link" title="docstring_parser.Docstring">Docstring</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/615a0ad0e60acbeb2d51b5a071286dab5a0e9750/docstring_parser/common.py#L341">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/common.py#L372">
       
       (source)
     </a>
@@ -565,7 +610,36 @@ are read when it is made, not on every call.</p>
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Parse a docstring into its components.</p></div>
+    <div><p>Parse a docstring into its components.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Raises</td></tr><tr><td class="fieldArgContainer"><code><a href="docstring_parser.ParseError.html" class="internal-link" title="docstring_parser.ParseError">ParseError</a></code></td><td>for everything that could not be parsed</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="docstring_parser.BaseParser.try_parse">
+    
+  </a>
+  <a name="try_parse">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">try_parse</span><span class="function-signature">(<span class="rst-sig-param"><span class="rst-undocumented">self</span>, </span><span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></span>) -&gt; <code><a href="docstring_parser.ParseResult.html" class="internal-link" title="docstring_parser.ParseResult">ParseResult</a></code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/common.py#L382">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#try_parse" title="docstring_parser.BaseParser.try_parse">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Parse what can be parsed of a docstring, and tell what cannot.</p>
+<p>Text that cannot be parsed goes to the long description.</p>
+</div>
   </div>
 </div><div class="baseclassvariable">
   
@@ -579,7 +653,7 @@ are read when it is made, not on every call.</p>
   <div class="functionHeader">
     
     <span class="py-defname">name</span>: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/615a0ad0e60acbeb2d51b5a071286dab5a0e9750/docstring_parser/common.py#L339">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/common.py#L370">
       
       (source)
     </a>
@@ -606,7 +680,7 @@ are read when it is made, not on every call.</p>
   <div class="container-fluid">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    25.10.1 at 2026-11-06 13:21:05.
+    25.10.1 at 2026-11-06 15:37:32.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

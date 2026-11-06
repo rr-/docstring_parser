@@ -168,6 +168,16 @@
             </div>
         
 
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_dedent" class="internal-link" title="docstring_parser._lines._dedent">_dedent</a></code>
+            </div>
+        
+
     </li>
 </ul> 
 
@@ -426,6 +436,26 @@
         
 
         
+            <div class="itemName"><code><a href="docstring_parser.ParseResult.html" class="internal-link" title="docstring_parser.ParseResult"><wbr></wbr>Parse<wbr></wbr>Result</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.Problem.html" class="internal-link" title="docstring_parser.Problem"><wbr></wbr>Problem</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="docstring_parser.RenderingStyle.html" class="internal-link" title="docstring_parser.RenderingStyle"><wbr></wbr>Rendering<wbr></wbr>Style</a></code>
             </div>
         
@@ -486,6 +516,16 @@
             </div>
         
 
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="index.html#try_parse" class="internal-link" title="docstring_parser.try_parse">try<wbr></wbr>_parse</a></code>
+            </div>
+        
+
     </li>
 </ul> 
 
@@ -528,7 +568,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <a href="https://github.com/rr-/docstring_parser/tree/615a0ad0e60acbeb2d51b5a071286dab5a0e9750/docstring_parser/_lines.py" class="sourceLink">(source)</a>
+          <a href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/_lines.py" class="sourceLink">(source)</a>
         </div>
 
         <div class="moduleDocstring">
@@ -570,6 +610,11 @@ endings are made plain newlines first.</p>
     <td>Function</td>
     <td><code><a href="#normalize_line_endings" class="internal-link" title="docstring_parser._lines.normalize_line_endings">normalize<wbr></wbr>_line<wbr></wbr>_endings</a></code></td>
     <td>Turn Windows and old Mac line endings into plain newlines.</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_dedent" class="internal-link" title="docstring_parser._lines._dedent">_dedent</a></code></td>
+    <td>Dedent a docstring's lines, and count the blank lines cut at its top.</td>
   </tr>
 </table>
           
@@ -591,7 +636,7 @@ endings are made plain newlines first.</p>
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">cleandoc</span><span class="function-signature">(<span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/615a0ad0e60acbeb2d51b5a071286dab5a0e9750/docstring_parser/_lines.py#L60">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/_lines.py#L65">
       
       (source)
     </a>
@@ -623,7 +668,7 @@ only whitespace counts as blank, on every version.</p>
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">dedent_lines</span><span class="function-signature">(<span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/615a0ad0e60acbeb2d51b5a071286dab5a0e9750/docstring_parser/_lines.py#L31">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/_lines.py#L55">
       
       (source)
     </a>
@@ -654,7 +699,7 @@ line holding only whitespace counts as blank, on every version.</p>
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">normalize_line_endings</span><span class="function-signature">(<span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/615a0ad0e60acbeb2d51b5a071286dab5a0e9750/docstring_parser/_lines.py#L20">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/_lines.py#L20">
       
       (source)
     </a>
@@ -673,6 +718,33 @@ stripping spaces only, so a blank line holding just <tt class="rst-docutils rst-
 unindented text and nothing gets dedented.</p>
 </div>
   </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="docstring_parser._lines._dedent">
+    
+  </a>
+  <a name="_dedent">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">_dedent</span><span class="function-signature">(<span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#tuple" class="intersphinx-link">tuple</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>], <wbr></wbr><a href="https://docs.python.org/3/builtins/functions.html#int" class="intersphinx-link">int</a>]</code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/_lines.py#L31">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_dedent" title="docstring_parser._lines._dedent">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Dedent a docstring's lines, and count the blank lines cut at its top.</p></div>
+  </div>
 </div>
         </div>
       
@@ -685,7 +757,7 @@ unindented text and nothing gets dedented.</p>
   <div class="container-fluid">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    25.10.1 at 2026-11-06 13:21:05.
+    25.10.1 at 2026-11-06 15:37:32.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

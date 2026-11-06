@@ -208,6 +208,16 @@
             </div>
         
 
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#try_parse" class="internal-link" title="docstring_parser.google.try_parse">try<wbr></wbr>_parse</a></code>
+            </div>
+        
+
     </li><li class="private">
         
         
@@ -225,6 +235,16 @@
 
         
             <div class="itemName"><code><a href="#_multi_meta" class="internal-link" title="docstring_parser.google._multi_meta">_multi<wbr></wbr>_meta</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_parser" class="internal-link" title="docstring_parser.google._parser">_parser</a></code>
             </div>
         
 
@@ -314,16 +334,6 @@
 
         
             <div class="itemName"><code><a href="#_COMPOSE_SECTIONS" class="internal-link" title="docstring_parser.google._COMPOSE_SECTIONS">_COMPOSE<wbr></wbr>_SECTIONS</a></code>
-            </div>
-        
-
-    </li><li class="private">
-        
-        
-        
-
-        
-            <div class="itemName"><code><a href="#_INDENT" class="internal-link" title="docstring_parser.google._INDENT">_INDENT</a></code>
             </div>
         
 
@@ -629,6 +639,26 @@
         
 
         
+            <div class="itemName"><code><a href="docstring_parser.ParseResult.html" class="internal-link" title="docstring_parser.ParseResult"><wbr></wbr>Parse<wbr></wbr>Result</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="docstring_parser.Problem.html" class="internal-link" title="docstring_parser.Problem"><wbr></wbr>Problem</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="docstring_parser.RenderingStyle.html" class="internal-link" title="docstring_parser.RenderingStyle"><wbr></wbr>Rendering<wbr></wbr>Style</a></code>
             </div>
         
@@ -689,6 +719,16 @@
             </div>
         
 
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="index.html#try_parse" class="internal-link" title="docstring_parser.try_parse">try<wbr></wbr>_parse</a></code>
+            </div>
+        
+
     </li>
 </ul> 
 
@@ -731,7 +771,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <a href="https://github.com/rr-/docstring_parser/tree/615a0ad0e60acbeb2d51b5a071286dab5a0e9750/docstring_parser/google.py" class="sourceLink">(source)</a>
+          <a href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/google.py" class="sourceLink">(source)</a>
         </div>
 
         <div class="moduleDocstring">
@@ -777,6 +817,11 @@
     <td>Function</td>
     <td><code><a href="#parse" class="internal-link" title="docstring_parser.google.parse">parse</a></code></td>
     <td>Parse the Google-style docstring into its components.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#try_parse" class="internal-link" title="docstring_parser.google.try_parse">try<wbr></wbr>_parse</a></code></td>
+    <td>Parse what can be parsed of a Google-style docstring, and tell what cannot, instead of raising.</td>
   </tr><tr class="constant">
     
     <td>Constant</td>
@@ -810,6 +855,11 @@
   </tr><tr class="function private">
     
     <td>Function</td>
+    <td><code><a href="#_parser" class="internal-link" title="docstring_parser.google._parser">_parser</a></code></td>
+    <td><span class="rst-undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
     <td><code><a href="#_section_kind" class="internal-link" title="docstring_parser.google._section_kind">_section<wbr></wbr>_kind</a></code></td>
     <td><span class="rst-undocumented">Undocumented</span></td>
   </tr><tr class="function private">
@@ -831,11 +881,6 @@
     
     <td>Constant</td>
     <td><code><a href="#_COMPOSE_SECTIONS" class="internal-link" title="docstring_parser.google._COMPOSE_SECTIONS">_COMPOSE<wbr></wbr>_SECTIONS</a></code></td>
-    <td><span class="rst-undocumented">Undocumented</span></td>
-  </tr><tr class="constant private">
-    
-    <td>Constant</td>
-    <td><code><a href="#_INDENT" class="internal-link" title="docstring_parser.google._INDENT">_INDENT</a></code></td>
     <td><span class="rst-undocumented">Undocumented</span></td>
   </tr><tr class="constant private">
     
@@ -883,7 +928,7 @@
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">compose</span><span class="function-signature long-signature">(<span class="rst-sig-param">docstring: <code>Docstring</code>, </span><span class="rst-sig-param">rendering_style: <code>RenderingStyle</code> = RenderingStyle.COMPACT, </span><span class="rst-sig-param">indent: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code> = <span class="rst-variable-quote">'</span><span class="rst-variable-string">    </span><span class="rst-variable-quote">'</span></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/615a0ad0e60acbeb2d51b5a071286dab5a0e9750/docstring_parser/google.py#L498">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/google.py#L531">
       
       (source)
     </a>
@@ -910,7 +955,7 @@
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">default_sections</span><span class="function-signature">() -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="docstring_parser.sections.SectionSpec.html" class="internal-link" title="docstring_parser.sections.SectionSpec">SectionSpec</a>]</code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/615a0ad0e60acbeb2d51b5a071286dab5a0e9750/docstring_parser/google.py#L183">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/google.py#L184">
       
       (source)
     </a>
@@ -937,7 +982,7 @@
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">parse</span><span class="function-signature long-signature">(<span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code>, </span><span class="rst-sig-param">sections: <code><a href="https://docs.python.org/3/library/typing.html#typing.Sequence" class="intersphinx-link">T.Sequence</a>[<wbr></wbr><a href="docstring_parser.google.Section.html" class="internal-link" title="docstring_parser.google.Section">Section</a> | <a href="docstring_parser.sections.SectionSpec.html" class="internal-link" title="docstring_parser.sections.SectionSpec">SectionSpec</a>] | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></span>) -&gt; <code>Docstring</code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/615a0ad0e60acbeb2d51b5a071286dab5a0e9750/docstring_parser/google.py#L468">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/google.py#L481">
       
       (source)
     </a>
@@ -952,6 +997,35 @@
     <div><p>Parse the Google-style docstring into its components.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">text:</span><code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">sections:</span><code><a href="https://docs.python.org/3/library/typing.html#typing.Sequence" class="intersphinx-link">T.Sequence</a>[<wbr></wbr><a href="docstring_parser.google.Section.html" class="internal-link" title="docstring_parser.google.Section">Section</a> | <a href="docstring_parser.sections.SectionSpec.html" class="internal-link" title="docstring_parser.sections.SectionSpec">SectionSpec</a>] | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc">the sections to recognise, instead of
 <tt class="rst-docutils rst-literal">DEFAULT_SECTIONS</tt></td></tr></table><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>Docstring</code></td><td class="fieldArgDesc">parsed docstring</td></tr></table></div>
   </div>
+</div><div class="basefunction">
+  
+  
+  <a name="docstring_parser.google.try_parse">
+    
+  </a>
+  <a name="try_parse">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">try_parse</span><span class="function-signature long-signature">(<span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code>, </span><span class="rst-sig-param">sections: <code><a href="https://docs.python.org/3/library/typing.html#typing.Sequence" class="intersphinx-link">T.Sequence</a>[<wbr></wbr><a href="docstring_parser.google.Section.html" class="internal-link" title="docstring_parser.google.Section">Section</a> | <a href="docstring_parser.sections.SectionSpec.html" class="internal-link" title="docstring_parser.sections.SectionSpec">SectionSpec</a>] | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code> = <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></span>) -&gt; <code>ParseResult</code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/google.py#L494">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#try_parse" title="docstring_parser.google.try_parse">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Parse what can be parsed of a Google-style docstring, and tell what
+cannot, instead of raising.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">text:</span><code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">sections:</span><code><a href="https://docs.python.org/3/library/typing.html#typing.Sequence" class="intersphinx-link">T.Sequence</a>[<wbr></wbr><a href="docstring_parser.google.Section.html" class="internal-link" title="docstring_parser.google.Section">Section</a> | <a href="docstring_parser.sections.SectionSpec.html" class="internal-link" title="docstring_parser.sections.SectionSpec">SectionSpec</a>] | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></td><td class="fieldArgDesc">as for <code><a href="#parse" class="internal-link" title="docstring_parser.google.parse">parse</a></code></td></tr></table><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code>ParseResult</code></td><td class="fieldArgDesc">the docstring, and a problem for each part that cannot be
+read, whose text goes to the long description</td></tr></table></div>
+  </div>
 </div><div class="baseconstant">
   
   
@@ -964,7 +1038,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">DEFAULT_SECTIONS</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/615a0ad0e60acbeb2d51b5a071286dab5a0e9750/docstring_parser/google.py#L64">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/google.py#L66">
       
       (source)
     </a>
@@ -998,7 +1072,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">GOOGLE_ARG_DESC_REGEX</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/615a0ad0e60acbeb2d51b5a071286dab5a0e9750/docstring_parser/google.py#L57">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/google.py#L59">
       
       (source)
     </a>
@@ -1025,7 +1099,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">MULTIPLE_PATTERN</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/615a0ad0e60acbeb2d51b5a071286dab5a0e9750/docstring_parser/google.py#L58">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/google.py#L60">
       
       (source)
     </a>
@@ -1053,7 +1127,7 @@
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">_join_wrapped</span><span class="function-signature">(<span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/615a0ad0e60acbeb2d51b5a071286dab5a0e9750/docstring_parser/google.py#L80">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/google.py#L82">
       
       (source)
     </a>
@@ -1083,11 +1157,38 @@ except right inside brackets: <tt class="rst-docutils rst-literal">List[</tt> an
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">_multi_meta</span><span class="function-signature">(<span class="rst-sig-param">section: <code><a href="docstring_parser.google.Section.html" class="internal-link" title="docstring_parser.google.Section">Section</a></code>, </span><span class="rst-sig-param">before: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>, </span><span class="rst-sig-param">desc: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></span>) -&gt; <code>DocstringMeta</code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/615a0ad0e60acbeb2d51b5a071286dab5a0e9750/docstring_parser/google.py#L217">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/google.py#L218">
       
       (source)
     </a>
     <a class="headerLink" href="#_multi_meta" title="docstring_parser.google._multi_meta">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="docstring_parser.google._parser">
+    
+  </a>
+  <a name="_parser">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">_parser</span><span class="function-signature">(<span class="rst-sig-param">sections: <code><a href="https://docs.python.org/3/library/typing.html#typing.Sequence" class="intersphinx-link">T.Sequence</a>[<wbr></wbr><a href="docstring_parser.google.Section.html" class="internal-link" title="docstring_parser.google.Section">Section</a> | <a href="docstring_parser.sections.SectionSpec.html" class="internal-link" title="docstring_parser.sections.SectionSpec">SectionSpec</a>] | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code></span>) -&gt; <code><a href="docstring_parser.google.Parser.html" class="internal-link" title="docstring_parser.google.Parser">Parser</a></code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/google.py#L508">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_parser" title="docstring_parser.google._parser">
       
       
       ¶
@@ -1110,7 +1211,7 @@ except right inside brackets: <tt class="rst-docutils rst-literal">List[</tt> an
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">_section_kind</span><span class="function-signature">(<span class="rst-sig-param">section: <code><a href="docstring_parser.google.Section.html" class="internal-link" title="docstring_parser.google.Section">Section</a></code></span>) -&gt; <code>Kind</code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/615a0ad0e60acbeb2d51b5a071286dab5a0e9750/docstring_parser/google.py#L161">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/google.py#L163">
       
       (source)
     </a>
@@ -1137,7 +1238,7 @@ except right inside brackets: <tt class="rst-docutils rst-literal">List[</tt> an
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">_single_meta</span><span class="function-signature">(<span class="rst-sig-param">section: <code><a href="docstring_parser.google.Section.html" class="internal-link" title="docstring_parser.google.Section">Section</a></code>, </span><span class="rst-sig-param">desc: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></span>) -&gt; <code>DocstringMeta</code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/615a0ad0e60acbeb2d51b5a071286dab5a0e9750/docstring_parser/google.py#L193">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/google.py#L194">
       
       (source)
     </a>
@@ -1164,7 +1265,7 @@ except right inside brackets: <tt class="rst-docutils rst-literal">List[</tt> an
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">_split_typed_arg</span><span class="function-signature">(<span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></span>) -&gt; <code><a href="docstring_parser.google.TypedArg.html" class="internal-link" title="docstring_parser.google.TypedArg">TypedArg</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/615a0ad0e60acbeb2d51b5a071286dab5a0e9750/docstring_parser/google.py#L106">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/google.py#L108">
       
       (source)
     </a>
@@ -1194,7 +1295,7 @@ single pass, so anything after it is ignored.</p>
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">_title</span><span class="function-signature">(<span class="rst-sig-param">match: <code><a href="https://docs.python.org/3/library/typing.html#typing.Match" class="intersphinx-link">T.Match</a>[<wbr></wbr><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a>]</code></span>) -&gt; <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/615a0ad0e60acbeb2d51b5a071286dab5a0e9750/docstring_parser/google.py#L178">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/google.py#L179">
       
       (source)
     </a>
@@ -1220,7 +1321,7 @@ single pass, so anything after it is ignored.</p>
   <div class="functionHeader">
     
     <span class="py-defname">_COMPOSE_SECTIONS</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/615a0ad0e60acbeb2d51b5a071286dab5a0e9750/docstring_parser/google.py#L487">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/google.py#L520">
       
       (source)
     </a>
@@ -1244,33 +1345,6 @@ single pass, so anything after it is ignored.</p>
 </div><div class="baseconstant private">
   
   
-  <a name="docstring_parser.google._INDENT">
-    
-  </a>
-  <a name="_INDENT">
-    
-  </a>
-  <div class="functionHeader">
-    
-    <span class="py-defname">_INDENT</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/615a0ad0e60acbeb2d51b5a071286dab5a0e9750/docstring_parser/google.py#L168">
-      
-      (source)
-    </a>
-    <a class="headerLink" href="#_INDENT" title="docstring_parser.google._INDENT">
-      
-      
-      ¶
-    </a>
-  </div>
-  <div class="functionBody">
-    
-    <div><p class="undocumented">Undocumented</p></div>
-    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="https://docs.python.org/3/library/re.html#re.compile" class="intersphinx-link">re.compile</a>(r<span class="rst-variable-quote">'</span>^\s<span class="rst-re-op">*</span><span class="rst-variable-quote">'</span>)</code></pre></td></tr></table>
-  </div>
-</div><div class="baseconstant private">
-  
-  
   <a name="docstring_parser.google._KIND_OF_KEY">
     
   </a>
@@ -1280,7 +1354,7 @@ single pass, so anything after it is ignored.</p>
   <div class="functionHeader">
     
     <span class="py-defname">_KIND_OF_KEY</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/615a0ad0e60acbeb2d51b5a071286dab5a0e9750/docstring_parser/google.py#L139">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/google.py#L141">
       
       (source)
     </a>
@@ -1309,7 +1383,7 @@ XAMPLES_KEYWORDS, Kind.EXAMPLES)) for key in keys}</code></pre></td></tr></table
   <div class="functionHeader">
     
     <span class="py-defname">_LAYOUT</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/615a0ad0e60acbeb2d51b5a071286dab5a0e9750/docstring_parser/google.py#L175">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/google.py#L176">
       
       (source)
     </a>
@@ -1336,7 +1410,7 @@ XAMPLES_KEYWORDS, Kind.EXAMPLES)) for key in keys}</code></pre></td></tr></table
   <div class="functionHeader">
     
     <span class="py-defname">_SECTION_TYPE</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/615a0ad0e60acbeb2d51b5a071286dab5a0e9750/docstring_parser/google.py#L170">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/google.py#L171">
       
       (source)
     </a>
@@ -1365,7 +1439,7 @@ XAMPLES_KEYWORDS, Kind.EXAMPLES)) for key in keys}</code></pre></td></tr></table
   <div class="functionHeader">
     
     <span class="py-defname">_UNINDENTED</span> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/615a0ad0e60acbeb2d51b5a071286dab5a0e9750/docstring_parser/google.py#L167">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/google.py#L169">
       
       (source)
     </a>
@@ -1392,7 +1466,7 @@ XAMPLES_KEYWORDS, Kind.EXAMPLES)) for key in keys}</code></pre></td></tr></table
   <div class="functionHeader">
     
     <span class="py-defname">_parsers</span>: <code><a href="docstring_parser.sections.ParserCache.html" class="internal-link" title="docstring_parser.sections.ParserCache">ParserCache</a>[<wbr></wbr><a href="docstring_parser.google.Parser.html" class="internal-link" title="docstring_parser.google.Parser">Parser</a>]</code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/615a0ad0e60acbeb2d51b5a071286dab5a0e9750/docstring_parser/google.py#L465">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/6c6a19fa287ca6762025a8116b41f74c676a685e/docstring_parser/google.py#L478">
       
       (source)
     </a>
@@ -1419,7 +1493,7 @@ XAMPLES_KEYWORDS, Kind.EXAMPLES)) for key in keys}</code></pre></td></tr></table
   <div class="container-fluid">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    25.10.1 at 2026-11-06 13:21:05.
+    25.10.1 at 2026-11-06 15:37:32.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 
