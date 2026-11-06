@@ -1,0 +1,29 @@
+# Test that a role with a domain, or a colon not followed by whitespace,
+# does not make a field, while a field's closing colon at the end of the
+# line does.
+=== input
+Short.
+
+:py:meth:`run` does stuff.
+:param x:not a field
+:returns:
+    The result.
+=== parse rest
+short_description: 'Short.'
+long_description: |
+  :py:meth:`run` does stuff.
+  :param x:not a field
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringReturns
+  description: 'The result.'
+  kind: returns
+  key: 'returns'
+  is_generator: False
+=== compose rest
+Short.
+
+:py:meth:`run` does stuff.
+:param x:not a field
+:returns: The result.

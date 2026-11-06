@@ -18,16 +18,13 @@ Updates the values in the config from a Python file.  This function
 short_description: 'Updates the values in the config from a Python file.  This function'
 long_description: |
   behaves as if the file was imported as module with the
+  :meth:`from_object` function.
   
   .. versionadded:: 0.7
      `silent` parameter.
 blank_after_short_description: True
 blank_after_long_description: True
 style: rest
-- DocstringMeta
-  description: '`from_object` function.'
-  kind: text
-  key: 'meth'
 - DocstringParam
   description: |
     the filename of the config.  This can either be an
@@ -56,11 +53,11 @@ rest
 Updates the values in the config from a Python file.  This function
 
 behaves as if the file was imported as module with the
+:meth:`from_object` function.
 
 .. versionadded:: 0.7
    `silent` parameter.
 
-:meth: `from_object` function.
 :param filename: the filename of the config.  This can either be an
     absolute filename or a filename relative to the
     root path.

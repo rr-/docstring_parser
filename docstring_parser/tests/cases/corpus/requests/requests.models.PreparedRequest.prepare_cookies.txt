@@ -17,16 +17,12 @@ long_description: |
   given cookies using cookielib. Due to cookielib's design, the header
   will not be regenerated if it already exists, meaning this function
   can only be called once for the life of the
+  :class:`PreparedRequest <PreparedRequest>` object. Any subsequent calls
+  to ``prepare_cookies`` will have no actual effect, unless the "Cookie"
+  header is removed beforehand.
 blank_after_short_description: True
 blank_after_long_description: False
 style: rest
-- DocstringMeta
-  description: |
-    `PreparedRequest <PreparedRequest>` object. Any subsequent calls
-    to ``prepare_cookies`` will have no actual effect, unless the "Cookie"
-    header is removed beforehand.
-  kind: text
-  key: 'class'
 === detect
 rest
 === compose rest
@@ -36,6 +32,6 @@ This function eventually generates a ``Cookie`` header from the
 given cookies using cookielib. Due to cookielib's design, the header
 will not be regenerated if it already exists, meaning this function
 can only be called once for the life of the
-:class: `PreparedRequest <PreparedRequest>` object. Any subsequent calls
-    to ``prepare_cookies`` will have no actual effect, unless the "Cookie"
-    header is removed beforehand.
+:class:`PreparedRequest <PreparedRequest>` object. Any subsequent calls
+to ``prepare_cookies`` will have no actual effect, unless the "Cookie"
+header is removed beforehand.

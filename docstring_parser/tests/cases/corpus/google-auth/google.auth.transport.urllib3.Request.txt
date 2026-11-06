@@ -55,7 +55,7 @@ style: google
   type_name: 'urllib3.PoolManager'
   is_optional: False
 === detect
-rest
+google
 === compose google
 urllib3 request adapter.
 

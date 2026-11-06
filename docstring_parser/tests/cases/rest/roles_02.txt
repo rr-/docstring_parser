@@ -1,0 +1,31 @@
+# Test that a line starting with a role continues the field before it.
+=== input
+Short.
+
+:param x: The x, passed to
+:meth:`run` as is.
+:returns: The result.
+=== parse rest
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringParam
+  description: |
+    The x, passed to
+    :meth:`run` as is.
+  kind: param
+  key: 'param'
+  arg_name: 'x'
+  is_optional: False
+- DocstringReturns
+  description: 'The result.'
+  kind: returns
+  key: 'returns'
+  is_generator: False
+=== compose rest
+Short.
+
+:param x: The x, passed to
+    :meth:`run` as is.
+:returns: The result.

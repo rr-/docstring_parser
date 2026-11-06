@@ -6,17 +6,15 @@ Click option type for the ``--cert`` option. Allows either an
     
 === parse rest
 short_description: 'Click option type for the ``--cert`` option. Allows either an'
-long_description: "existing file, the string ``'adhoc'``, or an import for a"
+long_description: |
+  existing file, the string ``'adhoc'``, or an import for a
+  :class:`~ssl.SSLContext` object.
 blank_after_short_description: False
 blank_after_long_description: False
 style: rest
-- DocstringMeta
-  description: '`~ssl.SSLContext` object.'
-  kind: text
-  key: 'class'
 === detect
 rest
 === compose rest
 Click option type for the ``--cert`` option. Allows either an
 existing file, the string ``'adhoc'``, or an import for a
-:class: `~ssl.SSLContext` object.
+:class:`~ssl.SSLContext` object.

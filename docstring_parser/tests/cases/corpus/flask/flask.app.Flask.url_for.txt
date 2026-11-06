@@ -53,12 +53,18 @@ long_description: |
   directly as well.
   
   An *endpoint* is the name of a URL rule, usually added with
+  :meth:`@app.route() <route>`, and usually the same name as the
+  view function. A route defined in a :class:`~flask.Blueprint`
+  will prepend the blueprint's name separated by a ``.`` to the
+  endpoint.
   
   In some cases, such as email messages, you want URLs to include
   the scheme and domain, like ``https://example.com/hello``. When
   not in an active request, URLs will be external by default, but
   this requires setting :data:`SERVER_NAME` so Flask knows what
   domain to use. :data:`APPLICATION_ROOT` and
+  :data:`PREFERRED_URL_SCHEME` should also be configured as
+  needed. This config is only used when not in an active request.
   
   Functions can be decorated with :meth:`url_defaults` to modify
   keyword arguments before the URL is built.
@@ -73,20 +79,6 @@ long_description: |
 blank_after_short_description: True
 blank_after_long_description: True
 style: rest
-- DocstringMeta
-  description: |
-    `@app.route() <route>`, and usually the same name as the
-    view function. A route defined in a :class:`~flask.Blueprint`
-    will prepend the blueprint's name separated by a ``.`` to the
-    endpoint.
-  kind: text
-  key: 'meth'
-- DocstringMeta
-  description: |
-    `PREFERRED_URL_SCHEME` should also be configured as
-    needed. This config is only used when not in an active request.
-  kind: text
-  key: 'data'
 - DocstringParam
   description: |
     The endpoint name associated with the URL to
@@ -146,12 +138,18 @@ This is called by :func:`flask.url_for`, and can be called
 directly as well.
 
 An *endpoint* is the name of a URL rule, usually added with
+:meth:`@app.route() <route>`, and usually the same name as the
+view function. A route defined in a :class:`~flask.Blueprint`
+will prepend the blueprint's name separated by a ``.`` to the
+endpoint.
 
 In some cases, such as email messages, you want URLs to include
 the scheme and domain, like ``https://example.com/hello``. When
 not in an active request, URLs will be external by default, but
 this requires setting :data:`SERVER_NAME` so Flask knows what
 domain to use. :data:`APPLICATION_ROOT` and
+:data:`PREFERRED_URL_SCHEME` should also be configured as
+needed. This config is only used when not in an active request.
 
 Functions can be decorated with :meth:`url_defaults` to modify
 keyword arguments before the URL is built.
@@ -164,12 +162,6 @@ otherwise a :exc:`~werkzeug.routing.BuildError` is raised.
 .. versionadded:: 2.2
     Moved from ``flask.url_for``, which calls this method.
 
-:meth: `@app.route() <route>`, and usually the same name as the
-    view function. A route defined in a :class:`~flask.Blueprint`
-    will prepend the blueprint's name separated by a ``.`` to the
-    endpoint.
-:data: `PREFERRED_URL_SCHEME` should also be configured as
-    needed. This config is only used when not in an active request.
 :param endpoint: The endpoint name associated with the URL to
     generate. If this starts with a ``.``, the current blueprint
     name (if any) will be used.

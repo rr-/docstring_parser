@@ -14,32 +14,24 @@ Register a new language for the HTML search index.
 short_description: 'Register a new language for the HTML search index.'
 long_description: |
   Add *cls*, which must be a subclass of
+  :class:`sphinx.search.SearchLanguage`, as a support language for
+  building the HTML full-text search index.  The class must have a *lang*
+  attribute that indicates the language it should be used for.  See
+  :confval:`html_search_language`.
   
   .. versionadded:: 1.1
 blank_after_short_description: True
-blank_after_long_description: True
+blank_after_long_description: False
 style: rest
-- DocstringMeta
-  description: |
-    `sphinx.search.SearchLanguage`, as a support language for
-    building the HTML full-text search index.  The class must have a *lang*
-    attribute that indicates the language it should be used for.  See
-  kind: text
-  key: 'class'
-- DocstringMeta
-  description: '`html_search_language`.'
-  kind: text
-  key: 'confval'
 === detect
 rest
 === compose rest
 Register a new language for the HTML search index.
 
 Add *cls*, which must be a subclass of
+:class:`sphinx.search.SearchLanguage`, as a support language for
+building the HTML full-text search index.  The class must have a *lang*
+attribute that indicates the language it should be used for.  See
+:confval:`html_search_language`.
 
 .. versionadded:: 1.1
-
-:class: `sphinx.search.SearchLanguage`, as a support language for
-    building the HTML full-text search index.  The class must have a *lang*
-    attribute that indicates the language it should be used for.  See
-:confval: `html_search_language`.

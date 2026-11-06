@@ -14,13 +14,10 @@ short_description: 'Serialize data as JSON to a string.'
 long_description: |
   Keyword arguments are passed to :func:`json.dumps`. Sets some
   parameter defaults from the :attr:`default`,
+  :attr:`ensure_ascii`, and :attr:`sort_keys` attributes.
 blank_after_short_description: True
-blank_after_long_description: False
+blank_after_long_description: True
 style: rest
-- DocstringMeta
-  description: '`ensure_ascii`, and :attr:`sort_keys` attributes.'
-  kind: text
-  key: 'attr'
 - DocstringParam
   description: 'The data to serialize.'
   kind: param
@@ -40,6 +37,7 @@ Serialize data as JSON to a string.
 
 Keyword arguments are passed to :func:`json.dumps`. Sets some
 parameter defaults from the :attr:`default`,
-:attr: `ensure_ascii`, and :attr:`sort_keys` attributes.
+:attr:`ensure_ascii`, and :attr:`sort_keys` attributes.
+
 :param obj: The data to serialize.
 :param kwargs: Passed to :func:`json.dumps`.

@@ -21,6 +21,7 @@ Register a URL value preprocessor function for all view
 short_description: 'Register a URL value preprocessor function for all view'
 long_description: |
   functions in the application. These functions will be called before the
+  :meth:`before_request` functions.
   
   The function can modify the values captured from the matched url before
   they are passed to the view. For example, this can be used to pop a
@@ -34,19 +35,15 @@ long_description: |
   is called for every request. When used on a blueprint, this is called for
   requests that the blueprint handles. To register with a blueprint and affect
   every request, use :meth:`.Blueprint.app_url_value_preprocessor`.
-blank_after_short_description: True
-blank_after_long_description: True
+blank_after_short_description: False
+blank_after_long_description: False
 style: rest
-- DocstringMeta
-  description: '`before_request` functions.'
-  kind: text
-  key: 'meth'
 === detect
 rest
 === compose rest
 Register a URL value preprocessor function for all view
-
 functions in the application. These functions will be called before the
+:meth:`before_request` functions.
 
 The function can modify the values captured from the matched url before
 they are passed to the view. For example, this can be used to pop a
@@ -60,5 +57,3 @@ This is available on both app and blueprint objects. When used on an app, this
 is called for every request. When used on a blueprint, this is called for
 requests that the blueprint handles. To register with a blueprint and affect
 every request, use :meth:`.Blueprint.app_url_value_preprocessor`.
-
-:meth: `before_request` functions.

@@ -161,11 +161,23 @@ def _build_meta(args: T.List[str], desc: str, kind: Kind) -> DocstringMeta:
     return DocstringMeta(desc, key, " ".join(args[1:]) or None)
 
 
-_FIELD_START = re.compile("^:", flags=re.M)
-# A field ends at the next field (``^:``), at the end of the text (``\Z``),
-# or at a blank line followed by unindented, non-field content.
+# A field's name and the colon closing it, as docutils reads them: a colon
+# in the name is followed by neither whitespace nor a backtick, and the
+# closing one is followed by whitespace or the end of the line. So a line
+# starting with a role, as in ``:meth:`run` does stuff.``, is text.
+_NAME = r"((?:[^:\n]|:(?![\s`]))*):(?=\s|\Z)"
+_FIELD_NAME = re.compile(_NAME)
+# What follows the colon starting a field: a name, or a line with no other
+# colon, as in ``:param x``, which is a field that cannot be read.
+_STARTS_FIELD = rf"{_NAME}|[^:\n]*$"
+_START = rf"^:(?={_STARTS_FIELD})"
+_FIELD_START = re.compile(_START, flags=re.M)
+# A field ends at the next field, at the end of the text (``\Z``), or at a
+# blank line followed by unindented content that starts no field.
 _FIELD = re.compile(
-    r"(^:.*?)(?=^:|\n[ \t]*\n(?=[^ \t\n:])|\Z)", flags=re.S | re.M
+    rf"({_START}.*?)(?={_START}"
+    rf"|\n[ \t]*\n(?=[^ \t\n:]|:(?!{_STARTS_FIELD}))|\Z)",
+    flags=re.S | re.M,
 )
 _TYPE_FIELD = re.compile(r":[ry]?type\b")
 _UNINDENTED = re.compile(r"\n(?=[^ \t\n])")
@@ -318,7 +330,7 @@ class Parser(BaseParser):
         # goes to the long description instead of being dropped.
         loose_chunks = []
         loose_start = 0
-        # A field ends at the next field (``^:``), at the end of the chunk
+        # A field ends at the next field, at the end of the chunk
         # (``\Z``), or at a blank line followed by unindented, non-field
         # content. The last case ends the field list so that a trailing block
         # (e.g. an ``Example`` section) is not absorbed into the last field.
@@ -353,7 +365,13 @@ class Parser(BaseParser):
                     loose_chunks.append(chunk[unindented.end() :])
                     chunk = chunk[: unindented.start()]
             at = meta_start + match.start()
-            head, colon, desc_chunk = chunk.lstrip(":").partition(":")
+            stripped = chunk.lstrip(":")
+            name = _FIELD_NAME.match(stripped)
+            if name:
+                head, colon = name.group(1), ":"
+                desc_chunk = stripped[name.end() :]
+            else:
+                head, colon, desc_chunk = stripped.partition(":")
             args = head.split()
             if not colon or not args:
                 # A field that cannot be read is kept as text.

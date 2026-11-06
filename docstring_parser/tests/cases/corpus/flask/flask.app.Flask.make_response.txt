@@ -58,6 +58,8 @@ Convert the return value from a view function to an instance of
 === parse rest
 short_description: 'Convert the return value from a view function to an instance of'
 long_description: |
+  :attr:`response_class`.
+  
   .. versionchanged:: 2.2
       A generator will be converted to a streaming response.
       A list will be converted to a JSON response.
@@ -71,10 +73,6 @@ long_description: |
 blank_after_short_description: True
 blank_after_long_description: True
 style: rest
-- DocstringMeta
-  description: '`response_class`.'
-  kind: text
-  key: 'attr'
 - DocstringParam
   description: |
     the return value from the view function. The view function
@@ -126,6 +124,8 @@ rest
 === compose rest
 Convert the return value from a view function to an instance of
 
+:attr:`response_class`.
+
 .. versionchanged:: 2.2
     A generator will be converted to a streaming response.
     A list will be converted to a JSON response.
@@ -137,7 +137,6 @@ Convert the return value from a view function to an instance of
    Previously a tuple was interpreted as the arguments for the
    response object.
 
-:attr: `response_class`.
 :param rv: the return value from the view function. The view function
     must return a response. Returning ``None``, or the view ending
     without returning, is not allowed. The following types are allowed

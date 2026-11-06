@@ -1,0 +1,26 @@
+# Test that a line starting with a role, before any field, is text of the
+# description rather than a field named after the role.
+=== input
+Short.
+
+:meth:`run` does stuff.
+
+:param x: The x.
+=== parse rest
+short_description: 'Short.'
+long_description: ':meth:`run` does stuff.'
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringParam
+  description: 'The x.'
+  kind: param
+  key: 'param'
+  arg_name: 'x'
+  is_optional: False
+=== compose rest
+Short.
+
+:meth:`run` does stuff.
+
+:param x: The x.

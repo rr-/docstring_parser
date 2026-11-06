@@ -9,23 +9,20 @@ Base class for sessions based on signed cookies.
     
 === parse rest
 short_description: 'Base class for sessions based on signed cookies.'
-long_description: 'This session backend will set the :attr:`modified` and'
+long_description: |
+  This session backend will set the :attr:`modified` and
+  :attr:`accessed` attributes. It cannot reliably track whether a
+  session is new (vs. empty), so :attr:`new` remains hard coded to
+  ``False``.
 blank_after_short_description: True
 blank_after_long_description: False
 style: rest
-- DocstringMeta
-  description: |
-    `accessed` attributes. It cannot reliably track whether a
-    session is new (vs. empty), so :attr:`new` remains hard coded to
-    ``False``.
-  kind: text
-  key: 'attr'
 === detect
 rest
 === compose rest
 Base class for sessions based on signed cookies.
 
 This session backend will set the :attr:`modified` and
-:attr: `accessed` attributes. It cannot reliably track whether a
-    session is new (vs. empty), so :attr:`new` remains hard coded to
-    ``False``.
+:attr:`accessed` attributes. It cannot reliably track whether a
+session is new (vs. empty), so :attr:`new` remains hard coded to
+``False``.

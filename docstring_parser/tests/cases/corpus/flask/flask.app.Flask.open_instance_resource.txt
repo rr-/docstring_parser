@@ -15,17 +15,14 @@ Open a resource file relative to the application's instance folder
 === parse rest
 short_description: "Open a resource file relative to the application's instance folder"
 long_description: |
+  :attr:`instance_path`. Unlike :meth:`open_resource`, files in the
+  instance folder can be opened for writing.
+  
   .. versionchanged:: 3.1
       Added the ``encoding`` parameter.
 blank_after_short_description: True
 blank_after_long_description: True
 style: rest
-- DocstringMeta
-  description: |
-    `instance_path`. Unlike :meth:`open_resource`, files in the
-    instance folder can be opened for writing.
-  kind: text
-  key: 'attr'
 - DocstringParam
   description: 'Path to the resource relative to :attr:`instance_path`.'
   kind: param
@@ -51,11 +48,12 @@ rest
 === compose rest
 Open a resource file relative to the application's instance folder
 
+:attr:`instance_path`. Unlike :meth:`open_resource`, files in the
+instance folder can be opened for writing.
+
 .. versionchanged:: 3.1
     Added the ``encoding`` parameter.
 
-:attr: `instance_path`. Unlike :meth:`open_resource`, files in the
-    instance folder can be opened for writing.
 :param resource: Path to the resource relative to :attr:`instance_path`.
 :param mode: Open the file in this mode.
 :param encoding: Open the file with this encoding when opening in text

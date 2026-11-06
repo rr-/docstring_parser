@@ -7,18 +7,16 @@ Main build method, usually called by a specific ``build_*`` method.
         
 === parse rest
 short_description: 'Main build method, usually called by a specific ``build_*`` method.'
-long_description: 'First updates the environment, and then calls'
+long_description: |
+  First updates the environment, and then calls
+  :meth:`!write`.
 blank_after_short_description: True
 blank_after_long_description: False
 style: rest
-- DocstringMeta
-  description: '`!write`.'
-  kind: text
-  key: 'meth'
 === detect
 rest
 === compose rest
 Main build method, usually called by a specific ``build_*`` method.
 
 First updates the environment, and then calls
-:meth: `!write`.
+:meth:`!write`.

@@ -1,0 +1,26 @@
+# Test that a line starting with a role, after the fields and a blank
+# line, goes to the long description.
+=== input
+Short.
+
+:param x: The x.
+
+:class:`Foo` does the rest.
+=== parse rest
+short_description: 'Short.'
+long_description: ':class:`Foo` does the rest.'
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringParam
+  description: 'The x.'
+  kind: param
+  key: 'param'
+  arg_name: 'x'
+  is_optional: False
+=== compose rest
+Short.
+
+:class:`Foo` does the rest.
+
+:param x: The x.

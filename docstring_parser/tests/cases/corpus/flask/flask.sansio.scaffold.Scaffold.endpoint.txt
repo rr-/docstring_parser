@@ -19,6 +19,7 @@ Decorate a view function to register it for the given
 short_description: 'Decorate a view function to register it for the given'
 long_description: |
   endpoint. Used if a rule is added without a ``view_func`` with
+  :meth:`add_url_rule`.
   
   .. code-block:: python
   
@@ -27,13 +28,9 @@ long_description: |
       @app.endpoint("example")
       def example():
           ...
-blank_after_short_description: True
+blank_after_short_description: False
 blank_after_long_description: True
 style: rest
-- DocstringMeta
-  description: '`add_url_rule`.'
-  kind: text
-  key: 'meth'
 - DocstringParam
   description: |
     The endpoint name to associate with the view
@@ -46,8 +43,8 @@ style: rest
 rest
 === compose rest
 Decorate a view function to register it for the given
-
 endpoint. Used if a rule is added without a ``view_func`` with
+:meth:`add_url_rule`.
 
 .. code-block:: python
 
@@ -57,6 +54,5 @@ endpoint. Used if a rule is added without a ``view_func`` with
     def example():
         ...
 
-:meth: `add_url_rule`.
 :param endpoint: The endpoint name to associate with the view
     function.

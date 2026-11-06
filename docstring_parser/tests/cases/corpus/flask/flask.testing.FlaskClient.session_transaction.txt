@@ -26,6 +26,8 @@ long_description: |
   Internally this is implemented by going through a temporary test
   request context and since session handling could depend on
   request variables this function accepts the same arguments as
+  :meth:`~flask.Flask.test_request_context` which are directly
+  passed through.
 blank_after_short_description: True
 blank_after_long_description: True
 style: rest
@@ -34,12 +36,6 @@ style: rest
   kind: text
   key: 'with'
   name: 'client.session_transaction() as session'
-- DocstringMeta
-  description: |
-    `~flask.Flask.test_request_context` which are directly
-    passed through.
-  kind: text
-  key: 'meth'
 === detect
 rest
 === compose rest
@@ -52,7 +48,7 @@ stored back.
 Internally this is implemented by going through a temporary test
 request context and since session handling could depend on
 request variables this function accepts the same arguments as
+:meth:`~flask.Flask.test_request_context` which are directly
+passed through.
 
 :with client.session_transaction() as session: session['value'] = 42
-:meth: `~flask.Flask.test_request_context` which are directly
-    passed through.

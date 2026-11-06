@@ -12,23 +12,18 @@ short_description: 'Logs an exception.  This is called by :meth:`handle_exceptio
 long_description: |
   if debugging is disabled and right before the handler is called.
   The default implementation logs the exception as error on the
+  :attr:`logger`.
   
   .. versionadded:: 0.8
-blank_after_short_description: True
-blank_after_long_description: True
+blank_after_short_description: False
+blank_after_long_description: False
 style: rest
-- DocstringMeta
-  description: '`logger`.'
-  kind: text
-  key: 'attr'
 === detect
 rest
 === compose rest
 Logs an exception.  This is called by :meth:`handle_exception`
-
 if debugging is disabled and right before the handler is called.
 The default implementation logs the exception as error on the
+:attr:`logger`.
 
 .. versionadded:: 0.8
-
-:attr: `logger`.

@@ -15,27 +15,21 @@ long_description: |
   See :ref:`testing-cli`.
   
   Returns an instance of :attr:`test_cli_runner_class`, by default
+  :class:`~flask.testing.FlaskCliRunner`. The Flask app object is
+  passed as the first argument.
   
   .. versionadded:: 1.0
-blank_after_short_description: True
-blank_after_long_description: True
+blank_after_short_description: False
+blank_after_long_description: False
 style: rest
-- DocstringMeta
-  description: |
-    `~flask.testing.FlaskCliRunner`. The Flask app object is
-    passed as the first argument.
-  kind: text
-  key: 'class'
 === detect
 rest
 === compose rest
 Create a CLI runner for testing CLI commands.
-
 See :ref:`testing-cli`.
 
 Returns an instance of :attr:`test_cli_runner_class`, by default
+:class:`~flask.testing.FlaskCliRunner`. The Flask app object is
+passed as the first argument.
 
 .. versionadded:: 1.0
-
-:class: `~flask.testing.FlaskCliRunner`. The Flask app object is
-    passed as the first argument.
