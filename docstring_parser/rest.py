@@ -5,6 +5,7 @@ import textwrap
 import typing as T
 
 from ._compose import description_lines, field_name, field_text
+from ._fields import AFTER_ALL, ParamTypes, ReturnTypes, assign_types
 from ._lines import Lines
 from ._text import append_loose, split_description, type_spec
 from .common import (
@@ -170,9 +171,8 @@ class Parser(BaseParser):
 
         split_description(ret, desc_chunk)
 
-        # Each name's type fields, in order, with where each was.
-        types: T.Dict[str, T.List[T.Tuple[str, int]]] = {}
-        rtypes: T.Dict[T.Optional[str], T.List[str]] = {}
+        types: ParamTypes = {}
+        rtypes: ReturnTypes = {}
         # Whether the field before gave an item, rather than a type.
         after_item = False
         # Text between or after the fields, such as an example block, which
@@ -232,7 +232,10 @@ class Parser(BaseParser):
                     last.return_name = name
                     last.type_name = desc or None
                 else:
-                    rtypes.setdefault(name, []).append(desc)
+                    # A return made of a type alone goes after every field.
+                    rtypes.setdefault(name, []).append(
+                        (desc, AFTER_ALL, Kind.RETURNS, None)
+                    )
             else:
                 spec = table.get(args[0])
                 kind = spec.kind if spec else Kind.TEXT
@@ -244,69 +247,7 @@ class Parser(BaseParser):
 
         append_loose(ret, loose_chunks, blank_around=True)
 
-        # Params take their name's types in order, the last of them going
-        # to any params left, and returns the types without a name likewise.
-        has_returns = False
-        taken: T.Dict[T.Optional[str], int] = {}
-        rtaken: T.Dict[T.Optional[str], int] = {}
-        for meta in ret.meta:
-            if isinstance(meta, DocstringParam):
-                found = types.get(meta.arg_name, [])
-                count = taken[meta.arg_name] = taken.get(meta.arg_name, 0) + 1
-                if not meta.type_name and found:
-                    spec = type_spec(found[min(count, len(found)) - 1][0])
-                    meta.type_name = spec.type_name
-                    if spec.is_optional:
-                        meta.is_optional = True
-                        meta.default = meta.default or spec.default
-            elif isinstance(meta, DocstringReturns):
-                has_returns = True
-                found_r = rtypes.get(meta.return_name, [])
-                count = rtaken[meta.return_name] = (
-                    rtaken.get(meta.return_name, 0) + 1
-                )
-                if not meta.type_name and found_r:
-                    meta.type_name = found_r[min(count, len(found_r)) - 1]
-
-        # A type left over, for a name no field describes or given more
-        # often than its name's fields, is a param of its own, where its
-        # field is.
-        extra = [
-            (at, name, desc)
-            for name, found in types.items()
-            for desc, at in found[taken.get(name, 0) :]
-        ]
-        # Insert from the last place back, and the types of one place in
-        # reverse, so that each lands in its field's order.
-        order = sorted(range(len(extra)), key=lambda i: extra[i][0])
-        for at, name, desc in (extra[i] for i in reversed(order)):
-            spec = type_spec(desc)
-            ret.meta.insert(
-                at,
-                DocstringParam(
-                    None,
-                    arg_name=name,
-                    type_name=spec.type_name,
-                    is_optional=spec.is_optional,
-                    default=spec.default,
-                    key="type",
-                ),
-            )
-
-        # Likewise a return type left over, or one for a return value with
-        # a name, is a return of its own.
-        for return_name, found_r in rtypes.items():
-            start = rtaken.get(return_name, 0) if has_returns else 0
-            for type_name in found_r[start:]:
-                ret.meta.append(
-                    DocstringReturns(
-                        type_name=type_name,
-                        description=None,
-                        is_generator=False,
-                        return_name=return_name,
-                    )
-                )
-
+        assign_types(ret.meta, types, rtypes)
         return ret
 
 

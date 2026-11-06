@@ -14,7 +14,7 @@ style: epydoc
 - DocstringReturns
   description: 'The minimum number of seconds between client logins.'
   kind: returns
-  key: 'rtype'
+  key: 'return'
   type_name: 'L{int}'
   is_generator: False
 === detect

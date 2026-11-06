@@ -27,7 +27,7 @@ style: epydoc
     A list containing the origination and destination addresses
     for the message.
   kind: returns
-  key: 'rtype'
+  key: 'return'
   type_name: 'L{list} of two L{bytes}'
   is_generator: False
 === detect

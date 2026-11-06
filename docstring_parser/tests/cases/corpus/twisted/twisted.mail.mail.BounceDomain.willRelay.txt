@@ -37,7 +37,7 @@ style: epydoc
 - DocstringReturns
   description: 'C{False}.'
   kind: returns
-  key: 'rtype'
+  key: 'return'
   type_name: 'L{bool}'
   is_generator: False
 === detect

@@ -7,8 +7,9 @@ import re
 import typing as T
 
 from ._compose import description_lines, field_name, field_text
+from ._fields import ParamTypes, ReturnTypes, assign_types
 from ._lines import Lines
-from ._text import split_description, type_spec
+from ._text import split_description
 from .common import (
     PARAM_KINDS,
     RAISES_KINDS,
@@ -43,10 +44,6 @@ _TYPE_FIELDS = {
     "ytype": ("return", Kind.YIELDS),
 }
 
-# A field as read: how it combines with others, its name, the names it is
-# about, its text, its kind and the spec it was recognised by.
-_Field = T.Tuple[str, str, T.List[str], str, Kind, T.Optional[SectionSpec]]
-
 
 def _base(
     spec: T.Optional[SectionSpec], args: T.List[str]
@@ -64,24 +61,6 @@ def _base(
         # plain text.
         return ("raise", kind) if len(args) <= 1 else ("meta", Kind.TEXT)
     return "meta", kind
-
-
-def _type_meta(base: str, key: str, name: str, desc: str) -> DocstringMeta:
-    """Make the meta of a type field that no other field takes."""
-    if base == "return":
-        return DocstringReturns(
-            None, desc, _TYPE_FIELDS[key][1] is Kind.YIELDS, key=key
-        )
-    spec = type_spec(desc)
-    match = None if spec.default else _DEFAULTS_TO.match(desc)
-    return DocstringParam(
-        None,
-        arg_name=name,
-        type_name=spec.type_name,
-        is_optional=bool(spec.is_optional),
-        default=match.group(1).rstrip(".") if match else spec.default,
-        key=key,
-    )
 
 
 def default_sections() -> T.List[SectionSpec]:
@@ -143,8 +122,13 @@ class Parser(BaseParser):
 
         split_description(ret, desc_chunk)
 
-        # tokenize
-        stream: T.List[_Field] = []
+        metas: T.List[DocstringMeta] = []
+        specs: T.Dict[int, T.Optional[SectionSpec]] = {}
+        types: ParamTypes = {}
+        rtypes: ReturnTypes = {}
+        # Whether the return fields are about yields, which they must all
+        # be or none of them.
+        generator: T.Optional[bool] = None
         for match in _FIELD.finditer(meta_chunk):
             chunk = match.group(0)
             if not chunk:
@@ -168,135 +152,62 @@ class Parser(BaseParser):
                 raise ParseError(
                     f'Error parsing meta information near "{excerpt(chunk)}".'
                 )
+            if base == "return":
+                is_generator = kind is Kind.YIELDS
+                if generator is not None and generator != is_generator:
+                    raise ParseError(
+                        'Error parsing meta information for "return".'
+                    )
+                generator = is_generator
 
             desc = chunk[header.end() :].strip()
             if "\n" in desc:
                 first_line, rest = desc.split("\n", 1)
                 desc = first_line + "\n" + cleandoc(rest)
-            stream.append((base, key, args, desc, kind, spec))
 
-        # Combine type_name, arg_name, and description information
-        params: T.Dict[str, T.Dict[str, T.Any]] = {}
-        for base, key, args, desc, kind, spec in stream:
-            if base not in ["param", "return"]:
-                continue  # nothing to do
-
-            (arg_name,) = args or ("return",)
-            info = params.setdefault(arg_name, {})
-            fields = info.setdefault("fields", 0)
-            info["fields"] = fields + 1
             if key in _TYPE_FIELDS:
-                info.setdefault("types", []).append(desc)
-                first_description = False
-            else:
-                info["described"] = info.get("described", 0) + 1
-                first_description = "key" not in info
-            if first_description:
-                # The field that says what kind of param this is, even when a
-                # @type field for it comes first. Another description of the
-                # same name is an item of its own.
-                info["description"] = desc
-                info["key"] = key
-                info["kind"] = kind
-                info["spec"] = spec
-                info["first"] = fields
-
-            if base == "return":
-                is_generator = kind is Kind.YIELDS
-                if (
-                    info.setdefault("is_generator", is_generator)
-                    != is_generator
-                ):
-                    raise ParseError(
-                        f'Error parsing meta information for "{arg_name}".'
+                if base == "param":
+                    types.setdefault(args[0], []).append((desc, len(metas)))
+                else:
+                    rtypes.setdefault(None, []).append(
+                        (desc, len(metas), kind, key)
                     )
-
-        seen: T.Dict[str, int] = {}
-        # How many items each name has given, which take its types in
-        # order, and how many of its type fields have been read.
-        given: T.Dict[str, int] = {}
-        typed: T.Dict[str, int] = {}
-        for base, key, args, desc, kind, spec in stream:
-            name = (args or ["return"])[0]
-            index = -1
-            if base in ["param", "return"]:
-                index = seen[name] = seen.get(name, -1) + 1
-                info = params[name]
-                if key in _TYPE_FIELDS:
-                    type_index = typed[name] = typed.get(name, -1) + 1
-                    if index and type_index >= max(
-                        1, info.get("described", 0)
-                    ):
-                        # A type given more often than its name's fields is
-                        # an item of its own.
-                        ret.meta.append(_type_meta(base, key, name, desc))
-                        continue
-                if index and (
-                    key in _TYPE_FIELDS or index == info.get("first")
-                ):
-                    continue  # already in the name's first item
-                if index:
-                    # A name described twice gives an item for each one.
-                    info = dict(info)
-                    info.update(
-                        key=key, kind=kind, spec=spec, description=desc
-                    )
-            types = info.get("types", []) if index >= 0 else []
-            if index >= 0:
-                count = given[name] = given.get(name, 0) + 1
-                type_name = (
-                    types[min(count, len(types)) - 1] if types else None
-                )
+                continue
+            meta: DocstringMeta
             if base == "param":
-                (arg_name,) = args
-                spec = type_spec(type_name)
-
-                default = spec.default
-                match = None if default else _DEFAULTS_TO.match(desc)
-                if match:
-                    default = match.group(1).rstrip(".")
-
-                param_key = info.get("key", key)
-                meta_item = DocstringParam(
-                    key=param_key,
-                    description=info.get("description"),
-                    arg_name=arg_name,
-                    type_name=spec.type_name,
-                    is_optional=bool(spec.is_optional),
-                    default=default,
-                    kind=info.get("kind", Kind.PARAM),
+                defaults_to = _DEFAULTS_TO.match(desc)
+                meta = DocstringParam(
+                    desc,
+                    arg_name=args[0],
+                    type_name=None,
+                    is_optional=False,
+                    default=defaults_to.group(1).rstrip(".")
+                    if defaults_to
+                    else None,
+                    kind=kind,
+                    key=key,
                 )
-                spec = info.get("spec")
             elif base == "return":
-                meta_item = DocstringReturns(
-                    key=key if index == 0 else info["key"],
-                    description=info.get("description"),
-                    type_name=type_name,
-                    is_generator=info.get("is_generator", False),
+                meta = DocstringReturns(
+                    desc, None, kind is Kind.YIELDS, key=key
                 )
-                spec = info.get("spec")
             elif base == "raise":
                 (type_name,) = args or (None,)
-                meta_item = DocstringRaises(
-                    key=key,
-                    description=desc,
-                    type_name=type_name,
-                    kind=kind,
-                )
+                meta = DocstringRaises(desc, type_name, kind=kind, key=key)
             elif kind is Kind.EXAMPLES:
-                meta_item = DocstringExample(
-                    snippet=None, description=desc, key=key
-                )
+                meta = DocstringExample(None, desc, key=key)
             elif kind is Kind.DEPRECATION:
-                meta_item = DocstringDeprecated(desc, version=None, key=key)
+                meta = DocstringDeprecated(desc, None, key=key)
             else:
-                meta_item = DocstringMeta(
-                    key=key,
-                    name=" ".join(args) or None,
-                    description=desc,
-                )
+                meta = DocstringMeta(desc, key, " ".join(args) or None)
+            if spec is not None and spec.parse_item is not None:
+                specs[id(meta)] = spec
+            metas.append(meta)
 
-            ret.meta.append(apply(spec, meta_item))
+        assign_types(metas, types, rtypes)
+        if specs:
+            metas = [apply(specs.get(id(meta)), meta) for meta in metas]
+        ret.meta = metas
 
         return ret
 
