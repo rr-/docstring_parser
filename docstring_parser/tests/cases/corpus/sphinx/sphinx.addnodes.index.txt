@@ -23,13 +23,10 @@ long_description: |
   
   *key* is categorization characters (usually a single character) for
   general index page. For the details of this, please see also:
+  :rst:dir:`glossary` and https://github.com/sphinx-doc/sphinx/pull/2320.
 blank_after_short_description: True
 blank_after_long_description: False
 style: rest
-- DocstringMeta
-  description: 'dir:`glossary` and https://github.com/sphinx-doc/sphinx/pull/2320.'
-  kind: text
-  key: 'rst'
 === detect
 rest
 === compose rest
@@ -43,4 +40,4 @@ target, ignored, key)``.
 
 *key* is categorization characters (usually a single character) for
 general index page. For the details of this, please see also:
-:rst: dir:`glossary` and https://github.com/sphinx-doc/sphinx/pull/2320.
+:rst:dir:`glossary` and https://github.com/sphinx-doc/sphinx/pull/2320.

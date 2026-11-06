@@ -26,6 +26,8 @@ Serialize data as JSON and write to a file.
 short_description: 'Serialize data as JSON and write to a file.'
 long_description: |
   If :data:`~flask.current_app` is available, it will use its
+  :meth:`app.json.dump() <flask.json.provider.JSONProvider.dump>`
+  method, otherwise it will use :func:`json.dump`.
   
   .. versionchanged:: 2.3
       The ``app`` parameter was removed.
@@ -40,12 +42,6 @@ long_description: |
 blank_after_short_description: True
 blank_after_long_description: True
 style: rest
-- DocstringMeta
-  description: |
-    `app.json.dump() <flask.json.provider.JSONProvider.dump>`
-    method, otherwise it will use :func:`json.dump`.
-  kind: text
-  key: 'meth'
 - DocstringParam
   description: 'The data to serialize.'
   kind: param
@@ -72,6 +68,8 @@ rest
 Serialize data as JSON and write to a file.
 
 If :data:`~flask.current_app` is available, it will use its
+:meth:`app.json.dump() <flask.json.provider.JSONProvider.dump>`
+method, otherwise it will use :func:`json.dump`.
 
 .. versionchanged:: 2.3
     The ``app`` parameter was removed.
@@ -84,8 +82,6 @@ If :data:`~flask.current_app` is available, it will use its
     Writing to a binary file, and the ``encoding`` argument, will be
     removed in Flask 2.1.
 
-:meth: `app.json.dump() <flask.json.provider.JSONProvider.dump>`
-    method, otherwise it will use :func:`json.dump`.
 :param obj: The data to serialize.
 :param fp: A file opened for writing text. Should use the UTF-8
     encoding to be valid JSON.

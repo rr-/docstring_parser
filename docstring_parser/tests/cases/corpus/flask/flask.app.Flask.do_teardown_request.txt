@@ -26,31 +26,20 @@ long_description: |
   returned, right before the request context is popped.
   
   This calls all functions decorated with
+  :meth:`teardown_request`, and :meth:`Blueprint.teardown_request`
+  if a blueprint handled the request. Finally, the
+  :data:`request_tearing_down` signal is sent.
   
   This is called by
+  :meth:`RequestContext.pop() <flask.ctx.RequestContext.pop>`,
+  which may be delayed during testing to maintain access to
+  resources.
   
   .. versionchanged:: 0.9
       Added the ``exc`` argument.
 blank_after_short_description: True
 blank_after_long_description: True
 style: rest
-- DocstringMeta
-  description: |
-    `teardown_request`, and :meth:`Blueprint.teardown_request`
-    if a blueprint handled the request. Finally, the
-  kind: text
-  key: 'meth'
-- DocstringMeta
-  description: '`request_tearing_down` signal is sent.'
-  kind: text
-  key: 'data'
-- DocstringMeta
-  description: |
-    `RequestContext.pop() <flask.ctx.RequestContext.pop>`,
-    which may be delayed during testing to maintain access to
-    resources.
-  kind: text
-  key: 'meth'
 - DocstringParam
   description: |
     An unhandled exception raised while dispatching the
@@ -68,18 +57,18 @@ Called after the request is dispatched and the response is
 returned, right before the request context is popped.
 
 This calls all functions decorated with
+:meth:`teardown_request`, and :meth:`Blueprint.teardown_request`
+if a blueprint handled the request. Finally, the
+:data:`request_tearing_down` signal is sent.
 
 This is called by
+:meth:`RequestContext.pop() <flask.ctx.RequestContext.pop>`,
+which may be delayed during testing to maintain access to
+resources.
 
 .. versionchanged:: 0.9
     Added the ``exc`` argument.
 
-:meth: `teardown_request`, and :meth:`Blueprint.teardown_request`
-    if a blueprint handled the request. Finally, the
-:data: `request_tearing_down` signal is sent.
-:meth: `RequestContext.pop() <flask.ctx.RequestContext.pop>`,
-    which may be delayed during testing to maintain access to
-    resources.
 :param exc: An unhandled exception raised while dispatching the
     request. Detected from the current exception information if
     not passed. Passed to each teardown function.

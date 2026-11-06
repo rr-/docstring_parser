@@ -39,13 +39,10 @@ long_description: |
   ['token', 'quoted value']
   
   To create a header from the :class:`list` again, use the
+  :func:`dump_header` function.
 blank_after_short_description: True
-blank_after_long_description: False
+blank_after_long_description: True
 style: rest
-- DocstringMeta
-  description: '`dump_header` function.'
-  kind: text
-  key: 'func'
 - DocstringParam
   description: 'a string with a list header.'
   kind: param
@@ -77,6 +74,7 @@ The return value is a standard :class:`list`:
 ['token', 'quoted value']
 
 To create a header from the :class:`list` again, use the
-:func: `dump_header` function.
+:func:`dump_header` function.
+
 :param value: a string with a list header.
 :returns list: :class:`list`

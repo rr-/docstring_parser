@@ -16,13 +16,10 @@ short_description: 'Initializes a urllib3 PoolManager.'
 long_description: |
   This method should not be called from user code, and is only
   exposed for use when subclassing the
+  :class:`HTTPAdapter <requests.adapters.HTTPAdapter>`.
 blank_after_short_description: True
-blank_after_long_description: False
+blank_after_long_description: True
 style: rest
-- DocstringMeta
-  description: '`HTTPAdapter <requests.adapters.HTTPAdapter>`.'
-  kind: text
-  key: 'class'
 - DocstringParam
   description: 'The number of urllib3 connection pools to cache.'
   kind: param
@@ -54,7 +51,8 @@ Initializes a urllib3 PoolManager.
 
 This method should not be called from user code, and is only
 exposed for use when subclassing the
-:class: `HTTPAdapter <requests.adapters.HTTPAdapter>`.
+:class:`HTTPAdapter <requests.adapters.HTTPAdapter>`.
+
 :param connections: The number of urllib3 connection pools to cache.
 :param maxsize: The maximum number of connections to save in the pool.
 :param block: Block when no free connections are available.

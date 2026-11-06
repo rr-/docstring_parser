@@ -40,6 +40,8 @@ short_description: 'The basic interface you have to implement in order to replac
 long_description: |
   default session interface which uses werkzeug's securecookie
   implementation.  The only methods you have to implement are
+  :meth:`open_session` and :meth:`save_session`, the others have
+  useful defaults which you don't need to change.
   
   The session object returned by the :meth:`open_session` method has to
   provide a dictionary like interface plus the properties and methods
@@ -50,6 +52,10 @@ long_description: |
           pass
   
   If :meth:`open_session` returns ``None`` Flask will call into
+  :meth:`make_null_session` to create a session that acts as replacement
+  if the session support cannot work because some requirement is not
+  fulfilled.  The default :class:`NullSession` class that is created
+  will complain that the secret key was not set.
   
   To replace the session interface on an application all you have to do
   is to assign :attr:`flask.Flask.session_interface`::
@@ -65,30 +71,17 @@ long_description: |
   begin and end processing.
   
   .. versionadded:: 0.8
-blank_after_short_description: True
-blank_after_long_description: True
+blank_after_short_description: False
+blank_after_long_description: False
 style: rest
-- DocstringMeta
-  description: |
-    `open_session` and :meth:`save_session`, the others have
-    useful defaults which you don't need to change.
-  kind: text
-  key: 'meth'
-- DocstringMeta
-  description: |
-    `make_null_session` to create a session that acts as replacement
-    if the session support cannot work because some requirement is not
-    fulfilled.  The default :class:`NullSession` class that is created
-    will complain that the secret key was not set.
-  kind: text
-  key: 'meth'
 === detect
 rest
 === compose rest
 The basic interface you have to implement in order to replace the
-
 default session interface which uses werkzeug's securecookie
 implementation.  The only methods you have to implement are
+:meth:`open_session` and :meth:`save_session`, the others have
+useful defaults which you don't need to change.
 
 The session object returned by the :meth:`open_session` method has to
 provide a dictionary like interface plus the properties and methods
@@ -99,6 +92,10 @@ and adding that mixin::
         pass
 
 If :meth:`open_session` returns ``None`` Flask will call into
+:meth:`make_null_session` to create a session that acts as replacement
+if the session support cannot work because some requirement is not
+fulfilled.  The default :class:`NullSession` class that is created
+will complain that the secret key was not set.
 
 To replace the session interface on an application all you have to do
 is to assign :attr:`flask.Flask.session_interface`::
@@ -114,10 +111,3 @@ request is opened or saved, it will occur in the order that requests
 begin and end processing.
 
 .. versionadded:: 0.8
-
-:meth: `open_session` and :meth:`save_session`, the others have
-    useful defaults which you don't need to change.
-:meth: `make_null_session` to create a session that acts as replacement
-    if the session support cannot work because some requirement is not
-    fulfilled.  The default :class:`NullSession` class that is created
-    will complain that the secret key was not set.

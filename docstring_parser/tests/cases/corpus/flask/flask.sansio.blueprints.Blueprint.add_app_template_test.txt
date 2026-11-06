@@ -13,15 +13,12 @@ Register a template test, available in any template rendered by the
 short_description: 'Register a template test, available in any template rendered by the'
 long_description: |
   application. Works like the :meth:`app_template_test` decorator. Equivalent to
+  :meth:`.Flask.add_template_test`.
   
   .. versionadded:: 0.10
-blank_after_short_description: True
+blank_after_short_description: False
 blank_after_long_description: True
 style: rest
-- DocstringMeta
-  description: '`.Flask.add_template_test`.'
-  kind: text
-  key: 'meth'
 - DocstringParam
   description: |
     the optional name of the test, otherwise the
@@ -34,11 +31,10 @@ style: rest
 rest
 === compose rest
 Register a template test, available in any template rendered by the
-
 application. Works like the :meth:`app_template_test` decorator. Equivalent to
+:meth:`.Flask.add_template_test`.
 
 .. versionadded:: 0.10
 
-:meth: `.Flask.add_template_test`.
 :param name: the optional name of the test, otherwise the
     function name will be used.

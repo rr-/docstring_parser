@@ -18,14 +18,13 @@ Common behavior shared between :class:`~flask.Flask` and
     
 === parse rest
 short_description: 'Common behavior shared between :class:`~flask.Flask` and'
-long_description: '.. versionadded:: 2.0'
+long_description: |
+  :class:`~flask.blueprints.Blueprint`.
+  
+  .. versionadded:: 2.0
 blank_after_short_description: True
 blank_after_long_description: True
 style: rest
-- DocstringMeta
-  description: '`~flask.blueprints.Blueprint`.'
-  kind: text
-  key: 'class'
 - DocstringParam
   description: |
     The import name of the module where this object
@@ -70,9 +69,10 @@ rest
 === compose rest
 Common behavior shared between :class:`~flask.Flask` and
 
+:class:`~flask.blueprints.Blueprint`.
+
 .. versionadded:: 2.0
 
-:class: `~flask.blueprints.Blueprint`.
 :param import_name: The import name of the module where this object
     is defined. Usually :attr:`__name__` should be used.
 :param static_folder: Path to a folder of static files to serve.

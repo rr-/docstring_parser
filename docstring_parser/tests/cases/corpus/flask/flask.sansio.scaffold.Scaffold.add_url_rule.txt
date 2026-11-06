@@ -90,6 +90,7 @@ long_description: |
   ``view_func`` does not necessarily need to be passed, but if the
   rule should participate in routing an endpoint name must be
   associated with a view function at some point with the
+  :meth:`endpoint` decorator.
   
   .. code-block:: python
   
@@ -103,13 +104,9 @@ long_description: |
   methods are added to the passed and automatic methods. If it
   has a ``provide_automatic_methods`` attribute, it is used as the
   default if the parameter is not passed.
-blank_after_short_description: True
+blank_after_short_description: False
 blank_after_long_description: True
 style: rest
-- DocstringMeta
-  description: '`endpoint` decorator.'
-  kind: text
-  key: 'meth'
 - DocstringParam
   description: 'The URL rule string.'
   kind: param
@@ -154,7 +151,6 @@ style: rest
 rest
 === compose rest
 Register a rule for routing incoming requests and building
-
 URLs. The :meth:`route` decorator is a shortcut to call this
 with the ``view_func`` argument. These are equivalent:
 
@@ -185,6 +181,7 @@ automatically by default.
 ``view_func`` does not necessarily need to be passed, but if the
 rule should participate in routing an endpoint name must be
 associated with a view function at some point with the
+:meth:`endpoint` decorator.
 
 .. code-block:: python
 
@@ -199,7 +196,6 @@ methods are added to the passed and automatic methods. If it
 has a ``provide_automatic_methods`` attribute, it is used as the
 default if the parameter is not passed.
 
-:meth: `endpoint` decorator.
 :param rule: The URL rule string.
 :param endpoint: The endpoint name to associate with the rule
     and view function. Used when routing and building URLs.

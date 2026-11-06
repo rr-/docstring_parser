@@ -329,7 +329,7 @@ style: numpydoc
   kind: text
   key: 'notes'
 === detect
-rest
+numpydoc
 === compose numpydoc
 Binary serialization
 

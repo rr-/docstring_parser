@@ -14,13 +14,10 @@ short_description: 'Builds a :class:`Response <requests.Response>` object from a
 long_description: |
   response. This should not be called from user code, and is only exposed
   for use when subclassing the
+  :class:`HTTPAdapter <requests.adapters.HTTPAdapter>`
 blank_after_short_description: False
-blank_after_long_description: False
+blank_after_long_description: True
 style: rest
-- DocstringMeta
-  description: '`HTTPAdapter <requests.adapters.HTTPAdapter>`'
-  kind: text
-  key: 'class'
 - DocstringParam
   description: 'The :class:`PreparedRequest <PreparedRequest>` used to generate the response.'
   kind: param
@@ -43,7 +40,8 @@ rest
 Builds a :class:`Response <requests.Response>` object from a urllib3
 response. This should not be called from user code, and is only exposed
 for use when subclassing the
-:class: `HTTPAdapter <requests.adapters.HTTPAdapter>`
+:class:`HTTPAdapter <requests.adapters.HTTPAdapter>`
+
 :param req: The :class:`PreparedRequest <PreparedRequest>` used to generate the response.
 :param resp: The urllib3 response object.
 :returns requests.Response:

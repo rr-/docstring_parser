@@ -15,33 +15,27 @@ Create the Jinja environment based on :attr:`jinja_options`
 short_description: 'Create the Jinja environment based on :attr:`jinja_options`'
 long_description: |
   and the various Jinja-related methods of the app. Changing
+  :attr:`jinja_options` after this will have no effect. Also adds
+  Flask-related globals and filters to the environment.
   
   .. versionchanged:: 0.11
      ``Environment.auto_reload`` set in accordance with
      ``TEMPLATES_AUTO_RELOAD`` configuration option.
   
   .. versionadded:: 0.5
-blank_after_short_description: True
-blank_after_long_description: True
+blank_after_short_description: False
+blank_after_long_description: False
 style: rest
-- DocstringMeta
-  description: |
-    `jinja_options` after this will have no effect. Also adds
-    Flask-related globals and filters to the environment.
-  kind: text
-  key: 'attr'
 === detect
 rest
 === compose rest
 Create the Jinja environment based on :attr:`jinja_options`
-
 and the various Jinja-related methods of the app. Changing
+:attr:`jinja_options` after this will have no effect. Also adds
+Flask-related globals and filters to the environment.
 
 .. versionchanged:: 0.11
    ``Environment.auto_reload`` set in accordance with
    ``TEMPLATES_AUTO_RELOAD`` configuration option.
 
 .. versionadded:: 0.5
-
-:attr: `jinja_options` after this will have no effect. Also adds
-    Flask-related globals and filters to the environment.

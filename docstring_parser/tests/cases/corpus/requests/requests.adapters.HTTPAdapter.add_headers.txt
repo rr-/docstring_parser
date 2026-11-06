@@ -19,13 +19,10 @@ long_description: |
   
   This should not be called from user code, and is only exposed for use
   when subclassing the
+  :class:`HTTPAdapter <requests.adapters.HTTPAdapter>`.
 blank_after_short_description: False
-blank_after_long_description: False
+blank_after_long_description: True
 style: rest
-- DocstringMeta
-  description: '`HTTPAdapter <requests.adapters.HTTPAdapter>`.'
-  kind: text
-  key: 'class'
 - DocstringParam
   description: 'The :class:`PreparedRequest <PreparedRequest>` to add headers to.'
   kind: param
@@ -47,6 +44,7 @@ the :class:`HTTPAdapter <requests.adapters.HTTPAdapter>`.
 
 This should not be called from user code, and is only exposed for use
 when subclassing the
-:class: `HTTPAdapter <requests.adapters.HTTPAdapter>`.
+:class:`HTTPAdapter <requests.adapters.HTTPAdapter>`.
+
 :param request: The :class:`PreparedRequest <PreparedRequest>` to add headers to.
 :param kwargs: The keyword arguments from the call to send().

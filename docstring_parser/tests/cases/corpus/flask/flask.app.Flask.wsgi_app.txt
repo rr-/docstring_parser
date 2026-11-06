@@ -27,6 +27,11 @@ The actual WSGI application. This is not implemented in
 === parse rest
 short_description: 'The actual WSGI application. This is not implemented in'
 long_description: |
+  :meth:`__call__` so that middlewares can be applied without
+  losing a reference to the app object. Instead of doing this::
+  
+      app = MyMiddleware(app)
+  
   It's a better idea to do this instead::
   
       app.wsgi_app = MyMiddleware(app.wsgi_app)
@@ -39,17 +44,9 @@ long_description: |
       even if an unhandled error occurs. Other events may not be
       called depending on when an error occurs during dispatch.
       See :ref:`callbacks-and-errors`.
-blank_after_short_description: True
+blank_after_short_description: False
 blank_after_long_description: True
 style: rest
-- DocstringMeta
-  description: |
-    `__call__` so that middlewares can be applied without
-    losing a reference to the app object. Instead of doing this::
-    
-        app = MyMiddleware(app)
-  kind: text
-  key: 'meth'
 - DocstringParam
   description: 'A WSGI environment.'
   kind: param
@@ -69,6 +66,10 @@ style: rest
 rest
 === compose rest
 The actual WSGI application. This is not implemented in
+:meth:`__call__` so that middlewares can be applied without
+losing a reference to the app object. Instead of doing this::
+
+    app = MyMiddleware(app)
 
 It's a better idea to do this instead::
 
@@ -83,10 +84,6 @@ can continue to call methods on it.
     called depending on when an error occurs during dispatch.
     See :ref:`callbacks-and-errors`.
 
-:meth: `__call__` so that middlewares can be applied without
-    losing a reference to the app object. Instead of doing this::
-
-        app = MyMiddleware(app)
 :param environ: A WSGI environment.
 :param start_response: A callable accepting a status code,
     a list of headers, and an optional exception context to

@@ -39,6 +39,8 @@ Generate a URL to the given endpoint with the given values.
 short_description: 'Generate a URL to the given endpoint with the given values.'
 long_description: |
   This requires an active request or application context, and calls
+  :meth:`current_app.url_for() <flask.Flask.url_for>`. See that method
+  for full documentation.
   
   .. versionchanged:: 2.2
       Calls ``current_app.url_for``, allowing an app to override the
@@ -55,12 +57,6 @@ long_description: |
 blank_after_short_description: True
 blank_after_long_description: True
 style: rest
-- DocstringMeta
-  description: |
-    `current_app.url_for() <flask.Flask.url_for>`. See that method
-    for full documentation.
-  kind: text
-  key: 'meth'
 - DocstringParam
   description: |
     The endpoint name associated with the URL to
@@ -117,6 +113,8 @@ rest
 Generate a URL to the given endpoint with the given values.
 
 This requires an active request or application context, and calls
+:meth:`current_app.url_for() <flask.Flask.url_for>`. See that method
+for full documentation.
 
 .. versionchanged:: 2.2
     Calls ``current_app.url_for``, allowing an app to override the
@@ -131,8 +129,6 @@ This requires an active request or application context, and calls
 .. versionchanged:: 0.9
    Calls ``app.handle_url_build_error`` on build errors.
 
-:meth: `current_app.url_for() <flask.Flask.url_for>`. See that method
-    for full documentation.
 :param endpoint: The endpoint name associated with the URL to
     generate. If this starts with a ``.``, the current blueprint
     name (if any) will be used.

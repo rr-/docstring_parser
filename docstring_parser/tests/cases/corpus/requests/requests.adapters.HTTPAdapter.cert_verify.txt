@@ -13,14 +13,12 @@ Verify a SSL certificate. This method should not be called from user
         
 === parse rest
 short_description: 'Verify a SSL certificate. This method should not be called from user'
-long_description: 'code, and is only exposed for use when subclassing the'
+long_description: |
+  code, and is only exposed for use when subclassing the
+  :class:`HTTPAdapter <requests.adapters.HTTPAdapter>`.
 blank_after_short_description: False
-blank_after_long_description: False
+blank_after_long_description: True
 style: rest
-- DocstringMeta
-  description: '`HTTPAdapter <requests.adapters.HTTPAdapter>`.'
-  kind: text
-  key: 'class'
 - DocstringParam
   description: 'The urllib3 connection object associated with the cert.'
   kind: param
@@ -53,7 +51,8 @@ rest
 === compose rest
 Verify a SSL certificate. This method should not be called from user
 code, and is only exposed for use when subclassing the
-:class: `HTTPAdapter <requests.adapters.HTTPAdapter>`.
+:class:`HTTPAdapter <requests.adapters.HTTPAdapter>`.
+
 :param conn: The urllib3 connection object associated with the cert.
 :param url: The requested URL.
 :param verify: Either a boolean, in which case it controls whether we verify

@@ -21,25 +21,16 @@ long_description: |
   after the request context. See :meth:`do_teardown_request`.
   
   This calls all functions decorated with
+  :meth:`teardown_appcontext`. Then the
+  :data:`appcontext_tearing_down` signal is sent.
   
   This is called by
+  :meth:`AppContext.pop() <flask.ctx.AppContext.pop>`.
   
   .. versionadded:: 0.9
 blank_after_short_description: True
-blank_after_long_description: True
+blank_after_long_description: False
 style: rest
-- DocstringMeta
-  description: '`teardown_appcontext`. Then the'
-  kind: text
-  key: 'meth'
-- DocstringMeta
-  description: '`appcontext_tearing_down` signal is sent.'
-  kind: text
-  key: 'data'
-- DocstringMeta
-  description: '`AppContext.pop() <flask.ctx.AppContext.pop>`.'
-  kind: text
-  key: 'meth'
 === detect
 rest
 === compose rest
@@ -49,11 +40,10 @@ When handling a request, the application context is popped
 after the request context. See :meth:`do_teardown_request`.
 
 This calls all functions decorated with
+:meth:`teardown_appcontext`. Then the
+:data:`appcontext_tearing_down` signal is sent.
 
 This is called by
+:meth:`AppContext.pop() <flask.ctx.AppContext.pop>`.
 
 .. versionadded:: 0.9
-
-:meth: `teardown_appcontext`. Then the
-:data: `appcontext_tearing_down` signal is sent.
-:meth: `AppContext.pop() <flask.ctx.AppContext.pop>`.

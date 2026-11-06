@@ -7,20 +7,17 @@ Temporary holder object for registering a blueprint with the
     
 === parse rest
 short_description: 'Temporary holder object for registering a blueprint with the'
-long_description: 'application.  An instance of this class is created by the'
+long_description: |
+  application.  An instance of this class is created by the
+  :meth:`~flask.Blueprint.make_setup_state` method and later passed
+  to all register callback functions.
 blank_after_short_description: False
 blank_after_long_description: False
 style: rest
-- DocstringMeta
-  description: |
-    `~flask.Blueprint.make_setup_state` method and later passed
-    to all register callback functions.
-  kind: text
-  key: 'meth'
 === detect
 rest
 === compose rest
 Temporary holder object for registering a blueprint with the
 application.  An instance of this class is created by the
-:meth: `~flask.Blueprint.make_setup_state` method and later passed
-    to all register callback functions.
+:meth:`~flask.Blueprint.make_setup_state` method and later passed
+to all register callback functions.
