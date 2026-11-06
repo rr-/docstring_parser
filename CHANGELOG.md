@@ -49,6 +49,9 @@
 - Google, Numpydoc: `compose()` writes Epydoc's `@ivar`, `@cvar` and `@var` fields as attributes, instead of as params
 - Numpydoc: `compose()` keeps raises written with another key, such as ReST's `:raise:` and `:except:`, instead of dropping them
 - General: `compose()` sorts items by their `kind`, so a meta made by hand composes as the kind its class gives unless built with another, such as `DocstringParam(..., kind=Kind.ATTRIBUTE)`
+- General: Add `docstring_parser.sections`, one way to declare sections in every style: a `SectionSpec` gives a section's titles, the kind of its items and their key, for Google and Numpydoc sections and ReST and Epydoc fields alike. Pass a list as `sections` to `parse()`, `parse_from_object()`, a style module's `parse()`, `GoogleParser` or `NumpydocParser`, starting from `default_sections(style)`
+- General: `SectionSpec(bare=True)` recognises a title alone on its line, with no colon in Google or underline in Numpydoc, and `SectionSpec(parse_item=...)` gets each item's meta, already split into its name, type and description, to change it or replace it
+- General: The keyword sets in `docstring_parser.common`, such as `PARAM_KEYWORDS`, are read once on import; changing them afterwards no longer changes how fields and sections parse, which `sections` does instead
 
 # 0.18 (2026-04-14)
 
