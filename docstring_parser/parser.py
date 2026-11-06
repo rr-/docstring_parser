@@ -29,11 +29,6 @@ _FIELD_LINE = re.compile(
     flags=re.M,
 )
 
-_NUMPYDOC_TITLE_PATTERNS = (
-    numpydoc.Section.title_pattern,
-    numpydoc._SphinxSection.title_pattern,
-)
-
 
 def _has_no_fields(text: str) -> bool:
     """Tell whether no style can find a field or a section in the text.
@@ -44,12 +39,6 @@ def _has_no_fields(text: str) -> bool:
     """
     if "\r" in text:
         text = text.replace("\r\n", "\n").replace("\r", "\n")
-    # A custom Numpydoc section may match its title any way it likes.
-    if any(
-        type(section).title_pattern not in _NUMPYDOC_TITLE_PATTERNS
-        for section in numpydoc.DEFAULT_SECTIONS
-    ):
-        return False
     return _FIELD_LINE.search(text) is None
 
 
