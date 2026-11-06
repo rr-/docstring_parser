@@ -1,0 +1,56 @@
+# Test that a type given twice for a name gives a type to each of its
+# params in turn, and a type left over is a param of its own.
+=== input
+Short.
+
+@param x: The first x.
+@type x: int
+@ivar x: The second x.
+@type x: str
+@type y: float
+@type y: bool
+@return: The sum.
+@rtype: int
+@rtype: float
+=== parse epydoc
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringParam
+  description: 'The first x.'
+  kind: param
+  key: 'param'
+  arg_name: 'x'
+  type_name: 'int'
+  is_optional: False
+- DocstringParam
+  description: 'The second x.'
+  kind: attribute
+  key: 'ivar'
+  arg_name: 'x'
+  type_name: 'str'
+  is_optional: False
+- DocstringParam
+  kind: param
+  key: 'type'
+  arg_name: 'y'
+  type_name: 'float'
+  is_optional: False
+- DocstringParam
+  kind: param
+  key: 'type'
+  arg_name: 'y'
+  type_name: 'bool'
+  is_optional: False
+- DocstringReturns
+  description: 'The sum.'
+  kind: returns
+  key: 'return'
+  type_name: 'int'
+  is_generator: False
+- DocstringReturns
+  kind: returns
+  key: 'rtype'
+  type_name: 'float'
+  is_generator: False

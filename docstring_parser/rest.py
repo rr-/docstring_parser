@@ -161,9 +161,9 @@ class Parser(BaseParser):
 
         split_description(ret, desc_chunk)
 
-        types = {}
-        type_at: T.Dict[str, int] = {}
-        rtypes = {}
+        # Each name's type fields, in order, with where each was.
+        types: T.Dict[str, T.List[T.Tuple[str, int]]] = {}
+        rtypes: T.Dict[T.Optional[str], T.List[str]] = {}
         # Text between or after the fields, such as an example block, which
         # goes to the long description instead of being dropped.
         loose_chunks = []
@@ -210,10 +210,10 @@ class Parser(BaseParser):
 
             # Add special handling for :type a: typename
             if len(args) == 2 and args[0] == "type":
-                types[args[1]] = desc
-                type_at.setdefault(args[1], len(ret.meta))
+                types.setdefault(args[1], []).append((desc, len(ret.meta)))
             elif len(args) in [1, 2] and args[0] == "rtype":
-                rtypes[None if len(args) == 1 else args[1]] = desc
+                name = None if len(args) == 1 else args[1]
+                rtypes.setdefault(name, []).append(desc)
             else:
                 spec = table.get(args[0])
                 kind = spec.kind if spec else Kind.TEXT
@@ -222,27 +222,45 @@ class Parser(BaseParser):
 
         append_loose(ret, loose_chunks, blank_around=True)
 
+        # Params take their name's types in order, the last of them going
+        # to any params left, and returns the types without a name likewise.
         has_returns = False
-        typed = set()
+        taken: T.Dict[T.Optional[str], int] = {}
+        rtaken: T.Dict[T.Optional[str], int] = {}
         for meta in ret.meta:
             if isinstance(meta, DocstringParam):
-                typed.add(meta.arg_name)
-                if not meta.type_name and meta.arg_name in types:
-                    spec = type_spec(types[meta.arg_name])
+                found = types.get(meta.arg_name, [])
+                count = taken[meta.arg_name] = taken.get(meta.arg_name, 0) + 1
+                if not meta.type_name and found:
+                    spec = type_spec(found[min(count, len(found)) - 1][0])
                     meta.type_name = spec.type_name
                     if spec.is_optional:
                         meta.is_optional = True
                         meta.default = meta.default or spec.default
             elif isinstance(meta, DocstringReturns):
-                meta.type_name = meta.type_name or rtypes.get(meta.return_name)
                 has_returns = True
+                found_r = rtypes.get(meta.return_name, [])
+                count = rtaken[meta.return_name] = (
+                    rtaken.get(meta.return_name, 0) + 1
+                )
+                if not meta.type_name and found_r:
+                    meta.type_name = found_r[min(count, len(found_r)) - 1]
 
-        # A type for a name no field describes is a param of its own, where
-        # its type field is.
-        for name in sorted(set(types) - typed, key=type_at.__getitem__)[::-1]:
-            spec = type_spec(types[name])
+        # A type left over, for a name no field describes or given more
+        # often than its name's fields, is a param of its own, where its
+        # field is.
+        extra = [
+            (at, name, desc)
+            for name, found in types.items()
+            for desc, at in found[taken.get(name, 0) :]
+        ]
+        # Insert from the last place back, and the types of one place in
+        # reverse, so that each lands in its field's order.
+        order = sorted(range(len(extra)), key=lambda i: extra[i][0])
+        for at, name, desc in (extra[i] for i in reversed(order)):
+            spec = type_spec(desc)
             ret.meta.insert(
-                type_at[name],
+                at,
                 DocstringParam(
                     None,
                     arg_name=name,
@@ -253,10 +271,11 @@ class Parser(BaseParser):
                 ),
             )
 
-        # Returns take the type without a name, and a type for a return value
-        # with a name is a return of its own.
-        for return_name, type_name in rtypes.items():
-            if not has_returns or return_name is not None:
+        # Likewise a return type left over, or one for a return value with
+        # a name, is a return of its own.
+        for return_name, found_r in rtypes.items():
+            start = rtaken.get(return_name, 0) if has_returns else 0
+            for type_name in found_r[start:]:
                 ret.meta.append(
                     DocstringReturns(
                         type_name=type_name,

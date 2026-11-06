@@ -1,0 +1,53 @@
+# Test that a type given twice for a name gives a type to each of its
+# params in turn, and a type left over is a param of its own.
+=== input
+Short.
+
+:param x: The first x.
+:type x: int
+:param x: The second x.
+:type x: str
+:type y: float
+:type y: bool
+:returns: The sum.
+:rtype: int
+:rtype: float
+=== parse rest
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringParam
+  description: 'The first x.'
+  kind: param
+  key: 'param'
+  arg_name: 'x'
+  type_name: 'int'
+- DocstringParam
+  description: 'The second x.'
+  kind: param
+  key: 'param'
+  arg_name: 'x'
+  type_name: 'str'
+- DocstringParam
+  kind: param
+  key: 'type'
+  arg_name: 'y'
+  type_name: 'float'
+  is_optional: False
+- DocstringParam
+  kind: param
+  key: 'type'
+  arg_name: 'y'
+  type_name: 'bool'
+  is_optional: False
+- DocstringReturns
+  description: 'The sum.'
+  kind: returns
+  key: 'returns'
+  type_name: 'int'
+  is_generator: False
+- DocstringReturns
+  kind: returns
+  type_name: 'float'
+  is_generator: False
