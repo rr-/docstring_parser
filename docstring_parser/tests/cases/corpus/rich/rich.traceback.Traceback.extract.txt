@@ -114,13 +114,13 @@ Args:
     exc_type (Type[BaseException]): Exception type.
     exc_value (BaseException): Exception value.
     traceback (TracebackType): Python Traceback object.
-    show_locals (bool?): Enable display of local variables. Defaults to False.
-    locals_max_length (int?): Maximum length of containers before abbreviating, or None for no abbreviation.
+    show_locals (bool, optional): Enable display of local variables. Defaults to False.
+    locals_max_length (int, optional): Maximum length of containers before abbreviating, or None for no abbreviation.
         Defaults to 10.
-    locals_max_string (int?): Maximum length of string before truncating, or None to disable. Defaults to 80.
-    locals_max_depth (int?): Maximum depths of locals before truncating, or None to disable. Defaults to None.
-    locals_hide_dunder (bool?): Hide locals prefixed with double underscore. Defaults to True.
-    locals_hide_sunder (bool?): Hide locals prefixed with single underscore. Defaults to False.
+    locals_max_string (int, optional): Maximum length of string before truncating, or None to disable. Defaults to 80.
+    locals_max_depth (int, optional): Maximum depths of locals before truncating, or None to disable. Defaults to None.
+    locals_hide_dunder (bool, optional): Hide locals prefixed with double underscore. Defaults to True.
+    locals_hide_sunder (bool, optional): Hide locals prefixed with single underscore. Defaults to False.
 
 Returns:
     Trace: A Trace instance which you can use to construct a `Traceback`.

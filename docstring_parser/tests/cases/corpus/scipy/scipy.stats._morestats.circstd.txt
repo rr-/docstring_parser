@@ -314,11 +314,11 @@ Parameters
 samples : array_like
     Input array of angle observations.  The value of a full angle is
     equal to ``(high - low)``.
-high : float, default=2*pi
+high : float, optional
     Upper boundary of the principal value of an angle.  Default is ``2*pi``.
-low : float, default=0
+low : float, optional
     Lower boundary of the principal value of an angle.  Default is ``0``.
-axis : int or None, optional
+axis : int or None, default: None
     If an int, the axis of the input along which to compute the statistic.
     The statistic of each axis-slice (e.g. row) of the input will appear in a
     corresponding element of the output.

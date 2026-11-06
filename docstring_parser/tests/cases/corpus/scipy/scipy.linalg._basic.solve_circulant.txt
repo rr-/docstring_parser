@@ -397,7 +397,7 @@ c : array_like
     The coefficients of the circulant matrix.
 b : array_like
     Right-hand side matrix in ``a x = b``.
-singular : str, default="raise"
+singular : str, optional
     This argument controls how a near singular circulant matrix is
     handled.  If `singular` is "raise" and the circulant matrix is
     near singular, a `LinAlgError` is raised. If `singular` is

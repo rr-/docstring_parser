@@ -151,7 +151,7 @@ Parameters
 ----------
 axis : {0 or 'index'}
     Unused. Parameter needed for compatibility with DataFrame.
-skipna : bool, default=True
+skipna : bool, default True
     Exclude NA/null values. If the entire Series is NA, or if ``skipna=False``
     and there is an NA value, this method will raise a ``ValueError``.
 *args, **kwargs

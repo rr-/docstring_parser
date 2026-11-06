@@ -483,7 +483,7 @@ Parameters
 ----------
 input : array_like
     Input
-metric : {'euclidean', 'taxicab', 'chessboard'}, default='euclidean'
+metric : {'euclidean', 'taxicab', 'chessboard'}, optional
     'cityblock' and 'manhattan' are also valid, and map to 'taxicab'.
     The default is 'euclidean'.
 sampling : float, or sequence of float, optional
@@ -491,10 +491,10 @@ sampling : float, or sequence of float, optional
     Spacing of elements along each dimension. If a sequence, must be of
     length equal to the input rank; if a single number, this is used for
     all axes. If not specified, a grid spacing of unity is implied.
-return_distances : bool, default=True
+return_distances : bool, optional
     Whether to calculate the distance transform.
     Default is True.
-return_indices : bool, default=False
+return_indices : bool, optional
     Whether to calculate the feature transform.
     Default is False.
 distances : ndarray, optional

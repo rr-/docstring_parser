@@ -35,5 +35,5 @@ google
 Renders estimated time remaining.
 
 Args:
-    compact (bool?): Render MM:SS when time remaining is less than an hour. Defaults to False.
-    elapsed_when_finished (bool?): Render time elapsed when the task is finished. Defaults to False.
+    compact (bool, optional): Render MM:SS when time remaining is less than an hour. Defaults to False.
+    elapsed_when_finished (bool, optional): Render time elapsed when the task is finished. Defaults to False.

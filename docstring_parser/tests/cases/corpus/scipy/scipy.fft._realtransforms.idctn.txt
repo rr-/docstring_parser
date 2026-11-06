@@ -209,15 +209,15 @@ s : int or array_like of ints or None, optional
 axes : int or array_like of ints or None, optional
     Axes over which the IDCT is computed. If not given, the last ``len(s)``
     axes are used, or all axes if `s` is also not specified.
-norm : {"backward", "ortho", "forward"}, default="backward"
+norm : {"backward", "ortho", "forward"}, optional
     Normalization mode (see Notes). Default is "backward".
-overwrite_x : bool, default=False
+overwrite_x : bool, optional
     If True, the contents of `x` can be destroyed; the default is False.
 workers : int, optional
     Maximum number of workers to use for parallel computation. If negative,
     the value wraps around from ``os.cpu_count()``.
     See :func:`~scipy.fft.fft` for more details.
-orthogonalize : bool, default=True
+orthogonalize : bool, optional
     Whether to use the orthogonalized IDCT variant (see Notes).
     Defaults to ``True`` when ``norm="ortho"`` and ``False`` otherwise.
     

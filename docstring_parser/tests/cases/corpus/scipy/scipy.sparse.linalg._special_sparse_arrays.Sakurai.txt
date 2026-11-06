@@ -253,7 +253,7 @@ Parameters
 ----------
 n : int
     The size of the matrix.
-dtype : dtype, default=np.int8
+dtype : dtype
     Numerical type of the array. Default is ``np.int8``.
 
 Examples

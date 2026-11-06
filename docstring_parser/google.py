@@ -11,6 +11,7 @@ from ._compose import (
     description_lines,
     examples_text,
     section_runs,
+    written_type,
 )
 from ._lines import Lines
 from ._text import (
@@ -737,11 +738,17 @@ def compose(
                 )
             return
 
-        if one.type_name and head:
-            head += f" ({one.type_name}{optional})"
+        type_name = one.type_name
+        written = (
+            written_type(one) if isinstance(one, DocstringParam) else None
+        )
+        if written is not None:
+            type_name, optional = written, ""
+        if type_name and head:
+            head += f" ({type_name}{optional})"
             head += f" {one.extra}:" if one.extra else ":"
-        elif one.type_name:
-            head += f"{one.type_name}{optional}:"
+        elif type_name:
+            head += f"{type_name}{optional}:"
         else:
             head += ":"
         head = indent + head

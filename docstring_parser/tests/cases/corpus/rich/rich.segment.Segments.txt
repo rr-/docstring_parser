@@ -37,4 +37,4 @@ you want to print segments outside of a __rich_console__ method.
 
 Args:
     segments (Iterable[Segment]): An iterable of segments.
-    new_lines (bool?): Add new lines between segments. Defaults to False.
+    new_lines (bool, optional): Add new lines between segments. Defaults to False.

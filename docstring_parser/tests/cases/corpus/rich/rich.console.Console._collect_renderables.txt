@@ -88,10 +88,10 @@ Args:
     objects (Iterable[Any]): Anything that Rich can render.
     sep (str): String to write between print data.
     end (str): String to write at end of print data.
-    justify (str?): One of "left", "right", "center", or "full". Defaults to ``None``.
-    emoji (Optional[bool]?): Enable emoji code, or ``None`` to use console default.
-    markup (Optional[bool]?): Enable markup, or ``None`` to use console default.
-    highlight (Optional[bool]?): Enable automatic highlighting, or ``None`` to use console default.
+    justify (str, optional): One of "left", "right", "center", or "full". Defaults to ``None``.
+    emoji (Optional[bool], optional): Enable emoji code, or ``None`` to use console default.
+    markup (Optional[bool], optional): Enable markup, or ``None`` to use console default.
+    highlight (Optional[bool], optional): Enable automatic highlighting, or ``None`` to use console default.
 
 Returns:
     List[ConsoleRenderable]: A list of things to render.

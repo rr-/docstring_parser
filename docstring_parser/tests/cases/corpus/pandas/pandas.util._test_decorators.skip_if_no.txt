@@ -97,7 +97,7 @@ Parameters
 ----------
 package : str
     The name of the required package.
-min_version : str or None, optional
+min_version : str or None, default None
     Optional minimum version of the package.
 
 Returns

@@ -33,4 +33,4 @@ Advance task by a number of steps.
 
 Args:
     task_id (TaskID): ID of task.
-    advance (float?): Number of steps to advance. Default is 1.
+    advance (float): Number of steps to advance. Default is 1.

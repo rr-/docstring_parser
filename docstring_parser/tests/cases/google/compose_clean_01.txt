@@ -66,6 +66,6 @@ Args:
     priority (int): description 2
     sender (str, optional): description 3
     message (str, optional): description 4, defaults to 'hello'
-    multiline (str, optional):
+    multiline (str?):
         long description 5,
             defaults to 'bye'

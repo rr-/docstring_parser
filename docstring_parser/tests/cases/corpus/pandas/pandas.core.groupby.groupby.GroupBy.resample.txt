@@ -362,15 +362,15 @@ convention : {'start', 'end', 's', 'e'}, optional
 on : str, optional
     For a DataFrame, column to use instead of index for resampling.
     Column must be datetime-like.
-origin : Timestamp or str, default='start_day'
+origin : Timestamp or str, default 'start_day'
     The timestamp on which to adjust the grouping. See
     :meth:`Series.resample` for accepted string values.
 offset : Timedelta or str, optional
     An offset timedelta added to the origin.
-group_keys : bool, default=False
+group_keys : bool, default False
     Whether to include the group keys in the result index when using
     ``.apply()`` on the resampled object.
-include_groups : bool, default=False
+include_groups : bool, default False
     When True, will attempt to include the groupings in the operation in
     the case that they are columns of the DataFrame. If this raises a
     TypeError, the result will be computed with the groupings excluded.

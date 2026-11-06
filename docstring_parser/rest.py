@@ -4,7 +4,12 @@ import re
 import textwrap
 import typing as T
 
-from ._compose import description_lines, field_name, field_text
+from ._compose import (
+    description_lines,
+    field_name,
+    field_text,
+    written_type,
+)
 from ._fields import AFTER_ALL, ParamTypes, ReturnTypes, assign_types
 from ._lines import Lines
 from ._text import (
@@ -562,16 +567,16 @@ def compose(
 
     for meta in docstring.meta:
         if isinstance(meta, DocstringParam):
-            if meta.type_name:
-                type_text = (
-                    f" {meta.type_name}? "
+            type_name = written_type(meta)
+            if type_name is None and meta.type_name:
+                type_name = (
+                    f"{meta.type_name}?"
                     if meta.is_optional
-                    else f" {meta.type_name} "
+                    else meta.type_name
                 )
-            else:
-                type_text = " "
+            type_text = f" {type_name} " if type_name else " "
             if rendering_style == RenderingStyle.EXPANDED or not _fits_inline(
-                meta.type_name
+                type_name
             ):
                 text = f":{_param_key(meta)} {meta.arg_name}:"
                 text += process_desc(meta.description)

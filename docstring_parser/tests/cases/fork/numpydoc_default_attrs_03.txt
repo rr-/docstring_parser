@@ -25,5 +25,5 @@ style: numpydoc
 === compose numpydoc
 Attributes
 ----------
-attr2 : str, default='hello'
+attr2 : str, default: 'hello'
     The second attr.

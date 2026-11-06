@@ -109,16 +109,16 @@ Render a DataFrame to an html table.
 
 Parameters
 ----------
-buf : str, path object, file-like object, or None, optional
+buf : str, path object, file-like object, or None, default None
     String, path object (implementing ``os.PathLike[str]``), or file-like
     object implementing a string ``write()`` function. If None, the result is
     returned as a string.
-encoding : str, default=“utf-8”
+encoding : str, default “utf-8”
     Set character encoding.
 classes : str or list-like
     classes to include in the `class` attribute of the opening
     ``<table>`` tag, in addition to the default "dataframe".
-notebook : {True, False}, default=False
+notebook : {True, False}, optional, default False
     Whether the generated HTML is for IPython Notebook.
 border : int or bool
     When an integer value is provided, it sets the border attribute in
@@ -129,5 +129,5 @@ border : int or bool
     ``pd.options.display.html.border``.
 table_id : str, optional
     A css id is included in the opening `<table>` tag if specified.
-render_links : bool, default=False
+render_links : bool, default False
     Convert URLs to HTML links.

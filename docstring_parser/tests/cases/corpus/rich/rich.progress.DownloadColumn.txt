@@ -25,4 +25,4 @@ google
 Renders file size downloaded and total, e.g. '0.5/2.3 GB'.
 
 Args:
-    binary_units (bool?): Use binary units, KiB, MiB etc. Defaults to False.
+    binary_units (bool, optional): Use binary units, KiB, MiB etc. Defaults to False.

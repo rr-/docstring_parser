@@ -40,4 +40,4 @@ Space pads the completed count so that progress length does not change as task p
 past powers of 10.
 
 Args:
-    separator (str?): Text to separate completed and total values. Defaults to "/".
+    separator (str, optional): Text to separate completed and total values. Defaults to "/".

@@ -185,7 +185,7 @@ It's easiest to use obj.groupby(...) to use GroupBy, but you can also do:
 Parameters
 ----------
 obj : pandas object
-level : int, optional
+level : int, default None
     Level of MultiIndex
 groupings : list of Grouping objects
     Most users should ignore this

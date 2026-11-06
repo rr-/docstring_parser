@@ -105,9 +105,9 @@ pad_width : int or tuple of ints or sequence of pairs of ints
 mode : str, optional
     Only "constant" mode is currently supported, which pads with
     the value passed to `constant_values`.
-constant_values : python scalar, default=zero
+constant_values : python scalar, optional
     Use this value to pad the input. Default is zero.
-xp : array_namespace, default=infer
+xp : array_namespace, optional
     The standard-compatible namespace for `x`. Default: infer.
 
 Returns

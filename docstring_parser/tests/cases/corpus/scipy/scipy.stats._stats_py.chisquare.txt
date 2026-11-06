@@ -384,7 +384,7 @@ ddof : int, optional
     for the p-value.  The p-value is computed using a chi-squared
     distribution with ``k - 1 - ddof`` degrees of freedom, where ``k``
     is the number of categories.  The default value of `ddof` is 0.
-axis : int or None, default=0
+axis : int or None, optional
     The axis of the broadcast result of `f_obs` and `f_exp` along which to
     apply the test.  If axis is None, all values in `f_obs` are treated
     as a single data set.  Default is 0.

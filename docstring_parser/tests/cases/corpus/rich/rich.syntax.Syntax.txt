@@ -148,16 +148,16 @@ Construct a Syntax object to render syntax highlighted code.
 Args:
     code (str): Code to highlight.
     lexer (Lexer | str): Lexer to use (see https://pygments.org/docs/lexers/)
-    theme (str?): Color theme, aka Pygments style (see https://pygments.org/docs/styles/#getting-a-list-of-available-styles). Defaults to "monokai".
-    dedent (bool?): Enable stripping of initial whitespace. Defaults to False.
-    line_numbers (bool?): Enable rendering of line numbers. Defaults to False.
-    start_line (int?): Starting number for line numbers. Defaults to 1.
-    line_range (Tuple[int | None, int | None]?): If given should be a tuple of the start and end line to render.
+    theme (str, optional): Color theme, aka Pygments style (see https://pygments.org/docs/styles/#getting-a-list-of-available-styles). Defaults to "monokai".
+    dedent (bool, optional): Enable stripping of initial whitespace. Defaults to False.
+    line_numbers (bool, optional): Enable rendering of line numbers. Defaults to False.
+    start_line (int, optional): Starting number for line numbers. Defaults to 1.
+    line_range (Tuple[int | None, int | None], optional): If given should be a tuple of the start and end line to render.
         A value of None in the tuple indicates the range is open in that direction.
     highlight_lines (Set[int]): A set of line numbers to highlight.
     code_width: Width of code to render (not including line numbers), or ``None`` to use all available width.
-    tab_size (int?): Size of tabs. Defaults to 4.
-    word_wrap (bool?): Enable word wrapping.
-    background_color (str?): Optional background color, or None to use theme color. Defaults to None.
-    indent_guides (bool?): Show indent guides. Defaults to False.
-    padding (PaddingDimensions?): Padding to apply around the syntax. Defaults to 0 (no padding).
+    tab_size (int, optional): Size of tabs. Defaults to 4.
+    word_wrap (bool, optional): Enable word wrapping.
+    background_color (str, optional): Optional background color, or None to use theme color. Defaults to None.
+    indent_guides (bool, optional): Show indent guides. Defaults to False.
+    padding (PaddingDimensions): Padding to apply around the syntax. Defaults to 0 (no padding).

@@ -217,7 +217,7 @@ filepath_or_buffer : str, path object, or file-like object
     Certain URL schemes may require additional packages. For example, S3
     URLs require the ``s3fs`` library. See
     :ref:`install.optional_dependencies` for a full list.
-compression : str or dict, default='infer'
+compression : str or dict, default 'infer'
     For on-the-fly compression of the output data. If 'infer' and
     'filepath_or_buffer' is path-like, then detect compression from the
     following extensions: '.gz', '.bz2', '.zip', '.xz', '.zst', '.tar',

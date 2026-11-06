@@ -94,7 +94,7 @@ argument is greater than 1.
 
 Parameters
 ----------
-sparse : bool, default=False
+sparse : bool, optional
     Whether the grid is sparse or not. Default is False.
 
 Notes

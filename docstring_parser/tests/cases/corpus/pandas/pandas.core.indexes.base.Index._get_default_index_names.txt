@@ -48,7 +48,7 @@ Get names of index.
 
 Parameters
 ----------
-names : int, str or 1-dimensional list, optional
+names : int, str or 1-dimensional list, default None
     Index names to set.
 default : str
     Default name of index.

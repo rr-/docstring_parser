@@ -729,7 +729,7 @@ t : array_like, optional
     signal `x` (all others are ignored). The timestamps of the output signal are
     determined by ``t[0] + T * n_x / num * np.arange(num)`` with
     ``T = t[1] - t[0]``. Default is ``None``.
-axis : int, default=0
+axis : int, optional
     The time/frequency axis of `x` along which the resampling take place.
     The Default is 0.
 window : array_like, callable, str, float, or tuple, optional

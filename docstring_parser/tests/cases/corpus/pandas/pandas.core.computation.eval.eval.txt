@@ -412,14 +412,14 @@ expr : str
     Additionally, the ``'pandas'`` parser allows the use of :keyword:`and`,
     :keyword:`or`, and :keyword:`not` with the same semantics as the
     corresponding bitwise operators.
-parser : {'pandas', 'python'}, default='pandas'
+parser : {'pandas', 'python'}, default 'pandas'
     The parser to use to construct the syntax tree from the expression. The
     default of ``'pandas'`` parses code slightly different than standard
     Python. Alternatively, you can parse an expression using the
     ``'python'`` parser to retain strict Python semantics.  See the
     :ref:`enhancing performance <enhancingperf.eval>` documentation for
     more details.
-engine : {'python', 'numexpr'}, optional
+engine : {'python', 'numexpr'}, optional, default None
     The engine used to evaluate the expression. Supported engines are
     
     - None : tries to use ``numexpr``, falls back to ``python``
@@ -445,12 +445,12 @@ resolvers : list of dict-like or None, optional
 level : int, optional
     The number of prior stack frames to traverse and add to the current
     scope. Most users will **not** need to change this parameter.
-target : object, optional
+target : object, optional, default None
     This is the target object for assignment. It is used when there is
     variable assignment in the expression. If so, then `target` must
     support item assignment with string keys, and if a copy is being
     returned, it must also support `.copy()`.
-inplace : bool, default=False
+inplace : bool, default False
     If `target` is provided, and the expression mutates `target`, whether
     to modify `target` inplace. Otherwise, return a copy of `target` with
     the mutation.

@@ -6,7 +6,12 @@
 import re
 import typing as T
 
-from ._compose import description_lines, field_name, field_text
+from ._compose import (
+    description_lines,
+    field_name,
+    field_text,
+    written_type,
+)
 from ._fields import ParamTypes, ReturnTypes, assign_types
 from ._lines import Lines
 from ._text import (
@@ -313,12 +318,14 @@ def compose(
 
     for meta in docstring.meta:
         if isinstance(meta, DocstringParam):
-            if meta.type_name:
+            type_name = written_type(meta)
+            if type_name is None and meta.type_name:
                 type_name = (
                     f"{meta.type_name}?"
                     if meta.is_optional
                     else meta.type_name
                 )
+            if type_name:
                 text = f"@type {meta.arg_name}:"
                 text += process_desc(type_name, True)
                 parts.append(text)

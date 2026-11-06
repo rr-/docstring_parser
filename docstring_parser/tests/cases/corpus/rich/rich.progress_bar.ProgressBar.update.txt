@@ -34,4 +34,4 @@ Update progress with new values.
 
 Args:
     completed (float): Number of steps completed.
-    total (float?): Total number of steps, or ``None`` to not change. Defaults to None.
+    total (float, optional): Total number of steps, or ``None`` to not change. Defaults to None.

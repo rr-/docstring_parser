@@ -558,7 +558,7 @@ end : str or datetime-like, optional
     Right bound for generating dates.
 periods : int, optional
     Number of periods to generate.
-freq : str, Timedelta, datetime.timedelta, or DateOffset, default='D'
+freq : str, Timedelta, datetime.timedelta, or DateOffset, default 'D'
     Frequency strings can have multiples, e.g. '5h'. See
     :ref:`here <timeseries.offset_aliases>` for a list of
     frequency aliases.
@@ -566,20 +566,20 @@ tz : str or tzinfo, optional
     Time zone name for returning localized DatetimeIndex, for example
     'Asia/Hong_Kong'. By default, the resulting DatetimeIndex is
     timezone-naive unless timezone-aware datetime-likes are passed.
-normalize : bool, default=False
+normalize : bool, default False
     Normalize start/end dates to midnight before generating date range.
-name : Hashable, optional
+name : Hashable, default None
     Name of the resulting DatetimeIndex.
-inclusive : {"both", "neither", "left", "right"}, default="both"
+inclusive : {"both", "neither", "left", "right"}, default "both"
     Include boundaries; Whether to set each bound as closed or open.
-unit : {'s', 'ms', 'us', 'ns', None}, optional
+unit : {'s', 'ms', 'us', 'ns', None}, default None
     Specify the desired resolution of the result.
     If not specified, this is inferred from the 'start', 'end', and 'freq'
     using the same inference as :class:`Timestamp` taking the highest
     resolution of the three that are provided.
     
     .. versionadded:: 2.0.0
-ambiguous : 'infer', bool-ndarray, 'NaT', default='raise'
+ambiguous : 'infer', bool-ndarray, 'NaT', default 'raise'
     When clocks moved backward due to DST, ambiguous times may arise.
     For example in Central European Time (UTC+01), when going from 03:00
     DST to 02:00 non-DST, 02:30:00 local time occurs both at 00:30:00 UTC
@@ -593,7 +593,7 @@ ambiguous : 'infer', bool-ndarray, 'NaT', default='raise'
       times)
     - 'NaT' will return NaT where there are ambiguous times
     - 'raise' will raise a ValueError if there are ambiguous times.
-nonexistent : 'shift_forward', 'shift_backward', 'NaT', timedelta, default='raise'
+nonexistent : 'shift_forward', 'shift_backward', 'NaT', timedelta,     default 'raise'
     A nonexistent time does not exist in a particular timezone
     where clocks moved forward due to DST.
     

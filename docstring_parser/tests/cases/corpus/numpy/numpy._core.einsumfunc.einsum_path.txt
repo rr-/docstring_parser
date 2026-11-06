@@ -287,7 +287,7 @@ subscripts : str
     Specifies the subscripts for summation.
 *operands : list of array_like
     These are the arrays for the operation.
-optimize : {bool, list, tuple, 'greedy', 'optimal'}, default='greedy'
+optimize : {bool, list, tuple, 'greedy', 'optimal'}
     Choose the type of path. If a tuple is provided, the second argument is
     assumed to be the maximum intermediate size created. If only a single
     argument is provided the largest input or output array size is used

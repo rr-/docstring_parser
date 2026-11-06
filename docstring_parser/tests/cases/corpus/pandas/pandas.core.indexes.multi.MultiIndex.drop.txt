@@ -175,9 +175,9 @@ Parameters
 ----------
 codes : array-like
     Must be a list of tuples when ``level`` is not specified.
-level : int or level name, optional
+level : int or level name, default None
     Level from which the labels will be dropped.
-errors : str, default='raise'
+errors : str, default 'raise'
     If 'ignore', suppress error and existing labels are dropped.
 
 Returns

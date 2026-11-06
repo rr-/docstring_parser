@@ -198,7 +198,7 @@ Parameters
 ----------
 A : sparse array or matrix
     The array for which index arrays should be downcast.
-idx_dtype : dtype, default=np.int32
+idx_dtype : dtype
     Desired dtype. Should be an integer dtype (default: ``np.int32``).
     Most of scipy.sparse uses either int64 or int32.
 msg : str, optional

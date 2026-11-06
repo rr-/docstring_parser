@@ -199,7 +199,7 @@ weights : array_like shape (..., N), optional
     None (default), then all values in `weights` are assumed to be
     equal. If given, the shape of `weights` must be broadcastable to
     the transform shape. Weights must be non-negative.
-axis : None, int, or tuple of ints, default=to
+axis : None, int, or tuple of ints, optional
     Axis or axes along which the means are computed. The default is to
     compute the mean of all transforms.
 

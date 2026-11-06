@@ -84,7 +84,7 @@ useful for iteration or conversion to other data structures.
 
 Parameters
 ----------
-na_tuple : bool, default=True
+na_tuple : bool, default True
     If ``True``, return ``NA`` as a tuple ``(nan, nan)``. If ``False``,
     just return ``NA`` as ``nan``.
 

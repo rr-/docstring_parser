@@ -34,4 +34,4 @@ Takes a group of renderables and returns a renderable object that renders the gr
 
 Args:
     renderables (Iterable[RenderableType]): An iterable of renderable objects.
-    fit (bool?): Fit dimension of group to contents, or fill available space. Defaults to True.
+    fit (bool, optional): Fit dimension of group to contents, or fill available space. Defaults to True.

@@ -121,7 +121,7 @@ Different resolutions can be converted to each other through as_unit.
 Parameters
 ----------
 unit : {'s', 'ms', 'us', 'ns'}
-round_ok : bool, default=True
+round_ok : bool, default True
     If False and the conversion requires rounding, raise ValueError.
 
 Returns

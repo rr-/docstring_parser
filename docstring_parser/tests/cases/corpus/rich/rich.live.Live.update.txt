@@ -34,4 +34,4 @@ Update the renderable that is being displayed
 
 Args:
     renderable (RenderableType): New renderable to use.
-    refresh (bool?): Refresh the display. Defaults to False.
+    refresh (bool, optional): Refresh the display. Defaults to False.

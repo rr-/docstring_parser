@@ -54,8 +54,8 @@ Parameters
 ----------
 freq : BaseOffset
     Valid frequency specifier.
-minor_locator : bool, default=False
+minor_locator : bool, default False
     Whether the current formatter should apply to minor ticks (True) or
     major ticks (False).
-dynamic_mode : bool, default=True
+dynamic_mode : bool, default True
     Whether the formatter works in dynamic mode or not.
