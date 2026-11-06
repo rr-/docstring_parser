@@ -14,8 +14,8 @@ from .common import (
 def kind_of(meta: DocstringMeta) -> Kind:
     """Tell what a meta documents, for composing it.
 
-    That is its ``kind``, except that a ReST ``:ivar:`` style field, which
-    parses as text, is an attribute.
+    That is its ``kind``, except that a text meta keyed like a ReST
+    ``:ivar:`` field is an attribute.
     """
     if meta.kind is Kind.TEXT and meta_as_attribute(meta):
         return Kind.ATTRIBUTE
@@ -45,7 +45,8 @@ def sections(
 ) -> T.Tuple[T.List[T.Tuple[str, T.List[T.Any]]], T.List[DocstringMeta]]:
     """Sort a docstring's meta into titled sections by kind.
 
-    A ReST ``:ivar:`` style field goes in as the attribute it stands for.
+    A text meta keyed like a ReST ``:ivar:`` field goes in as the
+    attribute it stands for.
 
     :returns: the sections that have items, each with its items in the
         order of the docstring, and the meta that no section took

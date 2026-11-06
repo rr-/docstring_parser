@@ -37,6 +37,8 @@
 - ReST: End a `:type:` or `:rtype:` field at the next unindented line, which goes to the long description instead of into the type
 - ReST: Keep blank lines and relative indents in a field's description, so paragraphs and literal blocks survive
 - ReST: Keep a `:type x:` field that no other field describes as a param, and an `:rtype name:` as a return, instead of dropping them
+- ReST: Read `:ivar:`, `:var:` and `:cvar:` as attributes typed by `:vartype:`, instead of text
+- ReST: Read an empty `:type x:` as no type rather than an empty one
 - ReST: Compose a return value's name as `:returns:` followed by `:rtype name:`, and read it back, instead of dropping it
 - ReST: Read a `:ytype:` field as the type of the yields, as `:rtype:` is of the returns, and compose a yield's type with it
 - ReST: Parse an `.. attribute:: name` directive, with its `:type:` and `:value:` options, as an attribute instead of leaving it in the long description

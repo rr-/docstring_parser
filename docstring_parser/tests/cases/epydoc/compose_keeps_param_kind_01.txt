@@ -58,6 +58,6 @@ Short.
 
 :param a: A.
 :keyword k: K.
-:attribute i: I.
-:attribute int c: C.
-:attribute v: V.
+:ivar i: I.
+:cvar int c: C.
+:var v: V.

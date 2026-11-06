@@ -68,7 +68,7 @@ def test_kind_must_fit_class() -> None:
         (
             DocstringStyle.REST,
             ":param x: X.\n:keyword y: Y.\n:attribute z: Z.\n:ivar w: W.",
-            [Kind.PARAM, Kind.KEYWORD, Kind.ATTRIBUTE, Kind.TEXT],
+            [Kind.PARAM, Kind.KEYWORD, Kind.ATTRIBUTE, Kind.ATTRIBUTE],
         ),
         (
             DocstringStyle.EPYDOC,
@@ -100,6 +100,7 @@ def test_sub_kinds(style: DocstringStyle, text: str, kinds: list) -> None:
     ("style", "text"),
     [
         (DocstringStyle.REST, ":param x: X.\n:attribute y: Y."),
+        (DocstringStyle.REST, ":param x: X.\n:ivar y: Y."),
         (DocstringStyle.EPYDOC, "@param x: X.\n@ivar y: Y."),
         (
             DocstringStyle.GOOGLE,

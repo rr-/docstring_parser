@@ -13,6 +13,7 @@ from ._text import (
     split_description,
 )
 from .common import (
+    ATTRIBUTE_FIELD_KEYWORDS,
     PARAM_KEYWORDS,
     PARAM_KINDS,
     RAISES_KINDS,
@@ -40,7 +41,7 @@ from .sections import ParserCache, SectionSpec, apply
 _DEFAULT_FIELDS = (
     (Kind.PARAM, ("param", "parameter", "arg", "argument")),
     (Kind.KEYWORD, ("key", "keyword")),
-    (Kind.ATTRIBUTE, ("attribute",)),
+    (Kind.ATTRIBUTE, ("attribute", "ivar", "var", "cvar")),
     (Kind.RETURNS, ("returns", "return")),
     (Kind.YIELDS, ("yields", "yield")),
     (Kind.RAISES, ("raises", "raise", "except", "exception")),
@@ -179,7 +180,7 @@ _FIELD = re.compile(
     rf"|\n[ \t]*\n(?=[^ \t\n:]|:(?!{_STARTS_FIELD}))|\Z)",
     flags=re.S | re.M,
 )
-_TYPE_FIELD = re.compile(r":[ry]?type\b")
+_TYPE_FIELD = re.compile(r":(?:[ry]|var)?type\b")
 _UNINDENTED = re.compile(r"\n(?=[^ \t\n])")
 _NOT_INLINE = re.compile(r"[\s:]")
 # An attribute directive, as Sphinx writes one:
@@ -322,6 +323,9 @@ class Parser(BaseParser):
         split_description(ret, desc_chunk)
 
         types: ParamTypes = {}
+        vartypes: ParamTypes = {}
+        # The type fields with no type, by field name, name and position.
+        untyped: T.List[T.Tuple[str, str, int]] = []
         rtypes: ReturnTypes = {}
         ytypes: ReturnTypes = {}
         # Whether the field before gave an item, rather than a type.
@@ -395,8 +399,14 @@ class Parser(BaseParser):
                 desc = first_line + "\n" + textwrap.dedent(rest)
 
             # Add special handling for :type a: typename
-            if len(args) == 2 and args[0] == "type":
-                types.setdefault(args[1], []).append((desc, len(ret.meta)))
+            if len(args) == 2 and args[0] in ("type", "vartype"):
+                if desc:
+                    by_name = types if args[0] == "type" else vartypes
+                    by_name.setdefault(args[1], []).append(
+                        (desc, len(ret.meta))
+                    )
+                else:
+                    untyped.append((args[0], args[1], len(ret.meta)))
             elif len(args) in [1, 2] and args[0] in ("rtype", "ytype"):
                 name = None if len(args) == 1 else args[1]
                 yields = args[0] == "ytype"
@@ -444,7 +454,19 @@ class Parser(BaseParser):
 
         append_loose(ret, loose_chunks, blank_around=True)
 
-        assign_types(ret.meta, types, rtypes, ytypes)
+        if untyped:
+            # A type field with no type types nothing, but one naming what no
+            # other field does still gives an item, so that its name is kept.
+            named = {
+                meta.arg_name
+                for meta in ret.meta
+                if isinstance(meta, DocstringParam)
+            }
+            for field, name, at in untyped:
+                by_name = types if field == "type" else vartypes
+                if name not in named and name not in by_name:
+                    by_name[name] = [("", at)]
+        assign_types(ret.meta, types, rtypes, ytypes, vartypes)
         return ParseResult(ret, problems)
 
 
@@ -495,11 +517,18 @@ def _fits_inline(type_name: T.Optional[str]) -> bool:
 
 
 _PARAM_FIELD_OF_KIND = {Kind.ATTRIBUTE: "attribute"}
+_OWN_PARAM_FIELDS = frozenset(PARAM_KEYWORDS | ATTRIBUTE_FIELD_KEYWORDS)
 
 
 def _param_key(meta: DocstringParam) -> str:
     """Return the field name that keeps a param's kind, such as ``key``."""
-    return field_name(meta, PARAM_KEYWORDS, _PARAM_FIELD_OF_KIND)
+    return field_name(meta, _OWN_PARAM_FIELDS, _PARAM_FIELD_OF_KIND)
+
+
+def _type_key(meta: DocstringParam) -> str:
+    """Return the name of a param's type field: ``vartype`` for one
+    written as ``:ivar:``, ``:var:`` or ``:cvar:``, as Sphinx reads it."""
+    return "vartype" if meta.key in ATTRIBUTE_FIELD_KEYWORDS else "type"
 
 
 def compose(
@@ -548,7 +577,9 @@ def compose(
                 text += process_desc(meta.description)
                 parts.append(text)
                 if type_text[:-1]:
-                    parts.append(f":type {meta.arg_name}:{type_text[:-1]}")
+                    parts.append(
+                        f":{_type_key(meta)} {meta.arg_name}:{type_text[:-1]}"
+                    )
             else:
                 text = f":{_param_key(meta)}{type_text}{meta.arg_name}:"
                 text += process_desc(meta.description)
