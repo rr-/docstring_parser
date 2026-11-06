@@ -71,6 +71,7 @@
 - Google: Compose blank lines inside a section such as Examples without trailing spaces
 - Google: Compose sections in the order of the docstring's items, and each return or yield in a section of its own, instead of in a fixed order with all returns in one, so a docstring with Raises before Returns, or with two Returns sections, reads back the same
 - Google: Compose an empty Returns section as its title alone, and a raises with an empty description with a colon after its type, instead of text that reads back as a `:` description or none
+- Google: Strip every space between an item's colon and its description, instead of keeping all but the first
 - Numpydoc: Fix the type of `NumpydocParser`'s `sections` argument, which takes a list of sections
 - Numpydoc: Compose sections such as See Also with their own titles and underlines, instead of e.g. `Seealso`
 - Numpydoc: Stop adding a blank line on every round trip of a docstring without a long description

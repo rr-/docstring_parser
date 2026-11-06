@@ -409,7 +409,8 @@ class Parser(BaseParser):
             before = _join_wrapped(before)
 
         if desc:
-            desc = desc[1:] if desc[0] == " " else desc
+            # The spaces after the colon set the description off.
+            desc = desc.lstrip(" \t")
             if "\n" in desc:
                 # Dedent every continuation line alike. cleandoc would strip
                 # the first of them entirely and lose its indent relative
