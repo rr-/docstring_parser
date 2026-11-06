@@ -151,14 +151,19 @@ def parse(
 
         (arg_name,) = args or ("return",)
         info = params.setdefault(arg_name, {})
-        info_key = "type_name" if key in _TYPE_FIELDS else "description"
-        info[info_key] = desc
-        if info_key == "description":
+        fields = info.setdefault("fields", 0)
+        info["fields"] = fields + 1
+        if key in _TYPE_FIELDS:
+            info["type_name"] = desc
+        elif "key" not in info:
             # The field that says what kind of param this is, even when a
-            # @type field for it comes first.
+            # @type field for it comes first. Another description of the
+            # same name is an item of its own.
+            info["description"] = desc
             info["key"] = key
             info["kind"] = kind
             info["spec"] = spec
+            info["first"] = fields
 
         if base == "return":
             is_generator = kind is Kind.YIELDS
@@ -167,11 +172,21 @@ def parse(
                     f'Error parsing meta information for "{arg_name}".'
                 )
 
-    is_done: T.Dict[str, bool] = {}
+    seen: T.Dict[str, int] = {}
     for base, key, args, desc, kind, spec in stream:
-        if base == "param" and not is_done.get(args[0], False):
+        name = (args or ["return"])[0]
+        index = -1
+        if base in ["param", "return"]:
+            index = seen[name] = seen.get(name, -1) + 1
+            info = params[name]
+            if index and (key in _TYPE_FIELDS or index == info.get("first")):
+                continue  # already in the name's first item
+            if index:
+                # A name described twice gives an item for each description.
+                info = dict(info)
+                info.update(key=key, kind=kind, spec=spec, description=desc)
+        if base == "param":
             (arg_name,) = args
-            info = params[arg_name]
             type_name = info.get("type_name")
 
             if type_name and type_name.endswith("?"):
@@ -194,17 +209,14 @@ def parse(
                 kind=info.get("kind", Kind.PARAM),
             )
             spec = info.get("spec")
-            is_done[arg_name] = True
-        elif base == "return" and not is_done.get("return", False):
-            info = params["return"]
+        elif base == "return":
             meta_item = DocstringReturns(
-                key=key,
+                key=key if index == 0 else info["key"],
                 description=info.get("description"),
                 type_name=info.get("type_name"),
                 is_generator=info.get("is_generator", False),
             )
             spec = info.get("spec")
-            is_done["return"] = True
         elif base == "raise":
             (type_name,) = args or (None,)
             meta_item = DocstringRaises(
@@ -219,16 +231,12 @@ def parse(
             )
         elif kind is Kind.DEPRECATION:
             meta_item = DocstringDeprecated(desc, version=None, key=key)
-        elif base == "meta":
+        else:
             meta_item = DocstringMeta(
                 key=key,
                 name=" ".join(args) or None,
                 description=desc,
             )
-        else:
-            (key, *_) = args or ("return",)
-            assert is_done.get(key, False)
-            continue  # don't append
 
         ret.meta.append(apply(spec, meta_item))
 

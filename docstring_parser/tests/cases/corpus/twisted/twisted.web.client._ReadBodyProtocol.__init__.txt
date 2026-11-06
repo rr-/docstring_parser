@@ -15,6 +15,12 @@ blank_after_short_description: False
 blank_after_long_description: False
 style: epydoc
 - DocstringParam
+  description: 'Status of L{IResponse}'
+  kind: param
+  key: 'param'
+  arg_name: 'status'
+  is_optional: False
+- DocstringParam
   description: 'L{int}'
   kind: attribute
   key: 'ivar'
@@ -37,6 +43,7 @@ style: epydoc
 === detect
 epydoc
 === compose epydoc
+@param status: Status of L{IResponse}
 @ivar status: L{int}
 @type message: L{bytes}
 @param message: Message of L{IResponse}
