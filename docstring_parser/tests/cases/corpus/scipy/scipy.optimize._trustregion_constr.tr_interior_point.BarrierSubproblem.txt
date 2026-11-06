@@ -9,7 +9,7 @@
 === parse numpydoc
 short_description: 'Barrier optimization problem:'
 long_description: |
-  minimize fun(x) - barrier_parameter*sum(log(s))
+      minimize fun(x) - barrier_parameter*sum(log(s))
       subject to: constr_eq(x)     = 0
                 constr_ineq(x) + s = 0
 blank_after_short_description: False
@@ -18,7 +18,8 @@ style: numpydoc
 === detect
 rest
 === compose numpydoc
+
 Barrier optimization problem:
-minimize fun(x) - barrier_parameter*sum(log(s))
+    minimize fun(x) - barrier_parameter*sum(log(s))
     subject to: constr_eq(x)     = 0
               constr_ineq(x) + s = 0

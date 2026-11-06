@@ -15,7 +15,8 @@ def split_description(ret: Docstring, text: str) -> None:
     """Set the short and long description from the text before any field.
 
     The short description is the first line, and the long description is
-    everything after it.
+    everything after it. Its lines keep their indent in the dedented
+    docstring, the first one too, which stripping it would lose.
     """
     parts = text.split("\n", 1)
     ret.short_description = parts[0].strip() or None
@@ -23,7 +24,11 @@ def split_description(ret: Docstring, text: str) -> None:
         rest = parts[1]
         ret.blank_after_short_description = rest.startswith("\n")
         ret.blank_after_long_description = rest.endswith("\n\n")
-        ret.long_description = rest.strip() or None
+        long = rest.strip()
+        lead = rest[: len(rest) - len(rest.lstrip())]
+        if long and lead and not lead.endswith("\n"):
+            long = lead[lead.rfind("\n") + 1 :] + long
+        ret.long_description = long or None
 
 
 def append_loose(

@@ -12,7 +12,7 @@ Check whether *attr_name* is implemented on a builtin class.
 === parse rest
 short_description: 'Check whether *attr_name* is implemented on a builtin class.'
 long_description: |
-  >>> is_builtin_class_method(int, '__init__')
+      >>> is_builtin_class_method(int, '__init__')
       True
   
   
@@ -26,7 +26,7 @@ rest
 === compose rest
 Check whether *attr_name* is implemented on a builtin class.
 
->>> is_builtin_class_method(int, '__init__')
+    >>> is_builtin_class_method(int, '__init__')
     True
 
 

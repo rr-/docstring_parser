@@ -1,5 +1,6 @@
 """What every style's composer shares."""
 
+import re
 import typing as T
 
 from ._text import param_spec
@@ -158,15 +159,45 @@ def field_text(meta: DocstringMeta) -> str:
     return " ".join(part for part in (meta.key, meta.name) if part)
 
 
+def indented_long_description(docstring: Docstring) -> bool:
+    """Tell whether the composed docstring has to start on a new line.
+
+    A long description whose every line is indented, after the short
+    description and with no item after it, would lose that indent when
+    read back, as the first line takes no part in the dedent. Starting
+    on a new line puts the short description in it.
+    """
+    long = docstring.long_description
+    return (
+        long is not None
+        and long[:1].isspace()
+        and not docstring.meta
+        and docstring.short_description is not None
+        and _UNINDENTED.search(long) is None
+    )
+
+
+# A line after the first that is not indented.
+_UNINDENTED = re.compile(r"\n\S")
+
+
 def description_lines(docstring: Docstring) -> T.List[str]:
-    """The short and long description, each followed by a blank if asked."""
-    parts = []
+    """The short and long description, each followed by a blank if asked.
+
+    A blank line comes first if the docstring has to start on a new line.
+    """
+    long = docstring.long_description
+    parts = (
+        [""]
+        if long and long[0].isspace() and indented_long_description(docstring)
+        else []
+    )
     if docstring.short_description:
         parts.append(docstring.short_description)
     if docstring.blank_after_short_description:
         parts.append("")
-    if docstring.long_description:
-        parts.append(docstring.long_description)
+    if long:
+        parts.append(long)
     if docstring.blank_after_long_description:
         parts.append("")
     return parts

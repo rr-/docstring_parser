@@ -62,7 +62,7 @@
 === parse google
 short_description: '!!! warning "Discouraged"'
 long_description: |
-  This function is **discouraged** in favor of using
+      This function is **discouraged** in favor of using
       [`Annotated`](https://docs.python.org/3/library/typing.html#typing.Annotated) with
       [`StringConstraints`][pydantic.types.StringConstraints] instead.
   
@@ -165,7 +165,7 @@ style: google
 google
 === compose google
 !!! warning "Discouraged"
-This function is **discouraged** in favor of using
+    This function is **discouraged** in favor of using
     [`Annotated`](https://docs.python.org/3/library/typing.html#typing.Annotated) with
     [`StringConstraints`][pydantic.types.StringConstraints] instead.
 

@@ -28,7 +28,7 @@
 === parse google
 short_description: '!!! abstract "Usage Documentation"'
 long_description: |
-  [String types](./standard_library_types.md#strings)
+      [String types](./standard_library_types.md#strings)
   
   A field metadata class to apply constraints to `str` types.
   Use this class as an annotation via [`Annotated`](https://docs.python.org/3/library/typing.html#typing.Annotated), as seen below.
@@ -98,7 +98,7 @@ style: google
 google
 === compose google
 !!! abstract "Usage Documentation"
-[String types](./standard_library_types.md#strings)
+    [String types](./standard_library_types.md#strings)
 
 A field metadata class to apply constraints to `str` types.
 Use this class as an annotation via [`Annotated`](https://docs.python.org/3/library/typing.html#typing.Annotated), as seen below.

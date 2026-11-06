@@ -33,7 +33,7 @@
 === parse google
 short_description: '!!! abstract "Usage Documentation"'
 long_description: |
-  [`model_dump`](../concepts/serialization.md#python-mode)
+      [`model_dump`](../concepts/serialization.md#python-mode)
   
   Generate a dictionary representation of the model, optionally specifying which fields to include or exclude.
 blank_after_short_description: False
@@ -142,7 +142,7 @@ style: google
 google
 === compose google
 !!! abstract "Usage Documentation"
-[`model_dump`](../concepts/serialization.md#python-mode)
+    [`model_dump`](../concepts/serialization.md#python-mode)
 
 Generate a dictionary representation of the model, optionally specifying which fields to include or exclude.
 

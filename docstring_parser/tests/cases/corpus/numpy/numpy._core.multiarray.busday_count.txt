@@ -71,7 +71,7 @@
 === parse numpydoc
 short_description: 'busday_count('
 long_description: |
-  begindates,
+      begindates,
       enddates,
       weekmask='1111100',
       holidays=[],
@@ -197,7 +197,7 @@ style: numpydoc
 numpydoc
 === compose numpydoc
 busday_count(
-begindates,
+    begindates,
     enddates,
     weekmask='1111100',
     holidays=[],
