@@ -32,11 +32,11 @@ style: epydoc
   key: 'return'
   type_name: 'L{_IKexAlgorithm}'
   is_generator: False
-- DocstringMeta
+- DocstringRaises
   description: 'if the key exchange algorithm is not found.'
-  kind: text
+  kind: raises
   key: 'raises'
-  name: 'ConchError'
+  type_name: 'ConchError'
 === detect
 epydoc
 === compose epydoc
@@ -47,4 +47,4 @@ Get a description of a named key exchange algorithm.
 @rtype: L{_IKexAlgorithm}
 @return: A description of the key exchange algorithm named by
     C{kexAlgorithm}.
-@raises ConchError: if the key exchange algorithm is not found.
+@raise ConchError: if the key exchange algorithm is not found.

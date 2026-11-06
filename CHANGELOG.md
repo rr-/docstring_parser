@@ -67,6 +67,7 @@
 - Epydoc: Give a name described by two fields, such as `@param x:` and `@ivar x:`, an item for each instead of keeping the last
 - Epydoc: Find a param's default in its own description also when its `@type` field comes first
 - Epydoc: Take a return's key from its `@return` or `@yield` field, not from an `@rtype` or `@ytype` before it
+- Epydoc: Read the field names Epydoc gives as synonyms: `@raises`, `@except` and `@exception` for `@raise`, `@returns` for `@return`, `@returntype` for `@rtype`, `@parameter`, `@arg` and `@argument` for `@param`, and `@kwarg` and `@kwparam` for `@keyword`
 - ReST, Numpydoc: Read text after the fields of a docstring with no description as its description, instead of a long description that `compose()` starts with an empty line
 - ReST, Epydoc: Compose each param with its kind's field name, such as `:keyword:` or `@ivar`, instead of `:param:` or `@param` for all
 - ReST, Epydoc: Make a param optional when its type says `int, optional`, `int (optional)` or `int, default 1`, as in Numpydoc, also in a `:type:` field

@@ -1,0 +1,33 @@
+# Test that Epydoc's synonyms of @raise give raises.
+=== input
+Short.
+
+@raises ValueError: If bad.
+@except KeyError: If missing.
+@exception OSError: If broken.
+=== parse epydoc
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringRaises
+  description: 'If bad.'
+  kind: raises
+  key: 'raises'
+  type_name: 'ValueError'
+- DocstringRaises
+  description: 'If missing.'
+  kind: raises
+  key: 'except'
+  type_name: 'KeyError'
+- DocstringRaises
+  description: 'If broken.'
+  kind: raises
+  key: 'exception'
+  type_name: 'OSError'
+=== compose epydoc
+Short.
+
+@raise ValueError: If bad.
+@raise KeyError: If missing.
+@raise OSError: If broken.

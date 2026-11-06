@@ -42,6 +42,7 @@ _HEADER = re.compile(r"([_A-z][_A-z0-9]*)((?:\s+[_A-z][_A-z0-9]*\??)*):")
 _TYPE_FIELDS = {
     "type": ("param", Kind.PARAM),
     "rtype": ("return", Kind.RETURNS),
+    "returntype": ("return", Kind.RETURNS),
     "ytype": ("return", Kind.YIELDS),
 }
 
@@ -65,14 +66,18 @@ def _base(
 
 
 def default_sections() -> T.List[SectionSpec]:
-    """Return the fields Epydoc recognises when given none."""
+    """Return the fields Epydoc recognises when given none.
+
+    Each field has the synonyms Epydoc's manual gives it, such as
+    ``@raises`` for ``@raise``.
+    """
     return [
-        SectionSpec("param", Kind.PARAM),
-        SectionSpec("keyword", Kind.KEYWORD),
+        SectionSpec(("param", "parameter", "arg", "argument"), Kind.PARAM),
+        SectionSpec(("keyword", "kwarg", "kwparam"), Kind.KEYWORD),
         SectionSpec(("ivar", "cvar", "var"), Kind.ATTRIBUTE),
-        SectionSpec("return", Kind.RETURNS),
+        SectionSpec(("return", "returns"), Kind.RETURNS),
         SectionSpec("yield", Kind.YIELDS),
-        SectionSpec("raise", Kind.RAISES),
+        SectionSpec(("raise", "raises", "except", "exception"), Kind.RAISES),
     ]
 
 
