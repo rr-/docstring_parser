@@ -50,6 +50,10 @@ def append_loose(
         ret.blank_after_long_description = True
 
 
+# One exception type: a dotted name, maybe marked as Sphinx does it
+# (``~pkg.Error``) or quoted (```Error```), with an optional subscript.
+EXCEPTION_TYPE = r"`?[~!]?[A-Za-z_][\w.]*(?:\[[^\]\n]*\])?`?"
+
 OPTIONAL_REGEX = re.compile(r"(?P<type>.*?)(?:, optional|\(optional\))$")
 
 # A default given in the type, as in:

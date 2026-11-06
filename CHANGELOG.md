@@ -68,6 +68,7 @@
 - Numpydoc: Rebuild the reused default parser also when a section in `DEFAULT_SECTIONS` has its title changed in place
 - Numpydoc: Compose raises written with another key, such as ReST's `:raise:` and `:except:`, instead of dropping them
 - Numpydoc: Keep indented text before a section's first item in the long description instead of dropping it
+- Numpydoc: Split a `Raises` or `Warns` item's head such as `ValueError : if bad.` after its type, taking `if bad.` as the start of the description, instead of making the whole line the type
 - Epydoc: Match fields only at their header, so field-like text in a description no longer replaces it and a header without its colon no longer stalls the parser (thanks to @akshitkhokhani)
 - Epydoc: Take a param's key and kind from its `@param`, `@keyword` or `@ivar` field, instead of `type` when its `@type` field comes first
 - Epydoc: Give a name described by two fields, such as `@param x:` and `@ivar x:`, an item for each instead of keeping the last
