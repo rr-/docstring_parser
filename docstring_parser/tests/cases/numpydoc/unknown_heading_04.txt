@@ -1,0 +1,26 @@
+# Test that an underlined heading before any section stays in the description.
+=== input
+Short.
+
+Intro
+-----
+Some text.
+
+Parameters
+----------
+x
+    The x.
+=== parse numpydoc
+short_description: 'Short.'
+long_description: |
+  Intro
+  -----
+  Some text.
+blank_after_short_description: True
+blank_after_long_description: True
+style: numpydoc
+- DocstringParam
+  description: 'The x.'
+  kind: param
+  key: 'param'
+  arg_name: 'x'

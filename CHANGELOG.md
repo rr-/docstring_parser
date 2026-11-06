@@ -54,6 +54,7 @@
 - Numpydoc: Fix the type of `NumpydocParser`'s `sections` argument, which takes a list of sections
 - Numpydoc: Compose sections such as See Also with their own titles and underlines, instead of e.g. `Seealso`
 - Numpydoc: Stop adding a blank line on every round trip of a docstring without a long description
+- Numpydoc: End a section at an underlined heading that no section declares, such as `See also` or `Options`, instead of reading the heading and its text as the section's items; the heading becomes a text meta with its `title`, which compose writes back
 - Numpydoc: Stop ending a composed docstring with a blank line
 - Numpydoc: Compose a blank line between the deprecation block and the long description, and no trailing spaces on its blank lines
 - Numpydoc: End a deprecation directive at its indented body, so a long description written after it is no longer part of the deprecation

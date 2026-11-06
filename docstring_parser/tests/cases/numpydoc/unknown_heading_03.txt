@@ -1,0 +1,25 @@
+# Test that a table in doctest output stays in its example.
+=== input
+Short.
+
+Examples
+--------
+>>> table()
+-----
+name
+----
+x
+=== parse numpydoc
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringExample
+  description: |
+    -----
+    name
+    ----
+    x
+  kind: examples
+  key: 'examples'
+  snippet: '>>> table()'

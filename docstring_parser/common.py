@@ -176,6 +176,7 @@ _META_FIELDS = (
     "snippet",
     "description",
     "extra",
+    "title",
 )
 
 
@@ -196,7 +197,12 @@ class DocstringMeta:
         in a ReST ``:ivar x:`` field
     :ivar extra: words in the item's head after the parts a parser
         recognised, such as ``more`` in Google's ``x (int) more:``
+    :ivar title: for a text item read from a section no spec declares, the
+        section's title as written, such as ``Custom Title``
     """
+
+    # Set only on the items it applies to, so the others carry no field.
+    title: T.Optional[str] = None
 
     def __init__(
         self,

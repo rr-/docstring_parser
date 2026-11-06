@@ -1,0 +1,46 @@
+# Test that an undeclared underlined heading after a section ends it.
+=== input
+Short.
+
+Returns
+-------
+int
+    The count.
+
+Custom Title
+------------
+Some text.
+
+More text.
+=== parse numpydoc
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringReturns
+  description: 'The count.'
+  kind: returns
+  key: 'returns'
+  type_name: 'int'
+  is_generator: False
+- DocstringMeta
+  description: |
+    Some text.
+    
+    More text.
+  kind: text
+  key: 'custom_title'
+  title: 'Custom Title'
+=== compose numpydoc
+Short.
+
+Returns
+-------
+int
+    The count.
+
+Custom Title
+------------
+Some text.
+
+More text.
