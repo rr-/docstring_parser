@@ -10,7 +10,14 @@ from textwrap import dedent
 
 from ._compose import SectionTable, kind_of, sections
 from ._lines import Lines
-from ._text import append_loose, clean_str, split_description
+from ._text import (
+    DEFAULT_REGEX,
+    OPTIONAL_REGEX,
+    append_loose,
+    clean_str,
+    split_description,
+    type_spec,
+)
 from .common import (
     Docstring,
     DocstringDeprecated,
@@ -35,18 +42,8 @@ def _pairwise(iterable: T.Iterable, end=None) -> T.Iterable:
 
 _KV_REGEX = re.compile(r"^[^\s].*$", flags=re.M)
 PARAM_KEY_REGEX = re.compile(r"^(?P<name>.*?)(?:\s*:\s*(?P<type>.*?))?$")
-PARAM_OPTIONAL_REGEX = re.compile(r"(?P<type>.*?)(?:, optional|\(optional\))$")
-
-# Ideally, default value will be specified in the type declaration,
-# for which the following are supported:
-#
-#   copy : bool, default True
-#   copy : bool, default=True
-#   copy : bool, default: True
-#
-PARAM_DEFAULT_REGEX = re.compile(
-    r"(?P<type>.*?)(?:, default|\(default\))(?: | |=| = |= |: |)*(?P<value>.*)$"  # noqa: E501
-)
+PARAM_OPTIONAL_REGEX = OPTIONAL_REGEX
+PARAM_DEFAULT_REGEX = DEFAULT_REGEX
 
 # If the default value isn't specified in the type declaration,
 # it might be in the description. There isn't any formal grammar for this
@@ -162,19 +159,7 @@ class ParamSection(_KVSection):
         type_name: T.Optional[str] = match.group("type")
         is_optional = default = None
         if type_name is not None:
-            is_optional = False
-            # "optional" may come before the default or after it.
-            for regex in (
-                PARAM_OPTIONAL_REGEX,
-                PARAM_DEFAULT_REGEX,
-                PARAM_OPTIONAL_REGEX,
-            ):
-                match = regex.match(type_name)
-                if match is not None:
-                    type_name = match.group("type")
-                    is_optional = True
-                    if regex is PARAM_DEFAULT_REGEX:
-                        default = match.group("value")
+            type_name, is_optional, default = type_spec(type_name)
 
         # If the default wasn't specifified in the type declaration,
         # try and see if we can find it in the description.

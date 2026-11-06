@@ -56,6 +56,9 @@
 - ReST, Numpydoc: Text after the fields of a docstring with no description of its own becomes the short and long description, as if written before the fields, instead of a long description with no short one, which `compose()` started with an empty line
 - Google: Keep the text after a section that an unindented line starts, such as an example or a section of an unknown title, in the long description instead of dropping it
 - Epydoc: A name described by two fields, such as `@param x:` and `@ivar x:`, or two `@return:` fields, gives an item for each, instead of keeping only the last description
+- ReST, Epydoc: A param type such as `int, optional`, `int (optional)` or `int, default 1` makes the param optional and gives its default, as in Numpydoc, also in a `:type:` field, where `int?` did not work either
+- Google: A param type ending in `(optional)` or naming a default, as in `x (int, default 1)`, makes the param optional and gives its default
+- Numpydoc: A param type ending in `?` makes the param optional, and `int (optional)` gives the type `int` without a trailing space
 
 # 0.18 (2026-04-14)
 

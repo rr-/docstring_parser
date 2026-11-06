@@ -6,7 +6,7 @@ import typing as T
 
 from ._compose import description_lines, field_name, field_text
 from ._lines import Lines
-from ._text import append_loose, split_description
+from ._text import append_loose, split_description, type_spec
 from .common import (
     PARAM_KEYWORDS,
     PARAM_KINDS,
@@ -64,22 +64,19 @@ def _build_meta(args: T.List[str], desc: str, kind: Kind) -> DocstringMeta:
     if kind in PARAM_KINDS:
         if len(args) == 3:
             key, type_name, arg_name = args
-            if type_name.endswith("?"):
-                is_optional = True
-                type_name = type_name[:-1]
-            else:
-                is_optional = False
+            type_name, is_optional, default = type_spec(type_name)
         elif len(args) == 2:
             key, arg_name = args
             type_name = None
-            is_optional = None
+            is_optional = default = None
         else:
             raise ParseError(
                 f"Expected one or two arguments for a {key} keyword."
             )
 
-        match = _DEFAULTS_TO.match(desc)
-        default = match.group(1).rstrip(".") if match else None
+        match = None if default else _DEFAULTS_TO.match(desc)
+        if match:
+            default = match.group(1).rstrip(".")
 
         return DocstringParam(
             key=key,
@@ -215,7 +212,13 @@ def parse(
 
     for meta in ret.meta:
         if isinstance(meta, DocstringParam):
-            meta.type_name = meta.type_name or types.get(meta.arg_name)
+            if not meta.type_name and meta.arg_name in types:
+                meta.type_name, is_optional, default = type_spec(
+                    types[meta.arg_name]
+                )
+                if is_optional:
+                    meta.is_optional = True
+                    meta.default = meta.default or default
         elif isinstance(meta, DocstringReturns):
             meta.type_name = meta.type_name or rtypes.get(meta.return_name)
 

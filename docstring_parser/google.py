@@ -8,7 +8,7 @@ from enum import IntEnum
 
 from ._compose import SectionTable, description_lines, sections
 from ._lines import Lines
-from ._text import append_loose, split_description
+from ._text import append_loose, split_description, type_spec
 from .common import (
     EXAMPLES_KEYWORDS,
     PARAM_KEYWORDS,
@@ -206,20 +206,14 @@ def _multi_meta(section: Section, before: str, desc: str) -> DocstringMeta:
         typed_arg = _split_typed_arg(before)
         if typed_arg:
             arg_name, type_name, extra = typed_arg
-            if type_name.endswith(", optional"):
-                is_optional = True
-                type_name = type_name[:-10]
-            elif type_name.endswith("?"):
-                is_optional = True
-                type_name = type_name[:-1]
-            else:
-                is_optional = False
+            type_name, is_optional, default = type_spec(type_name)
         else:
             arg_name, type_name, extra = before, None, ""
-            is_optional = None
+            is_optional = default = None
 
-        match = GOOGLE_ARG_DESC_REGEX.match(desc)
-        default = match.group(1) if match else None
+        match = None if default else GOOGLE_ARG_DESC_REGEX.match(desc)
+        if match:
+            default = match.group(1)
 
         param = DocstringParam(
             key=section.key,

@@ -23,18 +23,20 @@ def _words(text: str) -> T.Set[str]:
 
 
 # Words a style reads as syntax rather than keeping: section titles, the
-# fields that only give a type, and the marks inside a type.
+# fields that only give a type, and the marks of an optional param's type.
+TYPE_MARKS = {"optional", "default"}
 SYNTAX = {
-    DocstringStyle.REST: {"type", "rtype"},
+    DocstringStyle.REST: {"type", "rtype"} | TYPE_MARKS,
     DocstringStyle.GOOGLE: {
         word for s in google.DEFAULT_SECTIONS for word in _words(s.title)
     }
-    | {"optional"},
+    | TYPE_MARKS,
     DocstringStyle.NUMPYDOC: {
         word for s in numpydoc.DEFAULT_SECTIONS for word in _words(s.title)
     }
-    | {"optional", "default"},
-    DocstringStyle.EPYDOC: {"type", "rtype", "ytype", "return", "yield"},
+    | TYPE_MARKS,
+    DocstringStyle.EPYDOC: {"type", "rtype", "ytype", "return", "yield"}
+    | TYPE_MARKS,
 }
 
 
