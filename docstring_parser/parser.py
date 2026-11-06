@@ -71,11 +71,12 @@ def try_parse(
 ) -> ParseResult:
     """Parse what can be parsed of a docstring, and tell what cannot.
 
-    It takes what :func:`parse` takes and never raises
-    :class:`~docstring_parser.common.ParseError`. The text of a part that
-    cannot be read goes to the long description, and the result lists a
-    problem for it, with its line in the docstring. In auto mode, a style
-    that reads the docstring with no problems wins.
+    It takes what :func:`parse` takes and never raises for the docstring's
+    text. The text of a part that cannot be read goes to the long
+    description, and the result lists a problem for it, with its line in
+    the docstring. In auto mode, a style that reads the docstring with no
+    problems wins. An exception raised by a ``parse_item`` hook is the
+    hook's own, and propagates.
 
     :returns: the docstring and its problems
     """
