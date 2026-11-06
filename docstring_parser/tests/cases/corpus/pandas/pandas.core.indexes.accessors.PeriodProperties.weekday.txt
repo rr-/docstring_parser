@@ -17,7 +17,7 @@ style: numpydoc
   key: 'deprecation'
   version: '3.1.0'
 === detect
-numpydoc
+rest
 === compose numpydoc
 The day of the week with Monday=0, Sunday=6.
 

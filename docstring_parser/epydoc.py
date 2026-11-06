@@ -47,6 +47,12 @@ _HEADER = re.compile(r"([_A-z][_A-z0-9]*)((?:\s+[_A-z][_A-z0-9]*\??)*):")
 
 # The fields that give the type of a param, a return value or a yield,
 # which are not items of their own.
+# A version starting a deprecation's description, alone or before the
+# rest of it.
+_VERSION = re.compile(
+    r"(?P<version>v?\d+\.[0-9a-z.]+)(?:[ \t]+(?P<desc>\S.*)|[ \t]*)\Z",
+    flags=re.I | re.S,
+)
 _TYPE_FIELDS = {
     "type": ("param", Kind.PARAM),
     "rtype": ("return", Kind.RETURNS),
@@ -86,6 +92,7 @@ def default_sections() -> T.List[SectionSpec]:
         SectionSpec(("return", "returns"), Kind.RETURNS),
         SectionSpec("yield", Kind.YIELDS),
         SectionSpec(("raise", "raises", "except", "exception"), Kind.RAISES),
+        SectionSpec("deprecated", Kind.DEPRECATION),
     ]
 
 
@@ -227,7 +234,14 @@ class Parser(BaseParser):
             elif kind is Kind.EXAMPLES:
                 meta = DocstringExample(None, desc, key=key)
             elif kind is Kind.DEPRECATION:
-                meta = DocstringDeprecated(desc, None, key=key)
+                # A version may start the description, as compose writes it.
+                match = _VERSION.match(desc)
+                if match:
+                    meta = DocstringDeprecated(
+                        match.group("desc"), match.group("version"), key=key
+                    )
+                else:
+                    meta = DocstringDeprecated(desc, None, key=key)
             else:
                 meta = DocstringMeta(desc, key, " ".join(args) or None)
             if spec is not None and spec.parse_item is not None:
@@ -390,6 +404,14 @@ def compose(
                 f"@{key} {meta.type_name}:" if meta.type_name else f"@{key}:"
             )
             text += process_desc(meta.description, False)
+            parts.append(text)
+        elif isinstance(meta, DocstringDeprecated):
+            # The version starts the description, on the same line.
+            desc = meta.description
+            if meta.version:
+                desc = " ".join(filter(None, [meta.version, desc]))
+            text = f"@{_own_key(meta, 'deprecated')}:"
+            text += process_desc(desc, False)
             parts.append(text)
         else:
             text = f"@{field_text(meta)}:"

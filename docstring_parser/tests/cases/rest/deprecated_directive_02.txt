@@ -1,0 +1,37 @@
+# Test that every deprecated directive is a deprecation, and the text
+# around them stays in the description.
+=== input
+Short.
+
+.. deprecated:: 1.0
+    A.
+
+Long text.
+
+.. deprecated::
+    B, with no version.
+=== parse rest
+short_description: 'Short.'
+long_description: 'Long text.'
+blank_after_short_description: True
+blank_after_long_description: True
+style: rest
+- DocstringDeprecated
+  description: 'A.'
+  kind: deprecation
+  key: 'deprecation'
+  version: '1.0'
+- DocstringDeprecated
+  description: 'B, with no version.'
+  kind: deprecation
+  key: 'deprecation'
+=== compose rest
+Short.
+
+Long text.
+
+.. deprecated:: 1.0
+    A.
+
+.. deprecated::
+    B, with no version.

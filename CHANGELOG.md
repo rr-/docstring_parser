@@ -52,6 +52,7 @@
 - ReST: Keep every line of a `:deprecated:` field that starts with a version
 - ReST: Keep a type field for a param or return that already has a type
 - ReST: Compose type fields, field names, versions and attribute values so they read back the same
+- ReST: Read and compose a `.. deprecated::` directive as a deprecation with its version
 - Google: Parse PEP 604 union types (e.g. `int | str`) in return sections (thanks to @binggao1230)
 - Google: Parse a union return or yield type whose members have brackets or dots, such as `dict[str, int] | None`, instead of keeping the whole line as the description
 - Google: Avoid regex backtracking when parsing parameter types
@@ -68,6 +69,8 @@
 - Google: Compose blank lines inside a section such as Examples without trailing spaces
 - Google: Strip every space between an item's colon and its description
 - Google: Compose sections in the items' order, one per return, so they read back the same
+- Google: Make a param optional when its type ends in `(optional)` or names a default, as in `int, default 1`
+- Google: Read and compose a `.. deprecated::` directive as a deprecation with its version
 - Numpydoc: Fix the type of `NumpydocParser`'s `sections` argument, which takes a list of sections
 - Numpydoc: Compose sections such as See Also with their own titles and underlines, instead of e.g. `Seealso`
 - Numpydoc: Stop adding a blank line on every round trip of a docstring without a long description
@@ -90,6 +93,7 @@
 - Epydoc: Read the field names Epydoc gives as synonyms: `@raises`, `@except` and `@exception` for `@raise`, `@returns` for `@return`, `@returntype` for `@rtype`, `@parameter`, `@arg` and `@argument` for `@param`, and `@kwarg` and `@kwparam` for `@keyword`
 - Epydoc: Keep the indent of a field's first continuation line
 - Epydoc: Compose type fields and field names, such as `@arg`, so they read back the same
+- Epydoc: Read `@deprecated` as a deprecation, and compose one with its version
 - ReST, Numpydoc: Read text after the fields of a docstring with no description as its description, instead of a long description that `compose()` starts with an empty line
 - ReST, Epydoc: Compose each param with its kind's field name, such as `:keyword:` or `@ivar`, instead of `:param:` or `@param` for all
 - ReST, Epydoc: Give each of a name's type fields to its next item, instead of the last overwriting the others

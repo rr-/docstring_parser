@@ -13,15 +13,17 @@
     
 === parse rest
 short_description: 'Returns a :class:`Session` for context-management.'
-long_description: |
-  .. deprecated:: 1.0.0
-  
-      This method has been deprecated since version 1.0.0 and is only kept for
-      backwards compatibility. New code should use :class:`~requests.sessions.Session`
-      to create a session. This may be removed at a future date.
 blank_after_short_description: True
-blank_after_long_description: True
+blank_after_long_description: False
 style: rest
+- DocstringDeprecated
+  description: |
+    This method has been deprecated since version 1.0.0 and is only kept for
+    backwards compatibility. New code should use :class:`~requests.sessions.Session`
+    to create a session. This may be removed at a future date.
+  kind: deprecation
+  key: 'deprecation'
+  version: '1.0.0'
 - DocstringReturns
   kind: returns
   type_name: 'Session'
@@ -32,7 +34,6 @@ rest
 Returns a :class:`Session` for context-management.
 
 .. deprecated:: 1.0.0
-
     This method has been deprecated since version 1.0.0 and is only kept for
     backwards compatibility. New code should use :class:`~requests.sessions.Session`
     to create a session. This may be removed at a future date.

@@ -7,11 +7,20 @@ from enum import IntEnum
 
 from ._compose import (
     SectionTable,
-    description_lines,
     examples_text,
     section_runs,
     start_on_new_line,
     written_type,
+)
+from ._directives import (
+    DEPRECATED,
+    cut_directives,
+    deprecation,
+    deprecation_lines,
+    description_with_deprecation,
+    directive_pattern,
+    lead_directive,
+    leading_deprecation,
 )
 from ._lines import Lines, dedent
 from ._text import (
@@ -237,6 +246,7 @@ def _section_kind(section: Section) -> Kind:
     return _KIND_OF_KEY.get(section.key, Kind.TEXT)
 
 
+_DEPRECATED = directive_pattern([DEPRECATED])
 _UNINDENTED = re.compile(r"\n\S")
 
 _SECTION_TYPE = {
@@ -475,15 +485,37 @@ class Parser(BaseParser):
         # A title on the first line has no summary before it. Dedent it with
         # its entries, instead of stripping only the first line and leaving
         # the entries flush with the title.
+        marked = "deprecated" in lines.text
         if self._titles_re.match(lines.raw.lstrip()):
             lines = lines.with_lead()
+        elif marked:
+            lines = lead_directive(lines, _DEPRECATED)
+        # Deprecated directives in the free text, each with where it was.
+        deprecations: T.List[T.Tuple[int, DocstringMeta]] = []
+        if marked:
+            lines, found = cut_directives(lines, _DEPRECATED)
+            deprecations = [
+                (
+                    d.offset,
+                    deprecation(
+                        d.match.group("version"), d.body, "deprecation"
+                    ),
+                )
+                for d in found
+            ]
         text = lines.text
 
         # Split by sections determined by titles
         matches = list(self._titles_re.finditer(text))
-        split_description(ret, text[: matches[0].start()] if matches else text)
         if not matches:
+            if deprecations and text.endswith("\n"):
+                # A blank line set the description off from the directives
+                # cut from after it, as it would from a section.
+                text += "\n"
+            split_description(ret, text)
+            ret.meta.extend(meta for _at, meta in deprecations)
             return ParseResult(ret, [])
+        split_description(ret, text[: matches[0].start()])
         ends = [m.start() for m in matches[1:]] + [len(text)]
 
         # A list rather than a dict, so that a section whose title appears
@@ -513,8 +545,16 @@ class Parser(BaseParser):
             )
             chunks.append((title, chunk, offset))
 
-        # Add elements from each chunk
+        # Add elements from each chunk, and each deprecation before the
+        # chunk after it.
+        next_deprecation = 0
         for title, chunk, offset in chunks:
+            while (
+                next_deprecation < len(deprecations)
+                and deprecations[next_deprecation][0] < offset
+            ):
+                ret.meta.append(deprecations[next_deprecation][1])
+                next_deprecation += 1
             # Check for singular elements
             if self.sections[title].type in [
                 SectionType.SINGULAR,
@@ -579,6 +619,7 @@ class Parser(BaseParser):
                     offset + c_match.start(),
                 )
 
+        ret.meta.extend(meta for _at, meta in deprecations[next_deprecation:])
         append_loose(ret, loose, blank_around=True)
         return ParseResult(ret, problems)
 
@@ -784,7 +825,8 @@ def compose(
                 process_one(arg, alone=len(args) == 1)
             parts.append("")
 
-    parts = description_lines(docstring)
+    top = leading_deprecation(docstring)
+    parts = description_with_deprecation(docstring, top, indent)
     # Examples in a row share a section. One with no snippet is the text
     # after a section's last snippet, so it ends its section: written with
     # the next ones, it would read back as part of their text. An empty
@@ -809,6 +851,19 @@ def compose(
             group = []
         if title is not None:
             process_sect(title, items)
+        elif meta is top:
+            continue
+        elif isinstance(meta, DocstringDeprecated) and meta.key in (
+            None,
+            "deprecation",
+        ):
+            # A directive at the start of a line, which ends the section
+            # before it. Blank lines around it read back as one after the
+            # descriptions, unless one is before it.
+            blank = not parts or not parts[-1]
+            parts.append(deprecation_lines(meta, indent))
+            if blank:
+                parts.append("")
         elif not isinstance(meta, DocstringExample):
             _write_section(parts, indent, meta.key, meta.description or "")
     if group:

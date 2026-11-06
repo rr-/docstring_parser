@@ -1,0 +1,39 @@
+# Test that a deprecated directive before the fields is a deprecation.
+=== input
+Short.
+
+.. deprecated:: 1.0
+    Use other() instead.
+
+:param x: The x.
+=== parse rest
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringDeprecated
+  description: 'Use other() instead.'
+  kind: deprecation
+  key: 'deprecation'
+  version: '1.0'
+- DocstringParam
+  description: 'The x.'
+  kind: param
+  key: 'param'
+  arg_name: 'x'
+  is_optional: False
+=== compose rest
+Short.
+
+.. deprecated:: 1.0
+    Use other() instead.
+
+:param x: The x.
+=== compose rest expanded
+Short.
+
+.. deprecated:: 1.0
+    Use other() instead.
+
+:param x:
+    The x.
