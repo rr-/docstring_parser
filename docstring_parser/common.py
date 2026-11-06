@@ -42,14 +42,18 @@ class ParseError(RuntimeError):
     """Base class for all parsing related errors."""
 
 
-class DocstringStyle(enum.Enum):
-    """Docstring style."""
+class DocstringStyle(str, enum.Enum):
+    """Docstring style, by the name of the parser that reads it.
 
-    REST = 1
-    GOOGLE = 2
-    NUMPYDOC = 3
-    EPYDOC = 4
-    AUTO = 255
+    Each member equals its parser's ``name``, so ``"google"`` works
+    wherever ``DocstringStyle.GOOGLE`` does.
+    """
+
+    REST = "rest"
+    GOOGLE = "google"
+    NUMPYDOC = "numpydoc"
+    EPYDOC = "epydoc"
+    AUTO = "auto"
 
 
 class RenderingStyle(enum.Enum):

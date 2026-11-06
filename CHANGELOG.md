@@ -61,6 +61,7 @@
 - Numpydoc: A param type ending in `?` makes the param optional, and `int (optional)` gives the type `int` without a trailing space
 - ReST: Keep a `:type x:` field for a name that no other field describes as a param, as Epydoc does, and an `:rtype name:` field for a named return value as a return also next to `:returns:`, instead of dropping them
 - General: Add a parser object for every style, as `Parser` in its module: `rest.Parser`, `google.Parser`, `numpydoc.Parser`, `epydoc.Parser`, and `auto.Parser`, which tells the style. Each takes `sections` once and parses with `parse(text)`; all are `BaseParser`s. `GoogleParser` and `NumpydocParser` stay as names of `google.Parser` and `numpydoc.Parser`
+- General: **Breaking:** `DocstringStyle` members are the names of their styles, such as `"google"`, instead of numbers, so that `parse()` and `compose()` also take a style by its name, or a parser to use
 
 # 0.18 (2026-04-14)
 

@@ -6,6 +6,7 @@ import typing as T
 from docstring_parser import auto, epydoc, google, numpydoc, rest
 from docstring_parser.attrdoc import add_attribute_docstrings
 from docstring_parser.common import (
+    BaseParser,
     Docstring,
     DocstringStyle,
     RenderingStyle,
@@ -34,18 +35,25 @@ def _parse_in(
 
 def parse(
     text: T.Optional[str],
-    style: DocstringStyle = DocstringStyle.AUTO,
+    style: T.Union[DocstringStyle, str, BaseParser] = DocstringStyle.AUTO,
     sections: T.Optional[T.Sequence[SectionSpec]] = None,
 ) -> Docstring:
     """Parse the docstring into its components.
 
     :param text: docstring text to parse
-    :param style: docstring style
+    :param style: the style's name, such as ``"google"`` or
+        ``DocstringStyle.GOOGLE``, or a parser to parse with
     :param sections: the sections, or fields, to recognise instead of the
         style's own, as described in :mod:`docstring_parser.sections`; in
-        auto mode, every style recognises them
+        auto mode, every style recognises them. A parser has its own.
     :returns: parsed docstring representation
     """
+    if isinstance(style, BaseParser):
+        if sections is not None:
+            raise ValueError("A parser has its sections; pass none")
+        return style.parse(text)
+    if not isinstance(style, DocstringStyle):
+        style = DocstringStyle(style)
     if style != DocstringStyle.AUTO:
         return _parse_in(_STYLE_MAP[style], text, sections)
     if sections is None:
@@ -94,17 +102,22 @@ def parse_from_object(
 
 def compose(
     docstring: Docstring,
-    style: DocstringStyle = DocstringStyle.AUTO,
+    style: T.Union[DocstringStyle, str, BaseParser] = DocstringStyle.AUTO,
     rendering_style: RenderingStyle = RenderingStyle.COMPACT,
     indent: str = "    ",
 ) -> str:
     """Render a parsed docstring into docstring text.
 
     :param docstring: parsed docstring representation
-    :param style: docstring style to render
+    :param style: the style to render, by its name, such as ``"google"``
+        or ``DocstringStyle.GOOGLE``, or by its parser
     :param indent: the characters used as indentation in the docstring string
     :returns: docstring text
     """
+    if isinstance(style, BaseParser):
+        style = style.name
+    if not isinstance(style, DocstringStyle):
+        style = DocstringStyle(style)
     if style == DocstringStyle.AUTO:
         if docstring.style is None:
             raise ValueError(
