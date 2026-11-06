@@ -36,7 +36,7 @@ Example usage:
 ```
 
 `parse()` raises `ParseError` on a docstring it cannot read. `try_parse()`
-never raises. It keeps what it can read, puts the text of the rest in the long
+never raises for the docstring's text. It keeps what it can read, puts the text of the rest in the long
 description, and lists a problem for each part, with its line:
 
 ```python

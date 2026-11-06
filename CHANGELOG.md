@@ -20,7 +20,7 @@
 - General: Add `SectionSpec(parse_item=...)`, which gets each item's meta, already parsed, to change or replace
 - General: Add a `Parser` to every style's module, and `auto.Parser`, which take `sections` once and parse with `parse(text)`; `GoogleParser` and `NumpydocParser` stay as aliases
 - General: Accept a style by its name, such as `"google"`, or a parser in `parse()` and `compose()`
-- General: Add `try_parse()`, which never raises and returns a `ParseResult` of the docstring and its `problems`, each a `Problem` with its line and a stable `code`, such as `missing-colon`; text it cannot read goes to the long description
+- General: Add `try_parse()`, which never raises for the docstring's text and returns a `ParseResult` of the docstring and its `problems`, each a `Problem` with its line and a stable `code`, such as `missing-colon`; text it cannot read goes to the long description
 - General: Give `ParseError` the `problems` of the whole docstring and the `result` parsed despite them, and mention how many more there are in its message
 - General: Show a docstring and its metas with the fields they have set in `repr()`, as in `DocstringParam(kind=Kind.PARAM, arg_name='x', ...)`
 - General: Add `raw_type_name` to params, the type as written, such as `int, optional`, before its optional mark and default are split off
