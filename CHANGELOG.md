@@ -55,6 +55,7 @@
 - ReST: Compose a param or return that only a type field gives as that field alone, instead of adding an empty `:param:` or `:returns:` field that reads back with an empty description
 - ReST: Compose returns, yields and raises with the field name they were read from, such as `:return:` or `:raise:`, instead of `:returns:` and `:raises:` for all
 - ReST: Compose the version of a deprecation instead of dropping it, and indent the lines after the first of a type, which an unindented line ended
+- ReST: Compose an attribute with a default that neither its type nor its description gives, such as one read from a directive's `:value:`, as an `.. attribute::` directive, instead of dropping the default
 - Google: Parse PEP 604 union types (e.g. `int | str`) in return sections (thanks to @binggao1230)
 - Google: Parse a union return or yield type whose members have brackets or dots, such as `dict[str, int] | None`, instead of keeping the whole line as the description
 - Google: Avoid regex backtracking when parsing parameter types
