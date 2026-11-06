@@ -28,6 +28,6 @@ style: epydoc
 === compose epydoc
 Short.
 
-@raise ValueError: If bad.
-@raise KeyError: If missing.
-@raise OSError: If broken.
+@raises ValueError: If bad.
+@except KeyError: If missing.
+@exception OSError: If broken.

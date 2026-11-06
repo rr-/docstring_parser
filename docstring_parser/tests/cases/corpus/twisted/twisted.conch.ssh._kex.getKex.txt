@@ -47,4 +47,4 @@ Get a description of a named key exchange algorithm.
 @rtype: L{_IKexAlgorithm}
 @return: A description of the key exchange algorithm named by
     C{kexAlgorithm}.
-@raise ConchError: if the key exchange algorithm is not found.
+@raises ConchError: if the key exchange algorithm is not found.

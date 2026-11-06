@@ -44,7 +44,5 @@ fail.  When a test that is expected to fail instead succeeds, it should
 call this method to report the unexpected success.
 
 @type test: L{pyunit.TestCase}
-@param test:
 @type todo: L{unittest.Todo}, or L{None}, in which case a default todo
     message is provided.
-@param todo:
