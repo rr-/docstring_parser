@@ -1,0 +1,22 @@
+# Test a raises section of prose with a colon in its sentence.
+=== input
+
+        Short description
+
+        Raises:
+            If the input is bad: a ValueError.
+
+=== parse google
+short_description: 'Short description'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringRaises
+  description: 'If the input is bad: a ValueError.'
+  kind: raises
+  key: 'raises'
+=== compose google
+Short description
+
+Raises:
+    If the input is bad: a ValueError.

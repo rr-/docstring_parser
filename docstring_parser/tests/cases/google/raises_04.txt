@@ -1,0 +1,31 @@
+# Test a raises type alone with its description indented below it.
+=== input
+
+        Short description
+
+        Raises:
+            ValueError
+                If the value is bad.
+            TypeError: If the type is bad.
+
+=== parse google
+short_description: 'Short description'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringRaises
+  description: 'If the value is bad.'
+  kind: raises
+  key: 'raises'
+  type_name: 'ValueError'
+- DocstringRaises
+  description: 'If the type is bad.'
+  kind: raises
+  key: 'raises'
+  type_name: 'TypeError'
+=== compose google
+Short description
+
+Raises:
+    ValueError: If the value is bad.
+    TypeError: If the type is bad.

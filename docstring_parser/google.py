@@ -98,6 +98,30 @@ def _is_union_head(text: str) -> bool:
     )
 
 
+# One exception type: a dotted name, maybe marked as Sphinx does it
+# (``~pkg.Error``) or quoted (```Error```), with an optional subscript.
+_TYPE = r"`?[~!]?[A-Za-z_][\w.]*(?:\[[^\]\n]*\])?`?"
+# An exception type, or several, as written under ``Raises:`` with no
+# colon: ``ValueError``, ``os.error`` or ``KeyError, TypeError``.
+_BARE_TYPE = re.compile(
+    _TYPE + r"(?:[ \t]*(?:,|\||[ \t]or[ \t])[ \t]*" + _TYPE + ")*"
+)
+
+
+def _has_item_head(item: str) -> bool:
+    """Tell whether a raises item starts with a head.
+
+    That is a type alone on its first line, or something before a colon on
+    it that is no sentence: a type, one word with no spaces, as in
+    ``~pkg.Error:``, or nothing at all.
+    """
+    head, colon, _ = item.split("\n", 1)[0].partition(":")
+    head = head.strip()
+    if colon and (not head or not any(c.isspace() for c in head)):
+        return True
+    return _BARE_TYPE.fullmatch(head) is not None
+
+
 DEFAULT_SECTIONS = [
     Section("Arguments", "param", SectionType.MULTIPLE),
     Section("Args", "param", SectionType.MULTIPLE),
@@ -284,7 +308,10 @@ def _multi_meta(section: Section, before: str, desc: str) -> DocstringMeta:
         )
     if kind in RAISES_KINDS:
         return DocstringRaises(
-            description=desc, type_name=before, kind=kind, key=section.key
+            description=desc,
+            type_name=before or None,
+            kind=kind,
+            key=section.key,
         )
     return DocstringMeta(desc, section.key, before)
 
@@ -352,6 +379,18 @@ class Parser(BaseParser):
         ) or section.type == SectionType.SINGULAR:
             return _single_meta(section, text)
 
+        if _section_kind(section) in RAISES_KINDS:
+            # A type alone on its line, with the description, if any,
+            # indented below it.
+            first, _, rest = text.partition("\n")
+            if ":" not in first and _BARE_TYPE.fullmatch(first.strip()):
+                return DocstringRaises(
+                    description=textwrap.dedent(rest).strip("\n") or None,
+                    type_name=first.strip(),
+                    kind=_section_kind(section),
+                    key=section.key,
+                )
+
         if ":" not in text:
             raise ItemError(
                 "missing-colon", f"Expected a colon in {excerpt(text)!r}."
@@ -393,6 +432,19 @@ class Parser(BaseParser):
             )
             one.spec = section
             self.sections[title] = one
+
+    def _prose_meta(self, text: str, title: str) -> DocstringMeta:
+        """Build the one raises of a section that holds only prose."""
+        section = self.sections[title]
+        meta = DocstringRaises(
+            description=text,
+            type_name=None,
+            kind=_section_kind(section),
+            key=section.key,
+        )
+        if isinstance(section, _SpecSection):
+            return apply(section.spec, meta)
+        return meta
 
     def _meta(self, text: str, title: str) -> DocstringMeta:
         section = self.sections[title]
@@ -477,8 +529,17 @@ class Parser(BaseParser):
                 loose.append(chunk)
                 continue
             c_ends = [m.start() for m in c_matches[1:]] + [len(chunk)]
-            for c_match, c_end in zip(c_matches, c_ends):
-                part = chunk[c_match.end() : c_end].strip("\n")
+            parts = [
+                chunk[c_match.end() : c_end].strip("\n")
+                for c_match, c_end in zip(c_matches, c_ends)
+            ]
+            if _section_kind(self.sections[title]) in RAISES_KINDS and not any(
+                _has_item_head(part) for part in parts
+            ):
+                # A section of prose says what may go wrong, with no type.
+                ret.meta.append(self._prose_meta(cleandoc(chunk), title))
+                continue
+            for c_match, part in zip(c_matches, parts):
                 self._add_meta(
                     ret,
                     part,
@@ -585,8 +646,34 @@ def compose(
 
     def process_one(
         one: T.Union[DocstringParam, DocstringReturns, DocstringRaises],
+        alone: bool = False,
     ):
         head = ""
+
+        if isinstance(one, DocstringRaises):
+            if one.type_name and not one.description:
+                # A type alone reads back with no description, where a
+                # colon after it would give an empty one.
+                parts.append(indent + one.type_name)
+                return
+            if (
+                not one.type_name
+                and one.description
+                and alone
+                and not any(
+                    _has_item_head(line)
+                    for line in one.description.splitlines()
+                    if line and not line[0].isspace()
+                )
+            ):
+                # The only raises, with no type, is a section of prose.
+                parts.append(
+                    "\n".join(
+                        indent + line if line else ""
+                        for line in one.description.splitlines()
+                    )
+                )
+                return
 
         if isinstance(one, DocstringParam):
             head += one.arg_name or ""
@@ -648,7 +735,7 @@ def compose(
         if args:
             parts.append(name)
             for arg in args:
-                process_one(arg)
+                process_one(arg, alone=len(args) == 1)
             parts.append("")
 
     parts = description_lines(docstring)

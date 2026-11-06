@@ -1,0 +1,26 @@
+# Test a raises section that holds only prose.
+=== input
+
+        Short description
+
+        Raises:
+            Something may go wrong if the input
+            is not what we expect.
+
+=== parse google
+short_description: 'Short description'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringRaises
+  description: |
+    Something may go wrong if the input
+    is not what we expect.
+  kind: raises
+  key: 'raises'
+=== compose google
+Short description
+
+Raises:
+    Something may go wrong if the input
+    is not what we expect.

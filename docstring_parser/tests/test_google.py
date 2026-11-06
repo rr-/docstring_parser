@@ -5,7 +5,7 @@ import sys
 
 import pytest
 
-from docstring_parser import google
+from docstring_parser import DocstringRaises, google
 from docstring_parser.google import (
     GoogleParser,
     Section,
@@ -211,3 +211,29 @@ def test_section_title_is_literal(title: str) -> None:
     assert [(m.key, m.description) for m in docstring.meta] == [
         ("custom", "text")
     ]
+
+
+def test_raises_without_type_among_typed() -> None:
+    """Test that a raises with no type composes among typed ones and reads
+    back the same."""
+    docstring = google.parse("Short.\n\nRaises:\n    ValueError: Bad.\n")
+    docstring.raises[0].type_name = None
+    docstring.meta.append(
+        DocstringRaises(description="Worse.", type_name="KeyError")
+    )
+    text = google.compose(docstring)
+    assert text == "Short.\n\nRaises:\n    : Bad.\n    KeyError: Worse."
+    again = google.parse(text)
+    assert again.raises[0].type_name is None
+    assert again.raises[0].description == "Bad."
+    assert again.raises[1].type_name == "KeyError"
+    assert again.raises[1].description == "Worse."
+
+
+def test_raises_sphinx_type_head() -> None:
+    """Test that a type marked as Sphinx does it is a raises head."""
+    docstring = google.parse(
+        "Short.\n\nRaises:\n    ~pkg.Error:\n        If it fails.\n"
+    )
+    assert docstring.raises[0].type_name == "~pkg.Error"
+    assert docstring.raises[0].description == "If it fails."
