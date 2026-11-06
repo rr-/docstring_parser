@@ -164,6 +164,16 @@
             </div>
         
 
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_title_tail" class="internal-link" title="docstring_parser.numpydoc._SphinxSection._title_tail">_title<wbr></wbr>_tail</a></code>
+            </div>
+        
+
     </li>
 </ul> 
 
@@ -621,7 +631,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">_SphinxSection</span>(<a href="docstring_parser.numpydoc.Section.html" class="internal-link" title="docstring_parser.numpydoc.Section">Section</a>): <a href="https://github.com/rr-/docstring_parser/tree/1f43a951f90055318ed1a1a2b8d92ae808b9495c/docstring_parser/numpydoc.py#L210" class="sourceLink">(source)</a></code></p><p>Known subclasses: <code><a href="docstring_parser.numpydoc.DeprecationSection.html" class="internal-link">docstring_parser.numpydoc.DeprecationSection</a></code></p><p>Constructor: <code><a href="docstring_parser.numpydoc.Section.html#__init__" class="internal-link" title="docstring_parser.numpydoc.Section.__init__">_SphinxSection(title, key)</a></code></p><p><a href="classIndex.html#docstring_parser.numpydoc._SphinxSection">View In Hierarchy</a></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">_SphinxSection</span>(<a href="docstring_parser.numpydoc.Section.html" class="internal-link" title="docstring_parser.numpydoc.Section">Section</a>): <a href="https://github.com/rr-/docstring_parser/tree/9c08845df7821cb7cf9a060c9c16b39fe327d342/docstring_parser/numpydoc.py#L218" class="sourceLink">(source)</a></code></p><p>Known subclasses: <code><a href="docstring_parser.numpydoc.DeprecationSection.html" class="internal-link">docstring_parser.numpydoc.DeprecationSection</a></code></p><p>Constructor: <code><a href="docstring_parser.numpydoc.Section.html#__init__" class="internal-link" title="docstring_parser.numpydoc.Section.__init__">_SphinxSection(title, key)</a></code></p><p><a href="classIndex.html#docstring_parser.numpydoc._SphinxSection">View In Hierarchy</a></p>
         </div>
 
         <div class="moduleDocstring">
@@ -642,6 +652,11 @@
     <td>Property</td>
     <td><code><a href="#_title_pattern" class="internal-link" title="docstring_parser.numpydoc._SphinxSection._title_pattern">_title<wbr></wbr>_pattern</a></code></td>
     <td>Regular expression pattern matching this section's header.</td>
+  </tr><tr class="property private">
+    
+    <td>Property</td>
+    <td><code><a href="#_title_tail" class="internal-link" title="docstring_parser.numpydoc._SphinxSection._title_tail">_title<wbr></wbr>_tail</a></code></td>
+    <td>The pattern of what follows the title in this section's header, or None if the header does not start with the title.</td>
   </tr>
 </table>
           
@@ -696,7 +711,7 @@
   <div class="functionHeader">
     <div><span class="decorator">@<a href="https://docs.python.org/3/builtins/functions.html#property" class="intersphinx-link">property</a><br /></span></div>
     <span class="py-defname">_title_pattern</span>: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/1f43a951f90055318ed1a1a2b8d92ae808b9495c/docstring_parser/numpydoc.py#L218">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/9c08845df7821cb7cf9a060c9c16b39fe327d342/docstring_parser/numpydoc.py#L230">
       
       (source)
     </a>
@@ -714,6 +729,34 @@ an anonymous group.</p>
 </div>
     
   </div>
+</div><div class="baseproperty private">
+  
+  
+  <a name="docstring_parser.numpydoc._SphinxSection._title_tail">
+    
+  </a>
+  <a name="_title_tail">
+    
+  </a>
+  <div class="functionHeader">
+    <div><span class="decorator">@<a href="https://docs.python.org/3/builtins/functions.html#property" class="intersphinx-link">property</a><br /></span></div>
+    <span class="py-defname">_title_tail</span>: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a> | <a href="https://docs.python.org/3/builtins/constants.html#None" class="intersphinx-link">None</a></code> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/9c08845df7821cb7cf9a060c9c16b39fe327d342/docstring_parser/numpydoc.py#L226">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_title_tail" title="docstring_parser.numpydoc._SphinxSection._title_tail">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overrides <code><a href="docstring_parser.numpydoc.Section.html#_title_tail" class="internal-link">docstring_parser.numpydoc.Section._title_tail</a></code></div>
+    <div><p>The pattern of what follows the title in this section's header,
+or None if the header does not start with the title.</p></div>
+    
+  </div>
 </div>
         </div>
       
@@ -726,7 +769,7 @@ an anonymous group.</p>
   <div class="container-fluid">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    25.10.1 at 2026-11-06 23:19:33.
+    25.10.1 at 2026-11-06 23:31:13.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 
