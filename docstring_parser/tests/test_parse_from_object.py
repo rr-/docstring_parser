@@ -1,5 +1,6 @@
 """Tests for parse_from_object function and attribute docstrings."""
 
+import sys
 from unittest.mock import patch
 
 from docstring_parser import parse_from_object
@@ -113,3 +114,30 @@ def test_from_function() -> None:
     assert docstring.params[1].arg_name == "param2"
     assert docstring.params[1].type_name is None
     assert docstring.params[1].description == "Description for param2"
+
+
+def test_from_builtin_class() -> None:
+    """Test the parse of a class that has no source, being built in."""
+    docstring = parse_from_object(int)
+
+    assert docstring.short_description is not None
+    assert len(docstring.params) == 0
+
+
+def test_from_builtin_module() -> None:
+    """Test the parse of a module that has no source, being built in."""
+    docstring = parse_from_object(sys)
+
+    assert docstring.short_description is not None
+
+
+def test_from_object_with_descriptor_doc() -> None:
+    """Test the parse of an object whose __doc__ is not a string."""
+    descriptor = type(
+        "Descriptor", (), {"__doc__": property(lambda self: "Short.")}
+    )
+
+    docstring = parse_from_object(descriptor)
+
+    assert docstring.short_description is None
+    assert len(docstring.meta) == 0

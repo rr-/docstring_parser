@@ -125,7 +125,11 @@ def parse_from_object(
         style's own
     :returns: parsed docstring representation
     """
-    docstring = parse(obj.__doc__, style=style, sections=sections)
+    # A descriptor or other non-string in ``__doc__`` is no docstring.
+    text = getattr(obj, "__doc__", None)
+    if not isinstance(text, str):
+        text = None
+    docstring = parse(text, style=style, sections=sections)
 
     if inspect.isclass(obj) or inspect.ismodule(obj):
         add_attribute_docstrings(obj, docstring)
