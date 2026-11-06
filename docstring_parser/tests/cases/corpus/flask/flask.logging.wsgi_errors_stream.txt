@@ -9,15 +9,15 @@ Find the most appropriate error stream for the application. If a request
     ``ext://flask.logging.wsgi_errors_stream``.
     
 === parse rest
-short_description: 'Find the most appropriate error stream for the application. If a request'
-long_description: |
+short_description: |
+  Find the most appropriate error stream for the application. If a request
   is active, log to ``wsgi.errors``, otherwise use ``sys.stderr``.
-  
+long_description: |
   If you configure your own :class:`logging.StreamHandler`, you may want to
   use this for the stream. If you are using file or dict configuration and
   can't import this directly, you can refer to it as
   ``ext://flask.logging.wsgi_errors_stream``.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

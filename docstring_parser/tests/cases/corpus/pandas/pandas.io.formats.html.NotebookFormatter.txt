@@ -6,8 +6,8 @@
     DataFrame._repr_html_() and DataFrame.to_html(notebook=True)
     
 === parse numpydoc
-short_description: 'Internal class for formatting output data in html for display in Jupyter'
-long_description: |
+short_description: |
+  Internal class for formatting output data in html for display in Jupyter
   Notebooks. This class is intended for functionality specific to
   DataFrame._repr_html_() and DataFrame.to_html(notebook=True)
 blank_after_short_description: False

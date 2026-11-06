@@ -10,16 +10,16 @@ Iterates over the response data, one line at a time.  When
         .. note:: This method is not reentrant safe.
         
 === parse rest
-short_description: 'Iterates over the response data, one line at a time.  When'
-long_description: |
+short_description: |
+  Iterates over the response data, one line at a time.  When
   stream=True is set on the request, this avoids reading the
   content at once into memory for large responses.
-  
+long_description: |
   The decode_unicode param works the same as in `iter_content`, with the
   same caveats.
   
   .. note:: This method is not reentrant safe.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

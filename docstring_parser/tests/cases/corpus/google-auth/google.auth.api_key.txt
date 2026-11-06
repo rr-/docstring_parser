@@ -6,11 +6,11 @@ This module provides authentication using the `API key`_.
     https://cloud.google.com/docs/authentication/api-keys/
 
 === parse google
-short_description: 'Google API key support.'
-long_description: |
+short_description: |
+  Google API key support.
   This module provides authentication using the `API key`_.
   .. _API key:
-      https://cloud.google.com/docs/authentication/api-keys/
+long_description: '    https://cloud.google.com/docs/authentication/api-keys/'
 blank_after_short_description: False
 blank_after_long_description: False
 style: google

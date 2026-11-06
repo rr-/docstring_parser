@@ -4,8 +4,9 @@ The default session interface that stores sessions in signed cookies
     through the :mod:`itsdangerous` module.
     
 === parse rest
-short_description: 'The default session interface that stores sessions in signed cookies'
-long_description: 'through the :mod:`itsdangerous` module.'
+short_description: |
+  The default session interface that stores sessions in signed cookies
+  through the :mod:`itsdangerous` module.
 blank_after_short_description: False
 blank_after_long_description: False
 style: rest

@@ -6,12 +6,11 @@ Dict-like iteritems() that returns an iterator of name-value tuples
         .. seealso:: iterkeys() and itervalues().
         
 === parse rest
-short_description: 'Dict-like iteritems() that returns an iterator of name-value tuples'
-long_description: |
+short_description: |
+  Dict-like iteritems() that returns an iterator of name-value tuples
   from the jar.
-  
-  .. seealso:: iterkeys() and itervalues().
-blank_after_short_description: False
+long_description: '.. seealso:: iterkeys() and itervalues().'
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

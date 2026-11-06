@@ -12,10 +12,11 @@ Both ``__get_item__`` and ``get`` call this function: it's never
         :return: cookie.value
         
 === parse rest
-short_description: "Both ``__get_item__`` and ``get`` call this function: it's never"
-long_description: 'used elsewhere in Requests.'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  Both ``__get_item__`` and ``get`` call this function: it's never
+  used elsewhere in Requests.
+blank_after_short_description: True
+blank_after_long_description: False
 style: rest
 - DocstringParam
   description: 'a string containing name of cookie'

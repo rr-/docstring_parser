@@ -4,8 +4,9 @@ Move file pointer back to its recorded starting position
     so it can be read again on redirect.
     
 === parse rest
-short_description: 'Move file pointer back to its recorded starting position'
-long_description: 'so it can be read again on redirect.'
+short_description: |
+  Move file pointer back to its recorded starting position
+  so it can be read again on redirect.
 blank_after_short_description: False
 blank_after_long_description: False
 style: rest

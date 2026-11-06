@@ -6,8 +6,8 @@
     columns. Finds additional columns that do not make the matrix singular.
     
 === parse numpydoc
-short_description: 'Called when the auxiliary problem terminates with artificial columns in'
-long_description: |
+short_description: |
+  Called when the auxiliary problem terminates with artificial columns in
   the basis, which must be removed and replaced with non-artificial
   columns. Finds additional columns that do not make the matrix singular.
 blank_after_short_description: False

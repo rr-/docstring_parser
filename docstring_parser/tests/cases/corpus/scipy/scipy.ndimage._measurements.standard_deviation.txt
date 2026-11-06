@@ -49,10 +49,11 @@
 
     
 === parse numpydoc
-short_description: 'Calculate the standard deviation of the values of an N-D image array,'
-long_description: 'optionally at specified sub-regions.'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  Calculate the standard deviation of the values of an N-D image array,
+  optionally at specified sub-regions.
+blank_after_short_description: True
+blank_after_long_description: False
 style: numpydoc
 - DocstringParam
   description: 'N-D image data to process.'

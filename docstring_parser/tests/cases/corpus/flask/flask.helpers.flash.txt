@@ -15,14 +15,14 @@ Flashes a message to the next request.  In order to remove the
                      kind of string can be used as category.
     
 === parse rest
-short_description: 'Flashes a message to the next request.  In order to remove the'
-long_description: |
+short_description: |
+  Flashes a message to the next request.  In order to remove the
   flashed message from the session and to display it to the user,
   the template has to call :func:`get_flashed_messages`.
-  
+long_description: |
   .. versionchanged:: 0.3
      `category` parameter added.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringParam

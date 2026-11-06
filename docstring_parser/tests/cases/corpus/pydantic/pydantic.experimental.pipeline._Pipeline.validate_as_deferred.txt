@@ -6,12 +6,11 @@ Parse the input into a new type, deferring resolution of the type until the curr
         This is useful when you need to reference the class in it's own type annotations.
         
 === parse google
-short_description: 'Parse the input into a new type, deferring resolution of the type until the current class'
-long_description: |
+short_description: |
+  Parse the input into a new type, deferring resolution of the type until the current class
   is fully defined.
-  
-  This is useful when you need to reference the class in it's own type annotations.
-blank_after_short_description: False
+long_description: "This is useful when you need to reference the class in it's own type annotations."
+blank_after_short_description: True
 blank_after_long_description: False
 style: google
 === detect

@@ -4,8 +4,9 @@ Like :meth:`url_defaults`, but for every request, not only those handled by
         the blueprint. Equivalent to :meth:`.Flask.url_defaults`.
         
 === parse rest
-short_description: 'Like :meth:`url_defaults`, but for every request, not only those handled by'
-long_description: 'the blueprint. Equivalent to :meth:`.Flask.url_defaults`.'
+short_description: |
+  Like :meth:`url_defaults`, but for every request, not only those handled by
+  the blueprint. Equivalent to :meth:`.Flask.url_defaults`.
 blank_after_short_description: False
 blank_after_long_description: False
 style: rest

@@ -10,12 +10,11 @@ Render a template from the given source string with the given
     .. versionadded:: 2.2
     
 === parse rest
-short_description: 'Render a template from the given source string with the given'
-long_description: |
+short_description: |
+  Render a template from the given source string with the given
   context as a stream. This returns an iterator of strings, which can
   be used as a streaming response from a view.
-  
-  .. versionadded:: 2.2
+long_description: '.. versionadded:: 2.2'
 blank_after_short_description: True
 blank_after_long_description: True
 style: rest
@@ -35,7 +34,6 @@ style: rest
 rest
 === compose rest
 Render a template from the given source string with the given
-
 context as a stream. This returns an iterator of strings, which can
 be used as a streaming response from a view.
 

@@ -6,12 +6,11 @@ Releases the connection back to the pool. Once this method has been
         *Note: Should not normally need to be called explicitly.*
         
 === parse rest
-short_description: 'Releases the connection back to the pool. Once this method has been'
-long_description: |
+short_description: |
+  Releases the connection back to the pool. Once this method has been
   called the underlying ``raw`` object must not be accessed again.
-  
-  *Note: Should not normally need to be called explicitly.*
-blank_after_short_description: False
+long_description: '*Note: Should not normally need to be called explicitly.*'
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

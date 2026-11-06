@@ -10,10 +10,11 @@ Converts scope value to a string suitable for sending to OAuth 2.0
         str: The scopes formatted as a single string.
     
 === parse google
-short_description: 'Converts scope value to a string suitable for sending to OAuth 2.0'
-long_description: 'authorization servers.'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  Converts scope value to a string suitable for sending to OAuth 2.0
+  authorization servers.
+blank_after_short_description: True
+blank_after_long_description: False
 style: google
 - DocstringParam
   description: 'The sequence of scopes to convert.'

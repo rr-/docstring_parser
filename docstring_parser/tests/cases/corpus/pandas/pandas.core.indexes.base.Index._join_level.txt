@@ -10,15 +10,15 @@
         with `other`.
         
 === parse numpydoc
-short_description: 'The join method *only* affects the level of the resulting'
-long_description: |
+short_description: |
+  The join method *only* affects the level of the resulting
   MultiIndex. Otherwise it just exactly aligns the Index data to the
   labels of the level in the MultiIndex.
-  
+long_description: |
   If ```keep_order == True```, the order of the data indexed by the
   MultiIndex will not be changed; otherwise, it will tie out
   with `other`.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 === detect

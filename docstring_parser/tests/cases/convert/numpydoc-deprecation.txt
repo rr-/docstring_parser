@@ -1,0 +1,32 @@
+# Test that a deprecation keeps its version in every style.
+=== input
+Short.
+
+.. deprecated:: 1.0
+    Use other() instead.
+
+Parameters
+----------
+x : int
+    The x.
+=== convert numpydoc epydoc
+Short.
+
+@deprecated: 1.0 Use other() instead.
+@type x: int
+@param x: The x.
+=== convert numpydoc google
+Short.
+
+.. deprecated:: 1.0
+    Use other() instead.
+
+Args:
+    x (int): The x.
+=== convert numpydoc rest
+Short.
+
+.. deprecated:: 1.0
+    Use other() instead.
+
+:param int x: The x.

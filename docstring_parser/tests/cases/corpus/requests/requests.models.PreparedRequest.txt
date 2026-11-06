@@ -20,10 +20,10 @@ The fully mutable :class:`PreparedRequest <PreparedRequest>` object,
       <Response [200]>
     
 === parse rest
-short_description: 'The fully mutable :class:`PreparedRequest <PreparedRequest>` object,'
-long_description: |
+short_description: |
+  The fully mutable :class:`PreparedRequest <PreparedRequest>` object,
   containing the exact bytes that will be sent to the server.
-  
+long_description: |
   Instances are generated from a :class:`Request <Request>` object, and
   should not be instantiated manually; doing so may produce undesirable
   effects.
@@ -39,7 +39,7 @@ long_description: |
     >>> s = requests.Session()
     >>> s.send(r)
     <Response [200]>
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

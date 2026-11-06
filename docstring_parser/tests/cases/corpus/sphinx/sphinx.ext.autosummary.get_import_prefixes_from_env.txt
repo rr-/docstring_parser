@@ -4,8 +4,9 @@ Obtain current Python import prefixes (for `import_by_name`)
     from ``document.env``
     
 === parse rest
-short_description: 'Obtain current Python import prefixes (for `import_by_name`)'
-long_description: 'from ``document.env``'
+short_description: |
+  Obtain current Python import prefixes (for `import_by_name`)
+  from ``document.env``
 blank_after_short_description: False
 blank_after_long_description: False
 style: rest

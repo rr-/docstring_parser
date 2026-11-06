@@ -1,0 +1,56 @@
+# Test that a deprecated directive in Google free text is a deprecation.
+=== input
+Short.
+
+.. deprecated:: 1.0
+    Use other() instead.
+
+Args:
+    x: The x.
+
+Returns:
+    The y.
+=== parse google
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringDeprecated
+  description: 'Use other() instead.'
+  kind: deprecation
+  key: 'deprecation'
+  version: '1.0'
+- DocstringParam
+  description: 'The x.'
+  kind: param
+  key: 'param'
+  arg_name: 'x'
+  is_optional: False
+- DocstringReturns
+  description: 'The y.'
+  kind: returns
+  key: 'returns'
+  is_generator: False
+=== compose google
+Short.
+
+.. deprecated:: 1.0
+    Use other() instead.
+
+Args:
+    x: The x.
+
+Returns:
+    The y.
+=== compose google expanded
+Short.
+
+.. deprecated:: 1.0
+    Use other() instead.
+
+Args:
+    x:
+        The x.
+
+Returns:
+    The y.

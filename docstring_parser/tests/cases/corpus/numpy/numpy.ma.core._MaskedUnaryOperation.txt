@@ -17,10 +17,11 @@
 
     
 === parse numpydoc
-short_description: 'Defines masked version of unary operations, where invalid values are'
-long_description: 'pre-masked.'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  Defines masked version of unary operations, where invalid values are
+  pre-masked.
+blank_after_short_description: True
+blank_after_long_description: False
 style: numpydoc
 - DocstringParam
   description: |

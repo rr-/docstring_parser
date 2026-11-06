@@ -24,11 +24,11 @@ typical, since their scalar counterparts (e.g. ``np.float64``) or strings
 like ``"float64"`` can be used.
 
 === parse numpydoc
-short_description: 'This module is home to specific dtypes related functionality and their classes.'
-long_description: |
+short_description: |
+  This module is home to specific dtypes related functionality and their classes.
   For more general information about dtypes, also see `numpy.dtype` and
   :ref:`arrays.dtypes`.
-  
+long_description: |
   Similar to the builtin ``types`` module, this submodule defines types (classes)
   that are not widely used directly.
   
@@ -46,7 +46,7 @@ long_description: |
   also be instantiated or used directly.  Direct use of these classes is not
   typical, since their scalar counterparts (e.g. ``np.float64``) or strings
   like ``"float64"`` can be used.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 === detect

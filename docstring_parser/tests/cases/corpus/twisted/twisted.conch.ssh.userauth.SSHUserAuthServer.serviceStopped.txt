@@ -5,8 +5,9 @@
         if it's still going.
         
 === parse epydoc
-short_description: 'Called when the userauth service is stopped.  Cancel the login timeout'
-long_description: "if it's still going."
+short_description: |
+  Called when the userauth service is stopped.  Cancel the login timeout
+  if it's still going.
 blank_after_short_description: False
 blank_after_long_description: False
 style: epydoc

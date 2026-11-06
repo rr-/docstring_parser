@@ -17,10 +17,10 @@ Compatibility class; is a http.cookiejar.CookieJar, but exposes a dict
     .. warning:: dictionary operations that are normally O(1) may be O(n).
     
 === parse rest
-short_description: 'Compatibility class; is a http.cookiejar.CookieJar, but exposes a dict'
-long_description: |
+short_description: |
+  Compatibility class; is a http.cookiejar.CookieJar, but exposes a dict
   interface.
-  
+long_description: |
   This is the CookieJar we create by default for requests and sessions that
   don't specify one, since some clients may expect response.cookies and
   session.cookies to support dict operations.
@@ -33,7 +33,7 @@ long_description: |
   Unlike a regular CookieJar, this class is pickleable.
   
   .. warning:: dictionary operations that are normally O(1) may be O(n).
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

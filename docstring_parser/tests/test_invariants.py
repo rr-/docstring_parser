@@ -27,15 +27,24 @@ def _words(text: str) -> T.Set[str]:
 
 
 # Words a style reads as syntax rather than keeping: section titles, the
-# fields that only give a type, the parts of a ReST attribute directive, and
-# the marks of an optional param's type.
+# fields that only give a type, the parts of the attribute and deprecated
+# directives, and the marks of an optional param's type.
 TYPE_MARKS = {"optional", "default"}
 SYNTAX = {
-    DocstringStyle.REST: {"type", "rtype", "ytype", "vartype", "py", "value"}
+    DocstringStyle.REST: {
+        "type",
+        "rtype",
+        "ytype",
+        "vartype",
+        "py",
+        "value",
+        "deprecated",
+    }
     | TYPE_MARKS,
     DocstringStyle.GOOGLE: {
         word for s in google.DEFAULT_SECTIONS for word in _words(s.title)
     }
+    | {"deprecated"}
     | TYPE_MARKS,
     DocstringStyle.NUMPYDOC: {
         word for s in numpydoc.DEFAULT_SECTIONS for word in _words(s.title)

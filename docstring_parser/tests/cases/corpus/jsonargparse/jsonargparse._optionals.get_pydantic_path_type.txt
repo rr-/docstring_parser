@@ -3,8 +3,9 @@
 Returns the path type of pydantic's ``FilePath`` ("file"), ``DirectoryPath`` ("dir") and
     ``NewPath`` ("new") types, or None if the typehint is not one of them.
 === parse google
-short_description: 'Returns the path type of pydantic\'s ``FilePath`` ("file"), ``DirectoryPath`` ("dir") and'
-long_description: '``NewPath`` ("new") types, or None if the typehint is not one of them.'
+short_description: |
+  Returns the path type of pydantic's ``FilePath`` ("file"), ``DirectoryPath`` ("dir") and
+  ``NewPath`` ("new") types, or None if the typehint is not one of them.
 blank_after_short_description: False
 blank_after_long_description: False
 style: google

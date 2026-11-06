@@ -9,14 +9,14 @@ between Python 2 and Python 3. It remains for backwards
 compatibility until the next major version.
 
 === parse rest
-short_description: 'requests.compat'
-long_description: |
+short_description: |
+  requests.compat
   ~~~~~~~~~~~~~~~
-  
+long_description: |
   This module previously handled import compatibility issues
   between Python 2 and Python 3. It remains for backwards
   compatibility until the next major version.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

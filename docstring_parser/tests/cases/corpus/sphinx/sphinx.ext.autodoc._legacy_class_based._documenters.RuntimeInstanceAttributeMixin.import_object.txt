@@ -4,8 +4,9 @@ Check the existence of runtime instance attribute after failing to import the
         attribute.
         
 === parse rest
-short_description: 'Check the existence of runtime instance attribute after failing to import the'
-long_description: 'attribute.'
+short_description: |
+  Check the existence of runtime instance attribute after failing to import the
+  attribute.
 blank_after_short_description: False
 blank_after_long_description: False
 style: rest

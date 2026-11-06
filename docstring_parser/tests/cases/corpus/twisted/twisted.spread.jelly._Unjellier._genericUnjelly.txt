@@ -15,10 +15,11 @@
         @return: the new, unjellied instance.
         
 === parse epydoc
-short_description: 'Unjelly a type for which no specific unjellier is registered, but which'
-long_description: 'is nonetheless allowed.'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  Unjelly a type for which no specific unjellier is registered, but which
+  is nonetheless allowed.
+blank_after_short_description: True
+blank_after_long_description: False
 style: epydoc
 - DocstringParam
   description: 'the class of the instance we are unjellying.'

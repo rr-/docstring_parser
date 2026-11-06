@@ -5,8 +5,8 @@ The WSGI server calls the Flask application object as the
         wrapped to apply middleware.
         
 === parse rest
-short_description: 'The WSGI server calls the Flask application object as the'
-long_description: |
+short_description: |
+  The WSGI server calls the Flask application object as the
   WSGI application. This calls :meth:`wsgi_app`, which can be
   wrapped to apply middleware.
 blank_after_short_description: False

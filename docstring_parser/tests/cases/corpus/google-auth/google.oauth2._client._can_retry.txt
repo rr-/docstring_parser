@@ -11,10 +11,11 @@ Checks if a request can be retried by inspecting the status code
       bool: True if the response is retryable. False otherwise.
     
 === parse google
-short_description: 'Checks if a request can be retried by inspecting the status code'
-long_description: 'and response body of the request.'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  Checks if a request can be retried by inspecting the status code
+  and response body of the request.
+blank_after_short_description: True
+blank_after_long_description: False
 style: google
 - DocstringParam
   description: 'The response status code.'

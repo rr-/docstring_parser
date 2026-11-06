@@ -6,10 +6,11 @@ Given a URL that may or may not have a scheme, prepend the given scheme.
     :rtype: str
     
 === parse rest
-short_description: 'Given a URL that may or may not have a scheme, prepend the given scheme.'
-long_description: 'Does not replace a present scheme with the one provided as an argument.'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  Given a URL that may or may not have a scheme, prepend the given scheme.
+  Does not replace a present scheme with the one provided as an argument.
+blank_after_short_description: True
+blank_after_long_description: False
 style: rest
 - DocstringReturns
   kind: returns

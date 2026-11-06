@@ -10,12 +10,11 @@ This module implements the Requests API.
 :license: Apache2, see LICENSE for more details.
 
 === parse rest
-short_description: 'requests.api'
-long_description: |
+short_description: |
+  requests.api
   ~~~~~~~~~~~~
-  
-  This module implements the Requests API.
-blank_after_short_description: False
+long_description: 'This module implements the Requests API.'
+blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringMeta

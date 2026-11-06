@@ -9,13 +9,12 @@ Find the root path of a package, or the path that contains a
     :meta private:
     
 === parse rest
-short_description: 'Find the root path of a package, or the path that contains a'
-long_description: |
+short_description: |
+  Find the root path of a package, or the path that contains a
   module. If it cannot be found, returns the current working
   directory.
-  
-  Not to be confused with the value returned by :func:`find_package`.
-blank_after_short_description: False
+long_description: 'Not to be confused with the value returned by :func:`find_package`.'
+blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringMeta

@@ -5,8 +5,9 @@
     use Python.
     
 === parse numpydoc
-short_description: 'Compute the vectorized membership of ``x in y`` if possible, otherwise'
-long_description: 'use Python.'
+short_description: |
+  Compute the vectorized membership of ``x in y`` if possible, otherwise
+  use Python.
 blank_after_short_description: False
 blank_after_long_description: False
 style: numpydoc

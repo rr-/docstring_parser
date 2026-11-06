@@ -5,8 +5,8 @@ When being redirected we may want to strip authentication from the
         and reapplies authentication where possible to avoid credential loss.
         
 === parse rest
-short_description: 'When being redirected we may want to strip authentication from the'
-long_description: |
+short_description: |
+  When being redirected we may want to strip authentication from the
   request to avoid leaking credentials. This method intelligently removes
   and reapplies authentication where possible to avoid credential loss.
 blank_after_short_description: False

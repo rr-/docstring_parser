@@ -10,16 +10,16 @@ Create the object to assign to :attr:`aborter`. That object
         .. versionadded:: 2.2
         
 === parse rest
-short_description: 'Create the object to assign to :attr:`aborter`. That object'
-long_description: |
+short_description: |
+  Create the object to assign to :attr:`aborter`. That object
   is called by :func:`flask.abort` to raise HTTP errors, and can
   be called directly as well.
-  
+long_description: |
   By default, this creates an instance of :attr:`aborter_class`,
   which defaults to :class:`werkzeug.exceptions.Aborter`.
   
   .. versionadded:: 2.2
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

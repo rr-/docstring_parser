@@ -7,13 +7,12 @@ This works similar to a regular click :class:`~click.Group` but it
     Not to be confused with :class:`FlaskGroup`.
     
 === parse rest
-short_description: 'This works similar to a regular click :class:`~click.Group` but it'
-long_description: |
+short_description: |
+  This works similar to a regular click :class:`~click.Group` but it
   changes the behavior of the :meth:`command` decorator so that it
   automatically wraps the functions in :func:`with_appcontext`.
-  
-  Not to be confused with :class:`FlaskGroup`.
-blank_after_short_description: False
+long_description: 'Not to be confused with :class:`FlaskGroup`.'
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

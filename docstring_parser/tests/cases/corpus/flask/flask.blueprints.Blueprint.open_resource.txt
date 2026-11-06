@@ -14,11 +14,11 @@ Open a resource file relative to :attr:`root_path` for reading. The
             Added the ``encoding`` parameter.
         
 === parse rest
-short_description: 'Open a resource file relative to :attr:`root_path` for reading. The'
-long_description: |
+short_description: |
+  Open a resource file relative to :attr:`root_path` for reading. The
   blueprint-relative equivalent of the app's :meth:`~.Flask.open_resource`
   method.
-  
+long_description: |
   .. versionchanged:: 3.1
       Added the ``encoding`` parameter.
 blank_after_short_description: True
@@ -50,7 +50,6 @@ style: rest
 rest
 === compose rest
 Open a resource file relative to :attr:`root_path` for reading. The
-
 blueprint-relative equivalent of the app's :meth:`~.Flask.open_resource`
 method.
 

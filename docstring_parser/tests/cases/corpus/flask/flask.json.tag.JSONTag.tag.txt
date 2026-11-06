@@ -3,8 +3,9 @@
 Convert the value to a valid JSON type and add the tag structure
         around it.
 === parse rest
-short_description: 'Convert the value to a valid JSON type and add the tag structure'
-long_description: 'around it.'
+short_description: |
+  Convert the value to a valid JSON type and add the tag structure
+  around it.
 blank_after_short_description: False
 blank_after_long_description: False
 style: rest

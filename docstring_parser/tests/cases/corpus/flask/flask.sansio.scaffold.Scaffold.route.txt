@@ -23,11 +23,11 @@ Decorate a view function to register it with the given URL
             :class:`~werkzeug.routing.Rule` object.
         
 === parse rest
-short_description: 'Decorate a view function to register it with the given URL'
-long_description: |
+short_description: |
+  Decorate a view function to register it with the given URL
   rule and options. Calls :meth:`add_url_rule`, which has more
   details about the implementation.
-  
+long_description: |
   .. code-block:: python
   
       @app.route("/")
@@ -41,7 +41,7 @@ long_description: |
   
   The ``methods`` parameter defaults to ``["GET"]``. ``HEAD`` and
   ``OPTIONS`` are added automatically.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringParam

@@ -30,17 +30,17 @@
     dat  NaN  NaN  2.5
     
 === parse numpydoc
-short_description: 'Internal function to reorder result if relabelling is True for'
-long_description: |
+short_description: |
+  Internal function to reorder result if relabelling is True for
   dataframe.agg, and return the reordered result in dict.
-  
+long_description: |
   Parameters:
   ----------
   result: Result from aggregation
   func: Dict of (column name, funcs)
   columns: New columns name for relabelling
   order: New order for relabelling
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringExample

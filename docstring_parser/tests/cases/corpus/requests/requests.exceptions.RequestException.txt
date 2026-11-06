@@ -4,8 +4,9 @@ There was an ambiguous exception that occurred while handling your
     request.
     
 === parse rest
-short_description: 'There was an ambiguous exception that occurred while handling your'
-long_description: 'request.'
+short_description: |
+  There was an ambiguous exception that occurred while handling your
+  request.
 blank_after_short_description: False
 blank_after_long_description: False
 style: rest

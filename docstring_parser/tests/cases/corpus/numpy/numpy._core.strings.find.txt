@@ -33,12 +33,12 @@
 
     
 === parse numpydoc
-short_description: 'For each element, return the lowest index in the string where'
-long_description: |
+short_description: |
+  For each element, return the lowest index in the string where
   substring ``sub`` is found, such that ``sub`` is contained in the
   range [``start``, ``end``).
-blank_after_short_description: False
-blank_after_long_description: True
+blank_after_short_description: True
+blank_after_long_description: False
 style: numpydoc
 - DocstringParam
   kind: param

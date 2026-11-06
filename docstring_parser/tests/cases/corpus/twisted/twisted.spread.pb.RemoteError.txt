@@ -19,14 +19,14 @@
         thrown into a generator. It must be accessed as an attribute.
     
 === parse epydoc
-short_description: 'This class is used to wrap a string-ified exception from the remote side to'
-long_description: |
+short_description: |
+  This class is used to wrap a string-ified exception from the remote side to
   be able to reraise it. (Raising string exceptions is no longer possible in
   Python 2.6+)
-  
+long_description: |
   The value of this exception will be a str() representation of the remote
   value.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: True
 style: epydoc
 - DocstringParam

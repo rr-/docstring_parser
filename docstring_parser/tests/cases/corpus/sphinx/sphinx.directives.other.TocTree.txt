@@ -4,8 +4,9 @@ Directive to notify Sphinx about the hierarchical structure of the docs,
     and to include a table-of-contents like tree in the current document.
     
 === parse rest
-short_description: 'Directive to notify Sphinx about the hierarchical structure of the docs,'
-long_description: 'and to include a table-of-contents like tree in the current document.'
+short_description: |
+  Directive to notify Sphinx about the hierarchical structure of the docs,
+  and to include a table-of-contents like tree in the current document.
 blank_after_short_description: False
 blank_after_long_description: False
 style: rest

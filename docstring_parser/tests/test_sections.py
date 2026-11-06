@@ -214,6 +214,36 @@ def test_rest_attribute_directive_parse_item() -> None:
     assert docstring.attrs[0].description == "Seen."
 
 
+def test_rest_deprecated_directive_left_out() -> None:
+    """Test that a deprecated directive is text without a deprecated field."""
+    docstring = parse(
+        "Short.\n\n.. deprecated:: 1.0\n   Old.\n\n:param a: A.\n",
+        DocstringStyle.REST,
+        sections=[SectionSpec("param", Kind.PARAM)],
+    )
+    assert docstring.long_description == ".. deprecated:: 1.0\n   Old."
+    assert docstring.deprecation is None
+
+
+def test_rest_deprecated_directive_parse_item() -> None:
+    """Test that a deprecated directive goes through its spec's hook."""
+    sections = [
+        SectionSpec(
+            "deprecated",
+            Kind.DEPRECATION,
+            parse_item=lambda meta: setattr(meta, "description", "Seen."),
+        )
+    ]
+    docstring = parse(
+        "Short.\n\n.. deprecated:: 1.0\n   Old.\n",
+        DocstringStyle.REST,
+        sections=sections,
+    )
+    assert docstring.deprecation is not None
+    assert docstring.deprecation.version == "1.0"
+    assert docstring.deprecation.description == "Seen."
+
+
 def test_epydoc_spec_field() -> None:
     """Test an Epydoc field of a kind of its own, with its type."""
     sections = [

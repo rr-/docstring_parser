@@ -13,10 +13,10 @@ Find the prefix that a package is installed under, and the path
     package was imported from the current working directory.
     
 === parse rest
-short_description: 'Find the prefix that a package is installed under, and the path'
-long_description: |
+short_description: |
+  Find the prefix that a package is installed under, and the path
   that it would be imported from.
-  
+long_description: |
   The prefix is the directory containing the standard directory
   hierarchy (lib, bin, etc.). If the package is not installed to the
   system (:attr:`sys.prefix`) or a virtualenv (``site-packages``),
@@ -25,7 +25,7 @@ long_description: |
   The path is the entry in :attr:`sys.path` that contains the package
   for import. If the package is not installed, it's assumed that the
   package was imported from the current working directory.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

@@ -13,10 +13,11 @@ Highlight text with a regular expression, where group names are
             int: Number of regex matches
         
 === parse google
-short_description: 'Highlight text with a regular expression, where group names are'
-long_description: 'translated to styles.'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  Highlight text with a regular expression, where group names are
+  translated to styles.
+blank_after_short_description: True
+blank_after_long_description: False
 style: google
 - DocstringParam
   description: 'A regular expression object or string.'

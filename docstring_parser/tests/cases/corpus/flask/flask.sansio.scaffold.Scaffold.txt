@@ -17,11 +17,10 @@ Common behavior shared between :class:`~flask.Flask` and
     .. versionadded:: 2.0
     
 === parse rest
-short_description: 'Common behavior shared between :class:`~flask.Flask` and'
-long_description: |
+short_description: |
+  Common behavior shared between :class:`~flask.Flask` and
   :class:`~flask.blueprints.Blueprint`.
-  
-  .. versionadded:: 2.0
+long_description: '.. versionadded:: 2.0'
 blank_after_short_description: True
 blank_after_long_description: True
 style: rest
@@ -68,7 +67,6 @@ style: rest
 rest
 === compose rest
 Common behavior shared between :class:`~flask.Flask` and
-
 :class:`~flask.blueprints.Blueprint`.
 
 .. versionadded:: 2.0

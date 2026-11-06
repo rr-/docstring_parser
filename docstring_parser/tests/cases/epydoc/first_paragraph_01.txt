@@ -1,0 +1,22 @@
+# Test that the short description is the whole first paragraph.
+=== input
+Return the Foo for
+bar calls.
+@param x: The x.
+=== parse epydoc
+short_description: |
+  Return the Foo for
+  bar calls.
+blank_after_short_description: False
+blank_after_long_description: False
+style: epydoc
+- DocstringParam
+  description: 'The x.'
+  kind: param
+  key: 'param'
+  arg_name: 'x'
+  is_optional: False
+=== compose epydoc
+Return the Foo for
+bar calls.
+@param x: The x.

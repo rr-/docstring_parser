@@ -4,8 +4,9 @@ The ``--key`` option must be specified when ``--cert`` is a file.
     Modifies the ``cert`` param to be a ``(cert, key)`` pair if needed.
     
 === parse rest
-short_description: 'The ``--key`` option must be specified when ``--cert`` is a file.'
-long_description: 'Modifies the ``cert`` param to be a ``(cert, key)`` pair if needed.'
+short_description: |
+  The ``--key`` option must be specified when ``--cert`` is a file.
+  Modifies the ``cert`` param to be a ``(cert, key)`` pair if needed.
 blank_after_short_description: False
 blank_after_long_description: False
 style: rest

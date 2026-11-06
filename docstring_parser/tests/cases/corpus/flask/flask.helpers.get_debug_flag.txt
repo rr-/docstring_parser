@@ -4,8 +4,9 @@ Get whether debug mode should be enabled for the app, indicated by the
     :envvar:`FLASK_DEBUG` environment variable. The default is ``False``.
     
 === parse rest
-short_description: 'Get whether debug mode should be enabled for the app, indicated by the'
-long_description: ':envvar:`FLASK_DEBUG` environment variable. The default is ``False``.'
+short_description: |
+  Get whether debug mode should be enabled for the app, indicated by the
+  :envvar:`FLASK_DEBUG` environment variable. The default is ``False``.
 blank_after_short_description: False
 blank_after_long_description: False
 style: rest

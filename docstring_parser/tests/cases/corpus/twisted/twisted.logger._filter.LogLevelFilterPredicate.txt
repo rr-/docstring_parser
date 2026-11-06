@@ -7,12 +7,11 @@
     Events that not not have a log level or namespace are also dropped.
     
 === parse epydoc
-short_description: 'L{ILogFilterPredicate} that filters out events with a log level lower than'
-long_description: |
+short_description: |
+  L{ILogFilterPredicate} that filters out events with a log level lower than
   the log level for the event's namespace.
-  
-  Events that not not have a log level or namespace are also dropped.
-blank_after_short_description: False
+long_description: 'Events that not not have a log level or namespace are also dropped.'
+blank_after_short_description: True
 blank_after_long_description: False
 style: epydoc
 === detect

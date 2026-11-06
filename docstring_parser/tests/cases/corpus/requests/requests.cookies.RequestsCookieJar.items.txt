@@ -7,13 +7,12 @@ Dict-like items() that returns a list of name-value tuples from the
         .. seealso:: keys() and values().
         
 === parse rest
-short_description: 'Dict-like items() that returns a list of name-value tuples from the'
-long_description: |
+short_description: |
+  Dict-like items() that returns a list of name-value tuples from the
   jar. Allows client-code to call ``dict(RequestsCookieJar)`` and get a
   vanilla python dict of key value pairs.
-  
-  .. seealso:: keys() and values().
-blank_after_short_description: False
+long_description: '.. seealso:: keys() and values().'
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

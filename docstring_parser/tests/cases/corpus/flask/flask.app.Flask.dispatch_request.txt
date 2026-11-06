@@ -10,16 +10,16 @@ Does the request dispatching.  Matches the URL and returns the
            moved to the new :meth:`full_dispatch_request`.
         
 === parse rest
-short_description: 'Does the request dispatching.  Matches the URL and returns the'
-long_description: |
+short_description: |
+  Does the request dispatching.  Matches the URL and returns the
   return value of the view or error handler.  This does not have to
   be a response object.  In order to convert the return value to a
   proper response object, call :func:`make_response`.
-  
+long_description: |
   .. versionchanged:: 0.7
      This no longer does the exception handling, this code was
      moved to the new :meth:`full_dispatch_request`.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

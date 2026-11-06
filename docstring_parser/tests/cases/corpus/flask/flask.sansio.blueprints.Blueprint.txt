@@ -52,11 +52,11 @@ Represents a blueprint, a collection of routes and other
     .. versionadded:: 0.7
     
 === parse rest
-short_description: 'Represents a blueprint, a collection of routes and other'
-long_description: |
+short_description: |
+  Represents a blueprint, a collection of routes and other
   app-related functions that can be registered on a real application
   later.
-  
+long_description: |
   A blueprint is an object that allows defining application functions
   without requiring an application object ahead of time. It uses the
   same decorators as :class:`~flask.Flask`, but defers the need for an
@@ -164,7 +164,6 @@ style: rest
 rest
 === compose rest
 Represents a blueprint, a collection of routes and other
-
 app-related functions that can be registered on a real application
 later.
 

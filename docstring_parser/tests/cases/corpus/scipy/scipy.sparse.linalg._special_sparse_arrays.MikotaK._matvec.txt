@@ -6,8 +6,8 @@
         itself using the knowledge of its entries and the 3-diagonal format.
         
 === parse numpydoc
-short_description: 'Construct matrix-free callable banded-matrix-vector multiplication by'
-long_description: |
+short_description: |
+  Construct matrix-free callable banded-matrix-vector multiplication by
   the Mikota stiffness matrix without constructing or storing the matrix
   itself using the knowledge of its entries and the 3-diagonal format.
 blank_after_short_description: False

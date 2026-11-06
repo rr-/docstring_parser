@@ -20,10 +20,10 @@
       the models and sub-models passed in ``models``.
     
 === parse google
-short_description: 'Process a list of models and generate a single JSON Schema with all of them defined in the ``definitions``'
-long_description: |
+short_description: |
+  Process a list of models and generate a single JSON Schema with all of them defined in the ``definitions``
   top-level JSON key, including their sub-models.
-  
+long_description: |
   :param models: a list of models to include in the generated JSON Schema
   :param by_alias: generate the schemas using the aliases defined, if any
   :param title: title for the generated schema that includes the definitions
@@ -38,7 +38,7 @@ long_description: |
     a sibling json file in a ``/schemas`` directory use ``"/schemas/${model}.json#"``.
   :return: dict with the JSON Schema with a ``definitions`` top-level key including the schema definitions for
     the models and sub-models passed in ``models``.
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: google
 === detect

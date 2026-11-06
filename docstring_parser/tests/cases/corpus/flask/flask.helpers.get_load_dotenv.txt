@@ -7,12 +7,12 @@ Get whether the user has disabled loading default dotenv files by
     :param default: What to return if the env var isn't set.
     
 === parse rest
-short_description: 'Get whether the user has disabled loading default dotenv files by'
-long_description: |
+short_description: |
+  Get whether the user has disabled loading default dotenv files by
   setting :envvar:`FLASK_SKIP_DOTENV`. The default is ``True``, load
   the files.
-blank_after_short_description: False
-blank_after_long_description: True
+blank_after_short_description: True
+blank_after_long_description: False
 style: rest
 - DocstringParam
   description: "What to return if the env var isn't set."

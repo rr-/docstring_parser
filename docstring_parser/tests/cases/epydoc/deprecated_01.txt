@@ -1,0 +1,32 @@
+# Test that a @deprecated field is a deprecation, with the version that
+# starts its description.
+=== input
+Short.
+
+@deprecated: 1.0 Use other() instead,
+    which is faster.
+@param x: The x.
+=== parse epydoc
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringDeprecated
+  description: |
+    Use other() instead,
+    which is faster.
+  kind: deprecation
+  key: 'deprecated'
+  version: '1.0'
+- DocstringParam
+  description: 'The x.'
+  kind: param
+  key: 'param'
+  arg_name: 'x'
+  is_optional: False
+=== compose epydoc
+Short.
+
+@deprecated: 1.0 Use other() instead,
+    which is faster.
+@param x: The x.

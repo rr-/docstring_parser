@@ -10,6 +10,17 @@ from ._compose import (
     start_on_new_line,
     written_type,
 )
+from ._directives import (
+    DEPRECATED,
+    Directive,
+    cut_directives,
+    deprecation,
+    deprecation_lines,
+    description_with_deprecation,
+    directive_pattern,
+    lead_directive,
+    leading_deprecation,
+)
 from ._fields import AFTER_ALL, ParamTypes, ReturnTypes, assign_types
 from ._lines import Lines, dedent
 from ._text import (
@@ -188,21 +199,44 @@ _FIELD = re.compile(
 _TYPE_FIELD = re.compile(r":(?:[ry]|var)?type\b")
 _UNINDENTED = re.compile(r"\n(?=[^ \t\n])")
 _NOT_INLINE = re.compile(r"[\s:]")
-# An attribute directive, as Sphinx writes one:
+# The directives ReST reads, as Sphinx writes them:
 #
 #   .. attribute:: name
 #      :type: int
 #
 #      Its description.
-_ATTRIBUTE = re.compile(
-    r"^\.\.[ \t]+(?:py:)?attribute[ \t]*::[ \t]*(\S[^\n]*?)[ \t]*$",
-    flags=re.M,
-)
+#
+#   .. deprecated:: 1.0
+#      Use other.
+_ATTRIBUTE = r"(?:py:)?attribute[ \t]*::[ \t]*(?P<name>\S[^\n]*?)"
 _OPTION = re.compile(r":([\w-]+):[ \t]*(.*)")
 _VERSION = re.compile(
     r"^(?P<version>v?((?:\d+)(?:\.[0-9a-z\.]+))) (?P<desc>.+)",
     flags=re.I | re.S,
 )
+
+
+def _spec_of(
+    table: T.Dict[str, SectionSpec], name: str, kind: Kind
+) -> T.Optional[SectionSpec]:
+    """Return the spec of a field, if it gives items of a kind."""
+    spec = table.get(name)
+    return spec if spec is not None and spec.kind is kind else None
+
+
+def _directive_pattern(
+    attributes: bool, deprecations: bool
+) -> T.Optional[T.Pattern[str]]:
+    """Match the first line of the directives a parser reads, if any."""
+    names = [
+        name
+        for name, wanted in (
+            (_ATTRIBUTE, attributes),
+            (DEPRECATED, deprecations),
+        )
+        if wanted
+    ]
+    return directive_pattern(names) if names else None
 
 
 def _attribute(name: str, body: T.List[str]) -> DocstringParam:
@@ -238,46 +272,6 @@ def _attribute(name: str, body: T.List[str]) -> DocstringParam:
     )
 
 
-def _cut_attributes(
-    lines: Lines, spec: SectionSpec
-) -> T.Tuple[Lines, T.List[T.Tuple[int, DocstringMeta]]]:
-    """Cut the attribute directives out of a docstring.
-
-    :returns: the lines left, and each attribute with the offset into
-        their text where it was
-    """
-    cut: T.List[T.Tuple[int, int]] = []
-    found: T.List[T.Tuple[int, str, T.List[str]]] = []
-    every = lines.lines
-    for match in _ATTRIBUTE.finditer(lines.text):
-        start = lines.line_at(match.start())
-        end = start + 1
-        while end < len(every) and (not every[end] or every[end][0] == " "):
-            end += 1
-        body_end = end
-        while body_end > start + 1 and not every[body_end - 1].strip():
-            body_end -= 1
-        # Blank lines after the directive go with it when blank lines
-        # before it already set it off, so no extra blank lines are left.
-        if start and every[start - 1].strip():
-            end = body_end
-        cut.append((start, end))
-        found.append((start, match.group(1), every[start + 1 : body_end]))
-    if not cut:
-        return lines, []
-    left = lines.without(cut)
-    # Where each attribute was, as an offset into the text left.
-    attributes = []
-    removed = offset = index = 0
-    for (start, end), (_start, name, body) in zip(cut, found):
-        while index < start - removed:
-            offset += len(left.lines[index]) + 1
-            index += 1
-        attributes.append((offset, apply(spec, _attribute(name, body))))
-        removed += end - start
-    return left, attributes
-
-
 class Parser(BaseParser):
     """Parser for ReST-style docstrings."""
 
@@ -294,11 +288,39 @@ class Parser(BaseParser):
         self._table = (
             _DEFAULT_TABLE if sections is None else _field_table(sections)
         )
-        spec = self._table.get("attribute")
-        # The spec of attribute directives, if attributes are recognised.
-        self._attribute = (
-            spec if spec is not None and spec.kind is Kind.ATTRIBUTE else None
+        # The specs of attribute and deprecated directives, if the fields
+        # of their kinds are recognised.
+        self._attribute = _spec_of(self._table, "attribute", Kind.ATTRIBUTE)
+        self._deprecated = _spec_of(
+            self._table, "deprecated", Kind.DEPRECATION
         )
+        self._directives = _directive_pattern(
+            self._attribute is not None, self._deprecated is not None
+        )
+        # The names of the directives read, to skip docstrings with none.
+        self._names = tuple(
+            name
+            for name, spec in (
+                ("attribute", self._attribute),
+                ("deprecated", self._deprecated),
+            )
+            if spec is not None
+        )
+
+    def _directive_meta(self, directive: Directive) -> DocstringMeta:
+        """Build the meta of a directive cut out of a docstring."""
+        # Only a pattern that reads attributes has their name.
+        name = directive.match.groupdict().get("name")
+        if name is not None:
+            spec = self._attribute
+            meta: DocstringMeta = _attribute(name, directive.body)
+        else:
+            spec = self._deprecated
+            assert spec is not None
+            meta = deprecation(
+                directive.match.group("version"), directive.body, spec.key
+            )
+        return apply(spec, meta)
 
     def try_parse(self, text: T.Optional[str]) -> ParseResult:
         """Parse what can be parsed of a docstring, and tell what cannot."""
@@ -308,9 +330,14 @@ class Parser(BaseParser):
             return ParseResult(ret, [])
 
         lines = Lines(text)
-        attributes: T.List[T.Tuple[int, DocstringMeta]] = []
-        if self._attribute is not None and "attribute" in lines.text:
-            lines, attributes = _cut_attributes(lines, self._attribute)
+        # The directives, each with where it was, in the order written.
+        directives: T.List[T.Tuple[int, DocstringMeta]] = []
+        if self._directives is not None and any(
+            name in lines.text for name in self._names
+        ):
+            lines = lead_directive(lines, self._directives)
+            lines, found = cut_directives(lines, self._directives)
+            directives = [(d.offset, self._directive_meta(d)) for d in found]
         text = lines.text
         problems: T.List[Problem] = []
         match = _FIELD_START.search(text)
@@ -321,7 +348,7 @@ class Parser(BaseParser):
         else:
             desc_chunk = text
             meta_chunk = ""
-            if attributes and text.endswith("\n"):
+            if directives and text.endswith("\n"):
                 # A blank line set the description off from the directives
                 # cut from after it, as it would from fields.
                 desc_chunk += "\n"
@@ -344,22 +371,22 @@ class Parser(BaseParser):
         # (``\Z``), or at a blank line followed by unindented, non-field
         # content. The last case ends the field list so that a trailing block
         # (e.g. an ``Example`` section) is not absorbed into the last field.
-        # The next attribute to add, in the order it was written in, and
+        # The next directive to add, in the order it was written in, and
         # where it was in the fields.
-        next_attribute = 0
-        next_at = attributes[0][0] - meta_start if attributes else len(text)
+        next_directive = 0
+        next_at = directives[0][0] - meta_start if directives else len(text)
         for match in _FIELD.finditer(meta_chunk):
             if match.start() >= next_at:
                 while (
-                    next_attribute < len(attributes)
-                    and attributes[next_attribute][0]
+                    next_directive < len(directives)
+                    and directives[next_directive][0]
                     <= meta_start + match.start()
                 ):
-                    ret.meta.append(attributes[next_attribute][1])
-                    next_attribute += 1
+                    ret.meta.append(directives[next_directive][1])
+                    next_directive += 1
                 next_at = (
-                    attributes[next_attribute][0] - meta_start
-                    if next_attribute < len(attributes)
+                    directives[next_directive][0] - meta_start
+                    if next_directive < len(directives)
                     else len(text)
                 )
             loose_chunks.append(meta_chunk[loose_start : match.start()])
@@ -455,8 +482,8 @@ class Parser(BaseParser):
                 continue
             after_item = False
         loose_chunks.append(meta_chunk[loose_start:])
-        if attributes:
-            ret.meta.extend(meta for _at, meta in attributes[next_attribute:])
+        if directives:
+            ret.meta.extend(meta for _at, meta in directives[next_directive:])
 
         append_loose(ret, loose_chunks, blank_around=True)
 
@@ -575,6 +602,13 @@ def _type_key(meta: DocstringParam) -> str:
     return "type"
 
 
+def _as_directive(meta: DocstringMeta) -> bool:
+    """Whether compose writes a meta as a ``deprecated`` directive."""
+    return isinstance(meta, DocstringDeprecated) and (
+        not meta.description or meta.key in (None, "deprecation")
+    )
+
+
 def compose(
     docstring: Docstring,
     rendering_style: RenderingStyle = RenderingStyle.COMPACT,
@@ -603,10 +637,24 @@ def compose(
             return "\n".join(["\n" + indent + first] + rest)
         return "\n".join([" " + first] + rest)
 
-    parts = description_lines(docstring)
+    # Most docstrings have no deprecation, so only look for one to write
+    # as a directive when the first or last meta is one.
+    metas = docstring.meta
+    first = type(metas[0]) is DocstringDeprecated if metas else False
+    last = type(metas[-1]) is DocstringDeprecated if metas else False
+    top = None
+    if first and _as_directive(metas[0]):
+        top = leading_deprecation(docstring)
+    parts = (
+        description_with_deprecation(docstring, top, indent)
+        if top is not None
+        else description_lines(docstring)
+    )
     long_description = docstring.long_description
 
     for meta in docstring.meta:
+        if meta is top:
+            continue
         if isinstance(meta, DocstringParam):
             type_name = written_type(meta)
             if type_name is None and meta.type_name:
@@ -689,6 +737,15 @@ def compose(
             key = _own_key(meta, "raises")
             text = f":{key}{type_text}:" + process_desc(meta.description)
             parts.append(text)
+        elif _as_directive(meta):
+            # A field would read a version alone as the description, no
+            # description as an empty one, and lose the indents of the
+            # lines after its first. Blank lines around the directive read
+            # back as one after the descriptions, unless one is before it.
+            blank = not parts or not parts[-1]
+            parts.append(deprecation_lines(meta, indent))
+            if blank:
+                parts.append("")
         elif isinstance(meta, DocstringDeprecated) and meta.version:
             # The version starts the description, on the same line.
             desc = meta.version
@@ -698,12 +755,15 @@ def compose(
         else:
             text = f":{field_text(meta)}:" + process_desc(meta.description)
             parts.append(text)
+    if last and _as_directive(docstring.meta[-1]) and not parts[-1]:
+        parts.pop()
     text = "\n".join(parts)
     # Every field starts a line of its own, unindented, so only a lone
     # one, or an indented long description with no field after it, can
     # have all the other lines indented.
     if docstring.meta:
-        if len(parts) > 1:
+        # A directive on the first line is dedented with its body.
+        if len(parts) > 1 or (first and _as_directive(docstring.meta[0])):
             return text
     elif not (long_description and long_description[0].isspace()):
         return text

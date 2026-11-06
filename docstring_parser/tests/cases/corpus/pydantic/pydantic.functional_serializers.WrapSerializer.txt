@@ -53,10 +53,10 @@ Wrap serializers receive the raw inputs along with a handler function that appli
             `'unless-none'`, `'json'`, and `'json-unless-none'`. Defaults to 'always'.
     
 === parse google
-short_description: 'Wrap serializers receive the raw inputs along with a handler function that applies the standard serialization'
-long_description: |
+short_description: |
+  Wrap serializers receive the raw inputs along with a handler function that applies the standard serialization
   logic, and can modify the resulting value before returning it as the final output of serialization.
-  
+long_description: |
   For example, here's a scenario in which a wrap serializer transforms timezones to UTC **and** utilizes the existing `datetime` serialization logic.
   
   ```python
@@ -99,7 +99,7 @@ long_description: |
   print(event.model_dump_json())
   #> {"event_datetime":"2024-01-01T15:00:00Z"}
   ```
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: True
 style: google
 - DocstringParam

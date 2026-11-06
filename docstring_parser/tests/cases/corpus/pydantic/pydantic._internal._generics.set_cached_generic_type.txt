@@ -4,8 +4,9 @@ See the docstring of `get_cached_generic_type_early` for more information about 
     two different keys.
     
 === parse google
-short_description: 'See the docstring of `get_cached_generic_type_early` for more information about why items are cached with'
-long_description: 'two different keys.'
+short_description: |
+  See the docstring of `get_cached_generic_type_early` for more information about why items are cached with
+  two different keys.
 blank_after_short_description: False
 blank_after_long_description: False
 style: google

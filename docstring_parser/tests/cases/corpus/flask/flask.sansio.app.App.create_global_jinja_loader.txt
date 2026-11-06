@@ -11,17 +11,17 @@ Creates the loader for the Jinja environment.  Can be used to
         .. versionadded:: 0.7
         
 === parse rest
-short_description: 'Creates the loader for the Jinja environment.  Can be used to'
-long_description: |
+short_description: |
+  Creates the loader for the Jinja environment.  Can be used to
   override just the loader and keeping the rest unchanged.  It's
   discouraged to override this function.  Instead one should override
   the :meth:`jinja_loader` function instead.
-  
+long_description: |
   The global loader dispatches between the loaders of the application
   and the individual blueprints.
   
   .. versionadded:: 0.7
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: False
 style: rest
 === detect

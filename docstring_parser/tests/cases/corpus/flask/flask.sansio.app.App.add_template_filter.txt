@@ -7,10 +7,11 @@ Register a custom template filter.  Works exactly like the
                      function name will be used.
         
 === parse rest
-short_description: 'Register a custom template filter.  Works exactly like the'
-long_description: ':meth:`template_filter` decorator.'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  Register a custom template filter.  Works exactly like the
+  :meth:`template_filter` decorator.
+blank_after_short_description: True
+blank_after_long_description: False
 style: rest
 - DocstringParam
   description: |

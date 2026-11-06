@@ -17,12 +17,12 @@ When used in combination with a ``with`` statement this opens a
         passed through.
         
 === parse rest
-short_description: 'When used in combination with a ``with`` statement this opens a'
-long_description: |
+short_description: |
+  When used in combination with a ``with`` statement this opens a
   session transaction.  This can be used to modify the session that
   the test client uses.  Once the ``with`` block is left the session is
   stored back.
-  
+long_description: |
   Internally this is implemented by going through a temporary test
   request context and since session handling could depend on
   request variables this function accepts the same arguments as
@@ -40,7 +40,6 @@ style: rest
 rest
 === compose rest
 When used in combination with a ``with`` statement this opens a
-
 session transaction.  This can be used to modify the session that
 the test client uses.  Once the ``with`` block is left the session is
 stored back.

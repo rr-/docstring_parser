@@ -1,0 +1,17 @@
+# Test that the first paragraph ends at an indented block.
+=== input
+Return the Foo for
+bar calls.
+    An indented block.
+=== parse rest
+short_description: |
+  Return the Foo for
+  bar calls.
+long_description: '    An indented block.'
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+=== compose rest
+Return the Foo for
+bar calls.
+    An indented block.

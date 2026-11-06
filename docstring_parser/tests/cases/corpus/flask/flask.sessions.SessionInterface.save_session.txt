@@ -5,8 +5,8 @@ This is called at the end of each request, after generating
         if :meth:`is_null_session` returns ``True``.
         
 === parse rest
-short_description: 'This is called at the end of each request, after generating'
-long_description: |
+short_description: |
+  This is called at the end of each request, after generating
   a response, before removing the request context. It is skipped
   if :meth:`is_null_session` returns ``True``.
 blank_after_short_description: False

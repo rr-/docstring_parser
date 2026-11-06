@@ -29,13 +29,12 @@ This class is the base class for search natural language preprocessors.  If
        type, before searching index. Default implementation does nothing.
     
 === parse rest
-short_description: 'This class is the base class for search natural language preprocessors.  If'
-long_description: |
+short_description: |
+  This class is the base class for search natural language preprocessors.  If
   you want to add support for a new language, you should override the methods
   of this class.
-  
-  You should override `lang` class property too (e.g. 'en', 'fr' and so on).
-blank_after_short_description: False
+long_description: "You should override `lang` class property too (e.g. 'en', 'fr' and so on)."
+blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringParam

@@ -1,0 +1,25 @@
+# Test that a deprecated directive indented in an item stays in the
+# item's description.
+=== input
+Short.
+
+Args:
+    x: The x.
+
+        .. deprecated:: 1.0
+            Not this one.
+=== parse google
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  description: |
+    The x.
+    
+    .. deprecated:: 1.0
+        Not this one.
+  kind: param
+  key: 'param'
+  arg_name: 'x'
+  is_optional: False

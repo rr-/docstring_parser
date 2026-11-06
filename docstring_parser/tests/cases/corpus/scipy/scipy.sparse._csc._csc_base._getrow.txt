@@ -4,8 +4,9 @@ Returns a copy of row i of the matrix, as a (1 x n)
         CSR matrix (row vector).
         
 === parse numpydoc
-short_description: 'Returns a copy of row i of the matrix, as a (1 x n)'
-long_description: 'CSR matrix (row vector).'
+short_description: |
+  Returns a copy of row i of the matrix, as a (1 x n)
+  CSR matrix (row vector).
 blank_after_short_description: False
 blank_after_long_description: False
 style: numpydoc

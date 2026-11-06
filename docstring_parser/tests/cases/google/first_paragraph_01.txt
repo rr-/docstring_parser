@@ -1,0 +1,25 @@
+# Test that the short description is the whole first paragraph, and ends
+# at a section title.
+=== input
+Return the Foo for
+bar calls.
+Args:
+    x: The x.
+=== parse google
+short_description: |
+  Return the Foo for
+  bar calls.
+blank_after_short_description: False
+blank_after_long_description: False
+style: google
+- DocstringParam
+  description: 'The x.'
+  kind: param
+  key: 'param'
+  arg_name: 'x'
+  is_optional: False
+=== compose google
+Return the Foo for
+bar calls.
+Args:
+    x: The x.

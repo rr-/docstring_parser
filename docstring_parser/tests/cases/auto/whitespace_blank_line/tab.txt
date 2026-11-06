@@ -61,7 +61,7 @@ long_description: |
   
   Args:
       a: x
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: True
 style: epydoc
 - DocstringParam
@@ -84,7 +84,7 @@ long_description: |
       a: x
   
   @param a: x
-blank_after_short_description: False
+blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringParam

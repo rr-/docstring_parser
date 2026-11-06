@@ -5,8 +5,9 @@
     L{twisted.python.failure.Failure} for serialization.
     
 === parse epydoc
-short_description: 'A L{flavors.RemoteCopy} and L{flavors.Copyable} version of'
-long_description: 'L{twisted.python.failure.Failure} for serialization.'
+short_description: |
+  A L{flavors.RemoteCopy} and L{flavors.Copyable} version of
+  L{twisted.python.failure.Failure} for serialization.
 blank_after_short_description: False
 blank_after_long_description: False
 style: epydoc

@@ -17,7 +17,7 @@ style: numpydoc
   key: 'deprecation'
   version: '3.1.0'
 === detect
-numpydoc
+rest
 === compose numpydoc
 The number of days in the month.
 

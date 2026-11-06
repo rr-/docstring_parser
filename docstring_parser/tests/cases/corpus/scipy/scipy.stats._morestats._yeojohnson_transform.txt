@@ -4,8 +4,9 @@ Returns `x` transformed by the Yeo-Johnson power transform with given
     parameter `lmbda`.
     
 === parse numpydoc
-short_description: 'Returns `x` transformed by the Yeo-Johnson power transform with given'
-long_description: 'parameter `lmbda`.'
+short_description: |
+  Returns `x` transformed by the Yeo-Johnson power transform with given
+  parameter `lmbda`.
 blank_after_short_description: False
 blank_after_long_description: False
 style: numpydoc

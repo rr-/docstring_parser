@@ -8,12 +8,12 @@ Unquotes a header value.  (Reversal of :func:`quote_header_value`).
     :rtype: str
     
 === parse rest
-short_description: 'Unquotes a header value.  (Reversal of :func:`quote_header_value`).'
-long_description: |
+short_description: |
+  Unquotes a header value.  (Reversal of :func:`quote_header_value`).
   This does not use the real unquoting but what browsers are actually
   using for quoting.
-blank_after_short_description: False
-blank_after_long_description: True
+blank_after_short_description: True
+blank_after_long_description: False
 style: rest
 - DocstringParam
   description: 'the header value to unquote.'

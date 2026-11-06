@@ -4,8 +4,9 @@ Add a title node to the document (just copy the first section title),
         and store that title in the environment.
         
 === parse rest
-short_description: 'Add a title node to the document (just copy the first section title),'
-long_description: 'and store that title in the environment.'
+short_description: |
+  Add a title node to the document (just copy the first section title),
+  and store that title in the environment.
 blank_after_short_description: False
 blank_after_long_description: False
 style: rest

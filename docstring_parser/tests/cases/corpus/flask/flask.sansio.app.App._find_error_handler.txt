@@ -6,8 +6,8 @@ Return a registered error handler for an exception in this order:
         class, or ``None`` if a suitable handler is not found.
         
 === parse rest
-short_description: 'Return a registered error handler for an exception in this order:'
-long_description: |
+short_description: |
+  Return a registered error handler for an exception in this order:
   blueprint handler for a specific code, app handler for a specific code,
   blueprint handler for an exception class, app handler for an exception
   class, or ``None`` if a suitable handler is not found.

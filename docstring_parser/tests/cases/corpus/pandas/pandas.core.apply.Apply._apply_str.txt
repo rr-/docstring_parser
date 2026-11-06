@@ -7,8 +7,8 @@
         - raise
         
 === parse numpydoc
-short_description: 'if arg is a string, then try to operate on it:'
-long_description: |
+short_description: |
+  if arg is a string, then try to operate on it:
   - try to find a function (or attribute) on obj
   - try to find a numpy function
   - raise

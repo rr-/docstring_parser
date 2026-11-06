@@ -5,8 +5,9 @@
         chance to quash any errors.
         
 === parse epydoc
-short_description: 'This is a terminal callback called after application code has had a'
-long_description: 'chance to quash any errors.'
+short_description: |
+  This is a terminal callback called after application code has had a
+  chance to quash any errors.
 blank_after_short_description: False
 blank_after_long_description: False
 style: epydoc

@@ -7,10 +7,11 @@ Render a template from the given source string with the given
     :param context: The variables to make available in the template.
     
 === parse rest
-short_description: 'Render a template from the given source string with the given'
-long_description: 'context.'
-blank_after_short_description: False
-blank_after_long_description: True
+short_description: |
+  Render a template from the given source string with the given
+  context.
+blank_after_short_description: True
+blank_after_long_description: False
 style: rest
 - DocstringParam
   description: 'The source code of the template to render.'

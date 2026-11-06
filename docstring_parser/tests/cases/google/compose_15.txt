@@ -8,9 +8,10 @@
                 asd
             
 === parse google
-short_description: 'Short description'
-long_description: |
+short_description: |
+  Short description
   First line
+long_description: |
       Second line
   Meta:
       asd

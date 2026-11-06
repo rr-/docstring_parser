@@ -9,12 +9,12 @@
         @rtype: L{str}
         
 === parse epydoc
-short_description: 'Returns a short string representing the permission bits.  Looks like'
-long_description: |
+short_description: |
+  Returns a short string representing the permission bits.  Looks like
   what is printed by command line utilities such as 'ls -l'
   (e.g. 'rwx-wx--x')
-blank_after_short_description: False
-blank_after_long_description: True
+blank_after_short_description: True
+blank_after_long_description: False
 style: epydoc
 - DocstringReturns
   description: 'The shorthand string.'

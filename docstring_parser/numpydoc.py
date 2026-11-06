@@ -14,6 +14,11 @@ from ._compose import (
     start_on_new_line,
     written_type,
 )
+from ._directives import (
+    deprecation_lines,
+    description_with_deprecation,
+    leading_deprecation,
+)
 from ._lines import Lines, dedent
 from ._text import (
     DEFAULT_IN_DESCRIPTION,
@@ -695,43 +700,9 @@ def compose(
             for arg in args:
                 process_one(arg)
 
-    def process_deprecation(meta: DocstringDeprecated) -> None:
-        first = ".. deprecated::"
-        if meta.version:
-            first += f" {meta.version}"
-        rest = meta.description.split("\n") if meta.description else []
-        parts.append(
-            "\n".join(
-                [first] + [indent + line if line else "" for line in rest]
-            )
-        )
-
     long = docstring.long_description
-    # A deprecation that comes first goes right after the short
-    # description, as Numpydoc writes it, with the long description read
-    # from after it. Not when the long description is followed by a blank
-    # line, which it is only when written before the directive, or when
-    # it starts indented, which would read back as the directive's body.
-    top = docstring.meta[0] if docstring.meta else None
-    if not isinstance(top, DocstringDeprecated) or (
-        docstring.blank_after_long_description or (long and long[0].isspace())
-    ):
-        top = None
-
-    parts: T.List[str] = []
-    if docstring.short_description:
-        parts.append(docstring.short_description)
-    if docstring.blank_after_short_description:
-        parts.append("")
-    if top is not None:
-        process_deprecation(top)
-        if long:
-            # The blank line that ends the directive's body.
-            parts.append("")
-    if long:
-        parts.append(long)
-    if docstring.blank_after_long_description:
-        parts.append("")
+    top = leading_deprecation(docstring)
+    parts = description_with_deprecation(docstring, top, indent, blank=True)
     # Where the descriptions end, unless a directive came after them.
     described = len(parts) if top is None or long else -1
 
@@ -750,7 +721,7 @@ def compose(
             continue
         blank_line()
         if isinstance(meta, DocstringDeprecated):
-            process_deprecation(meta)
+            parts.append(deprecation_lines(meta, indent))
             continue
 
         # Use the section's own title, e.g. "See Also" for see_also.
