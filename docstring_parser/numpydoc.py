@@ -151,7 +151,7 @@ class Section:
 
     :param title: section title. For most sections, this is a heading like
                   "Parameters" which appears on its own line, underlined by
-                  en-dashes ('-') on the following line.
+                  dashes ('-') or equals signs ('=') on the following line.
     :param key: meta key string. In the parsed ``DocstringMeta`` instance this
                 is the ``key`` of the parsed ``DocstringMeta``.
     """
@@ -172,8 +172,9 @@ class Section:
         """
         if self._spec is not None and self._spec.bare:
             return rf"^({re.escape(self.title)})[ \t]*$"
-        dashes = "-" * len(self.title)
-        return rf"^({re.escape(self.title)})\s*?\n{dashes}\s*$"
+        # As in napoleon, the underline may be shorter or longer than the
+        # title, and made of equals signs as a ReST heading's may be.
+        return rf"^({re.escape(self.title)})\s*?\n(?:-{{2,}}|={{2,}})\s*$"
 
     def _parse(self, text: str) -> T.Iterable[DocstringMeta]:
         """Parse ``DocstringMeta`` objects from the body of this section.
@@ -660,11 +661,33 @@ def compose(
             head = None
 
         if isinstance(one, DocstringParam) and written is not None:
-            head = f"{one.arg_name} : {written}"
+            # With no name, a space before the colon would indent the line.
+            head = (
+                f"{one.arg_name} : {written}"
+                if one.arg_name
+                else f": {written}"
+            )
         elif one.type_name and head:
             head += f" : {one.type_name}"
         elif one.type_name:
-            head = one.type_name
+            # A colon on the first line of a return's type would read back
+            # as one after its name, unless a colon before it says there
+            # is none.
+            if (
+                isinstance(one, DocstringReturns)
+                and ":" in one.type_name.split("\n", 1)[0]
+            ):
+                head = f": {one.type_name}"
+            else:
+                head = one.type_name
+        elif (
+            isinstance(one, DocstringReturns)
+            and head
+            and one.type_name is not None
+        ):
+            # A return's name alone would read back as its type; the colon
+            # after it says the type is empty.
+            head += " :"
         elif not head:
             head = ""
 

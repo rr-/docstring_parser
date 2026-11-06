@@ -9,9 +9,12 @@ from .sections import SectionSpec
 
 # Any line that could start a field or a section in some style: a ReST
 # ``:field``, an Epydoc ``@field``, a Google title ending in a colon, or a
-# Numpydoc dashes underline or ``..`` directive.
+# Numpydoc underline of dashes or equals signs, or ``..`` directive.
 _FIELD_LINE = re.compile(
-    r"^[^\S\n]*[:@]" r"|:[^\S\n]*$" r"|^[^\S\n]*-+[^\S\n]*$" r"|^[^\S\n]*\.\.",
+    r"^[^\S\n]*[:@]"
+    r"|:[^\S\n]*$"
+    r"|^[^\S\n]*(?:-+|=+)[^\S\n]*$"
+    r"|^[^\S\n]*\.\.",
     flags=re.M,
 )
 
