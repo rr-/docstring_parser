@@ -18,7 +18,6 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: rest
 - DocstringMeta
-  description: ''
   kind: text
   key: 'meta'
   name: 'private'

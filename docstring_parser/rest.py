@@ -673,10 +673,13 @@ def compose(
                 # own, as its value.
                 parts.append(_attribute_directive(meta, indent))
             elif meta.description is None and (
-                type_name or meta.key in ("type", "vartype")
+                meta.key in ("type", "vartype")
+                or (type_name and meta.key is None)
             ):
                 # A type field alone, which reads back as a param, or an
-                # attribute, with no description, even with no type.
+                # attribute, with no description, even with no type. A
+                # field of its own kind, such as ``:param int x:``, also
+                # has none.
                 head = f"{_type_key(meta)} {meta.arg_name}"
                 parts.append(
                     _type_field(indent, head, type_name)

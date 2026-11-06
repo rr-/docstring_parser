@@ -6,6 +6,7 @@
 - General: **Breaking:** Leave attributes out of `Docstring.params`, and list them in the new `Docstring.attrs`
 - General: **Breaking:** Leave yields out of `Docstring.returns` and `many_returns`; read them from the new `yields` and `many_yields`
 - General: **Breaking:** Make `is_optional` of a parsed param always a bool, `False` instead of `None` when it has no type
+- General: **Breaking:** Give an item with no description `None` as its description, never `""`
 - General: **Breaking:** Read the whole first paragraph as the short description, not only its first line
 - Google, Numpydoc: **Breaking:** Remove customising parsing by overriding internals such as `titles_re`, `title_pattern`, `_build_meta` and `KV_REGEX`; use `SectionSpec` instead
 - Google, Numpydoc: **Breaking:** Split examples as doctest reads them: an example's `description` is the text before its snippet, and its `snippet` holds the `>>>` lines, their `...` continuations and the expected output; text after the last snippet is an example with no snippet

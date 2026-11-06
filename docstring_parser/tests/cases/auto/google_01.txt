@@ -44,7 +44,6 @@ style: google
   type_name: 'int'
   is_optional: False
 - DocstringParam
-  description: ''
   kind: param
   key: 'param'
   arg_name: 'yay'

@@ -1,0 +1,36 @@
+# Test that items with nothing after their colon have no description.
+=== input
+Short.
+
+:param x:
+:raises ValueError:
+:returns:
+:note:
+=== parse rest
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringParam
+  kind: param
+  key: 'param'
+  arg_name: 'x'
+  is_optional: False
+- DocstringRaises
+  kind: raises
+  key: 'raises'
+  type_name: 'ValueError'
+- DocstringReturns
+  kind: returns
+  key: 'returns'
+  is_generator: False
+- DocstringMeta
+  kind: text
+  key: 'note'
+=== compose rest
+Short.
+
+:param x:
+:raises ValueError :
+:returns:
+:note:

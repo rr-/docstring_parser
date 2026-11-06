@@ -188,7 +188,8 @@ class DocstringMeta:
         :param arg: description
         :raises ValueError: if something happens
 
-    :ivar description: the item's text
+    :ivar description: the item's text, or ``None`` if it has none; never
+        an empty string
     :ivar kind: what the item documents. Each class sets it, so that the
         class and the kind cannot disagree.
     :ivar key: the field or section key it was written with, such as
@@ -211,7 +212,7 @@ class DocstringMeta:
         name: T.Optional[str] = None,
     ) -> None:
         """Initialize self."""
-        self.description = description
+        self.description = description or None
         self.kind = Kind.TEXT
         self.key = key
         self.name = name

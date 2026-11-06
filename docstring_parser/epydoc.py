@@ -387,15 +387,17 @@ def compose(
                 if meta.is_generator
                 else ("return", "rtype")
             )
-            if meta.description is None:
-                # A type field alone keeps the name it was read from.
+            # A type field alone keeps the name it was read from, and is
+            # written for a return with a type and no description.
+            alone = meta.description is None and bool(meta.type_name)
+            if alone:
                 type_key = _own_key(meta, type_key)
             else:
                 arg_key = _own_key(meta, arg_key)
             if meta.type_name:
                 text = f"@{type_key}:" + process_desc(meta.type_name, True)
                 parts.append(text)
-            if meta.description is not None:
+            if not alone:
                 text = f"@{arg_key}:" + process_desc(meta.description, False)
                 parts.append(text)
         elif isinstance(meta, DocstringRaises):
