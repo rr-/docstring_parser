@@ -137,6 +137,16 @@
         
 
         
+            <div class="itemName"><code><a href="#code" class="internal-link" title="docstring_parser.Problem.code">code</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="#line" class="internal-link" title="docstring_parser.Problem.line">line</a></code>
             </div>
         
@@ -535,18 +545,44 @@
         </div>
 
         <div class="extrasDocstring">
-          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">Problem</span>(T.NamedTuple): <a href="https://github.com/rr-/docstring_parser/tree/d7a18a3de19e1097b47c6698957df8d445129690/docstring_parser/common.py#L41" class="sourceLink">(source)</a></code></p><p><a href="classIndex.html#docstring_parser.Problem">View In Hierarchy</a></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">Problem</span>(T.NamedTuple): <a href="https://github.com/rr-/docstring_parser/tree/f2d2b63777c624b17d4d309eebb3d920a6be031a/docstring_parser/common.py#L41" class="sourceLink">(source)</a></code></p><p><a href="classIndex.html#docstring_parser.Problem">View In Hierarchy</a></p>
         </div>
 
         <div class="moduleDocstring">
-          <div><p>Something in a docstring that could not be parsed.</p></div>
+          <div><p>Something in a docstring that could not be parsed.</p>
+<p>Its <tt class="rst-docutils rst-literal">code</tt> names what is wrong, and stays the same from one version
+to the next, while the message may change:</p>
+<dl class="rst-docutils">
+<dt><tt class="rst-docutils rst-literal"><span class="pre">bad-field</span></tt></dt>
+<dd>A ReST or Epydoc field that cannot be read, such as <tt class="rst-docutils rst-literal">:param x</tt>
+with no colon after its head, or <tt class="rst-docutils rst-literal">:: text</tt> with no name.</dd>
+<dt><tt class="rst-docutils rst-literal"><span class="pre">wrong-arguments</span></tt></dt>
+<dd>A field with too many or too few words in its head, such as
+<tt class="rst-docutils rst-literal">:param a b c d:</tt> or <tt class="rst-docutils rst-literal">:returns int str:</tt>.</dd>
+<dt><tt class="rst-docutils rst-literal"><span class="pre">mixed-returns-and-yields</span></tt></dt>
+<dd>An Epydoc docstring with both <tt class="rst-docutils rst-literal">@return</tt> and <tt class="rst-docutils rst-literal">@yield</tt> fields.</dd>
+<dt><tt class="rst-docutils rst-literal"><span class="pre">missing-colon</span></tt></dt>
+<dd>A Google item with no colon between its head and its description,
+in a section that takes several items, such as <tt class="rst-docutils rst-literal">Args:</tt>.</dd>
+<dt><tt class="rst-docutils rst-literal"><span class="pre">missing-name</span></tt></dt>
+<dd>A Google section of params that holds text and no named item.</dd>
+<dt><tt class="rst-docutils rst-literal"><span class="pre">no-items</span></tt></dt>
+<dd>A Google section whose items cannot be told apart by their
+indent.</dd>
+</dl>
+</div>
         </div>
 
         <div id="split-tables">
-          <table class="children sortable" id="id72">
+          <table class="children sortable" id="id74">
   
   
   <tr class="classvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#code" class="internal-link" title="docstring_parser.Problem.code">code</a></code></td>
+    <td>What is wrong, as one of the codes above.</td>
+  </tr><tr class="classvariable">
     
     <td>Class Variable</td>
     <td><code><a href="#line" class="internal-link" title="docstring_parser.Problem.line">line</a></code></td>
@@ -555,7 +591,7 @@
     
     <td>Class Variable</td>
     <td><code><a href="#message" class="internal-link" title="docstring_parser.Problem.message">message</a></code></td>
-    <td>What is wrong.</td>
+    <td>What is wrong, for people to read.</td>
   </tr>
 </table>
           
@@ -567,6 +603,33 @@
           <div class="baseclassvariable">
   
   
+  <a name="docstring_parser.Problem.code">
+    
+  </a>
+  <a name="code">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">code</span>: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code> =
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/f2d2b63777c624b17d4d309eebb3d920a6be031a/docstring_parser/common.py#L68">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#code" title="docstring_parser.Problem.code">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>What is wrong, as one of the codes above.</p></div>
+    
+  </div>
+</div><div class="baseclassvariable">
+  
+  
   <a name="docstring_parser.Problem.line">
     
   </a>
@@ -576,7 +639,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">line</span>: <code><a href="https://docs.python.org/3/builtins/functions.html#int" class="intersphinx-link">int</a></code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/d7a18a3de19e1097b47c6698957df8d445129690/docstring_parser/common.py#L45">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/f2d2b63777c624b17d4d309eebb3d920a6be031a/docstring_parser/common.py#L66">
       
       (source)
     </a>
@@ -603,7 +666,7 @@
   <div class="functionHeader">
     
     <span class="py-defname">message</span>: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code> =
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/d7a18a3de19e1097b47c6698957df8d445129690/docstring_parser/common.py#L47">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/f2d2b63777c624b17d4d309eebb3d920a6be031a/docstring_parser/common.py#L70">
       
       (source)
     </a>
@@ -615,7 +678,7 @@
   </div>
   <div class="functionBody">
     
-    <div><p>What is wrong.</p></div>
+    <div><p>What is wrong, for people to read.</p></div>
     
   </div>
 </div>
@@ -630,7 +693,7 @@
   <div class="container-fluid">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    25.10.1 at 2026-11-06 16:40:37.
+    25.10.1 at 2026-11-06 16:43:02.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 
