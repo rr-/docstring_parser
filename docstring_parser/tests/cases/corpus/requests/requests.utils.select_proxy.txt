@@ -15,11 +15,13 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'url'
+  is_optional: False
 - DocstringParam
   description: 'A dictionary of schemes or schemes and hosts to proxy URLs'
   kind: param
   key: 'param'
   arg_name: 'proxies'
+  is_optional: False
 === detect
 rest
 === compose rest

@@ -36,16 +36,19 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'error'
+  is_optional: False
 - DocstringParam
   description: 'The endpoint being built.'
   kind: param
   key: 'param'
   arg_name: 'endpoint'
+  is_optional: False
 - DocstringParam
   description: 'The keyword arguments passed to ``url_for``.'
   kind: param
   key: 'param'
   arg_name: 'values'
+  is_optional: False
 === detect
 rest
 === compose rest

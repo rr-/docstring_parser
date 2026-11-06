@@ -15,6 +15,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'cj'
+  is_optional: False
 - DocstringReturns
   kind: returns
   type_name: 'dict'

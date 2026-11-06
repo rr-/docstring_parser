@@ -176,6 +176,7 @@ style: numpydoc
   arg_name: 'rcond'
   type_name: 'float'
   is_optional: True
+  default: 'len(x)*eps'
   raw_type_name: 'float, optional'
 - DocstringParam
   description: |
@@ -200,6 +201,7 @@ style: numpydoc
   arg_name: 'w'
   type_name: 'array_like, shape (`M`,)'
   is_optional: True
+  default: 'None'
   raw_type_name: 'array_like, shape (`M`,), optional'
 - DocstringReturns
   description: |
@@ -316,7 +318,7 @@ deg : int or 1-D array_like
     all terms up to and including the `deg`'th term are included in the
     fit. For NumPy versions >= 1.11.0 a list of integers specifying the
     degrees of the terms to include may be used instead.
-rcond : float, optional
+rcond : float, default=len(x)*eps
     Relative condition number of the fit. Singular values smaller than
     this relative to the largest singular value will be ignored. The
     default value is ``len(x)*eps``, where eps is the relative precision of

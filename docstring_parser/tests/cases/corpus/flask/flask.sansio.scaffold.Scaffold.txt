@@ -33,6 +33,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'import_name'
+  is_optional: False
 - DocstringParam
   description: |
     Path to a folder of static files to serve.
@@ -40,11 +41,13 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'static_folder'
+  is_optional: False
 - DocstringParam
   description: 'URL prefix for the static route.'
   kind: param
   key: 'param'
   arg_name: 'static_url_path'
+  is_optional: False
 - DocstringParam
   description: |
     Path to a folder containing template files.
@@ -52,6 +55,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'template_folder'
+  is_optional: False
 - DocstringParam
   description: |
     The path that static, template, and resource files
@@ -60,6 +64,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'root_path'
+  is_optional: False
 === detect
 rest
 === compose rest

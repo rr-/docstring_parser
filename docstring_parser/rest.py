@@ -7,7 +7,11 @@ import typing as T
 from ._compose import description_lines, field_name, field_text
 from ._fields import AFTER_ALL, ParamTypes, ReturnTypes, assign_types
 from ._lines import Lines
-from ._text import append_loose, split_description, type_spec
+from ._text import (
+    append_loose,
+    param_spec,
+    split_description,
+)
 from .common import (
     PARAM_KEYWORDS,
     PARAM_KINDS,
@@ -113,20 +117,14 @@ def _build_meta(args: T.List[str], desc: str, kind: Kind) -> DocstringMeta:
                 f"Expected one or two arguments for a {key} keyword.",
             )
         arg_name = args[-1]
-        spec = type_spec(raw_type_name)
-
-        default = spec.default
-        match = None if default else _DEFAULTS_TO.match(desc)
-        if match:
-            default = match.group(1).rstrip(".")
-
+        spec = param_spec(raw_type_name, desc)
         return DocstringParam(
             key=key,
             description=desc,
             arg_name=arg_name,
             type_name=spec.type_name,
             is_optional=spec.is_optional,
-            default=default,
+            default=spec.default,
             kind=kind,
             raw_type_name=raw_type_name,
         )
@@ -163,7 +161,6 @@ def _build_meta(args: T.List[str], desc: str, kind: Kind) -> DocstringMeta:
     return DocstringMeta(desc, key, " ".join(args[1:]) or None)
 
 
-_DEFAULTS_TO = re.compile(r".*defaults to (.+)", flags=re.DOTALL)
 _FIELD_START = re.compile("^:", flags=re.M)
 # A field ends at the next field (``^:``), at the end of the text (``\Z``),
 # or at a blank line followed by unindented, non-field content.
@@ -207,13 +204,15 @@ def _attribute(name: str, body: T.List[str]) -> DocstringParam:
             other.append(body[start])
         start += 1
     raw_type_name = options.get("type") or None
-    spec = type_spec(raw_type_name)
+    description = "\n".join(other + body[start:]).strip()
+    spec = param_spec(raw_type_name, description)
+    default = options.get("value") or spec.default
     return DocstringParam(
-        "\n".join(other + body[start:]).strip(),
+        description,
         arg_name=name,
         type_name=spec.type_name,
-        is_optional=spec.is_optional,
-        default=options.get("value") or spec.default,
+        is_optional=spec.is_optional or default is not None,
+        default=default,
         kind=Kind.ATTRIBUTE,
         key="attribute",
         raw_type_name=raw_type_name,

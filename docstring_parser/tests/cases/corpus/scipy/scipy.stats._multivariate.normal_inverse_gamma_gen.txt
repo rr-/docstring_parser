@@ -145,6 +145,7 @@ style: numpydoc
   arg_name: 'seed'
   type_name: '{None, int, np.random.RandomState, np.random.Generator}'
   is_optional: True
+  default: 'None'
   raw_type_name: '{None, int, np.random.RandomState, np.random.Generator}, optional'
 - DocstringMeta
   description: |

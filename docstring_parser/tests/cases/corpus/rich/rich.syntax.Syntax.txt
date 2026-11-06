@@ -96,6 +96,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'code_width'
+  is_optional: False
 - DocstringParam
   description: 'Size of tabs. Defaults to 4.'
   kind: param
@@ -137,8 +138,8 @@ style: google
   key: 'param'
   arg_name: 'padding'
   type_name: 'PaddingDimensions'
-  is_optional: False
-  default: '0 (no padding)'
+  is_optional: True
+  default: '0'
 === detect
 google
 === compose google
@@ -159,4 +160,4 @@ Args:
     word_wrap (bool?): Enable word wrapping.
     background_color (str?): Optional background color, or None to use theme color. Defaults to None.
     indent_guides (bool?): Show indent guides. Defaults to False.
-    padding (PaddingDimensions): Padding to apply around the syntax. Defaults to 0 (no padding).
+    padding (PaddingDimensions?): Padding to apply around the syntax. Defaults to 0 (no padding).

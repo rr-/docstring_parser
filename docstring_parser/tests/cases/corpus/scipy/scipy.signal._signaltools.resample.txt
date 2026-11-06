@@ -280,6 +280,7 @@ style: numpydoc
   arg_name: 't'
   type_name: 'array_like'
   is_optional: True
+  default: 'None'
   raw_type_name: 'array_like, optional'
 - DocstringParam
   description: |
@@ -308,6 +309,7 @@ style: numpydoc
   arg_name: 'window'
   type_name: 'array_like, callable, str, float, or tuple'
   is_optional: True
+  default: 'None'
   raw_type_name: 'array_like, callable, str, float, or tuple, optional'
 - DocstringParam
   description: |

@@ -21,6 +21,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'version'
+  is_optional: False
 - DocstringRaises
   description: 'If the version string is invalid.'
   kind: raises

@@ -32,6 +32,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'unicode_version'
+  is_optional: False
 - DocstringReturns
   description: 'Get the number of cells required to display text.'
   kind: returns

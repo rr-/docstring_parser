@@ -61,17 +61,14 @@ style: epydoc
   kind: param
   key: 'param'
   arg_name: 'path'
-  is_optional: False
-  default: |
-    the
-    current directory
+  is_optional: True
+  default: 'the'
 - DocstringParam
   description: 'the reactor to use - defaults to the default reactor'
   kind: param
   key: 'param'
   arg_name: 'reactor'
   is_optional: False
-  default: 'the default reactor'
 - DocstringParam
   description: |
     If true, include stderr in the result.  If false, if

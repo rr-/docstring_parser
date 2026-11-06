@@ -21,6 +21,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'schema'
+  is_optional: False
 - DocstringReturns
   description: 'The generated JSON schema.'
   kind: returns

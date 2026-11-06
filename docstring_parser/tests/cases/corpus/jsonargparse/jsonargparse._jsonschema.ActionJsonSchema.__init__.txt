@@ -21,16 +21,19 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'schema'
+  is_optional: False
 - DocstringParam
   description: 'Whether to try to load JSON from path.'
   kind: param
   key: 'param'
   arg_name: 'sub_config'
+  is_optional: False
 - DocstringParam
   description: 'Deprecated, to remove metadata use ``.clone(with_meta=False)``.'
   kind: param
   key: 'param'
   arg_name: 'with_meta'
+  is_optional: False
 - DocstringRaises
   description: 'If a parameter is invalid.'
   kind: raises

@@ -31,11 +31,13 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'request'
+  is_optional: False
 - DocstringParam
   description: 'The keyword arguments from the call to send().'
   kind: param
   key: 'param'
   arg_name: 'kwargs'
+  is_optional: False
 === detect
 rest
 === compose rest

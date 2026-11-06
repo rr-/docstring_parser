@@ -19,6 +19,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'url'
+  is_optional: False
 - DocstringParam
   description: |
     (optional) Dictionary, list of tuples, bytes, or file-like
@@ -26,16 +27,19 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'data'
+  is_optional: False
 - DocstringParam
   description: '(optional) json to send in the body of the :class:`Request`.'
   kind: param
   key: 'param'
   arg_name: 'json'
+  is_optional: False
 - DocstringParam
   description: 'Optional arguments that ``request`` takes.'
   kind: param
   key: 'param'
   arg_name: '\\*\\*kwargs'
+  is_optional: False
 - DocstringReturns
   kind: returns
   type_name: 'requests.Response'

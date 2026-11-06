@@ -30,11 +30,13 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'required'
+  is_optional: False
 - DocstringParam
   description: 'Destination key where the chosen subcommand name is stored.'
   kind: param
   key: 'param'
   arg_name: 'dest'
+  is_optional: False
 - DocstringParam
   description: |
     All options that `argparse.ArgumentParser.add_subparsers
@@ -42,6 +44,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: '**kwargs'
+  is_optional: False
 === detect
 google
 === compose google

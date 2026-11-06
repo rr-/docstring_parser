@@ -84,6 +84,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'name'
+  is_optional: False
 - DocstringParam
   description: |
     The name of the blueprint package, usually
@@ -92,6 +93,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'import_name'
+  is_optional: False
 - DocstringParam
   description: |
     A folder with static files that should be
@@ -101,6 +103,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'static_folder'
+  is_optional: False
 - DocstringParam
   description: |
     The url to serve static files from.
@@ -110,6 +113,8 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'static_url_path'
+  is_optional: True
+  default: 'static_folder'
 - DocstringParam
   description: |
     A folder with templates that should be added
@@ -120,6 +125,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'template_folder'
+  is_optional: False
 - DocstringParam
   description: |
     A path to prepend to all of the blueprint's URLs,
@@ -127,6 +133,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'url_prefix'
+  is_optional: False
 - DocstringParam
   description: |
     A subdomain that blueprint routes will match on by
@@ -134,6 +141,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'subdomain'
+  is_optional: False
 - DocstringParam
   description: |
     A dict of default values that blueprint routes
@@ -141,6 +149,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'url_defaults'
+  is_optional: False
 - DocstringParam
   description: |
     By default, the blueprint will automatically set
@@ -150,6 +159,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'root_path'
+  is_optional: False
 === detect
 rest
 === compose rest

@@ -24,11 +24,13 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'class_type'
+  is_optional: False
 - DocstringParam
   description: 'Any keyword arguments to use for instantiation.'
   kind: param
   key: 'param'
   arg_name: '**kwargs'
+  is_optional: False
 === detect
 google
 === compose google

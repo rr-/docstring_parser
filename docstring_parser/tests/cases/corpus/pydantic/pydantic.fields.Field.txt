@@ -87,6 +87,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'default'
+  is_optional: False
 - DocstringParam
   description: |
     A callable to generate the default value. The callable can either take 0 arguments
@@ -94,6 +95,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'default_factory'
+  is_optional: False
 - DocstringParam
   description: |
     The name to use for the attribute when validating or serializing by alias.
@@ -101,56 +103,67 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'alias'
+  is_optional: False
 - DocstringParam
   description: 'Priority of the alias. This affects whether an alias generator is used.'
   kind: param
   key: 'param'
   arg_name: 'alias_priority'
+  is_optional: False
 - DocstringParam
   description: 'Like `alias`, but only affects validation, not serialization.'
   kind: param
   key: 'param'
   arg_name: 'validation_alias'
+  is_optional: False
 - DocstringParam
   description: 'Like `alias`, but only affects serialization, not validation.'
   kind: param
   key: 'param'
   arg_name: 'serialization_alias'
+  is_optional: False
 - DocstringParam
   description: 'Human-readable title.'
   kind: param
   key: 'param'
   arg_name: 'title'
+  is_optional: False
 - DocstringParam
   description: "A callable that takes a field's name and info and returns title for it."
   kind: param
   key: 'param'
   arg_name: 'field_title_generator'
+  is_optional: False
 - DocstringParam
   description: 'Human-readable description.'
   kind: param
   key: 'param'
   arg_name: 'description'
+  is_optional: False
 - DocstringParam
   description: 'Example values for this field.'
   kind: param
   key: 'param'
   arg_name: 'examples'
+  is_optional: False
 - DocstringParam
   description: 'Whether to exclude the field from the model serialization.'
   kind: param
   key: 'param'
   arg_name: 'exclude'
+  is_optional: False
 - DocstringParam
   description: 'A callable that determines whether to exclude a field during serialization based on its value.'
   kind: param
   key: 'param'
   arg_name: 'exclude_if'
+  is_optional: False
 - DocstringParam
   description: 'Field name or Discriminator for discriminating the type in a tagged union.'
   kind: param
   key: 'param'
   arg_name: 'discriminator'
+  is_optional: False
 - DocstringParam
   description: |
     A deprecation message, an instance of `warnings.deprecated` or the `typing_extensions.deprecated` backport,
@@ -158,16 +171,19 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'deprecated'
+  is_optional: False
 - DocstringParam
   description: 'A dict or callable to provide extra JSON schema properties.'
   kind: param
   key: 'param'
   arg_name: 'json_schema_extra'
+  is_optional: False
 - DocstringParam
   description: 'Whether the field is frozen. If true, attempts to change the value on an instance will raise an error.'
   kind: param
   key: 'param'
   arg_name: 'frozen'
+  is_optional: False
 - DocstringParam
   description: |
     If `True`, apply validation to the default value every time you create an instance.
@@ -175,11 +191,13 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'validate_default'
+  is_optional: False
 - DocstringParam
   description: 'A boolean indicating whether to include the field in the `__repr__` output.'
   kind: param
   key: 'param'
   arg_name: 'repr'
+  is_optional: False
 - DocstringParam
   description: |
     Whether the field should be included in the constructor of the dataclass.
@@ -187,6 +205,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'init'
+  is_optional: False
 - DocstringParam
   description: |
     Whether the field should _only_ be included in the constructor of the dataclass.
@@ -194,6 +213,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'init_var'
+  is_optional: False
 - DocstringParam
   description: |
     Whether the field should be a keyword-only argument in the constructor of the dataclass.
@@ -201,11 +221,13 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'kw_only'
+  is_optional: False
 - DocstringParam
   description: 'Whether to enable coercion of any `Number` type to `str` (not applicable in `strict` mode).'
   kind: param
   key: 'param'
   arg_name: 'coerce_numbers_to_str'
+  is_optional: False
 - DocstringParam
   description: |
     If `True`, strict validation is applied to the field.
@@ -213,61 +235,73 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'strict'
+  is_optional: False
 - DocstringParam
   description: 'Greater than. If set, value must be greater than this. Only applicable to numbers.'
   kind: param
   key: 'param'
   arg_name: 'gt'
+  is_optional: False
 - DocstringParam
   description: 'Greater than or equal. If set, value must be greater than or equal to this. Only applicable to numbers.'
   kind: param
   key: 'param'
   arg_name: 'ge'
+  is_optional: False
 - DocstringParam
   description: 'Less than. If set, value must be less than this. Only applicable to numbers.'
   kind: param
   key: 'param'
   arg_name: 'lt'
+  is_optional: False
 - DocstringParam
   description: 'Less than or equal. If set, value must be less than or equal to this. Only applicable to numbers.'
   kind: param
   key: 'param'
   arg_name: 'le'
+  is_optional: False
 - DocstringParam
   description: 'Value must be a multiple of this. Only applicable to numbers.'
   kind: param
   key: 'param'
   arg_name: 'multiple_of'
+  is_optional: False
 - DocstringParam
   description: 'Minimum length for iterables.'
   kind: param
   key: 'param'
   arg_name: 'min_length'
+  is_optional: False
 - DocstringParam
   description: 'Maximum length for iterables.'
   kind: param
   key: 'param'
   arg_name: 'max_length'
+  is_optional: False
 - DocstringParam
   description: 'Pattern for strings (a regular expression).'
   kind: param
   key: 'param'
   arg_name: 'pattern'
+  is_optional: False
 - DocstringParam
   description: 'Allow `inf`, `-inf`, `nan`. Only applicable to float and [`Decimal`][decimal.Decimal] numbers.'
   kind: param
   key: 'param'
   arg_name: 'allow_inf_nan'
+  is_optional: False
 - DocstringParam
   description: 'Maximum number of allowed digits for [`Decimal`][decimal.Decimal] numbers.'
   kind: param
   key: 'param'
   arg_name: 'max_digits'
+  is_optional: False
 - DocstringParam
   description: 'Maximum number of decimal places allowed for numbers.'
   kind: param
   key: 'param'
   arg_name: 'decimal_places'
+  is_optional: False
 - DocstringParam
   description: |
     The strategy to apply when validating a union. Can be `smart` (the default), or `left_to_right`.
@@ -275,6 +309,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'union_mode'
+  is_optional: False
 - DocstringParam
   description: |
     If `True`, validation will stop on the first error. If `False`, all validation errors will be collected.
@@ -282,6 +317,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'fail_fast'
+  is_optional: False
 - DocstringParam
   description: |
     (Deprecated) Extra fields that will be included in the JSON schema.
@@ -291,6 +327,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'extra'
+  is_optional: False
 - DocstringReturns
   description: |
     A new [`FieldInfo`][pydantic.fields.FieldInfo]. The return annotation is `Any` so `Field` can be used on

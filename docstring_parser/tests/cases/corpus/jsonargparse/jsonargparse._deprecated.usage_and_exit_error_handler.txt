@@ -16,11 +16,13 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'parser'
+  is_optional: False
 - DocstringParam
   description: 'The message describing the error being handled.'
   kind: param
   key: 'param'
   arg_name: 'message'
+  is_optional: False
 === detect
 google
 === compose google

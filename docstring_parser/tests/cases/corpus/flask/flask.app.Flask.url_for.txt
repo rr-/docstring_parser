@@ -95,11 +95,13 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'endpoint'
+  is_optional: False
 - DocstringParam
   description: 'If given, append this as ``#anchor`` to the URL.'
   kind: param
   key: 'param'
   arg_name: '_anchor'
+  is_optional: False
 - DocstringParam
   description: |
     If given, generate the URL associated with this
@@ -107,6 +109,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: '_method'
+  is_optional: False
 - DocstringParam
   description: |
     If given, the URL will have this scheme if it
@@ -114,6 +117,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: '_scheme'
+  is_optional: False
 - DocstringParam
   description: |
     If given, prefer the URL to be internal
@@ -123,6 +127,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: '_external'
+  is_optional: False
 - DocstringParam
   description: |
     Values to use for the variable parts of the URL
@@ -131,6 +136,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'values'
+  is_optional: False
 === detect
 rest
 === compose rest

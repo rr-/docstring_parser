@@ -23,6 +23,7 @@ style: numpydoc
   kind: attribute
   key: 'attribute'
   arg_name: 'name'
+  is_optional: False
 - DocstringParam
   description: 'description 2'
   kind: attribute

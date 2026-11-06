@@ -17,11 +17,13 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'source'
+  is_optional: False
 - DocstringParam
   description: 'The variables to make available in the template.'
   kind: param
   key: 'param'
   arg_name: 'context'
+  is_optional: False
 === detect
 rest
 === compose rest

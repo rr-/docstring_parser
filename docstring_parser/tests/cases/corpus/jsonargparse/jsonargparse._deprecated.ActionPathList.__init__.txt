@@ -23,6 +23,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'mode'
+  is_optional: False
 - DocstringParam
   description: |
     Whether relative paths are with respect to current working directory 'cwd' or the list's parent
@@ -30,6 +31,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'rel'
+  is_optional: False
 - DocstringRaises
   description: 'If any of the parameters (mode or rel) are invalid.'
   kind: raises

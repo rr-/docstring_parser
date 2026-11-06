@@ -52,16 +52,19 @@ style: rest
   kind: attribute
   key: 'attribute'
   arg_name: 'attr_3'
+  is_optional: False
 - DocstringParam
   description: ''
   kind: attribute
   key: 'attribute'
   arg_name: 'attr_4'
+  is_optional: False
 - DocstringParam
   description: ''
   kind: attribute
   key: 'attribute'
   arg_name: 'attr_5'
+  is_optional: False
 - DocstringParam
   description: '!'
   kind: attribute
@@ -75,6 +78,7 @@ style: rest
   key: 'param'
   arg_name: 'name'
   type_name: 'str'
+  is_optional: False
 === compose rest
 My Class
 

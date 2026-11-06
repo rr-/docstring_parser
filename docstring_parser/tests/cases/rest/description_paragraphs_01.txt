@@ -24,6 +24,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'a'
+  is_optional: False
 - DocstringParam
   description: |
     Values::
@@ -33,6 +34,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'b'
+  is_optional: False
 - DocstringParam
   description: |
     First,
@@ -40,6 +42,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'c'
+  is_optional: False
 === compose rest
 Short.
 

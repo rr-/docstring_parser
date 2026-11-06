@@ -33,7 +33,8 @@ style: google
   key: 'param'
   arg_name: 'style'
   type_name: 'Union[GetStyleCallable, StyleType]'
-  is_optional: False
+  is_optional: True
+  default: 'None'
 - DocstringParam
   description: 'Optional prefix to add to style group names.'
   kind: param
@@ -56,7 +57,7 @@ translated to styles.
 
 Args:
     re_highlight (Union[re.Pattern, str]): A regular expression object or string.
-    style (Union[GetStyleCallable, StyleType]): Optional style to apply to whole match, or a callable
+    style (Union[GetStyleCallable, StyleType]?): Optional style to apply to whole match, or a callable
         which accepts the matched text and returns a style. Defaults to None.
     style_prefix (str?): Optional prefix to add to style group names.
 

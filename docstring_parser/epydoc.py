@@ -9,7 +9,11 @@ import typing as T
 from ._compose import description_lines, field_name, field_text
 from ._fields import ParamTypes, ReturnTypes, assign_types
 from ._lines import Lines
-from ._text import append_loose, split_description
+from ._text import (
+    append_loose,
+    param_spec,
+    split_description,
+)
 from .common import (
     PARAM_KINDS,
     RAISES_KINDS,
@@ -32,7 +36,6 @@ from .common import (
 from .sections import ParserCache, SectionSpec, apply
 
 _FIELD_START = re.compile("^@", flags=re.M)
-_DEFAULTS_TO = re.compile(r".*defaults to (.+)", flags=re.DOTALL)
 _FIELD = re.compile(r"(^@.*?)(?=^@|\Z)", flags=re.S | re.M)
 # A field's header: its name, then the names it is about, then a colon.
 _HEADER = re.compile(r"([_A-z][_A-z0-9]*)((?:\s+[_A-z][_A-z0-9]*\??)*):")
@@ -195,15 +198,14 @@ class Parser(BaseParser):
                 continue
             meta: DocstringMeta
             if base == "param":
-                defaults_to = _DEFAULTS_TO.match(desc)
+                # The type comes from an @type field, if any, later.
+                param_type = param_spec(None, desc)
                 meta = DocstringParam(
                     desc,
                     arg_name=args[0],
                     type_name=None,
-                    is_optional=False,
-                    default=defaults_to.group(1).rstrip(".")
-                    if defaults_to
-                    else None,
+                    is_optional=param_type.is_optional,
+                    default=param_type.default,
                     kind=kind,
                     key=key,
                 )

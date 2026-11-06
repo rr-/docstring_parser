@@ -16,6 +16,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'header'
+  is_optional: False
 === detect
 rest
 === compose rest

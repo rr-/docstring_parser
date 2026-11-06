@@ -23,16 +23,19 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'obj'
+  is_optional: False
 - DocstringParam
   description: "Whether to merge with the parsed environment, ``None`` to use the parser's default."
   kind: param
   key: 'param'
   arg_name: 'env'
+  is_optional: False
 - DocstringParam
   description: "Whether to merge with the parser's defaults."
   kind: param
   key: 'param'
   arg_name: 'defaults'
+  is_optional: False
 - DocstringReturns
   description: 'A config object with all parsed values.'
   kind: returns

@@ -56,11 +56,13 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'method'
+  is_optional: False
 - DocstringParam
   description: 'URL for the new :class:`Request` object.'
   kind: param
   key: 'param'
   arg_name: 'url'
+  is_optional: False
 - DocstringParam
   description: |
     (optional) Dictionary, list of tuples or bytes to send
@@ -68,6 +70,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'params'
+  is_optional: False
 - DocstringParam
   description: |
     (optional) Dictionary, list of tuples, bytes, or file-like
@@ -75,21 +78,25 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'data'
+  is_optional: False
 - DocstringParam
   description: '(optional) A JSON serializable Python object to send in the body of the :class:`Request`.'
   kind: param
   key: 'param'
   arg_name: 'json'
+  is_optional: False
 - DocstringParam
   description: '(optional) Dictionary of HTTP Headers to send with the :class:`Request`.'
   kind: param
   key: 'param'
   arg_name: 'headers'
+  is_optional: False
 - DocstringParam
   description: '(optional) Dict or CookieJar object to send with the :class:`Request`.'
   kind: param
   key: 'param'
   arg_name: 'cookies'
+  is_optional: False
 - DocstringParam
   description: |
     (optional) Dictionary of ``'name': file-like-objects`` (or ``{'name': file-tuple}``) for multipart encoding upload.
@@ -100,11 +107,13 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'files'
+  is_optional: False
 - DocstringParam
   description: '(optional) Auth tuple to enable Basic/Digest/Custom HTTP Auth.'
   kind: param
   key: 'param'
   arg_name: 'auth'
+  is_optional: False
 - DocstringParam
   description: |
     (optional) How many seconds to wait for the server to send data
@@ -114,17 +123,21 @@ style: rest
   key: 'param'
   arg_name: 'timeout'
   type_name: 'float or tuple'
+  is_optional: False
 - DocstringParam
   description: '(optional) Boolean. Enable/disable GET/OPTIONS/POST/PUT/PATCH/DELETE/HEAD redirection. Defaults to ``True``.'
   kind: param
   key: 'param'
   arg_name: 'allow_redirects'
   type_name: 'bool'
+  is_optional: True
+  default: 'True'
 - DocstringParam
   description: '(optional) Dictionary mapping protocol to the URL of the proxy.'
   kind: param
   key: 'param'
   arg_name: 'proxies'
+  is_optional: False
 - DocstringParam
   description: |
     (optional) Either a boolean, in which case it controls whether we verify
@@ -133,16 +146,20 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'verify'
+  is_optional: True
+  default: 'True'
 - DocstringParam
   description: '(optional) if ``False``, the response content will be immediately downloaded.'
   kind: param
   key: 'param'
   arg_name: 'stream'
+  is_optional: False
 - DocstringParam
   description: "(optional) if String, path to ssl client cert file (.pem). If Tuple, ('cert', 'key') pair."
   kind: param
   key: 'param'
   arg_name: 'cert'
+  is_optional: False
 - DocstringReturns
   description: ':class:`Response <Response>` object'
   kind: returns
@@ -180,7 +197,7 @@ Usage::
     before giving up, as a float, or a :ref:`(connect timeout, read
     timeout) <timeouts>` tuple.
 :type timeout: float or tuple
-:param bool allow_redirects: (optional) Boolean. Enable/disable GET/OPTIONS/POST/PUT/PATCH/DELETE/HEAD redirection. Defaults to ``True``.
+:param bool? allow_redirects: (optional) Boolean. Enable/disable GET/OPTIONS/POST/PUT/PATCH/DELETE/HEAD redirection. Defaults to ``True``.
 :param proxies: (optional) Dictionary mapping protocol to the URL of the proxy.
 :param verify: (optional) Either a boolean, in which case it controls whether we verify
     the server's TLS certificate, or a string, in which case it must be a path

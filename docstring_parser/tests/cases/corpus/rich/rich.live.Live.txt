@@ -26,7 +26,6 @@ style: google
   arg_name: 'renderable'
   type_name: 'RenderableType'
   is_optional: True
-  default: 'displaying nothing'
   raw_type_name: 'RenderableType, optional'
 - DocstringParam
   description: 'Optional Console instance. Defaults to an internal Console instance writing to stdout.'
@@ -35,7 +34,6 @@ style: google
   arg_name: 'console'
   type_name: 'Console'
   is_optional: True
-  default: 'an internal Console instance writing to stdout'
   raw_type_name: 'Console, optional'
 - DocstringParam
   description: 'Enable alternate screen mode. Defaults to False.'
@@ -53,6 +51,7 @@ style: google
   arg_name: 'auto_refresh'
   type_name: 'bool'
   is_optional: True
+  default: 'True'
   raw_type_name: 'bool, optional'
 - DocstringParam
   description: 'Number of times per second to refresh the live display. Defaults to 4.'

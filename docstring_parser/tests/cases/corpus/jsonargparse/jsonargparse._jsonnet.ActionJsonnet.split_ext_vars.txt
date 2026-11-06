@@ -15,6 +15,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'ext_vars'
+  is_optional: False
 === detect
 google
 === compose google

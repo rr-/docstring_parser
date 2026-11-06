@@ -115,6 +115,7 @@ style: numpydoc
   arg_name: 'tensor'
   type_name: 'boolean'
   is_optional: True
+  default: 'True'
   raw_type_name: 'boolean, optional'
 - DocstringReturns
   description: 'The shape of the return value is described above.'
@@ -167,7 +168,7 @@ c : array_like
     remaining indices enumerate multiple polynomials. In the two
     dimensional case the coefficients may be thought of as stored in
     the columns of `c`.
-tensor : boolean, optional
+tensor : boolean, default=True
     If True, the shape of the coefficient array is extended with ones
     on the right, one for each dimension of `x`. Scalars have dimension 0
     for this action. The result is that every column of coefficients in

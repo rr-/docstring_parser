@@ -59,16 +59,19 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'bar'
+  is_optional: False
 - DocstringParam
   description: 'Attr 3'
   kind: attribute
   key: 'attribute'
   arg_name: 'attr_3'
+  is_optional: False
 - DocstringParam
   description: 'A param called "goo"'
   kind: param
   key: 'param'
   arg_name: 'goo'
+  is_optional: False
 - DocstringParam
   kind: param
   key: 'type'
@@ -80,16 +83,19 @@ style: rest
   kind: attribute
   key: 'attribute'
   arg_name: 'attr_4'
+  is_optional: False
 - DocstringParam
   description: ''
   kind: attribute
   key: 'attribute'
   arg_name: 'attr_5'
+  is_optional: False
 - DocstringParam
   description: 'A param called "foo"'
   kind: param
   key: 'param'
   arg_name: 'foo'
+  is_optional: False
 - DocstringParam
   kind: param
   key: 'type'
@@ -109,6 +115,7 @@ style: rest
   key: 'param'
   arg_name: 'name'
   type_name: 'float'
+  is_optional: False
 - DocstringParam
   kind: param
   key: 'type'

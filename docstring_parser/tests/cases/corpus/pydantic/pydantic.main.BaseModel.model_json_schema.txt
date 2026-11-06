@@ -35,11 +35,13 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'by_alias'
+  is_optional: False
 - DocstringParam
   description: 'The reference template.'
   kind: param
   key: 'param'
   arg_name: 'ref_template'
+  is_optional: False
 - DocstringParam
   description: |
     The format to use when combining schemas from unions together. Can be one of:
@@ -53,6 +55,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'union_format'
+  is_optional: False
 - DocstringParam
   description: |
     To override the logic used to generate the JSON schema, as a subclass of
@@ -60,11 +63,13 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'schema_generator'
+  is_optional: False
 - DocstringParam
   description: 'The mode in which to generate the schema.'
   kind: param
   key: 'param'
   arg_name: 'mode'
+  is_optional: False
 - DocstringReturns
   description: 'The JSON schema for the given model class.'
   kind: returns

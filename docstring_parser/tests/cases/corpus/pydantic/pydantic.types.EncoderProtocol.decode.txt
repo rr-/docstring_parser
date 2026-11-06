@@ -18,6 +18,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'data'
+  is_optional: False
 - DocstringReturns
   description: 'The decoded data.'
   kind: returns

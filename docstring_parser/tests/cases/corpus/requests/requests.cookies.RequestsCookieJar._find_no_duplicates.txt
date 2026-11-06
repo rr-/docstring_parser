@@ -22,16 +22,19 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'name'
+  is_optional: False
 - DocstringParam
   description: '(optional) string containing domain of cookie'
   kind: param
   key: 'param'
   arg_name: 'domain'
+  is_optional: False
 - DocstringParam
   description: '(optional) string containing path of cookie'
   kind: param
   key: 'param'
   arg_name: 'path'
+  is_optional: False
 - DocstringRaises
   description: 'if cookie is not found'
   kind: raises

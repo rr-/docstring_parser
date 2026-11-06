@@ -34,8 +34,10 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'arg0'
+  is_optional: False
 - DocstringParam
   description: 'desc1'
   kind: param
   key: 'param'
   arg_name: 'arg1'
+  is_optional: False

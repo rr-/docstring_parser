@@ -67,34 +67,139 @@ class TypeSpec(T.NamedTuple):
     """A param's type with the marks of an optional param split off."""
 
     type_name: T.Optional[str]
-    is_optional: T.Optional[bool]
+    is_optional: bool
     default: T.Optional[str]
+
+
+_CLOSING = {"(": ")", "[": "]", "{": "}"}
+
+
+def _split_commas(text: str) -> T.List[str]:
+    """Split a type on the commas outside brackets and quotes."""
+    parts = []
+    closing: T.List[str] = []
+    quote = ""
+    start = 0
+    for i, char in enumerate(text):
+        if quote:
+            if char == quote:
+                quote = ""
+        elif char in "'\"":
+            quote = char
+        elif char in _CLOSING:
+            closing.append(_CLOSING[char])
+        elif closing and char == closing[-1]:
+            closing.pop()
+        elif char == "," and not closing:
+            parts.append(text[start:i])
+            start = i + 1
+    parts.append(text[start:])
+    return parts
+
+
+# A part of a type that marks the param optional.
+_OPTIONAL = re.compile(r"\*?optional\*?", flags=re.I)
+# A part of a type that names the default, as in ``default 1``,
+# ``default=1``, ``default: 1``, ``default is 1``, ``defaults to 1`` or
+# ``defaults 1``.
+_DEFAULT_PART = re.compile(
+    r"defaults?(?:\s*[=:]\s*|\s+(?:is\s+|to\s+)?)(?P<value>\S.*)",
+    flags=re.I | re.S,
+)
+# The mark written after the type without a comma, as in ``int (optional)``.
+_OPTIONAL_SUFFIX = re.compile(r"\s*\(optional\)$", flags=re.I)
+
+
+def _strip_backticks(value: str) -> str:
+    return value.strip("`") or value
 
 
 def type_spec(type_name: T.Optional[str]) -> TypeSpec:
     """Split the marks of an optional param, and its default, off its type.
 
-    A param is optional when its type ends with ``?``, ``, optional`` or
-    ``(optional)``, or names a default with ``, default`` followed by the
-    value. The same rule holds in every style. A param with no type at all
-    is neither optional nor not.
+    The type is split on the commas outside brackets and quotes:
+
+    - A part ``optional``, in any case or emphasized as ``*optional*``, a
+      part ending in ``(optional)`` and a part ending in ``?`` mark the
+      param optional.
+    - A part ``default 1``, ``default=1``, ``default: 1``, ``default is
+      1``, ``defaults to 1`` or ``defaults 1`` gives the default, without
+      backticks around it, and makes the param optional too.
+    - The other parts are the type.
+
+    The same rule holds in every style.
     """
-    if type_name is None:
-        return TypeSpec(type_name=None, is_optional=None, default=None)
-    if type_name.endswith("?"):
-        return TypeSpec(
-            type_name=type_name[:-1], is_optional=True, default=None
-        )
+    if type_name is None or not type_name.strip():
+        return TypeSpec(type_name=type_name, is_optional=False, default=None)
     is_optional = False
     default = None
-    # "optional" may come before the default or after it.
-    for regex in (OPTIONAL_REGEX, DEFAULT_REGEX, OPTIONAL_REGEX):
-        match = regex.match(type_name)
-        if match is not None:
-            type_name = match.group("type").rstrip()
+    kept = []
+    for part in _split_commas(type_name):
+        part = part.strip()
+        if _OPTIONAL.fullmatch(part):
             is_optional = True
-            if regex is DEFAULT_REGEX:
-                default = match.group("value")
+            continue
+        match = _DEFAULT_PART.fullmatch(part)
+        if match is not None:
+            is_optional = True
+            default = _strip_backticks(match.group("value").strip())
+            continue
+        suffix = _OPTIONAL_SUFFIX.search(part)
+        if suffix is not None:
+            is_optional = True
+            part = part[: suffix.start()]
+        if part.endswith("?"):
+            is_optional = True
+            part = part[:-1].rstrip()
+        if part:
+            kept.append(part)
     return TypeSpec(
-        type_name=type_name, is_optional=is_optional, default=default
+        type_name=", ".join(kept) or None,
+        is_optional=is_optional,
+        default=default,
+    )
+
+
+# A default that a description states, as in "Defaults to 3.", "(default:
+# 3)" or "default is ``None`` if unset". The value must be one value: a
+# literal, a name, a call, or a quoted or bracketed expression, maybe
+# followed by a remark in parentheses or a condition. So "The default is to
+# use all of them." states no default, and neither does "the default
+# :meth:`run`".
+DEFAULT_IN_DESCRIPTION = re.compile(
+    r"(?<!\w)(?:defaults\s+to|default\s+(?:value\s+)?is|default:|default\s*=)"
+    r"\s*(?P<value>"
+    r"``[^`\n]+``|`[^`\n]+`"
+    r"|'[^'\n]*'|\"[^\"\n]*\""
+    r"|\([^()\n]*\)|\[[^\[\]\n]*\]|\{[^{}\n]*\}"
+    r"|[-+]?[\w.]*\w(?:\([^()\n]*\))?"
+    r")"
+    r"(?=\s*(?:[.,;)]|$)|\s+(?:\(|(?:if|when|unless)\b))",
+    flags=re.I | re.M,
+)
+
+
+def default_in(description: T.Optional[str]) -> T.Optional[str]:
+    """Find the default that a description states, if any."""
+    if not description:
+        return None
+    match = DEFAULT_IN_DESCRIPTION.search(description)
+    if match is None:
+        return None
+    return _strip_backticks(match.group("value"))
+
+
+def param_spec(
+    type_name: T.Optional[str], description: T.Optional[str]
+) -> TypeSpec:
+    """Read a param's type, with its default from the type or else from
+    its description. A param with a default is optional."""
+    spec = type_spec(type_name)
+    if spec.default is not None:
+        return spec
+    default = default_in(description)
+    if default is None:
+        return spec
+    return TypeSpec(
+        type_name=spec.type_name, is_optional=True, default=default
     )

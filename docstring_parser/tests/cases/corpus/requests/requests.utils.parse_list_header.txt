@@ -51,6 +51,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'value'
+  is_optional: False
 - DocstringReturns
   description: ':class:`list`'
   kind: returns

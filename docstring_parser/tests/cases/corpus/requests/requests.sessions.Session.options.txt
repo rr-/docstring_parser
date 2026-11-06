@@ -16,11 +16,13 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'url'
+  is_optional: False
 - DocstringParam
   description: 'Optional arguments that ``request`` takes.'
   kind: param
   key: 'param'
   arg_name: '\\*\\*kwargs'
+  is_optional: False
 - DocstringReturns
   kind: returns
   type_name: 'requests.Response'

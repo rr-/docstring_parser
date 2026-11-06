@@ -20,16 +20,19 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'config_wrapper'
+  is_optional: False
 - DocstringParam
   description: 'The field name the `FieldInfo` instance is attached to.'
   kind: param
   key: 'param'
   arg_name: 'field_name'
+  is_optional: False
 - DocstringParam
   description: 'The `FieldInfo` instance to update.'
   kind: param
   key: 'param'
   arg_name: 'field_info'
+  is_optional: False
 === detect
 google
 === compose google

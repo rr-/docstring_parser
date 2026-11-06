@@ -11,12 +11,13 @@ from textwrap import dedent
 from ._compose import SectionTable, kind_of, sections
 from ._lines import Lines
 from ._text import (
+    DEFAULT_IN_DESCRIPTION,
     DEFAULT_REGEX,
     OPTIONAL_REGEX,
     append_loose,
     clean_str,
+    param_spec,
     split_description,
-    type_spec,
 )
 from .common import (
     BaseParser,
@@ -109,17 +110,11 @@ def _heading_key(title: str) -> str:
 
 
 PARAM_KEY_REGEX = re.compile(r"^(?P<name>.*?)(?:\s*:\s*(?P<type>.*?))?$")
+# Kept for code that imports them. Parsing reads types and defaults with
+# the rule all styles share, in ``_text.param_spec``.
 PARAM_OPTIONAL_REGEX = OPTIONAL_REGEX
 PARAM_DEFAULT_REGEX = DEFAULT_REGEX
-
-# If the default value isn't specified in the type declaration,
-# it might be in the description. There isn't any formal grammar for this
-# in numpydoc, but we can make some educated guesses. A bare "default"
-# followed by a word is left out, since prose such as "the default engine"
-# or "by default only" reads the same.
-PARAM_DEFAULT_REGEX_IN_DESC = re.compile(
-    r"(?<!\S)[Dd]efault(?:s to |\s*(?:is|[=:])\s*)(?P<value>(?:['\"]).*?(?:['\"])|[\w\-\.]*\w)"  # noqa: E501
-)
+PARAM_DEFAULT_REGEX_IN_DESC = DEFAULT_IN_DESCRIPTION
 
 RETURN_KEY_REGEX = re.compile(r"^(?:(?P<name>.*?)\s*:\s*)?(?P<type>.*?)$")
 
@@ -224,23 +219,14 @@ class ParamSection(_KVSection):
         assert match is not None
         arg_name: str = match.group("name")
         raw_type_name = match.group("type")
-        spec = type_spec(raw_type_name)
-        default = spec.default
-
-        # If the default wasn't specifified in the type declaration,
-        # try and see if we can find it in the description.
-        if len(value) > 0 and default is None:
-            default_match = PARAM_DEFAULT_REGEX_IN_DESC.search(value)
-            if default_match is not None:
-                default = default_match.group("value")
-
+        spec = param_spec(raw_type_name, value)
         return DocstringParam(
             key=self.key,
             description=clean_str(value),
             arg_name=arg_name,
             type_name=spec.type_name,
             is_optional=spec.is_optional,
-            default=default,
+            default=spec.default,
             raw_type_name=raw_type_name,
             kind=self._spec.kind
             if self._spec
@@ -670,10 +656,13 @@ def compose(
         # If it is and there's a not-None default, include that in the type
         # declaration, otherwise just mark it as optional.
         if isinstance(one, DocstringParam):
+            # With no type, the mark is the type, as in "x : optional", so
+            # that it is not read back as part of the name.
+            mark = ", " if one.type_name else " : "
             if one.default not in [None, "None"]:
-                head += f", default={one.default}"
+                head += f"{mark}default={one.default}"
             elif one.is_optional or one.default == "None":
-                head += ", optional"
+                head += f"{mark}optional"
 
         if one.description:
             body = f"\n{indent}".join([head] + one.description.splitlines())

@@ -30,6 +30,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'message'
+  is_optional: False
 - DocstringParam
   description: |
     the category for the message.  The following values
@@ -40,6 +41,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'category'
+  is_optional: False
 === detect
 rest
 === compose rest

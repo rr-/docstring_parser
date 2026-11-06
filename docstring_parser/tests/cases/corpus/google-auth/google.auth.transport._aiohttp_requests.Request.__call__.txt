@@ -41,7 +41,7 @@ style: google
   key: 'param'
   arg_name: 'method'
   type_name: 'Optional[str]'
-  is_optional: False
+  is_optional: True
   default: "'GET'"
 - DocstringParam
   description: 'The payload or body in HTTP request.'
@@ -74,6 +74,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'kwargs'
+  is_optional: False
 - DocstringReturns
   description: 'The HTTP response.'
   kind: returns
@@ -92,7 +93,7 @@ Make an HTTP request using aiohttp.
 
 Args:
     url (str): The URL to be requested.
-    method (Optional[str]): The HTTP method to use for the request. Defaults to 'GET'.
+    method (Optional[str]?): The HTTP method to use for the request. Defaults to 'GET'.
     body (Optional[bytes]): The payload or body in HTTP request.
     headers (Optional[Mapping[str, str]]): Request headers.
     timeout (Optional[int]): The number of seconds to wait for a

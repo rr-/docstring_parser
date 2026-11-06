@@ -18,21 +18,25 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'cls'
+  is_optional: False
 - DocstringParam
   description: 'The config wrapper instance.'
   kind: param
   key: 'param'
   arg_name: 'config_wrapper'
+  is_optional: False
 - DocstringParam
   description: 'Namespace resolver to use when getting model annotations.'
   kind: param
   key: 'param'
   arg_name: 'ns_resolver'
+  is_optional: False
 - DocstringParam
   description: 'The result of inspecting the class namespace before the class was created.'
   kind: param
   key: 'param'
   arg_name: 'namespace_info'
+  is_optional: False
 === detect
 google
 === compose google

@@ -39,21 +39,25 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'msg'
+  is_optional: False
 - DocstringParam
   description: 'The arguments to substitute into ``msg``.'
   kind: param
   key: 'param'
   arg_name: 'args'
+  is_optional: False
 - DocstringParam
   description: 'The type of the warning.'
   kind: param
   key: 'param'
   arg_name: 'type'
+  is_optional: False
 - DocstringParam
   description: 'The subtype of the warning.'
   kind: param
   key: 'param'
   arg_name: 'subtype'
+  is_optional: False
 - DocstringParam
   description: |
     The source location of the warning's origin,
@@ -63,16 +67,19 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'location'
+  is_optional: False
 - DocstringParam
   description: 'Whether to append a new line terminator to the message.'
   kind: param
   key: 'param'
   arg_name: 'nonl'
+  is_optional: False
 - DocstringParam
   description: 'A color code for the message.'
   kind: param
   key: 'param'
   arg_name: 'color'
+  is_optional: False
 - DocstringParam
   description: |
     Do not log this warning,
@@ -80,6 +87,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'once'
+  is_optional: False
 === detect
 rest
 === compose rest

@@ -23,6 +23,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'attribute_docstrings'
+  is_optional: False
 === detect
 google
 === compose google

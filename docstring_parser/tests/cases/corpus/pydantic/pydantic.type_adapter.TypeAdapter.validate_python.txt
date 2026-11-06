@@ -48,11 +48,13 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'object'
+  is_optional: False
 - DocstringParam
   description: 'Whether to strictly check types.'
   kind: param
   key: 'param'
   arg_name: 'strict'
+  is_optional: False
 - DocstringParam
   description: |
     Whether to ignore, allow, or forbid extra data during model validation.
@@ -60,16 +62,19 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'extra'
+  is_optional: False
 - DocstringParam
   description: 'Whether to extract data from object attributes.'
   kind: param
   key: 'param'
   arg_name: 'from_attributes'
+  is_optional: False
 - DocstringParam
   description: 'Additional context to pass to the validator.'
   kind: param
   key: 'param'
   arg_name: 'context'
+  is_optional: False
 - DocstringParam
   description: |
     **Experimental** whether to enable
@@ -80,16 +85,19 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'experimental_allow_partial'
+  is_optional: False
 - DocstringParam
   description: "Whether to use the field's alias when validating against the provided input data."
   kind: param
   key: 'param'
   arg_name: 'by_alias'
+  is_optional: False
 - DocstringParam
   description: "Whether to use the field's name when validating against the provided input data."
   kind: param
   key: 'param'
   arg_name: 'by_name'
+  is_optional: False
 - DocstringReturns
   description: 'The validated object.'
   kind: returns

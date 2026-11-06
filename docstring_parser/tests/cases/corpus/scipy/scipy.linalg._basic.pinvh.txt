@@ -92,6 +92,7 @@ style: numpydoc
   arg_name: 'atol'
   type_name: 'float'
   is_optional: True
+  default: '0'
   raw_type_name: 'float, optional'
 - DocstringParam
   description: |
@@ -114,6 +115,7 @@ style: numpydoc
   arg_name: 'lower'
   type_name: 'bool'
   is_optional: True
+  default: 'lower'
   raw_type_name: 'bool, optional'
 - DocstringParam
   description: 'If True, return the effective rank of the matrix.'
@@ -193,7 +195,7 @@ Parameters
 ----------
 a : (N, N) array_like
     Real symmetric or complex hermetian matrix to be pseudo-inverted
-atol : float, optional
+atol : float, default=0
     Absolute threshold term, default value is 0.
     
     .. versionadded:: 1.7.0
@@ -202,7 +204,7 @@ rtol : float, optional
     ``eps`` is the machine precision value of the datatype of ``a``.
     
     .. versionadded:: 1.7.0
-lower : bool, optional
+lower : bool, default=lower
     Whether the pertinent array data is taken from the lower or upper
     triangle of `a`. (Default: lower)
 return_rank : bool, optional

@@ -39,11 +39,13 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'location'
+  is_optional: False
 - DocstringParam
   description: 'The status code for the redirect.'
   kind: param
   key: 'param'
   arg_name: 'code'
+  is_optional: False
 - DocstringParam
   description: |
     The response class to use. Not used when
@@ -51,6 +53,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'Response'
+  is_optional: False
 === detect
 rest
 === compose rest

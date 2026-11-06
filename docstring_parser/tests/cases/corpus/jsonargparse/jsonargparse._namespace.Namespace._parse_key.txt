@@ -24,6 +24,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'key'
+  is_optional: False
 - DocstringReturns
   description: |
     Tuple with three elements corresponding to:

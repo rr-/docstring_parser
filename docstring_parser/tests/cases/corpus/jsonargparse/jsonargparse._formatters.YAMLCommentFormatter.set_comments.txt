@@ -19,26 +19,31 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'cfg'
+  is_optional: False
 - DocstringParam
   description: 'The parser from which help content is obtained.'
   kind: param
   key: 'param'
   arg_name: 'parser'
+  is_optional: False
 - DocstringParam
   description: 'Map of parser keys to the title of the group they belong to.'
   kind: param
   key: 'param'
   arg_name: 'group_titles'
+  is_optional: False
 - DocstringParam
   description: 'The parser key that corresponds to the given config object.'
   kind: param
   key: 'param'
   arg_name: 'prefix'
+  is_optional: False
 - DocstringParam
   description: 'The nested level of the keys of the config object.'
   kind: param
   key: 'param'
   arg_name: 'depth'
+  is_optional: False
 === detect
 google
 === compose google

@@ -19,11 +19,13 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'yes_prefix'
+  is_optional: False
 - DocstringParam
   description: 'Prefix for no option.'
   kind: param
   key: 'param'
   arg_name: 'no_prefix'
+  is_optional: False
 - DocstringRaises
   description: 'If a parameter is invalid.'
   kind: raises

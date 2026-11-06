@@ -26,11 +26,13 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'obj'
+  is_optional: False
 - DocstringParam
   description: 'Passed to :func:`json.dumps`.'
   kind: param
   key: 'param'
   arg_name: 'kwargs'
+  is_optional: False
 === detect
 rest
 === compose rest

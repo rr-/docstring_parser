@@ -16,11 +16,13 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'config'
+  is_optional: False
 - DocstringParam
   description: 'Custom instantiators, see :meth:`.ArgumentParser.instantiate`.'
   kind: param
   key: 'param'
   arg_name: 'instantiators'
+  is_optional: False
 === detect
 google
 === compose google

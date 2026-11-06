@@ -141,55 +141,64 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'strict'
-  default: '`None`'
+  is_optional: True
+  default: 'None'
 - DocstringParam
   description: 'The value must be greater than this. Defaults to `None`.'
   kind: param
   key: 'param'
   arg_name: 'gt'
-  default: '`None`'
+  is_optional: True
+  default: 'None'
 - DocstringParam
   description: 'The value must be greater than or equal to this. Defaults to `None`.'
   kind: param
   key: 'param'
   arg_name: 'ge'
-  default: '`None`'
+  is_optional: True
+  default: 'None'
 - DocstringParam
   description: 'The value must be less than this. Defaults to `None`.'
   kind: param
   key: 'param'
   arg_name: 'lt'
-  default: '`None`'
+  is_optional: True
+  default: 'None'
 - DocstringParam
   description: 'The value must be less than or equal to this. Defaults to `None`.'
   kind: param
   key: 'param'
   arg_name: 'le'
-  default: '`None`'
+  is_optional: True
+  default: 'None'
 - DocstringParam
   description: 'The value must be a multiple of this. Defaults to `None`.'
   kind: param
   key: 'param'
   arg_name: 'multiple_of'
-  default: '`None`'
+  is_optional: True
+  default: 'None'
 - DocstringParam
   description: 'The maximum number of digits. Defaults to `None`.'
   kind: param
   key: 'param'
   arg_name: 'max_digits'
-  default: '`None`'
+  is_optional: True
+  default: 'None'
 - DocstringParam
   description: 'The number of decimal places. Defaults to `None`.'
   kind: param
   key: 'param'
   arg_name: 'decimal_places'
-  default: '`None`'
+  is_optional: True
+  default: 'None'
 - DocstringParam
   description: 'Whether to allow infinity and NaN. Defaults to `None`.'
   kind: param
   key: 'param'
   arg_name: 'allow_inf_nan'
-  default: '`None`'
+  is_optional: True
+  default: 'None'
 === detect
 google
 === compose google

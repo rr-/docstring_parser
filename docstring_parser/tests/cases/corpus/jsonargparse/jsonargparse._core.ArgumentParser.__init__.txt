@@ -31,46 +31,55 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'env_prefix'
+  is_optional: False
 - DocstringParam
   description: 'Class for printing help messages.'
   kind: param
   key: 'param'
   arg_name: 'formatter_class'
+  is_optional: False
 - DocstringParam
   description: 'Logger to use or configuration for logger.'
   kind: param
   key: 'param'
   arg_name: 'logger'
+  is_optional: False
 - DocstringParam
   description: 'Program version which will be printed by the ``--version`` argument.'
   kind: param
   key: 'param'
   arg_name: 'version'
+  is_optional: False
 - DocstringParam
   description: 'Name for print config argument, ``%s`` is replaced by config dest, set ``None`` to disable.'
   kind: param
   key: 'param'
   arg_name: 'print_config'
+  is_optional: False
 - DocstringParam
   description: 'Mode for parsing values: ``yaml``, ``json``, ``jsonnet`` or added via :func:`.set_loader`.'
   kind: param
   key: 'param'
   arg_name: 'parser_mode'
+  is_optional: False
 - DocstringParam
   description: 'Header to include as comment when dumping a config object.'
   kind: param
   key: 'param'
   arg_name: 'dump_header'
+  is_optional: False
 - DocstringParam
   description: "Default config file locations, e.g. ``['~/.config/myapp/*.yaml']``."
   kind: param
   key: 'param'
   arg_name: 'default_config_files'
+  is_optional: False
 - DocstringParam
   description: 'Set the default value on whether to parse environment variables.'
   kind: param
   key: 'param'
   arg_name: 'default_env'
+  is_optional: False
 === detect
 google
 === compose google

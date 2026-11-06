@@ -21,7 +21,7 @@ style: google
   key: 'param'
   arg_name: 'indent_size'
   type_name: 'Optional[int]'
-  is_optional: False
+  is_optional: True
   default: 'None'
 - DocstringParam
   description: 'Character to use for indentation. Defaults to "│".'
@@ -52,7 +52,7 @@ google
 Adds indent guide lines to text.
 
 Args:
-    indent_size (Optional[int]): Size of indentation, or None to auto detect. Defaults to None.
+    indent_size (Optional[int]?): Size of indentation, or None to auto detect. Defaults to None.
     character (str?): Character to use for indentation. Defaults to "│".
     style (Union[Style, str]?): Style of indent guides.
 

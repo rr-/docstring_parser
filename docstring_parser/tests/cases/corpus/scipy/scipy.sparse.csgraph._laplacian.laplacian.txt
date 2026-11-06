@@ -384,7 +384,7 @@ style: numpydoc
   key: 'param'
   arg_name: 'form'
   type_name: "'array', or 'function', or 'lo'"
-  is_optional: False
+  is_optional: True
   default: "'array'"
 - DocstringParam
   description: |

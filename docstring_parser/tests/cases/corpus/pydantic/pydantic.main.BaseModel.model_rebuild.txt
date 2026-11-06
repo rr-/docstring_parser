@@ -28,21 +28,29 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'force'
+  is_optional: True
+  default: 'False'
 - DocstringParam
   description: 'Whether to raise errors, defaults to `True`.'
   kind: param
   key: 'param'
   arg_name: 'raise_errors'
+  is_optional: True
+  default: 'True'
 - DocstringParam
   description: 'The depth level of the parent namespace, defaults to 2.'
   kind: param
   key: 'param'
   arg_name: '_parent_namespace_depth'
+  is_optional: True
+  default: '2'
 - DocstringParam
   description: 'The types namespace, defaults to `None`.'
   kind: param
   key: 'param'
   arg_name: '_types_namespace'
+  is_optional: True
+  default: 'None'
 - DocstringReturns
   description: |
     Returns `None` if the schema is already "complete" and rebuilding was not required.

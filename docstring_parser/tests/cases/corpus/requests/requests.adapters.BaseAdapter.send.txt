@@ -24,11 +24,13 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'request'
+  is_optional: False
 - DocstringParam
   description: '(optional) Whether to stream the request content.'
   kind: param
   key: 'param'
   arg_name: 'stream'
+  is_optional: False
 - DocstringParam
   description: |
     (optional) How long to wait for the server to send
@@ -38,6 +40,7 @@ style: rest
   key: 'param'
   arg_name: 'timeout'
   type_name: 'float or tuple'
+  is_optional: False
 - DocstringParam
   description: |
     (optional) Either a boolean, in which case it controls whether we verify
@@ -46,16 +49,19 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'verify'
+  is_optional: False
 - DocstringParam
   description: '(optional) Any user-provided SSL certificate to be trusted.'
   kind: param
   key: 'param'
   arg_name: 'cert'
+  is_optional: False
 - DocstringParam
   description: '(optional) The proxies dictionary to apply to the request.'
   kind: param
   key: 'param'
   arg_name: 'proxies'
+  is_optional: False
 === detect
 rest
 === compose rest

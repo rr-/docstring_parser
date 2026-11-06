@@ -65,7 +65,6 @@ style: numpydoc
   arg_name: 'min_curvature'
   type_name: 'float'
   is_optional: False
-  default: 'equal'
 - DocstringParam
   description: |
     This parameter can be used to initialize the Hessian or its
@@ -80,7 +79,7 @@ style: numpydoc
   key: 'param'
   arg_name: 'init_scale'
   type_name: "{float, np.array, 'auto'}"
-  is_optional: False
+  is_optional: True
   default: "'auto'"
 - DocstringMeta
   description: 'The update is based on the description in [1]_, p.140.'
@@ -105,7 +104,7 @@ exception_strategy : {'skip_update', 'damp_update'}, optional
     set it to 'damp_update' to interpolate between the actual BFGS
     result and the unmodified matrix. Both exceptions strategies
     are explained  in [1]_, p.536-537.
-min_curvature : float, default=equal
+min_curvature : float
     This number, scaled by a normalization factor, defines the
     minimum curvature ``dot(delta_grad, delta_x)`` allowed to go
     unaffected by the exception strategy. By default is equal to

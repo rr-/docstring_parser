@@ -61,6 +61,7 @@ style: google
   arg_name: 'locals_max_length'
   type_name: 'int'
   is_optional: True
+  default: '10'
   raw_type_name: 'int, optional'
 - DocstringParam
   description: 'Maximum length of string before truncating, or None to disable. Defaults to 80.'

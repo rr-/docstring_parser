@@ -26,11 +26,13 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'req'
+  is_optional: False
 - DocstringParam
   description: 'The urllib3 response object.'
   kind: param
   key: 'param'
   arg_name: 'resp'
+  is_optional: False
 - DocstringReturns
   kind: returns
   type_name: 'requests.Response'

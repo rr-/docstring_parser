@@ -33,16 +33,19 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'schema'
+  is_optional: False
 - DocstringParam
   description: 'The name of the field which will serve as the discriminator.'
   kind: param
   key: 'param'
   arg_name: 'discriminator'
+  is_optional: False
 - DocstringParam
   description: 'A mapping of schema ref to schema.'
   kind: param
   key: 'param'
   arg_name: 'definitions'
+  is_optional: False
 - DocstringReturns
   description: 'The new core schema.'
   kind: returns

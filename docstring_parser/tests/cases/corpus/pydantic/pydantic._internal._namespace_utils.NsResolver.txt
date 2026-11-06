@@ -104,6 +104,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'namespaces_tuple'
+  is_optional: False
 - DocstringParam
   description: |
     An optional parent namespace that will be added to the locals
@@ -131,6 +132,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'parent_namespace'
+  is_optional: False
 - DocstringExample
   description: |
     ```python {lint="skip" test="skip"}

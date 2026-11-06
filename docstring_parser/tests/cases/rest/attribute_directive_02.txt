@@ -39,16 +39,19 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'a'
+  is_optional: False
 - DocstringParam
   description: ''
   kind: attribute
   key: 'attribute'
   arg_name: 'y'
+  is_optional: False
 - DocstringParam
   description: 'B.'
   kind: param
   key: 'param'
   arg_name: 'b'
+  is_optional: False
 === compose rest
 Short.
 

@@ -84,6 +84,7 @@ style: rest
   key: 'param'
   arg_name: 'request'
   type_name: ':class:`~requests.models.PreparedRequest`'
+  is_optional: False
 - DocstringParam
   description: |
     Either a boolean, in which case it controls whether
@@ -92,6 +93,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'verify'
+  is_optional: False
 - DocstringParam
   description: |
     (optional) Any user-provided SSL certificate for client
@@ -102,6 +104,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'cert'
+  is_optional: False
 - DocstringReturns
   description: |
     A tuple of two dictionaries. The first is the "host parameters"

@@ -18,21 +18,25 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'id'
+  is_optional: False
 - DocstringParam
   description: 'The authenticator assertion response.'
   kind: param
   key: 'param'
   arg_name: 'response'
+  is_optional: False
 - DocstringParam
   description: "<'cross-platform'|'platform'> The attachment status of the authenticator."
   kind: param
   key: 'param'
   arg_name: 'authenticator_attachment'
+  is_optional: False
 - DocstringParam
   description: 'WebAuthn authentication extensions output results in a dictionary.'
   kind: param
   key: 'param'
   arg_name: 'client_extension_results'
+  is_optional: False
 === detect
 google
 === compose google

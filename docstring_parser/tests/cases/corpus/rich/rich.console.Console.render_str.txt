@@ -44,7 +44,7 @@ style: google
   arg_name: 'justify'
   type_name: 'str'
   is_optional: True
-  default: '``None``'
+  default: 'None'
   raw_type_name: 'str, optional'
 - DocstringParam
   description: 'Overflow method: "crop", "fold", or "ellipsis". Defaults to ``None``.'
@@ -53,7 +53,7 @@ style: google
   arg_name: 'overflow'
   type_name: 'str'
   is_optional: True
-  default: '``None``'
+  default: 'None'
   raw_type_name: 'str, optional'
 - DocstringParam
   description: 'Enable emoji, or ``None`` to use Console default.'

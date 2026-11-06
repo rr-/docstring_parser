@@ -46,6 +46,7 @@ style: google
   kind: attribute
   key: 'attribute'
   arg_name: '__from_config_init_defaults__'
+  is_optional: False
 - DocstringParam
   description: |
     Additional kwargs to pass to the
@@ -53,6 +54,7 @@ style: google
   kind: attribute
   key: 'attribute'
   arg_name: '__from_config_parser_kwargs__'
+  is_optional: False
 === detect
 google
 === compose google

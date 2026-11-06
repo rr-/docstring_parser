@@ -29,6 +29,7 @@ style: rest
   key: 'param'
   arg_name: 'username'
   type_name: 'str'
+  is_optional: False
 - DocstringReturns
   description: 'A dictionary representing the created user.'
   kind: returns

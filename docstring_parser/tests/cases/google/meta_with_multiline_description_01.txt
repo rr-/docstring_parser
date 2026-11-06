@@ -23,3 +23,4 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'spam'
+  is_optional: False

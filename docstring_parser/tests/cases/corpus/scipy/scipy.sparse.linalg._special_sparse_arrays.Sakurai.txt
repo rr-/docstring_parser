@@ -119,7 +119,8 @@ style: numpydoc
   key: 'param'
   arg_name: 'dtype'
   type_name: 'dtype'
-  is_optional: False
+  is_optional: True
+  default: 'np.int8'
 - DocstringMeta
   description: |
     toarray()
@@ -241,7 +242,7 @@ Parameters
 ----------
 n : int
     The size of the matrix.
-dtype : dtype
+dtype : dtype, default=np.int8
     Numerical type of the array. Default is ``np.int8``.
 
 Examples

@@ -57,6 +57,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'namespace'
+  is_optional: False
 - DocstringParam
   description: |
     a flag indicating if the keys of the resulting
@@ -64,6 +65,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'lowercase'
+  is_optional: False
 - DocstringParam
   description: |
     a flag indicating if the keys of the resulting
@@ -71,6 +73,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'trim_namespace'
+  is_optional: False
 === detect
 rest
 === compose rest

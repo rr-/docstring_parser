@@ -19,6 +19,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'url'
+  is_optional: False
 - DocstringParam
   description: |
     Optional arguments that ``request`` takes. If
@@ -27,6 +28,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: '\\*\\*kwargs'
+  is_optional: False
 - DocstringReturns
   description: ':class:`Response <Response>` object'
   kind: returns

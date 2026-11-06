@@ -53,6 +53,7 @@ style: numpydoc
   arg_name: 'domain'
   type_name: '(2,) array_like'
   is_optional: True
+  default: '[0., 1.]'
   raw_type_name: '(2,) array_like, optional'
 - DocstringParam
   description: 'Window, see `domain` for its use. The default value is [0., 1.].'
@@ -61,6 +62,7 @@ style: numpydoc
   arg_name: 'window'
   type_name: '(2,) array_like'
   is_optional: True
+  default: '[0., 1.]'
   raw_type_name: '(2,) array_like, optional'
 - DocstringParam
   description: |
@@ -74,6 +76,7 @@ style: numpydoc
   arg_name: 'symbol'
   type_name: 'str'
   is_optional: True
+  default: "'x'"
   raw_type_name: 'str, optional'
 === detect
 numpydoc
@@ -89,13 +92,13 @@ Parameters
 coef : array_like
     Laguerre coefficients in order of increasing degree, i.e,
     ``(1, 2, 3)`` gives ``1*L_0(x) + 2*L_1(X) + 3*L_2(x)``.
-domain : (2,) array_like, optional
+domain : (2,) array_like, default=[0., 1.]
     Domain to use. The interval ``[domain[0], domain[1]]`` is mapped
     to the interval ``[window[0], window[1]]`` by shifting and scaling.
     The default value is [0., 1.].
-window : (2,) array_like, optional
+window : (2,) array_like, default=[0., 1.]
     Window, see `domain` for its use. The default value is [0., 1.].
-symbol : str, optional
+symbol : str, default='x'
     Symbol used to represent the independent variable in string
     representations of the polynomial expression, e.g. for printing.
     The symbol must be a valid Python identifier. Default value is 'x'.

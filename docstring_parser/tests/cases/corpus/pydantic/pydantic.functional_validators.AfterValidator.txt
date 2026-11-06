@@ -55,6 +55,7 @@ style: google
   kind: attribute
   key: 'attribute'
   arg_name: 'func'
+  is_optional: False
 - DocstringExample
   description: |
     ```python

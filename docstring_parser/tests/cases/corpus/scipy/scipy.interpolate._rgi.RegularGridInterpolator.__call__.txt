@@ -78,7 +78,6 @@ style: numpydoc
   arg_name: 'method'
   type_name: 'str'
   is_optional: True
-  default: 'the'
   raw_type_name: 'str, optional'
 - DocstringParam
   description: |
@@ -159,7 +158,7 @@ Parameters
 ----------
 xi : ndarray of shape (..., ndim)
     The coordinates to evaluate the interpolator at.
-method : str, default=the
+method : str, optional
     The method of interpolation to perform. Supported are "linear",
     "nearest", "slinear", "cubic", "quintic" and "pchip". Default is
     the method chosen when the interpolator was created.

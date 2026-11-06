@@ -38,6 +38,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'mod_name'
+  is_optional: False
 === detect
 rest
 === compose rest

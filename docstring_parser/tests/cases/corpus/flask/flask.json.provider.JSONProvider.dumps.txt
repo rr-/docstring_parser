@@ -15,11 +15,13 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'obj'
+  is_optional: False
 - DocstringParam
   description: 'May be passed to the underlying JSON library.'
   kind: param
   key: 'param'
   arg_name: 'kwargs'
+  is_optional: False
 === detect
 rest
 === compose rest

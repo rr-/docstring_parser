@@ -28,11 +28,13 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'proxy'
+  is_optional: False
 - DocstringParam
   description: 'Extra keyword arguments used to configure the Proxy Manager.'
   kind: param
   key: 'param'
   arg_name: 'proxy_kwargs'
+  is_optional: False
 - DocstringReturns
   description: 'ProxyManager'
   kind: returns

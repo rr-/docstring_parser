@@ -26,11 +26,13 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'conn'
+  is_optional: False
 - DocstringParam
   description: 'The requested URL.'
   kind: param
   key: 'param'
   arg_name: 'url'
+  is_optional: False
 - DocstringParam
   description: |
     Either a boolean, in which case it controls whether we verify
@@ -39,11 +41,13 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'verify'
+  is_optional: False
 - DocstringParam
   description: 'The SSL certificate to verify.'
   kind: param
   key: 'param'
   arg_name: 'cert'
+  is_optional: False
 === detect
 rest
 === compose rest

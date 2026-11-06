@@ -30,6 +30,7 @@ style: rest
   kind: param
   key: 'param'
   arg_name: 'name'
+  is_optional: False
 === detect
 rest
 === compose rest

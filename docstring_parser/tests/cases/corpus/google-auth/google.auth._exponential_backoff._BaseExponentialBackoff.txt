@@ -34,6 +34,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'total_attempts Optional[int]'
+  is_optional: False
 - DocstringParam
   description: |
     The amount of time to sleep in the first backoff. This parameter
@@ -42,6 +43,7 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'initial_wait_seconds Optional[int]'
+  is_optional: False
 - DocstringParam
   description: |
     The amount of jitter that should be in each backoff. For example,
@@ -51,6 +53,8 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'randomization_factor Optional[float]'
+  is_optional: True
+  default: '0.1'
 - DocstringParam
   description: |
     The backoff multipler. This adjusts how much each backoff will
@@ -61,6 +65,8 @@ style: google
   kind: param
   key: 'param'
   arg_name: 'multiplier Optional[float]'
+  is_optional: True
+  default: '2.0'
 === detect
 google
 === compose google
