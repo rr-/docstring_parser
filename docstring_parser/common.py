@@ -387,18 +387,44 @@ class Docstring:
     def returns(self) -> T.Optional[DocstringReturns]:
         """Return a single information on function return.
 
-        Takes the first return information.
+        Takes the first return information, leaving out yields.
         """
         for item in self.meta:
-            if isinstance(item, DocstringReturns):
+            if (
+                isinstance(item, DocstringReturns)
+                and item.kind is Kind.RETURNS
+            ):
                 return item
         return None
 
     @property
     def many_returns(self) -> T.List[DocstringReturns]:
-        """Return a list of information on function return."""
+        """Return a list of information on function return, leaving out
+        yields."""
         return [
-            item for item in self.meta if isinstance(item, DocstringReturns)
+            item
+            for item in self.meta
+            if isinstance(item, DocstringReturns) and item.kind is Kind.RETURNS
+        ]
+
+    @property
+    def yields(self) -> T.Optional[DocstringReturns]:
+        """Return a single information on what a generator yields.
+
+        Takes the first yields information.
+        """
+        for item in self.meta:
+            if isinstance(item, DocstringReturns) and item.kind is Kind.YIELDS:
+                return item
+        return None
+
+    @property
+    def many_yields(self) -> T.List[DocstringReturns]:
+        """Return a list of information on what a generator yields."""
+        return [
+            item
+            for item in self.meta
+            if isinstance(item, DocstringReturns) and item.kind is Kind.YIELDS
         ]
 
     @property

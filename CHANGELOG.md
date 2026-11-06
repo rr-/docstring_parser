@@ -4,6 +4,7 @@
 - General: **Breaking:** Read the keyword sets in `common`, such as `PARAM_KEYWORDS`, once on import; pass `sections` instead of changing them
 - General: **Breaking:** Make `DocstringStyle` values the style names, such as `"google"`, instead of numbers
 - General: **Breaking:** Leave attributes out of `Docstring.params`, and list them in the new `Docstring.attrs`
+- General: **Breaking:** Leave yields out of `Docstring.returns` and `many_returns`; read them from the new `yields` and `many_yields`
 - Google, Numpydoc: **Breaking:** Remove customising parsing by overriding internals such as `titles_re`, `title_pattern`, `_build_meta` and `KV_REGEX`; use `SectionSpec` instead
 - General: Parse docstrings with `\r\n` or `\r` line endings the same as with `\n`, on every Python version
 - General: Dedent docstrings the same way on every Python version; from 3.13, `inspect.cleandoc` dedented nothing after a blank line holding a tab or form feed
