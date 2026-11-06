@@ -1,0 +1,39 @@
+# Test that an undeclared heading in lowercase, such as See also, is no return.
+=== input
+Short.
+
+Parameters
+----------
+x : int
+    The x.
+See also
+--------
+other
+=== parse numpydoc
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: numpydoc
+- DocstringParam
+  description: 'The x.'
+  kind: param
+  key: 'param'
+  arg_name: 'x'
+  type_name: 'int'
+  is_optional: False
+- DocstringMeta
+  description: 'other'
+  kind: text
+  key: 'see_also'
+  title: 'See also'
+=== compose numpydoc
+Short.
+
+Parameters
+----------
+x : int
+    The x.
+
+See also
+--------
+other

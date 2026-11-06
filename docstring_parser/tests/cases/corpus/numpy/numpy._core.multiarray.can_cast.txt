@@ -107,12 +107,13 @@ style: numpydoc
     .. versionchanged:: 2.0
        This function does not support Python scalars anymore and does not
        apply any value-based logic for 0-D arrays and NumPy scalars.
-    
-    See also
-    --------
-    dtype, result_type
   kind: text
   key: 'notes'
+- DocstringMeta
+  description: 'dtype, result_type'
+  kind: text
+  key: 'see_also'
+  title: 'See also'
 - DocstringExample
   description: |
     Basic examples

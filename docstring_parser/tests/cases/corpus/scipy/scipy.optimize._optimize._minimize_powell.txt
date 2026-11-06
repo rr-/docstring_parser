@@ -204,65 +204,28 @@ style: numpydoc
   type_name: 'OptimizeResult'
   is_generator: False
   return_name: 'res'
-- DocstringReturns
-  kind: returns
-  key: 'returns'
-  type_name: 'Options'
-  is_generator: False
-- DocstringReturns
-  kind: returns
-  key: 'returns'
-  type_name: '-------'
-  is_generator: False
-- DocstringReturns
-  description: 'Set to True to print convergence messages.'
-  kind: returns
-  key: 'returns'
-  type_name: 'bool'
-  is_generator: False
-  return_name: 'disp'
-- DocstringReturns
-  description: 'Relative error in solution `xopt` acceptable for convergence.'
-  kind: returns
-  key: 'returns'
-  type_name: 'float'
-  is_generator: False
-  return_name: 'xtol'
-- DocstringReturns
-  description: 'Relative error in ``fun(xopt)`` acceptable for convergence.'
-  kind: returns
-  key: 'returns'
-  type_name: 'float'
-  is_generator: False
-  return_name: 'ftol'
-- DocstringReturns
+- DocstringMeta
   description: |
-    Maximum allowed number of iterations and function evaluations.
-    Will default to ``N*1000``, where ``N`` is the number of
-    variables, if neither `maxiter` or `maxfev` is set. If both
-    `maxiter` and `maxfev` are set, minimization will stop at the
-    first reached.
-  kind: returns
-  key: 'returns'
-  type_name: 'int'
-  is_generator: False
-  return_name: 'maxiter, maxfev'
-- DocstringReturns
-  description: 'Initial set of direction vectors for the Powell method.'
-  kind: returns
-  key: 'returns'
-  type_name: 'ndarray'
-  is_generator: False
-  return_name: 'direc'
-- DocstringReturns
-  description: |
-    Set to True to return a list of the best solution at each of the
-    iterations.
-  kind: returns
-  key: 'returns'
-  type_name: 'bool, optional'
-  is_generator: False
-  return_name: 'return_all'
+    disp : bool
+        Set to True to print convergence messages.
+    xtol : float
+        Relative error in solution `xopt` acceptable for convergence.
+    ftol : float
+        Relative error in ``fun(xopt)`` acceptable for convergence.
+    maxiter, maxfev : int
+        Maximum allowed number of iterations and function evaluations.
+        Will default to ``N*1000``, where ``N`` is the number of
+        variables, if neither `maxiter` or `maxfev` is set. If both
+        `maxiter` and `maxfev` are set, minimization will stop at the
+        first reached.
+    direc : ndarray
+        Initial set of direction vectors for the Powell method.
+    return_all : bool, optional
+        Set to True to return a list of the best solution at each of the
+        iterations.
+  kind: text
+  key: 'options'
+  title: 'Options'
 === detect
 numpydoc
 === compose numpydoc
@@ -331,6 +294,7 @@ res : OptimizeResult
     Boolean flag indicating if the optimizer exited successfully and
     ``message`` which describes the cause of the termination. See
     `OptimizeResult` for a description of other attributes.
+
 Options
 -------
 disp : bool

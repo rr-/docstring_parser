@@ -120,33 +120,14 @@ style: numpydoc
   type_name: 'tuple of arrays'
   is_generator: False
   return_name: 'inds'
-- DocstringReturns
-  kind: returns
-  key: 'returns'
-  type_name: 'See also'
-  is_generator: False
-- DocstringReturns
-  kind: returns
-  key: 'returns'
-  type_name: '--------'
-  is_generator: False
-- DocstringReturns
-  kind: returns
-  key: 'returns'
-  type_name: 'similar function, for upper-triangular.'
-  is_generator: False
-  return_name: 'triu_indices'
-- DocstringReturns
-  kind: returns
-  key: 'returns'
-  type_name: 'generic function accepting an arbitrary mask function.'
-  is_generator: False
-  return_name: 'mask_indices'
-- DocstringReturns
-  kind: returns
-  key: 'returns'
-  type_name: 'tril, triu'
-  is_generator: False
+- DocstringMeta
+  description: |
+    triu_indices : similar function, for upper-triangular.
+    mask_indices : generic function accepting an arbitrary mask function.
+    tril, triu
+  kind: text
+  key: 'see_also'
+  title: 'See also'
 - DocstringExample
   description: |
     
@@ -242,11 +223,6 @@ inds : tuple of arrays
     The row and column indices, respectively. The row indices are sorted
     in non-decreasing order, and the corresponding column indices are
     strictly increasing for each row.
-See also
---------
-triu_indices : similar function, for upper-triangular.
-mask_indices : generic function accepting an arbitrary mask function.
-tril, triu
 
 Examples
 --------
@@ -294,3 +270,9 @@ array([[-10, -10, -10,   3],
        [-10, -10, -10, -10],
        [-10, -10, -10, -10],
        [-10, -10, -10, -10]])
+
+See also
+--------
+triu_indices : similar function, for upper-triangular.
+mask_indices : generic function accepting an arbitrary mask function.
+tril, triu

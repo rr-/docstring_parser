@@ -43,6 +43,71 @@ def _pairwise(iterable: T.Iterable, end=None) -> T.Iterable:
 
 
 _KV_REGEX = re.compile(r"^[^\s].*$", flags=re.M)
+# A line of dashes that may underline the title on the line before it.
+_UNDERLINE = re.compile(r"^-{3,}[ \t]*$", flags=re.M)
+_NOT_WORD = re.compile(r"[^0-9a-z]+")
+
+
+def _headings(
+    text: str, known: T.List[T.Match[str]]
+) -> T.List[T.Tuple[int, int, str]]:
+    """Find the underlined headings no section declares.
+
+    A heading is an unindented line underlined by as many dashes as it has
+    characters, as a section's title is.
+
+    :param known: the declared sections' title matches, in order
+    :returns: each heading's start and end in the text, and its title
+    """
+    found = []
+    k = 0
+    for underline in _UNDERLINE.finditer(text):
+        end = underline.start() - 1
+        if end <= 0:
+            continue
+        start = text.rfind("\n", 0, end) + 1
+        title = text[start:end].rstrip()
+        if (
+            not title
+            or title[0].isspace()
+            or len(title) != len(underline.group().rstrip())
+            or not title.strip("-")
+        ):
+            continue
+        while k < len(known) and known[k].end() <= start:
+            k += 1
+        if k < len(known) and known[k].start() <= start:
+            continue  # A declared section's title.
+        found.append((start, underline.end(), title))
+    return found
+
+
+def _merge_heads(
+    known: T.List[T.Tuple[int, int, T.Any]],
+    others: T.List[T.Tuple[int, int, str]],
+) -> T.List[T.Tuple[int, int, T.Any]]:
+    """Put the headings among the declared sections, in order.
+
+    A heading in an examples section is left in it, since doctest output
+    there may hold a table whose header row looks underlined.
+    """
+    merged: T.List[T.Tuple[int, int, T.Any]] = []
+    k = 0
+    for head in others:
+        while k < len(known) and known[k][0] < head[0]:
+            merged.append(known[k])
+            k += 1
+        if not (merged and isinstance(merged[-1][2], ExamplesSection)):
+            merged.append(head)
+    merged.extend(known[k:])
+    return merged
+
+
+def _heading_key(title: str) -> str:
+    """Make a key of a heading's title, such as ``custom_title``."""
+    return _NOT_WORD.sub("_", title.lower()).strip("_")
+
+
 PARAM_KEY_REGEX = re.compile(r"^(?P<name>.*?)(?:\s*:\s*(?P<type>.*?))?$")
 PARAM_OPTIONAL_REGEX = OPTIONAL_REGEX
 PARAM_DEFAULT_REGEX = DEFAULT_REGEX
@@ -450,19 +515,37 @@ class Parser(BaseParser):
 
         split_description(ret, desc_chunk)
 
+        # Each section's title: a declared section's factory, or the title
+        # of an underlined heading no section declares, which ends the
+        # section before it rather than being read as its items.
+        known = list(self._titles_re.finditer(meta_chunk))
+        heads: T.List[T.Tuple[int, int, T.Union[Section, str]]] = [
+            (
+                match.start(),
+                match.end(),
+                self.sections[
+                    next(g for g in match.groups() if g is not None)
+                ],
+            )
+            for match in known
+        ]
+        if "---" in meta_chunk:
+            others = _headings(meta_chunk, known)
+            if others:
+                heads = _merge_heads(heads, others)
+
         # Text after a directive's body, which goes to the long description.
         loose_chunks = []
-        for match, nextmatch in _pairwise(
-            self._titles_re.finditer(meta_chunk)
-        ):
-            title = next(g for g in match.groups() if g is not None)
-            factory = self.sections[title]
-
+        for (_start, start, factory), after in _pairwise(heads):
             # section chunk starts after the header,
             # ends at the start of the next header
-            start = match.end()
-            end = nextmatch.start() if nextmatch is not None else None
+            end = after[0] if after is not None else None
             chunk = meta_chunk[start:end]
+            if isinstance(factory, str):
+                meta = DocstringMeta(clean_str(chunk), _heading_key(factory))
+                meta.title = factory
+                ret.meta.append(meta)
+                continue
             if isinstance(factory, _SphinxSection):
                 chunk, loose = _split_directive(chunk)
                 loose_chunks.append(loose)
@@ -658,7 +741,7 @@ def compose(
 
         # Use the section's own title, e.g. "See Also" for see_also.
         key = meta.key or ""
-        title = next(
+        title = meta.title or next(
             (s.title for s in DEFAULT_SECTIONS if s.key == key),
             key.replace("_", "").title(),
         )
