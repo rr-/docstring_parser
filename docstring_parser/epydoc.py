@@ -190,11 +190,9 @@ def parse(
             (arg_name,) = args
             type_name = info.get("type_name")
 
-            is_optional = False
-            default = None
-            if type_name:
-                type_name, is_optional, default = type_spec(type_name)
+            spec = type_spec(info.get("type_name"))
 
+            default = spec.default
             match = None if default else _DEFAULTS_TO.match(desc)
             if match:
                 default = match.group(1).rstrip(".")
@@ -204,8 +202,8 @@ def parse(
                 key=param_key,
                 description=info.get("description"),
                 arg_name=arg_name,
-                type_name=type_name,
-                is_optional=is_optional,
+                type_name=spec.type_name,
+                is_optional=bool(spec.is_optional),
                 default=default,
                 kind=info.get("kind", Kind.PARAM),
             )

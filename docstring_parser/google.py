@@ -94,7 +94,15 @@ def _join_wrapped(text: str) -> str:
     return joined
 
 
-def _split_typed_arg(text: str) -> T.Optional[T.Tuple[str, str, str]]:
+class TypedArg(T.NamedTuple):
+    """A param's head split into its name, its type and what follows."""
+
+    name: str
+    type_name: T.Optional[str]
+    extra: str
+
+
+def _split_typed_arg(text: str) -> T.Optional[TypedArg]:
     """Split a parameter name and the type in parentheses after it.
 
     The type ends at the parenthesis matching the opening one, found in a
@@ -120,7 +128,9 @@ def _split_typed_arg(text: str) -> T.Optional[T.Tuple[str, str, str]]:
     type_name = text[opening + 1 : closing].strip()
     if not type_name:
         return None
-    return name, type_name, text[closing + 1 :].strip()
+    return TypedArg(
+        name=name, type_name=type_name, extra=text[closing + 1 :].strip()
+    )
 
 
 # The kind of a section given as a Section, by its key. Google has no
@@ -203,14 +213,12 @@ def _single_meta(section: Section, desc: str) -> DocstringMeta:
 def _multi_meta(section: Section, before: str, desc: str) -> DocstringMeta:
     kind = _section_kind(section)
     if kind in PARAM_KINDS:
-        typed_arg = _split_typed_arg(before)
-        if typed_arg:
-            arg_name, type_name, extra = typed_arg
-            type_name, is_optional, default = type_spec(type_name)
-        else:
-            arg_name, type_name, extra = before, None, ""
-            is_optional = default = None
+        head = _split_typed_arg(before) or TypedArg(
+            name=before, type_name=None, extra=""
+        )
+        spec = type_spec(head.type_name)
 
+        default = spec.default
         match = None if default else GOOGLE_ARG_DESC_REGEX.match(desc)
         if match:
             default = match.group(1)
@@ -218,13 +226,13 @@ def _multi_meta(section: Section, before: str, desc: str) -> DocstringMeta:
         param = DocstringParam(
             key=section.key,
             description=desc,
-            arg_name=arg_name,
-            type_name=type_name,
-            is_optional=is_optional,
+            arg_name=head.name,
+            type_name=spec.type_name,
+            is_optional=spec.is_optional,
             default=default,
             kind=kind,
         )
-        param.extra = extra or None
+        param.extra = head.extra or None
         return param
     if kind in RETURNS_KINDS:
         return DocstringReturns(
