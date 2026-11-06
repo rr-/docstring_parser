@@ -1,0 +1,23 @@
+# Test that the first continuation line of a field keeps its indent
+# relative to the lines after it.
+=== input
+@param x: The x, as in:
+        x = 1
+    which sets it.
+=== parse epydoc
+blank_after_short_description: False
+blank_after_long_description: False
+style: epydoc
+- DocstringParam
+  description: |
+    The x, as in:
+        x = 1
+    which sets it.
+  kind: param
+  key: 'param'
+  arg_name: 'x'
+  is_optional: False
+=== compose epydoc
+@param x: The x, as in:
+        x = 1
+    which sets it.
