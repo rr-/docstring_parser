@@ -101,6 +101,9 @@ google
 === compose google
 Shortcut to construct and run a prompt loop and return the result.
 
+Examples:
+    >>> filename = Prompt.ask("Enter a filename")
+
 Args:
     prompt (TextType?): Prompt text. Defaults to "".
     console (Console?): A Console instance or None to use global console. Defaults to None.
@@ -110,6 +113,3 @@ Args:
     show_default (bool?): Show default in prompt. Defaults to True.
     show_choices (bool?): Show choices in prompt. Defaults to True.
     stream (TextIO?): Optional text file open for reading to get input. Defaults to None.
-
-Examples:
-    >>> filename = Prompt.ask("Enter a filename")

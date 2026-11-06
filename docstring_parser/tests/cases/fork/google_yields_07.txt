@@ -26,8 +26,8 @@ style: google
   type_name: 'int'
   is_generator: False
 === compose google
-Returns:
-    int: description with return last
-
 Yields:
     Optional[Mapping[str, List[int]]]: A description: with a colon
+
+Returns:
+    int: description with return last

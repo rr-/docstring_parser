@@ -35,4 +35,6 @@ Move to the given column, optionally add offset to row.
 Returns:
     x (int): absolute x (column)
     y (int): optional y offset (row)
+
+Returns:
     ~Control: Control object.

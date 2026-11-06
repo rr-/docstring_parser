@@ -42,8 +42,8 @@ Parse a style definition.
 Args:
     style_definition (str): A string containing a style.
 
-Returns:
-    `Style`: A Style instance.
-
 Raises:
     errors.StyleSyntaxError: If the style definition syntax is invalid.
+
+Returns:
+    `Style`: A Style instance.

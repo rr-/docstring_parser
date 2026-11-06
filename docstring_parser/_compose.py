@@ -71,6 +71,43 @@ def sections(
     ], rest
 
 
+def section_runs(
+    docstring: Docstring,
+    table: SectionTable,
+    alone: T.AbstractSet[Kind] = frozenset(),
+) -> T.List[T.Tuple[T.Optional[str], T.List[T.Any]]]:
+    """Split a docstring's meta into titled sections, in its order.
+
+    Items in a row that go in one section are written in one, so that the
+    sections read back in the order of the meta. A ReST ``:ivar:`` style
+    field goes in as the attribute it stands for.
+
+    :param alone: the kinds whose items each take a section of their own,
+        as the style reads one item from such a section
+    :returns: each section's title and items, with None as the title of
+        a meta that no section takes, which is alone in its run
+    """
+    index = table.index
+    runs: T.List[T.Tuple[T.Optional[str], T.List[T.Any]]] = []
+    last: T.Optional[int] = None
+    for meta in docstring.meta:
+        item = meta
+        if type(meta) is DocstringMeta:
+            item = meta_as_attribute(meta) or meta
+            kind = Kind.TEXT if item is meta else Kind.ATTRIBUTE
+        else:
+            kind = kind_of(meta)
+        position = index.get(kind)
+        if position is None:
+            runs.append((None, [meta]))
+        elif position == last and kind not in alone:
+            runs[-1][1].append(item)
+        else:
+            runs.append((table.titles[position], [item]))
+        last = position
+    return runs
+
+
 def field_name(
     meta: DocstringMeta, own: T.AbstractSet[str], by_kind: T.Dict[Kind, str]
 ) -> str:
