@@ -13,7 +13,7 @@ from ._compose import (
     written_type,
 )
 from ._fields import ParamTypes, ReturnTypes, assign_types
-from ._lines import Lines
+from ._lines import Lines, dedent_lines
 from ._text import (
     append_loose,
     param_spec,
@@ -35,7 +35,6 @@ from .common import (
     ParseResult,
     Problem,
     RenderingStyle,
-    cleandoc,
     excerpt,
 )
 from .sections import ParserCache, SectionSpec, apply
@@ -191,7 +190,10 @@ class Parser(BaseParser):
             desc = chunk[header.end() :].strip()
             if "\n" in desc:
                 first_line, rest = desc.split("\n", 1)
-                desc = first_line + "\n" + cleandoc(rest)
+                # The first continuation line keeps its indent relative
+                # to the others, which cleandoc would strip.
+                rest = "\n".join(dedent_lines("\n" + rest))
+                desc = first_line + "\n" + rest
 
             if key in _TYPE_FIELDS:
                 if base == "param":
