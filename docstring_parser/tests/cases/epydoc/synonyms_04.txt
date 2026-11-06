@@ -24,4 +24,4 @@ style: epydoc
 Short.
 
 @param x: X.
-@rtype: int
+@returntype: int

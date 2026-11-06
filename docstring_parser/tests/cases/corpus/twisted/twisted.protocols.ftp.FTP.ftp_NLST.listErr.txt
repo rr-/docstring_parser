@@ -48,5 +48,5 @@ listings. Thus, send nothing and just close the connection.
     occurred while trying to list the contents of a nonexistent
     directory.
 @rtype: C{tuple}
-@return: A C{tuple} containing the status code for a successful
+@returns: A C{tuple} containing the status code for a successful
     transfer.

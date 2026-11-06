@@ -281,6 +281,24 @@ _OWN_PARAM_FIELDS = frozenset({"param", "keyword", "ivar", "cvar", "var"})
 _PARAM_FIELD_OF_KIND = {Kind.ATTRIBUTE: "ivar", Kind.KEYWORD: "keyword"}
 
 
+# The kind of item each field Epydoc recognises by default gives, with
+# the type fields of returns and yields.
+_KIND_OF_FIELD = {
+    **{name: spec.kind for name, spec in _DEFAULT_TABLE.items()},
+    **{name: kind for name, (_base, kind) in _TYPE_FIELDS.items()},
+}
+
+
+def _own_key(meta: DocstringMeta, default: str) -> str:
+    """Return the field name a return or raises was read from, such as
+    ``raises``, if Epydoc reads it as the same kind, or else the default
+    one."""
+    key = meta.key
+    if key and key != default and _KIND_OF_FIELD.get(key) is meta.kind:
+        return key
+    return default
+
+
 def _param_key(meta: DocstringParam) -> str:
     """Return the field name that keeps a param's kind, such as ``ivar``."""
     return field_name(meta, _OWN_PARAM_FIELDS, _PARAM_FIELD_OF_KIND)
@@ -329,6 +347,10 @@ def compose(
                 text = f"@type {meta.arg_name}:"
                 text += process_desc(type_name, True)
                 parts.append(text)
+            if meta.description is None and type_name:
+                # The type field alone reads back as a param with no
+                # description.
+                continue
             text = f"@{_param_key(meta)} {meta.arg_name}:" + process_desc(
                 meta.description, False
             )
@@ -339,14 +361,22 @@ def compose(
                 if meta.is_generator
                 else ("return", "rtype")
             )
+            if meta.description is None:
+                # A type field alone keeps the name it was read from.
+                type_key = _own_key(meta, type_key)
+            else:
+                arg_key = _own_key(meta, arg_key)
             if meta.type_name:
                 text = f"@{type_key}:" + process_desc(meta.type_name, True)
                 parts.append(text)
-            if meta.description:
+            if meta.description is not None:
                 text = f"@{arg_key}:" + process_desc(meta.description, False)
                 parts.append(text)
         elif isinstance(meta, DocstringRaises):
-            text = f"@raise {meta.type_name}:" if meta.type_name else "@raise:"
+            key = _own_key(meta, "raise")
+            text = (
+                f"@{key} {meta.type_name}:" if meta.type_name else f"@{key}:"
+            )
             text += process_desc(meta.description, False)
             parts.append(text)
         else:

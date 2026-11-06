@@ -19,4 +19,4 @@ style: epydoc
 Short.
 
 @rtype: int
-@return: The result.
+@returns: The result.
