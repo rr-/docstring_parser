@@ -260,3 +260,33 @@ def test_examples_split_as_doctest_reads_them() -> None:
     assert docstring.examples[1].description == "Then more."
     assert docstring.examples[1].snippet is None
     assert compose(docstring) == text.rstrip("\n")
+
+
+def test_examples_sections_without_snippets_stay_apart() -> None:
+    """Test that examples sections with no snippet compose apart."""
+    text = (
+        "Short.\n\n"
+        "Example:\n"
+        "    One way.\n\n"
+        "Examples:\n"
+        "    >>> f()\n\n"
+        "Example:\n"
+        "    Another way."
+    )
+    docstring = parse(text)
+    assert len(docstring.examples) == 3
+    assert docstring.examples[0].description == "One way."
+    assert docstring.examples[1].snippet == ">>> f()"
+    assert docstring.examples[2].description == "Another way."
+    again = parse(compose(docstring))
+    assert len(again.examples) == 3
+    assert again.examples[0].description == "One way."
+    assert again.examples[1].snippet == ">>> f()"
+    assert again.examples[2].description == "Another way."
+
+
+def test_empty_examples_section_composes() -> None:
+    """Test that an empty examples section after a snippet is kept."""
+    docstring = parse("Short.\n\nExamples:\n    >>> f()\n\nExample:\n")
+    assert len(docstring.examples) == 2
+    assert len(parse(compose(docstring)).examples) == 2
