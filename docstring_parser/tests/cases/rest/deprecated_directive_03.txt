@@ -1,0 +1,24 @@
+# Test that a docstring opening with a deprecated directive keeps its
+# body, as written below it.
+=== input
+.. deprecated:: 2.0
+    Gone.
+
+    Really.
+=== parse rest
+blank_after_short_description: False
+blank_after_long_description: False
+style: rest
+- DocstringDeprecated
+  description: |
+    Gone.
+    
+    Really.
+  kind: deprecation
+  key: 'deprecation'
+  version: '2.0'
+=== compose rest
+.. deprecated:: 2.0
+    Gone.
+
+    Really.

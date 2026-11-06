@@ -1,0 +1,25 @@
+# Test that a @deprecated field with no version is a deprecation, and that
+# one with a version alone keeps it.
+=== input
+Short.
+
+@deprecated: Use other() instead.
+@deprecated: 2.0
+=== parse epydoc
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: epydoc
+- DocstringDeprecated
+  description: 'Use other() instead.'
+  kind: deprecation
+  key: 'deprecated'
+- DocstringDeprecated
+  kind: deprecation
+  key: 'deprecated'
+  version: '2.0'
+=== compose epydoc
+Short.
+
+@deprecated: Use other() instead.
+@deprecated: 2.0

@@ -1,0 +1,45 @@
+# Test that a deprecated directive after a section ends the section, and
+# is a deprecation in its place among the items.
+=== input
+Short.
+
+Args:
+    x: The x.
+
+.. deprecated:: 1.0
+    Use other().
+
+Returns:
+    The y.
+=== parse google
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringParam
+  description: 'The x.'
+  kind: param
+  key: 'param'
+  arg_name: 'x'
+  is_optional: False
+- DocstringDeprecated
+  description: 'Use other().'
+  kind: deprecation
+  key: 'deprecation'
+  version: '1.0'
+- DocstringReturns
+  description: 'The y.'
+  kind: returns
+  key: 'returns'
+  is_generator: False
+=== compose google
+Short.
+
+Args:
+    x: The x.
+
+.. deprecated:: 1.0
+    Use other().
+
+Returns:
+    The y.
