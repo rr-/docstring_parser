@@ -50,6 +50,7 @@
 - Google: Keep the words after a param's type, as in `x (int) more:`, as its new `extra`, instead of dropping them
 - Google: Keep the text after a section, such as an example or an unknown section, in the long description instead of dropping it
 - Google: Make a param optional when its type ends in `(optional)` or names a default, as in `int, default 1`
+- Google: Read a `Raises:` item that is a type alone, such as `ValueError`, and a `Raises:` section of plain prose as one raises with no type, instead of raising `ParseError`
 - Numpydoc: Fix the type of `NumpydocParser`'s `sections` argument, which takes a list of sections
 - Numpydoc: Compose sections such as See Also with their own titles and underlines, instead of e.g. `Seealso`
 - Numpydoc: Stop adding a blank line on every round trip of a docstring without a long description

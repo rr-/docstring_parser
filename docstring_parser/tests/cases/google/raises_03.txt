@@ -1,0 +1,28 @@
+# Test a raises item that is a type alone.
+=== input
+
+        Short description
+
+        Raises:
+            ValueError
+            KeyError, TypeError
+
+=== parse google
+short_description: 'Short description'
+blank_after_short_description: True
+blank_after_long_description: False
+style: google
+- DocstringRaises
+  kind: raises
+  key: 'raises'
+  type_name: 'ValueError'
+- DocstringRaises
+  kind: raises
+  key: 'raises'
+  type_name: 'KeyError, TypeError'
+=== compose google
+Short description
+
+Raises:
+    ValueError
+    KeyError, TypeError
