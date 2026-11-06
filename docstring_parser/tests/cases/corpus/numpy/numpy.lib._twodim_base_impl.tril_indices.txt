@@ -226,6 +226,12 @@ inds : tuple of arrays
     in non-decreasing order, and the corresponding column indices are
     strictly increasing for each row.
 
+See also
+--------
+triu_indices : similar function, for upper-triangular.
+mask_indices : generic function accepting an arbitrary mask function.
+tril, triu
+
 Examples
 --------
 >>> import numpy as np
@@ -272,9 +278,3 @@ array([[-10, -10, -10,   3],
        [-10, -10, -10, -10],
        [-10, -10, -10, -10],
        [-10, -10, -10, -10]])
-
-See also
---------
-triu_indices : similar function, for upper-triangular.
-mask_indices : generic function accepting an arbitrary mask function.
-tril, triu

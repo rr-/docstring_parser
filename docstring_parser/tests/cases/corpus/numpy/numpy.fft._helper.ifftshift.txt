@@ -109,6 +109,10 @@ Returns
 y : ndarray
     The shifted array.
 
+See Also
+--------
+fftshift : Shift zero-frequency component to the center of the spectrum.
+
 Examples
 --------
 >>> import numpy as np
@@ -121,7 +125,3 @@ array([[ 0.,  1.,  2.],
 array([[ 0.,  1.,  2.],
        [ 3.,  4., -4.],
        [-3., -2., -1.]])
-
-See Also
---------
-fftshift : Shift zero-frequency component to the center of the spectrum.

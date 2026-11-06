@@ -192,6 +192,21 @@ Returns
 trim_mean : ndarray
     Mean of trimmed array.
 
+See Also
+--------
+trimboth : Remove a proportion of elements from each end of an array.
+tmean : Compute the mean after trimming values outside specified limits.
+
+Notes
+-----
+For 1-D array `a`, `trim_mean` is approximately equivalent to the following
+calculation::
+
+    import numpy as np
+    a = np.sort(a)
+    m = int(proportiontocut * len(a))
+    np.mean(a[m: len(a) - m])
+
 Examples
 --------
 >>> import numpy as np
@@ -214,18 +229,3 @@ Use `axis` to specify the axis along which the calculation is performed.
 array([ 5.5, 11. , 16.5, 27.5])
 >>> stats.trim_mean(x2, 0.25, axis=1)
 array([ 2.5, 25. ])
-
-See Also
---------
-trimboth : Remove a proportion of elements from each end of an array.
-tmean : Compute the mean after trimming values outside specified limits.
-
-Notes
------
-For 1-D array `a`, `trim_mean` is approximately equivalent to the following
-calculation::
-
-    import numpy as np
-    a = np.sort(a)
-    m = int(proportiontocut * len(a))
-    np.mean(a[m: len(a) - m])

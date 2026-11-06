@@ -757,6 +757,37 @@ t_r : ndarray, optional
     The `num` equidistant timestamps of `x_r`.
     This is only returned if paramater `t` is not ``None``.
 
+See Also
+--------
+decimate : Downsample a (periodic/non-periodic) signal after applying an FIR
+           or IIR filter.
+resample_poly : Resample a (periodic/non-periodic) signal using polyphase filtering
+                and an FIR filter.
+
+Notes
+-----
+This function uses the more efficient one-sided FFT, i.e. `~scipy.fft.rfft` /
+`~scipy.fft.irfft`, if `x` is real-valued and in the time domain.
+Else, the two-sided FFT, i.e., `~scipy.fft.fft` / `~scipy.fft.ifft`, is used
+(all FFT functions are taken from the `scipy.fft` module).
+
+If a `window` is applied to a real-valued `x`, the one-sided spectral windowing
+function is determined by taking the average of the negative and the positive
+frequency component. This ensures that real-valued signals and complex signals with
+zero imaginary part are treated identically. I.e., passing `x` or passing
+``x.astype(np.complex128)`` produce the same numeric result.
+
+If the number of input  or output samples are prime or have few prime factors, this
+function may be slow due to utilizing FFTs. Consult `~scipy.fft.prev_fast_len` and
+`~scipy.fft.next_fast_len` for determining efficient signals lengths.
+Alternatively, utilizing `resample_poly` to calculate an intermediate signal (as
+illustrated in the example below) can result in significant speed increases.
+
+`resample` is intended to be used for periodic signals with equidistant sampling
+intervals. For non-periodic signals, `resample_poly` may be a better choice.
+Consult the `scipy.interpolate` module for methods of resampling signals with
+non-constant sampling intervals.
+
 Examples
 --------
 The following example depicts a signal being up-sampled from 20 samples to 100
@@ -911,34 +942,3 @@ antialiasing filter with the maximum bandwidth by default.
 Note that the doubled spectral magnitude at the Nyqist frequency of 64 Hz is due the
 even number of ``n1=128`` output samples, which requires a special treatment as
 discussed in the previous example.
-
-See Also
---------
-decimate : Downsample a (periodic/non-periodic) signal after applying an FIR
-           or IIR filter.
-resample_poly : Resample a (periodic/non-periodic) signal using polyphase filtering
-                and an FIR filter.
-
-Notes
------
-This function uses the more efficient one-sided FFT, i.e. `~scipy.fft.rfft` /
-`~scipy.fft.irfft`, if `x` is real-valued and in the time domain.
-Else, the two-sided FFT, i.e., `~scipy.fft.fft` / `~scipy.fft.ifft`, is used
-(all FFT functions are taken from the `scipy.fft` module).
-
-If a `window` is applied to a real-valued `x`, the one-sided spectral windowing
-function is determined by taking the average of the negative and the positive
-frequency component. This ensures that real-valued signals and complex signals with
-zero imaginary part are treated identically. I.e., passing `x` or passing
-``x.astype(np.complex128)`` produce the same numeric result.
-
-If the number of input  or output samples are prime or have few prime factors, this
-function may be slow due to utilizing FFTs. Consult `~scipy.fft.prev_fast_len` and
-`~scipy.fft.next_fast_len` for determining efficient signals lengths.
-Alternatively, utilizing `resample_poly` to calculate an intermediate signal (as
-illustrated in the example below) can result in significant speed increases.
-
-`resample` is intended to be used for periodic signals with equidistant sampling
-intervals. For non-periodic signals, `resample_poly` may be a better choice.
-Consult the `scipy.interpolate` module for methods of resampling signals with
-non-constant sampling intervals.

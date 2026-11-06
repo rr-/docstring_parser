@@ -179,6 +179,10 @@ Returns
 result : MaskedArray
     The constructed masked array.
 
+See Also
+--------
+MaskedArray.toflex : Build a flexible-type array from a masked array.
+
 Examples
 --------
 >>> import numpy as np
@@ -217,7 +221,3 @@ masked_array(
         [False, False]],
   fill_value=np.int64(999999),
   dtype=int32)
-
-See Also
---------
-MaskedArray.toflex : Build a flexible-type array from a masked array.

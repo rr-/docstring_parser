@@ -295,6 +295,12 @@ Returns
 matplotlib.axes.Axes or numpy.ndarray of them
     A one-element ndarray is returned when ``subplots=True``.
 
+See Also
+--------
+DataFrame.plot : Make plots of a DataFrame.
+matplotlib.pyplot.hexbin : Hexagonal binning plot using matplotlib,
+    the matplotlib function that is used under the hood.
+
 Examples
 --------
 The following examples are generated with random data from
@@ -335,9 +341,3 @@ plot shows values up to more than 25. This is because of the
     ...     gridsize=10,
     ...     cmap="viridis",
     ... )
-
-See Also
---------
-DataFrame.plot : Make plots of a DataFrame.
-matplotlib.pyplot.hexbin : Hexagonal binning plot using matplotlib,
-    the matplotlib function that is used under the hood.

@@ -467,6 +467,24 @@ T : csr_matrix
 mT : csr_matrix
     The matrix transpose
 
+Notes
+-----
+Sparse matrices can be used in arithmetic operations: they support
+addition, subtraction, multiplication, division, and matrix power.
+
+Advantages of the CSR format
+  - efficient arithmetic operations CSR + CSR, CSR * CSR, etc.
+  - efficient row slicing
+  - fast matrix vector products
+
+Disadvantages of the CSR format
+  - slow column slicing operations (consider CSC)
+  - changes to the sparsity structure are expensive (consider LIL or DOK)
+
+Canonical Format
+    - Within each row, indices are sorted by column.
+    - There are no duplicate entries.
+
 Examples
 --------
 >>> import numpy as np
@@ -518,21 +536,3 @@ the following snippet builds a term-document matrix from texts:
 >>> csr_matrix((data, indices, indptr), dtype=int).toarray()
 array([[2, 1, 0, 0],
        [0, 1, 1, 1]])
-
-Notes
------
-Sparse matrices can be used in arithmetic operations: they support
-addition, subtraction, multiplication, division, and matrix power.
-
-Advantages of the CSR format
-  - efficient arithmetic operations CSR + CSR, CSR * CSR, etc.
-  - efficient row slicing
-  - fast matrix vector products
-
-Disadvantages of the CSR format
-  - slow column slicing operations (consider CSC)
-  - changes to the sparsity structure are expensive (consider LIL or DOK)
-
-Canonical Format
-    - Within each row, indices are sorted by column.
-    - There are no duplicate entries.

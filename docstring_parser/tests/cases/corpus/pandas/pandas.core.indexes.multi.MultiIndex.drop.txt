@@ -185,6 +185,13 @@ Returns
 MultiIndex
     A new MultiIndex with the specified labels removed.
 
+See Also
+--------
+MultiIndex.remove_unused_levels : Create new MultiIndex from current that
+    removes unused levels.
+MultiIndex.reorder_levels : Rearrange levels using input order.
+MultiIndex.rename : Rename levels in a MultiIndex.
+
 Examples
 --------
 >>> idx = pd.MultiIndex.from_product(
@@ -216,10 +223,3 @@ MultiIndex([(0, 'purple'),
 MultiIndex([(0,  'green'),
             (0, 'purple')],
            names=['number', 'color'])
-
-See Also
---------
-MultiIndex.remove_unused_levels : Create new MultiIndex from current that
-    removes unused levels.
-MultiIndex.reorder_levels : Rearrange levels using input order.
-MultiIndex.rename : Rename levels in a MultiIndex.

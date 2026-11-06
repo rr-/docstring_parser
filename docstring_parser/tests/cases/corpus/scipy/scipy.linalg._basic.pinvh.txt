@@ -240,6 +240,10 @@ Raises
 LinAlgError
     If eigenvalue algorithm does not converge.
 
+See Also
+--------
+pinv : Moore-Penrose pseudoinverse of a matrix.
+
 Examples
 --------
 For a more detailed example see `pinv`.
@@ -254,7 +258,3 @@ For a more detailed example see `pinv`.
 True
 >>> np.allclose(B, B @ a @ B)
 True
-
-See Also
---------
-pinv : Moore-Penrose pseudoinverse of a matrix.

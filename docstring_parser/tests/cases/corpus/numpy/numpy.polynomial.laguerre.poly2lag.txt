@@ -113,13 +113,6 @@ c : ndarray
     1-D array containing the coefficients of the equivalent Laguerre
     series.
 
-Examples
---------
->>> import numpy as np
->>> from numpy.polynomial.laguerre import poly2lag
->>> poly2lag(np.arange(4))
-array([ 23., -63.,  58., -18.])
-
 See Also
 --------
 lag2poly
@@ -128,3 +121,10 @@ Notes
 -----
 The easy way to do conversions between polynomial basis sets
 is to use the convert method of a class instance.
+
+Examples
+--------
+>>> import numpy as np
+>>> from numpy.polynomial.laguerre import poly2lag
+>>> poly2lag(np.arange(4))
+array([ 23., -63.,  58., -18.])

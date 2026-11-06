@@ -347,6 +347,23 @@ circstd : float
     
     If the input array is empty, ``np.nan`` is returned.
 
+See Also
+--------
+circmean : Circular mean.
+circvar : Circular variance.
+
+Notes
+-----
+In the limit of small angles, the circular standard deviation is close
+to the 'linear' standard deviation if ``normalize`` is ``False``.
+
+References
+----------
+.. [1] Mardia, K. V. (1972). 2. In *Statistics of Directional Data*
+   (pp. 18-24). Academic Press. :doi:`10.1016/C2013-0-07425-7`.
+.. [2] Mardia, K. V. and Jupp, P. E. *Directional Statistics*.
+       John Wiley & Sons, 1999.
+
 Examples
 --------
 >>> import numpy as np
@@ -376,20 +393,3 @@ Plot the samples.
 >>> right.scatter(np.cos(samples_2), np.sin(samples_2), c='k', s=15)
 >>> right.set_title(f"circular std: {np.round(circstd_2, 2)!r}")
 >>> plt.show()
-
-See Also
---------
-circmean : Circular mean.
-circvar : Circular variance.
-
-Notes
------
-In the limit of small angles, the circular standard deviation is close
-to the 'linear' standard deviation if ``normalize`` is ``False``.
-
-References
-----------
-.. [1] Mardia, K. V. (1972). 2. In *Statistics of Directional Data*
-   (pp. 18-24). Academic Press. :doi:`10.1016/C2013-0-07425-7`.
-.. [2] Mardia, K. V. and Jupp, P. E. *Directional Statistics*.
-       John Wiley & Sons, 1999.

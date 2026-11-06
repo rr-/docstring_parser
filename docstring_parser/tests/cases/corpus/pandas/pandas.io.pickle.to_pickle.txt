@@ -249,6 +249,13 @@ storage_options : dict, optional
     
     .. [1] https://docs.python.org/3/library/pickle.html
 
+See Also
+--------
+read_pickle : Load pickled pandas object (or any object) from file.
+DataFrame.to_hdf : Write DataFrame to an HDF5 file.
+DataFrame.to_sql : Write DataFrame to a SQL database.
+DataFrame.to_parquet : Write a DataFrame to the binary parquet format.
+
 Examples
 --------
 >>> original_df = pd.DataFrame(
@@ -270,10 +277,3 @@ Examples
 2    2    7
 3    3    8
 4    4    9
-
-See Also
---------
-read_pickle : Load pickled pandas object (or any object) from file.
-DataFrame.to_hdf : Write DataFrame to an HDF5 file.
-DataFrame.to_sql : Write DataFrame to a SQL database.
-DataFrame.to_parquet : Write a DataFrame to the binary parquet format.

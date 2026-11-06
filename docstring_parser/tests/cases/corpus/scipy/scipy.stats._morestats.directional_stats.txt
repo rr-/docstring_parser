@@ -328,6 +328,40 @@ res : DirectionalStats
     mean_resultant_length : ndarray
         The mean resultant length [1]_.
 
+See Also
+--------
+circmean: circular mean; i.e. directional mean for 2D *angles*
+circvar: circular variance; i.e. directional variance for 2D *angles*
+
+Notes
+-----
+This uses a definition of directional mean from [1]_.
+Assuming the observations are unit vectors, the calculation is as follows.
+
+.. code-block:: python
+
+    mean = samples.mean(axis=0)
+    mean_resultant_length = np.linalg.norm(mean)
+    mean_direction = mean / mean_resultant_length
+
+This definition is appropriate for *directional* data (i.e. vector data
+for which the magnitude of each observation is irrelevant) but not
+for *axial* data (i.e. vector data for which the magnitude and *sign* of
+each observation is irrelevant).
+
+Several definitions of directional variance involving the mean resultant
+length ``R`` have been proposed, including ``1 - R`` [1]_, ``1 - R**2``
+[2]_, and ``2 * (1 - R)`` [2]_. Rather than choosing one, this function
+returns ``R`` as attribute `mean_resultant_length` so the user can compute
+their preferred measure of dispersion.
+
+References
+----------
+.. [1] Mardia, Jupp. (2000). *Directional Statistics*
+   (p. 163). Wiley.
+
+.. [2] https://en.wikipedia.org/wiki/Directional_statistics
+
 Examples
 --------
 >>> import numpy as np
@@ -368,37 +402,3 @@ vectors in the above example as:
 
 >>> 1 - dirstats.mean_resultant_length
 0.13397459716167093
-
-See Also
---------
-circmean: circular mean; i.e. directional mean for 2D *angles*
-circvar: circular variance; i.e. directional variance for 2D *angles*
-
-Notes
------
-This uses a definition of directional mean from [1]_.
-Assuming the observations are unit vectors, the calculation is as follows.
-
-.. code-block:: python
-
-    mean = samples.mean(axis=0)
-    mean_resultant_length = np.linalg.norm(mean)
-    mean_direction = mean / mean_resultant_length
-
-This definition is appropriate for *directional* data (i.e. vector data
-for which the magnitude of each observation is irrelevant) but not
-for *axial* data (i.e. vector data for which the magnitude and *sign* of
-each observation is irrelevant).
-
-Several definitions of directional variance involving the mean resultant
-length ``R`` have been proposed, including ``1 - R`` [1]_, ``1 - R**2``
-[2]_, and ``2 * (1 - R)`` [2]_. Rather than choosing one, this function
-returns ``R`` as attribute `mean_resultant_length` so the user can compute
-their preferred measure of dispersion.
-
-References
-----------
-.. [1] Mardia, Jupp. (2000). *Directional Statistics*
-   (p. 163). Wiley.
-
-.. [2] https://en.wikipedia.org/wiki/Directional_statistics

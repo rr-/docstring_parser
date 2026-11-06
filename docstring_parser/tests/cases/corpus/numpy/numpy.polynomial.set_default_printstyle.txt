@@ -124,6 +124,12 @@ style : str
     Format string for default printing style. Must be either 'ascii' or
     'unicode'.
 
+Notes
+-----
+The default format depends on the platform: 'unicode' is used on
+Unix-based systems and 'ascii' on Windows. This determination is based on
+default font support for the unicode superscript and subscript ranges.
+
 Examples
 --------
 >>> p = np.polynomial.Polynomial([1, 2, 3])
@@ -141,9 +147,3 @@ Examples
 >>> # Formatting supersedes all class/package-level defaults
 >>> print(f"{p:unicode}")
 1.0 + 2.0·x + 3.0·x²
-
-Notes
------
-The default format depends on the platform: 'unicode' is used on
-Unix-based systems and 'ascii' on Windows. This determination is based on
-default font support for the unicode superscript and subscript ranges.

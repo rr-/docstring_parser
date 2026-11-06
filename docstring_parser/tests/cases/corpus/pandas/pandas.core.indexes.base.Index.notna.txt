@@ -118,6 +118,12 @@ Returns
 numpy.ndarray[bool]
     Boolean array to indicate which entries are not NA.
 
+See Also
+--------
+Index.notnull : Alias of notna.
+Index.isna: Inverse of notna.
+notna : Top-level notna.
+
 Examples
 --------
 Show which entries in an Index are not NA. The result is an
@@ -137,9 +143,3 @@ value.
 Index(['black', '', 'red', nan], dtype='str')
 >>> idx.notna()
 array([ True,  True,  True, False])
-
-See Also
---------
-Index.notnull : Alias of notna.
-Index.isna: Inverse of notna.
-notna : Top-level notna.

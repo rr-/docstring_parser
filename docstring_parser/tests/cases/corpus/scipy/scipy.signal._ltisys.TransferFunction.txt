@@ -206,6 +206,25 @@ dt : float, optional
     (continuous-time). Must be specified as a keyword argument, for
     example, ``dt=0.1``.
 
+See Also
+--------
+ZerosPolesGain, StateSpace, lti, dlti
+tf2ss, tf2zpk, tf2sos
+
+Notes
+-----
+Changing the value of properties that are not part of the
+`TransferFunction` system representation (such as the `A`, `B`, `C`, `D`
+state-space matrices) is very inefficient and may lead to numerical
+inaccuracies.  It is better to convert to the specific system
+representation first. For example, call ``sys = sys.to_ss()`` before
+accessing/changing the A, B, C, D system matrices.
+
+If (numerator, denominator) is passed in for ``*system``, coefficients
+for both the numerator and denominator should be specified in descending
+exponent order (e.g. ``s^2 + 3s + 5`` or ``z^2 + 3z + 5`` would be
+represented as ``[1, 3, 5]``)
+
 Examples
 --------
 Construct the transfer function
@@ -231,22 +250,3 @@ array([1., 3., 3.]),
 array([1., 2., 1.]),
 dt: 0.1
 )
-
-See Also
---------
-ZerosPolesGain, StateSpace, lti, dlti
-tf2ss, tf2zpk, tf2sos
-
-Notes
------
-Changing the value of properties that are not part of the
-`TransferFunction` system representation (such as the `A`, `B`, `C`, `D`
-state-space matrices) is very inefficient and may lead to numerical
-inaccuracies.  It is better to convert to the specific system
-representation first. For example, call ``sys = sys.to_ss()`` before
-accessing/changing the A, B, C, D system matrices.
-
-If (numerator, denominator) is passed in for ``*system``, coefficients
-for both the numerator and denominator should be specified in descending
-exponent order (e.g. ``s^2 + 3s + 5`` or ``z^2 + 3z + 5`` would be
-represented as ``[1, 3, 5]``)

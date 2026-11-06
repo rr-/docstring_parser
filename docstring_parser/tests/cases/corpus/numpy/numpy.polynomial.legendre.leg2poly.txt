@@ -136,6 +136,15 @@ pol : ndarray
     (relative to the "standard" basis) ordered from lowest order term
     to highest.
 
+See Also
+--------
+poly2leg
+
+Notes
+-----
+The easy way to do conversions between polynomial basis sets
+is to use the convert method of a class instance.
+
 Examples
 --------
 >>> from numpy import polynomial as P
@@ -147,12 +156,3 @@ Legendre([0., 1., 2., 3.], domain=[-1.,  1.], window=[-1.,  1.], symbol='x')
 Polynomial([-1. , -3.5,  3. ,  7.5], domain=[-1.,  1.], window=[-1., ...
 >>> P.legendre.leg2poly(range(4))
 array([-1. , -3.5,  3. ,  7.5])
-
-See Also
---------
-poly2leg
-
-Notes
------
-The easy way to do conversions between polynomial basis sets
-is to use the convert method of a class instance.

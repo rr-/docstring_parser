@@ -202,6 +202,15 @@ object_slices : list of tuples
     None is returned instead of a slice. The label ``l`` corresponds to
     the index ``l-1`` in the returned list.
 
+See Also
+--------
+label, center_of_mass
+
+Notes
+-----
+This function is very useful for isolating a volume of interest inside
+a 3-D array, that cannot be "seen through".
+
 Examples
 --------
 >>> from scipy import ndimage
@@ -231,12 +240,3 @@ array([[2, 2, 2, 0, 0, 3],
 array([[1, 1, 0],
        [1, 1, 0],
        [0, 0, 1]])
-
-See Also
---------
-label, center_of_mass
-
-Notes
------
-This function is very useful for isolating a volume of interest inside
-a 3-D array, that cannot be "seen through".

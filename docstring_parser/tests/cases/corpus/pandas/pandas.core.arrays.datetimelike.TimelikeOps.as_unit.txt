@@ -129,6 +129,10 @@ Returns
 same type as self
     Converted to the specified unit.
 
+See Also
+--------
+Timestamp.as_unit : Convert to the given unit.
+
 Examples
 --------
 For :class:`pandas.DatetimeIndex`:
@@ -148,7 +152,3 @@ TimedeltaIndex(['1 days 00:03:00.000002042'],
                 dtype='timedelta64[ns]', freq=None)
 >>> tdelta_idx.as_unit("s")
 TimedeltaIndex(['1 days 00:03:00'], dtype='timedelta64[s]', freq=None)
-
-See Also
---------
-Timestamp.as_unit : Convert to the given unit.

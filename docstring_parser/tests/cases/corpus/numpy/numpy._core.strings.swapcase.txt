@@ -104,6 +104,10 @@ out : ndarray
     Output array of ``StringDType``, ``bytes_`` or ``str_`` dtype,
     depending on input types
 
+See Also
+--------
+str.swapcase
+
 Examples
 --------
 >>> import numpy as np
@@ -113,7 +117,3 @@ array(['a1B c', '1b Ca', 'b Ca1', 'cA1b'],
 >>> np.strings.swapcase(c)
 array(['A1b C', '1B cA', 'B cA1', 'Ca1B'],
     dtype='|S5')
-
-See Also
---------
-str.swapcase

@@ -148,6 +148,18 @@ Returns
 squeezed : matrix
     The matrix, but as a (1, N) matrix if it had shape (N, 1).
 
+See Also
+--------
+numpy.squeeze : related function
+
+Notes
+-----
+If `m` has a single column then that column is returned
+as the single row of a matrix.  Otherwise `m` is returned.
+The returned matrix is always either `m` itself or a view into `m`.
+Supplying an axis keyword argument will not affect the returned matrix
+but it may cause an error to be raised.
+
 Examples
 --------
 >>> c = np.matrix([[1], [2]])
@@ -165,15 +177,3 @@ matrix([[1, 2]])
 >>> m.squeeze()
 matrix([[1, 2],
         [3, 4]])
-
-See Also
---------
-numpy.squeeze : related function
-
-Notes
------
-If `m` has a single column then that column is returned
-as the single row of a matrix.  Otherwise `m` is returned.
-The returned matrix is always either `m` itself or a view into `m`.
-Supplying an axis keyword argument will not affect the returned matrix
-but it may cause an error to be raised.

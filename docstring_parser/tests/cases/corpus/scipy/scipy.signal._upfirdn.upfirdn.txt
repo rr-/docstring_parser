@@ -341,6 +341,23 @@ y : ndarray
     for along `axis`, which will change size according to the `h`,
     `up`,  and `down` parameters.
 
+Notes
+-----
+The algorithm is an implementation of the block diagram shown on page 129
+of the Vaidyanathan text [1]_ (Figure 4.3-8d).
+
+The direct approach of upsampling by factor of P with zero insertion,
+FIR filtering of length ``N``, and downsampling by factor of Q is
+O(N*Q) per output sample. The polyphase implementation used here is
+O(N/P).
+
+.. versionadded:: 0.18
+
+References
+----------
+.. [1] P. P. Vaidyanathan, Multirate Systems and Filter Banks,
+       Prentice Hall, 1993.
+
 Examples
 --------
 Simple operations:
@@ -389,20 +406,3 @@ array([[ 0.,  1.],
        [ 4.,  5.],
        [ 6.,  7.],
        [ 6.,  7.]])
-
-Notes
------
-The algorithm is an implementation of the block diagram shown on page 129
-of the Vaidyanathan text [1]_ (Figure 4.3-8d).
-
-The direct approach of upsampling by factor of P with zero insertion,
-FIR filtering of length ``N``, and downsampling by factor of Q is
-O(N*Q) per output sample. The polyphase implementation used here is
-O(N/P).
-
-.. versionadded:: 0.18
-
-References
-----------
-.. [1] P. P. Vaidyanathan, Multirate Systems and Filter Banks,
-       Prentice Hall, 1993.

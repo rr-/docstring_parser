@@ -75,6 +75,12 @@ finite will be masked.
 
 Refer to `numpy.mean` for full documentation.
 
+See Also
+--------
+numpy.ndarray.mean : corresponding function for ndarrays
+numpy.mean : Equivalent function
+numpy.ma.average : Weighted average.
+
 Examples
 --------
 >>> import numpy as np
@@ -85,9 +91,3 @@ masked_array(data=[1, 2, --],
        fill_value=999999)
 >>> a.mean()
 1.5
-
-See Also
---------
-numpy.ndarray.mean : corresponding function for ndarrays
-numpy.mean : Equivalent function
-numpy.ma.average : Weighted average.

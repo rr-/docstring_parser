@@ -219,6 +219,17 @@ median : ndarray
     Return data-type is `float64` for integers and floats smaller than
     `float64`, or the input data-type, otherwise.
 
+See Also
+--------
+mean
+
+Notes
+-----
+Given a vector ``V`` with ``N`` non masked values, the median of ``V``
+is the middle value of a sorted copy of ``V`` (``Vs``) - i.e.
+``Vs[(N-1)/2]``, when ``N`` is odd, or ``{Vs[N/2 - 1] + Vs[N/2]}/2``
+when ``N`` is even.
+
 Examples
 --------
 >>> import numpy as np
@@ -232,14 +243,3 @@ Examples
 masked_array(data=[2.0, 5.0],
              mask=[False, False],
        fill_value=1e+20)
-
-See Also
---------
-mean
-
-Notes
------
-Given a vector ``V`` with ``N`` non masked values, the median of ``V``
-is the middle value of a sorted copy of ``V`` (``Vs``) - i.e.
-``Vs[(N-1)/2]``, when ``N`` is odd, or ``{Vs[N/2 - 1] + Vs[N/2]}/2``
-when ``N`` is even.

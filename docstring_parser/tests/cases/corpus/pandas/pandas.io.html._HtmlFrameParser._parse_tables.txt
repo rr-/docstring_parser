@@ -75,12 +75,12 @@ attrs : dict
     A dictionary of table attributes that can be used to disambiguate
     multiple tables on a page.
 
-Returns
--------
-list of node-like
-    HTML <table> elements to be parsed into raw data.
-
 Raises
 ------
 ValueError
     `match` does not match any text in the document.
+
+Returns
+-------
+list of node-like
+    HTML <table> elements to be parsed into raw data.

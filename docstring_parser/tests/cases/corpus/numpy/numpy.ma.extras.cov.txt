@@ -233,6 +233,10 @@ Raises
 ValueError
     Raised if some values are missing and `allow_masked` is False.
 
+See Also
+--------
+numpy.cov
+
 Examples
 --------
 >>> import numpy as np
@@ -250,7 +254,3 @@ mask=[[ True,  True,  True,  True],
       [ True,  True,  True,  True]],
 fill_value=1e+20,
 dtype=float64)
-
-See Also
---------
-numpy.cov

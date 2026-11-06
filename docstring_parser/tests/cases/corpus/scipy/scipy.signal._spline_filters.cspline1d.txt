@@ -153,6 +153,10 @@ Returns
 c : ndarray
     Cubic spline coefficients.
 
+See Also
+--------
+cspline1d_eval : Evaluate a cubic spline at the new set of points.
+
 Examples
 --------
 We can filter a signal to reduce and smooth out high-frequency noise with
@@ -170,7 +174,3 @@ a cubic spline:
 >>> plt.plot(time, filtered, label="filtered")
 >>> plt.legend()
 >>> plt.show()
-
-See Also
---------
-cspline1d_eval : Evaluate a cubic spline at the new set of points.

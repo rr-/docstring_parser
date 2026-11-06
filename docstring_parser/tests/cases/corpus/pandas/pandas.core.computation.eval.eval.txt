@@ -487,21 +487,6 @@ ValueError
     - Item assignment is provided and `inplace=False`, but the `target`
       does not support the `.copy()` method
 
-Examples
---------
->>> df = pd.DataFrame({"animal": ["dog", "pig"], "age": [10, 20]})
->>> df
-  animal  age
-0    dog   10
-1    pig   20
-
-We can add a new column using ``pd.eval``:
-
->>> pd.eval("double_age = df.age * 2", target=df)
-  animal  age  double_age
-0    dog   10          20
-1    pig   20          40
-
 See Also
 --------
 DataFrame.query : Evaluates a boolean expression to query the columns
@@ -516,3 +501,18 @@ recursively cast to ``float64``.
 
 See the :ref:`enhancing performance <enhancingperf.eval>` documentation for
 more details.
+
+Examples
+--------
+>>> df = pd.DataFrame({"animal": ["dog", "pig"], "age": [10, 20]})
+>>> df
+  animal  age
+0    dog   10
+1    pig   20
+
+We can add a new column using ``pd.eval``:
+
+>>> pd.eval("double_age = df.age * 2", target=df)
+  animal  age  double_age
+0    dog   10          20
+1    pig   20          40

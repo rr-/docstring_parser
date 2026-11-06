@@ -497,6 +497,29 @@ out : callable
     A vectorized function if ``pyfunc`` was provided,
     a decorator otherwise.
 
+See Also
+--------
+frompyfunc : Takes an arbitrary Python function and returns a ufunc
+
+Notes
+-----
+The `vectorize` function is provided primarily for convenience, not for
+performance. The implementation is essentially a for loop.
+
+If neither `otypes` nor `signature` are specified, then a call to the function with
+the first argument will be used to determine the number of outputs.  The results of
+this call will be cached if `cache` is `True` to prevent calling the function
+twice.  However, to implement the cache, the original function must be wrapped
+which will slow down subsequent calls, so only do this if your function is
+expensive.
+
+The new keyword argument interface and `excluded` argument support
+further degrades performance.
+
+References
+----------
+.. [1] :doc:`/reference/c-api/generalized-ufuncs`
+
 Examples
 --------
 >>> import numpy as np
@@ -584,26 +607,3 @@ array([0, 1, 2])
 ...
 >>> as_float([0, 1, 2])
 array([0., 1., 2.])
-
-See Also
---------
-frompyfunc : Takes an arbitrary Python function and returns a ufunc
-
-Notes
------
-The `vectorize` function is provided primarily for convenience, not for
-performance. The implementation is essentially a for loop.
-
-If neither `otypes` nor `signature` are specified, then a call to the function with
-the first argument will be used to determine the number of outputs.  The results of
-this call will be cached if `cache` is `True` to prevent calling the function
-twice.  However, to implement the cache, the original function must be wrapped
-which will slow down subsequent calls, so only do this if your function is
-expensive.
-
-The new keyword argument interface and `excluded` argument support
-further degrades performance.
-
-References
-----------
-.. [1] :doc:`/reference/c-api/generalized-ufuncs`

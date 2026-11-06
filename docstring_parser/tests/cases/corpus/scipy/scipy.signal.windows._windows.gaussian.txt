@@ -203,6 +203,12 @@ w : ndarray
     The window, with the maximum value normalized to 1 (though the value 1
     does not appear if `M` is even and `sym` is True).
 
+Notes
+-----
+The Gaussian window is defined as
+
+.. math::  w(n) = e^{ -\frac{1}{2}\left(\frac{n}{\sigma}\right)^2 }
+
 Examples
 --------
 Plot the window and its frequency response:
@@ -225,9 +231,3 @@ Plot the window and its frequency response:
 >>> plt.title(r"Frequency response of the Gaussian window ($\sigma$=7)")
 >>> plt.ylabel("Normalized magnitude [dB]")
 >>> plt.xlabel("Normalized frequency [cycles per sample]")
-
-Notes
------
-The Gaussian window is defined as
-
-.. math::  w(n) = e^{ -\frac{1}{2}\left(\frac{n}{\sigma}\right)^2 }

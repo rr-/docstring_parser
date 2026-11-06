@@ -140,6 +140,10 @@ Returns
 y : ndarray
     The shifted array.
 
+See Also
+--------
+ifftshift : The inverse of `fftshift`.
+
 Examples
 --------
 >>> import numpy as np
@@ -160,7 +164,3 @@ array([[ 0.,  1.,  2.],
 array([[ 2.,  0.,  1.],
        [-4.,  3.,  4.],
        [-1., -3., -2.]])
-
-See Also
---------
-ifftshift : The inverse of `fftshift`.

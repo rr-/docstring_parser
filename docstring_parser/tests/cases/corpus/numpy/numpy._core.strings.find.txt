@@ -105,13 +105,13 @@ Returns
 y : ndarray
     Output array of ints
 
+See Also
+--------
+str.find
+
 Examples
 --------
 >>> import numpy as np
 >>> a = np.array(["NumPy is a Python library"])
 >>> np.strings.find(a, "Python")
 array([11])
-
-See Also
---------
-str.find

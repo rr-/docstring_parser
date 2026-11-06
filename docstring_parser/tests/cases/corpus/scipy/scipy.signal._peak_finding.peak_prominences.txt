@@ -399,6 +399,52 @@ PeakPropertyWarning
     the returned prominence will be 0 and this warning is raised. This
     also happens if `wlen` is smaller than the plateau size of a peak.
 
+Warnings
+--------
+This function may return unexpected results for data containing NaNs. To
+avoid this, NaNs should either be removed or replaced.
+
+See Also
+--------
+find_peaks
+    Find peaks inside a signal based on peak properties.
+peak_widths
+    Calculate the width of peaks.
+
+Notes
+-----
+Strategy to compute a peak's prominence:
+
+1. Extend a horizontal line from the current peak to the left and right
+   until the line either reaches the window border (see `wlen`) or
+   intersects the signal again at the slope of a higher peak. An
+   intersection with a peak of the same height is ignored.
+2. On each side find the minimal signal value within the interval defined
+   above. These points are the peak's bases.
+3. The higher one of the two bases marks the peak's lowest contour line. The
+   prominence can then be calculated as the vertical difference between the
+   peaks height itself and its lowest contour line.
+
+Searching for the peak's bases can be slow for large `x` with periodic
+behavior because large chunks or even the full signal need to be evaluated
+for the first algorithmic step. This evaluation area can be limited with the
+parameter `wlen` which restricts the algorithm to a window around the
+current peak and can shorten the calculation time if the window length is
+short in relation to `x`.
+However, this may stop the algorithm from finding the true global contour
+line if the peak's true bases are outside this window. Instead, a higher
+contour line is found within the restricted window leading to a smaller
+calculated prominence. In practice, this is only relevant for the highest set
+of peaks in `x`. This behavior may even be used intentionally to calculate
+"local" prominences.
+
+.. versionadded:: 1.1.0
+
+References
+----------
+.. [1] Wikipedia Article for Topographic Prominence:
+   https://en.wikipedia.org/wiki/Topographic_prominence
+
 Examples
 --------
 >>> import numpy as np
@@ -450,49 +496,3 @@ Here, we restricted the algorithm to a window from 3 to 7 (the length is 5
 samples because `wlen` was rounded up to the next odd integer). Thus, the
 only two candidates in the evaluated area are the two neighboring samples
 and a smaller prominence is calculated.
-
-Warnings
---------
-This function may return unexpected results for data containing NaNs. To
-avoid this, NaNs should either be removed or replaced.
-
-See Also
---------
-find_peaks
-    Find peaks inside a signal based on peak properties.
-peak_widths
-    Calculate the width of peaks.
-
-Notes
------
-Strategy to compute a peak's prominence:
-
-1. Extend a horizontal line from the current peak to the left and right
-   until the line either reaches the window border (see `wlen`) or
-   intersects the signal again at the slope of a higher peak. An
-   intersection with a peak of the same height is ignored.
-2. On each side find the minimal signal value within the interval defined
-   above. These points are the peak's bases.
-3. The higher one of the two bases marks the peak's lowest contour line. The
-   prominence can then be calculated as the vertical difference between the
-   peaks height itself and its lowest contour line.
-
-Searching for the peak's bases can be slow for large `x` with periodic
-behavior because large chunks or even the full signal need to be evaluated
-for the first algorithmic step. This evaluation area can be limited with the
-parameter `wlen` which restricts the algorithm to a window around the
-current peak and can shorten the calculation time if the window length is
-short in relation to `x`.
-However, this may stop the algorithm from finding the true global contour
-line if the peak's true bases are outside this window. Instead, a higher
-contour line is found within the restricted window leading to a smaller
-calculated prominence. In practice, this is only relevant for the highest set
-of peaks in `x`. This behavior may even be used intentionally to calculate
-"local" prominences.
-
-.. versionadded:: 1.1.0
-
-References
-----------
-.. [1] Wikipedia Article for Topographic Prominence:
-   https://en.wikipedia.org/wiki/Topographic_prominence

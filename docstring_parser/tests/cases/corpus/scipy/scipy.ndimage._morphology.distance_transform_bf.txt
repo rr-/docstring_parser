@@ -522,6 +522,25 @@ indices : int32 ndarray, optional
     Returned only when `return_indices` is True and `indices` is not
     supplied.
 
+See Also
+--------
+distance_transform_cdt : Faster distance transform for taxicab and
+                         chessboard metrics
+distance_transform_edt : Faster distance transform for euclidean metric
+
+Notes
+-----
+This function employs a slow brute force algorithm. See also the
+function `distance_transform_cdt` for more efficient taxicab [1]_ and
+chessboard algorithms [2]_.
+
+References
+----------
+.. [1] Taxicab distance. Wikipedia, 2023.
+       https://en.wikipedia.org/wiki/Taxicab_geometry
+.. [2] Chessboard distance. Wikipedia, 2023.
+       https://en.wikipedia.org/wiki/Chebyshev_distance
+
 Examples
 --------
 Import the necessary modules.
@@ -600,22 +619,3 @@ Finally, the lower right image contains the distance transform using the
 >>> cbar_taxicab.set_ticks(colorbar_ticks)
 >>> grid[3].set_title("Chessboard distance")
 >>> plt.show()
-
-See Also
---------
-distance_transform_cdt : Faster distance transform for taxicab and
-                         chessboard metrics
-distance_transform_edt : Faster distance transform for euclidean metric
-
-Notes
------
-This function employs a slow brute force algorithm. See also the
-function `distance_transform_cdt` for more efficient taxicab [1]_ and
-chessboard algorithms [2]_.
-
-References
-----------
-.. [1] Taxicab distance. Wikipedia, 2023.
-       https://en.wikipedia.org/wiki/Taxicab_geometry
-.. [2] Chessboard distance. Wikipedia, 2023.
-       https://en.wikipedia.org/wiki/Chebyshev_distance

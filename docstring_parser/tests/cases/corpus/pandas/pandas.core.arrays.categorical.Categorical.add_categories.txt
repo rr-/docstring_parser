@@ -120,6 +120,14 @@ ValueError
     If the new categories include old categories or do not validate as
     categories
 
+See Also
+--------
+rename_categories : Rename categories.
+reorder_categories : Reorder categories.
+remove_categories : Remove the specified categories.
+remove_unused_categories : Remove categories which are not used.
+set_categories : Set the categories to the specified ones.
+
 Examples
 --------
 >>> c = pd.Categorical(["c", "b", "c"])
@@ -129,11 +137,3 @@ Categories (2, str): ['b', 'c']
 >>> c.add_categories(["d", "a"])
 ['c', 'b', 'c']
 Categories (4, str): ['b', 'c', 'd', 'a']
-
-See Also
---------
-rename_categories : Rename categories.
-reorder_categories : Reorder categories.
-remove_categories : Remove the specified categories.
-remove_unused_categories : Remove categories which are not used.
-set_categories : Set the categories to the specified ones.

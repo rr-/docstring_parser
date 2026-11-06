@@ -317,6 +317,17 @@ Returns
 Series or DataFrame
     Same type as caller, but with changed indices on each axis.
 
+See Also
+--------
+DataFrame.set_index : Set row labels.
+DataFrame.reset_index : Remove row labels or move them to new columns.
+DataFrame.reindex : Change to new indices or expand indices.
+
+Notes
+-----
+Same as calling
+``.reindex(index=other.index, columns=other.columns,...)``.
+
 Examples
 --------
 >>> df1 = pd.DataFrame(
@@ -351,14 +362,3 @@ Examples
 2014-02-13          30.0              NaN       low
 2014-02-14           NaN              NaN       NaN
 2014-02-15          35.1              NaN    medium
-
-See Also
---------
-DataFrame.set_index : Set row labels.
-DataFrame.reset_index : Remove row labels or move them to new columns.
-DataFrame.reindex : Change to new indices or expand indices.
-
-Notes
------
-Same as calling
-``.reindex(index=other.index, columns=other.columns,...)``.

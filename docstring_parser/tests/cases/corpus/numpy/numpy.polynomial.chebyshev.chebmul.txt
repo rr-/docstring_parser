@@ -115,14 +115,6 @@ Returns
 out : ndarray
     Of Chebyshev series coefficients representing their product.
 
-Examples
---------
->>> from numpy.polynomial import chebyshev as C
->>> c1 = (1,2,3)
->>> c2 = (3,2,1)
->>> C.chebmul(c1,c2) # multiplication requires "reprojection"
-array([  6.5,  12. ,  12. ,   4. ,   1.5])
-
 See Also
 --------
 chebadd, chebsub, chebmulx, chebdiv, chebpow
@@ -134,3 +126,11 @@ that are not in the Chebyshev polynomial basis set.  Thus, to express
 the product as a C-series, it is typically necessary to "reproject"
 the product onto said basis set, which typically produces
 "unintuitive live" (but correct) results; see Examples section below.
+
+Examples
+--------
+>>> from numpy.polynomial import chebyshev as C
+>>> c1 = (1,2,3)
+>>> c2 = (3,2,1)
+>>> C.chebmul(c1,c2) # multiplication requires "reprojection"
+array([  6.5,  12. ,  12. ,   4. ,   1.5])

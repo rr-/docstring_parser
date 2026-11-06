@@ -169,18 +169,6 @@ Raises
 ValueError
     If the Series is empty.
 
-Examples
---------
->>> s = pd.Series(data=[1, None, 4, 1], index=["A", "B", "C", "D"])
->>> s
-A    1.0
-B    NaN
-C    4.0
-D    1.0
-dtype: float64
->>> s.idxmin()
-'A'
-
 See Also
 --------
 numpy.argmin : Return indices of the minimum values
@@ -195,3 +183,15 @@ Notes
 This method is the Series version of ``ndarray.argmin``. This method
 returns the label of the minimum, while ``ndarray.argmin`` returns
 the position. To get the position, use ``series.values.argmin()``.
+
+Examples
+--------
+>>> s = pd.Series(data=[1, None, 4, 1], index=["A", "B", "C", "D"])
+>>> s
+A    1.0
+B    NaN
+C    4.0
+D    1.0
+dtype: float64
+>>> s.idxmin()
+'A'

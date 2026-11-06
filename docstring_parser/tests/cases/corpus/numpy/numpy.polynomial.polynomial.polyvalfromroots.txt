@@ -246,6 +246,10 @@ Returns
 values : ndarray, compatible object
     The shape of the returned array is described above.
 
+See Also
+--------
+polyroots, polyfromroots, polyval
+
 Examples
 --------
 >>> from numpy.polynomial.polynomial import polyvalfromroots
@@ -268,7 +272,3 @@ array([[-0.,  3.],
        [ 3., 0.]])
 >>> polyvalfromroots(b, r, tensor=False)
 array([-0.,  0.])
-
-See Also
---------
-polyroots, polyfromroots, polyval

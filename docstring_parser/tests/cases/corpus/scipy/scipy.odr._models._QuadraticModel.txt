@@ -85,7 +85,6 @@ Quadratic model
     instead.
 
 This model is defined by :math:`y = \beta_0 x^2 + \beta_1 x + \beta_2`
-
 Examples
 --------
 We can calculate orthogonal distance regression with a quadratic model:

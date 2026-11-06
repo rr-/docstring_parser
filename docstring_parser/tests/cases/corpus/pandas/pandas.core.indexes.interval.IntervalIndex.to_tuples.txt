@@ -93,6 +93,10 @@ Returns
 Index
     An Index of tuples representing the intervals.
 
+See Also
+--------
+arrays.IntervalArray.to_tuples : Analogous method for IntervalArray.
+
 Examples
 --------
 >>> idx = pd.interval_range(start=0, end=2)
@@ -100,7 +104,3 @@ Examples
 IntervalIndex([(0, 1], (1, 2]], dtype='interval[int64, right]')
 >>> idx.to_tuples()
 Index([(0, 1), (1, 2)], dtype='object')
-
-See Also
---------
-arrays.IntervalArray.to_tuples : Analogous method for IntervalArray.

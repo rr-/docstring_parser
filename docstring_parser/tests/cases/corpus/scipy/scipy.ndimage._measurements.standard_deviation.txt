@@ -157,6 +157,10 @@ standard_deviation : float or ndarray
     Values of standard deviation, for each sub-region if `labels` and
     `index` are specified.
 
+See Also
+--------
+label, variance, maximum, minimum, extrema
+
 Examples
 --------
 >>> import numpy as np
@@ -178,7 +182,3 @@ If no index is given, non-zero `labels` are processed:
 
 >>> ndimage.standard_deviation(a, lbl)
 2.4874685927665499
-
-See Also
---------
-label, variance, maximum, minimum, extrema

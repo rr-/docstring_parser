@@ -182,11 +182,15 @@ Take the nth row from each group if n is an int, otherwise a subset of rows.
 If dropna, will take the nth non-null row, dropna is either
 'all' or 'any'; this is equivalent to calling dropna(how=dropna)
 before the groupby.
-
 Returns
 -------
 Series or DataFrame
     N-th value within each group.
+
+See Also
+--------
+Series.nth : Apply function nth to a Series.
+DataFrame.nth : Apply function nth to each row or column of a DataFrame.
 
 Examples
 --------
@@ -232,8 +236,3 @@ empty DataFrame is returned
 Empty DataFrame
 Columns: [A, B]
 Index: []
-
-See Also
---------
-Series.nth : Apply function nth to a Series.
-DataFrame.nth : Apply function nth to each row or column of a DataFrame.

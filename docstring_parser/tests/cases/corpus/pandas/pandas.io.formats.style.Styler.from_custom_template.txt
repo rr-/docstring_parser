@@ -128,6 +128,11 @@ MyStyler : subclass of Styler
     Has the correct ``env``, ``template_html``, ``template_html_table`` and
     ``template_html_style`` class attributes set.
 
+See Also
+--------
+Styler.export : Export the styles applied to the current Styler.
+Styler.use : Set the styles on the current Styler.
+
 Examples
 --------
 >>> from pandas.io.formats.style import Styler
@@ -140,8 +145,3 @@ Examples
 
 Please see:
 `Table Visualization <../../user_guide/style.ipynb>`_ for more examples.
-
-See Also
---------
-Styler.export : Export the styles applied to the current Styler.
-Styler.use : Set the styles on the current Styler.

@@ -228,6 +228,10 @@ DataFrame or Series or Index
     return a Series (if subject is a Series) or Index (if subject
     is an Index).
 
+See Also
+--------
+extractall : Returns all matches (not just the first match).
+
 Examples
 --------
 A pattern with two groups will return a DataFrame with two columns.
@@ -272,7 +276,3 @@ A pattern with one group will return a Series if expand=False.
 1      2
 2    NaN
 dtype: str
-
-See Also
---------
-extractall : Returns all matches (not just the first match).

@@ -185,6 +185,17 @@ Returns
 ndarray
     First `nt` zeros of the Bessel function.
 
+See Also
+--------
+yn: Bessel function of the second kind for integer order
+yv: Bessel function of the second kind for real order
+
+References
+----------
+.. [1] Zhang, Shanjie and Jin, Jianming. "Computation of Special
+       Functions", John Wiley and Sons, 1996, chapter 5.
+       https://people.sc.fsu.edu/~jburkardt/f77_src/special_functions/special_functions.html
+
 Examples
 --------
 Compute the first four roots of :math:`Y_2`.
@@ -210,14 +221,3 @@ Plot :math:`Y_2` and its first four roots.
 >>> ax.set_xlim(xmin, xmax)
 >>> plt.legend()
 >>> plt.show()
-
-See Also
---------
-yn: Bessel function of the second kind for integer order
-yv: Bessel function of the second kind for real order
-
-References
-----------
-.. [1] Zhang, Shanjie and Jin, Jianming. "Computation of Special
-       Functions", John Wiley and Sons, 1996, chapter 5.
-       https://people.sc.fsu.edu/~jburkardt/f77_src/special_functions/special_functions.html

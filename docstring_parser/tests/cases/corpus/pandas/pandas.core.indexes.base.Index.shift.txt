@@ -157,6 +157,15 @@ Returns
 pandas.Index
     Shifted index.
 
+See Also
+--------
+Series.shift : Shift values of Series.
+
+Notes
+-----
+This method is only implemented for datetime-like index classes,
+i.e., DatetimeIndex, PeriodIndex and TimedeltaIndex.
+
 Examples
 --------
 Put the first 5 month starts of 2011 into an index.
@@ -181,12 +190,3 @@ which is 'MS' (month start) in this example.
 DatetimeIndex(['2011-11-01', '2011-12-01', '2012-01-01', '2012-02-01',
                '2012-03-01'],
               dtype='datetime64[us]', freq='MS')
-
-See Also
---------
-Series.shift : Shift values of Series.
-
-Notes
------
-This method is only implemented for datetime-like index classes,
-i.e., DatetimeIndex, PeriodIndex and TimedeltaIndex.
