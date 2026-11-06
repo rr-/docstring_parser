@@ -116,6 +116,7 @@ style: numpydoc
   arg_name: 'weekmask'
   type_name: 'str or array_like of bool'
   is_optional: True
+  raw_type_name: 'str or array_like of bool, optional'
 - DocstringParam
   description: |
     An array of dates to consider as invalid dates.  They may be
@@ -127,6 +128,7 @@ style: numpydoc
   arg_name: 'holidays'
   type_name: 'array_like of datetime64[D]'
   is_optional: True
+  raw_type_name: 'array_like of datetime64[D], optional'
 - DocstringParam
   description: |
     A `busdaycalendar` object which specifies the valid days. If this
@@ -137,6 +139,7 @@ style: numpydoc
   arg_name: 'busdaycal'
   type_name: 'busdaycalendar'
   is_optional: True
+  raw_type_name: 'busdaycalendar, optional'
 - DocstringParam
   description: 'If provided, this array is filled with the result.'
   kind: param
@@ -144,6 +147,7 @@ style: numpydoc
   arg_name: 'out'
   type_name: 'array of int'
   is_optional: True
+  raw_type_name: 'array of int, optional'
 - DocstringReturns
   description: |
     An array with a shape from broadcasting ``begindates`` and ``enddates``

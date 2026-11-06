@@ -101,6 +101,7 @@ style: numpydoc
   arg_name: 'y'
   type_name: 'array_like'
   is_optional: True
+  raw_type_name: 'array_like, optional'
 - DocstringParam
   description: |
     If `rowvar` is True (default), then each row represents a
@@ -112,6 +113,7 @@ style: numpydoc
   arg_name: 'rowvar'
   type_name: 'bool'
   is_optional: True
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: |
     Default normalization (False) is by ``(N-1)``, where ``N`` is the
@@ -123,6 +125,7 @@ style: numpydoc
   arg_name: 'bias'
   type_name: 'bool'
   is_optional: True
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: |
     If True, masked values are propagated pair-wise: if a value is masked
@@ -133,6 +136,7 @@ style: numpydoc
   arg_name: 'allow_masked'
   type_name: 'bool'
   is_optional: True
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: |
     If not ``None`` normalization is by ``(N - ddof)``, where ``N`` is
@@ -143,6 +147,7 @@ style: numpydoc
   arg_name: 'ddof'
   type_name: '{None, int}'
   is_optional: True
+  raw_type_name: '{None, int}, optional'
 - DocstringRaises
   description: 'Raised if some values are missing and `allow_masked` is False.'
   kind: raises

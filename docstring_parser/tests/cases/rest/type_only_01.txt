@@ -24,6 +24,7 @@ style: rest
   arg_name: 'x'
   type_name: 'str'
   is_optional: True
+  raw_type_name: 'str, optional'
 - DocstringReturns
   description: 'The sum.'
   kind: returns

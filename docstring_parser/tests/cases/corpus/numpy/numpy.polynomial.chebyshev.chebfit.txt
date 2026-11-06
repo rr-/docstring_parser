@@ -176,6 +176,7 @@ style: numpydoc
   arg_name: 'rcond'
   type_name: 'float'
   is_optional: True
+  raw_type_name: 'float, optional'
 - DocstringParam
   description: |
     Switch determining nature of return value. When it is False (the
@@ -186,6 +187,7 @@ style: numpydoc
   arg_name: 'full'
   type_name: 'bool'
   is_optional: True
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: |
     Weights. If not None, the weight ``w[i]`` applies to the unsquared
@@ -198,6 +200,7 @@ style: numpydoc
   arg_name: 'w'
   type_name: 'array_like, shape (`M`,)'
   is_optional: True
+  raw_type_name: 'array_like, shape (`M`,), optional'
 - DocstringReturns
   description: |
     Chebyshev coefficients ordered from low to high. If `y` was 2-D,

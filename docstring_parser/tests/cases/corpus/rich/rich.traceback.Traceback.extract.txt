@@ -51,6 +51,7 @@ style: google
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: |
     Maximum length of containers before abbreviating, or None for no abbreviation.
@@ -60,6 +61,7 @@ style: google
   arg_name: 'locals_max_length'
   type_name: 'int'
   is_optional: True
+  raw_type_name: 'int, optional'
 - DocstringParam
   description: 'Maximum length of string before truncating, or None to disable. Defaults to 80.'
   kind: param
@@ -68,6 +70,7 @@ style: google
   type_name: 'int'
   is_optional: True
   default: '80'
+  raw_type_name: 'int, optional'
 - DocstringParam
   description: 'Maximum depths of locals before truncating, or None to disable. Defaults to None.'
   kind: param
@@ -76,6 +79,7 @@ style: google
   type_name: 'int'
   is_optional: True
   default: 'None'
+  raw_type_name: 'int, optional'
 - DocstringParam
   description: 'Hide locals prefixed with double underscore. Defaults to True.'
   kind: param
@@ -84,6 +88,7 @@ style: google
   type_name: 'bool'
   is_optional: True
   default: 'True'
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: 'Hide locals prefixed with single underscore. Defaults to False.'
   kind: param
@@ -92,6 +97,7 @@ style: google
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, optional'
 - DocstringReturns
   description: 'A Trace instance which you can use to construct a `Traceback`.'
   kind: returns

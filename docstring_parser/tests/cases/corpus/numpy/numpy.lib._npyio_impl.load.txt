@@ -154,6 +154,7 @@ style: numpydoc
   arg_name: 'mmap_mode'
   type_name: "{None, 'r+', 'r', 'w+', 'c'}"
   is_optional: True
+  raw_type_name: "{None, 'r+', 'r', 'w+', 'c'}, optional"
 - DocstringParam
   description: |
     Allow loading pickled object arrays stored in npy files. Reasons for
@@ -166,6 +167,7 @@ style: numpydoc
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: |
     Only useful when loading Python 2 generated pickled files,
@@ -177,6 +179,7 @@ style: numpydoc
   arg_name: 'fix_imports'
   type_name: 'bool'
   is_optional: True
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: |
     What encoding to use when reading Python 2 strings. Only useful when
@@ -190,6 +193,7 @@ style: numpydoc
   type_name: 'str'
   is_optional: True
   default: "'ASCII'"
+  raw_type_name: 'str, optional'
 - DocstringParam
   description: |
     Maximum allowed size of the header.  Large headers may not be safe
@@ -202,6 +206,7 @@ style: numpydoc
   arg_name: 'max_header_size'
   type_name: 'int'
   is_optional: True
+  raw_type_name: 'int, optional'
 - DocstringReturns
   description: |
     Data stored in the file. For ``.npz`` files, the returned instance

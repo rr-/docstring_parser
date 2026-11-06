@@ -40,6 +40,7 @@ style: google
   type_name: 'str'
   is_optional: True
   default: '"default"'
+  raw_type_name: 'str, optional'
 - DocstringParam
   description: 'Overflow method: "crop", "fold", or "ellipsis". Defaults to None.'
   kind: param
@@ -48,6 +49,7 @@ style: google
   type_name: 'str'
   is_optional: True
   default: 'None'
+  raw_type_name: 'str, optional'
 - DocstringParam
   description: 'Default tab size. Defaults to 8.'
   kind: param
@@ -56,6 +58,7 @@ style: google
   type_name: 'int'
   is_optional: True
   default: '8'
+  raw_type_name: 'int, optional'
 - DocstringParam
   description: 'Disable wrapping, Defaults to False.'
   kind: param
@@ -63,6 +66,7 @@ style: google
   arg_name: 'no_wrap'
   type_name: 'bool'
   is_optional: True
+  raw_type_name: 'bool, optional'
 - DocstringReturns
   description: 'Number of lines.'
   kind: returns

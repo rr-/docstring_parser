@@ -23,6 +23,7 @@ style: numpydoc
   type_name: 'int'
   is_optional: True
   default: '1'
+  raw_type_name: 'int, optional, default 1'
 - DocstringParam
   description: 'B.'
   kind: param
@@ -31,6 +32,7 @@ style: numpydoc
   type_name: 'int'
   is_optional: True
   default: '2'
+  raw_type_name: 'int, default 2, optional'
 - DocstringParam
   description: 'C.'
   kind: param
@@ -39,6 +41,7 @@ style: numpydoc
   type_name: "{'x', 'y'}"
   is_optional: True
   default: 'None'
+  raw_type_name: "{'x', 'y'}, optional, default None"
 === compose numpydoc
 Short.
 

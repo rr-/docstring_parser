@@ -18,6 +18,7 @@ style: google
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, optional'
 === detect
 google
 === compose google

@@ -51,6 +51,7 @@ style: numpydoc
   type_name: 'bool'
   is_optional: True
   default: 'True'
+  raw_type_name: 'bool, default True'
 - DocstringParam
   description: 'Whether to consider integer value to be a valid boolean.'
   kind: param
@@ -59,6 +60,7 @@ style: numpydoc
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, default False'
 - DocstringReturns
   description: 'The same value as input.'
   kind: returns

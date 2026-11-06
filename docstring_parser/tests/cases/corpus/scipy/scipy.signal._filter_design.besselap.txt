@@ -119,6 +119,7 @@ style: numpydoc
   arg_name: 'norm'
   type_name: "{'phase', 'delay', 'mag'}"
   is_optional: True
+  raw_type_name: "{'phase', 'delay', 'mag'}, optional"
 - DocstringParam
   kind: param
   key: 'param'

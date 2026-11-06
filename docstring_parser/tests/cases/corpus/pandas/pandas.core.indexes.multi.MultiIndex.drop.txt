@@ -89,6 +89,7 @@ style: numpydoc
   type_name: 'int or level name'
   is_optional: True
   default: 'None'
+  raw_type_name: 'int or level name, default None'
 - DocstringParam
   description: "If 'ignore', suppress error and existing labels are dropped."
   kind: param
@@ -97,6 +98,7 @@ style: numpydoc
   type_name: 'str'
   is_optional: True
   default: "'raise'"
+  raw_type_name: "str, default 'raise'"
 - DocstringReturns
   description: 'A new MultiIndex with the specified labels removed.'
   kind: returns

@@ -125,6 +125,7 @@ style: numpydoc
   type_name: 'str or dict'
   is_optional: True
   default: "'infer'"
+  raw_type_name: "str or dict, default 'infer'"
 - DocstringParam
   description: |
     Int which indicates which protocol should be used by the pickler,
@@ -153,6 +154,7 @@ style: numpydoc
   arg_name: 'storage_options'
   type_name: 'dict'
   is_optional: True
+  raw_type_name: 'dict, optional'
 - DocstringMeta
   description: |
     read_pickle : Load pickled pandas object (or any object) from file.

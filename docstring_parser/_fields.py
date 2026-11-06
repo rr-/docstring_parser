@@ -55,6 +55,7 @@ def assign_types(
             if text is not None and not meta.type_name:
                 spec = type_spec(text)
                 meta.type_name = spec.type_name
+                meta.raw_type_name = text
                 if spec.is_optional:
                     meta.is_optional = True
                     meta.default = meta.default or spec.default
@@ -78,6 +79,7 @@ def assign_types(
                 is_optional=spec.is_optional,
                 default=spec.default,
                 key="type",
+                raw_type_name=text,
             )
             extra.append((at, param))
     for tag, table in ((False, rtypes), (None, ytypes)):

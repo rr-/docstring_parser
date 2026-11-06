@@ -18,3 +18,4 @@ style: numpydoc
   type_name: 'str'
   is_optional: True
   default: 'DEFAULT_ARGS'
+  raw_type_name: 'str, optional'

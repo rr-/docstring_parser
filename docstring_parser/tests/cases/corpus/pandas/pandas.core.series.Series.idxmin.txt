@@ -81,6 +81,7 @@ style: numpydoc
   type_name: 'bool'
   is_optional: True
   default: 'True'
+  raw_type_name: 'bool, default True'
 - DocstringParam
   description: |
     Additional arguments and keywords have no effect but might be

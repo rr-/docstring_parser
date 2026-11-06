@@ -35,6 +35,7 @@ style: numpydoc
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, default False'
 - DocstringParam
   description: 'Whether the formatter works in dynamic mode or not.'
   kind: param
@@ -43,6 +44,7 @@ style: numpydoc
   type_name: 'bool'
   is_optional: True
   default: 'True'
+  raw_type_name: 'bool, default True'
 === detect
 numpydoc
 === compose numpydoc

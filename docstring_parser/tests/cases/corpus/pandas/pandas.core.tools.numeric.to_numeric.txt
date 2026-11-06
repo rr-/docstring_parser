@@ -179,6 +179,7 @@ style: numpydoc
   type_name: "{'raise', 'coerce'}"
   is_optional: True
   default: "'raise'"
+  raw_type_name: "{'raise', 'coerce'}, default 'raise'"
 - DocstringParam
   description: |
     Can be 'integer', 'signed', 'unsigned', or 'float'.
@@ -206,6 +207,7 @@ style: numpydoc
   type_name: 'str'
   is_optional: True
   default: 'None'
+  raw_type_name: 'str, default None'
 - DocstringParam
   description: |
     Back-end data type applied to the result

@@ -150,6 +150,7 @@ style: numpydoc
   arg_name: 'closed'
   type_name: "{'right', 'left'}"
   is_optional: True
+  raw_type_name: "{'right', 'left'}, optional"
 - DocstringParam
   description: 'Which bin edge label to label bucket with. See :meth:`Series.resample`.'
   kind: param
@@ -157,6 +158,7 @@ style: numpydoc
   arg_name: 'label'
   type_name: "{'right', 'left'}"
   is_optional: True
+  raw_type_name: "{'right', 'left'}, optional"
 - DocstringParam
   description: 'For ``PeriodIndex`` only. See :meth:`Series.resample`.'
   kind: param
@@ -164,6 +166,7 @@ style: numpydoc
   arg_name: 'convention'
   type_name: "{'start', 'end', 's', 'e'}"
   is_optional: True
+  raw_type_name: "{'start', 'end', 's', 'e'}, optional"
 - DocstringParam
   description: |
     For a DataFrame, column to use instead of index for resampling.
@@ -173,6 +176,7 @@ style: numpydoc
   arg_name: 'on'
   type_name: 'str'
   is_optional: True
+  raw_type_name: 'str, optional'
 - DocstringParam
   description: |
     The timestamp on which to adjust the grouping. See
@@ -183,6 +187,7 @@ style: numpydoc
   type_name: 'Timestamp or str'
   is_optional: True
   default: "'start_day'"
+  raw_type_name: "Timestamp or str, default 'start_day'"
 - DocstringParam
   description: 'An offset timedelta added to the origin.'
   kind: param
@@ -190,6 +195,7 @@ style: numpydoc
   arg_name: 'offset'
   type_name: 'Timedelta or str'
   is_optional: True
+  raw_type_name: 'Timedelta or str, optional'
 - DocstringParam
   description: |
     Whether to include the group keys in the result index when using
@@ -200,6 +206,7 @@ style: numpydoc
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, default False'
 - DocstringParam
   description: |
     When True, will attempt to include the groupings in the operation in
@@ -218,6 +225,7 @@ style: numpydoc
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, default False'
 - DocstringParam
   description: |
     Additional keyword arguments forwarded to the underlying

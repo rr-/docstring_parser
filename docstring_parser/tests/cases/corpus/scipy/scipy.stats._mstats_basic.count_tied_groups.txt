@@ -52,6 +52,7 @@ style: numpydoc
   arg_name: 'use_missing'
   type_name: 'bool'
   is_optional: True
+  raw_type_name: 'bool, optional'
 - DocstringReturns
   description: 'Returns a dictionary (nb of ties: nb of groups).'
   kind: returns

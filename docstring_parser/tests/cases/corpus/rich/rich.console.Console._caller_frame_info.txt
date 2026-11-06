@@ -35,6 +35,7 @@ style: google
   arg_name: 'currentframe'
   type_name: 'Callable[[], Optional[FrameType]]'
   is_optional: True
+  raw_type_name: 'Callable[[], Optional[FrameType]], optional'
 - DocstringReturns
   description: |
     A tuple containing the filename, the line number and

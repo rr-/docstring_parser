@@ -64,6 +64,7 @@ style: numpydoc
   arg_name: 'axis'
   type_name: 'None or int or tuple of ints'
   is_optional: True
+  raw_type_name: 'None or int or tuple of ints, optional'
 - DocstringReturns
   description: 'The matrix, but as a (1, N) matrix if it had shape (N, 1).'
   kind: returns

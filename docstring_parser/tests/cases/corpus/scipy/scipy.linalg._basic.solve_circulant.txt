@@ -185,6 +185,7 @@ style: numpydoc
   type_name: 'str'
   is_optional: True
   default: '"raise"'
+  raw_type_name: 'str, optional'
 - DocstringParam
   description: |
     If any eigenvalue of the circulant matrix has an absolute value
@@ -200,6 +201,7 @@ style: numpydoc
   arg_name: 'tol'
   type_name: 'float'
   is_optional: True
+  raw_type_name: 'float, optional'
 - DocstringParam
   description: |
     When `c` has dimension greater than 1, it is viewed as a collection

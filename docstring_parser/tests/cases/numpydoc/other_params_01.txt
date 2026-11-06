@@ -21,6 +21,7 @@ style: numpydoc
   arg_name: 'only_seldom_used_keywords'
   type_name: 'type'
   is_optional: True
+  raw_type_name: 'type, optional'
 - DocstringParam
   description: 'Explanation'
   kind: other_param
@@ -28,3 +29,4 @@ style: numpydoc
   arg_name: 'common_parameters_listed_above'
   type_name: 'type'
   is_optional: True
+  raw_type_name: 'type, optional'

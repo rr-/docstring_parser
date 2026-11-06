@@ -68,6 +68,7 @@ style: numpydoc
   type_name: 'integer'
   is_optional: True
   default: '16'
+  raw_type_name: 'integer, optional'
 - DocstringReturns
   description: 'Hermite series of power.'
   kind: returns

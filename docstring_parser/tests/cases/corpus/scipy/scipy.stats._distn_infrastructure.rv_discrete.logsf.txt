@@ -52,6 +52,7 @@ style: numpydoc
   arg_name: 'loc'
   type_name: 'array_like'
   is_optional: True
+  raw_type_name: 'array_like, optional'
 - DocstringReturns
   description: 'Log of the survival function evaluated at `k`.'
   kind: returns

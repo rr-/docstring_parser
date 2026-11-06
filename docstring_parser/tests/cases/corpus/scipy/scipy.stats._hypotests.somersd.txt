@@ -205,6 +205,7 @@ style: numpydoc
   arg_name: 'y'
   type_name: 'array_like'
   is_optional: True
+  raw_type_name: 'array_like, optional'
 - DocstringParam
   description: |
     Defines the alternative hypothesis. Default is 'two-sided'.
@@ -219,6 +220,7 @@ style: numpydoc
   type_name: "{'two-sided', 'less', 'greater'}"
   is_optional: True
   default: "'two-sided'"
+  raw_type_name: "{'two-sided', 'less', 'greater'}, optional"
 - DocstringReturns
   description: |
     A `SomersDResult` object with the following fields:

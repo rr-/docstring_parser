@@ -48,6 +48,7 @@ style: google
   type_name: 'str'
   is_optional: True
   default: '``None``'
+  raw_type_name: 'str, optional'
 - DocstringParam
   description: 'Enable emoji code, or ``None`` to use console default.'
   kind: param
@@ -55,6 +56,7 @@ style: google
   arg_name: 'emoji'
   type_name: 'Optional[bool]'
   is_optional: True
+  raw_type_name: 'Optional[bool], optional'
 - DocstringParam
   description: 'Enable markup, or ``None`` to use console default.'
   kind: param
@@ -62,6 +64,7 @@ style: google
   arg_name: 'markup'
   type_name: 'Optional[bool]'
   is_optional: True
+  raw_type_name: 'Optional[bool], optional'
 - DocstringParam
   description: 'Enable automatic highlighting, or ``None`` to use console default.'
   kind: param
@@ -69,6 +72,7 @@ style: google
   arg_name: 'highlight'
   type_name: 'Optional[bool]'
   is_optional: True
+  raw_type_name: 'Optional[bool], optional'
 - DocstringReturns
   description: 'A list of things to render.'
   kind: returns

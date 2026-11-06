@@ -126,6 +126,7 @@ style: numpydoc
   arg_name: 'args'
   type_name: 'tuple'
   is_optional: True
+  raw_type_name: 'tuple, optional'
 - DocstringParam
   description: |
     The present documentation is specific to ``method='powell'``, but other
@@ -135,6 +136,7 @@ style: numpydoc
   arg_name: 'method'
   type_name: 'str or callable'
   is_optional: True
+  raw_type_name: 'str or callable, optional'
 - DocstringParam
   description: |
     Bounds on decision variables. There are two ways to specify the bounds:
@@ -158,6 +160,7 @@ style: numpydoc
   arg_name: 'bounds'
   type_name: 'sequence or `Bounds`'
   is_optional: True
+  raw_type_name: 'sequence or `Bounds`, optional'
 - DocstringParam
   description: |
     A dictionary of solver options. All methods accept the following
@@ -175,6 +178,7 @@ style: numpydoc
   arg_name: 'options'
   type_name: 'dict'
   is_optional: True
+  raw_type_name: 'dict, optional'
 - DocstringParam
   description: |
     Called after each iteration. The signature is::
@@ -187,6 +191,7 @@ style: numpydoc
   arg_name: 'callback'
   type_name: 'callable'
   is_optional: True
+  raw_type_name: 'callable, optional'
 - DocstringReturns
   description: |
     The optimization result represented as a ``OptimizeResult`` object.

@@ -28,6 +28,7 @@ style: google
   arg_name: 'title'
   type_name: 'str'
   is_optional: True
+  raw_type_name: 'str, optional'
 - DocstringParam
   description: 'The ``TerminalTheme`` object to use to style the terminal'
   kind: param
@@ -35,6 +36,7 @@ style: google
   arg_name: 'theme'
   type_name: 'TerminalTheme'
   is_optional: True
+  raw_type_name: 'TerminalTheme, optional'
 - DocstringParam
   description: 'Clear record buffer after exporting. Defaults to ``True``'
   kind: param
@@ -42,6 +44,7 @@ style: google
   arg_name: 'clear'
   type_name: 'bool'
   is_optional: True
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: |
     Format string used to generate the SVG. Rich will inject a number of variables
@@ -52,6 +55,7 @@ style: google
   arg_name: 'code_format'
   type_name: 'str'
   is_optional: True
+  raw_type_name: 'str, optional'
 - DocstringParam
   description: |
     The width to height ratio of the font used in the ``code_format``
@@ -62,6 +66,7 @@ style: google
   arg_name: 'font_aspect_ratio'
   type_name: 'float'
   is_optional: True
+  raw_type_name: 'float, optional'
 - DocstringParam
   description: |
     unique id that is used as the prefix for various elements (CSS styles, node
@@ -71,6 +76,7 @@ style: google
   arg_name: 'unique_id'
   type_name: 'str'
   is_optional: True
+  raw_type_name: 'str, optional'
 === detect
 google
 === compose google

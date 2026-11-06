@@ -32,6 +32,7 @@ style: google
   type_name: 'PaddingDimensions'
   is_optional: True
   default: '0'
+  raw_type_name: 'PaddingDimensions, optional'
 - DocstringParam
   description: 'Enable collapsing of padding around cells. Defaults to True.'
   kind: param
@@ -40,6 +41,7 @@ style: google
   type_name: 'bool'
   is_optional: True
   default: 'True'
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: 'Enable padding around edges of table. Defaults to False.'
   kind: param
@@ -48,6 +50,7 @@ style: google
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: 'Expand the table to fit the available space if ``True``, otherwise the table width will be auto-calculated. Defaults to False.'
   kind: param
@@ -56,6 +59,7 @@ style: google
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, optional'
 - DocstringReturns
   description: 'A table instance.'
   kind: returns

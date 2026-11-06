@@ -60,6 +60,7 @@ style: numpydoc
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, optional'
 - DocstringMeta
   description: |
     Two instances of `nd_grid` are made available in the NumPy namespace,

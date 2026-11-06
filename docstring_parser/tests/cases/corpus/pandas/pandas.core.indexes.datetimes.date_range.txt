@@ -232,6 +232,7 @@ style: numpydoc
   arg_name: 'start'
   type_name: 'str or datetime-like'
   is_optional: True
+  raw_type_name: 'str or datetime-like, optional'
 - DocstringParam
   description: 'Right bound for generating dates.'
   kind: param
@@ -239,6 +240,7 @@ style: numpydoc
   arg_name: 'end'
   type_name: 'str or datetime-like'
   is_optional: True
+  raw_type_name: 'str or datetime-like, optional'
 - DocstringParam
   description: 'Number of periods to generate.'
   kind: param
@@ -246,6 +248,7 @@ style: numpydoc
   arg_name: 'periods'
   type_name: 'int'
   is_optional: True
+  raw_type_name: 'int, optional'
 - DocstringParam
   description: |
     Frequency strings can have multiples, e.g. '5h'. See
@@ -257,6 +260,7 @@ style: numpydoc
   type_name: 'str, Timedelta, datetime.timedelta, or DateOffset'
   is_optional: True
   default: "'D'"
+  raw_type_name: "str, Timedelta, datetime.timedelta, or DateOffset, default 'D'"
 - DocstringParam
   description: |
     Time zone name for returning localized DatetimeIndex, for example
@@ -267,6 +271,7 @@ style: numpydoc
   arg_name: 'tz'
   type_name: 'str or tzinfo'
   is_optional: True
+  raw_type_name: 'str or tzinfo, optional'
 - DocstringParam
   description: 'Normalize start/end dates to midnight before generating date range.'
   kind: param
@@ -275,6 +280,7 @@ style: numpydoc
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, default False'
 - DocstringParam
   description: 'Name of the resulting DatetimeIndex.'
   kind: param
@@ -283,6 +289,7 @@ style: numpydoc
   type_name: 'Hashable'
   is_optional: True
   default: 'None'
+  raw_type_name: 'Hashable, default None'
 - DocstringParam
   description: 'Include boundaries; Whether to set each bound as closed or open.'
   kind: param
@@ -291,6 +298,7 @@ style: numpydoc
   type_name: '{"both", "neither", "left", "right"}'
   is_optional: True
   default: '"both"'
+  raw_type_name: '{"both", "neither", "left", "right"}, default "both"'
 - DocstringParam
   description: |
     Specify the desired resolution of the result.
@@ -305,6 +313,7 @@ style: numpydoc
   type_name: "{'s', 'ms', 'us', 'ns', None}"
   is_optional: True
   default: 'None'
+  raw_type_name: "{'s', 'ms', 'us', 'ns', None}, default None"
 - DocstringParam
   description: |
     When clocks moved backward due to DST, ambiguous times may arise.
@@ -326,6 +335,7 @@ style: numpydoc
   type_name: "'infer', bool-ndarray, 'NaT'"
   is_optional: True
   default: "'raise'"
+  raw_type_name: "'infer', bool-ndarray, 'NaT', default 'raise'"
 - DocstringParam
   description: |
     A nonexistent time does not exist in a particular timezone

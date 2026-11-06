@@ -60,6 +60,7 @@ style: numpydoc
   arg_name: 'mode'
   type_name: 'str'
   is_optional: True
+  raw_type_name: 'str, optional'
 - DocstringParam
   description: 'Use this value to pad the input. Default is zero.'
   kind: param
@@ -68,6 +69,7 @@ style: numpydoc
   type_name: 'python scalar'
   is_optional: True
   default: 'zero'
+  raw_type_name: 'python scalar, optional'
 - DocstringParam
   description: 'The standard-compatible namespace for `x`. Default: infer.'
   kind: param
@@ -76,6 +78,7 @@ style: numpydoc
   type_name: 'array_namespace'
   is_optional: True
   default: 'infer'
+  raw_type_name: 'array_namespace, optional'
 - DocstringReturns
   description: |
     The input array,

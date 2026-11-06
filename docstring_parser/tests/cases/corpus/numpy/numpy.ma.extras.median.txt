@@ -86,6 +86,7 @@ style: numpydoc
   arg_name: 'axis'
   type_name: 'int'
   is_optional: True
+  raw_type_name: 'int, optional'
 - DocstringParam
   description: |
     Alternative output array in which to place the result. It must
@@ -96,6 +97,7 @@ style: numpydoc
   arg_name: 'out'
   type_name: 'ndarray'
   is_optional: True
+  raw_type_name: 'ndarray, optional'
 - DocstringParam
   description: |
     If True, then allow use of memory of input array (a) for
@@ -111,6 +113,7 @@ style: numpydoc
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: |
     If this is set to True, the axes which are reduced are left
@@ -121,6 +124,7 @@ style: numpydoc
   arg_name: 'keepdims'
   type_name: 'bool'
   is_optional: True
+  raw_type_name: 'bool, optional'
 - DocstringReturns
   description: |
     A new array holding the result is returned unless out is

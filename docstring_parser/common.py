@@ -194,10 +194,14 @@ class DocstringParam(DocstringMeta):
         default: T.Optional[str],
         kind: Kind = Kind.PARAM,
         key: T.Optional[str] = "param",
+        raw_type_name: T.Optional[str] = None,
     ) -> None:
         """Initialize self.
 
         :param kind: the kind of param, such as a keyword or an attribute
+        :param raw_type_name: the type as written, before the marks of an
+            optional param and its default are split off, as in
+            ``int, optional``
         """
         super().__init__(description, key)
         if kind not in PARAM_KINDS:
@@ -207,6 +211,7 @@ class DocstringParam(DocstringMeta):
         self.type_name = type_name
         self.is_optional = is_optional
         self.default = default
+        self.raw_type_name = raw_type_name
 
 
 class DocstringReturns(DocstringMeta):

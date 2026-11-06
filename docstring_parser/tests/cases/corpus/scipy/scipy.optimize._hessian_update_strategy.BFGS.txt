@@ -52,6 +52,7 @@ style: numpydoc
   arg_name: 'exception_strategy'
   type_name: "{'skip_update', 'damp_update'}"
   is_optional: True
+  raw_type_name: "{'skip_update', 'damp_update'}, optional"
 - DocstringParam
   description: |
     This number, scaled by a normalization factor, defines the

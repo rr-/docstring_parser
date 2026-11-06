@@ -54,6 +54,7 @@ style: google
   arg_name: 'style'
   type_name: 'StyleType'
   is_optional: True
+  raw_type_name: 'StyleType, optional'
 - DocstringParam
   description: 'Optional vertical align, one of "top", "middle", or "bottom". Defaults to None.'
   kind: param
@@ -62,6 +63,7 @@ style: google
   type_name: 'Optional[VerticalAlignMethod]'
   is_optional: True
   default: 'None'
+  raw_type_name: 'Optional[VerticalAlignMethod], optional'
 - DocstringParam
   description: 'Pad the right with spaces. Defaults to True.'
   kind: param
@@ -70,6 +72,7 @@ style: google
   type_name: 'bool'
   is_optional: True
   default: 'True'
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: 'Restrict contents to given width, or None to use default width. Defaults to None.'
   kind: param
@@ -78,6 +81,7 @@ style: google
   type_name: 'int'
   is_optional: True
   default: 'None'
+  raw_type_name: 'int, optional'
 - DocstringParam
   description: 'Set height of align renderable, or None to fit to contents. Defaults to None.'
   kind: param
@@ -86,6 +90,7 @@ style: google
   type_name: 'int'
   is_optional: True
   default: 'None'
+  raw_type_name: 'int, optional'
 - DocstringRaises
   description: 'if ``align`` is not one of the expected values.'
   kind: raises

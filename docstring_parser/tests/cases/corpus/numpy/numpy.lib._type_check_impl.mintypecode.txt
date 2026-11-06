@@ -73,6 +73,7 @@ style: numpydoc
   arg_name: 'typeset'
   type_name: 'str or list of str'
   is_optional: True
+  raw_type_name: 'str or list of str, optional'
 - DocstringParam
   description: |
     The default character, this is returned if none of the characters in
@@ -82,6 +83,7 @@ style: numpydoc
   arg_name: 'default'
   type_name: 'str'
   is_optional: True
+  raw_type_name: 'str, optional'
 - DocstringReturns
   description: 'The character representing the minimum-size type that was found.'
   kind: returns

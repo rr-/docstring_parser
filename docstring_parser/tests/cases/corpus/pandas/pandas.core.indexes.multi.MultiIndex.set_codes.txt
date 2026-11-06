@@ -95,6 +95,7 @@ style: numpydoc
   type_name: 'bool'
   is_optional: True
   default: 'True'
+  raw_type_name: 'bool, default True'
 - DocstringReturns
   description: 'The same type as the caller or None if ``inplace=True``.'
   kind: returns

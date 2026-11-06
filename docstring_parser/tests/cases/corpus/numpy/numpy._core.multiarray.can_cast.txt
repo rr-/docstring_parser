@@ -94,6 +94,7 @@ style: numpydoc
   arg_name: 'casting'
   type_name: "{'no', 'equiv', 'safe', 'same_kind', 'unsafe'}"
   is_optional: True
+  raw_type_name: "{'no', 'equiv', 'safe', 'same_kind', 'unsafe'}, optional"
 - DocstringReturns
   description: 'True if cast can occur according to the casting rule.'
   kind: returns

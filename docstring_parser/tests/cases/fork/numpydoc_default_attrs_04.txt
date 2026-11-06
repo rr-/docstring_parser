@@ -20,6 +20,7 @@ style: numpydoc
   arg_name: 'attr3'
   type_name: 'float'
   is_optional: True
+  raw_type_name: 'float, optional'
 === compose numpydoc
 Attributes
 ----------

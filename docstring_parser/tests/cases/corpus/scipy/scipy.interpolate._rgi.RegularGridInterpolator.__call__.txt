@@ -79,6 +79,7 @@ style: numpydoc
   type_name: 'str'
   is_optional: True
   default: 'the'
+  raw_type_name: 'str, optional'
 - DocstringParam
   description: |
     If not None, the orders of the derivatives to evaluate.
@@ -91,6 +92,7 @@ style: numpydoc
   arg_name: 'nu'
   type_name: 'sequence of ints, length ndim'
   is_optional: True
+  raw_type_name: 'sequence of ints, length ndim, optional'
 - DocstringReturns
   description: |
     Interpolated values at `xi`. See notes for behaviour when

@@ -26,6 +26,7 @@ style: google
   type_name: 'float'
   is_optional: True
   default: 'None'
+  raw_type_name: 'float, optional'
 === detect
 google
 === compose google

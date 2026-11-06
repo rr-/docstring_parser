@@ -64,6 +64,7 @@ style: numpydoc
   arg_name: 'dtype'
   type_name: 'data-type'
   is_optional: True
+  raw_type_name: 'data-type, optional'
 - DocstringParam
   description: 'shape of each array.'
   kind: param
@@ -71,6 +72,7 @@ style: numpydoc
   arg_name: 'shape'
   type_name: 'int or tuple of ints'
   is_optional: True
+  raw_type_name: 'int or tuple of ints, optional'
 - DocstringParam
   description: 'Position in the file to start reading from.'
   kind: param
@@ -78,6 +80,7 @@ style: numpydoc
   arg_name: 'offset'
   type_name: 'int'
   is_optional: True
+  raw_type_name: 'int, optional'
 - DocstringParam
   description: |
     If `dtype` is ``None``, these arguments are passed to

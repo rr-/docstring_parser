@@ -115,6 +115,7 @@ style: numpydoc
   arg_name: 'tensor'
   type_name: 'boolean'
   is_optional: True
+  raw_type_name: 'boolean, optional'
 - DocstringReturns
   description: 'The shape of the return value is described above.'
   kind: returns

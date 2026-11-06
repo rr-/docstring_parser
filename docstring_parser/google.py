@@ -271,6 +271,7 @@ def _multi_meta(section: Section, before: str, desc: str) -> DocstringMeta:
             is_optional=spec.is_optional,
             default=default,
             kind=kind,
+            raw_type_name=head.type_name,
         )
         param.extra = head.extra or None
         return param

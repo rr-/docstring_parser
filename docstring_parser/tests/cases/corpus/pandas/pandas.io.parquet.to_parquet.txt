@@ -112,6 +112,7 @@ style: numpydoc
   type_name: 'str, path object, file-like object, or None'
   is_optional: True
   default: 'None'
+  raw_type_name: 'str, path object, file-like object, or None, default None'
 - DocstringParam
   description: |
     Parquet library to use. If 'auto', then the option
@@ -135,6 +136,7 @@ style: numpydoc
   type_name: "{'auto', 'pyarrow', 'fastparquet'}"
   is_optional: True
   default: "'auto'"
+  raw_type_name: "{'auto', 'pyarrow', 'fastparquet'}, default 'auto'"
 - DocstringParam
   description: |
     default 'snappy'. Name of the compression to use. Use ``None``
@@ -159,6 +161,7 @@ style: numpydoc
   type_name: 'bool'
   is_optional: True
   default: 'None'
+  raw_type_name: 'bool, default None'
 - DocstringParam
   description: |
     Column names by which to partition the dataset.
@@ -170,6 +173,7 @@ style: numpydoc
   type_name: 'str or list'
   is_optional: True
   default: 'None'
+  raw_type_name: 'str or list, optional, default None'
 - DocstringParam
   description: |
     Extra options that make sense for a particular storage connection, e.g.
@@ -185,6 +189,7 @@ style: numpydoc
   arg_name: 'storage_options'
   type_name: 'dict'
   is_optional: True
+  raw_type_name: 'dict, optional'
 - DocstringParam
   description: |
     Filesystem object to use when reading the parquet file. Only implemented
@@ -197,6 +202,7 @@ style: numpydoc
   type_name: 'fsspec or pyarrow filesystem'
   is_optional: True
   default: 'None'
+  raw_type_name: 'fsspec or pyarrow filesystem, default None'
 - DocstringParam
   description: |
     Additional keyword arguments passed to the engine:

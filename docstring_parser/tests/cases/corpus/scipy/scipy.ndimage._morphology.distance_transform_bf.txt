@@ -183,6 +183,7 @@ style: numpydoc
   type_name: "{'euclidean', 'taxicab', 'chessboard'}"
   is_optional: True
   default: "'euclidean'"
+  raw_type_name: "{'euclidean', 'taxicab', 'chessboard'}, optional"
 - DocstringParam
   description: |
     This parameter is only used when `metric` is 'euclidean'.
@@ -194,6 +195,7 @@ style: numpydoc
   arg_name: 'sampling'
   type_name: 'float, or sequence of float'
   is_optional: True
+  raw_type_name: 'float, or sequence of float, optional'
 - DocstringParam
   description: |
     Whether to calculate the distance transform.
@@ -204,6 +206,7 @@ style: numpydoc
   type_name: 'bool'
   is_optional: True
   default: 'True'
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: |
     Whether to calculate the feature transform.
@@ -214,6 +217,7 @@ style: numpydoc
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: |
     An output array to store the calculated distance transform, instead of
@@ -226,6 +230,7 @@ style: numpydoc
   arg_name: 'distances'
   type_name: 'ndarray'
   is_optional: True
+  raw_type_name: 'ndarray, optional'
 - DocstringParam
   description: |
     An output array to store the calculated feature transform, instead of
@@ -237,6 +242,7 @@ style: numpydoc
   arg_name: 'indices'
   type_name: 'int32 ndarray'
   is_optional: True
+  raw_type_name: 'int32 ndarray, optional'
 - DocstringReturns
   description: |
     The calculated distance transform. Returned only when

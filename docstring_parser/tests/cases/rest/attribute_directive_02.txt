@@ -33,6 +33,7 @@ style: rest
   type_name: 'int'
   is_optional: True
   default: '3'
+  raw_type_name: 'int, optional'
 - DocstringParam
   description: 'A.'
   kind: param

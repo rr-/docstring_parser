@@ -28,6 +28,7 @@ style: numpydoc
   type_name: 'int, str or 1-dimensional list'
   is_optional: True
   default: 'None'
+  raw_type_name: 'int, str or 1-dimensional list, default None'
 - DocstringParam
   description: 'Default name of index.'
   kind: param

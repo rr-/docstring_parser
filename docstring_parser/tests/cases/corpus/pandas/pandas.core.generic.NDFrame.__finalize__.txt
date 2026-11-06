@@ -59,6 +59,7 @@ style: numpydoc
   arg_name: 'method'
   type_name: 'str'
   is_optional: True
+  raw_type_name: 'str, optional'
 - DocstringMeta
   description: |
     In case ``other`` has an ``input_objs`` attribute, this method only

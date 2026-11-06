@@ -30,6 +30,7 @@ style: google
   type_name: 'int'
   is_optional: True
   default: '0'
+  raw_type_name: 'int, optional'
 - DocstringParam
   description: 'y offset (column no). Defaults to 0.'
   kind: param
@@ -38,6 +39,7 @@ style: google
   type_name: 'int'
   is_optional: True
   default: '0'
+  raw_type_name: 'int, optional'
 - DocstringRaises
   description: "If the Console isn't in alt screen mode."
   kind: raises

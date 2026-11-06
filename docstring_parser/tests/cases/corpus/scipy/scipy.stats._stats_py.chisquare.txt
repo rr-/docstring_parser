@@ -170,6 +170,7 @@ style: numpydoc
   arg_name: 'f_exp'
   type_name: 'array_like'
   is_optional: True
+  raw_type_name: 'array_like, optional'
 - DocstringParam
   description: |
     "Delta degrees of freedom": adjustment to the degrees of freedom
@@ -181,6 +182,7 @@ style: numpydoc
   arg_name: 'ddof'
   type_name: 'int'
   is_optional: True
+  raw_type_name: 'int, optional'
 - DocstringParam
   description: |
     The axis of the broadcast result of `f_obs` and `f_exp` along which to
@@ -192,6 +194,7 @@ style: numpydoc
   type_name: 'int or None'
   is_optional: True
   default: '0'
+  raw_type_name: 'int or None, optional'
 - DocstringParam
   description: |
     Whether to perform a check that ``sum(f_obs) - sum(f_exp) == 0``. If True,
@@ -203,6 +206,7 @@ style: numpydoc
   arg_name: 'sum_check'
   type_name: 'bool'
   is_optional: True
+  raw_type_name: 'bool, optional'
 - DocstringReturns
   description: |
     An object containing attributes:

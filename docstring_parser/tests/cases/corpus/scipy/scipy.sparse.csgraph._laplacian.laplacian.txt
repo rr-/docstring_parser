@@ -332,6 +332,7 @@ style: numpydoc
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: |
     If True, then also return an array related to vertex degrees.
@@ -342,6 +343,7 @@ style: numpydoc
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: |
     If True, then use out-degree instead of in-degree.
@@ -353,6 +355,7 @@ style: numpydoc
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: |
     If False, then change `csgraph` in place if possible,
@@ -364,6 +367,7 @@ style: numpydoc
   type_name: 'bool'
   is_optional: True
   default: 'True'
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: |
     Determines the format of the output Laplacian:
@@ -396,6 +400,7 @@ style: numpydoc
   type_name: 'None or one of numeric numpy dtypes'
   is_optional: True
   default: 'None'
+  raw_type_name: 'None or one of numeric numpy dtypes, optional'
 - DocstringParam
   description: |
     If True, then the output Laplacian is symmetric/Hermitian.
@@ -412,6 +417,7 @@ style: numpydoc
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, optional'
 - DocstringReturns
   description: |
     The N x N Laplacian of csgraph. It will be a NumPy array (dense)

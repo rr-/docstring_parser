@@ -113,12 +113,19 @@ def dump(docstring: Docstring) -> str:
     Attributes that are None are left out. Strings are shown with repr, so
     an empty string and surrounding whitespace stay visible; multi-line
     strings become an indented block. Each meta lists its class and then
-    its attributes.
+    its attributes. A param's raw type is shown only where it differs from
+    its type.
     """
     lines = _fields(docstring, skip={"meta"})
     for meta in docstring.meta:
+        skip = (
+            {"raw_type_name"}
+            if getattr(meta, "raw_type_name", None)
+            == getattr(meta, "type_name", None)
+            else ()
+        )
         lines.append(f"- {type(meta).__name__}")
-        lines.extend("  " + line for line in _fields(meta))
+        lines.extend("  " + line for line in _fields(meta, skip))
     return "\n".join(lines)
 
 

@@ -92,6 +92,7 @@ style: numpydoc
   arg_name: 'atol'
   type_name: 'float'
   is_optional: True
+  raw_type_name: 'float, optional'
 - DocstringParam
   description: |
     Relative threshold term, default value is ``N * eps`` where
@@ -103,6 +104,7 @@ style: numpydoc
   arg_name: 'rtol'
   type_name: 'float'
   is_optional: True
+  raw_type_name: 'float, optional'
 - DocstringParam
   description: |
     Whether the pertinent array data is taken from the lower or upper
@@ -112,6 +114,7 @@ style: numpydoc
   arg_name: 'lower'
   type_name: 'bool'
   is_optional: True
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: 'If True, return the effective rank of the matrix.'
   kind: param
@@ -119,6 +122,7 @@ style: numpydoc
   arg_name: 'return_rank'
   type_name: 'bool'
   is_optional: True
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: |
     Whether to check that the input matrix contains only finite numbers.
@@ -129,6 +133,7 @@ style: numpydoc
   arg_name: 'check_finite'
   type_name: 'bool'
   is_optional: True
+  raw_type_name: 'bool, optional'
 - DocstringReturns
   description: 'The pseudo-inverse of matrix `a`.'
   kind: returns

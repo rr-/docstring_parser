@@ -61,6 +61,7 @@ style: numpydoc
   type_name: 'str'
   is_optional: True
   default: 'English'
+  raw_type_name: 'str, optional'
 - DocstringReturns
   description: 'Index of day names.'
   kind: returns

@@ -73,6 +73,7 @@ style: numpydoc
   arg_name: 'use_ties'
   type_name: '{True, False}'
   is_optional: True
+  raw_type_name: '{True, False}, optional'
 - DocstringParam
   description: |
     Whether missing data should be allocated a rank of 0 (False) or the
@@ -82,6 +83,7 @@ style: numpydoc
   arg_name: 'use_missing'
   type_name: '{False, True}'
   is_optional: True
+  raw_type_name: '{False, True}, optional'
 - DocstringParam
   description: |
     Defines which method is used to calculate the p-value [1]_.
@@ -96,6 +98,7 @@ style: numpydoc
   arg_name: 'method'
   type_name: "{'auto', 'asymptotic', 'exact'}"
   is_optional: True
+  raw_type_name: "{'auto', 'asymptotic', 'exact'}, optional"
 - DocstringParam
   description: |
     Defines the alternative hypothesis. Default is 'two-sided'.
@@ -110,6 +113,7 @@ style: numpydoc
   type_name: "{'two-sided', 'less', 'greater'}"
   is_optional: True
   default: "'two-sided'"
+  raw_type_name: "{'two-sided', 'less', 'greater'}, optional"
 - DocstringReturns
   description: |
     An object containing attributes:

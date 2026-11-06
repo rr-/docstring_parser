@@ -53,6 +53,7 @@ style: numpydoc
   arg_name: 'domain'
   type_name: '(2,) array_like'
   is_optional: True
+  raw_type_name: '(2,) array_like, optional'
 - DocstringParam
   description: 'Window, see `domain` for its use. The default value is [0., 1.].'
   kind: param
@@ -60,6 +61,7 @@ style: numpydoc
   arg_name: 'window'
   type_name: '(2,) array_like'
   is_optional: True
+  raw_type_name: '(2,) array_like, optional'
 - DocstringParam
   description: |
     Symbol used to represent the independent variable in string
@@ -72,6 +74,7 @@ style: numpydoc
   arg_name: 'symbol'
   type_name: 'str'
   is_optional: True
+  raw_type_name: 'str, optional'
 === detect
 numpydoc
 === compose numpydoc

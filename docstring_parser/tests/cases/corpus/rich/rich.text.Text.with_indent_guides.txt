@@ -31,6 +31,7 @@ style: google
   type_name: 'str'
   is_optional: True
   default: '"│"'
+  raw_type_name: 'str, optional'
 - DocstringParam
   description: 'Style of indent guides.'
   kind: param
@@ -38,6 +39,7 @@ style: google
   arg_name: 'style'
   type_name: 'Union[Style, str]'
   is_optional: True
+  raw_type_name: 'Union[Style, str], optional'
 - DocstringReturns
   description: 'New text with indentation guides.'
   kind: returns
