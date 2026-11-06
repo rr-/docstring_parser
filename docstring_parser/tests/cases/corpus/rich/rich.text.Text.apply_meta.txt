@@ -36,6 +36,7 @@ style: google
   type_name: 'Optional[int]'
   is_optional: True
   default: 'None'
+  raw_type_name: 'Optional[int], optional'
 === detect
 google
 === compose google

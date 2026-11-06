@@ -36,6 +36,7 @@ style: google
   arg_name: 'sender'
   type_name: 'str'
   is_optional: True
+  raw_type_name: 'str, optional'
 - DocstringParam
   description: "description 4, defaults to 'hello'"
   kind: param
@@ -43,6 +44,7 @@ style: google
   arg_name: 'message'
   type_name: 'str'
   is_optional: True
+  raw_type_name: 'str, optional'
 - DocstringParam
   description: |
     long description 5,
@@ -52,6 +54,7 @@ style: google
   arg_name: 'multiline'
   type_name: 'str'
   is_optional: True
+  raw_type_name: 'str?'
 === compose google
 Short description
 

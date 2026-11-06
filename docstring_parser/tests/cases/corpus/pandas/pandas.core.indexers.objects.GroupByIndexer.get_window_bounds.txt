@@ -34,6 +34,7 @@ style: numpydoc
   type_name: 'int'
   is_optional: True
   default: '0'
+  raw_type_name: 'int, default 0'
 - DocstringParam
   description: 'min_periods passed from the top level rolling API'
   kind: param
@@ -42,6 +43,7 @@ style: numpydoc
   type_name: 'int'
   is_optional: True
   default: 'None'
+  raw_type_name: 'int, default None'
 - DocstringParam
   description: 'center passed from the top level rolling API'
   kind: param
@@ -50,6 +52,7 @@ style: numpydoc
   type_name: 'bool'
   is_optional: True
   default: 'None'
+  raw_type_name: 'bool, default None'
 - DocstringParam
   description: 'closed passed from the top level rolling API'
   kind: param
@@ -58,6 +61,7 @@ style: numpydoc
   type_name: 'str'
   is_optional: True
   default: 'None'
+  raw_type_name: 'str, default None'
 - DocstringParam
   description: 'step passed from the top level rolling API'
   kind: param
@@ -66,6 +70,7 @@ style: numpydoc
   type_name: 'int'
   is_optional: True
   default: 'None'
+  raw_type_name: 'int, default None'
 - DocstringReturns
   kind: returns
   key: 'returns'

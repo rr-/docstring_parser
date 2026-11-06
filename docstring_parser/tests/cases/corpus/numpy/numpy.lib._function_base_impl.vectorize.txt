@@ -190,6 +190,7 @@ style: numpydoc
   arg_name: 'pyfunc'
   type_name: 'callable'
   is_optional: True
+  raw_type_name: 'callable, optional'
 - DocstringParam
   description: |
     The output data type. It must be specified as either a string of
@@ -200,6 +201,7 @@ style: numpydoc
   arg_name: 'otypes'
   type_name: 'str or list of dtypes'
   is_optional: True
+  raw_type_name: 'str or list of dtypes, optional'
 - DocstringParam
   description: |
     The docstring for the function. If None, the docstring will be the
@@ -209,6 +211,7 @@ style: numpydoc
   arg_name: 'doc'
   type_name: 'str'
   is_optional: True
+  raw_type_name: 'str, optional'
 - DocstringParam
   description: |
     Set of strings or integers representing the positional or keyword
@@ -219,6 +222,7 @@ style: numpydoc
   arg_name: 'excluded'
   type_name: 'set'
   is_optional: True
+  raw_type_name: 'set, optional'
 - DocstringParam
   description: |
     If neither `otypes` nor `signature` are provided, and `cache` is ``True``, then
@@ -228,6 +232,7 @@ style: numpydoc
   arg_name: 'cache'
   type_name: 'bool'
   is_optional: True
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: |
     Generalized universal function signature, e.g., ``(m,n),(n)->(m)`` for
@@ -240,6 +245,7 @@ style: numpydoc
   arg_name: 'signature'
   type_name: 'string'
   is_optional: True
+  raw_type_name: 'string, optional'
 - DocstringReturns
   description: |
     A vectorized function if ``pyfunc`` was provided,

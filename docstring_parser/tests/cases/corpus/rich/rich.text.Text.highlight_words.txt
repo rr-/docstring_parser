@@ -37,6 +37,7 @@ style: google
   type_name: 'bool'
   is_optional: True
   default: 'True'
+  raw_type_name: 'bool, optional'
 - DocstringReturns
   description: 'Number of words highlighted.'
   kind: returns

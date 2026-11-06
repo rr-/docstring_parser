@@ -18,3 +18,4 @@ style: numpydoc
   type_name: 'Optional[Dict[str, Any]]'
   is_optional: True
   default: 'None'
+  raw_type_name: 'Optional[Dict[str, Any]], optional'

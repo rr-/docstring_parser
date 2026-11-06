@@ -38,6 +38,7 @@ style: numpydoc
   arg_name: 'sender'
   type_name: 'str'
   is_optional: True
+  raw_type_name: 'str, optional'
 - DocstringParam
   description: 'description 4'
   kind: param
@@ -45,3 +46,4 @@ style: numpydoc
   arg_name: 'ratio'
   type_name: 'Optional[float]'
   is_optional: True
+  raw_type_name: 'Optional[float], optional'

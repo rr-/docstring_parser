@@ -55,6 +55,7 @@ style: numpydoc
   type_name: 'int or shape tuple'
   is_optional: True
   default: 'None'
+  raw_type_name: 'int or shape tuple, optional'
 - DocstringReturns
   description: 'The shifted array.'
   kind: returns

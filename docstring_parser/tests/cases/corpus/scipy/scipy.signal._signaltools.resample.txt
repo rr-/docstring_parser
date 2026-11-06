@@ -280,6 +280,7 @@ style: numpydoc
   arg_name: 't'
   type_name: 'array_like'
   is_optional: True
+  raw_type_name: 'array_like, optional'
 - DocstringParam
   description: |
     The time/frequency axis of `x` along which the resampling take place.
@@ -290,6 +291,7 @@ style: numpydoc
   type_name: 'int'
   is_optional: True
   default: '0'
+  raw_type_name: 'int, optional'
 - DocstringParam
   description: |
     If not ``None``, it specifies a filter in the Fourier domain, which is applied
@@ -306,6 +308,7 @@ style: numpydoc
   arg_name: 'window'
   type_name: 'array_like, callable, str, float, or tuple'
   is_optional: True
+  raw_type_name: 'array_like, callable, str, float, or tuple, optional'
 - DocstringParam
   description: |
     If set to ``'time'`` (default) then an FFT is applied to `x`, otherwise
@@ -317,6 +320,7 @@ style: numpydoc
   arg_name: 'domain'
   type_name: "'time' | 'freq'"
   is_optional: True
+  raw_type_name: "'time' | 'freq', optional"
 - DocstringReturns
   description: |
     The resampled signal made up of `num` samples and sampling interval

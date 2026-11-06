@@ -88,6 +88,7 @@ style: numpydoc
   arg_name: 'x'
   type_name: 'array_like'
   is_optional: True
+  raw_type_name: 'array_like, optional'
 - DocstringReturns
   description: |
     The state vector ``zi = {z_0[-1], z_1[-1], ..., z_K-1[-1]}``,

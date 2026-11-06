@@ -18,3 +18,4 @@ style: numpydoc
   type_name: 'int'
   is_optional: True
   default: '1'
+  raw_type_name: 'int, default 1'

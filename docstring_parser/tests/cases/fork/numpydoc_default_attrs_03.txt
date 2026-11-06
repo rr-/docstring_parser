@@ -21,6 +21,7 @@ style: numpydoc
   type_name: 'str'
   is_optional: True
   default: "'hello'"
+  raw_type_name: "str, default: 'hello'"
 === compose numpydoc
 Attributes
 ----------

@@ -72,7 +72,8 @@ def _build_meta(args: T.List[str], desc: str, kind: Kind) -> DocstringMeta:
             )
         # The field's head is its key, maybe a type, and the param's name.
         arg_name = args[-1]
-        spec = type_spec(args[1] if len(args) == 3 else None)
+        raw_type_name = args[1] if len(args) == 3 else None
+        spec = type_spec(raw_type_name)
 
         default = spec.default
         match = None if default else _DEFAULTS_TO.match(desc)
@@ -87,6 +88,7 @@ def _build_meta(args: T.List[str], desc: str, kind: Kind) -> DocstringMeta:
             is_optional=spec.is_optional,
             default=default,
             kind=kind,
+            raw_type_name=raw_type_name,
         )
 
     if kind in (Kind.RETURNS, Kind.YIELDS) or kind in RAISES_KINDS:
@@ -163,7 +165,8 @@ def _attribute(name: str, body: T.List[str]) -> DocstringParam:
         else:
             other.append(body[start])
         start += 1
-    spec = type_spec(options.get("type") or None)
+    raw_type_name = options.get("type") or None
+    spec = type_spec(raw_type_name)
     return DocstringParam(
         "\n".join(other + body[start:]).strip(),
         arg_name=name,
@@ -172,6 +175,7 @@ def _attribute(name: str, body: T.List[str]) -> DocstringParam:
         default=options.get("value") or spec.default,
         kind=Kind.ATTRIBUTE,
         key="attribute",
+        raw_type_name=raw_type_name,
     )
 
 

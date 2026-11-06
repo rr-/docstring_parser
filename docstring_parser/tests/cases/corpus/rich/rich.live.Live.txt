@@ -27,6 +27,7 @@ style: google
   type_name: 'RenderableType'
   is_optional: True
   default: 'displaying nothing'
+  raw_type_name: 'RenderableType, optional'
 - DocstringParam
   description: 'Optional Console instance. Defaults to an internal Console instance writing to stdout.'
   kind: param
@@ -35,6 +36,7 @@ style: google
   type_name: 'Console'
   is_optional: True
   default: 'an internal Console instance writing to stdout'
+  raw_type_name: 'Console, optional'
 - DocstringParam
   description: 'Enable alternate screen mode. Defaults to False.'
   kind: param
@@ -43,6 +45,7 @@ style: google
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: 'Enable auto refresh. If disabled, you will need to call `refresh()` or `update()` with refresh flag. Defaults to True'
   kind: param
@@ -50,6 +53,7 @@ style: google
   arg_name: 'auto_refresh'
   type_name: 'bool'
   is_optional: True
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: 'Number of times per second to refresh the live display. Defaults to 4.'
   kind: param
@@ -58,6 +62,7 @@ style: google
   type_name: 'float'
   is_optional: True
   default: '4'
+  raw_type_name: 'float, optional'
 - DocstringParam
   description: 'Clear the renderable on exit (has no effect when screen=True). Defaults to False.'
   kind: param
@@ -66,6 +71,7 @@ style: google
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: 'Enable redirection of stdout, so ``print`` may be used. Defaults to True.'
   kind: param
@@ -74,6 +80,7 @@ style: google
   type_name: 'bool'
   is_optional: True
   default: 'True'
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: 'Enable redirection of stderr. Defaults to True.'
   kind: param
@@ -82,6 +89,7 @@ style: google
   type_name: 'bool'
   is_optional: True
   default: 'True'
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: 'How to handle renderable when it is too tall for the console. Defaults to "ellipsis".'
   kind: param
@@ -90,6 +98,7 @@ style: google
   type_name: 'VerticalOverflowMethod'
   is_optional: True
   default: '"ellipsis"'
+  raw_type_name: 'VerticalOverflowMethod, optional'
 - DocstringParam
   description: 'Optional callable to get renderable. Defaults to None.'
   kind: param
@@ -98,6 +107,7 @@ style: google
   type_name: 'Callable[[], RenderableType]'
   is_optional: True
   default: 'None'
+  raw_type_name: 'Callable[[], RenderableType], optional'
 === detect
 google
 === compose google

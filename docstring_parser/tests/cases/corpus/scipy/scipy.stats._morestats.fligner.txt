@@ -115,6 +115,7 @@ style: numpydoc
   type_name: "{'mean', 'median', 'trimmed'}"
   is_optional: True
   default: "'median'"
+  raw_type_name: "{'mean', 'median', 'trimmed'}, optional"
 - DocstringParam
   description: |
     When `center` is 'trimmed', this gives the proportion of data points
@@ -126,6 +127,7 @@ style: numpydoc
   type_name: 'float'
   is_optional: True
   default: '0.05'
+  raw_type_name: 'float, optional'
 - DocstringParam
   description: |
     If an int or tuple of ints, the axis or axes of the input along which
@@ -138,6 +140,7 @@ style: numpydoc
   type_name: 'int or tuple of ints'
   is_optional: True
   default: '0'
+  raw_type_name: 'int or tuple of ints, default: 0'
 - DocstringReturns
   description: 'The test statistic.'
   kind: returns

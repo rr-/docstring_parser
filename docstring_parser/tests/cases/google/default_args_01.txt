@@ -42,6 +42,7 @@ style: google
   type_name: 'float'
   is_optional: True
   default: '1.0'
+  raw_type_name: 'float, optional'
 - DocstringParam
   description: 'The last arg. Defaults to None.'
   kind: param
@@ -50,6 +51,7 @@ style: google
   type_name: 'Optional[Dict[str, Any]]'
   is_optional: True
   default: 'None'
+  raw_type_name: 'Optional[Dict[str, Any]], optional'
 - DocstringParam
   description: 'The fifth arg. Defaults to DEFAULT_ARG5.'
   kind: param
@@ -58,6 +60,7 @@ style: google
   type_name: 'str'
   is_optional: True
   default: 'DEFAULT_ARG5'
+  raw_type_name: 'str, optional'
 - DocstringReturns
   description: 'The args packed in a mapping'
   kind: returns

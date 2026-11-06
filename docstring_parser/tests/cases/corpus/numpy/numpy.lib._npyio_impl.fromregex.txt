@@ -103,6 +103,7 @@ style: numpydoc
   arg_name: 'encoding'
   type_name: 'str'
   is_optional: True
+  raw_type_name: 'str, optional'
 - DocstringReturns
   description: |
     The output array, containing the part of the content of `file` that

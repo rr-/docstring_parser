@@ -26,6 +26,7 @@ style: google
   arg_name: 'theme'
   type_name: 'TerminalTheme'
   is_optional: True
+  raw_type_name: 'TerminalTheme, optional'
 - DocstringParam
   description: 'Clear record buffer after exporting. Defaults to ``True``.'
   kind: param
@@ -34,6 +35,7 @@ style: google
   type_name: 'bool'
   is_optional: True
   default: '``True``'
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: |
     Format string to render HTML. In addition to '{foreground}',
@@ -43,6 +45,7 @@ style: google
   arg_name: 'code_format'
   type_name: 'str'
   is_optional: True
+  raw_type_name: 'str, optional'
 - DocstringParam
   description: |
     If ``True`` styles will be inlined in to spans, which makes files
@@ -53,6 +56,7 @@ style: google
   arg_name: 'inline_styles'
   type_name: 'bool'
   is_optional: True
+  raw_type_name: 'bool, optional'
 - DocstringReturns
   description: 'String containing console contents as HTML.'
   kind: returns

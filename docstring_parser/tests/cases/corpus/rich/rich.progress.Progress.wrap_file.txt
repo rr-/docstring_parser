@@ -33,6 +33,7 @@ style: google
   arg_name: 'total'
   type_name: 'int'
   is_optional: True
+  raw_type_name: 'int, optional'
 - DocstringParam
   description: 'Task to track. Default is new task.'
   kind: param
@@ -47,6 +48,7 @@ style: google
   arg_name: 'description'
   type_name: 'str'
   is_optional: True
+  raw_type_name: 'str, optional'
 - DocstringReturns
   description: 'A readable file-like object in binary mode.'
   kind: returns

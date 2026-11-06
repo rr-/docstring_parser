@@ -92,6 +92,7 @@ style: numpydoc
   arg_name: 'args'
   type_name: 'tuple'
   is_optional: True
+  raw_type_name: 'tuple, optional'
 - DocstringReturns
   description: |
     Result of error estimation. If `f` returns arrays of shape

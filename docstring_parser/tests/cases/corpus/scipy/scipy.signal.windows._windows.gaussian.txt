@@ -84,6 +84,7 @@ style: numpydoc
   arg_name: 'sym'
   type_name: 'bool'
   is_optional: True
+  raw_type_name: 'bool, optional'
 - DocstringParam
   kind: param
   key: 'param'

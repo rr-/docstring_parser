@@ -95,6 +95,7 @@ style: numpydoc
   arg_name: 'weights'
   type_name: 'array_like shape (..., N)'
   is_optional: True
+  raw_type_name: 'array_like shape (..., N), optional'
 - DocstringParam
   description: |
     Axis or axes along which the means are computed. The default is to
@@ -105,6 +106,7 @@ style: numpydoc
   type_name: 'None, int, or tuple of ints'
   is_optional: True
   default: 'to'
+  raw_type_name: 'None, int, or tuple of ints, optional'
 - DocstringReturns
   description: |
     Single transform containing the mean of the transforms in the

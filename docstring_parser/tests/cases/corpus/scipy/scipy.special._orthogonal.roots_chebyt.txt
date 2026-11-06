@@ -65,6 +65,7 @@ style: numpydoc
   arg_name: 'mu'
   type_name: 'bool'
   is_optional: True
+  raw_type_name: 'bool, optional'
 - DocstringReturns
   description: 'Sample points'
   kind: returns

@@ -83,6 +83,7 @@ style: numpydoc
   type_name: 'bool'
   is_optional: True
   default: 'True'
+  raw_type_name: 'bool, default True'
 - DocstringParam
   description: |
     Column names to designate as the primary key.
@@ -94,6 +95,7 @@ style: numpydoc
   type_name: 'bool or None'
   is_optional: True
   default: 'True'
+  raw_type_name: 'bool or None, default True'
 - DocstringParam
   description: |
     Whether to include a field `pandas_version` with the version
@@ -105,6 +107,7 @@ style: numpydoc
   type_name: 'bool'
   is_optional: True
   default: 'True'
+  raw_type_name: 'bool, default True'
 - DocstringReturns
   description: 'A dictionary representing the Table schema.'
   kind: returns

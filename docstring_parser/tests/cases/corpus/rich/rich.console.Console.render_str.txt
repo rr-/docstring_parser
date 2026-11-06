@@ -36,6 +36,7 @@ style: google
   arg_name: 'style'
   type_name: 'Union[str, Style]'
   is_optional: True
+  raw_type_name: 'Union[str, Style], optional'
 - DocstringParam
   description: 'Justify method: "default", "left", "center", "full", or "right". Defaults to ``None``.'
   kind: param
@@ -44,6 +45,7 @@ style: google
   type_name: 'str'
   is_optional: True
   default: '``None``'
+  raw_type_name: 'str, optional'
 - DocstringParam
   description: 'Overflow method: "crop", "fold", or "ellipsis". Defaults to ``None``.'
   kind: param
@@ -52,6 +54,7 @@ style: google
   type_name: 'str'
   is_optional: True
   default: '``None``'
+  raw_type_name: 'str, optional'
 - DocstringParam
   description: 'Enable emoji, or ``None`` to use Console default.'
   kind: param
@@ -59,6 +62,7 @@ style: google
   arg_name: 'emoji'
   type_name: 'Optional[bool]'
   is_optional: True
+  raw_type_name: 'Optional[bool], optional'
 - DocstringParam
   description: 'Enable markup, or ``None`` to use Console default.'
   kind: param
@@ -66,6 +70,7 @@ style: google
   arg_name: 'markup'
   type_name: 'Optional[bool]'
   is_optional: True
+  raw_type_name: 'Optional[bool], optional'
 - DocstringParam
   description: 'Enable highlighting, or ``None`` to use Console default.'
   kind: param
@@ -73,6 +78,7 @@ style: google
   arg_name: 'highlight'
   type_name: 'Optional[bool]'
   is_optional: True
+  raw_type_name: 'Optional[bool], optional'
 - DocstringParam
   description: 'Optional highlighter to apply.'
   kind: param
@@ -80,6 +86,7 @@ style: google
   arg_name: 'highlighter'
   type_name: 'HighlighterType'
   is_optional: True
+  raw_type_name: 'HighlighterType, optional'
 - DocstringReturns
   description: 'Renderable object.'
   kind: returns

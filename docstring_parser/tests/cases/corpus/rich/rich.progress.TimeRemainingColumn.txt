@@ -19,6 +19,7 @@ style: google
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: 'Render time elapsed when the task is finished. Defaults to False.'
   kind: param
@@ -27,6 +28,7 @@ style: google
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, optional'
 === detect
 google
 === compose google

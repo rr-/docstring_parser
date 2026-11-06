@@ -44,6 +44,7 @@ style: numpydoc
   type_name: 'str, path object, file-like object, or None'
   is_optional: True
   default: 'None'
+  raw_type_name: 'str, path object, file-like object, or None, default None'
 - DocstringParam
   description: 'Set character encoding.'
   kind: param
@@ -52,6 +53,7 @@ style: numpydoc
   type_name: 'str'
   is_optional: True
   default: '“utf-8”'
+  raw_type_name: 'str, default “utf-8”'
 - DocstringParam
   description: |
     classes to include in the `class` attribute of the opening
@@ -69,6 +71,7 @@ style: numpydoc
   type_name: '{True, False}'
   is_optional: True
   default: 'False'
+  raw_type_name: '{True, False}, optional, default False'
 - DocstringParam
   description: |
     When an integer value is provided, it sets the border attribute in
@@ -89,6 +92,7 @@ style: numpydoc
   arg_name: 'table_id'
   type_name: 'str'
   is_optional: True
+  raw_type_name: 'str, optional'
 - DocstringParam
   description: 'Convert URLs to HTML links.'
   kind: param
@@ -97,6 +101,7 @@ style: numpydoc
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, default False'
 === detect
 numpydoc
 === compose numpydoc

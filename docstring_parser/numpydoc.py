@@ -158,7 +158,8 @@ class ParamSection(_KVSection):
         match = PARAM_KEY_REGEX.match(key)
         assert match is not None
         arg_name: str = match.group("name")
-        spec = type_spec(match.group("type"))
+        raw_type_name = match.group("type")
+        spec = type_spec(raw_type_name)
         default = spec.default
 
         # If the default wasn't specifified in the type declaration,
@@ -175,6 +176,7 @@ class ParamSection(_KVSection):
             type_name=spec.type_name,
             is_optional=spec.is_optional,
             default=default,
+            raw_type_name=raw_type_name,
             kind=self._spec.kind
             if self._spec
             else _PARAM_KINDS.get(self.key, Kind.PARAM),

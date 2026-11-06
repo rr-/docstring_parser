@@ -63,6 +63,7 @@ style: numpydoc
   type_name: 'bool'
   is_optional: True
   default: 'True'
+  raw_type_name: 'bool, default True'
 - DocstringReturns
   description: 'Converted to the specified unit.'
   kind: returns

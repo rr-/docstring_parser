@@ -33,6 +33,7 @@ style: google
   arg_name: 'sender'
   type_name: 'str'
   is_optional: True
+  raw_type_name: 'str?'
 - DocstringParam
   description: 'description 4'
   kind: attribute
@@ -40,3 +41,4 @@ style: google
   arg_name: 'ratio'
   type_name: 'Optional[float]'
   is_optional: True
+  raw_type_name: 'Optional[float], optional'

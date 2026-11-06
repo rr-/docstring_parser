@@ -82,6 +82,7 @@ style: numpydoc
   type_name: '(N,) array_like'
   is_optional: True
   default: 'None'
+  raw_type_name: '(N,) array_like, optional'
 - DocstringReturns
   description: 'The Sokal-Sneath dissimilarity between vectors `u` and `v`.'
   kind: returns

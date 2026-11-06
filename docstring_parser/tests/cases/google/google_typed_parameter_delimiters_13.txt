@@ -16,3 +16,4 @@ style: google
   arg_name: 'value'
   type_name: 'tuple[int, str]'
   is_optional: True
+  raw_type_name: 'tuple[int, str], optional'

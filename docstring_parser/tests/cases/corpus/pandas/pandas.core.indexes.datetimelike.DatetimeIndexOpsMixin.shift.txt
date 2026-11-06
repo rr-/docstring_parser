@@ -44,6 +44,7 @@ style: numpydoc
   type_name: 'int'
   is_optional: True
   default: '1'
+  raw_type_name: 'int, default 1'
 - DocstringParam
   description: |
     Frequency increment to shift by.
@@ -54,6 +55,7 @@ style: numpydoc
   arg_name: 'freq'
   type_name: 'pandas.DateOffset, pandas.Timedelta or string'
   is_optional: True
+  raw_type_name: 'pandas.DateOffset, pandas.Timedelta or string, optional'
 - DocstringReturns
   description: 'Shifted index.'
   kind: returns

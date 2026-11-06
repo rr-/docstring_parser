@@ -127,6 +127,7 @@ style: numpydoc
   arg_name: 'criterion'
   type_name: 'str'
   is_optional: True
+  raw_type_name: 'str, optional'
 - DocstringParam
   description: |
     The distance metric for calculating pairwise distances. See
@@ -137,6 +138,7 @@ style: numpydoc
   arg_name: 'metric'
   type_name: 'str or function'
   is_optional: True
+  raw_type_name: 'str or function, optional'
 - DocstringParam
   description: |
     The maximum depth for the inconsistency calculation. See
@@ -146,6 +148,7 @@ style: numpydoc
   arg_name: 'depth'
   type_name: 'int'
   is_optional: True
+  raw_type_name: 'int, optional'
 - DocstringParam
   description: |
     The linkage method to use (single, complete, average,
@@ -157,6 +160,7 @@ style: numpydoc
   type_name: 'str'
   is_optional: True
   default: '"single"'
+  raw_type_name: 'str, optional'
 - DocstringParam
   description: |
     The inconsistency matrix. It will be computed if necessary
@@ -166,6 +170,7 @@ style: numpydoc
   arg_name: 'R'
   type_name: 'ndarray'
   is_optional: True
+  raw_type_name: 'ndarray, optional'
 - DocstringReturns
   description: |
     A vector of length n. T[i] is the flat cluster number to

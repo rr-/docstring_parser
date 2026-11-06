@@ -68,6 +68,7 @@ style: numpydoc
   type_name: 'float'
   is_optional: True
   default: '0.0'
+  raw_type_name: 'float, optional'
 - DocstringReturns
   description: 'Cubic spline coefficients.'
   kind: returns

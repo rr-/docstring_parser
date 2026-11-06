@@ -23,6 +23,7 @@
 - General: Add `try_parse()`, which never raises and returns a `ParseResult` of the docstring and its `problems`, each a `Problem` with its line; text it cannot read goes to the long description
 - General: Give `ParseError` the `problems` of the whole docstring and the `result` parsed despite them, and mention how many more there are in its message
 - General: Show a docstring and its metas with the fields they have set in `repr()`, as in `DocstringParam(kind=Kind.PARAM, arg_name='x', ...)`
+- General: Add `raw_type_name` to params, the type as written, such as `int, optional`, before its optional mark and default are split off
 - ReST: Stop the last field from absorbing text after the field list; that text now goes to the long description (thanks to @apoorvdarshan)
 - ReST: Raise `ParseError` instead of `IndexError` for a field with no name
 - ReST: Indent composed continuation lines in compact mode, so one starting with a role such as `:class:` is no longer read back as a new field

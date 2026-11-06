@@ -150,6 +150,7 @@ style: numpydoc
   type_name: 'int'
   is_optional: True
   default: '0'
+  raw_type_name: 'int, default: 0'
 - DocstringParam
   description: |
     If True, normalize the input to ensure that each observation is a
@@ -161,6 +162,7 @@ style: numpydoc
   type_name: 'bool'
   is_optional: True
   default: 'True'
+  raw_type_name: 'bool, default: True'
 - DocstringReturns
   description: |
     An object containing attributes:

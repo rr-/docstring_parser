@@ -85,6 +85,7 @@ style: numpydoc
   arg_name: 'max_label'
   type_name: 'int'
   is_optional: True
+  raw_type_name: 'int, optional'
 - DocstringReturns
   description: |
     A list of tuples, with each tuple containing N slices (with N the

@@ -34,6 +34,7 @@ style: google
   type_name: 'str'
   is_optional: True
   default: 'None'
+  raw_type_name: 'str, optional'
 - DocstringParam
   description: 'Show full help text rather than just first paragraph. Defaults to False.'
   kind: param
@@ -42,6 +43,7 @@ style: google
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: 'Enable inspection of callables. Defaults to False.'
   kind: param
@@ -50,6 +52,7 @@ style: google
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: 'Also render doc strings. Defaults to True.'
   kind: param
@@ -58,6 +61,7 @@ style: google
   type_name: 'bool'
   is_optional: True
   default: 'True'
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: 'Show private attributes (beginning with underscore). Defaults to False.'
   kind: param
@@ -66,6 +70,7 @@ style: google
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: 'Show attributes starting with double underscore. Defaults to False.'
   kind: param
@@ -74,6 +79,7 @@ style: google
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: 'Sort attributes alphabetically, callables at the top, leading and trailing underscores ignored. Defaults to True.'
   kind: param
@@ -82,6 +88,7 @@ style: google
   type_name: 'bool'
   is_optional: True
   default: 'True'
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: 'Show all attributes. Defaults to False.'
   kind: param
@@ -90,6 +97,7 @@ style: google
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: 'Pretty print value of object. Defaults to True.'
   kind: param
@@ -98,6 +106,7 @@ style: google
   type_name: 'bool'
   is_optional: True
   default: 'True'
+  raw_type_name: 'bool, optional'
 === detect
 google
 === compose google

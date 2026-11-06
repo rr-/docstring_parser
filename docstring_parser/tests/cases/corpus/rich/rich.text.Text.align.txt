@@ -34,6 +34,7 @@ style: google
   type_name: 'str'
   is_optional: True
   default: '" "'
+  raw_type_name: 'str, optional'
 === detect
 google
 === compose google

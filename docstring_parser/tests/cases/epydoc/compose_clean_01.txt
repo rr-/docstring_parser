@@ -39,6 +39,7 @@ style: epydoc
   arg_name: 'sender'
   type_name: 'str'
   is_optional: True
+  raw_type_name: 'str?'
 - DocstringParam
   description: "description 4, defaults to 'hello'"
   kind: param
@@ -47,6 +48,7 @@ style: epydoc
   type_name: 'str'
   is_optional: True
   default: "'hello'"
+  raw_type_name: 'str?'
 - DocstringParam
   description: |
     long description 5,
@@ -57,6 +59,7 @@ style: epydoc
   type_name: 'str'
   is_optional: True
   default: "'bye'"
+  raw_type_name: 'str?'
 === compose epydoc clean
 Short description
 

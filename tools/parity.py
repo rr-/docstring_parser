@@ -165,7 +165,7 @@ def dump(value: T.Any) -> str:
 
 
 # Fields of the meta that the base may not have yet.
-NEW_FIELDS = {"args", "kind", "key", "name", "extra"}
+NEW_FIELDS = {"args", "kind", "key", "name", "extra", "raw_type_name"}
 
 
 def _shared_fields(meta: T.Any) -> T.Dict[str, T.Any]:

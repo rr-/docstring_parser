@@ -96,6 +96,7 @@ style: numpydoc
   type_name: 'int or None'
   is_optional: True
   default: '0'
+  raw_type_name: 'int or None, default: 0'
 - DocstringReturns
   description: 'Mean of trimmed array.'
   kind: returns

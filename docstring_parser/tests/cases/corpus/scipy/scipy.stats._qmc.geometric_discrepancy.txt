@@ -119,6 +119,7 @@ style: numpydoc
   arg_name: 'method'
   type_name: '{"mindist", "mst"}'
   is_optional: True
+  raw_type_name: '{"mindist", "mst"}, optional'
 - DocstringParam
   description: |
     The distance metric to use. See the documentation
@@ -129,6 +130,7 @@ style: numpydoc
   arg_name: 'metric'
   type_name: 'str or callable'
   is_optional: True
+  raw_type_name: 'str or callable, optional'
 - DocstringReturns
   description: 'Discrepancy (higher values correspond to greater sample uniformity).'
   kind: returns

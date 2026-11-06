@@ -22,6 +22,7 @@ style: google
   type_name: 'str'
   is_optional: True
   default: '""'
+  raw_type_name: 'str, optional'
 - DocstringParam
   description: 'Color system to render to. Defaults to ColorSystem.TRUECOLOR.'
   kind: param
@@ -30,6 +31,7 @@ style: google
   type_name: 'Optional[ColorSystem]'
   is_optional: True
   default: 'ColorSystem.TRUECOLOR'
+  raw_type_name: 'Optional[ColorSystem], optional'
 - DocstringReturns
   description: 'A string containing ANSI style codes.'
   kind: returns

@@ -135,6 +135,7 @@ style: numpydoc
   arg_name: 'high'
   type_name: 'float'
   is_optional: True
+  raw_type_name: 'float, optional'
 - DocstringParam
   description: 'Lower boundary of the principal value of an angle.  Default is ``0``.'
   kind: param
@@ -142,6 +143,7 @@ style: numpydoc
   arg_name: 'low'
   type_name: 'float'
   is_optional: True
+  raw_type_name: 'float, optional'
 - DocstringParam
   description: |
     If an int, the axis of the input along which to compute the statistic.
@@ -154,6 +156,7 @@ style: numpydoc
   type_name: 'int or None'
   is_optional: True
   default: 'None'
+  raw_type_name: 'int or None, default: None'
 - DocstringParam
   description: |
     Defines how to handle input NaNs.
@@ -182,6 +185,7 @@ style: numpydoc
   arg_name: 'normalize'
   type_name: 'bool'
   is_optional: True
+  raw_type_name: 'bool, optional'
 - DocstringReturns
   description: |
     Circular standard deviation, optionally normalized.

@@ -80,6 +80,7 @@ style: numpydoc
   arg_name: 'axis'
   type_name: 'int'
   is_optional: True
+  raw_type_name: 'int, optional'
 - DocstringReturns
   description: |
     A list of slices (start and end indexes) of unmasked indexes

@@ -130,6 +130,7 @@ style: numpydoc
   arg_name: 'C'
   type_name: 'int or str'
   is_optional: True
+  raw_type_name: 'int or str, optional'
 - DocstringParam
   description: |
     Function of one argument that reduces all the values in a bin to
@@ -140,6 +141,7 @@ style: numpydoc
   type_name: 'callable'
   is_optional: True
   default: '`np.mean`'
+  raw_type_name: 'callable, default `np.mean`'
 - DocstringParam
   description: |
     The number of hexagons in the x-direction.
@@ -158,6 +160,7 @@ style: numpydoc
   type_name: 'int or tuple of (int, int)'
   is_optional: True
   default: '100'
+  raw_type_name: 'int or tuple of (int, int), default 100'
 - DocstringParam
   description: |
     Additional keyword arguments, such as ``ax``, ``figsize``,

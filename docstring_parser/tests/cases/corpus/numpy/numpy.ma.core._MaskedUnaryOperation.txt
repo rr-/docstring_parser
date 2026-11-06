@@ -39,6 +39,7 @@ style: numpydoc
   type_name: 'scalar'
   is_optional: True
   default: '0'
+  raw_type_name: 'scalar, optional'
 - DocstringParam
   description: |
     Domain for the function. Should be one of the ``_Domain*``

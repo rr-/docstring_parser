@@ -25,6 +25,7 @@ style: numpydoc
   arg_name: 'mask'
   type_name: '`numpy.ndarray`, shape (m_nonlinear_eq,)'
   is_optional: True
+  raw_type_name: '`numpy.ndarray`, shape (m_nonlinear_eq,), optional'
 - DocstringReturns
   description: 'Quadratic models of the nonlinear equality constraints.'
   kind: returns

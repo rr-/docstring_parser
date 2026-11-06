@@ -114,6 +114,7 @@ style: numpydoc
   arg_name: 'dt'
   type_name: 'float'
   is_optional: True
+  raw_type_name: 'float, optional'
 - DocstringMeta
   description: |
     ZerosPolesGain, StateSpace, lti, dlti

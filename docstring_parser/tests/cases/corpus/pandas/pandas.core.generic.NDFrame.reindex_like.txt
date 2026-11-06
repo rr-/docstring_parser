@@ -163,6 +163,7 @@ style: numpydoc
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, default False'
 - DocstringParam
   description: 'Maximum number of consecutive labels to fill for inexact matches.'
   kind: param
@@ -171,6 +172,7 @@ style: numpydoc
   type_name: 'int'
   is_optional: True
   default: 'None'
+  raw_type_name: 'int, default None'
 - DocstringParam
   description: |
     Maximum distance between original and new labels for inexact

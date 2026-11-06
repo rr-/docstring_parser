@@ -19,6 +19,7 @@ style: google
   arg_name: 'x'
   type_name: 'int'
   is_optional: True
+  raw_type_name: 'int, optional'
 - DocstringParam
   description: 'The y.'
   kind: param
@@ -26,6 +27,7 @@ style: google
   arg_name: 'y'
   type_name: 'str'
   is_optional: True
+  raw_type_name: 'str (optional)'
 - DocstringParam
   description: 'The z.'
   kind: param
@@ -34,3 +36,4 @@ style: google
   type_name: 'float'
   is_optional: True
   default: '1.0'
+  raw_type_name: 'float, default 1.0'

@@ -92,6 +92,7 @@ style: numpydoc
   type_name: 'int'
   is_optional: True
   default: 'None'
+  raw_type_name: 'int, default None'
 - DocstringParam
   description: 'Most users should ignore this'
   kind: param
@@ -106,6 +107,7 @@ style: numpydoc
   arg_name: 'exclusions'
   type_name: 'array-like'
   is_optional: True
+  raw_type_name: 'array-like, optional'
 - DocstringParam
   description: 'Most users should ignore this'
   kind: param

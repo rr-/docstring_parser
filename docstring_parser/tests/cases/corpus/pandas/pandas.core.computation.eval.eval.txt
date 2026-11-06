@@ -210,6 +210,7 @@ style: numpydoc
   type_name: "{'pandas', 'python'}"
   is_optional: True
   default: "'pandas'"
+  raw_type_name: "{'pandas', 'python'}, default 'pandas'"
 - DocstringParam
   description: |
     The engine used to evaluate the expression. Supported engines are
@@ -228,6 +229,7 @@ style: numpydoc
   type_name: "{'python', 'numexpr'}"
   is_optional: True
   default: 'None'
+  raw_type_name: "{'python', 'numexpr'}, optional, default None"
 - DocstringParam
   description: 'A dictionary of local variables, taken from locals() by default.'
   kind: param
@@ -235,6 +237,7 @@ style: numpydoc
   arg_name: 'local_dict'
   type_name: 'dict or None'
   is_optional: True
+  raw_type_name: 'dict or None, optional'
 - DocstringParam
   description: 'A dictionary of global variables, taken from globals() by default.'
   kind: param
@@ -242,6 +245,7 @@ style: numpydoc
   arg_name: 'global_dict'
   type_name: 'dict or None'
   is_optional: True
+  raw_type_name: 'dict or None, optional'
 - DocstringParam
   description: |
     A list of objects implementing the ``__getitem__`` special method that
@@ -256,6 +260,7 @@ style: numpydoc
   arg_name: 'resolvers'
   type_name: 'list of dict-like or None'
   is_optional: True
+  raw_type_name: 'list of dict-like or None, optional'
 - DocstringParam
   description: |
     The number of prior stack frames to traverse and add to the current
@@ -265,6 +270,7 @@ style: numpydoc
   arg_name: 'level'
   type_name: 'int'
   is_optional: True
+  raw_type_name: 'int, optional'
 - DocstringParam
   description: |
     This is the target object for assignment. It is used when there is
@@ -277,6 +283,7 @@ style: numpydoc
   type_name: 'object'
   is_optional: True
   default: 'None'
+  raw_type_name: 'object, optional, default None'
 - DocstringParam
   description: |
     If `target` is provided, and the expression mutates `target`, whether
@@ -295,6 +302,7 @@ style: numpydoc
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, default False'
 - DocstringReturns
   description: 'The completion value of evaluating the given code or None if ``inplace=True``.'
   kind: returns

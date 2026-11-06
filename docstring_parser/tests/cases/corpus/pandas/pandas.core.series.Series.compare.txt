@@ -118,6 +118,7 @@ style: numpydoc
   type_name: "{0 or 'index', 1 or 'columns'}"
   is_optional: True
   default: '1'
+  raw_type_name: "{0 or 'index', 1 or 'columns'}, default 1"
 - DocstringParam
   description: |
     If true, all rows and columns are kept.
@@ -128,6 +129,7 @@ style: numpydoc
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, default False'
 - DocstringParam
   description: |
     If true, the result keeps values that are equal.
@@ -138,6 +140,7 @@ style: numpydoc
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, default False'
 - DocstringParam
   description: 'Set the dataframes names in the comparison.'
   kind: param
@@ -146,6 +149,7 @@ style: numpydoc
   type_name: 'tuple'
   is_optional: True
   default: "('self', 'other')"
+  raw_type_name: "tuple, default ('self', 'other')"
 - DocstringReturns
   description: |
     If axis is 0 or 'index' the result will be a Series.

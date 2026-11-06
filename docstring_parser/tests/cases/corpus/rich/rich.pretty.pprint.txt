@@ -32,6 +32,7 @@ style: google
   type_name: 'Console'
   is_optional: True
   default: 'None'
+  raw_type_name: 'Console, optional'
 - DocstringParam
   description: |
     Maximum length of containers before abbreviating, or None for no abbreviation.
@@ -41,6 +42,7 @@ style: google
   arg_name: 'max_length'
   type_name: 'int'
   is_optional: True
+  raw_type_name: 'int, optional'
 - DocstringParam
   description: 'Maximum length of strings before truncating, or None to disable. Defaults to None.'
   kind: param
@@ -49,6 +51,7 @@ style: google
   type_name: 'int'
   is_optional: True
   default: 'None'
+  raw_type_name: 'int, optional'
 - DocstringParam
   description: 'Maximum depth for nested data structures, or None for unlimited depth. Defaults to None.'
   kind: param
@@ -57,6 +60,7 @@ style: google
   type_name: 'int'
   is_optional: True
   default: 'None'
+  raw_type_name: 'int, optional'
 - DocstringParam
   description: 'Enable indentation guides. Defaults to True.'
   kind: param
@@ -65,6 +69,7 @@ style: google
   type_name: 'bool'
   is_optional: True
   default: 'True'
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: 'Expand all containers. Defaults to False.'
   kind: param
@@ -73,6 +78,7 @@ style: google
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, optional'
 === detect
 google
 === compose google

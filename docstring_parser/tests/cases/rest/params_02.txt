@@ -34,6 +34,7 @@ style: rest
   arg_name: 'sender'
   type_name: 'str'
   is_optional: True
+  raw_type_name: 'str?'
 - DocstringParam
   description: "description 4, defaults to 'hello'"
   kind: param
@@ -42,6 +43,7 @@ style: rest
   type_name: 'str'
   is_optional: True
   default: "'hello'"
+  raw_type_name: 'str?'
 - DocstringParam
   description: |
     long description 5,
@@ -52,3 +54,4 @@ style: rest
   type_name: 'str'
   is_optional: True
   default: "'bye'"
+  raw_type_name: 'str?'

@@ -107,6 +107,7 @@ style: numpydoc
   type_name: 'str'
   is_optional: True
   default: 'f'
+  raw_type_name: 'str, optional'
 - DocstringReturns
   description: |
     Based on ``A.format``, index arrays are returned after casting to `idx_dtype`.

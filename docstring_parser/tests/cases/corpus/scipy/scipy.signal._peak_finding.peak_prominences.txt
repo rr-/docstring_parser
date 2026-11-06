@@ -171,6 +171,7 @@ style: numpydoc
   arg_name: 'wlen'
   type_name: 'int'
   is_optional: True
+  raw_type_name: 'int, optional'
 - DocstringReturns
   description: 'The calculated prominences for each peak in `peaks`.'
   kind: returns

@@ -233,6 +233,7 @@ style: numpydoc
   arg_name: 'height'
   type_name: 'number or ndarray or sequence'
   is_optional: True
+  raw_type_name: 'number or ndarray or sequence, optional'
 - DocstringParam
   description: |
     Required threshold of peaks, the vertical distance to its neighboring
@@ -245,6 +246,7 @@ style: numpydoc
   arg_name: 'threshold'
   type_name: 'number or ndarray or sequence'
   is_optional: True
+  raw_type_name: 'number or ndarray or sequence, optional'
 - DocstringParam
   description: |
     Required minimal horizontal distance (>= 1) in samples between
@@ -255,6 +257,7 @@ style: numpydoc
   arg_name: 'distance'
   type_name: 'number'
   is_optional: True
+  raw_type_name: 'number, optional'
 - DocstringParam
   description: |
     Required prominence of peaks. Either a number, ``None``, an array
@@ -266,6 +269,7 @@ style: numpydoc
   arg_name: 'prominence'
   type_name: 'number or ndarray or sequence'
   is_optional: True
+  raw_type_name: 'number or ndarray or sequence, optional'
 - DocstringParam
   description: |
     Required width of peaks in samples. Either a number, ``None``, an array
@@ -277,6 +281,7 @@ style: numpydoc
   arg_name: 'width'
   type_name: 'number or ndarray or sequence'
   is_optional: True
+  raw_type_name: 'number or ndarray or sequence, optional'
 - DocstringParam
   description: |
     Used for calculation of the peaks prominences, thus it is only used if
@@ -287,6 +292,7 @@ style: numpydoc
   arg_name: 'wlen'
   type_name: 'int'
   is_optional: True
+  raw_type_name: 'int, optional'
 - DocstringParam
   description: |
     Used for calculation of the peaks width, thus it is only used if `width`
@@ -297,6 +303,7 @@ style: numpydoc
   arg_name: 'rel_height'
   type_name: 'float'
   is_optional: True
+  raw_type_name: 'float, optional'
 - DocstringParam
   description: |
     Required size of the flat top of peaks in samples. Either a number,
@@ -310,6 +317,7 @@ style: numpydoc
   arg_name: 'plateau_size'
   type_name: 'number or ndarray or sequence'
   is_optional: True
+  raw_type_name: 'number or ndarray or sequence, optional'
 - DocstringReturns
   description: 'Indices of peaks in `x` that satisfy all given conditions.'
   kind: returns

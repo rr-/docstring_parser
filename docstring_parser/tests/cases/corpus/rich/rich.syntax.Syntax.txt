@@ -46,6 +46,7 @@ style: google
   type_name: 'str'
   is_optional: True
   default: '"monokai"'
+  raw_type_name: 'str, optional'
 - DocstringParam
   description: 'Enable stripping of initial whitespace. Defaults to False.'
   kind: param
@@ -54,6 +55,7 @@ style: google
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: 'Enable rendering of line numbers. Defaults to False.'
   kind: param
@@ -62,6 +64,7 @@ style: google
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: 'Starting number for line numbers. Defaults to 1.'
   kind: param
@@ -70,6 +73,7 @@ style: google
   type_name: 'int'
   is_optional: True
   default: '1'
+  raw_type_name: 'int, optional'
 - DocstringParam
   description: |
     If given should be a tuple of the start and end line to render.
@@ -79,6 +83,7 @@ style: google
   arg_name: 'line_range'
   type_name: 'Tuple[int | None, int | None]'
   is_optional: True
+  raw_type_name: 'Tuple[int | None, int | None], optional'
 - DocstringParam
   description: 'A set of line numbers to highlight.'
   kind: param
@@ -99,6 +104,7 @@ style: google
   type_name: 'int'
   is_optional: True
   default: '4'
+  raw_type_name: 'int, optional'
 - DocstringParam
   description: 'Enable word wrapping.'
   kind: param
@@ -106,6 +112,7 @@ style: google
   arg_name: 'word_wrap'
   type_name: 'bool'
   is_optional: True
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: 'Optional background color, or None to use theme color. Defaults to None.'
   kind: param
@@ -114,6 +121,7 @@ style: google
   type_name: 'str'
   is_optional: True
   default: 'None'
+  raw_type_name: 'str, optional'
 - DocstringParam
   description: 'Show indent guides. Defaults to False.'
   kind: param
@@ -122,6 +130,7 @@ style: google
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: 'Padding to apply around the syntax. Defaults to 0 (no padding).'
   kind: param

@@ -78,6 +78,7 @@ style: numpydoc
   arg_name: 'type'
   type_name: '{1, 2, 3, 4}'
   is_optional: True
+  raw_type_name: '{1, 2, 3, 4}, optional'
 - DocstringParam
   description: |
     The shape of the result.  If both `s` and `axes` (see below) are
@@ -93,6 +94,7 @@ style: numpydoc
   arg_name: 's'
   type_name: 'int or array_like of ints or None'
   is_optional: True
+  raw_type_name: 'int or array_like of ints or None, optional'
 - DocstringParam
   description: |
     Axes over which the IDCT is computed. If not given, the last ``len(s)``
@@ -102,6 +104,7 @@ style: numpydoc
   arg_name: 'axes'
   type_name: 'int or array_like of ints or None'
   is_optional: True
+  raw_type_name: 'int or array_like of ints or None, optional'
 - DocstringParam
   description: 'Normalization mode (see Notes). Default is "backward".'
   kind: param
@@ -110,6 +113,7 @@ style: numpydoc
   type_name: '{"backward", "ortho", "forward"}'
   is_optional: True
   default: '"backward"'
+  raw_type_name: '{"backward", "ortho", "forward"}, optional'
 - DocstringParam
   description: 'If True, the contents of `x` can be destroyed; the default is False.'
   kind: param
@@ -118,6 +122,7 @@ style: numpydoc
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: |
     Maximum number of workers to use for parallel computation. If negative,
@@ -128,6 +133,7 @@ style: numpydoc
   arg_name: 'workers'
   type_name: 'int'
   is_optional: True
+  raw_type_name: 'int, optional'
 - DocstringParam
   description: |
     Whether to use the orthogonalized IDCT variant (see Notes).
@@ -139,6 +145,7 @@ style: numpydoc
   arg_name: 'orthogonalize'
   type_name: 'bool'
   is_optional: True
+  raw_type_name: 'bool, optional'
 - DocstringReturns
   description: 'The transformed input array.'
   kind: returns

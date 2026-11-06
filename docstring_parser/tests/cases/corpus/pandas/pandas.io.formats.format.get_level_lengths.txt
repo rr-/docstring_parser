@@ -34,6 +34,7 @@ style: numpydoc
   arg_name: 'sentinel'
   type_name: 'string'
   is_optional: True
+  raw_type_name: 'string, optional'
 - DocstringReturns
   kind: returns
   key: 'returns'

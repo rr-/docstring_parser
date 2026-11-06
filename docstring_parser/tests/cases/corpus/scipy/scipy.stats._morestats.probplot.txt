@@ -142,6 +142,7 @@ style: numpydoc
   arg_name: 'sparams'
   type_name: 'tuple'
   is_optional: True
+  raw_type_name: 'tuple, optional'
 - DocstringParam
   description: |
     Distribution or distribution function name. The default is 'norm' for a
@@ -154,6 +155,7 @@ style: numpydoc
   type_name: 'str or stats.distributions instance'
   is_optional: True
   default: "'norm'"
+  raw_type_name: 'str or stats.distributions instance, optional'
 - DocstringParam
   description: |
     Fit a least-squares regression (best-fit) line to the sample data if
@@ -163,6 +165,7 @@ style: numpydoc
   arg_name: 'fit'
   type_name: 'bool'
   is_optional: True
+  raw_type_name: 'bool, optional'
 - DocstringParam
   description: |
     If given, plots the quantiles.
@@ -177,6 +180,7 @@ style: numpydoc
   type_name: 'object'
   is_optional: True
   default: 'None'
+  raw_type_name: 'object, optional'
 - DocstringParam
   description: |
     If `plot` is provided and `fit` is True, setting `rvalue` to True
@@ -188,6 +192,7 @@ style: numpydoc
   type_name: 'bool'
   is_optional: True
   default: 'False'
+  raw_type_name: 'bool, optional'
 - DocstringReturns
   description: |
     Tuple of theoretical quantiles (osm, or order statistic medians) and

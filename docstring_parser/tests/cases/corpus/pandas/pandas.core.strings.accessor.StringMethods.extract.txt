@@ -106,6 +106,7 @@ style: numpydoc
   type_name: 'int'
   is_optional: True
   default: '0 (no flags)'
+  raw_type_name: 'int, default 0 (no flags)'
 - DocstringParam
   description: |
     If True, return DataFrame with one column per capture group.
@@ -117,6 +118,7 @@ style: numpydoc
   type_name: 'bool'
   is_optional: True
   default: 'True'
+  raw_type_name: 'bool, default True'
 - DocstringReturns
   description: |
     A DataFrame with one row for each subject string, and one
