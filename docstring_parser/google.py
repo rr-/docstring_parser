@@ -7,6 +7,7 @@ from enum import IntEnum
 
 from ._compose import (
     SectionTable,
+    description_lines,
     examples_text,
     section_runs,
     start_on_new_line,
@@ -825,8 +826,17 @@ def compose(
                 process_one(arg, alone=len(args) == 1)
             parts.append("")
 
-    top = leading_deprecation(docstring)
-    parts = description_with_deprecation(docstring, top, indent)
+    # Most docstrings have no deprecation, so only look for one to write
+    # after the short description when the first meta is one.
+    metas = docstring.meta
+    top = None
+    if metas and type(metas[0]) is DocstringDeprecated:
+        top = leading_deprecation(docstring)
+    parts = (
+        description_with_deprecation(docstring, top, indent)
+        if top is not None
+        else description_lines(docstring)
+    )
     # Examples in a row share a section. One with no snippet is the text
     # after a section's last snippet, so it ends its section: written with
     # the next ones, it would read back as part of their text. An empty
