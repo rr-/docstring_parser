@@ -652,10 +652,11 @@ def compose(
             text = f":{key}{type_text}:" + process_desc(meta.description)
             parts.append(text)
         elif isinstance(meta, DocstringDeprecated) and meta.version:
-            text = f":{meta.key or 'deprecated'}: {meta.version}"
+            # The version starts the description, on the same line.
+            desc = meta.version
             if meta.description:
-                text += process_desc(meta.description)
-            parts.append(text)
+                desc += " " + meta.description
+            parts.append(f":{meta.key or 'deprecated'}:" + process_desc(desc))
         else:
             text = f":{field_text(meta)}:" + process_desc(meta.description)
             parts.append(text)

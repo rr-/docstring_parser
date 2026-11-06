@@ -57,4 +57,4 @@ Short.
 @keyword k: K.
 @ivar t: T.
 @keyword y: Y.
-@param g: G.
+@arg g: G.
