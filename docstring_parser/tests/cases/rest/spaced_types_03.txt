@@ -1,0 +1,36 @@
+# Test a raises type naming several exceptions, and a spaced return type.
+=== input
+Short.
+
+:raises ValueError, TypeError: If bad.
+:returns Dict[str, int]: The counts.
+=== parse rest
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringRaises
+  description: 'If bad.'
+  kind: raises
+  key: 'raises'
+  type_name: 'ValueError, TypeError'
+- DocstringReturns
+  description: 'The counts.'
+  kind: returns
+  key: 'returns'
+  type_name: 'Dict[str, int]'
+  is_generator: False
+=== compose rest
+Short.
+
+:raises ValueError, TypeError : If bad.
+:returns: The counts.
+:rtype: Dict[str, int]
+=== compose rest expanded
+Short.
+
+:raises ValueError, TypeError :
+    If bad.
+:returns:
+    The counts.
+:rtype: Dict[str, int]

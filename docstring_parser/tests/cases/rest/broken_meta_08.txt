@@ -1,0 +1,5 @@
+# Test that words in a row that make no type are no field.
+=== input
+:returns int str: R.
+=== parse rest
+ParseError: Expected one or no arguments for a returns keyword.
