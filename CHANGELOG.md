@@ -30,12 +30,11 @@
 - General: Add `raw_type_name` to params, the type as written, such as `int, optional`, before its optional mark and default are split off
 - General: Keep a class attribute in `parse_from_object()` when the class docstring documents a param of the same name, instead of dropping it
 - General: Return the docstring of a built-in class or module from `parse_from_object()` instead of raising `TypeError`, and ignore a `__doc__` that is not a string
-- General: Cut a line holding only a tab or a form feed at either end of a docstring as a blank line, instead of reading it as the summary and the real summary as the long description
-- General: Keep the indent of the long description's first line, as its other lines keep theirs, instead of stripping it, so an indented signature, table or code block keeps its shape
-- General: Start a composed docstring on a new line when every line after its first is indented, as an indented long description or the continuation lines of a lone field are, so that the indent reads back
-- General: Compose a param's type as written, such as `int, optional` or `int, default 1`, when it reads back as the same type, instead of with the style's own optional mark, and add no mark for a default that only the description states
-- General: Compose a description that holds a form feed or another line break that is not a newline on one line, as it was read, instead of breaking the line in two
 - General: Keep the indent of the long description's first line relative to the lines after it, instead of stripping it, so an indented signature, table or code block keeps its shape
+- General: Treat a line holding only a tab or form feed at either end of a docstring as blank
+- General: Keep the indent of the long description's first line
+- General: Compose a param's type as written, such as `int, optional`
+- General: Compose docstrings so they read back the same, splitting lines at newlines only
 - ReST: Stop the last field from absorbing text after the field list; that text now goes to the long description (thanks to @apoorvdarshan)
 - ReST: Raise `ParseError` instead of `IndexError` for a field with no name
 - ReST: Indent composed continuation lines in compact mode, so one starting with a role such as `:class:` is no longer read back as a new field
@@ -50,12 +49,9 @@
 - ReST: Parse an `.. attribute:: name` directive, with its `:type:` and `:value:` options, as an attribute instead of leaving it in the long description
 - ReST: Read a type with spaces in a field's head, as in `:param Dict[str, int] x:`, `:param int or None x:` or `:raises A, B:`, instead of raising `ParseError`
 - ReST: Read a line starting with a role, such as ``:meth:`run` does stuff.``, as text of the description or of the field before it, instead of a field named `meth`; as in docutils, a field's closing colon must be followed by whitespace or the end of the line
-- ReST: Keep every line of a `:deprecated:` field that starts with a version, instead of only its first
-- ReST: Keep a type field for a param or return that has a type already, as in `:param int x:` followed by `:type x: str`, as an item of its own instead of dropping it
-- ReST: Compose a param or return that only a type field gives as that field alone, instead of adding an empty `:param:` or `:returns:` field that reads back with an empty description
-- ReST: Compose returns, yields and raises with the field name they were read from, such as `:return:` or `:raise:`, instead of `:returns:` and `:raises:` for all
-- ReST: Compose the version of a deprecation instead of dropping it, and indent the lines after the first of a type, which an unindented line ended
-- ReST: Compose an attribute with a default that neither its type nor its description gives, such as one read from a directive's `:value:`, as an `.. attribute::` directive, instead of dropping the default
+- ReST: Keep every line of a `:deprecated:` field that starts with a version
+- ReST: Keep a type field for a param or return that already has a type
+- ReST: Compose type fields, field names, versions and attribute values so they read back the same
 - Google: Parse PEP 604 union types (e.g. `int | str`) in return sections (thanks to @binggao1230)
 - Google: Parse a union return or yield type whose members have brackets or dots, such as `dict[str, int] | None`, instead of keeping the whole line as the description
 - Google: Avoid regex backtracking when parsing parameter types
@@ -70,9 +66,8 @@
 - Google: Keep the text after a section, such as an example or an unknown section, in the long description instead of dropping it
 - Google: Read a `Raises:` item that is a type alone, such as `ValueError`, and a `Raises:` section of plain prose as one raises with no type, instead of raising `ParseError`
 - Google: Compose blank lines inside a section such as Examples without trailing spaces
-- Google: Compose sections in the order of the docstring's items, and each return or yield in a section of its own, instead of in a fixed order with all returns in one, so a docstring with Raises before Returns, or with two Returns sections, reads back the same
-- Google: Compose an empty Returns section as its title alone, and a raises with an empty description with a colon after its type, instead of text that reads back as a `:` description or none
-- Google: Strip every space between an item's colon and its description, instead of keeping all but the first
+- Google: Strip every space between an item's colon and its description
+- Google: Compose sections in the items' order, one per return, so they read back the same
 - Numpydoc: Fix the type of `NumpydocParser`'s `sections` argument, which takes a list of sections
 - Numpydoc: Compose sections such as See Also with their own titles and underlines, instead of e.g. `Seealso`
 - Numpydoc: Stop adding a blank line on every round trip of a docstring without a long description
@@ -86,17 +81,15 @@
 - Numpydoc: Compose raises written with another key, such as ReST's `:raise:` and `:except:`, instead of dropping them
 - Numpydoc: Keep indented text before a section's first item in the long description instead of dropping it
 - Numpydoc: Split a `Raises` or `Warns` item's head such as `ValueError : if bad.` after its type, taking `if bad.` as the start of the description, instead of making the whole line the type
-- Numpydoc: Compose sections, examples and deprecations in the order of the docstring's items, instead of in a fixed order, so a docstring with Notes before Examples or a deprecation after its sections reads back the same, and compose every deprecation instead of only the first
-- Numpydoc: Compose the blank lines after the short and long description as they were read, instead of always one before the first section, and keep the blank line between two examples
+- Numpydoc: Compose sections and deprecations in the items' order, keeping the blank lines read
 - Epydoc: Match fields only at their header, so field-like text in a description no longer replaces it and a header without its colon no longer stalls the parser (thanks to @akshitkhokhani)
 - Epydoc: Take a param's key and kind from its `@param`, `@keyword` or `@ivar` field, instead of `type` when its `@type` field comes first
 - Epydoc: Give a name described by two fields, such as `@param x:` and `@ivar x:`, an item for each instead of keeping the last
 - Epydoc: Find a param's default in its own description also when its `@type` field comes first
 - Epydoc: Take a return's key from its `@return` or `@yield` field, not from an `@rtype` or `@ytype` before it
 - Epydoc: Read the field names Epydoc gives as synonyms: `@raises`, `@except` and `@exception` for `@raise`, `@returns` for `@return`, `@returntype` for `@rtype`, `@parameter`, `@arg` and `@argument` for `@param`, and `@kwarg` and `@kwparam` for `@keyword`
-- Epydoc: Compose a param or return that only a type field gives as that field alone, instead of adding an empty `@param:` field, and keep a return with an empty description instead of dropping it
-- Epydoc: Compose params, returns, yields, raises and the type fields of returns with the field name they were read from, such as `@arg`, `@kwarg`, `@returns`, `@raises` or `@returntype`
-- Epydoc: Keep the indent of a field's first continuation line relative to the lines after it, instead of stripping it
+- Epydoc: Keep the indent of a field's first continuation line
+- Epydoc: Compose type fields and field names, such as `@arg`, so they read back the same
 - ReST, Numpydoc: Read text after the fields of a docstring with no description as its description, instead of a long description that `compose()` starts with an empty line
 - ReST, Epydoc: Compose each param with its kind's field name, such as `:keyword:` or `@ivar`, instead of `:param:` or `@param` for all
 - ReST, Epydoc: Give each of a name's type fields to its next item, instead of the last overwriting the others
