@@ -88,7 +88,8 @@ class AttributeDocstrings(ast.NodeVisitor):
         self.prev_attr = None
         try:
             source = textwrap.dedent(inspect.getsource(component))
-        except OSError:
+        except (OSError, TypeError):
+            # Built-in classes and modules have no source.
             pass
         else:
             tree = ast.parse(source)
