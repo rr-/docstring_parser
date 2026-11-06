@@ -475,197 +475,204 @@ style: numpydoc
   kind: text
   key: 'references'
 - DocstringExample
-  description: |
-    
-    Our first illustration is the symmetric graph
-    
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from scipy.sparse import csgraph'
+- DocstringExample
+  description: 'Our first illustration is the symmetric graph'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> G = np.arange(4) * np.arange(4)[:, np.newaxis]'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import numpy as np
-    >>> from scipy.sparse import csgraph
-- DocstringExample
-  description: |
+    >>> G
     array([[0, 0, 0, 0],
            [0, 1, 2, 3],
            [0, 2, 4, 6],
            [0, 3, 6, 9]])
-    
-    and its symmetric Laplacian matrix
-    
+- DocstringExample
+  description: 'and its symmetric Laplacian matrix'
   kind: examples
   key: 'examples'
   snippet: |
-    >>> G = np.arange(4) * np.arange(4)[:, np.newaxis]
-    >>> G
-- DocstringExample
-  description: |
+    >>> csgraph.laplacian(G)
     array([[ 0,  0,  0,  0],
            [ 0,  5, -2, -3],
            [ 0, -2,  8, -6],
            [ 0, -3, -6,  9]])
-    
-    The non-symmetric graph
-    
+- DocstringExample
+  description: 'The non-symmetric graph'
   kind: examples
   key: 'examples'
-  snippet: '>>> csgraph.laplacian(G)'
+  snippet: '>>> G = np.arange(9).reshape(3, 3)'
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> G
     array([[0, 1, 2],
            [3, 4, 5],
            [6, 7, 8]])
-    
+- DocstringExample
+  description: |
     has different row- and column sums, resulting in two varieties
     of the Laplacian matrix, using an in-degree, which is the default
-    
+  kind: examples
+  key: 'examples'
+  snippet: '>>> L_in_degree = csgraph.laplacian(G)'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> G = np.arange(9).reshape(3, 3)
-    >>> G
-- DocstringExample
-  description: |
+    >>> L_in_degree
     array([[ 9, -1, -2],
            [-3,  8, -5],
            [-6, -7,  7]])
-    
-    or alternatively an out-degree
-    
+- DocstringExample
+  description: 'or alternatively an out-degree'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> L_out_degree = csgraph.laplacian(G, use_out_degree=True)'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> L_in_degree = csgraph.laplacian(G)
-    >>> L_in_degree
-- DocstringExample
-  description: |
+    >>> L_out_degree
     array([[ 3, -1, -2],
            [-3,  8, -5],
            [-6, -7, 13]])
-    
-    Constructing a symmetric Laplacian matrix, one can add the two as
-    
+- DocstringExample
+  description: 'Constructing a symmetric Laplacian matrix, one can add the two as'
   kind: examples
   key: 'examples'
   snippet: |
-    >>> L_out_degree = csgraph.laplacian(G, use_out_degree=True)
-    >>> L_out_degree
-- DocstringExample
-  description: |
+    >>> L_in_degree + L_out_degree.T
     array([[ 12,  -4,  -8],
             [ -4,  16, -12],
             [ -8, -12,  20]])
-    
-    or use the ``symmetrized=True`` option
-    
+- DocstringExample
+  description: 'or use the ``symmetrized=True`` option'
   kind: examples
   key: 'examples'
-  snippet: '>>> L_in_degree + L_out_degree.T'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> csgraph.laplacian(G, symmetrized=True)
     array([[ 12,  -4,  -8],
            [ -4,  16, -12],
            [ -8, -12,  20]])
-    
-    that is equivalent to symmetrizing the original graph
-    
+- DocstringExample
+  description: 'that is equivalent to symmetrizing the original graph'
   kind: examples
   key: 'examples'
-  snippet: '>>> csgraph.laplacian(G, symmetrized=True)'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> csgraph.laplacian(G + G.T)
     array([[ 12,  -4,  -8],
            [ -4,  16, -12],
            [ -8, -12,  20]])
-    
+- DocstringExample
+  description: |
     The goal of normalization is to make the non-zero diagonal entries
     of the Laplacian matrix to be all unit, also scaling off-diagonal
     entries correspondingly. The normalization can be done manually, e.g.,
-    
   kind: examples
   key: 'examples'
-  snippet: '>>> csgraph.laplacian(G + G.T)'
+  snippet: '>>> G = np.array([[0, 1, 1], [1, 0, 1], [1, 1, 0]])'
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: '>>> L, d = csgraph.laplacian(G, return_diag=True)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> L
     array([[ 2, -1, -1],
            [-1,  2, -1],
            [-1, -1,  2]])
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> G = np.array([[0, 1, 1], [1, 0, 1], [1, 1, 0]])
-    >>> L, d = csgraph.laplacian(G, return_diag=True)
-    >>> L
+    >>> d
+    array([2, 2, 2])
 - DocstringExample
-  description: 'array([2, 2, 2])'
   kind: examples
   key: 'examples'
-  snippet: '>>> d'
+  snippet: '>>> scaling = np.sqrt(d)'
 - DocstringExample
-  description: 'array([1.41421356, 1.41421356, 1.41421356])'
   kind: examples
   key: 'examples'
   snippet: |
-    >>> scaling = np.sqrt(d)
     >>> scaling
+    array([1.41421356, 1.41421356, 1.41421356])
 - DocstringExample
-  description: |
-    array([[ 1. , -0.5, -0.5],
-           [-0.5,  1. , -0.5],
-           [-0.5, -0.5,  1. ]])
-    
-    Or using ``normed=True`` option
-    
-  kind: examples
-  key: 'examples'
-  snippet: '>>> (1/scaling)*L*(1/scaling)'
-- DocstringExample
-  description: |
-    array([[ 1. , -0.5, -0.5],
-           [-0.5,  1. , -0.5],
-           [-0.5, -0.5,  1. ]])
-    
-    which now instead of the diagonal returns the scaling coefficients
-    
   kind: examples
   key: 'examples'
   snippet: |
-    >>> L, d = csgraph.laplacian(G, return_diag=True, normed=True)
+    >>> (1/scaling)*L*(1/scaling)
+    array([[ 1. , -0.5, -0.5],
+           [-0.5,  1. , -0.5],
+           [-0.5, -0.5,  1. ]])
+- DocstringExample
+  description: 'Or using ``normed=True`` option'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> L, d = csgraph.laplacian(G, return_diag=True, normed=True)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
     >>> L
+    array([[ 1. , -0.5, -0.5],
+           [-0.5,  1. , -0.5],
+           [-0.5, -0.5,  1. ]])
+- DocstringExample
+  description: 'which now instead of the diagonal returns the scaling coefficients'
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> d
+    array([1.41421356, 1.41421356, 1.41421356])
 - DocstringExample
   description: |
-    array([1.41421356, 1.41421356, 1.41421356])
-    
     Zero scaling coefficients are substituted with 1s, where scaling
     has thus no effect, e.g.,
-    
   kind: examples
   key: 'examples'
-  snippet: '>>> d'
+  snippet: '>>> G = np.array([[0, 0, 0], [0, 0, 1], [0, 1, 0]])'
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> G
     array([[0, 0, 0],
            [0, 0, 1],
            [0, 1, 0]])
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> L, d = csgraph.laplacian(G, return_diag=True, normed=True)'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> G = np.array([[0, 0, 0], [0, 0, 1], [0, 1, 0]])
-    >>> G
-- DocstringExample
-  description: |
+    >>> L
     array([[ 0., -0., -0.],
            [-0.,  1., -1.],
            [-0., -1.,  1.]])
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> L, d = csgraph.laplacian(G, return_diag=True, normed=True)
-    >>> L
+    >>> d
+    array([1., 1., 1.])
 - DocstringExample
   description: |
-    array([1., 1., 1.])
-    
     Only the symmetric normalization is implemented, resulting
     in a symmetric Laplacian matrix if and only if its graph is symmetric
     and has all non-negative degrees, like in the examples above.
@@ -673,114 +680,111 @@ style: numpydoc
     The output Laplacian matrix is by default a dense array or a sparse
     array or matrix inferring its class, shape, format, and dtype from
     the input graph matrix:
-    
   kind: examples
   key: 'examples'
-  snippet: '>>> d'
+  snippet: '>>> G = np.array([[0, 1, 1], [1, 0, 1], [1, 1, 0]]).astype(np.float32)'
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> G
     array([[0., 1., 1.],
            [1., 0., 1.],
            [1., 1., 0.]], dtype=float32)
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> G = np.array([[0, 1, 1], [1, 0, 1], [1, 1, 0]]).astype(np.float32)
-    >>> G
-- DocstringExample
-  description: |
+    >>> csgraph.laplacian(G)
     array([[ 2., -1., -1.],
            [-1.,  2., -1.],
            [-1., -1.,  2.]], dtype=float32)
-    
-    but can alternatively be generated matrix-free as a LinearOperator:
-    
+- DocstringExample
+  description: 'but can alternatively be generated matrix-free as a LinearOperator:'
   kind: examples
   key: 'examples'
-  snippet: '>>> csgraph.laplacian(G)'
+  snippet: '>>> L = csgraph.laplacian(G, form="lo")'
 - DocstringExample
-  description: '<3x3 _CustomLinearOperator with dtype=float32>'
-  kind: examples
-  key: 'examples'
-  snippet: |
-    >>> L = csgraph.laplacian(G, form="lo")
-    >>> L
-- DocstringExample
-  description: |
-    array([[ 2., -1., -1.],
-           [-1.,  2., -1.],
-           [-1., -1.,  2.]])
-    
-    or as a lambda-function:
-    
-  kind: examples
-  key: 'examples'
-  snippet: '>>> L(np.eye(3))'
-- DocstringExample
-  description: '<function _laplace.<locals>.<lambda> at 0x0000012AE6F5A598>'
   kind: examples
   key: 'examples'
   snippet: |
-    >>> L = csgraph.laplacian(G, form="function")
     >>> L
+    <3x3 _CustomLinearOperator with dtype=float32>
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> L(np.eye(3))
     array([[ 2., -1., -1.],
            [-1.,  2., -1.],
            [-1., -1.,  2.]])
-    
+- DocstringExample
+  description: 'or as a lambda-function:'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> L = csgraph.laplacian(G, form="function")'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> L
+    <function _laplace.<locals>.<lambda> at 0x0000012AE6F5A598>
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> L(np.eye(3))
+    array([[ 2., -1., -1.],
+           [-1.,  2., -1.],
+           [-1., -1.,  2.]])
+- DocstringExample
+  description: |
     The Laplacian matrix is used for
     spectral data clustering and embedding
     as well as for spectral graph partitioning.
     Our final example illustrates the latter
     for a noisy directed linear graph.
-    
   kind: examples
   key: 'examples'
-  snippet: '>>> L(np.eye(3))'
+  snippet: '>>> from scipy.sparse import diags_array, random_array'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from scipy.sparse.linalg import lobpcg'
 - DocstringExample
   description: |
-    
     Create a directed linear graph with ``N=35`` vertices
     using a sparse adjacency matrix ``G``:
-    
   kind: examples
   key: 'examples'
-  snippet: |
-    >>> from scipy.sparse import diags_array, random_array
-    >>> from scipy.sparse.linalg import lobpcg
+  snippet: '>>> N = 35'
 - DocstringExample
-  description: |
-    
-    Fix a random seed ``rng`` and add a random sparse noise to the graph ``G``:
-    
   kind: examples
   key: 'examples'
-  snippet: |
-    >>> N = 35
-    >>> G = diags_array(np.ones(N - 1), offsets=1, format="csr")
+  snippet: '>>> G = diags_array(np.ones(N - 1), offsets=1, format="csr")'
 - DocstringExample
-  description: |
-    
-    Set initial approximations for eigenvectors:
-    
+  description: 'Fix a random seed ``rng`` and add a random sparse noise to the graph ``G``:'
   kind: examples
   key: 'examples'
-  snippet: |
-    >>> rng = np.random.default_rng()
-    >>> G += 1e-2 * random_array((N, N), density=0.1, rng=rng)
+  snippet: '>>> rng = np.random.default_rng()'
 - DocstringExample
-  description: |
-    
-    The constant vector of ones is always a trivial eigenvector
-    of the non-normalized Laplacian to be filtered out:
-    
+  kind: examples
+  key: 'examples'
+  snippet: '>>> G += 1e-2 * random_array((N, N), density=0.1, rng=rng)'
+- DocstringExample
+  description: 'Set initial approximations for eigenvectors:'
   kind: examples
   key: 'examples'
   snippet: '>>> X = rng.random((N, 2))'
 - DocstringExample
   description: |
-    
+    The constant vector of ones is always a trivial eigenvector
+    of the non-normalized Laplacian to be filtered out:
+  kind: examples
+  key: 'examples'
+  snippet: '>>> Y = np.ones((N, 1))'
+- DocstringExample
+  description: |
     Alternating (1) the sign of the graph weights allows determining
     labels for spectral max- and min- cuts in a single loop.
     Since the graph is undirected, the option ``symmetrized=True``
@@ -793,12 +797,10 @@ style: numpydoc
     that determines the labels as the signs of its components in (5).
     Since the sign in an eigenvector is not deterministic and can flip,
     we fix the sign of the first component to be always +1 in (4).
-    
   kind: examples
   key: 'examples'
-  snippet: '>>> Y = np.ones((N, 1))'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> for cut in ["max", "min"]:
     ...     G = -G  # 1.
     ...     L = csgraph.laplacian(G, symmetrized=True, form="lo")  # 2.
     ...     _, eves = lobpcg(L, X, Y=Y, largest=False, tol=1e-2)  # 3.
@@ -808,7 +810,8 @@ style: numpydoc
     [1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1]
     min-cut labels:
     [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
-    
+- DocstringExample
+  description: |
     As anticipated for a (slightly noisy) linear graph,
     the max-cut strips all the edges of the graph coloring all
     odd vertices into one color and all even vertices into another one,
@@ -817,7 +820,6 @@ style: numpydoc
     Both determined partitions are optimal.
   kind: examples
   key: 'examples'
-  snippet: '>>> for cut in ["max", "min"]:'
 === detect
 numpydoc
 === compose numpydoc

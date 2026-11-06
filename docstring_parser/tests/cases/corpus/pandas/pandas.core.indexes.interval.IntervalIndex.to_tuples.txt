@@ -59,17 +59,21 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: "IntervalIndex([(0, 1], (1, 2]], dtype='interval[int64, right]')"
+  kind: examples
+  key: 'examples'
+  snippet: '>>> idx = pd.interval_range(start=0, end=2)'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> idx = pd.interval_range(start=0, end=2)
     >>> idx
+    IntervalIndex([(0, 1], (1, 2]], dtype='interval[int64, right]')
 - DocstringExample
-  description: "Index([(0, 1), (1, 2)], dtype='object')"
   kind: examples
   key: 'examples'
-  snippet: '>>> idx.to_tuples()'
+  snippet: |
+    >>> idx.to_tuples()
+    Index([(0, 1), (1, 2)], dtype='object')
 === detect
 numpydoc
 === compose numpydoc

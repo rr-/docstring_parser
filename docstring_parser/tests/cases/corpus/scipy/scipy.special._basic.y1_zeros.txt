@@ -125,73 +125,108 @@ style: numpydoc
   description: |
     Compute the first 4 real roots and the derivatives at the roots of
     :math:`Y_1`:
-    
   kind: examples
   key: 'examples'
+  snippet: '>>> import numpy as np'
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from scipy.special import y1_zeros'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> zeros, grads = y1_zeros(4)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> with np.printoptions(precision=5):
     ...     print(f"Roots: {zeros}")
     ...     print(f"Gradients: {grads}")
     Roots: [ 2.19714+0.j  5.42968+0.j  8.59601+0.j 11.74915+0.j]
     Gradients: [ 0.52079+0.j -0.34032+0.j  0.27146+0.j -0.23246+0.j]
-    
-    Extract the real parts:
-    
-  kind: examples
-  key: 'examples'
-  snippet: |
-    >>> import numpy as np
-    >>> from scipy.special import y1_zeros
-    >>> zeros, grads = y1_zeros(4)
-    >>> with np.printoptions(precision=5):
 - DocstringExample
-  description: |
-    array([ 2.19714133,  5.42968104,  8.59600587, 11.74915483])
-    
-    Plot :math:`Y_1` and the first four computed roots.
-    
+  description: 'Extract the real parts:'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> realzeros = zeros.real'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> realzeros = zeros.real
     >>> realzeros
+    array([ 2.19714133,  5.42968104,  8.59600587, 11.74915483])
 - DocstringExample
-  description: "...            label=r'$Y_1$_zeros', zorder=5)"
+  description: 'Plot :math:`Y_1` and the first four computed roots.'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import matplotlib.pyplot as plt'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from scipy.special import y1'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> xmin = 0'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> xmax = 13'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> x = np.linspace(xmin, xmax, 500)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> zeros, grads = y1_zeros(4)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> fig, ax = plt.subplots()'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: ">>> ax.hlines(0, xmin, xmax, color='k')"
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: ">>> ax.plot(x, y1(x), label=r'$Y_1$')"
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import matplotlib.pyplot as plt
-    >>> from scipy.special import y1
-    >>> xmin = 0
-    >>> xmax = 13
-    >>> x = np.linspace(xmin, xmax, 500)
-    >>> zeros, grads = y1_zeros(4)
-    >>> fig, ax = plt.subplots()
-    >>> ax.hlines(0, xmin, xmax, color='k')
-    >>> ax.plot(x, y1(x), label=r'$Y_1$')
     >>> ax.scatter(zeros.real, np.zeros((4, )), s=30, c='r',
+    ...            label=r'$Y_1$_zeros', zorder=5)
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> ax.set_ylim(-0.5, 0.5)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> ax.set_xlim(xmin, xmax)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> plt.legend()'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> plt.show()'
 - DocstringExample
   description: |
-    
     Compute the first 4 complex roots and the derivatives at the roots of
     :math:`Y_1` by setting ``complex=True``:
-    
   kind: examples
   key: 'examples'
   snippet: |
-    >>> ax.set_ylim(-0.5, 0.5)
-    >>> ax.set_xlim(xmin, xmax)
-    >>> plt.legend()
-    >>> plt.show()
-- DocstringExample
-  description: |
+    >>> y1_zeros(4, True)
     (array([ -0.50274327+0.78624371j,  -3.83353519+0.56235654j,
              -7.01590368+0.55339305j, -10.17357383+0.55127339j]),
      array([-0.45952768+1.31710194j,  0.04830191-0.69251288j,
             -0.02012695+0.51864253j,  0.011614  -0.43203296j]))
-  kind: examples
-  key: 'examples'
-  snippet: '>>> y1_zeros(4, True)'
 === detect
 numpydoc
 === compose numpydoc

@@ -41,27 +41,27 @@ blank_after_short_description: True
 blank_after_long_description: True
 style: numpydoc
 - DocstringExample
-  description: ''
   kind: examples
   key: 'examples'
   snippet: '>>> import numpy as np'
 - DocstringExample
-  description: |
-    ...     np.array([2.0]) / 3
-    array([0.67])
-    
-    The `as`-clause of the `with`-statement gives the current print options:
-    
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from numpy.testing import assert_equal'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> from numpy.testing import assert_equal
     >>> with np.printoptions(precision=2):
+    ...     np.array([2.0]) / 3
+    array([0.67])
 - DocstringExample
-  description: '...      assert_equal(opts, np.get_printoptions())'
+  description: 'The `as`-clause of the `with`-statement gives the current print options:'
   kind: examples
   key: 'examples'
-  snippet: '>>> with np.printoptions(precision=2) as opts:'
+  snippet: |
+    >>> with np.printoptions(precision=2) as opts:
+    ...      assert_equal(opts, np.get_printoptions())
 - DocstringMeta
   description: 'set_printoptions, get_printoptions'
   kind: text

@@ -81,12 +81,15 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: 'array([23.,  28.,  46.,  12.,   9.])'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from numpy.polynomial.hermite_e import hermepow'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> from numpy.polynomial.hermite_e import hermepow
     >>> hermepow([1, 2, 3], 2)
+    array([23.,  28.,  46.,  12.,   9.])
 === detect
 numpydoc
 === compose numpydoc

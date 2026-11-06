@@ -61,48 +61,63 @@ style: numpydoc
   is_generator: False
   return_name: 'Y'
 - DocstringExample
-  description: |
-    Suppose we have a normally distributed random variable :math:`X`:
-    
+  description: 'Suppose we have a normally distributed random variable :math:`X`:'
   kind: examples
   key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from scipy import stats'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> X = stats.Normal()'
 - DocstringExample
   description: |
-    
     We wish to have a lognormally distributed random variable :math:`Y`,
     a random variable whose natural logarithm is :math:`X`.
     If :math:`X` is to be the natural logarithm of :math:`Y`, then we
     must take :math:`Y` to be the natural exponential of :math:`X`.
-    
-  kind: examples
-  key: 'examples'
-  snippet: |
-    >>> import numpy as np
-    >>> from scipy import stats
-    >>> X = stats.Normal()
-- DocstringExample
-  description: |
-    
-    To demonstrate that ``X`` represents the logarithm of ``Y``,
-    we plot a normalized histogram of the logarithm of observations of
-    ``Y`` against the PDF underlying ``X``.
-    
   kind: examples
   key: 'examples'
   snippet: '>>> Y = stats.exp(X)'
 - DocstringExample
-  description: ''
+  description: |
+    To demonstrate that ``X`` represents the logarithm of ``Y``,
+    we plot a normalized histogram of the logarithm of observations of
+    ``Y`` against the PDF underlying ``X``.
   kind: examples
   key: 'examples'
-  snippet: |
-    >>> import matplotlib.pyplot as plt
-    >>> rng = np.random.default_rng(435383595582522)
-    >>> y = Y.sample(shape=10000, rng=rng)
-    >>> ax = plt.gca()
-    >>> ax.hist(np.log(y), bins=50, density=True)
-    >>> X.plot(ax=ax)
-    >>> plt.legend(('PDF of `X`', 'histogram of `log(y)`'))
-    >>> plt.show()
+  snippet: '>>> import matplotlib.pyplot as plt'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> rng = np.random.default_rng(435383595582522)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> y = Y.sample(shape=10000, rng=rng)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> ax = plt.gca()'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> ax.hist(np.log(y), bins=50, density=True)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> X.plot(ax=ax)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: ">>> plt.legend(('PDF of `X`', 'histogram of `log(y)`'))"
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> plt.show()'
 === detect
 numpydoc
 === compose numpydoc

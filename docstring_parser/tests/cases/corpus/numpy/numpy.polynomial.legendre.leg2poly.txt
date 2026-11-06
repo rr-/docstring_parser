@@ -84,25 +84,35 @@ style: numpydoc
   kind: text
   key: 'notes'
 - DocstringExample
-  description: "Legendre([0., 1., 2., 3.], domain=[-1.,  1.], window=[-1.,  1.], symbol='x')"
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from numpy import polynomial as P'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> c = P.Legendre(range(4))'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> from numpy import polynomial as P
-    >>> c = P.Legendre(range(4))
     >>> c
+    Legendre([0., 1., 2., 3.], domain=[-1.,  1.], window=[-1.,  1.], symbol='x')
 - DocstringExample
-  description: 'Polynomial([-1. , -3.5,  3. ,  7.5], domain=[-1.,  1.], window=[-1., ...'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> p = c.convert(kind=P.Polynomial)'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> p = c.convert(kind=P.Polynomial)
     >>> p
+    Polynomial([-1. , -3.5,  3. ,  7.5], domain=[-1.,  1.], window=[-1., ...
 - DocstringExample
-  description: 'array([-1. , -3.5,  3. ,  7.5])'
   kind: examples
   key: 'examples'
-  snippet: '>>> P.legendre.leg2poly(range(4))'
+  snippet: |
+    >>> P.legendre.leg2poly(range(4))
+    array([-1. , -3.5,  3. ,  7.5])
 === detect
 numpydoc
 === compose numpydoc

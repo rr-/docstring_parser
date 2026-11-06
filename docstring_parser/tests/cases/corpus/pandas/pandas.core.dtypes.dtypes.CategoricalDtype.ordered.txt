@@ -33,21 +33,25 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: |
-    True
-    
   kind: examples
   key: 'examples'
-  snippet: |
-    >>> cat_type = pd.CategoricalDtype(categories=["a", "b"], ordered=True)
-    >>> cat_type.ordered
+  snippet: '>>> cat_type = pd.CategoricalDtype(categories=["a", "b"], ordered=True)'
 - DocstringExample
-  description: 'False'
   kind: examples
   key: 'examples'
   snippet: |
-    >>> cat_type = pd.CategoricalDtype(categories=["a", "b"], ordered=False)
     >>> cat_type.ordered
+    True
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> cat_type = pd.CategoricalDtype(categories=["a", "b"], ordered=False)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> cat_type.ordered
+    False
 === detect
 numpydoc
 === compose numpydoc
@@ -61,7 +65,6 @@ Examples
 >>> cat_type = pd.CategoricalDtype(categories=["a", "b"], ordered=True)
 >>> cat_type.ordered
 True
-
 >>> cat_type = pd.CategoricalDtype(categories=["a", "b"], ordered=False)
 >>> cat_type.ordered
 False

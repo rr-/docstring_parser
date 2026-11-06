@@ -209,7 +209,10 @@ style: numpydoc
   kind: text
   key: 'notes'
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> df1 = pd.DataFrame(
     ...     [
     ...         [24.3, 75.7, "high"],
     ...         [31, 87.8, "high"],
@@ -219,51 +222,44 @@ style: numpydoc
     ...     columns=["temp_celsius", "temp_fahrenheit", "windspeed"],
     ...     index=pd.date_range(start="2014-02-12", end="2014-02-15", freq="D"),
     ... )
-    
+- DocstringExample
   kind: examples
   key: 'examples'
-  snippet: '>>> df1 = pd.DataFrame('
-- DocstringExample
-  description: |
+  snippet: |
+    >>> df1
                 temp_celsius  temp_fahrenheit windspeed
     2014-02-12          24.3             75.7      high
     2014-02-13          31.0             87.8      high
     2014-02-14          22.0             71.6    medium
     2014-02-15          35.0             95.0    medium
-    
+- DocstringExample
   kind: examples
   key: 'examples'
-  snippet: '>>> df1'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> df2 = pd.DataFrame(
     ...     [[28, "low"], [30, "low"], [35.1, "medium"]],
     ...     columns=["temp_celsius", "windspeed"],
     ...     index=pd.DatetimeIndex(["2014-02-12", "2014-02-13", "2014-02-15"]),
     ... )
-    
+- DocstringExample
   kind: examples
   key: 'examples'
-  snippet: '>>> df2 = pd.DataFrame('
-- DocstringExample
-  description: |
+  snippet: |
+    >>> df2
                 temp_celsius windspeed
     2014-02-12          28.0       low
     2014-02-13          30.0       low
     2014-02-15          35.1    medium
-    
+- DocstringExample
   kind: examples
   key: 'examples'
-  snippet: '>>> df2'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> df2.reindex_like(df1)
                 temp_celsius  temp_fahrenheit windspeed
     2014-02-12          28.0              NaN       low
     2014-02-13          30.0              NaN       low
     2014-02-14           NaN              NaN       NaN
     2014-02-15          35.1              NaN    medium
-  kind: examples
-  key: 'examples'
-  snippet: '>>> df2.reindex_like(df1)'
 === detect
 numpydoc
 === compose numpydoc
@@ -333,26 +329,22 @@ Examples
 ...     columns=["temp_celsius", "temp_fahrenheit", "windspeed"],
 ...     index=pd.date_range(start="2014-02-12", end="2014-02-15", freq="D"),
 ... )
-
 >>> df1
             temp_celsius  temp_fahrenheit windspeed
 2014-02-12          24.3             75.7      high
 2014-02-13          31.0             87.8      high
 2014-02-14          22.0             71.6    medium
 2014-02-15          35.0             95.0    medium
-
 >>> df2 = pd.DataFrame(
 ...     [[28, "low"], [30, "low"], [35.1, "medium"]],
 ...     columns=["temp_celsius", "windspeed"],
 ...     index=pd.DatetimeIndex(["2014-02-12", "2014-02-13", "2014-02-15"]),
 ... )
-
 >>> df2
             temp_celsius windspeed
 2014-02-12          28.0       low
 2014-02-13          30.0       low
 2014-02-15          35.1    medium
-
 >>> df2.reindex_like(df1)
             temp_celsius  temp_fahrenheit windspeed
 2014-02-12          28.0              NaN       low

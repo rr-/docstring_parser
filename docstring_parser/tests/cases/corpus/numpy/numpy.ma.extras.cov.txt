@@ -159,7 +159,22 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> x = np.ma.array([[0, 1], [1, 1]], mask=[0, 1, 0, 1])'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> y = np.ma.array([[1, 0], [0, 1]], mask=[0, 0, 1, 1])'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> np.ma.cov(x, y)
     masked_array(
     data=[[--, --, --, --],
           [--, --, --, --],
@@ -171,13 +186,6 @@ style: numpydoc
           [ True,  True,  True,  True]],
     fill_value=1e+20,
     dtype=float64)
-  kind: examples
-  key: 'examples'
-  snippet: |
-    >>> import numpy as np
-    >>> x = np.ma.array([[0, 1], [1, 1]], mask=[0, 1, 0, 1])
-    >>> y = np.ma.array([[1, 0], [0, 1]], mask=[0, 0, 1, 1])
-    >>> np.ma.cov(x, y)
 === detect
 numpydoc
 === compose numpydoc

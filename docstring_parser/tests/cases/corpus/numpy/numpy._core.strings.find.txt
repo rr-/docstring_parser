@@ -72,13 +72,19 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: 'array([11])'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> a = np.array(["NumPy is a Python library"])'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import numpy as np
-    >>> a = np.array(["NumPy is a Python library"])
     >>> np.strings.find(a, "Python")
+    array([11])
 === detect
 numpydoc
 === compose numpydoc

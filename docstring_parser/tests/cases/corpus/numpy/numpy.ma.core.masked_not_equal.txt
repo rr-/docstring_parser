@@ -36,22 +36,31 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: 'array([0, 1, 2, 3])'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy.ma as ma'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> a = np.arange(4)'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import numpy as np
-    >>> import numpy.ma as ma
-    >>> a = np.arange(4)
     >>> a
+    array([0, 1, 2, 3])
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> ma.masked_not_equal(a, 2)
     masked_array(data=[--, --, 2, --],
                  mask=[ True,  True, False,  True],
            fill_value=999999)
-  kind: examples
-  key: 'examples'
-  snippet: '>>> ma.masked_not_equal(a, 2)'
 === detect
 numpydoc
 === compose numpydoc

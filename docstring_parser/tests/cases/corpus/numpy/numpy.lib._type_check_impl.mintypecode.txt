@@ -96,26 +96,31 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: "'d'"
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import numpy as np
     >>> np.mintypecode(['d', 'f', 'S'])
+    'd'
 - DocstringExample
-  description: |
-    'D'
-    
+  kind: examples
+  key: 'examples'
+  snippet: '>>> x = np.array([1.1, 2-3.j])'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> x = np.array([1.1, 2-3.j])
     >>> np.mintypecode(x)
+    'D'
 - DocstringExample
-  description: "'G'"
   kind: examples
   key: 'examples'
-  snippet: ">>> np.mintypecode('abceh', default='G')"
+  snippet: |
+    >>> np.mintypecode('abceh', default='G')
+    'G'
 === detect
 numpydoc
 === compose numpydoc
@@ -152,7 +157,6 @@ Examples
 >>> x = np.array([1.1, 2-3.j])
 >>> np.mintypecode(x)
 'D'
-
 >>> np.mintypecode('abceh', default='G')
 'G'
 

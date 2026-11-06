@@ -93,18 +93,23 @@ style: numpydoc
   description: |
     We can calculate B-Spline basis functions approximated by a Gaussian
     distribution:
-    
   kind: examples
   key: 'examples'
+  snippet: '>>> import numpy as np'
 - DocstringExample
-  description: 'array([0.15418033, 0.6909883, 0.15418033])  # may vary'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from scipy.signal import gauss_spline'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> knots = np.array([-1.0, 0.0, -1.0])'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import numpy as np
-    >>> from scipy.signal import gauss_spline
-    >>> knots = np.array([-1.0, 0.0, -1.0])
     >>> gauss_spline(knots, 3)
+    array([0.15418033, 0.6909883, 0.15418033])  # may vary
 === detect
 numpydoc
 === compose numpydoc

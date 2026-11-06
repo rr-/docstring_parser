@@ -4,6 +4,7 @@ import typing as T
 
 from .common import (
     Docstring,
+    DocstringExample,
     DocstringMeta,
     Kind,
     meta_as_attribute,
@@ -101,3 +102,22 @@ def description_lines(docstring: Docstring) -> T.List[str]:
     if docstring.blank_after_long_description:
         parts.append("")
     return parts
+
+
+def examples_text(examples: T.Sequence[DocstringExample]) -> str:
+    """Write examples as doctest reads them back: each one's text, a blank
+    line, then its snippet.
+
+    A blank line ends a snippet's expected output, so one goes before an
+    example's text. A snippet with no text follows the last one directly,
+    as its ``>>>`` already ends that output.
+    """
+    text = ""
+    for example in examples:
+        if example.description:
+            text += ("\n\n" if text else "") + example.description
+            if example.snippet:
+                text += "\n\n" + example.snippet
+        elif example.snippet:
+            text += ("\n" if text else "") + example.snippet
+    return text

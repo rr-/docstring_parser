@@ -21,9 +21,9 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: google
 - DocstringExample
-  description: '>>> filename = Prompt.ask("Enter a filename")'
   kind: examples
   key: 'examples'
+  snippet: '>>> filename = Prompt.ask("Enter a filename")'
 - DocstringParam
   description: 'Prompt text. Defaults to "".'
   kind: param

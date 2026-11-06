@@ -74,12 +74,15 @@ style: numpydoc
   kind: text
   key: 'notes'
 - DocstringExample
-  description: 'array([0., 0., 0., 4.])'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from numpy.polynomial.hermite_e import hermesub'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> from numpy.polynomial.hermite_e import hermesub
     >>> hermesub([1, 2, 3, 4], [1, 2, 3])
+    array([0., 0., 0., 4.])
 === detect
 numpydoc
 === compose numpydoc

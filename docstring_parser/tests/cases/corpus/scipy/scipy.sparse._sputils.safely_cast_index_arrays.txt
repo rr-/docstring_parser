@@ -128,33 +128,55 @@ style: numpydoc
   key: 'raises'
   type_name: 'ValueError'
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from scipy import sparse'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> data = [3]'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> coords = (np.array([3]), np.array([1]))  # Note: int64 arrays'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> A = sparse.coo_array((data, coords))'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> A.coords[0].dtype
     dtype('int64')
-    
-  kind: examples
-  key: 'examples'
-  snippet: |
-    >>> import numpy as np
-    >>> from scipy import sparse
-    >>> data = [3]
-    >>> coords = (np.array([3]), np.array([1]))  # Note: int64 arrays
-    >>> A = sparse.coo_array((data, coords))
-    >>> A.coords[0].dtype
 - DocstringExample
-  description: 'False'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> # rescast after construction, raising exception if shape too big'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> coords = sparse.safely_cast_index_arrays(A, np.int32)'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> # rescast after construction, raising exception if shape too big
-    >>> coords = sparse.safely_cast_index_arrays(A, np.int32)
     >>> A.coords[0] is coords[0]  # False if casting is needed
+    False
 - DocstringExample
-  description: "dtype('int32')"
+  kind: examples
+  key: 'examples'
+  snippet: '>>> A.coords = coords  # set the index dtype of A'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> A.coords = coords  # set the index dtype of A
     >>> A.coords[0].dtype
+    dtype('int32')
 === detect
 numpydoc
 === compose numpydoc
@@ -210,7 +232,6 @@ Examples
 >>> A = sparse.coo_array((data, coords))
 >>> A.coords[0].dtype
 dtype('int64')
-
 >>> # rescast after construction, raising exception if shape too big
 >>> coords = sparse.safely_cast_index_arrays(A, np.int32)
 >>> A.coords[0] is coords[0]  # False if casting is needed

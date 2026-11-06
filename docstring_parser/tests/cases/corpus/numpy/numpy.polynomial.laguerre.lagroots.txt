@@ -98,18 +98,25 @@ style: numpydoc
   kind: text
   key: 'notes'
 - DocstringExample
-  description: 'array([  2.,  -8.,  12.,  -6.])'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from numpy.polynomial.laguerre import lagroots, lagfromroots'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> coef = lagfromroots([0, 1, 2])'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> from numpy.polynomial.laguerre import lagroots, lagfromroots
-    >>> coef = lagfromroots([0, 1, 2])
     >>> coef
+    array([  2.,  -8.,  12.,  -6.])
 - DocstringExample
-  description: 'array([-4.4408921e-16,  1.0000000e+00,  2.0000000e+00])'
   kind: examples
   key: 'examples'
-  snippet: '>>> lagroots(coef)'
+  snippet: |
+    >>> lagroots(coef)
+    array([-4.4408921e-16,  1.0000000e+00,  2.0000000e+00])
 === detect
 numpydoc
 === compose numpydoc

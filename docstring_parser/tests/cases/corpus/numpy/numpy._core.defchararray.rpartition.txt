@@ -81,16 +81,21 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: |
-    array([['aAaAa', 'A', ''],
-       ['  a', 'A', '  '],
-       ['abB', 'A', 'Bba']], dtype='<U5')
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: ">>> a = np.array(['aAaAaA', '  aA  ', 'abBABba'])"
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import numpy as np
-    >>> a = np.array(['aAaAaA', '  aA  ', 'abBABba'])
     >>> np.char.rpartition(a, 'A')
+    array([['aAaAa', 'A', ''],
+       ['  a', 'A', '  '],
+       ['abB', 'A', 'Bba']], dtype='<U5')
 === detect
 numpydoc
 === compose numpydoc

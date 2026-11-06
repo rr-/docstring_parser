@@ -155,73 +155,84 @@ style: numpydoc
   kind: text
   key: 'references'
 - DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from scipy.sparse.linalg._special_sparse_arrays import Sakurai'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from scipy.linalg import eig_banded'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> n = 6'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> sak = Sakurai(n)'
+- DocstringExample
   description: |
-    
     Since all matrix entries are small integers, ``'int8'`` is
     the default dtype for storing matrix representations.
-    
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import numpy as np
-    >>> from scipy.sparse.linalg._special_sparse_arrays import Sakurai
-    >>> from scipy.linalg import eig_banded
-    >>> n = 6
-    >>> sak = Sakurai(n)
-- DocstringExample
-  description: |
+    >>> sak.toarray()
     array([[ 5, -4,  1,  0,  0,  0],
            [-4,  6, -4,  1,  0,  0],
            [ 1, -4,  6, -4,  1,  0],
            [ 0,  1, -4,  6, -4,  1],
            [ 0,  0,  1, -4,  6, -4],
            [ 0,  0,  0,  1, -4,  5]], dtype=int8)
-  kind: examples
-  key: 'examples'
-  snippet: '>>> sak.toarray()'
 - DocstringExample
-  description: |
-    array([[ 1,  1,  1,  1,  1,  1],
-           [-4, -4, -4, -4, -4, -4],
-           [ 5,  6,  6,  6,  6,  5]], dtype=int8)
-  kind: examples
-  key: 'examples'
-  snippet: '>>> sak.tobanded()'
-- DocstringExample
-  description: |
-    <DIAgonal sparse array of dtype 'int8'
-        with 24 stored elements (5 diagonals) and shape (6, 6)>
-  kind: examples
-  key: 'examples'
-  snippet: '>>> sak.tosparse()'
-- DocstringExample
-  description: 'True'
-  kind: examples
-  key: 'examples'
-  snippet: '>>> np.array_equal(sak.dot(np.eye(n)), sak.tosparse().toarray())'
-- DocstringExample
-  description: |
-    array([0.03922866, 0.56703972, 2.41789479, 5.97822974,
-           10.54287655, 14.45473055])
-  kind: examples
-  key: 'examples'
-  snippet: '>>> sak.eigenvalues()'
-- DocstringExample
-  description: |
-    array([0.03922866, 0.56703972])
-    
-    The banded form can be used in scipy functions for banded matrices, e.g.,
-    
-  kind: examples
-  key: 'examples'
-  snippet: '>>> sak.eigenvalues(2)'
-- DocstringExample
-  description: 'True'
   kind: examples
   key: 'examples'
   snippet: |
-    >>> e = eig_banded(sak.tobanded(), eigvals_only=True)
+    >>> sak.tobanded()
+    array([[ 1,  1,  1,  1,  1,  1],
+           [-4, -4, -4, -4, -4, -4],
+           [ 5,  6,  6,  6,  6,  5]], dtype=int8)
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> sak.tosparse()
+    <DIAgonal sparse array of dtype 'int8'
+        with 24 stored elements (5 diagonals) and shape (6, 6)>
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> np.array_equal(sak.dot(np.eye(n)), sak.tosparse().toarray())
+    True
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> sak.eigenvalues()
+    array([0.03922866, 0.56703972, 2.41789479, 5.97822974,
+           10.54287655, 14.45473055])
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> sak.eigenvalues(2)
+    array([0.03922866, 0.56703972])
+- DocstringExample
+  description: 'The banded form can be used in scipy functions for banded matrices, e.g.,'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> e = eig_banded(sak.tobanded(), eigvals_only=True)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
     >>> np.allclose(sak.eigenvalues(), e, atol= n * n * n * np.finfo(float).eps)
+    True
 === detect
 numpydoc
 === compose numpydoc

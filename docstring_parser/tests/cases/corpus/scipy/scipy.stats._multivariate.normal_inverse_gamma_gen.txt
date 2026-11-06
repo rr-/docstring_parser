@@ -202,82 +202,123 @@ style: numpydoc
   description: |
     Suppose we wish to investigate the relationship between the
     normal-inverse-gamma distribution and the inverse gamma distribution.
-    
   kind: examples
   key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from scipy import stats'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import matplotlib.pyplot as plt'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> rng = np.random.default_rng(527484872345)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> mu, lmbda, a, b = 0, 1, 20, 20'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> norm_inv_gamma = stats.normal_inverse_gamma(mu, lmbda, a, b)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> inv_gamma = stats.invgamma(a, scale=b)'
 - DocstringExample
   description: |
-    
     One approach is to compare the distribution of the `s2` elements of
     random variates against the PDF of an inverse gamma distribution.
-    
   kind: examples
   key: 'examples'
-  snippet: |
-    >>> import numpy as np
-    >>> from scipy import stats
-    >>> import matplotlib.pyplot as plt
-    >>> rng = np.random.default_rng(527484872345)
-    >>> mu, lmbda, a, b = 0, 1, 20, 20
-    >>> norm_inv_gamma = stats.normal_inverse_gamma(mu, lmbda, a, b)
-    >>> inv_gamma = stats.invgamma(a, scale=b)
+  snippet: '>>> _, s2 = norm_inv_gamma.rvs(size=10000, random_state=rng)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> bins = np.linspace(s2.min(), s2.max(), 50)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: ">>> plt.hist(s2, bins=bins, density=True, label='Frequency density')"
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> s2 = np.linspace(s2.min(), s2.max(), 300)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: ">>> plt.plot(s2, inv_gamma.pdf(s2), label='PDF')"
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: ">>> plt.xlabel(r'$\\sigma^2$')"
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: ">>> plt.ylabel('Frequency density / PMF')"
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> plt.show()'
 - DocstringExample
   description: |
-    
     Similarly, we can compare the marginal distribution of `s2` against
     an inverse gamma distribution.
-    
   kind: examples
   key: 'examples'
-  snippet: |
-    >>> _, s2 = norm_inv_gamma.rvs(size=10000, random_state=rng)
-    >>> bins = np.linspace(s2.min(), s2.max(), 50)
-    >>> plt.hist(s2, bins=bins, density=True, label='Frequency density')
-    >>> s2 = np.linspace(s2.min(), s2.max(), 300)
-    >>> plt.plot(s2, inv_gamma.pdf(s2), label='PDF')
-    >>> plt.xlabel(r'$\sigma^2$')
-    >>> plt.ylabel('Frequency density / PMF')
-    >>> plt.show()
+  snippet: '>>> from scipy.integrate import quad_vec'
 - DocstringExample
-  description: |
-    True
-    
-    The sample mean is comparable to the mean of the distribution.
-    
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from scipy import integrate'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> s2 = np.linspace(0.5, 3, 6)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> res = quad_vec(lambda x: norm_inv_gamma.pdf(x, s2), -np.inf, np.inf)[0]'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> from scipy.integrate import quad_vec
-    >>> from scipy import integrate
-    >>> s2 = np.linspace(0.5, 3, 6)
-    >>> res = quad_vec(lambda x: norm_inv_gamma.pdf(x, s2), -np.inf, np.inf)[0]
     >>> np.allclose(res, inv_gamma.pdf(s2))
+    True
 - DocstringExample
-  description: '(np.float64(-0.005254750127304425), np.float64(1.050438111436508))'
+  description: 'The sample mean is comparable to the mean of the distribution.'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> x, s2 = norm_inv_gamma.rvs(size=10000, random_state=rng)'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> x, s2 = norm_inv_gamma.rvs(size=10000, random_state=rng)
     >>> x.mean(), s2.mean()
+    (np.float64(-0.005254750127304425), np.float64(1.050438111436508))
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> norm_inv_gamma.mean()
     (np.float64(0.0), np.float64(1.0526315789473684))
-    
-    Similarly, for the variance:
-    
-  kind: examples
-  key: 'examples'
-  snippet: '>>> norm_inv_gamma.mean()'
 - DocstringExample
-  description: '(np.float64(1.0546150578185023), np.float64(0.061829865266330754))'
+  description: 'Similarly, for the variance:'
   kind: examples
   key: 'examples'
-  snippet: '>>> x.var(ddof=1), s2.var(ddof=1)'
+  snippet: |
+    >>> x.var(ddof=1), s2.var(ddof=1)
+    (np.float64(1.0546150578185023), np.float64(0.061829865266330754))
 - DocstringExample
-  description: '(np.float64(1.0526315789473684), np.float64(0.061557402277623886))'
   kind: examples
   key: 'examples'
-  snippet: '>>> norm_inv_gamma.var()'
+  snippet: |
+    >>> norm_inv_gamma.var()
+    (np.float64(1.0526315789473684), np.float64(0.061557402277623886))
 === detect
 numpydoc
 === compose numpydoc

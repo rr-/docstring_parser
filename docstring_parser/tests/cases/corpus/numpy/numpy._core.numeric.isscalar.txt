@@ -139,61 +139,60 @@ style: numpydoc
   kind: text
   key: 'notes'
 - DocstringExample
-  description: ''
   kind: examples
   key: 'examples'
   snippet: '>>> import numpy as np'
 - DocstringExample
-  description: |
-    True
-    
-  kind: examples
-  key: 'examples'
-  snippet: '>>> np.isscalar(3.1)'
-- DocstringExample
-  description: |
-    False
-    
-  kind: examples
-  key: 'examples'
-  snippet: '>>> np.isscalar(np.array(3.1))'
-- DocstringExample
-  description: |
-    False
-    
-  kind: examples
-  key: 'examples'
-  snippet: '>>> np.isscalar([3.1])'
-- DocstringExample
-  description: |
-    True
-    
-  kind: examples
-  key: 'examples'
-  snippet: '>>> np.isscalar(False)'
-- DocstringExample
-  description: |
-    True
-    
-    NumPy supports PEP 3141 numbers:
-    
-  kind: examples
-  key: 'examples'
-  snippet: ">>> np.isscalar('numpy')"
-- DocstringExample
-  description: 'True'
   kind: examples
   key: 'examples'
   snippet: |
-    >>> from fractions import Fraction
+    >>> np.isscalar(3.1)
+    True
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> np.isscalar(np.array(3.1))
+    False
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> np.isscalar([3.1])
+    False
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> np.isscalar(False)
+    True
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> np.isscalar('numpy')
+    True
+- DocstringExample
+  description: 'NumPy supports PEP 3141 numbers:'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from fractions import Fraction'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
     >>> np.isscalar(Fraction(5, 17))
+    True
 - DocstringExample
-  description: 'True'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from numbers import Number'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> from numbers import Number
     >>> np.isscalar(Number())
+    True
 === detect
 numpydoc
 === compose numpydoc
@@ -214,16 +213,12 @@ Examples
 >>> import numpy as np
 >>> np.isscalar(3.1)
 True
-
 >>> np.isscalar(np.array(3.1))
 False
-
 >>> np.isscalar([3.1])
 False
-
 >>> np.isscalar(False)
 True
-
 >>> np.isscalar('numpy')
 True
 

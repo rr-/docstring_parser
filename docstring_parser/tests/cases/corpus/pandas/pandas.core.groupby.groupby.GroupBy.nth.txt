@@ -97,80 +97,79 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: |
-    ...     {"A": [1, 1, 2, 1, 2], "B": [np.nan, 2, 3, 4, 5]}, columns=["A", "B"]
-    ... )
-  kind: examples
-  key: 'examples'
-  snippet: '>>> df = pd.DataFrame('
-- DocstringExample
-  description: |
-       A   B
-    0  1 NaN
-    2  2 3.0
   kind: examples
   key: 'examples'
   snippet: |
-    >>> g = df.groupby("A")
-    >>> g.nth(0)
+    >>> df = pd.DataFrame(
+    ...     {"A": [1, 1, 2, 1, 2], "B": [np.nan, 2, 3, 4, 5]}, columns=["A", "B"]
+    ... )
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: '>>> g = df.groupby("A")'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> g.nth(0)
+       A   B
+    0  1 NaN
+    2  2 3.0
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> g.nth(1)
        A   B
     1  1 2.0
     4  2 5.0
+- DocstringExample
   kind: examples
   key: 'examples'
-  snippet: '>>> g.nth(1)'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> g.nth(-1)
        A   B
     3  1 4.0
     4  2 5.0
+- DocstringExample
   kind: examples
   key: 'examples'
-  snippet: '>>> g.nth(-1)'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> g.nth([0, 1])
        A   B
     0  1 NaN
     1  1 2.0
     2  2 3.0
     4  2 5.0
+- DocstringExample
   kind: examples
   key: 'examples'
-  snippet: '>>> g.nth([0, 1])'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> g.nth(slice(None, -1))
        A   B
     0  1 NaN
     1  1 2.0
     2  2 3.0
-    
-    Specifying `dropna` allows ignoring ``NaN`` values
-    
+- DocstringExample
+  description: 'Specifying `dropna` allows ignoring ``NaN`` values'
   kind: examples
   key: 'examples'
-  snippet: '>>> g.nth(slice(None, -1))'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> g.nth(0, dropna="any")
        A   B
     1  1 2.0
     2  2 3.0
-    
-    When the specified ``n`` is larger than any of the groups, an
-    empty DataFrame is returned
-    
-  kind: examples
-  key: 'examples'
-  snippet: '>>> g.nth(0, dropna="any")'
 - DocstringExample
   description: |
+    When the specified ``n`` is larger than any of the groups, an
+    empty DataFrame is returned
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> g.nth(3, dropna="any")
     Empty DataFrame
     Columns: [A, B]
     Index: []
-  kind: examples
-  key: 'examples'
-  snippet: '>>> g.nth(3, dropna="any")'
 === detect
 numpydoc
 === compose numpydoc

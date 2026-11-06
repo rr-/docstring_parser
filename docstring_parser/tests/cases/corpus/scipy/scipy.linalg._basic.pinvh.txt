@@ -160,28 +160,42 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: |
-    For a more detailed example see `pinv`.
-    
+  description: 'For a more detailed example see `pinv`.'
   kind: examples
   key: 'examples'
+  snippet: '>>> import numpy as np'
 - DocstringExample
-  description: 'True'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from scipy.linalg import pinvh'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> rng = np.random.default_rng()'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> a = rng.standard_normal((9, 6))'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> a = np.dot(a, a.T)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> B = pinvh(a)'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import numpy as np
-    >>> from scipy.linalg import pinvh
-    >>> rng = np.random.default_rng()
-    >>> a = rng.standard_normal((9, 6))
-    >>> a = np.dot(a, a.T)
-    >>> B = pinvh(a)
     >>> np.allclose(a, a @ B @ a)
+    True
 - DocstringExample
-  description: 'True'
   kind: examples
   key: 'examples'
-  snippet: '>>> np.allclose(B, B @ a @ B)'
+  snippet: |
+    >>> np.allclose(B, B @ a @ B)
+    True
 === detect
 numpydoc
 === compose numpydoc

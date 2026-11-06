@@ -57,13 +57,19 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: 'array([ True,  True, False])'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: ">>> x1 = np.array(['a', 'b', 'c'])"
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import numpy as np
-    >>> x1 = np.array(['a', 'b', 'c'])
     >>> np.char.less_equal(x1, 'b')
+    array([ True,  True, False])
 === detect
 numpydoc
 === compose numpydoc

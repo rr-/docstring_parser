@@ -191,22 +191,36 @@ style: numpydoc
     element of the path ``(1, 2)``. The resulting tensor is added to the end
     of the contraction and the remaining contraction ``(0, 1)`` is then
     completed.
-    
   kind: examples
   key: 'examples'
+  snippet: '>>> np.random.seed(123)'
 - DocstringExample
-  description: "['einsum_path', (1, 2), (0, 1)]"
+  kind: examples
+  key: 'examples'
+  snippet: '>>> a = np.random.rand(2, 2)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> b = np.random.rand(2, 5)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> c = np.random.rand(5, 2)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: ">>> path_info = np.einsum_path('ij,jk,kl->il', a, b, c, optimize='greedy')"
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> np.random.seed(123)
-    >>> a = np.random.rand(2, 2)
-    >>> b = np.random.rand(2, 5)
-    >>> c = np.random.rand(5, 2)
-    >>> path_info = np.einsum_path('ij,jk,kl->il', a, b, c, optimize='greedy')
     >>> print(path_info[0])
+    ['einsum_path', (1, 2), (0, 1)]
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> print(path_info[1])
       Complete contraction:  ij,jk,kl->il # may vary
              Naive scaling:  4
          Optimized scaling:  3
@@ -219,30 +233,32 @@ style: numpydoc
     -------------------------------------------------------------------------
        3                   kl,jk->jl                                ij,jl->il
        3                   jl,ij->il                                   il->il
-    
-    
-    A more complex index transformation example.
-    
+- DocstringExample
+  description: 'A more complex index transformation example.'
   kind: examples
   key: 'examples'
-  snippet: '>>> print(path_info[1])'
+  snippet: '>>> I = np.random.rand(10, 10, 10, 10)'
 - DocstringExample
-  description: |
-    ...                            optimize='greedy')
-    
+  kind: examples
+  key: 'examples'
+  snippet: '>>> C = np.random.rand(10, 10)'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> I = np.random.rand(10, 10, 10, 10)
-    >>> C = np.random.rand(10, 10)
     >>> path_info = np.einsum_path('ea,fb,abcd,gc,hd->efgh', C, C, I, C, C,
+    ...                            optimize='greedy')
 - DocstringExample
-  description: "['einsum_path', (0, 2), (0, 3), (0, 2), (0, 1)]"
   kind: examples
   key: 'examples'
-  snippet: '>>> print(path_info[0])'
+  snippet: |
+    >>> print(path_info[0])
+    ['einsum_path', (0, 2), (0, 3), (0, 2), (0, 1)]
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> print(path_info[1])
       Complete contraction:  ea,fb,abcd,gc,hd->efgh # may vary
              Naive scaling:  8
          Optimized scaling:  5
@@ -257,9 +273,6 @@ style: numpydoc
        5               bcde,fb->cdef                         gc,hd,cdef->efgh
        5               cdef,gc->defg                            hd,defg->efgh
        5               defg,hd->efgh                               efgh->efgh
-  kind: examples
-  key: 'examples'
-  snippet: '>>> print(path_info[1])'
 === detect
 numpydoc
 === compose numpydoc
@@ -332,14 +345,12 @@ scaling                  current                                remaining
    3                   kl,jk->jl                                ij,jl->il
    3                   jl,ij->il                                   il->il
 
-
 A more complex index transformation example.
 
 >>> I = np.random.rand(10, 10, 10, 10)
 >>> C = np.random.rand(10, 10)
 >>> path_info = np.einsum_path('ea,fb,abcd,gc,hd->efgh', C, C, I, C, C,
 ...                            optimize='greedy')
-
 >>> print(path_info[0])
 ['einsum_path', (0, 2), (0, 3), (0, 2), (0, 1)]
 >>> print(path_info[1])

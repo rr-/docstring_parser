@@ -191,42 +191,54 @@ style: numpydoc
   kind: text
   key: 'references'
 - DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from scipy import stats'
+- DocstringExample
   description: |
-    
     Test whether the lists `a`, `b` and `c` come from populations
     with equal variances.
-    
+  kind: examples
+  key: 'examples'
+  snippet: '>>> a = [8.88, 9.12, 9.04, 8.98, 9.00, 9.08, 9.01, 8.85, 9.06, 8.99]'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> b = [8.88, 8.95, 9.29, 9.44, 9.15, 9.58, 8.36, 9.18, 8.67, 9.05]'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> c = [8.95, 9.12, 8.95, 8.85, 9.03, 8.84, 9.07, 8.98, 8.86, 8.98]'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> stat, p = stats.fligner(a, b, c)'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import numpy as np
-    >>> from scipy import stats
+    >>> p
+    0.00450826080004775
 - DocstringExample
   description: |
-    0.00450826080004775
-    
     The small p-value suggests that the populations do not have equal
     variances.
     
     This is not surprising, given that the sample variance of `b` is much
     larger than that of `a` and `c`:
-    
   kind: examples
   key: 'examples'
   snippet: |
-    >>> a = [8.88, 9.12, 9.04, 8.98, 9.00, 9.08, 9.01, 8.85, 9.06, 8.99]
-    >>> b = [8.88, 8.95, 9.29, 9.44, 9.15, 9.58, 8.36, 9.18, 8.67, 9.05]
-    >>> c = [8.95, 9.12, 8.95, 8.85, 9.03, 8.84, 9.07, 8.98, 8.86, 8.98]
-    >>> stat, p = stats.fligner(a, b, c)
-    >>> p
-- DocstringExample
-  description: |
+    >>> [np.var(x, ddof=1) for x in [a, b, c]]
     [0.007054444444444413, 0.13073888888888888, 0.008890000000000002]
-    
-    For a more detailed example, see :ref:`hypothesis_fligner`.
+- DocstringExample
+  description: 'For a more detailed example, see :ref:`hypothesis_fligner`.'
   kind: examples
   key: 'examples'
-  snippet: '>>> [np.var(x, ddof=1) for x in [a, b, c]]'
 === detect
 numpydoc
 === compose numpydoc

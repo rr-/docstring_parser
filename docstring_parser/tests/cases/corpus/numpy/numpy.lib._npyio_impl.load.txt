@@ -264,58 +264,68 @@ style: numpydoc
   kind: text
   key: 'notes'
 - DocstringExample
-  description: |
-    
-    Store data to disk, and load it again:
-    
   kind: examples
   key: 'examples'
   snippet: '>>> import numpy as np'
 - DocstringExample
-  description: |
-    array([[1, 2, 3],
-           [4, 5, 6]])
-    
-    Store compressed data to disk, and load it again:
-    
+  description: 'Store data to disk, and load it again:'
+  kind: examples
+  key: 'examples'
+  snippet: ">>> np.save('/tmp/123', np.array([[1, 2, 3], [4, 5, 6]]))"
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> np.save('/tmp/123', np.array([[1, 2, 3], [4, 5, 6]]))
     >>> np.load('/tmp/123.npy')
-- DocstringExample
-  description: |
     array([[1, 2, 3],
            [4, 5, 6]])
+- DocstringExample
+  description: 'Store compressed data to disk, and load it again:'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> a=np.array([[1, 2, 3], [4, 5, 6]])'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> b=np.array([1, 2])'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: ">>> np.savez('/tmp/123.npz', a=a, b=b)"
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: ">>> data = np.load('/tmp/123.npz')"
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> a=np.array([[1, 2, 3], [4, 5, 6]])
-    >>> b=np.array([1, 2])
-    >>> np.savez('/tmp/123.npz', a=a, b=b)
-    >>> data = np.load('/tmp/123.npz')
     >>> data['a']
+    array([[1, 2, 3],
+           [4, 5, 6]])
 - DocstringExample
-  description: 'array([1, 2])'
   kind: examples
   key: 'examples'
-  snippet: ">>> data['b']"
+  snippet: |
+    >>> data['b']
+    array([1, 2])
 - DocstringExample
-  description: |
-    
-    Mem-map the stored array, and then access the second row
-    directly from disk:
-    
   kind: examples
   key: 'examples'
   snippet: '>>> data.close()'
 - DocstringExample
-  description: 'memmap([4, 5, 6])'
+  description: |
+    Mem-map the stored array, and then access the second row
+    directly from disk:
+  kind: examples
+  key: 'examples'
+  snippet: ">>> X = np.load('/tmp/123.npy', mmap_mode='r')"
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> X = np.load('/tmp/123.npy', mmap_mode='r')
     >>> X[1, :]
+    memmap([4, 5, 6])
 === detect
 numpydoc
 === compose numpydoc

@@ -179,27 +179,33 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from scipy.cluster.hierarchy import ward, fcluster, leaders'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from scipy.spatial.distance import pdist'
+- DocstringExample
   description: |
-    
     Given a linkage matrix ``Z`` - obtained after apply a clustering method
     to a dataset ``X`` - and a flat cluster assignment array ``T``:
-    
   kind: examples
   key: 'examples'
   snippet: |
-    >>> from scipy.cluster.hierarchy import ward, fcluster, leaders
-    >>> from scipy.spatial.distance import pdist
-- DocstringExample
-  description: |
+    >>> X = [[0, 0], [0, 1], [1, 0],
     ...      [0, 4], [0, 3], [1, 4],
     ...      [4, 0], [3, 0], [4, 1],
     ...      [4, 4], [3, 4], [4, 3]]
-    
+- DocstringExample
   kind: examples
   key: 'examples'
-  snippet: '>>> X = [[0, 0], [0, 1], [1, 0],'
+  snippet: '>>> Z = ward(pdist(X))'
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> Z
     array([[ 0.        ,  1.        ,  1.        ,  2.        ],
            [ 3.        ,  4.        ,  1.        ,  2.        ],
            [ 6.        ,  7.        ,  1.        ,  2.        ],
@@ -211,44 +217,41 @@ style: numpydoc
            [16.        , 17.        ,  5.77350269,  6.        ],
            [18.        , 19.        ,  5.77350269,  6.        ],
            [20.        , 21.        ,  8.16496581, 12.        ]])
-    
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: ">>> T = fcluster(Z, 3, criterion='distance')"
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> Z = ward(pdist(X))
-    >>> Z
+    >>> T
+    array([1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4], dtype=int32)
 - DocstringExample
   description: |
-    array([1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4], dtype=int32)
-    
     `scipy.cluster.hierarchy.leaders` returns the indices of the nodes
     in the dendrogram that are the leaders of each flat cluster:
-    
+  kind: examples
+  key: 'examples'
+  snippet: '>>> L, M = leaders(Z, T)'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> T = fcluster(Z, 3, criterion='distance')
-    >>> T
+    >>> L
+    array([16, 17, 18, 19], dtype=int32)
 - DocstringExample
   description: |
-    array([16, 17, 18, 19], dtype=int32)
-    
     (remember that indices 0-11 point to the 12 data points in ``X``,
     whereas indices 12-22 point to the 11 rows of ``Z``)
     
     `scipy.cluster.hierarchy.leaders` also returns the indices of
     the flat clusters in ``T``:
-    
   kind: examples
   key: 'examples'
   snippet: |
-    >>> L, M = leaders(Z, T)
-    >>> L
-- DocstringExample
-  description: 'array([1, 2, 3, 4], dtype=int32)'
-  kind: examples
-  key: 'examples'
-  snippet: '>>> M'
+    >>> M
+    array([1, 2, 3, 4], dtype=int32)
 - DocstringMeta
   description: |
     *Array API support (experimental):* This function returns arrays
@@ -319,7 +322,6 @@ to a dataset ``X`` - and a flat cluster assignment array ``T``:
 ...      [0, 4], [0, 3], [1, 4],
 ...      [4, 0], [3, 0], [4, 1],
 ...      [4, 4], [3, 4], [4, 3]]
-
 >>> Z = ward(pdist(X))
 >>> Z
 array([[ 0.        ,  1.        ,  1.        ,  2.        ],
@@ -333,7 +335,6 @@ array([[ 0.        ,  1.        ,  1.        ,  2.        ],
        [16.        , 17.        ,  5.77350269,  6.        ],
        [18.        , 19.        ,  5.77350269,  6.        ],
        [20.        , 21.        ,  8.16496581, 12.        ]])
-
 >>> T = fcluster(Z, 3, criterion='distance')
 >>> T
 array([1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4], dtype=int32)

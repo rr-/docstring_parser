@@ -70,37 +70,41 @@ style: numpydoc
   kind: text
   key: 'notes'
 - DocstringExample
-  description: "{'divide': 'warn', 'over': 'warn', 'under': 'ignore', 'invalid': 'warn'}"
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import numpy as np
     >>> np.geterr()
+    {'divide': 'warn', 'over': 'warn', 'under': 'ignore', 'invalid': 'warn'}
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> np.arange(3.) / np.arange(3.)  # doctest: +SKIP
     array([nan,  1.,  1.])
     RuntimeWarning: invalid value encountered in divide
-    
+- DocstringExample
   kind: examples
   key: 'examples'
-  snippet: '>>> np.arange(3.) / np.arange(3.)  # doctest: +SKIP'
+  snippet: ">>> oldsettings = np.seterr(all='warn', invalid='raise')"
 - DocstringExample
-  description: "{'divide': 'warn', 'over': 'warn', 'under': 'warn', 'invalid': 'raise'}"
   kind: examples
   key: 'examples'
   snippet: |
-    >>> oldsettings = np.seterr(all='warn', invalid='raise')
     >>> np.geterr()
+    {'divide': 'warn', 'over': 'warn', 'under': 'warn', 'invalid': 'raise'}
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> np.arange(3.) / np.arange(3.)
     Traceback (most recent call last):
       ...
     FloatingPointError: invalid value encountered in divide
-  kind: examples
-  key: 'examples'
-  snippet: '>>> np.arange(3.) / np.arange(3.)'
 - DocstringExample
-  description: ''
   kind: examples
   key: 'examples'
   snippet: '>>> oldsettings = np.seterr(**oldsettings)  # restore original'
@@ -125,7 +129,6 @@ Examples
 >>> np.arange(3.) / np.arange(3.)  # doctest: +SKIP
 array([nan,  1.,  1.])
 RuntimeWarning: invalid value encountered in divide
-
 >>> oldsettings = np.seterr(all='warn', invalid='raise')
 >>> np.geterr()
 {'divide': 'warn', 'over': 'warn', 'under': 'warn', 'invalid': 'raise'}

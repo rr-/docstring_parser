@@ -129,77 +129,79 @@ style: numpydoc
   key: 'see_also'
   title: 'See also'
 - DocstringExample
-  description: |
-    
-    Compute two different sets of indices to access 4x4 arrays, one for the
-    lower triangular part starting at the main diagonal, and one starting two
-    diagonals further right:
-    
   kind: examples
   key: 'examples'
   snippet: '>>> import numpy as np'
 - DocstringExample
   description: |
-    (array([0, 1, 1, 2, 2, 2, 3, 3, 3, 3]), array([0, 0, 1, 0, 1, 2, 0, 1, 2, 3]))
-    
-    Note that row indices (first array) are non-decreasing, and the corresponding
-    column indices (second array) are strictly increasing for each row.
-    Here is how they can be used with a sample array:
-    
+    Compute two different sets of indices to access 4x4 arrays, one for the
+    lower triangular part starting at the main diagonal, and one starting two
+    diagonals further right:
+  kind: examples
+  key: 'examples'
+  snippet: '>>> il1 = np.tril_indices(4)'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> il1 = np.tril_indices(4)
     >>> il1
+    (array([0, 1, 1, 2, 2, 2, 3, 3, 3, 3]), array([0, 0, 1, 0, 1, 2, 0, 1, 2, 3]))
 - DocstringExample
   description: |
+    Note that row indices (first array) are non-decreasing, and the corresponding
+    column indices (second array) are strictly increasing for each row.
+    Here is how they can be used with a sample array:
+  kind: examples
+  key: 'examples'
+  snippet: '>>> a = np.arange(16).reshape(4, 4)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> a
     array([[ 0,  1,  2,  3],
            [ 4,  5,  6,  7],
            [ 8,  9, 10, 11],
            [12, 13, 14, 15]])
-    
-    Both for indexing:
-    
+- DocstringExample
+  description: 'Both for indexing:'
   kind: examples
   key: 'examples'
   snippet: |
-    >>> a = np.arange(16).reshape(4, 4)
-    >>> a
-- DocstringExample
-  description: |
+    >>> a[il1]
     array([ 0,  4,  5, ..., 13, 14, 15])
-    
-    And for assigning values:
-    
+- DocstringExample
+  description: 'And for assigning values:'
   kind: examples
   key: 'examples'
-  snippet: '>>> a[il1]'
+  snippet: '>>> a[il1] = -1'
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> a
     array([[-1,  1,  2,  3],
            [-1, -1,  6,  7],
            [-1, -1, -1, 11],
            [-1, -1, -1, -1]])
-    
-    These cover almost the whole array (two diagonals right of the main one):
-    
+- DocstringExample
+  description: 'These cover almost the whole array (two diagonals right of the main one):'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> il2 = np.tril_indices(4, 2)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> a[il2] = -10'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> a[il1] = -1
     >>> a
-- DocstringExample
-  description: |
     array([[-10, -10, -10,   3],
            [-10, -10, -10, -10],
            [-10, -10, -10, -10],
            [-10, -10, -10, -10]])
-  kind: examples
-  key: 'examples'
-  snippet: |
-    >>> il2 = np.tril_indices(4, 2)
-    >>> a[il2] = -10
-    >>> a
 === detect
 numpydoc
 === compose numpydoc

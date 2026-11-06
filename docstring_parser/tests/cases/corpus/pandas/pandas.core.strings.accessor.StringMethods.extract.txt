@@ -141,69 +141,60 @@ style: numpydoc
   description: |
     A pattern with two groups will return a DataFrame with two columns.
     Non-matches will be NaN.
-    
   kind: examples
   key: 'examples'
+  snippet: '>>> s = pd.Series(["a1", "b2", "c3"])'
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> s.str.extract(r"([ab])(\d)")
         0    1
     0    a    1
     1    b    2
     2  NaN  NaN
-    
-    A pattern may contain optional groups.
-    
+- DocstringExample
+  description: 'A pattern may contain optional groups.'
   kind: examples
   key: 'examples'
   snippet: |
-    >>> s = pd.Series(["a1", "b2", "c3"])
-    >>> s.str.extract(r"([ab])(\d)")
-- DocstringExample
-  description: |
+    >>> s.str.extract(r"([ab])?(\d)")
         0  1
     0    a  1
     1    b  2
     2  NaN  3
-    
-    Named groups will become column names in the result.
-    
+- DocstringExample
+  description: 'Named groups will become column names in the result.'
   kind: examples
   key: 'examples'
-  snippet: '>>> s.str.extract(r"([ab])?(\\d)")'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> s.str.extract(r"(?P<letter>[ab])(?P<digit>\d)")
     letter digit
     0      a     1
     1      b     2
     2    NaN   NaN
-    
-    A pattern with one group will return a DataFrame with one column
-    if expand=True.
-    
-  kind: examples
-  key: 'examples'
-  snippet: '>>> s.str.extract(r"(?P<letter>[ab])(?P<digit>\\d)")'
 - DocstringExample
   description: |
+    A pattern with one group will return a DataFrame with one column
+    if expand=True.
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> s.str.extract(r"[ab](\d)", expand=True)
          0
     0    1
     1    2
     2  NaN
-    
-    A pattern with one group will return a Series if expand=False.
-    
+- DocstringExample
+  description: 'A pattern with one group will return a Series if expand=False.'
   kind: examples
   key: 'examples'
-  snippet: '>>> s.str.extract(r"[ab](\\d)", expand=True)'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> s.str.extract(r"[ab](\d)", expand=False)
     0      1
     1      2
     2    NaN
     dtype: str
-  kind: examples
-  key: 'examples'
-  snippet: '>>> s.str.extract(r"[ab](\\d)", expand=False)'
 === detect
 numpydoc
 === compose numpydoc

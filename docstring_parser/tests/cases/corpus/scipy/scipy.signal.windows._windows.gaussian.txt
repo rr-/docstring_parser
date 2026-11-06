@@ -107,44 +107,78 @@ style: numpydoc
   kind: text
   key: 'notes'
 - DocstringExample
-  description: |
-    Plot the window and its frequency response:
-    
+  description: 'Plot the window and its frequency response:'
   kind: examples
   key: 'examples'
+  snippet: '>>> import numpy as np'
 - DocstringExample
-  description: ''
   kind: examples
   key: 'examples'
-  snippet: |
-    >>> import numpy as np
-    >>> from scipy import signal
-    >>> from scipy.fft import fft, fftshift
-    >>> import matplotlib.pyplot as plt
+  snippet: '>>> from scipy import signal'
 - DocstringExample
-  description: ''
   kind: examples
   key: 'examples'
-  snippet: |
-    >>> window = signal.windows.gaussian(51, std=7)
-    >>> plt.plot(window)
-    >>> plt.title(r"Gaussian window ($\sigma$=7)")
-    >>> plt.ylabel("Amplitude")
-    >>> plt.xlabel("Sample")
+  snippet: '>>> from scipy.fft import fft, fftshift'
 - DocstringExample
-  description: ''
   kind: examples
   key: 'examples'
-  snippet: |
-    >>> plt.figure()
-    >>> A = fft(window, 2048) / (len(window)/2.0)
-    >>> freq = np.linspace(-0.5, 0.5, len(A))
-    >>> response = 20 * np.log10(np.abs(fftshift(A / abs(A).max())))
-    >>> plt.plot(freq, response)
-    >>> plt.axis([-0.5, 0.5, -120, 0])
-    >>> plt.title(r"Frequency response of the Gaussian window ($\sigma$=7)")
-    >>> plt.ylabel("Normalized magnitude [dB]")
-    >>> plt.xlabel("Normalized frequency [cycles per sample]")
+  snippet: '>>> import matplotlib.pyplot as plt'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> window = signal.windows.gaussian(51, std=7)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> plt.plot(window)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> plt.title(r"Gaussian window ($\\sigma$=7)")'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> plt.ylabel("Amplitude")'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> plt.xlabel("Sample")'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> plt.figure()'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> A = fft(window, 2048) / (len(window)/2.0)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> freq = np.linspace(-0.5, 0.5, len(A))'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> response = 20 * np.log10(np.abs(fftshift(A / abs(A).max())))'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> plt.plot(freq, response)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> plt.axis([-0.5, 0.5, -120, 0])'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> plt.title(r"Frequency response of the Gaussian window ($\\sigma$=7)")'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> plt.ylabel("Normalized magnitude [dB]")'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> plt.xlabel("Normalized frequency [cycles per sample]")'
 === detect
 numpydoc
 === compose numpydoc

@@ -95,42 +95,45 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> a = np.array([[1, 2, 0, 0],
     ...               [5, 3, 0, 4],
     ...               [0, 0, 0, 7],
     ...               [9, 3, 0, 0]])
-  kind: examples
-  key: 'examples'
-  snippet: |
-    >>> import numpy as np
-    >>> a = np.array([[1, 2, 0, 0],
 - DocstringExample
-  description: |
-    2.7585095613392387
-    
-    Features to process can be specified using `labels` and `index`:
-    
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from scipy import ndimage'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> from scipy import ndimage
     >>> ndimage.standard_deviation(a)
+    2.7585095613392387
 - DocstringExample
-  description: |
-    array([ 1.479,  1.5  ,  3.   ])
-    
-    If no index is given, non-zero `labels` are processed:
-    
+  description: 'Features to process can be specified using `labels` and `index`:'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> lbl, nlbl = ndimage.label(a)'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> lbl, nlbl = ndimage.label(a)
     >>> ndimage.standard_deviation(a, lbl, index=np.arange(1, nlbl+1))
+    array([ 1.479,  1.5  ,  3.   ])
 - DocstringExample
-  description: '2.4874685927665499'
+  description: 'If no index is given, non-zero `labels` are processed:'
   kind: examples
   key: 'examples'
-  snippet: '>>> ndimage.standard_deviation(a, lbl)'
+  snippet: |
+    >>> ndimage.standard_deviation(a, lbl)
+    2.4874685927665499
 === detect
 numpydoc
 === compose numpydoc

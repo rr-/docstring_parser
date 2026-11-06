@@ -110,63 +110,62 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: |
-    ...     [(1, "one"), (1, "two"), (2, "one"), (2, "two")], names=["foo", "bar"]
-    ... )
   kind: examples
   key: 'examples'
-  snippet: '>>> idx = pd.MultiIndex.from_tuples('
+  snippet: |
+    >>> idx = pd.MultiIndex.from_tuples(
+    ...     [(1, "one"), (1, "two"), (2, "one"), (2, "two")], names=["foo", "bar"]
+    ... )
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> idx
     MultiIndex([(1, 'one'),
         (1, 'two'),
         (2, 'one'),
         (2, 'two')],
        names=['foo', 'bar'])
-    
+- DocstringExample
   kind: examples
   key: 'examples'
-  snippet: '>>> idx'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> idx.set_codes([[1, 0, 1, 0], [0, 0, 1, 1]])
     MultiIndex([(2, 'one'),
                 (1, 'one'),
                 (2, 'two'),
                 (1, 'two')],
                names=['foo', 'bar'])
+- DocstringExample
   kind: examples
   key: 'examples'
-  snippet: '>>> idx.set_codes([[1, 0, 1, 0], [0, 0, 1, 1]])'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> idx.set_codes([1, 0, 1, 0], level=0)
     MultiIndex([(2, 'one'),
                 (1, 'two'),
                 (2, 'one'),
                 (1, 'two')],
                names=['foo', 'bar'])
+- DocstringExample
   kind: examples
   key: 'examples'
-  snippet: '>>> idx.set_codes([1, 0, 1, 0], level=0)'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> idx.set_codes([0, 0, 1, 1], level="bar")
     MultiIndex([(1, 'one'),
                 (1, 'one'),
                 (2, 'two'),
                 (2, 'two')],
                names=['foo', 'bar'])
+- DocstringExample
   kind: examples
   key: 'examples'
-  snippet: '>>> idx.set_codes([0, 0, 1, 1], level="bar")'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> idx.set_codes([[1, 0, 1, 0], [0, 0, 1, 1]], level=[0, 1])
     MultiIndex([(2, 'one'),
                 (1, 'one'),
                 (2, 'two'),
                 (1, 'two')],
                names=['foo', 'bar'])
-  kind: examples
-  key: 'examples'
-  snippet: '>>> idx.set_codes([[1, 0, 1, 0], [0, 0, 1, 1]], level=[0, 1])'
 === detect
 numpydoc
 === compose numpydoc
@@ -201,7 +200,6 @@ MultiIndex([(1, 'one'),
     (2, 'one'),
     (2, 'two')],
    names=['foo', 'bar'])
-
 >>> idx.set_codes([[1, 0, 1, 0], [0, 0, 1, 1]])
 MultiIndex([(2, 'one'),
             (1, 'one'),

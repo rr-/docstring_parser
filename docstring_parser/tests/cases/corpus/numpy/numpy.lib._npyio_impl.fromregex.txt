@@ -130,32 +130,40 @@ style: numpydoc
   kind: text
   key: 'notes'
 - DocstringExample
-  description: ''
   kind: examples
   key: 'examples'
-  snippet: |
-    >>> import numpy as np
-    >>> from io import StringIO
-    >>> text = StringIO("1312 foo\n1534  bar\n444   qux")
+  snippet: '>>> import numpy as np'
 - DocstringExample
-  description: "...                       [('num', np.int64), ('key', 'S3')])"
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from io import StringIO'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> text = StringIO("1312 foo\\n1534  bar\\n444   qux")'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> regexp = r"(\\d+)\\s+(...)"  # match [digits, whitespace, anything]'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> regexp = r"(\d+)\s+(...)"  # match [digits, whitespace, anything]
     >>> output = np.fromregex(text, regexp,
+    ...                       [('num', np.int64), ('key', 'S3')])
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> output
     array([(1312, b'foo'), (1534, b'bar'), ( 444, b'qux')],
           dtype=[('num', '<i8'), ('key', 'S3')])
-  kind: examples
-  key: 'examples'
-  snippet: '>>> output'
 - DocstringExample
-  description: 'array([1312, 1534,  444])'
   kind: examples
   key: 'examples'
-  snippet: ">>> output['num']"
+  snippet: |
+    >>> output['num']
+    array([1312, 1534,  444])
 === detect
 numpydoc
 === compose numpydoc

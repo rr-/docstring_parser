@@ -76,21 +76,19 @@ style: numpydoc
     case (whether only the first letter of each word is capitalized). Words are
     assumed to be as any sequence of non-numeric characters separated by
     whitespace characters.
-    
   kind: examples
   key: 'examples'
+  snippet: '>>> s5 = pd.Series(["leopard", "Golden Eagle", "SNAKE", ""])'
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> s5.str.istitle()
     0    False
     1     True
     2    False
     3    False
     dtype: bool
-  kind: examples
-  key: 'examples'
-  snippet: |
-    >>> s5 = pd.Series(["leopard", "Golden Eagle", "SNAKE", ""])
-    >>> s5.str.istitle()
 === detect
 numpydoc
 === compose numpydoc

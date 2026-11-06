@@ -124,40 +124,54 @@ style: numpydoc
   kind: text
   key: 'references'
 - DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from scipy.spatial.transform import RigidTransform as Tf'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from scipy.spatial.transform import Rotation as R'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> rng = np.random.default_rng(seed=123)'
+- DocstringExample
   description: |
-    
     The mean of a set of transforms is the same as the mean of the
     translation and rotation components:
-    
   kind: examples
   key: 'examples'
-  snippet: |
-    >>> import numpy as np
-    >>> from scipy.spatial.transform import RigidTransform as Tf
-    >>> from scipy.spatial.transform import Rotation as R
-    >>> rng = np.random.default_rng(seed=123)
+  snippet: '>>> t = rng.random((4, 3))'
 - DocstringExample
-  description: |
-    array([[ 0.61593485, -0.74508342,  0.25588075,  0.66999034],
-           [-0.59353615, -0.65246765, -0.47116962,  0.25481794],
-           [ 0.51801458,  0.13833531, -0.84411151,  0.52429339],
-           [0., 0., 0., 1.]])
+  kind: examples
+  key: 'examples'
+  snippet: '>>> r = R.random(4, rng=rng)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> tf = Tf.from_components(t, r)'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> t = rng.random((4, 3))
-    >>> r = R.random(4, rng=rng)
-    >>> tf = Tf.from_components(t, r)
     >>> tf.mean().as_matrix()
-- DocstringExample
-  description: |
     array([[ 0.61593485, -0.74508342,  0.25588075,  0.66999034],
            [-0.59353615, -0.65246765, -0.47116962,  0.25481794],
            [ 0.51801458,  0.13833531, -0.84411151,  0.52429339],
            [0., 0., 0., 1.]])
+- DocstringExample
   kind: examples
   key: 'examples'
-  snippet: '>>> Tf.from_components(t.mean(axis=0), r.mean()).as_matrix()'
+  snippet: |
+    >>> Tf.from_components(t.mean(axis=0), r.mean()).as_matrix()
+    array([[ 0.61593485, -0.74508342,  0.25588075,  0.66999034],
+           [-0.59353615, -0.65246765, -0.47116962,  0.25481794],
+           [ 0.51801458,  0.13833531, -0.84411151,  0.52429339],
+           [0., 0., 0., 1.]])
 === detect
 numpydoc
 === compose numpydoc

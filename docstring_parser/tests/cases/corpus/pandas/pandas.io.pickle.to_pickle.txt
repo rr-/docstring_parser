@@ -164,41 +164,42 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: |
-    ...     {"foo": range(5), "bar": range(5, 10)}
-    ... )  # doctest: +SKIP
   kind: examples
   key: 'examples'
-  snippet: '>>> original_df = pd.DataFrame('
+  snippet: |
+    >>> original_df = pd.DataFrame(
+    ...     {"foo": range(5), "bar": range(5, 10)}
+    ... )  # doctest: +SKIP
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> original_df  # doctest: +SKIP
        foo  bar
     0    0    5
     1    1    6
     2    2    7
     3    3    8
     4    4    9
-  kind: examples
-  key: 'examples'
-  snippet: '>>> original_df  # doctest: +SKIP'
 - DocstringExample
-  description: ''
   kind: examples
   key: 'examples'
   snippet: '>>> pd.to_pickle(original_df, "./dummy.pkl")  # doctest: +SKIP'
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: '>>> unpickled_df = pd.read_pickle("./dummy.pkl")  # doctest: +SKIP'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> unpickled_df  # doctest: +SKIP
        foo  bar
     0    0    5
     1    1    6
     2    2    7
     3    3    8
     4    4    9
-  kind: examples
-  key: 'examples'
-  snippet: |
-    >>> unpickled_df = pd.read_pickle("./dummy.pkl")  # doctest: +SKIP
-    >>> unpickled_df  # doctest: +SKIP
 === detect
 numpydoc
 === compose numpydoc

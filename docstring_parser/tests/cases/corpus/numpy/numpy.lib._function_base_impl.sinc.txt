@@ -128,7 +128,22 @@ style: numpydoc
   kind: text
   key: 'references'
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import matplotlib.pyplot as plt'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> x = np.linspace(-4, 4, 41)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> np.sinc(x)
      array([-3.89804309e-17,  -4.92362781e-02,  -8.40918587e-02, # may vary
             -8.90384387e-02,  -5.84680802e-02,   3.89804309e-17,
             6.68206631e-02,   1.16434881e-01,   1.26137788e-01,
@@ -143,36 +158,31 @@ style: numpydoc
             1.16434881e-01,   6.68206631e-02,   3.89804309e-17,
             -5.84680802e-02,  -8.90384387e-02,  -8.40918587e-02,
             -4.92362781e-02,  -3.89804309e-17])
-    
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import numpy as np
-    >>> import matplotlib.pyplot as plt
-    >>> x = np.linspace(-4, 4, 41)
-    >>> np.sinc(x)
+    >>> plt.plot(x, np.sinc(x))
+    [<matplotlib.lines.Line2D object at 0x...>]
 - DocstringExample
-  description: '[<matplotlib.lines.Line2D object at 0x...>]'
   kind: examples
   key: 'examples'
-  snippet: '>>> plt.plot(x, np.sinc(x))'
+  snippet: |
+    >>> plt.title("Sinc Function")
+    Text(0.5, 1.0, 'Sinc Function')
 - DocstringExample
-  description: "Text(0.5, 1.0, 'Sinc Function')"
   kind: examples
   key: 'examples'
-  snippet: '>>> plt.title("Sinc Function")'
+  snippet: |
+    >>> plt.ylabel("Amplitude")
+    Text(0, 0.5, 'Amplitude')
 - DocstringExample
-  description: "Text(0, 0.5, 'Amplitude')"
   kind: examples
   key: 'examples'
-  snippet: '>>> plt.ylabel("Amplitude")'
+  snippet: |
+    >>> plt.xlabel("X")
+    Text(0.5, 0, 'X')
 - DocstringExample
-  description: "Text(0.5, 0, 'X')"
-  kind: examples
-  key: 'examples'
-  snippet: '>>> plt.xlabel("X")'
-- DocstringExample
-  description: ''
   kind: examples
   key: 'examples'
   snippet: '>>> plt.show()'
@@ -223,7 +233,6 @@ Examples
         1.16434881e-01,   6.68206631e-02,   3.89804309e-17,
         -5.84680802e-02,  -8.90384387e-02,  -8.40918587e-02,
         -4.92362781e-02,  -3.89804309e-17])
-
 >>> plt.plot(x, np.sinc(x))
 [<matplotlib.lines.Line2D object at 0x...>]
 >>> plt.title("Sinc Function")

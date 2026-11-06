@@ -84,26 +84,53 @@ style: numpydoc
   description: |
     We can filter a signal to reduce and smooth out high-frequency noise with
     a cubic spline:
-    
   kind: examples
   key: 'examples'
+  snippet: '>>> import numpy as np'
 - DocstringExample
-  description: ''
   kind: examples
   key: 'examples'
-  snippet: |
-    >>> import numpy as np
-    >>> import matplotlib.pyplot as plt
-    >>> from scipy.signal import cspline1d, cspline1d_eval
-    >>> rng = np.random.default_rng()
-    >>> sig = np.repeat([0., 1., 0.], 100)
-    >>> sig += rng.standard_normal(len(sig))*0.05  # add noise
-    >>> time = np.linspace(0, len(sig))
-    >>> filtered = cspline1d_eval(cspline1d(sig), time)
-    >>> plt.plot(sig, label="signal")
-    >>> plt.plot(time, filtered, label="filtered")
-    >>> plt.legend()
-    >>> plt.show()
+  snippet: '>>> import matplotlib.pyplot as plt'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from scipy.signal import cspline1d, cspline1d_eval'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> rng = np.random.default_rng()'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> sig = np.repeat([0., 1., 0.], 100)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> sig += rng.standard_normal(len(sig))*0.05  # add noise'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> time = np.linspace(0, len(sig))'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> filtered = cspline1d_eval(cspline1d(sig), time)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> plt.plot(sig, label="signal")'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> plt.plot(time, filtered, label="filtered")'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> plt.legend()'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> plt.show()'
 === detect
 numpydoc
 === compose numpydoc

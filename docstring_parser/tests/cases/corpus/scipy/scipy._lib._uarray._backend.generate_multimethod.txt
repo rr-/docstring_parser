@@ -106,59 +106,50 @@ style: numpydoc
     In this example, ``a`` is to be dispatched over, so we return it, while marking it
     as an ``int``.
     The trailing comma is needed because the args have to be returned as an iterable.
-    
   kind: examples
   key: 'examples'
+  snippet: |
+    >>> def override_me(a, b):
+    ...   return Dispatchable(a, int),
 - DocstringExample
   description: |
-    ...   return Dispatchable(a, int),
-    
     Next, we define the argument replacer that replaces the dispatchables inside
     args/kwargs with the supplied ones.
-    
   kind: examples
   key: 'examples'
-  snippet: '>>> def override_me(a, b):'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> def override_replacer(args, kwargs, dispatchables):
     ...     return (dispatchables[0], args[1]), {}
-    
-    Next, we define the multimethod.
-    
+- DocstringExample
+  description: 'Next, we define the multimethod.'
   kind: examples
   key: 'examples'
-  snippet: '>>> def override_replacer(args, kwargs, dispatchables):'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> overridden_me = generate_multimethod(
     ...     override_me, override_replacer, "ua_examples"
     ... )
-    
-    Notice that there's no default implementation, unless you supply one.
-    
+- DocstringExample
+  description: "Notice that there's no default implementation, unless you supply one."
   kind: examples
   key: 'examples'
-  snippet: '>>> overridden_me = generate_multimethod('
-- DocstringExample
-  description: |
+  snippet: |
+    >>> overridden_me(1, "a")
     Traceback (most recent call last):
         ...
     uarray.BackendNotImplementedError: ...
-    
+- DocstringExample
   kind: examples
   key: 'examples'
-  snippet: '>>> overridden_me(1, "a")'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> overridden_me2 = generate_multimethod(
     ...     override_me, override_replacer, "ua_examples", default=lambda x, y: (x, y)
     ... )
-  kind: examples
-  key: 'examples'
-  snippet: '>>> overridden_me2 = generate_multimethod('
 - DocstringExample
-  description: "(1, 'a')"
   kind: examples
   key: 'examples'
-  snippet: '>>> overridden_me2(1, "a")'
+  snippet: |
+    >>> overridden_me2(1, "a")
+    (1, 'a')
 - DocstringMeta
   description: |
     uarray
@@ -214,7 +205,6 @@ Notice that there's no default implementation, unless you supply one.
 Traceback (most recent call last):
     ...
 uarray.BackendNotImplementedError: ...
-
 >>> overridden_me2 = generate_multimethod(
 ...     override_me, override_replacer, "ua_examples", default=lambda x, y: (x, y)
 ... )

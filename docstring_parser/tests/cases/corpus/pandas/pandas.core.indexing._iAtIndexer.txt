@@ -65,44 +65,43 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: '>>> df = pd.DataFrame([[0, 2, 3], [0, 4, 1], [10, 20, 30]], columns=["A", "B", "C"])'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> df
         A   B   C
     0   0   2   3
     1   0   4   1
     2  10  20  30
-    
-    Get value at specified row/column pair
-    
+- DocstringExample
+  description: 'Get value at specified row/column pair'
   kind: examples
   key: 'examples'
   snippet: |
-    >>> df = pd.DataFrame([[0, 2, 3], [0, 4, 1], [10, 20, 30]], columns=["A", "B", "C"])
-    >>> df
-- DocstringExample
-  description: |
-    1
-    
-    Set value at specified row/column pair
-    
-  kind: examples
-  key: 'examples'
-  snippet: '>>> df.iat[1, 2]'
-- DocstringExample
-  description: |
-    10
-    
-    Get value within a series
-    
-  kind: examples
-  key: 'examples'
-  snippet: |
-    >>> df.iat[1, 2] = 10
     >>> df.iat[1, 2]
+    1
 - DocstringExample
-  description: '2'
+  description: 'Set value at specified row/column pair'
   kind: examples
   key: 'examples'
-  snippet: '>>> df.loc[0].iat[1]'
+  snippet: '>>> df.iat[1, 2] = 10'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> df.iat[1, 2]
+    10
+- DocstringExample
+  description: 'Get value within a series'
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> df.loc[0].iat[1]
+    2
 === detect
 numpydoc
 === compose numpydoc

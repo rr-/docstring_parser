@@ -15,11 +15,11 @@ blank_after_short_description: True
 blank_after_long_description: False
 style: numpydoc
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> table()
     -----
     name
     ----
     x
-  kind: examples
-  key: 'examples'
-  snippet: '>>> table()'

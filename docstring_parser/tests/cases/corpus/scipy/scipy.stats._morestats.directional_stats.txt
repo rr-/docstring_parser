@@ -214,71 +214,79 @@ style: numpydoc
   kind: text
   key: 'references'
 - DocstringExample
-  description: '...                  [6, -8]])  # second observation'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from scipy.stats import directional_stats'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import numpy as np
-    >>> from scipy.stats import directional_stats
     >>> data = np.array([[3, 4],    # first observation, 2D vector space
+    ...                  [6, -8]])  # second observation
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> dirstats = directional_stats(data)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> dirstats.mean_direction
+    array([1., 0.])
 - DocstringExample
   description: |
-    array([1., 0.])
-    
     In contrast, the regular sample mean of the vectors would be influenced
     by the magnitude of each observation. Furthermore, the result would not be
     a unit vector.
-    
   kind: examples
   key: 'examples'
   snippet: |
-    >>> dirstats = directional_stats(data)
-    >>> dirstats.mean_direction
+    >>> data.mean(axis=0)
+    array([4.5, -2.])
 - DocstringExample
   description: |
-    array([4.5, -2.])
-    
     An exemplary use case for `directional_stats` is to find a *meaningful*
     center for a set of observations on a sphere, e.g. geographical locations.
-    
-  kind: examples
-  key: 'examples'
-  snippet: '>>> data.mean(axis=0)'
-- DocstringExample
-  description: '...                  [0.8660254, -0.5, 0.]])'
-  kind: examples
-  key: 'examples'
-  snippet: '>>> data = np.array([[0.8660254, 0.5, 0.],'
-- DocstringExample
-  description: |
-    array([1., 0., 0.])
-    
-    The regular sample mean on the other hand yields a result which does not
-    lie on the surface of the sphere.
-    
   kind: examples
   key: 'examples'
   snippet: |
-    >>> dirstats = directional_stats(data)
+    >>> data = np.array([[0.8660254, 0.5, 0.],
+    ...                  [0.8660254, -0.5, 0.]])
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> dirstats = directional_stats(data)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
     >>> dirstats.mean_direction
+    array([1., 0., 0.])
 - DocstringExample
   description: |
+    The regular sample mean on the other hand yields a result which does not
+    lie on the surface of the sphere.
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> data.mean(axis=0)
     array([0.8660254, 0., 0.])
-    
+- DocstringExample
+  description: |
     The function also returns the mean resultant length, which
     can be used to calculate a directional variance. For example, using the
     definition ``Var(z) = 1 - R`` from [2]_ where ``R`` is the
     mean resultant length, we can calculate the directional variance of the
     vectors in the above example as:
-    
   kind: examples
   key: 'examples'
-  snippet: '>>> data.mean(axis=0)'
-- DocstringExample
-  description: '0.13397459716167093'
-  kind: examples
-  key: 'examples'
-  snippet: '>>> 1 - dirstats.mean_resultant_length'
+  snippet: |
+    >>> 1 - dirstats.mean_resultant_length
+    0.13397459716167093
 === detect
 numpydoc
 === compose numpydoc

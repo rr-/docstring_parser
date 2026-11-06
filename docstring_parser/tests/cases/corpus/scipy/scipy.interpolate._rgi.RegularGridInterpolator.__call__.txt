@@ -109,46 +109,50 @@ style: numpydoc
   kind: text
   key: 'notes'
 - DocstringExample
-  description: |
-    Here we define a nearest-neighbor interpolator of a simple function
-    
+  description: 'Here we define a nearest-neighbor interpolator of a simple function'
   kind: examples
   key: 'examples'
+  snippet: '>>> import numpy as np'
 - DocstringExample
-  description: '...     return x**2 + y**2'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> x, y = np.array([0, 1, 2]), np.array([1, 3, 7])'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import numpy as np
-    >>> x, y = np.array([0, 1, 2]), np.array([1, 3, 7])
     >>> def f(x, y):
+    ...     return x**2 + y**2
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: ">>> data = f(*np.meshgrid(x, y, indexing='ij', sparse=True))"
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from scipy.interpolate import RegularGridInterpolator'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: ">>> interp = RegularGridInterpolator((x, y), data, method='nearest')"
 - DocstringExample
   description: |
-    
     By construction, the interpolator uses the nearest-neighbor
     interpolation
-    
   kind: examples
   key: 'examples'
   snippet: |
-    >>> data = f(*np.meshgrid(x, y, indexing='ij', sparse=True))
-    >>> from scipy.interpolate import RegularGridInterpolator
-    >>> interp = RegularGridInterpolator((x, y), data, method='nearest')
+    >>> interp([[1.5, 1.3], [0.3, 4.5]])
+    array([2., 9.])
 - DocstringExample
   description: |
-    array([2., 9.])
-    
     We can however evaluate the linear interpolant by overriding the
     `method` parameter
-    
   kind: examples
   key: 'examples'
-  snippet: '>>> interp([[1.5, 1.3], [0.3, 4.5]])'
-- DocstringExample
-  description: 'array([ 4.7, 24.3])'
-  kind: examples
-  key: 'examples'
-  snippet: ">>> interp([[1.5, 1.3], [0.3, 4.5]], method='linear')"
+  snippet: |
+    >>> interp([[1.5, 1.3], [0.3, 4.5]], method='linear')
+    array([ 4.7, 24.3])
 === detect
 numpydoc
 === compose numpydoc

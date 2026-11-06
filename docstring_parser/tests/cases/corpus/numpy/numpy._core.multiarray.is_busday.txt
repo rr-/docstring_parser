@@ -137,15 +137,17 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: |
-    ... np.is_busday(['2011-07-01', '2011-07-02', '2011-07-18'],
-    ...                 holidays=['2011-07-01', '2011-07-04', '2011-07-17'])
-    array([False, False,  True])
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import numpy as np
     >>> # The weekdays are Friday, Saturday, and Monday
+    ... np.is_busday(['2011-07-01', '2011-07-02', '2011-07-18'],
+    ...                 holidays=['2011-07-01', '2011-07-04', '2011-07-17'])
+    array([False, False,  True])
 === detect
 numpydoc
 === compose numpydoc

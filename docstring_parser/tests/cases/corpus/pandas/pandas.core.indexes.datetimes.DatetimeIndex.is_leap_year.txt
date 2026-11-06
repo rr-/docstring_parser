@@ -40,12 +40,15 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: 'array([ True, False, False])'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> idx = pd.date_range("2012-01-01", "2015-01-01", freq="YE")'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> idx = pd.date_range("2012-01-01", "2015-01-01", freq="YE")
     >>> idx.is_leap_year
+    array([ True, False, False])
 === detect
 numpydoc
 === compose numpydoc

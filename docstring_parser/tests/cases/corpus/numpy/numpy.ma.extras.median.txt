@@ -149,30 +149,37 @@ style: numpydoc
   kind: text
   key: 'notes'
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> x = np.ma.array(np.arange(8), mask=[0]*4 + [1]*4)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> np.ma.median(x)
     1.5
-    
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> x = np.ma.array(np.arange(10).reshape(2, 5), mask=[0]*6 + [1]*4)'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import numpy as np
-    >>> x = np.ma.array(np.arange(8), mask=[0]*4 + [1]*4)
     >>> np.ma.median(x)
+    2.5
 - DocstringExample
-  description: '2.5'
   kind: examples
   key: 'examples'
   snippet: |
-    >>> x = np.ma.array(np.arange(10).reshape(2, 5), mask=[0]*6 + [1]*4)
-    >>> np.ma.median(x)
-- DocstringExample
-  description: |
+    >>> np.ma.median(x, axis=-1, overwrite_input=True)
     masked_array(data=[2.0, 5.0],
                  mask=[False, False],
            fill_value=1e+20)
-  kind: examples
-  key: 'examples'
-  snippet: '>>> np.ma.median(x, axis=-1, overwrite_input=True)'
 === detect
 numpydoc
 === compose numpydoc
@@ -218,7 +225,6 @@ Examples
 >>> x = np.ma.array(np.arange(8), mask=[0]*4 + [1]*4)
 >>> np.ma.median(x)
 1.5
-
 >>> x = np.ma.array(np.arange(10).reshape(2, 5), mask=[0]*6 + [1]*4)
 >>> np.ma.median(x)
 2.5

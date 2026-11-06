@@ -380,35 +380,81 @@ style: numpydoc
     samples. The ringing at the beginning of the up-sampled signal is due to
     interpreting the signal being periodic. The red square in the plot illustrates that
     periodictiy by showing the first sample of the next cycle of the signal.
-    
   kind: examples
   key: 'examples'
+  snippet: '>>> import numpy as np'
 - DocstringExample
-  description: '...'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import matplotlib.pyplot as plt'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import numpy as np
-    >>> import matplotlib.pyplot as plt
     >>> from scipy.signal import resample
+    ...
 - DocstringExample
-  description: '...'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> n0, n1 = 20, 100  # number of samples'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> t0 = np.linspace(0, 10, n0, endpoint=False)  # input time stamps'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> n0, n1 = 20, 100  # number of samples
-    >>> t0 = np.linspace(0, 10, n0, endpoint=False)  # input time stamps
     >>> x0 = np.cos(-t0**2/6)  # input signal
+    ...
 - DocstringExample
-  description: '...'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> x1 = resample(x0, n1)  # resampled signal'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> x1 = resample(x0, n1)  # resampled signal
     >>> t1 = np.linspace(0, 10, n1, endpoint=False)  # timestamps of x1
+    ...
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> fig0, ax0 = plt.subplots(1, 1, tight_layout=True)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> ax0.set_title(f"Resampling $x(t)$ from {n0} samples to {n1} samples")'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> ax0.set(xlabel="Time $t$", ylabel="Amplitude $x(t)$")'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> ax0.plot(t1, x1, \'.-\', alpha=.5, label=f"Resampled")'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> ax0.plot(t0, x0, \'o-\', alpha=.5, label="Original")'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> ax0.plot(10, x0[0], \'rs\', alpha=.5, label="Next Cycle")'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: ">>> ax0.legend(loc='best')"
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> ax0.grid(True)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> plt.show()'
 - DocstringExample
   description: |
-    
     The following example compares this function with a naive `~scipy.fft.rfft` /
     `~scipy.fft.irfft` combination: An input signal with a sampling interval of one
     second is upsampled by a factor of eight. The first figure depicts an odd number of
@@ -421,30 +467,32 @@ style: numpydoc
     spectrum without antialiasing filter, which is a periodic continuation of the input
     spectrum. The blue x's and orange dots depict the FFT values of the signal created
     by the naive approach as well as this function's result.
-    
   kind: examples
   key: 'examples'
-  snippet: |
-    >>> fig0, ax0 = plt.subplots(1, 1, tight_layout=True)
-    >>> ax0.set_title(f"Resampling $x(t)$ from {n0} samples to {n1} samples")
-    >>> ax0.set(xlabel="Time $t$", ylabel="Amplitude $x(t)$")
-    >>> ax0.plot(t1, x1, '.-', alpha=.5, label=f"Resampled")
-    >>> ax0.plot(t0, x0, 'o-', alpha=.5, label="Original")
-    >>> ax0.plot(10, x0[0], 'rs', alpha=.5, label="Next Cycle")
-    >>> ax0.legend(loc='best')
-    >>> ax0.grid(True)
-    >>> plt.show()
+  snippet: '>>> import matplotlib.pyplot as plt'
 - DocstringExample
-  description: '...'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from scipy.fft import fftshift, fftfreq, fft, rfft, irfft'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import matplotlib.pyplot as plt
-    >>> import numpy as np
-    >>> from scipy.fft import fftshift, fftfreq, fft, rfft, irfft
     >>> from scipy.signal import resample, resample_poly
+    ...
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: '>>> fac, T0, T1 = 8, 1, 1/8  # upsampling factor and sampling intervals'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> for n0 in (15, 16):  # number of samples of input signal
     ...     n1 = fac * n0  # number of samples of upsampled signal
     ...     t0, t1 = T0 * np.arange(n0), T1 * np.arange(n1)  # time stamps
     ...     x0 = np.zeros(n0)  # input signal has two non-zero sample values
@@ -479,14 +527,12 @@ style: numpydoc
     ...         ax1.plot(f1, abs(X_), l_, alpha=.5, label=n_)
     ...     ax1.grid()
     ...     fig.legend(loc='outside lower center', ncols=4)
+- DocstringExample
   kind: examples
   key: 'examples'
-  snippet: |
-    >>> fac, T0, T1 = 8, 1, 1/8  # upsampling factor and sampling intervals
-    >>> for n0 in (15, 16):  # number of samples of input signal
+  snippet: '>>> plt.show()'
 - DocstringExample
   description: |
-    
     The first figure shows that upsampling an odd number of samples produces identical
     results. The second figure illustrates that the signal produced with the naive
     approach (dashed blue line) from an even number of samples does not touch all
@@ -506,67 +552,143 @@ style: numpydoc
     periodic wheras the default parametrization performs zero-padding. The upper
     subplot shows the resulting signals over time whereas the lower subplot depicts the
     resulting one-sided magnitude spectra.
-    
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import matplotlib.pyplot as plt'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from scipy.fft import rfftfreq, rfft'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> from scipy.signal import resample, resample_poly
+    ...
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> n0 = 19937 # number of input samples - prime'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> n1 = 128  # number of output samples - fast FFT length'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> T0, T1 = 1/n0, 1/n1  # sampling intervals'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> t0, t1 = np.arange(n0)*T0, np.arange(n1)*T1  # time stamps
+    ...
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> x0 = np.zeros(n0)  # Input has one non-zero sample'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> x0[0] = n0'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>>'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> x1r = resample(x0, n1)  # slow due to n0 being prime'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> # This is faster:'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: ">>> x1p = resample(resample_poly(x0, 1, n0 // n1, padtype='wrap'), n1)  # periodic"
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> x2p = resample(resample_poly(x0, 1, n0 // n1), n1)  # with zero-padding
+    ...
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> X0 = rfft(x0) / n0'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> X1r, X1p, X2p = rfft(x1r) / n1, rfft(x1p) / n1, rfft(x2p) / n1'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> f0, f1 = rfftfreq(n0, T0), rfftfreq(n1, T1)
+    ...
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: ">>> fig, (ax0, ax1) = plt.subplots(2, 1, layout='constrained', figsize=(5, 4))"
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> ax0.set_title(f"Dowsampled Impulse response (from {n0} to {n1} samples)")'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> ax0.set(xlabel="Time $t$ in seconds", ylabel="Amplitude $x(t)$", xlim=(-T1, 1))'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> for x_ in (x1r, x1p, x2p):
+    ...     ax0.plot(t1, x_, alpha=.5)
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> ax0.grid()'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> ax1.set(xlabel=rf"Frequency $f$ in hertz ($\Delta f = {f1[1]}\,$Hz)",
+    ...         ylabel="Magnitude $|X(f)|$", xlim=(0, 0.55/T1))
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: ">>> ax1.axvspan(0.5/T1, f0[-1], color='gray', alpha=.2)"
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> ax1.plot(f1, abs(X1r), \'C0.-\', alpha=.5, label="resample")'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> ax1.plot(f1, abs(X1p), \'C1.-\', alpha=.5, label="resample_poly(padtype=\'wrap\')")'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> ax1.plot(f1, abs(X2p), \'C2x-\', alpha=.5, label="resample_poly")'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> ax1.grid()'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: ">>> fig.legend(loc='outside lower center', ncols=2)"
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: '>>> plt.show()'
 - DocstringExample
-  description: '...'
-  kind: examples
-  key: 'examples'
-  snippet: |
-    >>> import matplotlib.pyplot as plt
-    >>> import numpy as np
-    >>> from scipy.fft import rfftfreq, rfft
-    >>> from scipy.signal import resample, resample_poly
-- DocstringExample
-  description: '...'
-  kind: examples
-  key: 'examples'
-  snippet: |
-    >>> n0 = 19937 # number of input samples - prime
-    >>> n1 = 128  # number of output samples - fast FFT length
-    >>> T0, T1 = 1/n0, 1/n1  # sampling intervals
-    >>> t0, t1 = np.arange(n0)*T0, np.arange(n1)*T1  # time stamps
-- DocstringExample
-  description: '...'
-  kind: examples
-  key: 'examples'
-  snippet: |
-    >>> x0 = np.zeros(n0)  # Input has one non-zero sample
-    >>> x0[0] = n0
-    >>>
-    >>> x1r = resample(x0, n1)  # slow due to n0 being prime
-    >>> # This is faster:
-    >>> x1p = resample(resample_poly(x0, 1, n0 // n1, padtype='wrap'), n1)  # periodic
-    >>> x2p = resample(resample_poly(x0, 1, n0 // n1), n1)  # with zero-padding
-- DocstringExample
-  description: '...'
-  kind: examples
-  key: 'examples'
-  snippet: |
-    >>> X0 = rfft(x0) / n0
-    >>> X1r, X1p, X2p = rfft(x1r) / n1, rfft(x1p) / n1, rfft(x2p) / n1
-    >>> f0, f1 = rfftfreq(n0, T0), rfftfreq(n1, T1)
-- DocstringExample
-  description: '...     ax0.plot(t1, x_, alpha=.5)'
-  kind: examples
-  key: 'examples'
-  snippet: |
-    >>> fig, (ax0, ax1) = plt.subplots(2, 1, layout='constrained', figsize=(5, 4))
-    >>> ax0.set_title(f"Dowsampled Impulse response (from {n0} to {n1} samples)")
-    >>> ax0.set(xlabel="Time $t$ in seconds", ylabel="Amplitude $x(t)$", xlim=(-T1, 1))
-    >>> for x_ in (x1r, x1p, x2p):
-- DocstringExample
-  description: '...         ylabel="Magnitude $|X(f)|$", xlim=(0, 0.55/T1))'
-  kind: examples
-  key: 'examples'
-  snippet: |
-    >>> ax0.grid()
-    >>> ax1.set(xlabel=rf"Frequency $f$ in hertz ($\Delta f = {f1[1]}\,$Hz)",
-- DocstringExample
   description: |
-    
     The plots show that the results of the "pure" `resample` and the usage of the
     default parameters of `resample_poly` agree well.  The periodic padding of
     `resample_poly` (``padtype='wrap'``) on the other hand produces significant
@@ -581,14 +703,6 @@ style: numpydoc
     discussed in the previous example.
   kind: examples
   key: 'examples'
-  snippet: |
-    >>> ax1.axvspan(0.5/T1, f0[-1], color='gray', alpha=.2)
-    >>> ax1.plot(f1, abs(X1r), 'C0.-', alpha=.5, label="resample")
-    >>> ax1.plot(f1, abs(X1p), 'C1.-', alpha=.5, label="resample_poly(padtype='wrap')")
-    >>> ax1.plot(f1, abs(X2p), 'C2x-', alpha=.5, label="resample_poly")
-    >>> ax1.grid()
-    >>> fig.legend(loc='outside lower center', ncols=2)
-    >>> plt.show()
 === detect
 numpydoc
 === compose numpydoc

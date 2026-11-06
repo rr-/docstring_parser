@@ -219,59 +219,79 @@ style: numpydoc
   kind: text
   key: 'references'
 - DocstringExample
-  description: '...                       0.133, -0.473, -0.001, -0.348, 0.131])'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from scipy.stats import circstd'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import matplotlib.pyplot as plt'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import numpy as np
-    >>> from scipy.stats import circstd
-    >>> import matplotlib.pyplot as plt
     >>> samples_1 = np.array([0.072, -0.158, 0.077, 0.108, 0.286,
+    ...                       0.133, -0.473, -0.001, -0.348, 0.131])
 - DocstringExample
-  description: '...                       0.104, -0.136, -0.867,  0.012,  0.105])'
-  kind: examples
-  key: 'examples'
-  snippet: '>>> samples_2 = np.array([0.111, -0.879, 0.078, 0.733, 0.421,'
-- DocstringExample
-  description: |
-    
-    Plot the samples.
-    
   kind: examples
   key: 'examples'
   snippet: |
-    >>> circstd_1 = circstd(samples_1)
-    >>> circstd_2 = circstd(samples_2)
+    >>> samples_2 = np.array([0.111, -0.879, 0.078, 0.733, 0.421,
+    ...                       0.104, -0.136, -0.867,  0.012,  0.105])
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: '>>> circstd_1 = circstd(samples_1)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> circstd_2 = circstd(samples_2)'
+- DocstringExample
+  description: 'Plot the samples.'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> fig, (left, right) = plt.subplots(ncols=2)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> for image in (left, right):
     ...     image.plot(np.cos(np.linspace(0, 2*np.pi, 500)),
     ...                np.sin(np.linspace(0, 2*np.pi, 500)),
     ...                c='k')
     ...     image.axis('equal')
     ...     image.axis('off')
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: ">>> left.scatter(np.cos(samples_1), np.sin(samples_1), c='k', s=15)"
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> left.set_title(f"circular std: {np.round(circstd_1, 2)!r}")'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> fig, (left, right) = plt.subplots(ncols=2)
-    >>> for image in (left, right):
-- DocstringExample
-  description: |
+    >>> right.plot(np.cos(np.linspace(0, 2*np.pi, 500)),
     ...            np.sin(np.linspace(0, 2*np.pi, 500)),
     ...            c='k')
-  kind: examples
-  key: 'examples'
-  snippet: |
-    >>> left.scatter(np.cos(samples_1), np.sin(samples_1), c='k', s=15)
-    >>> left.set_title(f"circular std: {np.round(circstd_1, 2)!r}")
-    >>> right.plot(np.cos(np.linspace(0, 2*np.pi, 500)),
 - DocstringExample
-  description: ''
   kind: examples
   key: 'examples'
-  snippet: |
-    >>> right.scatter(np.cos(samples_2), np.sin(samples_2), c='k', s=15)
-    >>> right.set_title(f"circular std: {np.round(circstd_2, 2)!r}")
-    >>> plt.show()
+  snippet: ">>> right.scatter(np.cos(samples_2), np.sin(samples_2), c='k', s=15)"
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> right.set_title(f"circular std: {np.round(circstd_2, 2)!r}")'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> plt.show()'
 === detect
 numpydoc
 === compose numpydoc

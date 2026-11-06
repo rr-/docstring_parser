@@ -108,20 +108,26 @@ style: numpydoc
   kind: text
   key: 'see_also'
 - DocstringExample
-  description: "Index([1, 2, 3, 4, 5, 6], dtype='int64')"
+  kind: examples
+  key: 'examples'
+  snippet: '>>> idx1 = pd.Index([1, 2, 3])'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> idx2 = pd.Index([4, 5, 6])'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> idx1 = pd.Index([1, 2, 3])
-    >>> idx2 = pd.Index([4, 5, 6])
     >>> idx1.join(idx2, how="outer")
+    Index([1, 2, 3, 4, 5, 6], dtype='int64')
 - DocstringExample
-  description: |
-    (Index([1, 2, 3, 4, 5, 6], dtype='int64'),
-    array([ 0,  1,  2, -1, -1, -1]), array([-1, -1, -1,  0,  1,  2]))
   kind: examples
   key: 'examples'
-  snippet: '>>> idx1.join(other=idx2, how="outer", return_indexers=True)'
+  snippet: |
+    >>> idx1.join(other=idx2, how="outer", return_indexers=True)
+    (Index([1, 2, 3, 4, 5, 6], dtype='int64'),
+    array([ 0,  1,  2, -1, -1, -1]), array([-1, -1, -1,  0,  1,  2]))
 === detect
 numpydoc
 === compose numpydoc

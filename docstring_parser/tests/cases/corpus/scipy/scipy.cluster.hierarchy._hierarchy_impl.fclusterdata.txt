@@ -189,8 +189,11 @@ style: numpydoc
   kind: text
   key: 'notes'
 - DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from scipy.cluster.hierarchy import fclusterdata'
+- DocstringExample
   description: |
-    
     This is a convenience method that abstracts all the steps to perform in a
     typical SciPy's hierarchical clustering workflow.
     
@@ -201,28 +204,25 @@ style: numpydoc
     
     * Obtain flat clusters at a user defined distance threshold ``t`` using
       `scipy.cluster.hierarchy.fcluster`.
-    
   kind: examples
   key: 'examples'
-  snippet: '>>> from scipy.cluster.hierarchy import fclusterdata'
-- DocstringExample
-  description: |
+  snippet: |
+    >>> X = [[0, 0], [0, 1], [1, 0],
     ...      [0, 4], [0, 3], [1, 4],
     ...      [4, 0], [3, 0], [4, 1],
     ...      [4, 4], [3, 4], [4, 3]]
-    
+- DocstringExample
   kind: examples
   key: 'examples'
-  snippet: '>>> X = [[0, 0], [0, 1], [1, 0],'
+  snippet: |
+    >>> fclusterdata(X, t=1)
+    array([3, 3, 3, 4, 4, 4, 2, 2, 2, 1, 1, 1], dtype=int32)
 - DocstringExample
   description: |
-    array([3, 3, 3, 4, 4, 4, 2, 2, 2, 1, 1, 1], dtype=int32)
-    
     The output here (for the dataset ``X``, distance threshold ``t``, and the
     default settings) is four clusters with three data points each.
   kind: examples
   key: 'examples'
-  snippet: '>>> fclusterdata(X, t=1)'
 === detect
 numpydoc
 === compose numpydoc
@@ -292,7 +292,6 @@ typical SciPy's hierarchical clustering workflow.
 ...      [0, 4], [0, 3], [1, 4],
 ...      [4, 0], [3, 0], [4, 1],
 ...      [4, 4], [3, 4], [4, 3]]
-
 >>> fclusterdata(X, t=1)
 array([3, 3, 3, 4, 4, 4, 2, 2, 2, 1, 1, 1], dtype=int32)
 

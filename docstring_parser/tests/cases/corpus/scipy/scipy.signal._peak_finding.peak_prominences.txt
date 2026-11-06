@@ -252,83 +252,112 @@ style: numpydoc
   kind: text
   key: 'references'
 - DocstringExample
-  description: |
-    
-    Create a test signal with two overlaid harmonics
-    
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import numpy as np'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> from scipy.signal import find_peaks, peak_prominences'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> import matplotlib.pyplot as plt'
+- DocstringExample
+  description: 'Create a test signal with two overlaid harmonics'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> x = np.linspace(0, 6 * np.pi, 1000)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> x = np.sin(x) + 0.6 * np.sin(2.6 * x)'
+- DocstringExample
+  description: 'Find all peaks and calculate prominences'
+  kind: examples
+  key: 'examples'
+  snippet: '>>> peaks, _ = find_peaks(x)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> prominences = peak_prominences(x, peaks)[0]'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> import numpy as np
-    >>> from scipy.signal import find_peaks, peak_prominences
-    >>> import matplotlib.pyplot as plt
-- DocstringExample
-  description: |
-    
-    Find all peaks and calculate prominences
-    
-  kind: examples
-  key: 'examples'
-  snippet: |
-    >>> x = np.linspace(0, 6 * np.pi, 1000)
-    >>> x = np.sin(x) + 0.6 * np.sin(2.6 * x)
-- DocstringExample
-  description: |
+    >>> prominences
     array([1.24159486, 0.47840168, 0.28470524, 3.10716793, 0.284603  ,
            0.47822491, 2.48340261, 0.47822491])
-    
-    Calculate the height of each peak's contour line and plot the results
-    
+- DocstringExample
+  description: "Calculate the height of each peak's contour line and plot the results"
   kind: examples
   key: 'examples'
-  snippet: |
-    >>> peaks, _ = find_peaks(x)
-    >>> prominences = peak_prominences(x, peaks)[0]
-    >>> prominences
+  snippet: '>>> contour_heights = x[peaks] - prominences'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> plt.plot(x)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> plt.plot(peaks, x[peaks], "x")'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> plt.vlines(x=peaks, ymin=contour_heights, ymax=x[peaks])'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> plt.show()'
 - DocstringExample
   description: |
-    
     Let's evaluate a second example that demonstrates several edge cases for
     one peak at index 5.
-    
+  kind: examples
+  key: 'examples'
+  snippet: '>>> x = np.array([0, 1, 0, 3, 1, 3, 0, 4, 0])'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> peaks = np.array([5])'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> plt.plot(x)'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> plt.plot(peaks, x[peaks], "x")'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: '>>> plt.show()'
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> contour_heights = x[peaks] - prominences
-    >>> plt.plot(x)
-    >>> plt.plot(peaks, x[peaks], "x")
-    >>> plt.vlines(x=peaks, ymin=contour_heights, ymax=x[peaks])
-    >>> plt.show()
+    >>> peak_prominences(x, peaks)  # -> (prominences, left_bases, right_bases)
+    (array([3.]), array([2]), array([6]))
 - DocstringExample
   description: |
-    (array([3.]), array([2]), array([6]))
-    
     Note how the peak at index 3 of the same height is not considered as a
     border while searching for the left base. Instead, two minima at 0 and 2
     are found in which case the one closer to the evaluated peak is always
     chosen. On the right side, however, the base must be placed at 6 because the
     higher peak represents the right border to the evaluated area.
-    
   kind: examples
   key: 'examples'
   snippet: |
-    >>> x = np.array([0, 1, 0, 3, 1, 3, 0, 4, 0])
-    >>> peaks = np.array([5])
-    >>> plt.plot(x)
-    >>> plt.plot(peaks, x[peaks], "x")
-    >>> plt.show()
-    >>> peak_prominences(x, peaks)  # -> (prominences, left_bases, right_bases)
+    >>> peak_prominences(x, peaks, wlen=3.1)
+    (array([2.]), array([4]), array([6]))
 - DocstringExample
   description: |
-    (array([2.]), array([4]), array([6]))
-    
     Here, we restricted the algorithm to a window from 3 to 7 (the length is 5
     samples because `wlen` was rounded up to the next odd integer). Thus, the
     only two candidates in the evaluated area are the two neighboring samples
     and a smaller prominence is calculated.
   kind: examples
   key: 'examples'
-  snippet: '>>> peak_prominences(x, peaks, wlen=3.1)'
 === detect
 numpydoc
 === compose numpydoc

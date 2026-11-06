@@ -350,7 +350,7 @@ def test_param_default_regex_in_desc(input_str, expected_match, default_value):
             ">>> test2b\n"
             "desc2a\n"
             "desc2b",
-            2,
+            4,
         ),
     ],
 )
@@ -431,8 +431,8 @@ def test_examples_section_finishes_promptly() -> None:
     lines = [">>> f()" if i % 2 == 0 else "out" for i in range(100_000)]
     docstring = parse("Short.\n\nExamples\n--------\n" + "\n".join(lines))
     assert len(docstring.examples) == 50_000
-    assert docstring.examples[-1].snippet == ">>> f()"
-    assert docstring.examples[-1].description == "out"
+    assert docstring.examples[-1].snippet == ">>> f()\nout"
+    assert docstring.examples[-1].description is None
 
 
 @pytest.mark.parametrize("title", ["Notes?", "C++ Notes", "Args (old)"])
@@ -443,3 +443,29 @@ def test_section_title_is_literal(title: str) -> None:
     assert [(m.key, m.description) for m in docstring.meta] == [
         ("custom", "text")
     ]
+
+
+def test_examples_split_as_doctest_reads_them() -> None:
+    """Test that each example is its text, then its snippet and output."""
+    text = (
+        "Short.\n\n"
+        "Examples\n"
+        "--------\n"
+        "To print a number:\n\n"
+        ">>> for i in range(1):\n"
+        "...     print(i)\n"
+        "0\n"
+        ">>> f()\n\n"
+        "Then more."
+    )
+    docstring = parse(text)
+    assert len(docstring.examples) == 3
+    assert docstring.examples[0].description == "To print a number:"
+    assert docstring.examples[0].snippet == (
+        ">>> for i in range(1):\n...     print(i)\n0"
+    )
+    assert docstring.examples[1].description is None
+    assert docstring.examples[1].snippet == ">>> f()"
+    assert docstring.examples[2].description == "Then more."
+    assert docstring.examples[2].snippet is None
+    assert compose(docstring) == text

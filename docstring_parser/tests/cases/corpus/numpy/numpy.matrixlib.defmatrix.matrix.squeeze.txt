@@ -86,40 +86,49 @@ style: numpydoc
   kind: text
   key: 'notes'
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: '>>> c = np.matrix([[1], [2]])'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> c
     matrix([[1],
             [2]])
+- DocstringExample
   kind: examples
   key: 'examples'
   snippet: |
-    >>> c = np.matrix([[1], [2]])
-    >>> c
+    >>> c.squeeze()
+    matrix([[1, 2]])
 - DocstringExample
-  description: 'matrix([[1, 2]])'
   kind: examples
   key: 'examples'
-  snippet: '>>> c.squeeze()'
+  snippet: '>>> r = c.T'
 - DocstringExample
-  description: 'matrix([[1, 2]])'
   kind: examples
   key: 'examples'
   snippet: |
-    >>> r = c.T
     >>> r
+    matrix([[1, 2]])
 - DocstringExample
-  description: 'matrix([[1, 2]])'
   kind: examples
   key: 'examples'
-  snippet: '>>> r.squeeze()'
+  snippet: |
+    >>> r.squeeze()
+    matrix([[1, 2]])
 - DocstringExample
-  description: |
+  kind: examples
+  key: 'examples'
+  snippet: '>>> m = np.matrix([[1, 2], [3, 4]])'
+- DocstringExample
+  kind: examples
+  key: 'examples'
+  snippet: |
+    >>> m.squeeze()
     matrix([[1, 2],
             [3, 4]])
-  kind: examples
-  key: 'examples'
-  snippet: |
-    >>> m = np.matrix([[1, 2], [3, 4]])
-    >>> m.squeeze()
 === detect
 numpydoc
 === compose numpydoc
