@@ -111,11 +111,13 @@ def add_attribute_docstrings(
     :param docstring: Docstring object where found attributes are added
     :returns: list with names of added attributes
     """
-    params = set(p.arg_name for p in [*docstring.params, *docstring.attrs])
+    # An attribute the docstring documents already wins. A param of the
+    # same name, such as one ``__init__`` stores, is no attribute.
+    documented = set(a.arg_name for a in docstring.attrs)
     for arg_name, (description, type_name, default) in (
         AttributeDocstrings().get_attr_docs(obj).items()
     ):
-        if arg_name not in params:
+        if arg_name not in documented:
             param = DocstringParam(
                 key="attribute",
                 description=description,
