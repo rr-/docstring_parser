@@ -39,6 +39,7 @@
 - General: Compose docstrings so they parse back the same
 - General: Unescape names in every style, such as `\*\*kwargs` or `class\_`
 - General: Make each run of whitespace in a type one space
+- General: Clean attribute docstrings in `parse_from_object()` as other docstrings
 - ReST: Stop the last field from absorbing text after the field list (thanks to @apoorvdarshan)
 - ReST: Raise `ParseError`, not `IndexError`, for a field with no name
 - ReST: Indent compact continuation lines so a leading role isn't read as a field

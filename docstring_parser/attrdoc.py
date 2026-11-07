@@ -9,6 +9,7 @@ import textwrap
 import typing as T
 from types import ModuleType
 
+from ._lines import cleandoc
 from .common import Docstring, DocstringParam, Kind
 
 
@@ -120,7 +121,8 @@ def add_attribute_docstrings(
         if arg_name not in documented:
             param = DocstringParam(
                 key="attribute",
-                description=description,
+                # Cleaned as a docstring is, without its indent.
+                description=cleandoc(description) if description else None,
                 arg_name=arg_name,
                 type_name=type_name,
                 is_optional=default is not None,
