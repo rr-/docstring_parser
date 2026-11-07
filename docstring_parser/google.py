@@ -33,6 +33,7 @@ from ._text import (
     split_description,
     split_examples,
     split_names,
+    unescape,
 )
 from .common import (
     EXAMPLES_KEYWORDS,
@@ -99,6 +100,10 @@ _IN_BRACKETS = r"[^\[\]:\n]*"
 _TYPE_WORD = (
     r"[~!`]?[A-Za-z_][\w.`]*"
     rf"(?:\[{_IN_BRACKETS}(?:\[{_IN_BRACKETS}\]{_IN_BRACKETS})*\])?"
+)
+# A named return's head, as in ``x (int):``, whole on its line.
+_NAMED_RETURN_HEAD = re.compile(
+    r"[ \t]*[A-Za-z_]\w*[ \t]+\((?:[^()\n]|\([^()\n]*\))+\)[ \t]*:(?:\s|$)"
 )
 _SHORT_TYPE_HEAD = re.compile(
     rf"{_TYPE_WORD}(?:[ \t]+(?:of|or|\|)[ \t]+{_TYPE_WORD}){{1,2}}[ \t]*:"
@@ -476,11 +481,14 @@ def _multi_meta(section: Section, before: str, desc: str) -> DocstringMeta:
         param.extra = head.extra or None
         return param
     if kind in RETURNS_KINDS:
+        named = _NAMED_RETURN_HEAD.match(before + ":")
+        typed = _split_typed_arg(before) if named else None
         return DocstringReturns(
             key=section.key,
             description=desc,
-            type_name=before,
+            type_name=typed.type_name if typed else before,
             is_generator=kind is Kind.YIELDS,
+            return_name=typed.name if typed else None,
         )
     if kind in RAISES_KINDS:
         return DocstringRaises(
@@ -583,6 +591,7 @@ class Parser(BaseParser):
             and not MULTIPLE_PATTERN.match(text)
             and not _is_union_head(text)
             and not _SHORT_TYPE_HEAD.match(text)
+            and not _NAMED_RETURN_HEAD.match(text)
         ) or section.type == SectionType.SINGULAR:
             return _single_meta(section, text)
 
@@ -673,6 +682,8 @@ class Parser(BaseParser):
         meta = self._meta_of(text, title)
         metas: T.List[DocstringMeta] = [meta]
         if type(meta) is DocstringParam:
+            if meta.arg_name and "\\" in meta.arg_name:
+                meta.arg_name = unescape(meta.arg_name)
             names = split_names(meta.arg_name)
             if names is not None:
                 metas = [renamed(meta, name) for name in names]

@@ -40,10 +40,11 @@ style: epydoc
   kind: param
   key: 'param'
   arg_name: 'reactor'
-  type_name: |
+  type_name: 'L{IReactorTCP <twisted.internet.interfaces.IReactorTCP>} provider'
+  is_optional: False
+  raw_type_name: |
     L{IReactorTCP <twisted.internet.interfaces.IReactorTCP>}
     provider
-  is_optional: False
 - DocstringParam
   description: |
     The type of service for which to retrieve endpoints,
