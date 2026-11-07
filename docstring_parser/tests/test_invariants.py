@@ -141,10 +141,8 @@ def test_compose_round_trip_exclusions_still_fail() -> None:
 SUMMARY = "an indented first line reads as a field or title once flush"
 BODY = "a body's first line is dedented apart from its other lines"
 DIRECTIVE = "a directive's body holds the directive itself"
-LEAD = "text before a section's first item joins a summary with no blank"
 GENERATED = 2000
 GENERATED_EXCLUSIONS = {
-    (182, DocstringStyle.NUMPYDOC): LEAD,
     (555, DocstringStyle.REST): SUMMARY,
     (637, DocstringStyle.REST): SUMMARY,
     (672, DocstringStyle.REST): SUMMARY,

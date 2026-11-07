@@ -10,6 +10,7 @@
 - General: **Breaking:** Read the whole first paragraph as the short description
 - Google, Numpydoc: **Breaking:** Remove customising by overriding internals; use `SectionSpec` instead
 - Google, Numpydoc: **Breaking:** Split examples as doctest does, into `description` and `snippet`
+- Google, Numpydoc: **Breaking:** Move `Methods` sections from text items to the new `Docstring.methods`, one per method
 - General: Parse `\r\n` and `\r` line endings the same as `\n`
 - General: Dedent docstrings and their items the same on every Python version
 - General: Strip leading spaces from the short description
@@ -119,7 +120,6 @@
 - Google, Numpydoc: Read napoleon's other sections, such as `Keyword Args` and `Todo` (thanks to @BrianPugh)
 - Google, Numpydoc: Give each name in `x, y : int` its own param
 - Google, Numpydoc: Read `...` as a name, as in `arg1, arg2, ...`
-- Google, Numpydoc: Read a `Methods` section as one item per method, in `Docstring.methods`
 
 # 0.18 (2026-04-14)
 
