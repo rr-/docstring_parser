@@ -17,7 +17,6 @@ from ._compose import (
 from ._directives import (
     deprecation_lines,
     description_with_deprecation,
-    leading_deprecation,
 )
 from ._lines import Lines, dedent
 from ._sections import ParserCache, SectionSpec, apply
@@ -28,6 +27,7 @@ from ._text import (
     OPTIONAL_REGEX,
     append_loose,
     clean_str,
+    leading_deprecation,
     param_spec,
     renamed,
     split_description,
@@ -41,6 +41,7 @@ from .common import (
     DocstringDeprecated,
     DocstringExample,
     DocstringMeta,
+    DocstringMethod,
     DocstringParam,
     DocstringRaises,
     DocstringReturns,
@@ -282,6 +283,27 @@ class ParamSection(_KVSection):
         )
 
 
+class MethodsSection(_KVSection):
+    """Parser for numpydoc methods sections.
+
+    E.g. any section that looks like this:
+        run(x, y=1)
+            A description of what run does
+    """
+
+    def _parse(self, text: str) -> T.Iterable[DocstringMeta]:
+        if _KV_REGEX.search(text) is None:
+            # A section that lists no method stays its title.
+            yield from Section._parse(self, text)
+            return
+        yield from super()._parse(text)
+
+    def _parse_item(self, key: str, value: str) -> DocstringMethod:
+        # The whole line is the method, as napoleon reads it, so that a
+        # signature's annotations are not split off as a type.
+        return DocstringMethod(key.strip(), clean_str(value), self.key)
+
+
 class RaisesSection(_KVSection):
     """Parser for numpydoc raises sections.
 
@@ -433,7 +455,7 @@ DEFAULT_SECTIONS = [
     Section("References", "references"),
     Section("Reference", "references"),
     Section("Todo", "todo"),
-    Section("Methods", "methods"),
+    MethodsSection("Methods", "methods"),
     Section("Attention", "attention"),
     Section("Caution", "caution"),
     Section("Danger", "danger"),
@@ -458,6 +480,8 @@ def _section_kind(section: Section) -> Kind:
         return Kind.EXAMPLES
     if isinstance(section, DeprecationSection):
         return Kind.DEPRECATION
+    if isinstance(section, MethodsSection):
+        return Kind.METHOD
     return Kind.TEXT
 
 
@@ -474,6 +498,7 @@ _SECTION_CLASS = {
     Kind.WARNS: RaisesSection,
     Kind.EXAMPLES: ExamplesSection,
     Kind.DEPRECATION: DeprecationSection,
+    Kind.METHOD: MethodsSection,
     Kind.TEXT: Section,
 }
 
@@ -726,6 +751,7 @@ _COMPOSE_SECTIONS = SectionTable(
         ("Parameters", {Kind.PARAM}),
         ("Keyword Arguments", {Kind.KEYWORD}),
         ("Attributes", {Kind.ATTRIBUTE}),
+        ("Methods", {Kind.METHOD}),
         ("Returns", {Kind.RETURNS}),
         ("Yields", {Kind.YIELDS}),
         ("Receives", {Kind.RECEIVES}),
@@ -751,8 +777,19 @@ def compose(
     """
 
     def process_one(
-        one: T.Union[DocstringParam, DocstringReturns, DocstringRaises],
+        one: T.Union[
+            DocstringParam, DocstringReturns, DocstringRaises, DocstringMethod
+        ],
     ):
+        if isinstance(one, DocstringMethod):
+            lines = [one.name or ""]
+            if one.description:
+                lines += [
+                    indent + line if line else ""
+                    for line in one.description.split("\n")
+                ]
+            parts.append("\n".join(lines))
+            return
         written = None
         if isinstance(one, DocstringParam):
             head = one.arg_name

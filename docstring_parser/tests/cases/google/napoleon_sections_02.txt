@@ -17,11 +17,11 @@ style: google
   kind: deprecation
   key: 'deprecation'
   version: '1.2.0'
-- DocstringMeta
-  description: 'run: Run it.'
-  kind: text
+- DocstringMethod
+  description: 'Run it.'
+  kind: method
   key: 'methods'
-  title: 'Methods'
+  name: 'run'
 === compose google
 Short.
 

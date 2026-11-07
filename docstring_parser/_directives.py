@@ -136,26 +136,6 @@ def deprecation_lines(meta: DocstringDeprecated, indent: str) -> str:
     )
 
 
-def leading_deprecation(
-    docstring: Docstring,
-) -> T.Optional[DocstringDeprecated]:
-    """Return the deprecation to write right after the short description.
-
-    A deprecation that comes first goes there, as Numpydoc writes it,
-    with the long description read from after it. Not when the long
-    description is followed by a blank line, which it is only when written
-    before the directive, or when it starts indented, which would read
-    back as the directive's body.
-    """
-    top = docstring.meta[0] if docstring.meta else None
-    long = docstring.long_description
-    if not isinstance(top, DocstringDeprecated) or (
-        docstring.blank_after_long_description or (long and long[0].isspace())
-    ):
-        return None
-    return top
-
-
 def description_with_deprecation(
     docstring: Docstring,
     top: T.Optional[DocstringDeprecated],

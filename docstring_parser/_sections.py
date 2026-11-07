@@ -36,6 +36,7 @@ _DEFAULT_KEY = {
     Kind.WARNS: "warns",
     Kind.EXAMPLES: "examples",
     Kind.DEPRECATION: "deprecation",
+    Kind.METHOD: "methods",
 }
 
 _DEFAULT_LAYOUT = {

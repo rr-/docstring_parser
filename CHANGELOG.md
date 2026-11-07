@@ -10,6 +10,7 @@
 - General: **Breaking:** Read the whole first paragraph as the short description
 - Google, Numpydoc: **Breaking:** Remove customising by overriding internals; use `SectionSpec` instead
 - Google, Numpydoc: **Breaking:** Split examples as doctest does, into `description` and `snippet`
+- Google, Numpydoc: **Breaking:** Move `Methods` sections from text items to the new `Docstring.methods`, one per method
 - General: Parse `\r\n` and `\r` line endings the same as `\n`
 - General: Dedent docstrings and their items the same on every Python version
 - General: Strip leading spaces from the short description
@@ -97,6 +98,7 @@
 - Numpydoc: Compose sections and deprecations in the items' order
 - Numpydoc: Accept a title underline of `-` or `=` signs, at least 3 by default
 - Numpydoc: Report a short underline as `bad-underline`; set `min_underline` or `exact_underline`
+- Numpydoc: Keep text before a section's first item apart from the summary when read back
 - Epydoc: Match fields only at line starts, and stop hanging on colonless headers (thanks to @akshitkhokhani)
 - Epydoc: Take a param's key and kind from its own field, not an earlier `@type`
 - Epydoc: Give a name described by two fields an item for each

@@ -8,6 +8,7 @@ import typing as T
 
 from ._compose import (
     description_lines,
+    field_description,
     field_name,
     field_text,
     start_on_new_line,
@@ -420,7 +421,7 @@ def compose(
             parts.append(text)
         else:
             text = f"@{field_text(meta)}:"
-            text += process_desc(meta.description, False)
+            text += process_desc(field_description(meta), False)
             parts.append(text)
     text = "\n".join(parts)
     # Every field starts a line of its own, unindented, so only a lone

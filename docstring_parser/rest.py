@@ -5,6 +5,7 @@ import typing as T
 
 from ._compose import (
     description_lines,
+    field_description,
     field_name,
     field_text,
     start_on_new_line,
@@ -19,13 +20,13 @@ from ._directives import (
     description_with_deprecation,
     directive_pattern,
     lead_directive,
-    leading_deprecation,
 )
 from ._fields import AFTER_ALL, ParamTypes, ReturnTypes, assign_types
 from ._lines import Lines, dedent
 from ._sections import ParserCache, SectionSpec, apply
 from ._text import (
     append_loose,
+    leading_deprecation,
     param_spec,
     split_description,
 )
@@ -777,7 +778,9 @@ def compose(
                 desc += " " + meta.description
             parts.append(f":{meta.key or 'deprecated'}:" + process_desc(desc))
         else:
-            text = f":{field_text(meta)}:" + process_desc(meta.description)
+            text = f":{field_text(meta)}:" + process_desc(
+                field_description(meta)
+            )
             parts.append(text)
     if last and _as_directive(docstring.meta[-1]) and not parts[-1]:
         parts.pop()
