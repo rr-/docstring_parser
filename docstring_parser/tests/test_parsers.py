@@ -104,6 +104,38 @@ def test_old_parser_names() -> None:
     assert numpydoc.NumpydocParser is numpydoc.Parser
 
 
+@pytest.mark.parametrize(
+    "field, kind",
+    [
+        ("key", Kind.PARAM),
+        ("keyword", Kind.KEYWORD),
+        ("kwarg", Kind.KEYWORD),
+        ("kwparam", Kind.KEYWORD),
+    ],
+)
+def test_rest_param_and_keyword_fields(field: str, kind: Kind) -> None:
+    """Test that ReST reads ``:key:`` as a param and ``:kwarg:`` as a
+    keyword, as Sphinx does."""
+    docstring = parse(f"Short.\n\n:{field} x: d", "rest")
+    assert docstring.params[0].kind == kind
+
+
+@pytest.mark.parametrize("field", ["rtype", "ytype"])
+def test_rest_empty_return_type_is_ignored(field: str) -> None:
+    """Test that an empty ``:rtype:`` or ``:ytype:`` gives no type."""
+    docstring = parse(f"Short.\n\n:returns: d\n:{field}:", "rest")
+    assert docstring.returns is not None
+    assert docstring.returns.type_name is None
+    assert len(docstring.meta) == 1
+
+
+def test_epydoc_keeps_blank_lines_in_a_field() -> None:
+    """Test that Epydoc keeps a field's paragraphs and indents."""
+    text = "Short.\n\n@param x: First.\n\n    Second.\n\n        code\n"
+    docstring = parse(text, "epydoc")
+    assert docstring.params[0].description == "First.\n\nSecond.\n\n    code"
+
+
 _ESCAPED_NAMES = {
     "rest": ":param \\*\\*kwargs: d\n:param class\\_: d",
     "google": "Args:\n    \\*\\*kwargs: d\n    class\\_: d",

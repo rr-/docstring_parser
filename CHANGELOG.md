@@ -58,6 +58,8 @@
 - ReST: Compose raises as `:raises ValueError:`, with no space before the colon (thanks to @RavSinghChandan)
 - ReST: Read `:param \*\*kwargs:` as `**kwargs`, and escape names on compose
 - ReST: Unescape types and `.. attribute::` names, and escape a trailing `_`
+- ReST: Read `:key:` as a param, and `:kwarg:` and `:kwparam:` as keywords
+- ReST: Ignore an empty `:rtype:` or `:ytype:` instead of giving an empty type
 - Google: Parse union return and yield types such as `dict[str, int] | None` (thanks to @binggao1230)
 - Google: Parse param types without slow regex backtracking
 - Google: Parse docstrings that open with a section title (thanks to @HardMax71)
@@ -101,6 +103,7 @@
 - Epydoc: Keep the indent of a field's first continuation line
 - Epydoc: Compose type fields and field names, such as `@arg`, that read back
 - Epydoc: Read `@deprecated` as a deprecation, and compose it with its version
+- Epydoc: Keep blank lines in a field's description
 - ReST, Numpydoc: Read text after the fields as the description when there is none
 - ReST, Epydoc: Compose each param with its kind's field, such as `:keyword:` or `@ivar`
 - ReST, Epydoc: Give each of a name's repeated type fields to its next item
