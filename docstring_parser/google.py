@@ -33,6 +33,7 @@ from ._text import (
     split_description,
     split_examples,
     split_names,
+    unescape,
 )
 from .common import (
     EXAMPLES_KEYWORDS,
@@ -681,6 +682,8 @@ class Parser(BaseParser):
         meta = self._meta_of(text, title)
         metas: T.List[DocstringMeta] = [meta]
         if type(meta) is DocstringParam:
+            if meta.arg_name and "\\" in meta.arg_name:
+                meta.arg_name = unescape(meta.arg_name)
             names = split_names(meta.arg_name)
             if names is not None:
                 metas = [renamed(meta, name) for name in names]

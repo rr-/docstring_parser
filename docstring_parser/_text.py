@@ -12,8 +12,9 @@ def clean_str(string: str) -> T.Optional[str]:
     return string.strip() or None
 
 
-# Several names in one item head, as in ``x, y`` or ``*args, **kwargs``.
-_NAME = r"\*{0,2}[A-Za-z_]\w*"
+# Several names in one item head, as in ``x, y`` or ``*args, **kwargs``;
+# ``...`` is a name too, as in napoleon's ``arg1, arg2, ...``.
+_NAME = r"(?:\*{0,2}[A-Za-z_]\w*|\.\.\.)"
 _NAMES = re.compile(rf"{_NAME}(?:[ \t]*,[ \t]*{_NAME})+")
 _NAME_SEPARATOR = re.compile(r"[ \t]*,[ \t]*")
 
@@ -24,6 +25,15 @@ def split_names(name: T.Optional[str]) -> T.Optional[T.List[str]]:
     if not name or "," not in name or not _NAMES.fullmatch(name):
         return None
     return _NAME_SEPARATOR.split(name)
+
+
+_ESCAPE = re.compile(r"\\(.?)", flags=re.S)
+
+
+def unescape(name: str) -> str:
+    """Drop the backslashes escaping ReST markup in a name, as in
+    ``\\*\\*kwargs`` or ``class\\_``."""
+    return _ESCAPE.sub(r"\1", name) if "\\" in name else name
 
 
 def renamed(param: DocstringParam, name: str) -> DocstringParam:
@@ -163,6 +173,12 @@ def _strip_backticks(value: str) -> str:
     return value.strip("`") or value
 
 
+# Whitespace a type is written with that is not a single space, which is
+# normalised outside quoted text.
+_LOOSE_SPACE = re.compile(r"\s\s|[^\S ]")
+_QUOTE = re.compile(r"[\"'`]")
+
+
 def type_spec(type_name: T.Optional[str]) -> TypeSpec:
     """Split the marks of an optional param, and its default, off its type.
 
@@ -174,7 +190,8 @@ def type_spec(type_name: T.Optional[str]) -> TypeSpec:
     - A part ``default 1``, ``default=1``, ``default: 1``, ``default is
       1``, ``defaults to 1`` or ``defaults 1`` gives the default, without
       backticks around it, and makes the param optional too.
-    - The other parts are the type.
+    - The other parts are the type, with each run of whitespace made one
+      space, unless the part quotes text.
 
     The same rule holds in every style.
     """
@@ -200,6 +217,8 @@ def type_spec(type_name: T.Optional[str]) -> TypeSpec:
         if part.endswith("?"):
             is_optional = True
             part = part[:-1].rstrip()
+        if part and _LOOSE_SPACE.search(part) and not _QUOTE.search(part):
+            part = " ".join(part.split())
         if part:
             kept.append(part)
     return TypeSpec(
