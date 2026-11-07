@@ -32,6 +32,7 @@ from ._text import (
     split_description,
     split_examples,
     split_names,
+    unescape,
 )
 from .common import (
     BaseParser,
@@ -252,6 +253,8 @@ class ParamSection(_KVSection):
         # ``x, y : int``.
         for meta in super()._parse(text):
             param = T.cast(DocstringParam, meta)
+            if param.arg_name and "\\" in param.arg_name:
+                param.arg_name = unescape(param.arg_name)
             names = split_names(param.arg_name)
             if names is None:
                 yield param

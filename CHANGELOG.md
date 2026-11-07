@@ -37,6 +37,7 @@
 - General: Treat a line of only a tab or form feed at either end as blank
 - General: Compose a param's type as written, such as `int, optional`
 - General: Compose docstrings so they parse back the same
+- General: Unescape names in every style, such as `\*\*kwargs` or `class\_`
 - ReST: Stop the last field from absorbing text after the field list (thanks to @apoorvdarshan)
 - ReST: Raise `ParseError`, not `IndexError`, for a field with no name
 - ReST: Indent compact continuation lines so a leading role isn't read as a field
@@ -56,6 +57,7 @@
 - ReST: Compose type fields, field names, versions and attribute values that read back
 - ReST: Compose raises as `:raises ValueError:`, with no space before the colon (thanks to @RavSinghChandan)
 - ReST: Read `:param \*\*kwargs:` as `**kwargs`, and escape names on compose
+- ReST: Unescape types and `.. attribute::` names, and escape a trailing `_`
 - Google: Parse union return and yield types such as `dict[str, int] | None` (thanks to @binggao1230)
 - Google: Parse param types without slow regex backtracking
 - Google: Parse docstrings that open with a section title (thanks to @HardMax71)
@@ -109,6 +111,7 @@
 - Google, Numpydoc: Match section titles in any case, such as `ARGS:`
 - Google, Numpydoc: Read napoleon's other sections, such as `Keyword Args` and `Todo` (thanks to @BrianPugh)
 - Google, Numpydoc: Give each name in `x, y : int` its own param
+- Google, Numpydoc: Read `...` as a name, as in `arg1, arg2, ...`
 
 # 0.18 (2026-04-14)
 
