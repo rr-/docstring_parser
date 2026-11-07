@@ -127,6 +127,75 @@ def test_params_leave_out_attributes(style: DocstringStyle, text: str) -> None:
 @pytest.mark.parametrize(
     ("style", "text"),
     [
+        (DocstringStyle.REST, ":param x: X.\n:attribute y: Y."),
+        (DocstringStyle.EPYDOC, "@param x: X.\n@ivar y: Y."),
+        (
+            DocstringStyle.GOOGLE,
+            "S.\n\nArgs:\n    x: X.\n\nAttributes:\n    y: Y.",
+        ),
+        (
+            DocstringStyle.NUMPYDOC,
+            "S.\n\nParameters\n----------\nx\n    X.\n\n"
+            "Attributes\n----------\ny\n    Y.",
+        ),
+    ],
+    ids=lambda v: v.name.lower() if isinstance(v, DocstringStyle) else "",
+)
+def test_params_and_attrs_by_name(style: DocstringStyle, text: str) -> None:
+    """Test that params and attrs can be looked up by name, each among
+    their own items."""
+    docstring = parse(text, style)
+    assert list(docstring.params_by_name) == ["x"]
+    assert docstring.params_by_name["x"] is docstring.params[0]
+    assert list(docstring.attrs_by_name) == ["y"]
+    assert docstring.attrs_by_name["y"] is docstring.attrs[0]
+
+
+def test_repeated_name_maps_to_first() -> None:
+    """Test that a name given twice maps to its first item, while the
+    list keeps both."""
+    docstring = parse(
+        "S.\n\nArgs:\n    x: One.\n    x: Two.", DocstringStyle.GOOGLE
+    )
+    assert len(docstring.params) == 2
+    assert len(docstring.params_by_name) == 1
+    assert docstring.params_by_name["x"].description == "One."
+
+
+def test_raises_by_type() -> None:
+    """Test that raises map their type to the first item with it, and
+    that items with no type are left out."""
+    docstring = parse(
+        "S.\n\nRaises:\n    ValueError: If bad.\n    ValueError: If worse."
+        "\n    TypeError: If wrong.\n\nWarns:\n    UserWarning: If odd.",
+        DocstringStyle.GOOGLE,
+    )
+    assert list(docstring.raises_by_type) == [
+        "ValueError",
+        "TypeError",
+        "UserWarning",
+    ]
+    assert docstring.raises_by_type["ValueError"].description == "If bad."
+    untyped = parse(":raises: If bad.", DocstringStyle.REST)
+    assert len(untyped.raises) == 1
+    assert dict(untyped.raises_by_type) == {}
+
+
+def test_lookups_are_read_only_and_fresh() -> None:
+    """Test that a lookup cannot be changed, and that it follows changes
+    to the meta."""
+    docstring = parse(":param x: X.", DocstringStyle.REST)
+    lookup = docstring.params_by_name
+    with pytest.raises(TypeError):
+        lookup["y"] = docstring.params[0]  # ty: ignore[invalid-assignment]
+    docstring.meta.append(DocstringParam("Y.", "y", None, None, None))
+    assert list(docstring.params_by_name) == ["x", "y"]
+    assert list(lookup) == ["x"]
+
+
+@pytest.mark.parametrize(
+    ("style", "text"),
+    [
         (DocstringStyle.REST, "S.\n\n:returns: R.\n:yields: Y."),
         (DocstringStyle.GOOGLE, "S.\n\nReturns:\n    R.\n\nYields:\n    Y."),
         (

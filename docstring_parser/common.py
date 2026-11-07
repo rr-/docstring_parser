@@ -1,6 +1,7 @@
 """Common methods for parsing."""
 
 import enum
+import types
 import typing as T
 
 # Kept here for code that imported them from this module.
@@ -148,6 +149,21 @@ PARAM_KINDS = frozenset(
 )
 RETURNS_KINDS = frozenset({Kind.RETURNS, Kind.YIELDS})
 RAISES_KINDS = frozenset({Kind.RAISES, Kind.WARNS})
+
+
+_Item = T.TypeVar("_Item")
+
+
+def _by_name(
+    pairs: T.Iterable[T.Tuple[T.Optional[str], _Item]],
+) -> T.Mapping[str, _Item]:
+    """Map each name to the first item with it, leaving out items with no
+    name, in a read-only view of a dict built on each call."""
+    found: T.Dict[str, _Item] = {}
+    for name, item in pairs:
+        if name is not None and name not in found:
+            found[name] = item
+    return types.MappingProxyType(found)
 
 
 def _repr(obj: T.Any, fields: T.Iterable[str]) -> str:
@@ -447,6 +463,25 @@ class Docstring:
         ]
 
     @property
+    def params_by_name(self) -> T.Mapping[str, DocstringParam]:
+        """Return the params by name, read-only.
+
+        A name given twice maps to its first param; :attr:`params` keeps
+        every one. Each access builds the mapping anew from :attr:`meta`.
+        """
+        return _by_name((item.arg_name, item) for item in self.params)
+
+    @property
+    def attrs_by_name(self) -> T.Mapping[str, DocstringParam]:
+        """Return the attributes by name, read-only.
+
+        A name given twice maps to its first attribute; :attr:`attrs`
+        keeps every one. Each access builds the mapping anew from
+        :attr:`meta`.
+        """
+        return _by_name((item.arg_name, item) for item in self.attrs)
+
+    @property
     def raises(self) -> T.List[DocstringRaises]:
         """Return a list of information on the exceptions that the function
         may raise.
@@ -454,6 +489,17 @@ class Docstring:
         return [
             item for item in self.meta if isinstance(item, DocstringRaises)
         ]
+
+    @property
+    def raises_by_type(self) -> T.Mapping[str, DocstringRaises]:
+        """Return the exceptions and warnings by their type, read-only.
+
+        A type given twice, as with two conditions that raise the same
+        exception, maps to its first item, and items with no type are
+        left out; :attr:`raises` keeps every one. Each access builds the
+        mapping anew from :attr:`meta`.
+        """
+        return _by_name((item.type_name, item) for item in self.raises)
 
     @property
     def returns(self) -> T.Optional[DocstringReturns]:

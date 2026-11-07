@@ -27,6 +27,7 @@
 - General: Keep `GoogleParser` and `NumpydocParser` as aliases of the new parsers
 - General: Accept a style name, such as `"google"`, or a parser in `parse()` and `compose()`
 - General: Add `try_parse()`, which returns the docstring and its problems instead of raising
+- General: Add `params_by_name`, `attrs_by_name` and `raises_by_type`, read-only lookups where a repeated name maps to its first item
 - General: Give `ParseError` all the docstring's `problems` and the partial `result`
 - General: Show only the fields that are set in a docstring's or meta's `repr()`
 - General: Read optional marks and defaults in types by one rule in every style
