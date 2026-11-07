@@ -329,3 +329,29 @@ def test_colon_in_type_is_no_head_end() -> None:
     assert docstring.params[0].type_name == "int"
     assert docstring.params[0].default == "3"
     assert docstring.params[0].description == "The x."
+
+
+@pytest.mark.parametrize(
+    "head, type_name",
+    [
+        ("list of str", "list of str"),
+        ("dict[str, int]", "dict[str, int]"),
+        ("int or None", "int or None"),
+        ("dict[str, list[int]] | None", "dict[str, list[int]] | None"),
+    ],
+)
+def test_short_return_type(head: str, type_name: str) -> None:
+    """Test that a short type before a return's colon is its type."""
+    docstring = parse(f"Short.\n\nReturns:\n    {head}: The result.")
+    assert docstring.returns is not None
+    assert docstring.returns.type_name == type_name
+    assert docstring.returns.description == "The result."
+
+
+@pytest.mark.parametrize("head", ["The value", "A list of str"])
+def test_sentence_before_return_colon_is_no_type(head: str) -> None:
+    """Test that a sentence before a return's colon is its description."""
+    docstring = parse(f"Short.\n\nReturns:\n    {head}: a number.")
+    assert docstring.returns is not None
+    assert docstring.returns.type_name is None
+    assert docstring.returns.description == f"{head}: a number."
