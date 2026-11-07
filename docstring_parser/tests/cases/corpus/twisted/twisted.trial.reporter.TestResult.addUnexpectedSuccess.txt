@@ -30,10 +30,11 @@ style: epydoc
   kind: param
   key: 'type'
   arg_name: 'todo'
-  type_name: |
+  type_name: 'L{unittest.Todo}, or L{None}, in which case a default todo message is provided.'
+  is_optional: False
+  raw_type_name: |
     L{unittest.Todo}, or L{None}, in which case a default todo
     message is provided.
-  is_optional: False
 === detect
 epydoc
 === compose epydoc

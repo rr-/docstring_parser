@@ -38,6 +38,7 @@
 - General: Compose a param's type as written, such as `int, optional`
 - General: Compose docstrings so they parse back the same
 - General: Unescape names in every style, such as `\*\*kwargs` or `class\_`
+- General: Make each run of whitespace in a type one space
 - ReST: Stop the last field from absorbing text after the field list (thanks to @apoorvdarshan)
 - ReST: Raise `ParseError`, not `IndexError`, for a field with no name
 - ReST: Indent compact continuation lines so a leading role isn't read as a field

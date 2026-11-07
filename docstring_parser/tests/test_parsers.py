@@ -104,6 +104,28 @@ def test_old_parser_names() -> None:
     assert numpydoc.NumpydocParser is numpydoc.Parser
 
 
+_LOOSE_TYPES = {
+    "rest": ":param x: d\n:type x: list of   str,\n    optional",
+    "google": "Args:\n    x (list of   str, optional): d",
+    "numpydoc": "Parameters\n----------\nx : list of\tstr, optional\n    d",
+    "epydoc": "@param x: d\n@type x: list of   str,\n    optional",
+}
+
+
+@pytest.mark.parametrize("style", sorted(_LOOSE_TYPES))
+def test_type_whitespace_is_normalised(style: str) -> None:
+    """Test that each run of whitespace in a type becomes one space."""
+    param = parse("Short.\n\n" + _LOOSE_TYPES[style], style).params[0]
+    assert param.type_name == "list of str"
+    assert param.is_optional is True
+
+
+def test_quoted_type_keeps_its_whitespace() -> None:
+    """Test that a type quoting text keeps the spaces it is written with."""
+    text = 'Short.\n\n:param x: d\n:type x: Literal["a  b"]'
+    assert parse(text, "rest").params[0].type_name == 'Literal["a  b"]'
+
+
 @pytest.mark.parametrize(
     "field, kind",
     [
