@@ -79,6 +79,7 @@
 - Google: Make a param optional when its type says `(optional)` or a default
 - Google: Read bare param names, unindented wrapped lines and colons in types
 - Google: Read a short return type, such as `list of str:`, as the type
+- Google: Read a return's `name (type): text` head as its name and type
 - Numpydoc: Fix the type hint of `NumpydocParser`'s `sections` argument
 - Numpydoc: Compose sections such as See Also with their own titles
 - Numpydoc: Stop adding a blank line each round trip without a long description
