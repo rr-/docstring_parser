@@ -13,8 +13,41 @@ Split text by cell position.
         Tuple to two split strings.
     
 === parse google
-ParseError: Expected a colon in 'cell_position Offset in cells.'.
+short_description: 'Split text by cell position.'
+long_description: 'If the cell position falls within a double width character, it is converted to two spaces.'
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringParam
+  description: |
+    Text to split.
+    cell_position Offset in cells.
+  kind: param
+  key: 'param'
+  arg_name: 'text'
+  is_optional: False
+- DocstringParam
+  description: 'Unicode version, `"auto"` to auto detect, `"latest"` for the latest unicode version.'
+  kind: param
+  key: 'param'
+  arg_name: 'unicode_version'
+  is_optional: False
+- DocstringReturns
+  description: 'Tuple to two split strings.'
+  kind: returns
+  key: 'returns'
+  is_generator: False
 === detect
-rest
+google
 === compose google
-ParseError: Expected a colon in 'cell_position Offset in cells.'.
+Split text by cell position.
+
+If the cell position falls within a double width character, it is converted to two spaces.
+
+Args:
+    text: Text to split.
+        cell_position Offset in cells.
+    unicode_version: Unicode version, `"auto"` to auto detect, `"latest"` for the latest unicode version.
+
+Returns:
+    Tuple to two split strings.

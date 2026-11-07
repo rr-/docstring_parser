@@ -62,11 +62,11 @@ def test_rest_problems() -> None:
 def test_google_problems() -> None:
     """Test that an item that cannot be read is kept as text."""
     result = google.try_parse(
-        "Short.\n\nArgs:\n    x: X.\n    no colon here\n    y: Y.\n"
+        "Short.\n\nArgs:\n    no colon here\n    x: X.\n    y: Y.\n"
     )
     assert result.problems == [
         Problem(
-            line=5,
+            line=4,
             code="missing-colon",
             message="Expected a colon in 'no colon here'.",
         )
@@ -78,10 +78,12 @@ def test_google_problems() -> None:
 
 def test_google_problem_line_with_title_first() -> None:
     """Test the line of a problem in a docstring that opens with a title."""
-    result = google.try_parse("Args:\n    x: X.\n    y\n")
+    result = google.try_parse("Args:\n    no colon\n    x: X.\n")
     assert result.problems == [
         Problem(
-            line=3, code="missing-colon", message="Expected a colon in 'y'."
+            line=2,
+            code="missing-colon",
+            message="Expected a colon in 'no colon'.",
         )
     ]
 
