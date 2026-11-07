@@ -131,6 +131,16 @@
         
 
         
+            <div class="itemName"><code><a href="#_parse" class="internal-link" title="docstring_parser.numpydoc.ParamSection._parse">_parse</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="#_parse_item" class="internal-link" title="docstring_parser.numpydoc.ParamSection._parse_item">_parse<wbr></wbr>_item</a></code>
             </div>
         
@@ -148,16 +158,6 @@
 
         
             <div class="itemName"><code><a href="docstring_parser.numpydoc.Section.html#__init__" class="internal-link" title="docstring_parser.numpydoc.Section.__init__">__init__</a></code>
-            </div>
-        
-
-    </li><li class="private">
-        
-        
-        
-
-        
-            <div class="itemName"><code><a href="docstring_parser.numpydoc._KVSection.html#_parse" class="internal-link" title="docstring_parser.numpydoc._KVSection._parse">_parse</a></code>
             </div>
         
 
@@ -641,7 +641,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">ParamSection</span>(<a href="docstring_parser.numpydoc._KVSection.html" class="internal-link" title="docstring_parser.numpydoc._KVSection">_KVSection</a>): <a href="https://github.com/rr-/docstring_parser/tree/c0ee7ef23926adf07aa4fa1ab6a29fe644b5dad7/docstring_parser/numpydoc.py#L235" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="docstring_parser.numpydoc.Section.html#__init__" class="internal-link" title="docstring_parser.numpydoc.Section.__init__">ParamSection(title, key)</a></code></p><p><a href="classIndex.html#docstring_parser.numpydoc.ParamSection">View In Hierarchy</a></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">ParamSection</span>(<a href="docstring_parser.numpydoc._KVSection.html" class="internal-link" title="docstring_parser.numpydoc._KVSection">_KVSection</a>): <a href="https://github.com/rr-/docstring_parser/tree/7782db0846f0a80daeaef95808b87b43fea7d094/docstring_parser/numpydoc.py#L237" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="docstring_parser.numpydoc.Section.html#__init__" class="internal-link" title="docstring_parser.numpydoc.Section.__init__">ParamSection(title, key)</a></code></p><p><a href="classIndex.html#docstring_parser.numpydoc.ParamSection">View In Hierarchy</a></p>
         </div>
 
         <div class="moduleDocstring">
@@ -667,29 +667,20 @@
   <tr class="method private">
     
     <td>Method</td>
+    <td><code><a href="#_parse" class="internal-link" title="docstring_parser.numpydoc.ParamSection._parse">_parse</a></code></td>
+    <td>Parse <tt class="rst-docutils rst-literal">DocstringMeta</tt> objects from the body of this section.</td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
     <td><code><a href="#_parse_item" class="internal-link" title="docstring_parser.numpydoc.ParamSection._parse_item">_parse<wbr></wbr>_item</a></code></td>
     <td><span class="rst-undocumented">Undocumented</span></td>
   </tr>
 </table>
           
             <p class="inheritedFrom">
-              Inherited from <code><a href="docstring_parser.numpydoc._KVSection.html" class="internal-link" title="docstring_parser.numpydoc._KVSection">_KVSection</a></code>:
-            </p>
-            <table class="children sortable" id="id36">
-  
-  
-  <tr class="basemethod private">
-    
-    <td>Method</td>
-    <td><code><a href="docstring_parser.numpydoc._KVSection.html#_parse" class="internal-link" title="docstring_parser.numpydoc._KVSection._parse">_parse</a></code></td>
-    <td>Parse <tt class="rst-docutils rst-literal">DocstringMeta</tt> objects from the body of this section.</td>
-  </tr>
-</table>
-            
-            <p class="inheritedFrom">
               Inherited from <code><a href="docstring_parser.numpydoc.Section.html" class="internal-link" title="docstring_parser.numpydoc.Section">Section</a></code> (via <code><a href="docstring_parser.numpydoc._KVSection.html" class="internal-link" title="docstring_parser.numpydoc._KVSection">_KVSection</a></code>):
             </p>
-            <table class="children sortable" id="id37">
+            <table class="children sortable" id="id36">
   
   
   <tr class="basemethod">
@@ -733,6 +724,34 @@
           <div class="basemethod private">
   
   
+  <a name="docstring_parser.numpydoc.ParamSection._parse">
+    
+  </a>
+  <a name="_parse">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">_parse</span><span class="function-signature">(<span class="rst-sig-param"><span class="rst-undocumented">self</span>, </span><span class="rst-sig-param">text: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></span>) -&gt; <code><a href="https://docs.python.org/3/library/typing.html#typing.Iterable" class="intersphinx-link">T.Iterable</a>[<wbr></wbr>DocstringMeta]</code>:</span>
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/7782db0846f0a80daeaef95808b87b43fea7d094/docstring_parser/numpydoc.py#L248">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#_parse" title="docstring_parser.numpydoc.ParamSection._parse">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="docstring_parser.numpydoc._KVSection.html#_parse" class="internal-link">docstring_parser.numpydoc._KVSection._parse</a></code></div>
+    <div><p>Parse <tt class="rst-docutils rst-literal">DocstringMeta</tt> objects from the body of this section.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">text:</span><code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></td><td class="fieldArgDesc">section body text. Should be cleaned with
+<tt class="rst-docutils rst-literal">inspect.cleandoc</tt> before parsing.</td></tr></table><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer"><code><a href="https://docs.python.org/3/library/typing.html#typing.Iterable" class="intersphinx-link">T.Iterable</a>[<wbr></wbr>DocstringMeta]</code></td><td class="fieldArgDesc"><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  
   <a name="docstring_parser.numpydoc.ParamSection._parse_item">
     
   </a>
@@ -743,7 +762,7 @@
     
     
     <span class="py-keyword">def</span>&#160;<span class="py-defname">_parse_item</span><span class="function-signature">(<span class="rst-sig-param"><span class="rst-undocumented">self</span>, </span><span class="rst-sig-param">key: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code>, </span><span class="rst-sig-param">value: <code><a href="https://docs.python.org/3/builtins/stdtypes.html#str" class="intersphinx-link">str</a></code></span>) -&gt; <code>DocstringParam</code>:</span>
-    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/c0ee7ef23926adf07aa4fa1ab6a29fe644b5dad7/docstring_parser/numpydoc.py#L246">
+    <a class="sourceLink" href="https://github.com/rr-/docstring_parser/tree/7782db0846f0a80daeaef95808b87b43fea7d094/docstring_parser/numpydoc.py#L259">
       
       (source)
     </a>
@@ -769,7 +788,7 @@
   <div class="container-fluid">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/rr-/docstring_parser" class="projecthome">docstring_parser</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    25.10.1 at 2026-11-07 00:22:02.
+    25.10.1 at 2026-11-07 00:43:19.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 
