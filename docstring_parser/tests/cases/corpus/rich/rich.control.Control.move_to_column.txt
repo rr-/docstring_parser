@@ -16,11 +16,13 @@ blank_after_long_description: False
 style: google
 - DocstringReturns
   description: |
-    x (int): absolute x (column)
+    absolute x (column)
     y (int): optional y offset (row)
   kind: returns
   key: 'returns'
+  type_name: 'int'
   is_generator: False
+  return_name: 'x'
 - DocstringReturns
   description: 'Control object.'
   kind: returns
@@ -34,7 +36,7 @@ Move to the given column, optionally add offset to row.
 
 Returns:
     x (int): absolute x (column)
-    y (int): optional y offset (row)
+        y (int): optional y offset (row)
 
 Returns:
     ~Control: Control object.

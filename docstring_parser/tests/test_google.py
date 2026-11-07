@@ -377,3 +377,16 @@ def test_name_with_comma_and_no_list_stays_one_param() -> None:
     """Test that a head with a comma that lists no names is one param."""
     docstring = parse("Short.\n\nArgs:\n    x, or else (int): Text.")
     assert [param.arg_name for param in docstring.params] == ["x, or else"]
+
+
+@pytest.mark.parametrize("section", ["Returns", "Yields"])
+def test_named_return_head(section: str) -> None:
+    """Test that a return's ``name (type): text`` head gives its name and
+    type, and composes to text that reads back the same."""
+    text = f"Short.\n\n{section}:\n    x (Dict[str, int]): The map."
+    docstring = parse(text)
+    item = docstring.many_returns + docstring.many_yields
+    assert item[0].return_name == "x"
+    assert item[0].type_name == "Dict[str, int]"
+    assert item[0].description == "The map."
+    assert parse(compose(docstring)).meta[0].return_name == "x"

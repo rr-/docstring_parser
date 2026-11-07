@@ -77,6 +77,7 @@
 - Google: Read and compose a `.. deprecated::` directive as a deprecation with its version
 - Google: Read bare names, unindented wrapped lines and colons in types in items
 - Google: Read a short return type, such as `list of str:`, as the type
+- Google: Read a return's `name (type): text` head as its name and type
 - Numpydoc: Fix the type of `NumpydocParser`'s `sections` argument, which takes a list of sections
 - Numpydoc: Compose sections such as See Also with their own titles and underlines, instead of e.g. `Seealso`
 - Numpydoc: Stop adding a blank line on every round trip of a docstring without a long description
