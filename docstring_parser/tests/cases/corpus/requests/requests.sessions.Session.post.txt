@@ -38,7 +38,7 @@ style: rest
   description: 'Optional arguments that ``request`` takes.'
   kind: param
   key: 'param'
-  arg_name: '\\*\\*kwargs'
+  arg_name: '**kwargs'
   is_optional: False
 - DocstringReturns
   kind: returns
