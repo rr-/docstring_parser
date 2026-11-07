@@ -57,6 +57,8 @@
 - ReST: Read and compose a `.. deprecated::` directive as a deprecation with its version
 - ReST: Compose a raises entry as `:raises ValueError:` instead of `:raises ValueError :` (thanks to @RavSinghChandan)
 - ReST: Read `:param \*\*kwargs:` as `**kwargs`, and escape names on compose
+- ReST: Read `:key:` as a param, and `:kwarg:` and `:kwparam:` as keywords
+- ReST: Ignore an empty `:rtype:` or `:ytype:` instead of giving an empty type
 - Google: Parse PEP 604 union types (e.g. `int | str`) in return sections (thanks to @binggao1230)
 - Google: Parse a union return or yield type whose members have brackets or dots, such as `dict[str, int] | None`, instead of keeping the whole line as the description
 - Google: Avoid regex backtracking when parsing parameter types
@@ -101,6 +103,7 @@
 - Epydoc: Keep the indent of a field's first continuation line
 - Epydoc: Compose type fields and field names, such as `@arg`, so they read back the same
 - Epydoc: Read `@deprecated` as a deprecation, and compose one with its version
+- Epydoc: Keep blank lines in a field's description
 - ReST, Numpydoc: Read text after the fields of a docstring with no description as its description, instead of a long description that `compose()` starts with an empty line
 - ReST, Epydoc: Compose each param with its kind's field name, such as `:keyword:` or `@ivar`, instead of `:param:` or `@param` for all
 - ReST, Epydoc: Give each of a name's type fields to its next item, instead of the last overwriting the others

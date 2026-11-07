@@ -55,8 +55,8 @@ from .sections import ParserCache, SectionSpec, apply
 # The fields ReST recognises by default, by the kind of item each gives.
 # ReST has no example fields of its own.
 _DEFAULT_FIELDS = (
-    (Kind.PARAM, ("param", "parameter", "arg", "argument")),
-    (Kind.KEYWORD, ("key", "keyword")),
+    (Kind.PARAM, ("param", "parameter", "arg", "argument", "key")),
+    (Kind.KEYWORD, ("keyword", "kwarg", "kwparam")),
     (Kind.ATTRIBUTE, ("attribute", "ivar", "var", "cvar")),
     (Kind.RETURNS, ("returns", "return")),
     (Kind.YIELDS, ("yields", "yield")),
@@ -474,6 +474,8 @@ class Parser(BaseParser):
                     # return with neither, names that return.
                     last.return_name = name
                     last.type_name = desc or None
+                elif not desc:
+                    pass  # An empty type field is ignored.
                 elif yields:
                     # A yield made of a type alone goes after every field.
                     ytypes.setdefault(name, []).append(
