@@ -23,6 +23,7 @@
 - General: Add `SectionSpec(bare=True)` for a title with no colon or underline
 - General: Add `SectionSpec(parse_item=...)` to change or replace each parsed item
 - General: Add a `Parser` to each style module and `auto`, taking `sections` once
+- General: Keep `GoogleParser` and `NumpydocParser` as aliases of the new parsers
 - General: Accept a style name, such as `"google"`, or a parser in `parse()` and `compose()`
 - General: Add `try_parse()`, which returns the docstring and its problems instead of raising
 - General: Give `ParseError` all the docstring's `problems` and the partial `result`
@@ -97,7 +98,6 @@
 - Epydoc: Keep the indent of a field's first continuation line
 - Epydoc: Compose type fields and field names, such as `@arg`, that read back
 - Epydoc: Read `@deprecated` as a deprecation, and compose it with its version
-- ReST, Google: Read and compose `.. deprecated::` directives with their version
 - ReST, Numpydoc: Read text after the fields as the description when there is none
 - ReST, Epydoc: Compose each param with its kind's field, such as `:keyword:` or `@ivar`
 - ReST, Epydoc: Give each of a name's repeated type fields to its next item
@@ -148,6 +148,7 @@
 # 0.13 (2021-11-17)
 
 - Google: Added support for Example / Examples section
+- Google: Read and compose `.. deprecated::` directives with their version
 
 # 0.12 (2021-10-15)
 
@@ -158,3 +159,4 @@
 - General: Started tracking changes
 - General: Added ability to combine function docstrings (thanks to @abergou)
 - ReST: Added support for `:type:` and `:rtype:` (thanks to @abergou)
+- ReST: Read and compose `.. deprecated::` directives with their version
