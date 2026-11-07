@@ -5,6 +5,7 @@ import pytest
 from docstring_parser import (
     DocstringDeprecated,
     DocstringMeta,
+    DocstringMethod,
     DocstringParam,
     DocstringRaises,
     DocstringReturns,
@@ -39,6 +40,8 @@ def _family(meta: DocstringMeta) -> frozenset:
         return frozenset({Kind.EXAMPLES})
     if isinstance(meta, DocstringDeprecated):
         return frozenset({Kind.DEPRECATION})
+    if isinstance(meta, DocstringMethod):
+        return frozenset({Kind.METHOD})
     return frozenset({Kind.TEXT})
 
 

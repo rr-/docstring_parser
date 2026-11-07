@@ -49,6 +49,7 @@ from .common import (
     DocstringDeprecated,
     DocstringExample,
     DocstringMeta,
+    DocstringMethod,
     DocstringParam,
     DocstringRaises,
     DocstringReturns,
@@ -196,7 +197,7 @@ DEFAULT_SECTIONS = [
     Section("See Also", "see_also", SectionType.SINGULAR),
     Section("References", "references", SectionType.SINGULAR),
     Section("Todo", "todo", SectionType.SINGULAR),
-    Section("Methods", "methods", SectionType.SINGULAR),
+    Section("Methods", "methods", SectionType.MULTIPLE),
     Section("Attention", "attention", SectionType.SINGULAR),
     Section("Caution", "caution", SectionType.SINGULAR),
     Section("Danger", "danger", SectionType.SINGULAR),
@@ -359,6 +360,7 @@ _KIND_OF_KEY.update(
         "receives": Kind.RECEIVES,
         "warns": Kind.WARNS,
         "deprecation": Kind.DEPRECATION,
+        "methods": Kind.METHOD,
     }
 )
 
@@ -449,10 +451,16 @@ def _single_meta(section: Section, desc: str) -> DocstringMeta:
 
 def _bare_param(section: Section, text: str) -> T.Optional[DocstringMeta]:
     """Build a param from an item whose head has no colon, as in ``x`` or
-    ``x (int)``, with its description, if any, indented below it."""
-    if _section_kind(section) not in PARAM_KINDS:
-        return None
+    ``x (int)``, with its description, if any, indented below it. A
+    method's head is its whole first line, as in ``run(x)``."""
+    kind = _section_kind(section)
     first, _, rest = text.partition("\n")
+    if kind is Kind.METHOD:
+        return DocstringMethod(
+            first.strip(), dedent(rest).strip("\n") or None, section.key
+        )
+    if kind not in PARAM_KINDS:
+        return None
     match = _BARE_ITEM.fullmatch(first.strip())
     if match is None:
         return None
@@ -497,6 +505,8 @@ def _multi_meta(section: Section, before: str, desc: str) -> DocstringMeta:
             kind=kind,
             key=section.key,
         )
+    if kind is Kind.METHOD:
+        return DocstringMethod(before.strip(), desc, section.key)
     return DocstringMeta(desc, section.key, before)
 
 
@@ -807,6 +817,14 @@ class Parser(BaseParser):
             indent = chunk[: len(chunk) - len(chunk.lstrip())]
             _re = "^" + indent + r"(?=\S)"
             c_matches = list(re.finditer(_re, chunk, flags=re.M))
+            section = self.sections[title]
+            if not c_matches and _section_kind(section) is Kind.METHOD:
+                # A Methods section that lists none stays its title.
+                meta = _single_meta(section, "")
+                if isinstance(section, _SpecSection):
+                    meta = apply(section.spec, meta)
+                ret.meta.append(meta)
+                continue
             if not c_matches:
                 problems.append(
                     Problem(
@@ -932,6 +950,7 @@ _COMPOSE_SECTIONS = SectionTable(
         ("Other Parameters:", {Kind.OTHER_PARAM}),
         ("Receives:", {Kind.RECEIVES}),
         ("Attributes:", {Kind.ATTRIBUTE}),
+        ("Methods:", {Kind.METHOD}),
         ("Returns:", {Kind.RETURNS}),
         ("Yields:", {Kind.YIELDS}),
         ("Raises:", {Kind.RAISES}),
@@ -951,7 +970,9 @@ _TEXT_TITLES = {
 # The types of compose's nested functions, named once: on Python 3.8 an
 # annotation is evaluated each time its function is defined, and a
 # subscripted one costs a lookup in typing's cache.
-_Item = T.Union[DocstringParam, DocstringReturns, DocstringRaises]
+_Item = T.Union[
+    DocstringParam, DocstringReturns, DocstringRaises, DocstringMethod
+]
 _Items = T.List[T.Any]
 
 
@@ -1023,6 +1044,8 @@ def compose(
             head += one.arg_name or ""
         elif isinstance(one, DocstringReturns):
             head += one.return_name or ""
+        elif isinstance(one, DocstringMethod):
+            head += one.name or ""
 
         if isinstance(one, DocstringParam) and one.is_optional:
             optional = (
@@ -1048,7 +1071,7 @@ def compose(
                 )
             return
 
-        type_name = one.type_name
+        type_name = None if isinstance(one, DocstringMethod) else one.type_name
         written = (
             written_type(one) if isinstance(one, DocstringParam) else None
         )
