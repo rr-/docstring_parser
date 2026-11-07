@@ -32,7 +32,7 @@ style: rest
   is_optional: False
 - DocstringParam
   description: 'Y.'
-  kind: keyword
+  kind: param
   key: 'key'
   arg_name: 'y'
   is_optional: False
@@ -56,5 +56,5 @@ Short.
 @param a: A.
 @keyword k: K.
 @ivar t: T.
-@keyword y: Y.
+@param y: Y.
 @arg g: G.

@@ -28,6 +28,9 @@ from ._text import (
     param_spec,
     split_description,
 )
+from ._text import (
+    unescape as _unescape,
+)
 from .common import (
     ATTRIBUTE_FIELD_KEYWORDS,
     PARAM_KEYWORDS,
@@ -55,8 +58,8 @@ from .sections import ParserCache, SectionSpec, apply
 # The fields ReST recognises by default, by the kind of item each gives.
 # ReST has no example fields of its own.
 _DEFAULT_FIELDS = (
-    (Kind.PARAM, ("param", "parameter", "arg", "argument")),
-    (Kind.KEYWORD, ("key", "keyword")),
+    (Kind.PARAM, ("param", "parameter", "arg", "argument", "key")),
+    (Kind.KEYWORD, ("keyword", "kwarg", "kwparam")),
     (Kind.ATTRIBUTE, ("attribute", "ivar", "var", "cvar")),
     (Kind.RETURNS, ("returns", "return")),
     (Kind.YIELDS, ("yields", "yield")),
@@ -122,19 +125,14 @@ def _join_type(words: T.List[str]) -> T.Optional[str]:
     return " ".join(parts) if depth == 0 else None
 
 
-_ESCAPE = re.compile(r"\\(.?)", flags=re.S)
-_ESCAPED = re.compile(r"[\\*]")
-
-
-def _unescape(name: str) -> str:
-    """Drop the backslashes escaping characters in a field's name, as in
-    ``\\*\\*kwargs``."""
-    return _ESCAPE.sub(r"\1", name) if "\\" in name else name
+# A backslash or star anywhere, or an underscore ending the name, which
+# docutils would read as a reference.
+_ESCAPED = re.compile(r"[\\*]|_$")
 
 
 def _escape(name: T.Optional[str]) -> T.Optional[str]:
     """Escape the characters in a field's name that read as markup."""
-    if name and ("\\" in name or "*" in name):
+    if name and ("\\" in name or "*" in name or name.endswith("_")):
         return _ESCAPED.sub(r"\\\g<0>", name)
     return name
 
@@ -144,7 +142,11 @@ def _build_meta(args: T.List[str], desc: str, kind: Kind) -> DocstringMeta:
 
     if kind in PARAM_KINDS:
         # The field's head is its key, maybe a type, and the param's name.
-        raw_type_name = _join_type(args[1:-1]) if len(args) > 2 else None
+        raw_type_name = (
+            _unescape(_join_type(args[1:-1]) or "") or None
+            if len(args) > 2
+            else None
+        )
         if len(args) < 2 or (len(args) > 2 and raw_type_name is None):
             raise ItemError(
                 "wrong-arguments",
@@ -273,7 +275,7 @@ def _attribute(name: str, body: T.List[str]) -> DocstringParam:
         else:
             other.append(body[start])
         start += 1
-    raw_type_name = options.get("type") or None
+    raw_type_name = _unescape(options.get("type") or "") or None
     description = "\n".join(other + body[start:]).strip()
     spec = param_spec(raw_type_name, description)
     default = options.get("value") or spec.default
@@ -330,7 +332,7 @@ class Parser(BaseParser):
         name = directive.match.groupdict().get("name")
         if name is not None:
             spec = self._attribute
-            meta: DocstringMeta = _attribute(name, directive.body)
+            meta: DocstringMeta = _attribute(_unescape(name), directive.body)
         else:
             spec = self._deprecated
             assert spec is not None
@@ -453,7 +455,7 @@ class Parser(BaseParser):
                 if desc:
                     by_name = types if args[0] == "type" else vartypes
                     by_name.setdefault(_unescape(args[1]), []).append(
-                        (desc, len(ret.meta))
+                        (_unescape(desc), len(ret.meta))
                     )
                 else:
                     untyped.append(
@@ -474,6 +476,8 @@ class Parser(BaseParser):
                     # return with neither, names that return.
                     last.return_name = name
                     last.type_name = desc or None
+                elif not desc:
+                    pass  # An empty type field is ignored.
                 elif yields:
                     # A yield made of a type alone goes after every field.
                     ytypes.setdefault(name, []).append(

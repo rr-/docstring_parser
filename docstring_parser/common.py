@@ -60,6 +60,10 @@ class Problem(T.NamedTuple):
     ``no-items``
         A Google section whose items cannot be told apart by their
         indent.
+    ``bad-underline``
+        A Numpydoc section title whose underline is shorter than the
+        parser's ``min_underline``, or not as long as the title when the
+        parser has ``exact_underline``. The section is still read.
     """
 
     #: The line it is on, from 1, in the docstring as written.
