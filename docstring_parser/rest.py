@@ -23,6 +23,7 @@ from ._directives import (
 )
 from ._fields import AFTER_ALL, ParamTypes, ReturnTypes, assign_types
 from ._lines import Lines, dedent
+from ._sections import ParserCache, SectionSpec, apply
 from ._text import (
     append_loose,
     leading_deprecation,
@@ -54,7 +55,6 @@ from .common import (
     continuation_indented,
     excerpt,
 )
-from .sections import ParserCache, SectionSpec, apply
 
 # The fields ReST recognises by default, by the kind of item each gives.
 # ReST has no example fields of its own.

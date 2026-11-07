@@ -4,8 +4,8 @@ import re
 import typing as T
 
 from . import epydoc, google, numpydoc, rest
+from ._sections import SectionSpec
 from .common import BaseParser, Docstring, ParseError, ParseResult
-from .sections import SectionSpec
 
 # Any line that could start a field or a section in some style: a ReST
 # ``:field``, an Epydoc ``@field``, a Google title ending in a colon, or a
