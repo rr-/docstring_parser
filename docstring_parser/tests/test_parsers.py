@@ -217,3 +217,53 @@ def test_rest_compose_escapes_trailing_underscore() -> None:
     assert ":param a_b: d" in text
     names = [param.arg_name for param in parse(text, "rest").params]
     assert names == ["class_", "a_b"]
+
+
+_METHODS = {
+    "google": (
+        "Methods:\n    run(x, y=1): Run it.\n        Again.\n"
+        "    stop(a: int)\n        Halt.\n    reset:"
+    ),
+    "numpydoc": (
+        "Methods\n-------\nrun(x, y=1)\n    Run it.\n    Again.\n"
+        "stop(a: int)\n    Halt.\nreset"
+    ),
+}
+
+
+@pytest.mark.parametrize("style", sorted(_METHODS))
+def test_methods_section_gives_one_item_per_method(style: str) -> None:
+    """Test that a Methods section gives an item per method, named by
+    its signature as written."""
+    methods = parse("Short.\n\n" + _METHODS[style], style).methods
+    names = [method.name for method in methods]
+    assert names == ["run(x, y=1)", "stop(a: int)", "reset"]
+    descriptions = [method.description for method in methods]
+    assert descriptions == ["Run it.\nAgain.", "Halt.", None]
+    assert all(method.kind is Kind.METHOD for method in methods)
+
+
+@pytest.mark.parametrize("style", sorted(_METHODS))
+@pytest.mark.parametrize("target", sorted(_METHODS))
+def test_methods_compose_reads_back(style: str, target: str) -> None:
+    """Test that composed methods read back the same in either style."""
+    docstring = parse("Short.\n\n" + _METHODS[style], style)
+    methods = docstring.methods
+    text = compose(docstring, target)
+    again = parse(text, target).methods
+    assert [m.name for m in again] == [m.name for m in methods]
+    assert [m.description for m in again] == [m.description for m in methods]
+
+
+@pytest.mark.parametrize("target", ["rest", "epydoc"])
+def test_methods_compose_as_fields(target: str) -> None:
+    """Test that a style with no methods writes each as a text field that
+    keeps its signature."""
+    docstring = parse("Short.\n\n" + _METHODS["google"], "google")
+    meta = parse(compose(docstring, target), target).meta
+    descriptions = [item.description for item in meta]
+    assert descriptions == [
+        "run(x, y=1)\nRun it.\nAgain.",
+        "stop(a: int)\nHalt.",
+        "reset",
+    ]

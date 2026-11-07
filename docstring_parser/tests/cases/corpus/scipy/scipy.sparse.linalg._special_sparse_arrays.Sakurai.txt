@@ -121,21 +121,29 @@ style: numpydoc
   type_name: 'dtype'
   is_optional: True
   default: 'np.int8'
-- DocstringMeta
-  description: |
-    toarray()
-        Construct a dense array from Laplacian data
-    tosparse()
-        Construct a sparse array from Laplacian data
-    tobanded()
-        The Sakurai matrix in the format for banded symmetric matrices,
-        i.e., (3, n) ndarray with 3 upper diagonals
-        placing the main diagonal at the bottom.
-    eigenvalues
-        All eigenvalues of the Sakurai matrix ordered ascending.
-  kind: text
+- DocstringMethod
+  description: 'Construct a dense array from Laplacian data'
+  kind: method
   key: 'methods'
-  title: 'Methods'
+  name: 'toarray()'
+- DocstringMethod
+  description: 'Construct a sparse array from Laplacian data'
+  kind: method
+  key: 'methods'
+  name: 'tosparse()'
+- DocstringMethod
+  description: |
+    The Sakurai matrix in the format for banded symmetric matrices,
+    i.e., (3, n) ndarray with 3 upper diagonals
+    placing the main diagonal at the bottom.
+  kind: method
+  key: 'methods'
+  name: 'tobanded()'
+- DocstringMethod
+  description: 'All eigenvalues of the Sakurai matrix ordered ascending.'
+  kind: method
+  key: 'methods'
+  name: 'eigenvalues'
 - DocstringMeta
   description: |
     Reference [1]_ introduces a generalized eigenproblem for the matrix pair

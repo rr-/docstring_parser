@@ -31,13 +31,11 @@ style: numpydoc
   arg_name: 'k'
   type_name: 'str'
   is_optional: False
-- DocstringMeta
-  description: |
-    run
-        Run it.
-  kind: text
+- DocstringMethod
+  description: 'Run it.'
+  kind: method
   key: 'methods'
-  title: 'Methods'
+  name: 'run'
 - DocstringMeta
   description: 'Finish it.'
   kind: text

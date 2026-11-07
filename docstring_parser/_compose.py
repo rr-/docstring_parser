@@ -124,8 +124,23 @@ def written_type(param: DocstringParam) -> T.Optional[str]:
 
 
 def field_text(meta: DocstringMeta) -> str:
-    """Return a text meta's key and the words after it, as in a field."""
+    """Return a text meta's key and the words after it, as in a field.
+
+    A method's name goes in its description instead, as a signature
+    holds characters a field's head cannot.
+    """
+    if meta.kind is Kind.METHOD:
+        return meta.key or "methods"
     return " ".join(part for part in (meta.key, meta.name) if part)
+
+
+def field_description(meta: DocstringMeta) -> T.Optional[str]:
+    """Return a text meta's description, as in a field: for a method,
+    its name and then its description."""
+    if meta.kind is Kind.METHOD:
+        lines = [part for part in (meta.name, meta.description) if part]
+        return "\n".join(lines) or None
+    return meta.description
 
 
 def start_on_new_line(text: str) -> str:

@@ -140,6 +140,7 @@ class Kind(enum.IntEnum):
     EXAMPLES = 10
     DEPRECATION = 11
     TEXT = 12
+    METHOD = 13
 
 
 PARAM_KINDS = frozenset(
@@ -314,6 +315,25 @@ class DocstringDeprecated(DocstringMeta):
         self.version = version
 
 
+class DocstringMethod(DocstringMeta):
+    """DocstringMeta symbolizing a method of a class, as listed in a
+    Google or Numpydoc ``Methods`` section.
+
+    :ivar name: the method's name, or its signature as written, such as
+        ``run(x, y=1)``
+    """
+
+    def __init__(
+        self,
+        name: T.Optional[str],
+        description: T.Optional[str],
+        key: T.Optional[str] = "methods",
+    ) -> None:
+        """Initialize self."""
+        super().__init__(description, key, name)
+        self.kind = Kind.METHOD
+
+
 class DocstringExample(DocstringMeta):
     """DocstringMeta symbolizing example metadata."""
 
@@ -486,6 +506,13 @@ class Docstring:
             if isinstance(item, DocstringDeprecated):
                 return item
         return None
+
+    @property
+    def methods(self) -> T.List[DocstringMethod]:
+        """Return a list of information on the methods of a class."""
+        return [
+            item for item in self.meta if isinstance(item, DocstringMethod)
+        ]
 
     @property
     def examples(self) -> T.List[DocstringExample]:

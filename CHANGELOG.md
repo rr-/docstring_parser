@@ -118,6 +118,7 @@
 - Google, Numpydoc: Read napoleon's other sections, such as `Keyword Args` and `Todo` (thanks to @BrianPugh)
 - Google, Numpydoc: Give each name in `x, y : int` its own param
 - Google, Numpydoc: Read `...` as a name, as in `arg1, arg2, ...`
+- Google, Numpydoc: Read a `Methods` section as one item per method, in `Docstring.methods`
 
 # 0.18 (2026-04-14)
 

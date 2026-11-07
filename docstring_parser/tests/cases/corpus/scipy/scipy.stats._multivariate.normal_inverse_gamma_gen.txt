@@ -168,21 +168,31 @@ style: numpydoc
   is_optional: True
   default: 'None'
   raw_type_name: '{None, int, np.random.RandomState, np.random.Generator}, optional'
-- DocstringMeta
-  description: |
-    pdf(x, s2, mu=0, lmbda=1, a=1, b=1)
-        Probability density function.
-    logpdf(x, s2, mu=0, lmbda=1, a=1, b=1)
-        Log of the probability density function.
-    mean(mu=0, lmbda=1, a=1, b=1)
-        Distribution mean.
-    var(mu=0, lmbda=1, a=1, b=1)
-        Distribution variance.
-    rvs(mu=0, lmbda=1, a=1, b=1, size=None, random_state=None)
-        Draw random samples.
-  kind: text
+- DocstringMethod
+  description: 'Probability density function.'
+  kind: method
   key: 'methods'
-  title: 'Methods'
+  name: 'pdf(x, s2, mu=0, lmbda=1, a=1, b=1)'
+- DocstringMethod
+  description: 'Log of the probability density function.'
+  kind: method
+  key: 'methods'
+  name: 'logpdf(x, s2, mu=0, lmbda=1, a=1, b=1)'
+- DocstringMethod
+  description: 'Distribution mean.'
+  kind: method
+  key: 'methods'
+  name: 'mean(mu=0, lmbda=1, a=1, b=1)'
+- DocstringMethod
+  description: 'Distribution variance.'
+  kind: method
+  key: 'methods'
+  name: 'var(mu=0, lmbda=1, a=1, b=1)'
+- DocstringMethod
+  description: 'Draw random samples.'
+  kind: method
+  key: 'methods'
+  name: 'rvs(mu=0, lmbda=1, a=1, b=1, size=None, random_state=None)'
 - DocstringMeta
   description: |
     norm
