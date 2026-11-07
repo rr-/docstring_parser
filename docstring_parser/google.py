@@ -21,13 +21,13 @@ from ._directives import (
     description_with_deprecation,
     directive_pattern,
     lead_directive,
-    leading_deprecation,
 )
 from ._lines import Lines, dedent
 from ._text import (
     EXCEPTION_TYPE,
     Example,
     append_loose,
+    leading_deprecation,
     param_spec,
     renamed,
     split_description,
