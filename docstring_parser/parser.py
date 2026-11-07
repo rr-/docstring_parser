@@ -4,6 +4,7 @@ import inspect
 import typing as T
 
 from docstring_parser import auto, epydoc, google, numpydoc, rest
+from docstring_parser._sections import ParserCache, SectionSpec
 from docstring_parser.attrdoc import add_attribute_docstrings
 from docstring_parser.common import (
     BaseParser,
@@ -12,7 +13,6 @@ from docstring_parser.common import (
     ParseResult,
     RenderingStyle,
 )
-from docstring_parser.sections import ParserCache, SectionSpec
 
 _STYLE_MAP = {
     DocstringStyle.REST: rest,

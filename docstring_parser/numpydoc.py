@@ -20,6 +20,7 @@ from ._directives import (
     leading_deprecation,
 )
 from ._lines import Lines, dedent
+from ._sections import ParserCache, SectionSpec, apply
 from ._text import (
     DEFAULT_IN_DESCRIPTION,
     DEFAULT_REGEX,
@@ -50,7 +51,6 @@ from .common import (
     RenderingStyle,
     cleandoc,
 )
-from .sections import ParserCache, SectionSpec, apply
 
 
 def _pairwise(iterable: T.Iterable, end=None) -> T.Iterable:

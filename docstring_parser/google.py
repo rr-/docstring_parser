@@ -24,6 +24,7 @@ from ._directives import (
     leading_deprecation,
 )
 from ._lines import Lines, dedent
+from ._sections import Layout, ParserCache, SectionSpec, apply
 from ._text import (
     EXCEPTION_TYPE,
     Example,
@@ -62,7 +63,6 @@ from .common import (
     continuation_indented,
     excerpt,
 )
-from .sections import Layout, ParserCache, SectionSpec, apply
 
 
 class SectionType(IntEnum):

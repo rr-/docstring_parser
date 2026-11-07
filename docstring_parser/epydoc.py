@@ -15,6 +15,7 @@ from ._compose import (
 )
 from ._fields import ParamTypes, ReturnTypes, assign_types
 from ._lines import Lines, dedent
+from ._sections import ParserCache, SectionSpec, apply
 from ._text import (
     append_loose,
     param_spec,
@@ -39,7 +40,6 @@ from .common import (
     RenderingStyle,
     excerpt,
 )
-from .sections import ParserCache, SectionSpec, apply
 
 _FIELD_START = re.compile("^@", flags=re.M)
 _FIELD = re.compile(r"(^@.*?)(?=^@|\Z)", flags=re.S | re.M)
