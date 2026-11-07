@@ -182,3 +182,19 @@ def test_from_object_with_descriptor_doc() -> None:
 
     assert docstring.short_description is None
     assert len(docstring.meta) == 0
+
+
+def test_attribute_docstring_is_cleaned() -> None:
+    """Test that an attribute's docstring is cleaned as a docstring is."""
+
+    class WithAttr:
+        """Class docstring."""
+
+        value: int = 1
+        """
+            Indented
+              attribute doc.
+        """
+
+    docstring = parse_from_object(WithAttr)
+    assert docstring.attrs[0].description == "Indented\n  attribute doc."
