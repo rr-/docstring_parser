@@ -388,15 +388,15 @@ downcast : str, default None
     numerical dtype (or if the data was numeric to begin with),
     downcast that resulting data to the smallest numerical dtype
     possible according to the following rules:
-    
+
     - 'integer' or 'signed': smallest signed int dtype (min.: np.int8)
     - 'unsigned': smallest unsigned int dtype (min.: np.uint8)
     - 'float': smallest float dtype (min.: np.float32)
-    
+
     As this behaviour is separate from the core conversion to
     numeric values, any errors raised during the downcasting
     will be surfaced regardless of the value of the 'errors' input.
-    
+
     In addition, downcasting will only occur if the size
     of the resulting data's dtype is strictly larger than
     the dtype it is to be cast to, so if none of the dtypes
@@ -407,10 +407,10 @@ dtype_backend : {'numpy_nullable', 'pyarrow'}
     (still experimental). If not specified, the default behavior
     is to not use nullable data types. If specified, the behavior
     is as follows:
-    
+
     * ``"numpy_nullable"``: returns nullable-dtype-backed object
     * ``"pyarrow"``: returns with pyarrow-backed nullable object
-    
+
     .. versionadded:: 2.0
 
 Returns
@@ -423,7 +423,7 @@ scalar, Series, Index, numpy.ndarray, or ExtensionArray
     a Python scalar is returned instead.
     For 1-d: :class:`Series` if Series, :class:`Index` if Index,
     otherwise an array as specified by ``dtype_backend``.
-    
+
     If ``errors='coerce'``, un-parseable values become ``NaN``
     (or ``pd.NA`` if ``dtype_backend`` is not the default).
     If ``errors='raise'`` (default),

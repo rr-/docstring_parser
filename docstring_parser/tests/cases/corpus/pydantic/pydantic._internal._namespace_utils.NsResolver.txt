@@ -196,21 +196,21 @@ Args:
     parent_namespace: An optional parent namespace that will be added to the locals
         with the lowest priority. For a given class defined in a function, the locals
         of this function are usually used as the parent namespace:
-        
+
         ```python {lint="skip" test="skip"}
         from pydantic import BaseModel
-        
+
         def func() -> None:
             SomeType = int
-        
+
             class Model(BaseModel):
                 f: 'SomeType'
-        
+
             # when collecting fields, an namespace resolver instance will be created
             # this way:
             # ns_resolver = NsResolver(parent_namespace={'SomeType': SomeType})
         ```
-        
+
         For backwards compatibility reasons and to support valid edge cases, this parent
         namespace will be used for *every* type being pushed to the stack. In the future,
         we might want to be smarter by only doing so when the type being pushed is defined

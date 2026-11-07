@@ -847,12 +847,12 @@ copy : bool, optional
     Default: True, for backward compatibility.
 form : 'array', or 'function', or 'lo'
     Determines the format of the output Laplacian:
-    
+
     * 'array' is a numpy array;
     * 'function' is a pointer to evaluating the Laplacian-vector
       or Laplacian-matrix product;
     * 'lo' results in the format of the `LinearOperator`.
-    
+
     Choosing 'function' or 'lo' always avoids doubling
     the memory use, ignoring `copy` value.
     Default: 'array', for backward compatibility.

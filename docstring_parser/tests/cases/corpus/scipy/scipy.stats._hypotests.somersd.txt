@@ -399,7 +399,7 @@ y : array_like, optional
 alternative : {'two-sided', 'less', 'greater'}, optional
     Defines the alternative hypothesis. Default is 'two-sided'.
     The following options are available:
-    
+
     * 'two-sided': the rank correlation is nonzero
     * 'less': the rank correlation is negative (less than zero)
     * 'greater':  the rank correlation is positive (greater than zero)
@@ -408,7 +408,7 @@ Returns
 -------
 res : SomersDResult
     A `SomersDResult` object with the following fields:
-    
+
     statistic : float
        The Somers' :math:`D` statistic.
     pvalue : float

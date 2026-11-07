@@ -11,6 +11,7 @@ from ._compose import (
     field_description,
     field_name,
     field_text,
+    hang,
     start_on_new_line,
     written_type,
 )
@@ -354,12 +355,10 @@ def compose(
             rendering_style == RenderingStyle.CLEAN and not is_type
         ):
             (first, *rest) = desc.split("\n")
-            return "\n".join(
-                ["\n" + indent + first] + [indent + line for line in rest]
-            )
+            return hang("\n" + indent + first, rest, indent)
 
         (first, *rest) = desc.split("\n")
-        return "\n".join([" " + first] + [indent + line for line in rest])
+        return hang(" " + first, rest, indent)
 
     parts = description_lines(docstring)
     long_description = docstring.long_description

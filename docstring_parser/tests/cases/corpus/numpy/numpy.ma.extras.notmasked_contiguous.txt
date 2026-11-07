@@ -180,7 +180,7 @@ Returns
 endpoints : list
     A list of slices (start and end indexes) of unmasked indexes
     in the array.
-    
+
     If the input is 2d and axis is specified, the result is a list of lists.
 
 See Also

@@ -31,5 +31,5 @@ Short description
 Yields:
     int: description
         with much text
-        
+
         even some spacing

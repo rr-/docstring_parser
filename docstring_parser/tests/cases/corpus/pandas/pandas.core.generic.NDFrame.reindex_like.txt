@@ -281,9 +281,9 @@ method : {None, 'backfill'/'bfill', 'pad'/'ffill', 'nearest'}
     Method to use for filling holes in reindexed DataFrame.
     Please note: this is only applicable to DataFrames/Series with a
     monotonically increasing/decreasing index.
-    
+
     .. deprecated:: 3.0.0
-    
+
     * None (default): don't fill gaps
     * pad / ffill: propagate last valid observation forward to next
       valid
@@ -292,9 +292,9 @@ method : {None, 'backfill'/'bfill', 'pad'/'ffill', 'nearest'}
 copy : bool, default False
     This keyword is now ignored; changing its value will have no
     impact on the method.
-    
+
     .. deprecated:: 3.0.0
-    
+
         This keyword is ignored and will be removed in pandas 4.0. Since
         pandas 3.0, this method always returns a new object using a lazy
         copy mechanism that defers copies until necessary
@@ -307,7 +307,7 @@ tolerance : optional
     Maximum distance between original and new labels for inexact
     matches. The values of the index at the matching locations must
     satisfy the equation ``abs(index[indexer] - target) <= tolerance``.
-    
+
     Tolerance may be a scalar value, which applies the same tolerance
     to all values, or list-like, which applies variable tolerance per
     element. List-like includes list, tuple, array, Series, and must be

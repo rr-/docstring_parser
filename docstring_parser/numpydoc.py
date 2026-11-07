@@ -10,6 +10,7 @@ import typing as T
 from ._compose import (
     SectionTable,
     examples_text,
+    hang,
     section_runs,
     start_on_new_line,
     written_type,
@@ -843,8 +844,7 @@ def compose(
                 head += f"{mark}optional"
 
         if one.description:
-            body = f"\n{indent}".join([head] + one.description.split("\n"))
-            parts.append(body)
+            parts.append(hang(head, one.description.split("\n"), indent))
         else:
             parts.append(head)
 

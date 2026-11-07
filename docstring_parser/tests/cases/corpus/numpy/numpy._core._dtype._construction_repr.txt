@@ -82,7 +82,7 @@ include_align : bool
     If true, this includes the 'align=True' parameter
     inside the struct dtype construction dict when needed. Use this flag
     if you want a proper repr string without the 'dtype()' part around it.
-    
+
     If false, this does not preserve the
     'align=True' parameter or sticky NPY_ALIGNED_STRUCT flag for
     struct arrays like the regular repr does, because the 'align'

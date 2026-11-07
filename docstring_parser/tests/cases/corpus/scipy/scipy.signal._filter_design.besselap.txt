@@ -193,28 +193,28 @@ N : int
     The order of the filter.
 norm : {'phase', 'delay', 'mag'}, optional
     Frequency normalization:
-    
+
     ``phase``
         The filter is normalized such that the phase response reaches its
         midpoint at an angular (e.g., rad/s) cutoff frequency of 1. This
         happens for both low-pass and high-pass filters, so this is the
         "phase-matched" case. [6]_
-    
+
         The magnitude response asymptotes are the same as a Butterworth
         filter of the same order with a cutoff of `Wn`.
-    
+
         This is the default, and matches MATLAB's implementation.
-    
+
     ``delay``
         The filter is normalized such that the group delay in the passband
         is 1 (e.g., 1 second). This is the "natural" type obtained by
         solving Bessel polynomials
-    
+
     ``mag``
         The filter is normalized such that the gain magnitude is -3 dB at
         angular frequency 1. This is called "frequency normalization" by
         Bond. [1]_
-    
+
     .. versionadded:: 0.18.0
 %(xp_device_snippet)s
 

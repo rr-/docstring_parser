@@ -107,6 +107,31 @@ def _round_trips(text: str, style: DocstringStyle) -> T.List[str]:
     return failed
 
 
+def _blank_lines_empty(text: str) -> bool:
+    """Return whether no line of a text is spaces alone."""
+    return all(line.strip() or not line for line in text.split("\n"))
+
+
+@pytest.mark.parametrize("style", STYLES, ids=lambda s: s.name.lower())
+def test_compose_writes_no_blank_line_with_indent(
+    style: DocstringStyle,
+) -> None:
+    """Test that every case input with no blank line holding spaces,
+    composed in every style and rendering, writes none either."""
+    for path in CASES:
+        name = path.relative_to(CASES_DIR).as_posix()
+        text = read_case(path).input
+        if not _blank_lines_empty(text):
+            continue
+        docstring = try_parse(text, style).docstring
+        for target in STYLES:
+            for rendering in RenderingStyle:
+                composed = compose(docstring, target, rendering)
+                assert _blank_lines_empty(composed), (
+                    f"{name} as {target.name.lower()} {rendering.name.lower()}"
+                )
+
+
 # Case inputs that cannot read back the same, and why.
 SEVERAL_TYPES = "several type fields name one param, so another one types it"
 NAMED_TYPE = "a named type alone right after a return names that return"

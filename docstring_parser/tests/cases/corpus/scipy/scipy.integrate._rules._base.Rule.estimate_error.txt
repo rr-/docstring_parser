@@ -133,13 +133,13 @@ Parameters
 f : callable
     Function to estimate error for. `f` must have the signature::
         f(x : ndarray, \*args) -> ndarray
-    
+
     `f` should accept arrays `x` of shape::
         (npoints, ndim)
-    
+
     and output arrays of shape::
         (npoints, output_dim_1, ..., output_dim_n)
-    
+
     In this case, `estimate` will return arrays of shape::
         (output_dim_1, ..., output_dim_n)
 a : ndarray

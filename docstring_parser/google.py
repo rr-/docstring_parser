@@ -9,6 +9,7 @@ from ._compose import (
     SectionTable,
     description_lines,
     examples_text,
+    hang,
     section_runs,
     start_on_new_line,
     written_type,
@@ -1066,7 +1067,8 @@ def compose(
             if one.description:
                 parts.append(
                     "\n".join(
-                        indent + line for line in one.description.split("\n")
+                        indent + line if line else ""
+                        for line in one.description.split("\n")
                     )
                 )
             return
@@ -1094,14 +1096,10 @@ def compose(
             or one.description[0].isspace()
             or continuation_indented(one.description)
         ):
-            body = f"\n{indent}{indent}".join(
-                [head] + one.description.split("\n")
-            )
-            parts.append(body)
+            parts.append(hang(head, one.description.split("\n"), indent * 2))
         elif one.description:
             (first, *rest) = one.description.split("\n")
-            body = f"\n{indent}{indent}".join([head + " " + first] + rest)
-            parts.append(body)
+            parts.append(hang(head + " " + first, rest, indent * 2))
         else:
             parts.append(head)
 

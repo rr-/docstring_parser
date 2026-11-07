@@ -238,7 +238,7 @@ other : Series
     Object to compare with.
 align_axis : {0 or 'index', 1 or 'columns'}, default 1
     Determine which axis to align the comparison on.
-    
+
     * 0, or 'index' : Resulting differences are stacked vertically
       with rows drawn alternately from self and other.
     * 1, or 'columns' : Resulting differences are aligned horizontally
@@ -258,7 +258,7 @@ Series or DataFrame
     If axis is 0 or 'index' the result will be a Series.
     The resulting index will be a MultiIndex with 'self' and 'other'
     stacked alternately at the inner level.
-    
+
     If axis is 1 or 'columns' the result will be a DataFrame.
     It will have two columns namely 'self' and 'other'.
 

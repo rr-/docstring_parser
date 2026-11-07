@@ -171,7 +171,7 @@ nu : sequence of ints, length ndim, optional
     If not None, the orders of the derivatives to evaluate.
     Each entry must be non-negative.
     Only allowed for methods "slinear", "cubic" and "quintic".
-    
+
     .. versionadded:: 1.13
 
 Returns

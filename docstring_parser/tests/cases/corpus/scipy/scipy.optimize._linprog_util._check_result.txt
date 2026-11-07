@@ -166,7 +166,7 @@ fun : float
     optimal objective value for original problem
 status : int
     An integer representing the exit status of the optimization::
-    
+
          0 : Optimization terminated successfully
          1 : Iteration limit reached
          2 : Problem appears to be infeasible
@@ -189,7 +189,7 @@ Returns
 -------
 status : int
     An integer representing the exit status of the optimization::
-    
+
          0 : Optimization terminated successfully
          1 : Iteration limit reached
          2 : Problem appears to be infeasible
