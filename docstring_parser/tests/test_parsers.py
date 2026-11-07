@@ -267,3 +267,14 @@ def test_methods_compose_as_fields(target: str) -> None:
         "stop(a: int)\nHalt.",
         "reset",
     ]
+
+
+@pytest.mark.parametrize("title", ["Parameters", "Attributes", "Raises"])
+def test_lead_text_after_summary_reads_back(title: str) -> None:
+    """Test that indented text before a section's first item, right after
+    the summary, composes as a paragraph of its own and reads back."""
+    text = f"Short\n{title}\n{'-' * len(title)}\n    a\n   b\nx\n    d"
+    docstring = parse(text, "numpydoc")
+    assert docstring.blank_after_short_description is True
+    again = parse(compose(docstring, "numpydoc"), "numpydoc")
+    assert dump(again) == dump(docstring)
