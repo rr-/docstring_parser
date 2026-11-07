@@ -88,7 +88,8 @@
 - Numpydoc: Keep indented text before a section's first item in the long description
 - Numpydoc: Split a `Raises` or `Warns` head such as `ValueError : if bad.` after its type
 - Numpydoc: Compose sections and deprecations in the items' order
-- Numpydoc: Accept a title underline of any length, or of `=` signs
+- Numpydoc: Accept a title underline of `-` or `=` signs, at least 3 by default
+- Numpydoc: Report a short underline as `bad-underline`; set `min_underline` or `exact_underline`
 - Epydoc: Match fields only at line starts, and stop hanging on colonless headers (thanks to @akshitkhokhani)
 - Epydoc: Take a param's key and kind from its own field, not an earlier `@type`
 - Epydoc: Give a name described by two fields an item for each

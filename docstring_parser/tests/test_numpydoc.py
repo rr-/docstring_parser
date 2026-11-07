@@ -2,7 +2,7 @@
 
 import pytest
 
-from docstring_parser import numpydoc
+from docstring_parser import ParseError, numpydoc
 from docstring_parser.numpydoc import (
     DEFAULT_SECTIONS,
     PARAM_DEFAULT_REGEX,
@@ -486,3 +486,52 @@ def test_several_names_give_one_param_each() -> None:
     again = parse(compose(docstring))
     assert [param.arg_name for param in again.params] == names
     assert again.params[1].type_name == "int"
+
+
+@pytest.mark.parametrize("underline", ["---", "==========", "-" * 20])
+def test_underline_of_three_or_more_is_kept(underline: str) -> None:
+    """Test that an underline of at least three characters is no problem."""
+    result = numpydoc.try_parse(f"A.\n\nParameters\n{underline}\nx\n    d")
+    assert result.problems == []
+    assert result.docstring.params[0].arg_name == "x"
+
+
+@pytest.mark.parametrize("underline", ["-", "--", "=="])
+def test_short_underline_is_a_problem(underline: str) -> None:
+    """Test that a declared title with too short an underline is still
+    read as its section, with a problem that strict parsing raises."""
+    text = f"A.\n\nParameters\n{underline}\nx\n    d"
+    result = numpydoc.try_parse(text)
+    assert [problem.code for problem in result.problems] == ["bad-underline"]
+    assert result.problems[0].line == 3
+    assert result.docstring.params[0].arg_name == "x"
+    with pytest.raises(ParseError, match="underline of 'Parameters'"):
+        parse(text)
+
+
+def test_custom_min_underline() -> None:
+    """Test that the parser's min_underline sets the shortest underline."""
+    text = "A.\n\nParameters\n-----\nx\n    d"
+    assert (
+        NumpydocParser(min_underline=1)
+        .try_parse("A.\n\nReturns\n-\nint")
+        .problems
+        == []
+    )
+    assert NumpydocParser(min_underline=5).try_parse(text).problems == []
+    problems = NumpydocParser(min_underline=6).try_parse(text).problems
+    assert [problem.code for problem in problems] == ["bad-underline"]
+
+
+def test_exact_underline() -> None:
+    """Test that exact_underline asks for an underline as long as the
+    title, and still reads the section when it is not."""
+    parser = NumpydocParser(exact_underline=True)
+    exact = parser.try_parse("A.\n\nParameters\n----------\nx\n    d")
+    assert exact.problems == []
+    for underline in ("---", "-" * 11):
+        result = parser.try_parse(f"A.\n\nParameters\n{underline}\nx\n    d")
+        assert [problem.code for problem in result.problems] == [
+            "bad-underline"
+        ]
+        assert result.docstring.params[0].arg_name == "x"
