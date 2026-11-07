@@ -4,7 +4,7 @@ import copy as _copy
 import re
 import typing as T
 
-from .common import Docstring, DocstringParam
+from .common import Docstring, DocstringDeprecated, DocstringParam
 
 
 def clean_str(string: str) -> T.Optional[str]:
@@ -81,6 +81,26 @@ def split_description(ret: Docstring, text: str) -> None:
         ret.long_description = long or None
 
 
+def leading_deprecation(
+    docstring: Docstring,
+) -> T.Optional[DocstringDeprecated]:
+    """Return the deprecation to write right after the short description.
+
+    A deprecation that comes first goes there, as Numpydoc writes it,
+    with the long description read from after it. Not when the long
+    description is followed by a blank line, which it is only when written
+    before the directive, or when it starts indented, which would read
+    back as the directive's body.
+    """
+    top = docstring.meta[0] if docstring.meta else None
+    long = docstring.long_description
+    if not isinstance(top, DocstringDeprecated) or (
+        docstring.blank_after_long_description or (long and long[0].isspace())
+    ):
+        return None
+    return top
+
+
 def append_loose(
     ret: Docstring, chunks: T.Iterable[str], blank_around: bool
 ) -> None:
@@ -104,8 +124,6 @@ def append_loose(
         ret.blank_after_short_description = True
         ret.blank_after_long_description = True
     elif not ret.blank_after_short_description:
-        from ._directives import leading_deprecation  # noqa: PLC0415
-
         # Text written right after the summary, with no deprecation
         # between them, is a paragraph of its own, which would otherwise
         # read back as part of the summary.

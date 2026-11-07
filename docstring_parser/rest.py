@@ -20,12 +20,12 @@ from ._directives import (
     description_with_deprecation,
     directive_pattern,
     lead_directive,
-    leading_deprecation,
 )
 from ._fields import AFTER_ALL, ParamTypes, ReturnTypes, assign_types
 from ._lines import Lines, dedent
 from ._text import (
     append_loose,
+    leading_deprecation,
     param_spec,
     split_description,
 )

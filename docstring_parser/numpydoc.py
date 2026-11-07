@@ -17,7 +17,6 @@ from ._compose import (
 from ._directives import (
     deprecation_lines,
     description_with_deprecation,
-    leading_deprecation,
 )
 from ._lines import Lines, dedent
 from ._text import (
@@ -27,6 +26,7 @@ from ._text import (
     OPTIONAL_REGEX,
     append_loose,
     clean_str,
+    leading_deprecation,
     param_spec,
     renamed,
     split_description,
