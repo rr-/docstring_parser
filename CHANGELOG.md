@@ -37,6 +37,7 @@
 - General: Keep the indent of the long description's first line
 - General: Compose a param's type as written, such as `int, optional`
 - General: Compose docstrings so they read back the same, splitting lines at newlines only
+- General: Make each run of whitespace in a type one space
 - ReST: Stop the last field from absorbing text after the field list; that text now goes to the long description (thanks to @apoorvdarshan)
 - ReST: Raise `ParseError` instead of `IndexError` for a field with no name
 - ReST: Indent composed continuation lines in compact mode, so one starting with a role such as `:class:` is no longer read back as a new field
