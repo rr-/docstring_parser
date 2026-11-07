@@ -103,6 +103,14 @@ def append_loose(
     if blank_around:
         ret.blank_after_short_description = True
         ret.blank_after_long_description = True
+    elif not ret.blank_after_short_description:
+        from ._directives import leading_deprecation  # noqa: PLC0415
+
+        # Text written right after the summary, with no deprecation
+        # between them, is a paragraph of its own, which would otherwise
+        # read back as part of the summary.
+        if leading_deprecation(ret) is None:
+            ret.blank_after_short_description = True
 
 
 # One exception type: a dotted name, maybe marked as Sphinx does it
