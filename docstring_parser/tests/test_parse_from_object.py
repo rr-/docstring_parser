@@ -11,9 +11,7 @@ module_attr: int = 1
 
 def test_from_module_attribute_docstrings() -> None:
     """Test the parse of attribute docstrings from a module."""
-    from . import test_parse_from_object  # noqa: PLC0415,PLW0406
-
-    docstring = parse_from_object(test_parse_from_object)
+    docstring = parse_from_object(sys.modules[__name__])
 
     assert docstring.short_description is not None
     assert "parse_from_object" in docstring.short_description
