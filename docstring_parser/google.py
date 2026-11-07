@@ -88,6 +88,20 @@ MULTIPLE_PATTERN = re.compile(
     r"(\s*\w+(?:\s*\|\s*\w+)+:)"  # word | word | ... :  (PEP 604 union)
 )
 
+# A return's type of two or three words before a colon, joined by ``of``,
+# ``or`` or ``|``, as in ``list of str:`` or ``int or None:``. Words in a
+# row with nothing between them are a sentence, as in ``The value:``.
+# Brackets nest one deep, as in ``dict[str, list[int]]``, so that a
+# match never backtracks far.
+_IN_BRACKETS = r"[^\[\]:\n]*"
+_TYPE_WORD = (
+    r"[~!`]?[A-Za-z_][\w.`]*"
+    rf"(?:\[{_IN_BRACKETS}(?:\[{_IN_BRACKETS}\]{_IN_BRACKETS})*\])?"
+)
+_SHORT_TYPE_HEAD = re.compile(
+    rf"{_TYPE_WORD}(?:[ \t]+(?:of|or|\|)[ \t]+{_TYPE_WORD}){{1,2}}[ \t]*:"
+)
+
 # One member of a union type: a dotted name with an optional subscript,
 # such as ``None``, ``np.ndarray`` or ``dict[str, int]``.
 _UNION_MEMBER = re.compile(r"[A-Za-z_][\w.]*(?:\[[^:]*\])?")
@@ -566,6 +580,7 @@ class Parser(BaseParser):
             section.type == SectionType.SINGULAR_OR_MULTIPLE
             and not MULTIPLE_PATTERN.match(text)
             and not _is_union_head(text)
+            and not _SHORT_TYPE_HEAD.match(text)
         ) or section.type == SectionType.SINGULAR:
             return _single_meta(section, text)
 
