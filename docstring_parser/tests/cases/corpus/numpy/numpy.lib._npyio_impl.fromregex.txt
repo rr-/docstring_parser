@@ -179,7 +179,7 @@ Parameters
 ----------
 file : file, str, or pathlib.Path
     Filename or file object to read.
-    
+
     .. versionchanged:: 1.22.0
         Now accepts `os.PathLike` implementations.
 regexp : str or regexp

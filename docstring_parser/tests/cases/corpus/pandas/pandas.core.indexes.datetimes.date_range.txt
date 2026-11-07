@@ -579,7 +579,7 @@ unit : {'s', 'ms', 'us', 'ns', None}, default None
     If not specified, this is inferred from the 'start', 'end', and 'freq'
     using the same inference as :class:`Timestamp` taking the highest
     resolution of the three that are provided.
-    
+
     .. versionadded:: 2.0.0
 ambiguous : 'infer', bool-ndarray, 'NaT', default 'raise'
     When clocks moved backward due to DST, ambiguous times may arise.
@@ -587,7 +587,7 @@ ambiguous : 'infer', bool-ndarray, 'NaT', default 'raise'
     DST to 02:00 non-DST, 02:30:00 local time occurs both at 00:30:00 UTC
     and at 01:30:00 UTC. In such a situation, the `ambiguous` parameter
     dictates how ambiguous times should be handled.
-    
+
     - 'infer' will attempt to infer fall dst-transition hours based on
       order. Requires that the timestamps are monotonically increasing.
     - bool-ndarray where True signifies a DST time, False signifies a
@@ -598,7 +598,7 @@ ambiguous : 'infer', bool-ndarray, 'NaT', default 'raise'
 nonexistent : 'shift_forward', 'shift_backward', 'NaT', timedelta,     default 'raise'
     A nonexistent time does not exist in a particular timezone
     where clocks moved forward due to DST.
-    
+
     - 'shift_forward' will shift the nonexistent time forward to the
       closest existing time
     - 'shift_backward' will shift the nonexistent time backward to the

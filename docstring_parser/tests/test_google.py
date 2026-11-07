@@ -292,6 +292,17 @@ def test_empty_examples_section_composes() -> None:
     assert len(parse(compose(docstring)).examples) == 2
 
 
+def test_compose_keeps_blank_lines_in_descriptions() -> None:
+    """Test that a blank line inside a param's description composes back
+    as an empty line, with no indent on it (#61)."""
+    text = "Short.\n\nArgs:\n    x (int): First.\n\n        Second.\n"
+    composed = compose(parse(text))
+    assert (
+        composed == "Short.\n\nArgs:\n    x (int): First.\n\n        Second."
+    )
+    assert parse(composed).params[0].description == "First.\n\nSecond."
+
+
 def test_bare_names_are_params() -> None:
     """Test that a name alone on its line, with a type or not, is a param,
     with its description, if any, indented below it."""

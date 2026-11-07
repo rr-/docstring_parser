@@ -325,7 +325,7 @@ Returns
 -------
 res : DirectionalStats
     An object containing attributes:
-    
+
     mean_direction : ndarray
         Directional mean.
     mean_resultant_length : ndarray

@@ -401,7 +401,7 @@ Returns
 -------
 res : Power_divergenceResult
     An object containing attributes:
-    
+
     statistic : float or ndarray
         The chi-squared test statistic.  The value is a float if `axis` is
         None or `f_obs` and `f_exp` are 1-D.

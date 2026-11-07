@@ -299,7 +299,7 @@ Returns
 L : ndarray
     The leader linkage node id's stored as a k-element 1-D array,
     where ``k`` is the number of flat clusters found in ``T``.
-    
+
     ``L[j]=i`` is the linkage cluster node id that is the
     leader of flat cluster with id M[j]. If ``i < n``, ``i``
     corresponds to an original observation, otherwise it
@@ -308,7 +308,7 @@ M : ndarray
     The leader linkage node id's stored as a k-element 1-D array, where
     ``k`` is the number of flat clusters found in ``T``. This allows the
     set of flat cluster ids to be any arbitrary set of ``k`` integers.
-    
+
     For example: if ``L[3]=2`` and ``M[3]=8``, the flat cluster with
     id 8's leader is linkage node 2.
 

@@ -739,7 +739,7 @@ window : array_like, callable, str, float, or tuple, optional
     before resampling. I.e., the FFT ``X`` of `x` is calculated by
     ``X = W * fft(x, axis=axis)``. ``W`` may be interpreted as a spectral windowing
     function ``W(f_X)`` which consumes the frequencies ``f_X = fftfreq(n_x, T)``.
-    
+
     If `window` is a 1d array of length ``n_x`` then ``W=window``.
     If `window` is a callable  then ``W = window(f_X)``.
     Otherwise, `window` is passed to `~scipy.signal.get_window`, i.e.,

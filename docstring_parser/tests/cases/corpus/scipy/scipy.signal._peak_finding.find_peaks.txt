@@ -641,7 +641,7 @@ plateau_size : number or ndarray or sequence, optional
     ``None``, an array matching `x` or a 2-element sequence of the former.
     The first element is always interpreted as the minimal and the second,
     if supplied as the maximal required plateau size.
-    
+
     .. versionadded:: 1.2.0
 
 Returns
@@ -652,7 +652,7 @@ properties : dict
     A dictionary containing properties of the returned peaks which were
     calculated as intermediate results during evaluation of the specified
     conditions:
-    
+
     * 'peak_heights'
           If `height` is given, the height of each peak in `x`.
     * 'left_thresholds', 'right_thresholds'
@@ -668,9 +668,9 @@ properties : dict
           If `plateau_size` is given, these keys are accessible and contain
           the indices of a peak's edges (edges are still part of the
           plateau) and the calculated plateau sizes.
-    
+
           .. versionadded:: 1.2.0
-    
+
     To calculate and return properties without excluding peaks, provide the
     open interval ``(None, None)`` as a value to the appropriate argument
     (excluding `distance`).

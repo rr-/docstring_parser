@@ -329,11 +329,11 @@ mode : str, optional
     anti-symmetric versions of ``"reflect"`` and ``"symmetric"``. The mode
     `"line"` extends the signal based on a linear trend defined by the
     first and last points along the ``axis``.
-    
+
     .. versionadded:: 1.4.0
 cval : float, optional
     The constant value to use when ``mode == "constant"``.
-    
+
     .. versionadded:: 1.4.0
 
 Returns

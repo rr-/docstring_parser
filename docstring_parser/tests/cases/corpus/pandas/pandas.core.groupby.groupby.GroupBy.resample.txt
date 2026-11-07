@@ -376,11 +376,11 @@ include_groups : bool, default False
     the case that they are columns of the DataFrame. If this raises a
     TypeError, the result will be computed with the groupings excluded.
     When False, the groupings will be excluded when applying ``func``.
-    
+
     .. versionadded:: 2.2.0
-    
+
     .. versionchanged:: 3.0
-    
+
        The default was changed to False, and True is no longer allowed.
 **kwargs
     Additional keyword arguments forwarded to the underlying

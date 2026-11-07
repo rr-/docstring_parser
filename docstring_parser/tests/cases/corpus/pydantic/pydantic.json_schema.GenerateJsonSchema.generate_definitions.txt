@@ -65,14 +65,14 @@ mapping that links the input keys to the definition references.
 
 Args:
     inputs: A sequence of tuples, where:
-        
+
         - The first element is a JSON schema key type.
         - The second element is the JSON mode: either 'validation' or 'serialization'.
         - The third element is a core schema.
 
 Returns:
     A tuple where:
-    
+
     - The first element is a dictionary whose keys are tuples of JSON schema key type and JSON mode, and
         whose values are the JSON schema corresponding to that pair of inputs. (These schemas may have
         JsonRef references to definitions that are defined in the second returned element.)

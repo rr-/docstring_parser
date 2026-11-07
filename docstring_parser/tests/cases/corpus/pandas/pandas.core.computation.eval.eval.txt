@@ -388,29 +388,29 @@ expr : str
     <https://docs.python.org/3/reference/simple_stmts.html#simple-statements>`__,
     only Python `expressions
     <https://docs.python.org/3/reference/simple_stmts.html#expression-statements>`__.
-    
+
     By default, with the numexpr engine, the following operations are supported:
-    
+
     - Arithmetic operations: ``+``, ``-``, ``*``, ``/``, ``**``, ``%``
     - Boolean operations: ``|`` (or), ``&`` (and), and ``~`` (not)
     - Comparison operators: ``<``, ``<=``, ``==``, ``!=``, ``>=``, ``>``
-    
+
     Furthermore, the following mathematical functions are supported:
-    
+
     - Trigonometric: ``sin``, ``cos``, ``tan``, ``arcsin``, ``arccos``,             ``arctan``, ``arctan2``, ``sinh``, ``cosh``, ``tanh``, ``arcsinh``,             ``arccosh`` and ``arctanh``
     - Logarithms: ``log`` natural, ``log10`` base 10, ``log1p`` log(1+x)
     - Absolute Value ``abs``
     - Square root ``sqrt``
     - Exponential ``exp`` and Exponential minus one ``expm1``
-    
+
     See the numexpr engine `documentation
     <https://numexpr.readthedocs.io/en/latest/user_guide.html#supported-functions>`__
     for further function support details.
-    
+
     Using the ``'python'`` engine allows the use of native Python operators
     such as floor division ``//``, in addition to built-in and user-defined
     Python functions.
-    
+
     Additionally, the ``'pandas'`` parser allows the use of :keyword:`and`,
     :keyword:`or`, and :keyword:`not` with the same semantics as the
     corresponding bitwise operators.
@@ -423,14 +423,14 @@ parser : {'pandas', 'python'}, default 'pandas'
     more details.
 engine : {'python', 'numexpr'}, optional, default None
     The engine used to evaluate the expression. Supported engines are
-    
+
     - None : tries to use ``numexpr``, falls back to ``python``
     - ``'numexpr'`` : This is the default engine when ``numexpr`` is installed.
       Evaluates pandas objects using numexpr for large speed ups in complex
       expressions with large frames.
     - ``'python'`` : Performs operations as if you had ``eval``'d in top
       level python. This engine is generally not that useful.
-    
+
     More backends may be available in the future.
 local_dict : dict or None, optional
     A dictionary of local variables, taken from locals() by default.
@@ -456,9 +456,9 @@ inplace : bool, default False
     If `target` is provided, and the expression mutates `target`, whether
     to modify `target` inplace. Otherwise, return a copy of `target` with
     the mutation.
-    
+
     .. deprecated:: 3.1.0
-    
+
         This keyword is deprecated and will be removed in pandas 4.0.
         See the `whatsnew note on PDEP-8
         <https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace>`__
@@ -473,14 +473,14 @@ Raises
 ------
 ValueError
     There are many instances where such an error can be raised:
-    
+
     - `target=None`, but the expression is multiline.
     - The expression is multiline, but not all them have item assignment.
       An example of such an arrangement is this:
-    
+
       a = b + 1
       a + 2
-    
+
       Here, there are expressions on different lines, making it multiline,
       but the last line has no variable assigned to the output of `a + 2`.
     - `inplace=True`, but the expression is missing item assignment.

@@ -328,7 +328,7 @@ axis : int or None, default: None
     If ``None``, the input will be raveled before computing the statistic.
 nan_policy : {'propagate', 'omit', 'raise'}
     Defines how to handle input NaNs.
-    
+
     - ``propagate``: if a NaN is present in the axis slice (e.g. row) along
     which the  statistic is computed, the corresponding entry of the output
     will be NaN.
@@ -347,7 +347,7 @@ Returns
 -------
 circstd : float
     Circular standard deviation, optionally normalized.
-    
+
     If the input array is empty, ``np.nan`` is returned.
 
 See Also

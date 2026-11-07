@@ -143,6 +143,17 @@ def field_description(meta: DocstringMeta) -> T.Optional[str]:
     return meta.description
 
 
+def hang(head: str, lines: T.Iterable[str], indent: str) -> str:
+    """Join a head and the lines under it, indented.
+
+    A blank line stays empty rather than holding the indent, so that no
+    composed line ends in whitespace.
+    """
+    return "\n".join(
+        [head] + [indent + line if line else "" for line in lines]
+    )
+
+
 def start_on_new_line(text: str) -> str:
     """Start a composed docstring on a new line if it has to.
 

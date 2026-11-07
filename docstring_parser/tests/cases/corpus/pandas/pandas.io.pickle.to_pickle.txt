@@ -214,7 +214,7 @@ filepath_or_buffer : str, path object, or file-like object
     String, path object (implementing ``os.PathLike[str]``), or file-like
     object implementing a binary ``write()`` function.
     Also accepts URL. URL has to be of S3 or GCS.
-    
+
     Certain URL schemes may require additional packages. For example, S3
     URLs require the ``s3fs`` library. See
     :ref:`install.optional_dependencies` for a full list.
@@ -247,7 +247,7 @@ storage_options : dict, optional
     details, and for more examples on storage options refer `here
     <https://pandas.pydata.org/docs/user_guide/io.html?
     highlight=storage_options#reading-writing-remote-files>`_.
-    
+
     .. [1] https://docs.python.org/3/library/pickle.html
 
 See Also

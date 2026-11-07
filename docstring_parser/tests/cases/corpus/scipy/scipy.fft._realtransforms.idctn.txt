@@ -222,7 +222,7 @@ workers : int, optional
 orthogonalize : bool, optional
     Whether to use the orthogonalized IDCT variant (see Notes).
     Defaults to ``True`` when ``norm="ortho"`` and ``False`` otherwise.
-    
+
     .. versionadded:: 1.8.0
 
 Returns

@@ -408,9 +408,9 @@ tol : float, optional
     If any eigenvalue of the circulant matrix has an absolute value
     that is less than or equal to `tol`, the matrix is considered to be
     near singular. If not given, `tol` is set to::
-    
+
         tol = abs_eigs.max() * abs_eigs.size * np.finfo(np.float64).eps
-    
+
     where `abs_eigs` is the array of absolute values of the eigenvalues
     of the circulant matrix.
 caxis : int

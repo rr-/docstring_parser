@@ -191,7 +191,7 @@ dtype : data-type
     a byteorder specification as a part of the dtype specification.
 requirements : str or sequence of str
     The requirements list can be any of the following
-    
+
     * 'F_CONTIGUOUS' ('F') - ensure a Fortran-contiguous array
     * 'C_CONTIGUOUS' ('C') - ensure a C-contiguous array
     * 'ALIGNED' ('A')      - ensure a data-type aligned array

@@ -38,6 +38,7 @@
 - General: Treat a line of only a tab or form feed at either end as blank
 - General: Compose a param's type as written, such as `int, optional`
 - General: Compose docstrings so they parse back the same
+- Google, Numpydoc, Epydoc: Compose blank lines inside an item's description with no indent on them
 - General: Unescape names in every style, such as `\*\*kwargs` or `class\_`
 - General: Make each run of whitespace in a type one space
 - General: Clean attribute docstrings in `parse_from_object()` as other docstrings

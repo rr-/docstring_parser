@@ -64,7 +64,7 @@ signing operation to the signing library.
 Args:
     enterprise_cert_file_path (str): the path to a enterprise cert JSON
         file. The file should contain the following field:
-        
+
             {
                 "libs": {
                     "signer_library": "...",

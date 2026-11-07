@@ -294,7 +294,7 @@ optimize : {bool, list, tuple, 'greedy', 'optimal'}
     assumed to be the maximum intermediate size created. If only a single
     argument is provided the largest input or output array size is used
     as a maximum intermediate size.
-    
+
     * if a list is given that starts with ``einsum_path``, uses this as the
       contraction path
     * if False no optimization is taken
@@ -308,7 +308,7 @@ optimize : {bool, list, tuple, 'greedy', 'optimal'}
       Hadamard, and then outer products at each step. Scales cubically with
       the number of terms in the contraction. Equivalent to the 'optimal'
       path for most contractions.
-    
+
     Default is 'greedy'.
 
 Returns
