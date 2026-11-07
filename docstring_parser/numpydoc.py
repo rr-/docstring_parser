@@ -45,6 +45,7 @@ from .common import (
     DocstringStyle,
     Kind,
     ParseResult,
+    Problem,
     RenderingStyle,
     cleandoc,
 )
@@ -171,9 +172,10 @@ class Section:
         or None if the header does not start with the title."""
         if self._spec is not None and self._spec.bare:
             return r"[ \t]*$"
-        # As in napoleon, the underline may be shorter or longer than the
-        # title, and made of equals signs as a ReST heading's may be.
-        return r"\s*?\n(?:-{2,}|={2,})\s*$"
+        # Any underline of dashes or equals signs makes the header, so
+        # that one the parser's underline rule rejects is still read as its
+        # section, with a problem.
+        return r"\s*?\n(?:-+|=+)\s*$"
 
     @property
     def _title_pattern(self) -> str:
@@ -501,11 +503,19 @@ class Parser(BaseParser):
     def __init__(
         self,
         sections: T.Optional[T.Sequence[T.Union[Section, SectionSpec]]] = None,
+        min_underline: int = 3,
+        exact_underline: bool = False,
     ):
         """Setup sections.
 
         :param sections: Recognized sections or None to defaults.
+        :param min_underline: the fewest dashes or equals signs a section
+            title's underline may have
+        :param exact_underline: require a section title's underline to be
+            as long as the title
         """
+        self.min_underline = min_underline
+        self.exact_underline = exact_underline
         sections = sections or DEFAULT_SECTIONS
         self.sections: T.Dict[str, Section] = {}
         for section in sections:
@@ -561,7 +571,8 @@ class Parser(BaseParser):
             return ParseResult(ret, [])
 
         # Clean according to PEP-0257
-        text = Lines(text).text
+        lines = Lines(text)
+        text = lines.text
 
         # Find first title and split on its position
         match = self._titles_re.search(text)
@@ -585,6 +596,16 @@ class Parser(BaseParser):
                 self._declared(match),
             )
             for match in known
+        ]
+        problems = [
+            Problem(
+                lines.source_line(len(desc_chunk) + match.start()),
+                "bad-underline",
+                message,
+            )
+            for match in known
+            for message in [self._underline_problem(match.group())]
+            if message is not None
         ]
         if "---" in meta_chunk:
             others = _headings(meta_chunk, known)
@@ -618,7 +639,27 @@ class Parser(BaseParser):
             )
 
         append_loose(ret, loose_chunks, blank_around=False)
-        return ParseResult(ret, [])
+        return ParseResult(ret, problems)
+
+    def _underline_problem(self, header: str) -> T.Optional[str]:
+        """Tell how a section header's underline breaks the parser's rule,
+        or return None if it keeps it or the header has none."""
+        title, _, rest = header.partition("\n")
+        underline = rest.strip()
+        if not underline or underline[0] not in "-=":
+            return None
+        title = title.rstrip()
+        if self.exact_underline and len(underline) != len(title):
+            return (
+                f"Expected the underline of {title!r} to be as long as the"
+                f" title, {len(title)} characters, not {len(underline)}."
+            )
+        if len(underline) < self.min_underline:
+            return (
+                f"Expected the underline of {title!r} to be at least"
+                f" {self.min_underline} characters, not {len(underline)}."
+            )
+        return None
 
 
 # The name the parser had before every style had a ``Parser``.

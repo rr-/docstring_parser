@@ -92,6 +92,7 @@
 - Numpydoc: Split a `Raises` or `Warns` item's head such as `ValueError : if bad.` after its type, taking `if bad.` as the start of the description, instead of making the whole line the type
 - Numpydoc: Compose sections and deprecations in the items' order, keeping the blank lines read
 - Numpydoc: Accept a title's underline of any length, or of `=` signs
+- Numpydoc: Report short title underlines; configure with `min_underline` or `exact_underline`
 - Epydoc: Match fields only at their header, so field-like text in a description no longer replaces it and a header without its colon no longer stalls the parser (thanks to @akshitkhokhani)
 - Epydoc: Take a param's key and kind from its `@param`, `@keyword` or `@ivar` field, instead of `type` when its `@type` field comes first
 - Epydoc: Give a name described by two fields, such as `@param x:` and `@ivar x:`, an item for each instead of keeping the last
