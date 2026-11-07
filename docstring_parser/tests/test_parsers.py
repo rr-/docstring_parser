@@ -102,3 +102,64 @@ def test_old_parser_names() -> None:
     """Test that the parsers keep the names they had."""
     assert google.GoogleParser is google.Parser
     assert numpydoc.NumpydocParser is numpydoc.Parser
+
+
+_ESCAPED_NAMES = {
+    "rest": ":param \\*\\*kwargs: d\n:param class\\_: d",
+    "google": "Args:\n    \\*\\*kwargs: d\n    class\\_: d",
+    "numpydoc": "Parameters\n----------\n\\*\\*kwargs\n    d\nclass\\_\n    d",
+    "epydoc": "@param \\*\\*kwargs: d\n@param class\\_: d",
+}
+
+
+@pytest.mark.parametrize("style", sorted(_ESCAPED_NAMES))
+def test_escaped_names_are_unescaped(style: str) -> None:
+    """Test that every style drops the backslashes escaping ReST markup
+    in a name."""
+    docstring = parse("Short.\n\n" + _ESCAPED_NAMES[style], style)
+    names = [param.arg_name for param in docstring.params]
+    assert names == ["**kwargs", "class_"]
+
+
+@pytest.mark.parametrize(
+    "text, style",
+    [
+        ("Args:\n    arg1, arg2, ...: d", "google"),
+        ("Parameters\n----------\narg1, arg2, ...\n    d", "numpydoc"),
+    ],
+)
+def test_ellipsis_is_a_name(text: str, style: str) -> None:
+    """Test that ``...`` is one of several names, as in napoleon."""
+    docstring = parse("Short.\n\n" + text, style)
+    names = [param.arg_name for param in docstring.params]
+    assert names == ["arg1", "arg2", "..."]
+
+
+def test_bare_names_line_gives_one_param_each() -> None:
+    """Test that a Google line of bare names gives a param per name."""
+    docstring = parse("Short.\n\nArgs:\n    x, y\n    z: d", "google")
+    names = [param.arg_name for param in docstring.params]
+    assert names == ["x", "y", "z"]
+
+
+def test_rest_unescapes_types_and_attribute_directives() -> None:
+    """Test that ReST unescapes type fields and attribute directives."""
+    text = (
+        "Short.\n\n:param x: d\n:type x: list\\_of\n\n"
+        ".. attribute:: class\\_\n   :type: my\\_type\n\n   d"
+    )
+    docstring = parse(text, "rest")
+    assert docstring.params[0].type_name == "list_of"
+    assert docstring.attrs[0].arg_name == "class_"
+    assert docstring.attrs[0].type_name == "my_type"
+
+
+def test_rest_compose_escapes_trailing_underscore() -> None:
+    """Test that ReST compose escapes an underscore ending a name, which
+    docutils reads as a reference, and reads it back."""
+    docstring = parse("Short.\n\nArgs:\n    class_: d\n    a_b: d", "google")
+    text = compose(docstring, "rest")
+    assert ":param class\\_: d" in text
+    assert ":param a_b: d" in text
+    names = [param.arg_name for param in parse(text, "rest").params]
+    assert names == ["class_", "a_b"]

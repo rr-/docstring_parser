@@ -37,6 +37,7 @@
 - General: Keep the indent of the long description's first line
 - General: Compose a param's type as written, such as `int, optional`
 - General: Compose docstrings so they read back the same, splitting lines at newlines only
+- General: Unescape names in every style, such as `\*\*kwargs` or `class\_`
 - ReST: Stop the last field from absorbing text after the field list; that text now goes to the long description (thanks to @apoorvdarshan)
 - ReST: Raise `ParseError` instead of `IndexError` for a field with no name
 - ReST: Indent composed continuation lines in compact mode, so one starting with a role such as `:class:` is no longer read back as a new field
@@ -57,6 +58,7 @@
 - ReST: Read and compose a `.. deprecated::` directive as a deprecation with its version
 - ReST: Compose a raises entry as `:raises ValueError:` instead of `:raises ValueError :` (thanks to @RavSinghChandan)
 - ReST: Read `:param \*\*kwargs:` as `**kwargs`, and escape names on compose
+- ReST: Unescape types and `.. attribute::` names, and escape a trailing `_`
 - Google: Parse PEP 604 union types (e.g. `int | str`) in return sections (thanks to @binggao1230)
 - Google: Parse a union return or yield type whose members have brackets or dots, such as `dict[str, int] | None`, instead of keeping the whole line as the description
 - Google: Avoid regex backtracking when parsing parameter types
@@ -111,6 +113,7 @@
 - Google, Numpydoc: Compose Epydoc's `@ivar`, `@cvar` and `@var` fields as attributes, instead of as params
 - Google, Numpydoc: Match section titles in any case, such as `ARGS:` or `returns`
 - Google, Numpydoc: Read napoleon's other sections, such as `Keyword Args`, `Note` and `Todo` (thanks to @BrianPugh)
+- Google, Numpydoc: Read `...` as a name, as in `arg1, arg2, ...`
 - Google, Numpydoc: Give each name in `x, y : int` its own param
 
 # 0.18 (2026-04-14)

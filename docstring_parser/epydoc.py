@@ -19,6 +19,7 @@ from ._text import (
     append_loose,
     param_spec,
     split_description,
+    unescape,
 )
 from .common import (
     PARAM_KINDS,
@@ -43,7 +44,9 @@ from .sections import ParserCache, SectionSpec, apply
 _FIELD_START = re.compile("^@", flags=re.M)
 _FIELD = re.compile(r"(^@.*?)(?=^@|\Z)", flags=re.S | re.M)
 # A field's header: its name, then the names it is about, then a colon.
-_HEADER = re.compile(r"([_A-z][_A-z0-9]*)((?:\s+[_A-z][_A-z0-9]*\??)*):")
+_HEADER = re.compile(
+    r"([_A-z][_A-z0-9]*)((?:\s+(?:\\?\*){0,2}[_A-z][_A-z0-9]*\??)*):"
+)
 
 # The fields that give the type of a param, a return value or a yield,
 # which are not items of their own.
@@ -158,7 +161,8 @@ class Parser(BaseParser):
             # Each chunk starts with @; description text is not a field header.
             header = _HEADER.match(chunk, 1)
             key = header.group(1) if header else ""
-            args = header.group(2).split() if header else []
+            words = header.group(2).split() if header else []
+            args = [unescape(word) for word in words]
             spec = table.get(key)
             base, kind = _TYPE_FIELDS.get(key) or _base(spec, args)
             code = ""
