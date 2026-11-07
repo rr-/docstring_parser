@@ -748,6 +748,14 @@
             <div class="kind">Property</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary">Return a single information on function deprecation notes.</div>
+          </li><li id="docstring_parser.Docstring.methods">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Docstring<wbr></wbr>.methods</div>
+            <div class="url">docstring_parser.Docstring.html#methods</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Property</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Return a list of information on the methods of a class.</div>
           </li><li id="docstring_parser.Docstring.examples">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Docstring<wbr></wbr>.examples</div>
@@ -858,6 +866,38 @@
             <div class="url">docstring_parser.DocstringMeta.html#__repr__</div>
             <div class="type">Function</div>
             <div class="kind">Method</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.DocstringMethod">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Docstring<wbr></wbr>Method</div>
+            <div class="url">docstring_parser.DocstringMethod.html</div>
+            <div class="type">Class</div>
+            <div class="kind">Class</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">DocstringMeta symbolizing a method of a class, as listed in a Google or Numpydoc <tt class="rst-docutils rst-literal">Methods</tt> section.</div>
+          </li><li id="docstring_parser.DocstringMethod.name">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Docstring<wbr></wbr>Method<wbr></wbr>.name</div>
+            <div class="url">docstring_parser.DocstringMethod.html#name</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">the method's name, or its signature as written, such as <tt class="rst-docutils rst-literal">run(x, y=1)</tt></div>
+          </li><li id="docstring_parser.DocstringMethod.__init__">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Docstring<wbr></wbr>Method<wbr></wbr>.__init__</div>
+            <div class="url">docstring_parser.DocstringMethod.html#__init__</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Initialize self.</div>
+          </li><li id="docstring_parser.DocstringMethod.kind">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.<wbr></wbr>Docstring<wbr></wbr>Method<wbr></wbr>.kind</div>
+            <div class="url">docstring_parser.DocstringMethod.html#kind</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Instance Variable</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
           </li><li id="docstring_parser.DocstringParam">
@@ -1532,6 +1572,14 @@
             <div class="kind">Function</div>
             <div class="privacy">PUBLIC</div>
             <div class="summary">Return a text meta's key and the words after it, as in a field.</div>
+          </li><li id="docstring_parser._compose.field_description">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>._compose<wbr></wbr>.field<wbr></wbr>_description</div>
+            <div class="url">docstring_parser._compose.html#field_description</div>
+            <div class="type">Function</div>
+            <div class="kind">Function</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Return a text meta's description, as in a field: for a method, its name and then its description.</div>
           </li><li id="docstring_parser._compose.start_on_new_line">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>._compose<wbr></wbr>.start<wbr></wbr>_on<wbr></wbr>_new<wbr></wbr>_line</div>
@@ -1704,6 +1752,14 @@
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.sections<wbr></wbr>.<wbr></wbr>Kind<wbr></wbr>.TEXT</div>
             <div class="url">docstring_parser.sections.Kind.html#TEXT</div>
+            <div class="type">Attribute</div>
+            <div class="kind">Constant</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.sections.Kind.METHOD">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.sections<wbr></wbr>.<wbr></wbr>Kind<wbr></wbr>.METHOD</div>
+            <div class="url">docstring_parser.sections.Kind.html#METHOD</div>
             <div class="type">Attribute</div>
             <div class="kind">Constant</div>
             <div class="privacy">PUBLIC</div>
@@ -2587,7 +2643,7 @@
             <div class="type">Function</div>
             <div class="kind">Function</div>
             <div class="privacy">PRIVATE</div>
-            <div class="summary">Build a param from an item whose head has no colon, as in <tt class="rst-docutils rst-literal">x</tt> or <tt class="rst-docutils rst-literal">x (int)</tt>, with its description, if any, indented below it.</div>
+            <div class="summary">Build a param from an item whose head has no colon, as in <tt class="rst-docutils rst-literal">x</tt> or <tt class="rst-docutils rst-literal">x (int)</tt>, with its description, if any, indented below it. A method's head is its whole first line, as in <tt class="rst-docutils rst-literal">run(x)</tt>.</div>
           </li><li id="docstring_parser.google._multi_meta">
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.google<wbr></wbr>._multi<wbr></wbr>_meta</div>
@@ -3048,6 +3104,30 @@
             
             <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.numpydoc<wbr></wbr>.<wbr></wbr>Param<wbr></wbr>Section<wbr></wbr>._parse<wbr></wbr>_item</div>
             <div class="url">docstring_parser.numpydoc.ParamSection.html#_parse_item</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary"><span class="rst-undocumented">Undocumented</span></div>
+          </li><li id="docstring_parser.numpydoc.MethodsSection">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.numpydoc<wbr></wbr>.<wbr></wbr>Methods<wbr></wbr>Section</div>
+            <div class="url">docstring_parser.numpydoc.MethodsSection.html</div>
+            <div class="type">Class</div>
+            <div class="kind">Class</div>
+            <div class="privacy">PUBLIC</div>
+            <div class="summary">Parser for numpydoc methods sections.</div>
+          </li><li id="docstring_parser.numpydoc.MethodsSection._parse">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.numpydoc<wbr></wbr>.<wbr></wbr>Methods<wbr></wbr>Section<wbr></wbr>._parse</div>
+            <div class="url">docstring_parser.numpydoc.MethodsSection.html#_parse</div>
+            <div class="type">Function</div>
+            <div class="kind">Method</div>
+            <div class="privacy">PRIVATE</div>
+            <div class="summary">Parse <tt class="rst-docutils rst-literal">DocstringMeta</tt> objects from the body of this section.</div>
+          </li><li id="docstring_parser.numpydoc.MethodsSection._parse_item">
+            
+            <div class="fullName">docstring<wbr></wbr>_parser<wbr></wbr>.numpydoc<wbr></wbr>.<wbr></wbr>Methods<wbr></wbr>Section<wbr></wbr>._parse<wbr></wbr>_item</div>
+            <div class="url">docstring_parser.numpydoc.MethodsSection.html#_parse_item</div>
             <div class="type">Function</div>
             <div class="kind">Method</div>
             <div class="privacy">PRIVATE</div>
