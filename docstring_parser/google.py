@@ -188,6 +188,75 @@ DEFAULT_SECTIONS = [
 
 # A version on the first line of a Deprecated section, alone or before
 # the text, as in ``1.2 Use bar instead.``
+# The colon ending an item's head on its first line, with no brackets
+# before it, as in ``x:``, or one pair of parentheses, as in ``x (int):``.
+_PLAIN_HEAD = re.compile(r"[^:()\[\]{}\n]*(?:\([^:()\n]*\)[^:()\[\]{}\n]*)?:")
+
+
+def _head_colon(text: str) -> int:
+    """Find the colon that ends an item's head, or -1 if there is none.
+
+    A colon inside brackets is part of the type, as in
+    ``x (int, default: 3): text``, and brackets left open at the end of a
+    line go on to the next, as in a wrapped type. Brackets that never close
+    leave the first colon anywhere.
+    """
+    match = _PLAIN_HEAD.match(text)
+    if match is not None:
+        return match.end() - 1
+    depth = 0
+    for i, char in enumerate(text):
+        if char in "([{":
+            depth += 1
+        elif char in ")]}":
+            if depth:
+                depth -= 1
+        elif not depth and char == ":":
+            return i
+        elif not depth and char == "\n":
+            return -1
+    return text.find(":") if depth else -1
+
+
+# The names of a param's head: one with no spaces, or several, as in
+# ``x, y``.
+_ITEM_NAME = r"[^\s,:()\[\]{}]+(?:[ \t]*,[ \t]*[^\s,:()\[\]{}]+)*"
+_NAMES = re.compile(_ITEM_NAME)
+# The most common heads, which need no closer look: ``x:`` or
+# ``x (int):``.
+_PLAIN_PARAM_HEAD = re.compile(rf"{_ITEM_NAME}[ \t]*(?:\([^:()\n]*\)[ \t]*)?:")
+_BRACKETED = re.compile(r"\([^()]*\)|\[[^\[\]]*\]")
+# A param's head alone on its line, with no colon: ``x`` or ``x (int)``.
+_BARE_ITEM = re.compile(rf"({_ITEM_NAME})(?:[ \t]*\(([^()]*)\))?")
+
+
+def _has_param_head(item: str) -> bool:
+    """Tell whether a param item starts with a head: names, with a type in
+    parentheses or not, before a colon or alone on the line.
+
+    A line that has none, such as wrapped prose, goes on with the item
+    before it.
+    """
+    if _PLAIN_PARAM_HEAD.match(item) is not None:
+        return True
+    colon = _head_colon(item)
+    if colon < 0:
+        first = item.split("\n", 1)[0].strip()
+        return _BARE_ITEM.fullmatch(first) is not None
+    head = item[:colon]
+    if "\n" in head:
+        head = _join_wrapped(head)
+    head = head.strip()
+    if not head:
+        return True
+    typed = _split_typed_arg(head)
+    if _NAMES.fullmatch(typed.name if typed else head) is not None:
+        return True
+    # A name and a type with no parentheses, as in ``x Optional[int]:``,
+    # but no sentence.
+    return len(_BRACKETED.sub("", head).split()) <= 2
+
+
 _VERSION = re.compile(r"v?\d+\.[0-9a-z.]+(?=\s|\Z)", flags=re.I)
 
 
@@ -357,6 +426,20 @@ def _single_meta(section: Section, desc: str) -> DocstringMeta:
     return meta
 
 
+def _bare_param(section: Section, text: str) -> T.Optional[DocstringMeta]:
+    """Build a param from an item whose head has no colon, as in ``x`` or
+    ``x (int)``, with its description, if any, indented below it."""
+    if _section_kind(section) not in PARAM_KINDS:
+        return None
+    first, _, rest = text.partition("\n")
+    match = _BARE_ITEM.fullmatch(first.strip())
+    if match is None:
+        return None
+    name, type_name = match.groups()
+    head = f"{name} ({type_name})" if type_name is not None else name
+    return _multi_meta(section, head, dedent(rest).strip("\n"))
+
+
 def _multi_meta(section: Section, before: str, desc: str) -> DocstringMeta:
     kind = _section_kind(section)
     if kind in PARAM_KINDS:
@@ -498,13 +581,20 @@ class Parser(BaseParser):
                     key=section.key,
                 )
 
-        if ":" not in text:
+        colon = _head_colon(text)
+        if colon < 0:
+            bare = _bare_param(section, text)
+            if bare is not None:
+                return bare
+            # A head wrapped over several lines ends at the first colon.
+            colon = text.find(":")
+        if colon < 0:
             raise ItemError(
                 "missing-colon", f"Expected a colon in {excerpt(text)!r}."
             )
 
         # Split spec and description
-        before, desc = text.split(":", 1)
+        before, desc = text[:colon], text[colon + 1 :]
 
         if before and "\n" in before:
             before = _join_wrapped(before)
@@ -697,12 +787,29 @@ class Parser(BaseParser):
                 chunk[c_match.end() : c_end].strip("\n")
                 for c_match, c_end in zip(c_matches, c_ends)
             ]
-            if _section_kind(self.sections[title]) in RAISES_KINDS and not any(
-                _has_item_head(part) for part in parts
-            ):
-                # A section of prose says what may go wrong, with no type.
-                ret.meta.append(self._prose_meta(cleandoc(chunk), title))
-                continue
+            kind = _section_kind(self.sections[title])
+            if kind in RAISES_KINDS:
+                heads = [_has_item_head(part) for part in parts]
+                if not any(heads):
+                    # A section of prose says what may go wrong, with no
+                    # type.
+                    ret.meta.append(self._prose_meta(cleandoc(chunk), title))
+                    continue
+            elif kind in PARAM_KINDS:
+                heads = [_has_param_head(part) for part in parts]
+            else:
+                heads = []
+            if heads and not all(heads[1:]):
+                # A line at the items' indent with no head, such as wrapped
+                # prose, goes on with the item before it.
+                kept = [0] + [i for i in range(1, len(parts)) if heads[i]]
+                c_ends = [c_matches[i].start() for i in kept[1:]]
+                c_ends.append(len(chunk))
+                c_matches = [c_matches[i] for i in kept]
+                parts = [
+                    chunk[c_match.end() : c_end].strip("\n")
+                    for c_match, c_end in zip(c_matches, c_ends)
+                ]
             for c_match, part in zip(c_matches, parts):
                 self._add_meta(
                     ret,
@@ -923,9 +1030,10 @@ def compose(
 
         # Lines after the first that are all indented further than it lose
         # that indent when read back, unless the first line goes below the
-        # head with them.
+        # head with them, as does a first line indented further than them.
         if one.description and (
             rendering_style == RenderingStyle.EXPANDED
+            or one.description[0].isspace()
             or continuation_indented(one.description)
         ):
             body = f"\n{indent}{indent}".join(

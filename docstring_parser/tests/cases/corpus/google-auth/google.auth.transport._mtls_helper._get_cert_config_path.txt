@@ -18,8 +18,55 @@ Get the certificate configuration path based on the following order:
         The absolute path of the certificate config file, and None if the file does not exist.
     
 === parse google
-ParseError: Expected a colon in 'location and environment variable will be ignored.'. (and 1 more)
+short_description: 'Get the certificate configuration path based on the following order:'
+long_description: |
+  1: Explicit override, if set
+  2: Environment variable, if set
+  3: Well-known location
+  
+  Returns "None" if the selected config file does not exist.
+blank_after_short_description: True
+blank_after_long_description: True
+style: google
+- DocstringParam
+  description: |
+    The certificate config path. If provided, the well known
+    location and environment variable will be ignored.
+  kind: param
+  key: 'param'
+  arg_name: 'certificate_config_path'
+  type_name: 'string'
+  is_optional: False
+- DocstringParam
+  description: |
+    If context aware metadata path should be checked for the
+    SecureConnect mTLS configuration.
+  kind: param
+  key: 'param'
+  arg_name: 'include_context_aware'
+  type_name: 'bool'
+  is_optional: False
+- DocstringReturns
+  description: 'The absolute path of the certificate config file, and None if the file does not exist.'
+  kind: returns
+  key: 'returns'
+  is_generator: False
 === detect
-rest
+google
 === compose google
-ParseError: Expected a colon in 'location and environment variable will be ignored.'. (and 1 more)
+Get the certificate configuration path based on the following order:
+
+1: Explicit override, if set
+2: Environment variable, if set
+3: Well-known location
+
+Returns "None" if the selected config file does not exist.
+
+Args:
+    certificate_config_path (string): The certificate config path. If provided, the well known
+        location and environment variable will be ignored.
+    include_context_aware (bool): If context aware metadata path should be checked for the
+        SecureConnect mTLS configuration.
+
+Returns:
+    The absolute path of the certificate config file, and None if the file does not exist.

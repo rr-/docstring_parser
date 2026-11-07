@@ -143,8 +143,6 @@ BODY = "a body's first line is dedented apart from its other lines"
 DIRECTIVE = "a directive's body holds the directive itself"
 GENERATED = 2000
 GENERATED_EXCLUSIONS = {
-    (166, DocstringStyle.GOOGLE): BODY,
-    (378, DocstringStyle.GOOGLE): BODY,
     (555, DocstringStyle.REST): SUMMARY,
     (637, DocstringStyle.REST): SUMMARY,
     (672, DocstringStyle.REST): SUMMARY,

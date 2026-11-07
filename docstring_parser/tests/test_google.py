@@ -290,3 +290,42 @@ def test_empty_examples_section_composes() -> None:
     docstring = parse("Short.\n\nExamples:\n    >>> f()\n\nExample:\n")
     assert len(docstring.examples) == 2
     assert len(parse(compose(docstring)).examples) == 2
+
+
+def test_bare_names_are_params() -> None:
+    """Test that a name alone on its line, with a type or not, is a param,
+    with its description, if any, indented below it."""
+    docstring = parse(
+        "Short.\n\nArgs:\n    x\n    y (int)\n        The y.\n    z: The z."
+    )
+    assert [param.arg_name for param in docstring.params] == ["x", "y", "z"]
+    assert docstring.params[0].description is None
+    assert docstring.params[1].type_name == "int"
+    assert docstring.params[1].description == "The y."
+
+
+def test_wrapped_line_continues_item() -> None:
+    """Test that a line at the items' indent with no head goes on with the
+    item before it, instead of starting one."""
+    docstring = parse(
+        "Short.\n\n"
+        "Args:\n"
+        "    x (int): The value, wrapped\n"
+        "    without an indent (see below).\n"
+        "    y: The y."
+    )
+    assert [param.arg_name for param in docstring.params] == ["x", "y"]
+    assert docstring.params[0].description == (
+        "The value, wrapped\nwithout an indent (see below)."
+    )
+    again = parse(compose(docstring))
+    assert again.params[0].description == docstring.params[0].description
+
+
+def test_colon_in_type_is_no_head_end() -> None:
+    """Test that a colon inside the parentheses is part of the type."""
+    docstring = parse("Short.\n\nArgs:\n    x (int, default: 3): The x.")
+    assert docstring.params[0].arg_name == "x"
+    assert docstring.params[0].type_name == "int"
+    assert docstring.params[0].default == "3"
+    assert docstring.params[0].description == "The x."
