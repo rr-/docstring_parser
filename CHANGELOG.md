@@ -56,6 +56,7 @@
 - ReST: Compose type fields, field names, versions and attribute values so they read back the same
 - ReST: Read and compose a `.. deprecated::` directive as a deprecation with its version
 - ReST: Compose a raises entry as `:raises ValueError:` instead of `:raises ValueError :` (thanks to @RavSinghChandan)
+- ReST: Read `:param \*\*kwargs:` as `**kwargs`, and escape names on compose
 - Google: Parse PEP 604 union types (e.g. `int | str`) in return sections (thanks to @binggao1230)
 - Google: Parse a union return or yield type whose members have brackets or dots, such as `dict[str, int] | None`, instead of keeping the whole line as the description
 - Google: Avoid regex backtracking when parsing parameter types

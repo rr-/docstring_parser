@@ -122,6 +122,23 @@ def _join_type(words: T.List[str]) -> T.Optional[str]:
     return " ".join(parts) if depth == 0 else None
 
 
+_ESCAPE = re.compile(r"\\(.?)", flags=re.S)
+_ESCAPED = re.compile(r"[\\*]")
+
+
+def _unescape(name: str) -> str:
+    """Drop the backslashes escaping characters in a field's name, as in
+    ``\\*\\*kwargs``."""
+    return _ESCAPE.sub(r"\1", name) if "\\" in name else name
+
+
+def _escape(name: T.Optional[str]) -> T.Optional[str]:
+    """Escape the characters in a field's name that read as markup."""
+    if name and ("\\" in name or "*" in name):
+        return _ESCAPED.sub(r"\\\g<0>", name)
+    return name
+
+
 def _build_meta(args: T.List[str], desc: str, kind: Kind) -> DocstringMeta:
     key = args[0]
 
@@ -133,7 +150,7 @@ def _build_meta(args: T.List[str], desc: str, kind: Kind) -> DocstringMeta:
                 "wrong-arguments",
                 f"Expected one or two arguments for a {key} keyword.",
             )
-        arg_name = args[-1]
+        arg_name = _unescape(args[-1])
         spec = param_spec(raw_type_name, desc)
         return DocstringParam(
             key=key,
@@ -435,13 +452,15 @@ class Parser(BaseParser):
             if len(args) == 2 and args[0] in ("type", "vartype"):
                 if desc:
                     by_name = types if args[0] == "type" else vartypes
-                    by_name.setdefault(args[1], []).append(
+                    by_name.setdefault(_unescape(args[1]), []).append(
                         (desc, len(ret.meta))
                     )
                 else:
-                    untyped.append((args[0], args[1], len(ret.meta)))
+                    untyped.append(
+                        (args[0], _unescape(args[1]), len(ret.meta))
+                    )
             elif len(args) in [1, 2] and args[0] in ("rtype", "ytype"):
-                name = None if len(args) == 1 else args[1]
+                name = None if len(args) == 1 else _unescape(args[1])
                 yields = args[0] == "ytype"
                 last = ret.meta[-1] if ret.meta and after_item else None
                 if (
@@ -656,6 +675,7 @@ def compose(
         if meta is top:
             continue
         if isinstance(meta, DocstringParam):
+            name = _escape(meta.arg_name)
             type_name = written_type(meta)
             if type_name is None and meta.type_name:
                 type_name = (
@@ -680,7 +700,7 @@ def compose(
                 # attribute, with no description, even with no type. A
                 # field of its own kind, such as ``:param int x:``, also
                 # has none.
-                head = f"{_type_key(meta)} {meta.arg_name}"
+                head = f"{_type_key(meta)} {name}"
                 parts.append(
                     _type_field(indent, head, type_name)
                     if type_name
@@ -689,20 +709,20 @@ def compose(
             elif rendering_style == RenderingStyle.EXPANDED or not (
                 _fits_inline(type_name)
             ):
-                text = f":{_param_key(meta)} {meta.arg_name}:"
+                text = f":{_param_key(meta)} {name}:"
                 text += process_desc(meta.description)
                 parts.append(text)
                 if type_name:
                     parts.append(
                         _type_field(
                             indent,
-                            f"{_type_key(meta)} {meta.arg_name}",
+                            f"{_type_key(meta)} {name}",
                             type_name,
                         )
                     )
             else:
                 type_text = f" {type_name} " if type_name else " "
-                text = f":{_param_key(meta)}{type_text}{meta.arg_name}:"
+                text = f":{_param_key(meta)}{type_text}{name}:"
                 text += process_desc(meta.description)
                 parts.append(text)
         elif isinstance(meta, DocstringReturns):
@@ -710,7 +730,7 @@ def compose(
             key = _own_key(meta, "yields" if meta.is_generator else "returns")
             type_key = "ytype" if meta.is_generator else "rtype"
             if meta.return_name:
-                type_key += f" {meta.return_name}"
+                type_key += f" {_escape(meta.return_name)}"
 
             if meta.description is None and meta.type_name:
                 # A type field alone, which reads back as a return with no

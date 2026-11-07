@@ -1,0 +1,46 @@
+# Test that backslash escapes in field names are dropped, and written
+# again on compose.
+=== input
+Short.
+
+:param \*args: The rest.
+:type \*args: int
+:param \*\*kwargs: The options.
+:param a\\b: A backslash.
+:rtype \*r: int
+=== parse rest
+short_description: 'Short.'
+blank_after_short_description: True
+blank_after_long_description: False
+style: rest
+- DocstringParam
+  description: 'The rest.'
+  kind: param
+  key: 'param'
+  arg_name: '*args'
+  type_name: 'int'
+  is_optional: False
+- DocstringParam
+  description: 'The options.'
+  kind: param
+  key: 'param'
+  arg_name: '**kwargs'
+  is_optional: False
+- DocstringParam
+  description: 'A backslash.'
+  kind: param
+  key: 'param'
+  arg_name: 'a\\b'
+  is_optional: False
+- DocstringReturns
+  kind: returns
+  type_name: 'int'
+  is_generator: False
+  return_name: '*r'
+=== compose rest
+Short.
+
+:param int \*args: The rest.
+:param \*\*kwargs: The options.
+:param a\\b: A backslash.
+:rtype \*r: int

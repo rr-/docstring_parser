@@ -27,7 +27,7 @@ style: rest
     opposed to the default :meth:`request` behavior).
   kind: param
   key: 'param'
-  arg_name: '\\*\\*kwargs'
+  arg_name: '**kwargs'
   is_optional: False
 - DocstringReturns
   description: ':class:`Response <Response>` object'
