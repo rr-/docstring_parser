@@ -73,8 +73,6 @@ class AttributeDocstrings(ast.NodeVisitor):
                 attr_default,
             )
         self.prev_attr = ast_get_attribute(node)
-        if isinstance(node, (ast.ClassDef, ast.Module)):
-            self.generic_visit(node)
 
     def get_attr_docs(
         self, component: T.Any
@@ -95,11 +93,11 @@ class AttributeDocstrings(ast.NodeVisitor):
         else:
             tree = ast.parse(source)
             if inspect.ismodule(component):
-                self.visit(tree)
+                self.generic_visit(tree)
             elif isinstance(tree, ast.Module) and isinstance(
                 tree.body[0], ast.ClassDef
             ):
-                self.visit(tree.body[0])
+                self.generic_visit(tree.body[0])
         return self.attr_docs
 
 
