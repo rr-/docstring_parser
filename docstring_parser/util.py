@@ -98,7 +98,7 @@ def combine_docstrings(
         params = dict(
             ChainMap(
                 *(
-                    {param.arg_name: param for param in doc.params}
+                    {param.arg_name.lstrip("*"): param for param in doc.params}
                     for doc in docs
                 )
             )
