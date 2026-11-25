@@ -53,7 +53,7 @@ def combine_docstrings(
     ...    :param e: fun2
     ...    '''
     >>> @combine_docstrings(fun1, fun2)
-    >>> def decorated(a, b, c, d, e, f):
+    ... def decorated(a, b, c, d, e, f):
     ...     '''
     ...     :param e: decorated
     ...     :param f: decorated
@@ -64,20 +64,20 @@ def combine_docstrings(
     long_description: fun2
     <BLANKLINE>
     :param a: fun1
-    :param b: fun1
+    :param b: fun2
     :param c: fun2
-    :param e: fun2
+    :param e: decorated
     :param f: decorated
-    :returns: fun1
+    :return: fun1
     >>> @combine_docstrings(fun1, fun2, exclude=[DocstringReturns])
-    >>> def decorated(a, b, c, d, e, f): pass
+    ... def decorated(a, b, c, d, e, f): pass
     >>> print(decorated.__doc__)
     short_description: fun2
     <BLANKLINE>
     long_description: fun2
     <BLANKLINE>
     :param a: fun1
-    :param b: fun1
+    :param b: fun2
     :param c: fun2
     :param e: fun2
 
@@ -99,7 +99,7 @@ def combine_docstrings(
             ChainMap(
                 *(
                     {param.arg_name: param for param in doc.params}
-                    for doc in docs
+                    for doc in reversed(docs)
                 )
             )
         )
