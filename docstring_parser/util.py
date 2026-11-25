@@ -90,6 +90,8 @@ def combine_docstrings(
     :return: the decorated function with a modified docstring.
     """
 
+    exclude = tuple(exclude)
+
     def wrapper(func: _Func) -> _Func:
         sig = Signature.from_callable(func)
 
@@ -133,9 +135,10 @@ def combine_docstrings(
             for meta_type, meta in metas.items():
                 combined[meta_type] = meta
 
-        combined[DocstringParam] = [
-            params[name] for name in sig.parameters if name in params
-        ]
+        if DocstringParam not in exclude:
+            combined[DocstringParam] = [
+                params[name] for name in sig.parameters if name in params
+            ]
         comb_doc.meta = list(chain(*combined.values()))
         func.__doc__ = compose(
             comb_doc, style=style, rendering_style=rendering_style
