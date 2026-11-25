@@ -41,9 +41,9 @@ def test_combine_docstrings() -> None:
         "long_description: fun2\n"
         "\n"
         ":param arg_a: fun1\n"
-        ":param arg_b: fun1\n"
+        ":param arg_b: fun2\n"
         ":param arg_c: fun2\n"
-        ":param arg_e: fun2\n"
+        ":param arg_e: decorated\n"
         ":param arg_f: decorated\n"
         ":return: fun1"
     )
@@ -58,7 +58,7 @@ def test_combine_docstrings() -> None:
         "long_description: fun2\n"
         "\n"
         ":param arg_a: fun1\n"
-        ":param arg_b: fun1\n"
+        ":param arg_b: fun2\n"
         ":param arg_c: fun2\n"
         ":param arg_e: fun2"
     )
